@@ -77,14 +77,14 @@ Sous 10 min, on retombe dans le CYOA. Au-dessus de 25, c’est une session de fo
 
 ## 6. Acquisition — cas précis, pas une marque
 
-Personne ne cherche « terrain d’entraînement vente ». Les gens cherchent le cas :
+Personne ne cherche « terrain d’entraînement vente ». Les gens cherchent le **cas** :
 
-- DAF dit non
-- champion gentil, zéro pouvoir
-- deal au forecast, dossier vide
-- objection prix après une démo trop tôt
+- DAF dit non — titre du cas d’entrée du premier parcours (Le DAF n’est pas dans la pièce). Le jeu commence **avant** ce non : découverte avec l’ops.
+- champion gentil, zéro pouvoir — même famille, pas un deuxième parcours
+- deal au forecast, dossier vide — parcours possible, plus tard
+- objection prix après une démo trop tôt — parcours possible, plus tard
 
-Google = le cas. Le mail = le cas, deux minutes, jouable. Pas d’appel. (Cohérent avec ce qui a déjà échoué côté Simple Sales : outils qui demandent au directeur de raconter un pipe, ou un Calendly avant d’avoir senti quelque chose.)
+Google = le cas. Le mail = le cas, deux minutes, jouable. Pas un Calendly. (Cohérent avec ce qui a déjà échoué côté Simple Sales : outils qui demandent au directeur de raconter un pipe, ou un Calendly avant d’avoir senti quelque chose.)
 
 ## 7. Kill switch : jesaisfaire
 
