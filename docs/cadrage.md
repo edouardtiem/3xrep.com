@@ -68,9 +68,9 @@ Le premier parcours ne commence pas au non. On commence plus tôt : call de déc
 
 Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. **Écrit dans le dur** : un fichier par méthode (jeu + lundi + CRM + ChatGPT/Cowork/Grok). Pas un cours. Pas un QCM. [methodes.md](methodes.md).
 
-## Amendement — débuts (30 août 2026, Édouard)
+## Amendement — cycle (30 août 2026, Édouard)
 
-Le premier test reste la découverte. **Certains parcours** commencent à l’appel de prospection. **Pas mal de boîtes** ont besoin d’un parcours qui commence à la **préparation** à la prospection. Un parcours, un `debut`. On ne colle pas tout le cycle dans une quête. [template-parcours.md](template-parcours.md).
+Les parcours se découpent **par étape du cycle** : préparation, prospection, découverte, argumentation/démo, objection, closing intermédiaire, prix, négociation. Un parcours, une étape. Beaucoup de cas (étape × difficulté × graines). Le test 1 = découverte seulement. Objection comme parcours ≠ module B du test 1. [template-parcours.md](template-parcours.md).
 
 ## Hors ce run, hors le premier test
 

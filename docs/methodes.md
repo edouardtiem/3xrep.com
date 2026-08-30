@@ -84,7 +84,7 @@ Pas un module par méthode. Une mini-situation, un rattachement, dans **la même
 | 5. Une action | BAC/CAB + points brûlés pour poser le fait. Contreparties si tu négocies l’accès au DAF. Convier = MEDDIC EB. |
 | 6. Sortie | Trou nommé **avec** la méthode et la partie. |
 
-Le tableau ci-dessus est celui du premier parcours (`debut` = découverte). Un parcours `preparation` ou `prospection` a les **mêmes** beats A+B, d’autres mini-situations, d’autres rattachements (ICP / Authority avant le call, BAC sur l’accroche, SONCAS du gatekeeper…). On ne vide pas MEDDIC en checklist avant le premier contact.
+Le tableau ci-dessus est celui du test 1 (`debut` = `decouverte`). Les autres étapes (prep, prospection, démo, objection, closing intermédiaire, prix, négo) ont les **mêmes** beats A+B, d’autres mini-situations, d’autres rattachements. Un parcours `objection` n’est pas le beat 4 du test 1 : il **commence** à l’objection. Un parcours `negociation` colle surtout contreparties. Un parcours `argumentation_demo` colle BAC/CAB, points brûlés, SONCAS. On ne vide pas MEDDIC en checklist avant le premier contact.
 
 ## Contrat — une mini-situation
 
