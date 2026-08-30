@@ -94,16 +94,31 @@ Pas seulement gagné / perdu. Trois crans. Le trou a un nom à chaque cran.
 
 | Degré | Phrase type |
 | --- | --- |
-| **Voir** | « J’ai sorti le DAF. Il était dans la pièce. » |
-| **Inclure sans voir** | « J’ai compris qu’il tranchait. Je l’ai mis dans la décision sans l’avoir en face. Moins bien que le voir. Mieux que l’ignorer. » |
-| **Pas inclus** | « Perdu. Le DAF a dit non. Je n’avais qu’un ops — il n’était pas dans la décision. » |
+| **Voir** | « J’ai sorti le DAF. MEDDIC Economic Buyer — il était dans la pièce. BANT Authority tenue. » |
+| **Inclure sans voir** | « BEBEDC Décideurs : j’ai compris qu’il tranchait. Je l’ai mis dans la décision sans l’avoir en face. Contrepartie : accès via l’ops, pas la pièce. Moins bien que le voir. » |
+| **Pas inclus** | « Perdu. Le DAF a dit non. MEDDIC Economic Buyer vide — j’avais un coach, pas un champion. BANT Authority vide. » |
 
 Exemples de sorties **interdites** (échec produit) :
 
 - « +120 XP, palier Or. »
 - « Mauvaise réponse, réessaie. »
-- Un écran sans le nom du trou.
+- Un écran sans le nom du trou **et** sans la méthode.
+- Un QCM « c’était quelle lettre MEDDIC ? ».
 - Un badge « découverte terminée ».
+
+## Rattachement (valeur)
+
+Chaque beat ci-dessus est fait de mini-situations. Chacune **rattache** à une méthode ou une partie. Lexique et contrat : [methodes.md](methodes.md).
+
+Le joueur ne subit pas BANT en leçon. Il sent la case. À la sortie, il peut dire le nom.
+
+| Beat | Rattachements typiques ici |
+| --- | --- |
+| 1–3 | MEDDIC EB / Champion. BANT Authority. BEBEDC Décideurs. SONCAS de l’ops. |
+| 2 | Métrique = **coût de l’inaction** (calcul, pas slogan). |
+| 4 | CRAC / (A)CRAC. Prix sans chiffre = Metrics vide. |
+| 5 | BAC ou CAB + points brûlés. Contreparties si tu négocies l’accès. |
+| 6 | Trou nommé **avec** méthode + partie. |
 
 ## Ce qui doit se sentir « jeu »
 

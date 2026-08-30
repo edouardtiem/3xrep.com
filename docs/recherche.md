@@ -38,6 +38,8 @@ Deux minutes, c’est le format pub. Pas le format deal. Un DAF qui dit non n’
 
 jesaisfaire a raison **pour l’embauche** : un QCM métier trie « sait faire / sait se vendre ». 3xrep n’embauche pas. Un QCM de vente te dit si tu as lu MEDDIC. Il ne te fait pas **sentir** la case vide au moment où le DAF coupe.
 
+Le rattachement méthode **après** la case sentie, ce n’est pas ce QCM. C’est le nom du trou. [methodes.md](methodes.md).
+
 ### Chance
 
 Dé, carte chance, « le budget a sauté ». Ça excuse le trou. Le produit doit nommer le trou. La chance le noie.
