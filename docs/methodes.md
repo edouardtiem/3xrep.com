@@ -6,6 +6,8 @@ La valeur n’est pas « avoir joué ». La valeur est : **pouvoir rattacher cha
 
 Le joueur **sent** la case vide dans le deal. Le produit **nomme** ensuite la méthode. S’il sent et qu’il ne peut pas rattacher, la valeur n’est pas délivrée. S’il rattache sans avoir senti, c’est un cours. Les deux échouent.
 
+**Dans le dur :** une méthode = un fichier `docs/methodes/<slug>.md` (modèle : [_modele.md](_modele.md)). Même fond → skill agent plus tard, page pSEO plus tard. [roadmap.md](roadmap.md).
+
 ## Vocabulaire
 
 | Mot | C’est | Ce n’est pas |
@@ -126,19 +128,30 @@ On n’enseigne pas le lexique entier dans le premier cas. On **rattache** tout 
 
 Le reste du lexique reste dans le moule pour les cas suivants. Une mini-situation du premier cas qui n’a **aucun** rattachement ne part pas.
 
-## Liste ouverte — ce qu’Édouard n’a pas cité
+## Liste ouverte — en chercher plus, les écrire
 
-À ajouter quand une mini-situation en a besoin. Pas un backlog de cours.
+Le lexique **dans le jeu** (ci-dessus) est le minimum à rattacher. Le reste s’écrit fichier par fichier. Si une mini-situation ne rentre nulle part, on ajoute la méthode. On ne force pas MEDDIC par défaut.
 
-- SPIN (Situation, Problem, Implication, Need-payoff)
-- CAP / APB (Caractéristique, Avantage, Preuve)
-- QQOQCCP
-- SIMAC
-- SPANCO / ANACE
-- GPCTBA/C&I
-- Challenger, Sandler
+### À écrire en premier (porteurs du test 1)
 
-Si une mini-situation ne rentre dans **aucune** grille, on ajoute la méthode. On ne force pas MEDDIC par défaut.
+BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties.
+
+### Trouvées — à écrire (pas un cursus)
+
+| Famille | Méthodes |
+| --- | --- |
+| Qualification | CHAMP, SPICED, GPCT / GPCTBA/C&I, ANUM, FAINT, NEAT |
+| Questionnement | SPIN, QQOQCCP |
+| Argumentation | CAP / APB, SIMAC, SNAP |
+| Cycle / entretien | SPANCO, ANACE, ADAPAC |
+| Prise de RDV | CROC |
+| Négociation | 4C |
+| Posture | Challenger, Sandler |
+| Profil | DISC |
+
+### Encore à chercher
+
+Écoles FR, méthodes internes (Uptoo, Simple Sales, kickoffs), grilles CRM maison, variantes MEDDPICC (Paper, Competition), coût de l’action / ROI vs inaction. On documente dès qu’une mini-situation en a besoin — ou dès qu’une query pSEO tient.
 
 ## Ce que ça n’est pas
 
@@ -148,6 +161,6 @@ Si une mini-situation ne rentre dans **aucune** grille, on ajoute la méthode. O
 - Une leçon avant le beat 1.
 - Une seule « bonne » grille par trou.
 
-Point 4 (cadre théorique) : le **pourquoi** de chaque rattachement (psy, humain, prod). Pas ouvert ici. Le rattachement, lui, est figé : sans lui, point 4 n’a rien à nommer.
+Point 4 (cadre théorique) : le **pourquoi** de chaque rattachement (psy, humain, prod) — **dans le fichier méthode**, section 3 du [_modele.md](_modele.md). Lundi / CRM / ChatGPT-Cowork-Grok : sections 5–7. Pas une leçon avant le beat 1.
 
 Objet parcours : [template-parcours.md](template-parcours.md). Beats : [deroulement.md](deroulement.md).

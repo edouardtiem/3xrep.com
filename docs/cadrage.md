@@ -65,7 +65,7 @@ Le premier parcours ne commence pas au non. On commence plus tôt : call de déc
 
 ## Amendement — méthodes (30 août 2026, Édouard)
 
-Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. Pas un cours. Pas un QCM. [methodes.md](methodes.md).
+Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. **Écrit dans le dur** : un fichier par méthode (jeu + lundi + CRM + ChatGPT/Cowork/Grok). Pas un cours. Pas un QCM. [methodes.md](methodes.md).
 
 ## Amendement — débuts (30 août 2026, Édouard)
 
@@ -91,6 +91,8 @@ Le prix existe **en mémoire seulement** (voir [reco.md](reco.md)). Il ne se cod
 
 Google sur un cas précis — exemple : « DAF dit non ».  
 Le mail **est** le cas, en deux minutes. Pas un Calendly pour vendre 3xrep.
+
+Plus tard (pSEO, après le test) : Google sur une **méthode** ou une **partie** — « MEDDIC economic buyer ». La page = le rattachement + jouer le cas. Pas un article formation.
 
 ## Stack (quand on coderait — pas ce run)
 

@@ -2,7 +2,7 @@
 
 Prochains runs. Le cadrage reste [cadrage.md](cadrage.md). Si un item ici le contredit, le cadrage gagne.
 
-Ordre : template contenu → premier parcours → design → landing. On ne code pas auth, DB, Stripe, équipes, prix.
+Ordre : template → **méthodes dans le dur** → premier parcours → design → landing. pSEO méthodes à la fin. On ne code pas auth, DB, Stripe, équipes, prix.
 
 ## 1. Template de parcours / quête
 
@@ -11,12 +11,25 @@ Le moule. Pas un LMS. Pas des modules.
 Cadre du template (5 points) : parcours → difficultés → IA qui multiplie les cas → cadre théorique → outils (dossier, pas meeting).
 
 - **Point 1 figé** — qu’est-ce qu’un parcours : [template-parcours.md](template-parcours.md). Famille de deals, pas un cours. `debut` déclaré par parcours (préparation / prospection / découverte / plus tard). Le test 1 = découverte, ops, DAF absent.
-- **Méthodes figées** — rattachement obligatoire : [methodes.md](methodes.md). BANT, MEDDIC/MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Pas un QCM.
-- Points 2–5 : nommés, pas spécifiés. Prochain : difficultés.
+- **Rattachement figé** — [methodes.md](methodes.md). Une mini-situation sans méthode ne part pas.
+- Points 2–5 : nommés, pas spécifiés. Prochain template : difficultés. Les fichiers méthode (§ 2) avancent **en parallèle**.
 - Graphe JSON + graines au niveau du **cas**. Beats A+B : [deroulement.md](deroulement.md).
 - Interdit dans le template : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé ».
 
-## 2. Premier parcours gratuit
+## 2. Méthodes dans le dur
+
+Les écrire **dans ce git**. Pas un slide. Pas un Notion à côté.
+
+- Un fichier `docs/methodes/<slug>.md` par méthode (et par partie si elle se Google). Copier [methodes/_modele.md](methodes/_modele.md).
+- Dedans, obligatoire : jeu + trou nommé, **lundi** (vie réelle), **CRM**, **ChatGPT / Cowork / Grok Bot** (dossier, pas meeting), pourquoi psy / humain / prod.
+- Skill agent : `.agents/skills/methodes/<slug>/` — même fond, pour générer des cas et coller le rattachement (point 3).
+- En chercher **plus**. Liste ouverte dans [methodes.md](methodes.md) (CHAMP, SPIN, SPICED, SPANCO, SIMAC, CAP, DISC, Challenger, Sandler, …).
+- Ordre d’écriture : d’abord les porteurs du test 1 (MEDDIC, BANT, BEBEDC, coût de l’inaction, SONCAS, CRAC, contreparties, BAC/CAB, points brûlés).
+- **pSEO à la fin** (pas le test 1) : une URL par slug, query = le titre, CTA = jouer le cas. Hyper bon pour l’acquisition (on cherche « MEDDIC economic buyer », pas « 3xrep »). Pas un blog formation. Pas un Calendly.
+
+Sans ces fichiers, le générateur IA invente, le trou nommé reste flou, le pSEO n’a pas de matière.
+
+## 3. Premier parcours gratuit
 
 Le test go / no-go. Un seul parcours. Gratis. **Le DAF n’est pas dans la pièce.** Cas d’entrée (titre) : DAF dit non.
 
@@ -27,7 +40,7 @@ Le test go / no-go. Un seul parcours. Gratis. **Le DAF n’est pas dans la pièc
 
 Détail du ressenti : [deroulement.md](deroulement.md). Pourquoi ce cas : [recherche.md](recherche.md).
 
-## 3. Design template
+## 4. Design template
 
 L’écran du terrain. Pas l’écran d’un cours.
 
@@ -38,7 +51,7 @@ L’écran du terrain. Pas l’écran d’un cours.
 
 Pas de v0 / Grok Build pour poser le produit.
 
-## 4. Landing page
+## 5. Landing page
 
 Entrée du test. Pas une page « booker 15 min ».
 
@@ -48,4 +61,4 @@ Entrée du test. Pas une page « booker 15 min ».
 
 ## Hors roadmap (mémoire seulement)
 
-Prix 3 € / 19 €, invitations, équipes, C (vacation), parcours `preparation` / `prospection`, acquisition Google scale : [reco.md](reco.md). Après le test semaine 2, si oui.
+Prix 3 € / 19 €, invitations, équipes, C (vacation), parcours `preparation` / `prospection`, **pages pSEO méthodes**, acquisition Google scale : [reco.md](reco.md). Après le test semaine 2, si oui.

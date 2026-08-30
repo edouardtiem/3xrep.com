@@ -178,8 +178,8 @@ Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas un
 | --- | --- | --- |
 | 2 | Difficulté | Réglage **dans** le parcours (l’ops cache, le process est politique, tu arrives tard). Pas l’échelle de réussite. Pas un parcours nouveau. |
 | 3 | IA | Multiplie les **cas** d’une difficulté. Ne crée pas un parcours. |
-| 4 | Cadre théorique | Spine du parcours **et** des rattachements (pourquoi / comment / psy / humain / prod). Le joueur ne la subit pas en leçon. Il la rencontre au **trou nommé**, collé à la méthode. Lexique : [methodes.md](methodes.md). |
-| 5 | Outils | Claude Cowork, ChatGPT, Grok Bot : **dossier**, pas bouche. L’appel n’est pas un meeting produit. |
+| 4 | Cadre théorique | Fichiers `docs/methodes/<slug>.md`. Pourquoi / psy / humain / prod. Le joueur le rencontre au trou nommé. [_modele.md](methodes/_modele.md). |
+| 5 | Outils | ChatGPT, Cowork, Grok Bot : **dossier**, pas bouche. Comment, **dans chaque fichier méthode** (lundi + CRM + outil). |
 
 Si le point 4 devient un cours, ou le point 5 un meeting, on a cassé le cadrage. Si une mini-situation n’a pas de rattachement, la valeur n’est pas délivrée.
 

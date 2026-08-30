@@ -12,7 +12,7 @@ Ne pas « améliorer » sans casser le cadrage. Si ça contredit [cadrage.md](ca
 6. **Rejeté :** 2 min CYOA, mini-QCM, chance, points, ligues.
 7. **Échec produit :** le joueur ne sait pas ce qui s’est passé. Le trou doit être nommé.
 8. **Premier parcours :** Le DAF n’est pas dans la pièce. Début = découverte avec l’ops, DAF absent. « DAF dit non » = titre de cas + sortie, pas le beat 1. [template-parcours.md](template-parcours.md).
-9. **Méthodes :** lexique dans le jeu, rattachement obligatoire par mini-situation. Pas un LMS. [methodes.md](methodes.md).
+9. **Méthodes :** lexique dans le jeu, rattachement obligatoire. **Dans le dur** : un fichier par méthode (lundi, CRM, ChatGPT/Cowork/Grok). Skills + pSEO plus tard. [methodes.md](methodes.md).
 10. **Débuts :** un parcours, un `debut`. Prep et appel de prospection = d’autres parcours, après le test. Pas tout le cycle dans une quête.
 
 ## Premier test
@@ -50,6 +50,7 @@ Le 19 € n’est pas un siège Salesforce. C’est « on joue entre collègues 
 ## Acquisition — en mémoire seulement
 
 - Google : cas précis (ex. DAF dit non), pas la marque.
+- Plus tard : Google méthode / partie (pSEO) — « MEDDIC economic buyer ». Page = rattachement + jouer. Pas un article formation.
 - Mail = le cas, ~2 min, jouable. Pas un Calendly pour vendre 3xrep.
 - Pas de landing « booker 15 min ».
 
