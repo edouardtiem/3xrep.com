@@ -112,7 +112,7 @@ Google est le job du **titre_google**, pas du HUD. « DAF dit non » se cherche.
 | Niveau « l’ops cache le process » | **Difficulté** (point 2) |
 | Module Découverte | **Interdit** |
 
-On n’ouvre aucun autre parcours tant que le premier n’a pas dit oui.
+On n’ouvre aucun autre parcours tant que le premier n’a pas dit oui. Liste figée de ce qu’on veut couler : [inventaire.md](inventaire.md).
 
 ### Contrat — ce qu’un parcours déclare
 

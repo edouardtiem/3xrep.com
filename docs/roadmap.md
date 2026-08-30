@@ -14,11 +14,11 @@ Interdit : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé », tout
 
 ## À couler
 
-### 1. Inventaire
+### 1. Inventaire — figé
 
-Tous les parcours / parties qu’on veut. Recherche. Les verser dans le moule.
+[inventaire.md](inventaire.md). 29 parcours (étape × cycle × situation). **1 ouvert** : Call avec l’ops. Les 28 autres ne s’ouvrent pas tant que la semaine 2 n’a pas dit oui.
 
-Pas un LMS (« semaine 1 prospection »). Une liste de pièces : étape × cycle (court / long) × situation. Ce qu’on **produit**, pas un programme qu’on ferme.
+Pas un LMS. Pas un module par méthode. Champion gentil = la même famille que le test 1. Difficulté = copies, pas des `id` de plus.
 
 ### 2. Difficulté
 
