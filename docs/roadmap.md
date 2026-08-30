@@ -18,6 +18,8 @@ Interdit : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé », tout
 
 [inventaire.md](inventaire.md). 29 parcours (étape × cycle × situation). **1 ouvert** : Call avec l’ops. Les 28 autres ne s’ouvrent pas tant que la semaine 2 n’a pas dit oui.
 
+Audit terrain : [inventaire-audit.md](inventaire-audit.md). 12 tiennent, 9 échos du même trou, 6 last-mile enterprise, 2 faibles. On ne dégèle pas. Après un oui : couler les 12, pas les 28.
+
 Pas un LMS. Pas un module par méthode. Champion gentil = la même famille que le test 1. Difficulté = copies, pas des `id` de plus.
 
 ### 2. Difficulté

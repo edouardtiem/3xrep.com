@@ -4,6 +4,8 @@ Figé. 30 août 2026. Auteur : Édouard Tiem (recherche catalogues, versé dans 
 
 Ce qu’on **produit**. Pas un programme qu’on ferme. [cadrage.md](cadrage.md) gagne. [template-parcours.md](template-parcours.md) est le moule. [roadmap.md](roadmap.md) item 1.
 
+Les 29 viennent des catalogues. Face au terrain : [inventaire-audit.md](inventaire-audit.md). On ne dégèle pas la liste. On sait lesquels tiennent.
+
 On n’ouvre **aucun** parcours hors le test 1 tant que la semaine 2 n’a pas dit oui.
 
 ## Ce que c’est
