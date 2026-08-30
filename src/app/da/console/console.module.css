@@ -19,13 +19,13 @@
 }
 
 .nav a:hover,
-.nav .here {
+.here {
   color: var(--fg);
 }
 
 .row {
   display: grid;
-  grid-template-columns: 10rem 1fr auto;
+  grid-template-columns: 7.5rem 1fr;
   gap: 1rem;
   width: 100%;
   border: 0;
@@ -43,10 +43,6 @@
   outline-offset: 2px;
 }
 
-.row.locked {
-  cursor: default;
-}
-
 .key {
   color: var(--dim);
 }
@@ -62,33 +58,4 @@
 
 .val.su {
   color: var(--hot);
-}
-
-.tag {
-  color: var(--dim);
-  font-size: 11px;
-}
-
-.cmd {
-  display: flex;
-  width: 100%;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--fg);
-  font: inherit;
-  padding: 0.65rem 0.75rem;
-  cursor: pointer;
-  text-align: left;
-}
-
-.cmd:focus-visible {
-  outline: 1px solid var(--fg);
-}
-
-.scale .on {
-  color: var(--fg);
-}
-
-.scale span {
-  color: var(--dim);
 }

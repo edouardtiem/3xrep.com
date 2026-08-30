@@ -3,7 +3,7 @@ import { Board } from "./board";
 
 export const metadata: Metadata = {
   title: "3xrep — DA Console",
-  description: "Direction artistique : terminal, sans Matrix.",
+  description: "Direction artistique : le dossier en buffer, sans Matrix.",
 };
 
 export default function ConsolePage() {

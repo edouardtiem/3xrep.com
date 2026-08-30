@@ -46,7 +46,7 @@ C’est la **première pièce coulée**, pour voir si le moule tient. 20 commerc
 
 - Une quête A+B, `debut` = découverte. Zéro compte, zéro paywall.
 - Sortie = échelle de réussite + trou nommé **avec la méthode**.
-- **Design** : écran du terrain (Next.js, Tailwind, shadcn). Pas v0 / Grok Build.
+- **Design** : écran du terrain (Next.js, Tailwind, shadcn). Pas v0 / Grok Build. DA en test : `/da/surface` (celle qui se lit). Mécanique ouverte (CRM, place du DC, challenge d’étage) : [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md). Pas figé.
 - **Landing** : le cas est l’accroche. Un clic → on joue. Pas un Calendly.
 
 ## Hors roadmap (mémoire seulement)

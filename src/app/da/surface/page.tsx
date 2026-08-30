@@ -3,7 +3,7 @@ import { Board } from "./board";
 
 export const metadata: Metadata = {
   title: "3xrep — DA Surface",
-  description: "Direction artistique : milieu Linear, deal comme une issue.",
+  description: "Direction artistique : le dossier du call.",
 };
 
 export default function SurfacePage() {

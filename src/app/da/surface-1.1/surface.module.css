@@ -37,10 +37,9 @@
   color: var(--fg);
 }
 
+.row,
 .prop {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
-  gap: 0.75rem;
   width: 100%;
   border: 0;
   border-bottom: 1px solid var(--line);
@@ -48,14 +47,32 @@
   color: inherit;
   font: inherit;
   text-align: left;
-  padding: 0.65rem 0;
   cursor: pointer;
 }
 
+.row {
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 0.85rem 0;
+}
+
+.prop {
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+}
+
+.row:focus-visible,
 .prop:focus-visible,
+.action:focus-visible,
 .nav button:focus-visible {
   outline: 1px solid var(--fg);
   outline-offset: 3px;
+}
+
+.row:disabled {
+  cursor: default;
+  opacity: 0.55;
 }
 
 .label {
@@ -81,7 +98,42 @@
   color: var(--fg);
 }
 
+.action {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 13px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.action:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.action.on {
+  border-color: var(--fg);
+}
+
+.scale .on {
+  color: var(--fg);
+}
+
+.scale span {
+  color: var(--dim);
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
 .crumb {
   color: var(--dim);
   font-size: 12px;
+}
+
+button.crumb:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 3px;
 }

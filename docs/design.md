@@ -143,7 +143,17 @@ Le message d’Édouard tient : méthode, pas chance. Le véhicule se teste **ma
 
 | DA | Où | Pari |
 | --- | --- | --- |
-| **Console** | `/da/console` | Terminal testé pour de vrai. Tout mono. Noir Linear. Zéro vert. Le dossier est un buffer. |
-| **Surface** | `/da/surface` | Milieu : chrome Linear (sans), faits en mono. Deal = une issue. Le DAF = propriété non assignée. |
+| **Console** | `/da/console` | Même deal, dense, tout mono. Noir Linear. Zéro vert. Pas de snake_case. |
+| **Surface** | `/da/surface` | Le dossier. Chrome Linear (sans), faits en mono. Un écran = un call. C’est celle qu’on lit. |
+| **Surface 1.1** | `/da/surface-1.1` | Liste du parcours → terrain (même HUD) → sortie nommée + méthodes. Light/dark Cursor. |
 
-Les deux : cases vides = architecture. Cas DAF dit non. Pas de score, pas de demo, pas de badge.
+Les trois : **même cas** (`titre_joueur` = Call Acme — Julien, ops). HUD sans spoiler. Pas de « DAF dit non » / « Le DAF n’est pas dans la pièce » avant la sortie. Cases vides = `—`, pas « Non assigné », pas un trou surligné beat 1. Pas de score, pas de demo, pas de badge. Pas de stepper 1/2/3.
+
+Pourquoi Surface se lit : un call, un tableau. Console = le même en buffer. 1.1 = le même + choisir un deal + nommer le trou après.
+
+## Ouvert — après les DA (30 août 2026, soir)
+
+On quitte l’écran. Réflexions : [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md).
+
+L’infini d’une conv ne se met pas dans un chat. QCM « qu’est-ce qui manque » non plus. Piste : le cas comme un **CRM** (ça a l’air plein) ; le joueur à la place du **DC** ; après un résumé, **challenge d’étage** (même phrase, qui / douleur / budget un cran au-dessus). Pas figé. Pas le job des pages `/da/*`.
+
