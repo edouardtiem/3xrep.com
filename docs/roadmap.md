@@ -32,7 +32,7 @@ L’écran du terrain. Pas l’écran d’un cours.
 
 - Next.js App Router, TypeScript, Tailwind, shadcn. [reco.md](reco.md).
 - Tableau de deal, cases vides, tension. Début / milieu / fin visibles.
-- Ça se sent jeu (gagner / perdre, rejouer). Ça ne se sent pas formation, meeting, QCM, ligue.
+- Ça se sent jeu (échelle de réussite, rejouer). Ça ne se sent pas formation, meeting, QCM, ligue.
 - Un design qui tient pour le premier parcours **et** les suivants. Pas un one-off « DAF ».
 
 Pas de v0 / Grok Build pour poser le produit.
