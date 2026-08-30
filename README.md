@@ -15,5 +15,6 @@ Cadrage et recherche déjà tranchés. Rien d’écran dans ce run.
 - [docs/reco.md](docs/reco.md) — reco figée (format, stack plus tard, prix en mémoire)
 - [docs/deroulement.md](docs/deroulement.md) — le ressenti ~15 min du premier parcours
 - [docs/roadmap.md](docs/roadmap.md) — prochains runs (template, premier parcours, design, landing)
+- [docs/template-parcours.md](docs/template-parcours.md) — qu’est-ce qu’un parcours (template, point 1)
 
 Sales Game est mort. Ce git est le git 3xrep.
