@@ -200,7 +200,7 @@ Un cas déclare aussi trois titres :
 **`nom_auteur` :** Le DAF n’est pas dans la pièce.  
 **`nom_joueur` :** Call avec l’ops.  
 **Cas d’entrée :** `titre_joueur` = le deal (Acme, Julien, ops). `titre_google` = DAF dit non.  
-**Gratis.** Un seul parcours pour le test. [cadrage.md](cadrage.md).
+**Gratis.** Un seul parcours pour le test. [cadrage.md](cadrage.md). `cycles` = court **et** long.
 
 Tu ne commences pas au non. Tu commences **plus tôt** : un call de découverte, un manager opérationnel. Tu dois **découvrir** qu’il n’est pas le DAF, que le DAF n’est pas là et qu’il décide — puis le **convier**. Sinon il dira non. On ne te l’écrit pas sur la porte.
 

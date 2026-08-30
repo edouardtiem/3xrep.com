@@ -14,7 +14,7 @@ Cadrage et recherche déjà tranchés. Rien d’écran dans ce run.
 - [docs/recherche.md](docs/recherche.md) — marché, formats rejetés, pourquoi A+B
 - [docs/reco.md](docs/reco.md) — reco figée (format, stack plus tard, prix en mémoire)
 - [docs/deroulement.md](docs/deroulement.md) — le ressenti ~15 min (début = découverte avec l’ops, pas le non)
-- [docs/roadmap.md](docs/roadmap.md) — prochains runs (template, méthodes dans le dur, parcours, design, landing)
+- [docs/roadmap.md](docs/roadmap.md) — usine : moule fait ; inventaire, difficulté, générateur, méthodes, cas jouable
 - [docs/template-parcours.md](docs/template-parcours.md) — qu’est-ce qu’un parcours (template, point 1)
 - [docs/methodes.md](docs/methodes.md) — lexique, rattachement, fichiers par méthode
 
