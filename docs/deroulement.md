@@ -1,10 +1,11 @@
-# Déroulement — Le DAF n’est pas dans la pièce
+# Déroulement — Call avec l’ops
 
 Ressenti cible : **~15 minutes**. Fenêtre acceptable : 12–25.  
 Une seule quête A+B. Pas C. Pas un meeting dans le produit.
 
-Parcours : **Le DAF n’est pas dans la pièce.**  
-Cas d’entrée (titre Google) : **DAF dit non.**  
+Parcours `nom_joueur` : **Call avec l’ops.**  
+`nom_auteur` : Le DAF n’est pas dans la pièce (jamais à l’écran, beat 1).  
+Cas : `titre_joueur` = le deal. `titre_google` = DAF dit non.  
 Contrat : [template-parcours.md](template-parcours.md).
 
 Si à la sortie le joueur dit « je ne sais pas ce qui s’est passé », c’est un échec **produit**.
@@ -12,13 +13,13 @@ Si à la sortie le joueur dit « je ne sais pas ce qui s’est passé », c’es
 ## Arc
 
 ```
-Découverte. Manager ops. DAF absent. Tableau vide.
+Découverte. Un ops en face. Tableau vide.
         ↓
 tu construis les cases (dont : qui décide ?)
         ↓
 tu questions tes trous
         ↓
-facture : si le DAF n’est pas dans la décision, il dit non
+facture : si tu n’as pas tenu qui tranche, ça casse
         ↓
 une action (convier / inclure / poser le fait)
         ↓
@@ -33,7 +34,7 @@ D’autres parcours, plus tard : préparation à la prospection, appel de prospe
 
 | Beat | Ressenti | Ce qui se passe |
 | --- | --- | --- |
-| 1. Entrée | ~1 min | Call de découverte. Un manager opérationnel. Pas le DAF. Tableau vide. Pas de brief « va chercher le DAF ». |
+| 1. Entrée | ~1 min | Call de découverte. Un manager opérationnel en face. Tableau vide. Pas de titre « le DAF n’est pas là ». Pas de brief « va chercher le DAF ». |
 | 2. Construire les cases | ~5–8 min | Tu poses ce que tu **sais** et ce que tu **inventes**. Les cases vides restent vides. « Qui décide » est une case, pas un spoiler. |
 | 3. Questionner tes trous | ~3–5 min | Tu choisis quoi aller chercher. Chaque question coûte. Tu peux découvrir que le DAF n’est pas là et qu’il tranche. |
 | 4. Facture | ~2–3 min | Si tu n’as pas tenu le buyer, le DAF dit non. Ce n’est pas aléatoire. C’est A qui se paie. |
@@ -46,9 +47,9 @@ Total ressenti ~15 min. Si un beat disparaît, on retombe dans le CYOA ou le QCM
 
 ### 1. Dans l’appel, pièce fausse, tableau vide
 
-Un manager opérationnel est en face. Le DAF n’est pas dans l’appel. Tu n’as pas le dossier.
+Un manager opérationnel est en face. Tu n’as pas le dossier. L’écran s’appelle le **deal**, pas le piège.
 
-Ce n’est pas « prépare ton call » **ici**. Le deal a déjà commencé, et il a déjà mal commencé : la mauvaise personne est dans la pièce.
+Ce n’est pas « prépare ton call » **ici**. Le deal a déjà commencé, et il a déjà mal commencé : tu es dans cette pièce-là. Qui manque, qui tranche : à découvrir.
 
 L’appel est la **situation**. Le produit, c’est le tableau. Pas de visio. Pas de bot à qui parler. Pas d’avatar.
 
@@ -74,7 +75,7 @@ Découvrir que le DAF n’est pas là et qu’il décide, c’est du jeu. Ce n�
 
 B n’est pas un deuxième jeu. C’est A qui se paie. Dans **la même** quête.
 
-Si tu n’inclus pas le DAF, **il dit non**. C’est le titre du cas.  
+Si tu n’inclus pas le DAF, **il dit non**. Ça peut être le `titre_google` et le `titre_sortie`. Pas le nom du cas au départ.  
 Si tu n’as pas la métrique, même convie il recadre sur le prix et tu n’as rien à poser.  
 Si le champion n’en est pas un, tu parles tout seul.
 
@@ -124,10 +125,10 @@ Le joueur ne subit pas BANT en leçon. Il sent la case. À la sortie, il peut di
 
 ## Ce qui doit se sentir « jeu »
 
-- Un début (pièce fausse), un milieu (le dossier), une fin (un cran + un trou).
-- De la tension : tu ne peux pas tout savoir ; l’ops n’est pas le DAF.
+- Un début (pièce déjà en cours, tableau vide), un milieu (le dossier), une fin (un cran + un trou).
+- De la tension : tu ne peux pas tout savoir ; qui tranche n’est pas écrit sur la porte.
 - Rejouable : autre stratégie (convier / inclure / rater), autre trou, autre fin.
-- Partageable : « joue celui-là, le DAF n’est pas dans l’appel ». Copains, collègues.
+- Partageable **avant** : « joue Acme, 15 min ». **Après** : « joue celui du DAF ». Copains, collègues.
 
 ## Ce qui ne doit pas se sentir
 
@@ -136,6 +137,7 @@ Le joueur ne subit pas BANT en leçon. Il sent la case. À la sortie, il peut di
 - Un QCM (A/B/C, une bonne).
 - Une ligue.
 - Un départ après le non, à ramasser les morceaux sans avoir joué la découverte.
+- Un titre de cas qui dit le piège (« le DAF n’est pas là »).
 
 ## Hors ce parcours
 

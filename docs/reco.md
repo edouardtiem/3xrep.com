@@ -11,7 +11,7 @@ Ne pas « améliorer » sans casser le cadrage. Si ça contredit [cadrage.md](ca
 5. **Ressenti ~15 min** (12–25). [deroulement.md](deroulement.md).
 6. **Rejeté :** 2 min CYOA, mini-QCM, chance, points, ligues.
 7. **Échec produit :** le joueur ne sait pas ce qui s’est passé. Le trou doit être nommé.
-8. **Premier parcours :** Le DAF n’est pas dans la pièce. Début = découverte avec l’ops, DAF absent. « DAF dit non » = titre de cas + sortie, pas le beat 1. [template-parcours.md](template-parcours.md).
+8. **Premier parcours :** `nom_joueur` = Call avec l’ops. `nom_auteur` = Le DAF n’est pas dans la pièce (pas le HUD). `titre_joueur` = le deal. `titre_google` = DAF dit non. [template-parcours.md](template-parcours.md).
 9. **Méthodes :** lexique dans le jeu, rattachement obligatoire. **Dans le dur** : un fichier par méthode (lundi, CRM, ChatGPT/Cowork/Grok). Skills + pSEO plus tard. [methodes.md](methodes.md).
 10. **Débuts :** un parcours, un `debut`. Prep et appel de prospection = d’autres parcours, après le test. Pas tout le cycle dans une quête.
 
@@ -58,4 +58,4 @@ Le 19 € n’est pas un siège Salesforce. C’est « on joue entre collègues 
 
 Docs dans ce GitHub. Rien d’écran. Pas d’app.
 
-Prochain run (si Édouard le lance) : coder **uniquement** le parcours A+B « Le DAF n’est pas dans la pièce » (cas d’entrée : DAF dit non), graphe JSON, zéro compte.
+Prochain run (si Édouard le lance) : coder **uniquement** le parcours A+B « Call avec l’ops » (google : DAF dit non ; HUD : le deal, pas le piège), graphe JSON, zéro compte.

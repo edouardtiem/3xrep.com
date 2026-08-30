@@ -20,8 +20,8 @@ Le marché dit « parcours » pour un cours. 3xrep reprend le mot. L’objet n�
 
 | Mot | C’est | Ce n’est pas |
 | --- | --- | --- |
-| **Parcours** | Famille nommée de deals autour d’**une** situation déjà mal partie. Unité du catalogue. | Un cours. Un module. Une partie. Un playthrough. Un titre Google. |
-| **Cas** | Un deal jouable. ~15 min. Unité de jeu. Titre = ce qu’on Google. | Le parcours. La théorie. |
+| **Parcours** | Famille nommée de deals autour d’**une** situation déjà mal partie. Unité du catalogue. `nom_auteur` ≠ `nom_joueur`. | Un cours. Un module. Un spoiler affiché beat 1. |
+| **Cas** | Un deal jouable. ~15 min. Unité de jeu. Trois titres (joueur / google / sortie). | Le parcours. La théorie. Le nom du piège à l’entrée. |
 | **Quête** | La forme A+B. Les beats. Même moule pour tous les cas. | Un chapitre. Un format CYOA. Un meeting. |
 | **Réussite** | Échelle de **sortie** du cas, déclarée par le parcours. Trou nommé. | Un score. De l’XP. Une difficulté. |
 | **Difficulté** | Réglage **dans** un parcours (point 2). Combien c’est caché, politique, tard. | Un parcours à part. Une sortie. |
@@ -41,12 +41,17 @@ On ne **termine** pas un parcours. Pas de badge. Pas de « formation close ». [
 
 Le produit n’est pas le parcours. Le produit est le terrain. Le parcours est une **pièce** du terrain. Les cas à l’intérieur changent. On revient parce que le prochain deal n’est pas le même.
 
-Google cherche le **cas** (ex. « DAF dit non »). On se passe le **parcours** (« joue celui où le DAF n’est pas dans l’appel »).
+Google cherche le **cas** (ex. « DAF dit non »). On se passe le **deal** avant de jouer (« joue Acme, 15 min »). Après la sortie, on peut se passer le trou (« joue celui du DAF »).
+
+Le titre **à l’écran**, beat 1, ne dit pas le piège. « Le DAF n’est pas là » / « DAF dit non » en nom de cas = spoiler. Le jeu est de le **découvrir**.
 
 ```
-parcours          famille (Le DAF n’est pas dans la pièce)
+parcours          famille (auteur : Le DAF n’est pas dans la pièce)
   └── difficulté  réglage (point 2, pas ce run)
-        └── cas   ce deal-ci, ~15 min — titre Google ex. « DAF dit non »
+        └── cas   ce deal-ci, ~15 min
+              titre joueur   « Call Acme — Julien, ops »   ← à l’écran. Pas le piège.
+              titre google   « DAF dit non »               ← landing / mail. Ils ont déjà pris le mur.
+              titre sortie   le trou nommé                 ← après. Là on a le droit.
               └── quête A+B   les beats, toujours les mêmes
                     └── sortie   échelle de réussite + trou nommé (méthode + partie)
 ```
@@ -55,7 +60,7 @@ L’IA (point 3) multiplie les **cas**, pas les parcours. Un parcours de plus, c
 
 ### Ce que c’est
 
-- Une situation que le commercial **reconnaît avant de jouer**. Pas un numéro de module. Le `debut` dit **où** dans le cycle : prep, appel de prospection, découverte… Ici (test 1) : déjà en découverte avec un manager ops, DAF absent.
+- Une situation que le commercial **reconnaît avant de jouer**. Pas un numéro de module. Le `debut` dit **où** dans le cycle : prep, appel de prospection, découverte… Ici (test 1) : déjà en découverte avec un manager ops. Le joueur voit l’ops. Il ne lit pas « DAF absent » sur l’écran.
 - Un **invariant** (vérité **auteur**, pas brief joueur) : ce qui est vrai de tous les cas de la famille. Si ça bouge, c’est un autre parcours. Le joueur peut avoir à le **découvrir**.
 - Un contenant : cadre théorique + difficultés + générateur de cas + outils + échelle de réussite. Le cas est ce qu’on joue. Le parcours est ce qui **tient** les cas ensemble.
 - Partageable en une phrase. Le **cas** est cherchable. Gratuit pour le premier test.
@@ -83,12 +88,15 @@ Oui seulement si les quatre tiennent :
 3. Tous les cas partagent le **même invariant**, et les deals **changent**.
 4. Poser un badge « parcours terminé » serait un **échec produit**.
 
-Google est le job du **cas**, pas du parcours. « DAF dit non » se cherche. Le parcours, lui, se reconnaît et se passe.
+Google est le job du **titre_google**, pas du HUD. « DAF dit non » se cherche. Une fois **dans** le jeu, le cas s’appelle le deal (Acme, Julien, ops). Pas le piège.
 
 | Ça | C’est |
 | --- | --- |
-| Le DAF n’est pas dans la pièce | **Parcours** (le premier, le test). `debut` = découverte |
-| DAF dit non | **Cas** (titre Google) **et** sortie si tu ne l’inclus pas |
+| Le DAF n’est pas dans la pièce | **Parcours** — `nom_auteur`. Pas le titre à l’écran. |
+| Call avec l’ops / tableau vide | **Parcours** — `nom_joueur` (catalogue sans spoiler) |
+| Call Acme — Julien, ops | **Cas** — `titre_joueur` (HUD, beat 1) |
+| DAF dit non | **Cas** — `titre_google` (landing, mail) **et** une **sortie** si tu ne l’inclus pas. Pas le nom in-game. |
+| Le DAF n’est pas là | **Interdit** en titre de cas / d’écran. C’est le piège. On le découvre. |
 | Champion gentil, zéro pouvoir | Même famille — l’ops est là, ce n’est pas lui qui tranche |
 | Préparer sa prospection | **Parcours** possible, plus tard. `debut` = préparation. Beaucoup de boîtes. |
 | L’appel de prospection | **Parcours** possible, plus tard. `debut` = prospection |
@@ -108,7 +116,8 @@ Chaque parcours, dans le template, porte au minimum :
 | Champ | Rôle | Ex. premier parcours |
 | --- | --- | --- |
 | `id` | Slug stable | `daf-pas-dans-la-piece` |
-| `nom` | Phrase de partage | Le DAF n’est pas dans la pièce |
+| `nom_auteur` | Invariant, interne. **Jamais** beat 1. | Le DAF n’est pas dans la pièce |
+| `nom_joueur` | Catalogue / partage **avant** play. Sans le piège. | Call avec l’ops |
 | `invariant` | Vrai pour **tous** les cas (auteur). Si ça bouge → autre parcours. Le joueur n’a pas ça en brief. | Tu es en découverte avec un **manager opérationnel**. Le DAF **n’est pas** dans l’appel. C’est **lui** qui tranche. |
 | `pression` | Pourquoi ça brûle **maintenant** | La pièce est déjà fausse. Si tu ne sors pas le DAF, il dira non. |
 | `debut` | Où le joueur arrive. **Un** par parcours. Voir table des débuts. | `decouverte` — dans l’entretien ops, DAF absent. Tableau vide. |
@@ -144,13 +153,24 @@ Les outils (point 5, pas ouvert) gagneront surtout à `preparation` : dossier du
 
 Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](methodes.md). Sans rattachement, ça ne part pas.
 
+Un cas déclare aussi trois titres :
+
+| Champ | Où | Ex. |
+| --- | --- | --- |
+| `titre_joueur` | HUD, beat 1 | Call Acme — Julien, ops |
+| `titre_google` | Landing, mail | DAF dit non |
+| `titre_sortie` | Après le trou nommé | Le DAF n’était pas là / il a dit non |
+
+`titre_joueur` ne contient pas le piège. « Le DAF n’est pas là » en nom de cas est **interdit**.
+
 ### Premier parcours — figé
 
-**Nom :** Le DAF n’est pas dans la pièce.  
-**Cas d’entrée (titre, Google, mail) :** DAF dit non.  
+**`nom_auteur` :** Le DAF n’est pas dans la pièce.  
+**`nom_joueur` :** Call avec l’ops.  
+**Cas d’entrée :** `titre_joueur` = le deal (Acme, Julien, ops). `titre_google` = DAF dit non.  
 **Gratis.** Un seul parcours pour le test. [cadrage.md](cadrage.md).
 
-Tu ne commences pas au non. Tu commences **plus tôt** : un call de découverte, un manager opérationnel, le DAF n’est pas là. Tu dois découvrir qu’il n’est pas là et qu’il décide — puis le **convier**. Sinon il dira non.
+Tu ne commences pas au non. Tu commences **plus tôt** : un call de découverte, un manager opérationnel. Tu dois **découvrir** qu’il n’est pas le DAF, que le DAF n’est pas là et qu’il décide — puis le **convier**. Sinon il dira non. On ne te l’écrit pas sur la porte.
 
 **Ce parcours-ci** ne commence pas à la prep ni à l’appel de prospection. D’autres parcours, plus tard, si. `debut` = `decouverte`. [ci-dessus](#début--un-parcours-un-moment).
 
@@ -164,7 +184,7 @@ Du mieux au pire. Le trou a un nom à chaque cran.
 | --- | --- | --- |
 | **Voir** | Tu as découvert l’absence. Tu as convie le DAF. Il est dans la pièce. | Le mieux. |
 | **Inclure sans voir** | Tu as découvert qu’il n’est pas là et qu’il tranche. Tu l’as mis dans la décision **sans** l’avoir en face. | Moins bien que le voir. Mieux que ne pas l’inclure. |
-| **Pas inclus** | Tu n’as pas tenu la case buyer. **Le DAF dit non.** | Le pire. Titre du cas. Facture de A. |
+| **Pas inclus** | Tu n’as pas tenu la case buyer. **Le DAF dit non.** | Le pire. `titre_sortie` / `titre_google`. Facture de A. |
 
 Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas une défaite XP ni une victoire. C’est un cran, avec le trou nommé **et** la méthode (MEDDIC Economic Buyer, BANT Authority, BEBEDC Décideurs).
 
