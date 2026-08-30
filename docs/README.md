@@ -8,5 +8,7 @@ Porté le 30 août 2026 depuis le cadrage déjà tranché (Grok Bot / Cloud Orig
 | [recherche.md](recherche.md) | Marché, formats morts, justification A+B |
 | [reco.md](reco.md) | Décisions figées, stack plus tard, prix en mémoire |
 | [deroulement.md](deroulement.md) | Quête « DAF dit non », ressenti 12–25 min |
+| [roadmap.md](roadmap.md) | Prochains runs : template, premier parcours, design, landing |
+| [template-parcours.md](template-parcours.md) | Moule : vocabulaire, qu’est-ce qu’un parcours (point 1) |
 
 Lire dans cet ordre. Si un futur run contredit [cadrage.md](cadrage.md), le cadrage gagne.
