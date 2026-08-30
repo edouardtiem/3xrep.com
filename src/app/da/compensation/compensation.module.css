@@ -1,0 +1,124 @@
+.desk {
+  color-scheme: light;
+  --blotter: #d9cdb6;
+  --blotter-edge: #b7a88c;
+  --ink: #2a2118;
+  --pink: #f3b2c0;
+  --yellow: #f3e07a;
+  --violet: #4c2a6a;
+  --stamp-red: #c0392b;
+  --paper: #efe6d2;
+  color: var(--ink);
+  background-color: var(--blotter);
+  background-image:
+    radial-gradient(circle at 30% 20%, rgb(255 255 255 / 0.18) 0 1px, transparent 1.4px),
+    linear-gradient(180deg, rgb(255 255 255 / 0.12), transparent 18%, rgb(90 70 40 / 0.12));
+  background-size: 5px 5px, auto;
+  font-family: var(--font-comp-body), ui-serif, Georgia, serif;
+}
+
+.label {
+  font-family: var(--font-comp-label), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stamp {
+  font-family: var(--font-comp-label), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 2px solid var(--violet);
+  color: var(--violet);
+  padding: 0.28rem 0.55rem;
+  transform: rotate(-3deg);
+  box-shadow: 1px 1px 0 rgb(76 42 106 / 0.25);
+}
+
+.stampLive {
+  background: rgb(76 42 106 / 0.08);
+}
+
+.stampIdle {
+  border-color: rgb(76 42 106 / 0.28);
+  color: rgb(76 42 106 / 0.38);
+  box-shadow: none;
+}
+
+.slip {
+  display: grid;
+  grid-template-columns: 1fr 8px 1fr;
+  min-height: 8.5rem;
+  filter: drop-shadow(0 8px 14px rgb(42 33 24 / 0.18));
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+}
+
+.slip:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.half {
+  position: relative;
+  padding: 0.7rem 0.75rem 0.85rem;
+}
+
+.yellow {
+  background: var(--yellow);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.28), transparent 40%);
+}
+
+.pink {
+  background: var(--pink);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.22), transparent 40%);
+}
+
+.perf {
+  background-color: color-mix(in srgb, var(--yellow) 50%, var(--pink));
+  background-image: radial-gradient(circle, var(--blotter) 1.7px, transparent 1.8px);
+  background-size: 8px 10px;
+  background-position: center;
+  background-repeat: repeat-y;
+}
+
+.pencil {
+  font-style: italic;
+  opacity: 0.55;
+}
+
+.cleared {
+  opacity: 1;
+  font-style: normal;
+}
+
+.outTray {
+  background: color-mix(in srgb, var(--blotter-edge) 70%, #6b5a3e);
+  box-shadow: inset 0 10px 18px rgb(0 0 0 / 0.28);
+}
+
+.namedHole {
+  font-family: var(--font-comp-label), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stamp-red);
+  border: 2px solid var(--stamp-red);
+  transform: rotate(-6deg);
+}
+
+.locked {
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp,
+  .namedHole {
+    transform: none;
+  }
+}

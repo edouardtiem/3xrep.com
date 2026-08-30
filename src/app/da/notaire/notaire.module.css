@@ -1,0 +1,133 @@
+.desk {
+  color-scheme: light;
+  --felt: #163a32;
+  --felt-deep: #0f2924;
+  --deed: #f3ebe0;
+  --ink: #1c1917;
+  --rule: #c9b8a4;
+  --carbon-yellow: #e8d48a;
+  --carbon-pink: #e8b8bc;
+  --tampon: #8b1e1e;
+  --guess: color-mix(in srgb, var(--ink) 40%, transparent);
+  color: var(--ink);
+  background-color: var(--felt);
+  background-image:
+    radial-gradient(circle at 18% 22%, rgb(255 255 255 / 0.035) 0 0.7px, transparent 1.1px),
+    radial-gradient(circle at 72% 64%, rgb(0 0 0 / 0.16) 0 0.8px, transparent 1.2px),
+    linear-gradient(160deg, rgb(255 255 255 / 0.04), transparent 42%, rgb(0 0 0 / 0.18));
+  background-size: 3px 3px, 4px 4px, auto;
+  font-family: var(--font-notaire-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.cas {
+  font-family: var(--font-notaire-display), ui-serif, Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: rgb(243 235 224 / 0.72);
+}
+
+.liasse {
+  position: relative;
+  width: 7.5rem;
+  height: 4.6rem;
+}
+
+.sheet {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(28 25 23 / 0.18);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+.sheetLabel {
+  font-family: var(--font-notaire-display), ui-serif, Georgia, serif;
+  font-size: 0.62rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.5rem 0;
+}
+
+.deed {
+  background: var(--deed);
+  background-image:
+    linear-gradient(rgb(22 58 50 / 0.035), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgb(28 25 23 / 0.035) 28px
+    );
+  box-shadow:
+    0 24px 50px rgb(0 0 0 / 0.38),
+    inset 0 0 80px rgb(22 58 50 / 0.05);
+}
+
+.rubric {
+  font-family: var(--font-notaire-display), ui-serif, Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+}
+
+.line {
+  border-bottom: 1px solid var(--rule);
+  min-height: 1.65rem;
+}
+
+.parafe {
+  width: 2rem;
+  height: 0.7rem;
+  border-bottom: 1.5px solid var(--ink);
+  transform: rotate(-8deg);
+  transform-origin: left bottom;
+}
+
+.parafeEmpty {
+  width: 2rem;
+  height: 0.7rem;
+  border-bottom: 1.5px solid var(--rule);
+}
+
+.guess {
+  color: var(--guess);
+}
+
+.witness {
+  background: color-mix(in srgb, var(--felt-deep) 78%, black);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+.blankRule {
+  border-bottom: 1.5px solid rgb(243 235 224 / 0.45);
+  min-height: 1.4rem;
+}
+
+.scaleMark {
+  font-family: var(--font-notaire-display), ui-serif, Georgia, serif;
+  font-style: italic;
+  color: rgb(243 235 224 / 0.55);
+}
+
+.cell {
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--felt);
+  outline-offset: 4px;
+}
+
+.locked {
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deed,
+  .sheet {
+    transition: none;
+  }
+}
