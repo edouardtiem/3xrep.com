@@ -48,7 +48,7 @@ Le 19 € n’est pas un siège Salesforce. C’est « on joue entre collègues 
 ## Acquisition — en mémoire seulement
 
 - Google : cas précis (ex. DAF dit non), pas la marque.
-- Mail = le cas, ~2 min, jouable. Pas d’appel.
+- Mail = le cas, ~2 min, jouable. Pas un Calendly pour vendre 3xrep.
 - Pas de landing « booker 15 min ».
 
 ## Ce run
