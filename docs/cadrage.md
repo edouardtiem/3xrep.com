@@ -52,7 +52,7 @@ Pas d’autre KPI pour décider. Pas de « elles ont bien noté ». Pas de « le
 - **C (vacation)** hors test.
 - Ressenti **~15 min** (fenêtre 12–25).
 - 2 min CYOA / mini-QCM / chance : **rejeté** par Édouard.
-- Parcours d’entrée : **Le DAF n’est pas dans la pièce.** Tu commences **dans** la découverte avec un manager ops. Le DAF n’est pas là. Pas après le non. Pas au premier mail.
+- Parcours d’entrée : **Le DAF n’est pas dans la pièce.** Tu commences **dans** la découverte avec un manager ops. Le DAF n’est pas là. Pas après le non. Pas à la prep (ce parcours-ci).
 - **« DAF dit non »** = titre du cas (Google, mail) **et** sortie si tu ne l’inclus pas. Pas le beat 1.
 - Sortie : échelle de réussite (voir le DAF > l’inclure sans le voir > ne pas l’inclure). Trou nommé **avec la méthode** (ou la partie). Pas un scoreboard.
 - Lexique dans le jeu : BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Chaque mini-situation **rattache**. Pas un cours, pas un QCM. [methodes.md](methodes.md).
@@ -66,6 +66,10 @@ Le premier parcours ne commence pas au non. On commence plus tôt : call de déc
 ## Amendement — méthodes (30 août 2026, Édouard)
 
 Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. Pas un cours. Pas un QCM. [methodes.md](methodes.md).
+
+## Amendement — débuts (30 août 2026, Édouard)
+
+Le premier test reste la découverte. **Certains parcours** commencent à l’appel de prospection. **Pas mal de boîtes** ont besoin d’un parcours qui commence à la **préparation** à la prospection. Un parcours, un `debut`. On ne colle pas tout le cycle dans une quête. [template-parcours.md](template-parcours.md).
 
 ## Hors ce run, hors le premier test
 
