@@ -141,17 +141,18 @@ BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC, CAB, CRAC
 | Famille | Méthodes |
 | --- | --- |
 | Qualification | CHAMP, SPICED, GPCT / GPCTBA/C&I, ANUM, FAINT, NEAT |
-| Questionnement | SPIN, QQOQCCP |
-| Argumentation | CAP / APB, SIMAC, SNAP |
-| Cycle / entretien | SPANCO, ANACE, ADAPAC |
+| Questionnement | SPIN, QQOQCCP, Gap Selling, PSAI (Cegos) |
+| Argumentation | CAP / APB, SIMAC, SNAP, Command of the Message, Great Demo |
+| Cycle / entretien | SPANCO, ANACE, ADAPAC, 30MPC (Problem / Power / Vendor) |
 | Prise de RDV | CROC |
-| Négociation | 4C |
-| Posture | Challenger, Sandler |
+| Négociation | 4C, SIGNER (Cegos), Value Negotiation |
+| Posture | Challenger, Sandler, Corporate Visions (Why Change), RAIN |
+| Deal complexe | Miller Heiman (Blue Sheet / buying influences) |
 | Profil | DISC |
 
 ### Encore à chercher
 
-Écoles FR, méthodes internes (Uptoo, Simple Sales, kickoffs), grilles CRM maison, variantes MEDDPICC (Paper, Competition), coût de l’action / ROI vs inaction. On documente dès qu’une mini-situation en a besoin — ou dès qu’une query pSEO tient.
+Écoles FR, méthodes internes (Uptoo Boussole / GPS / Columbo, Simple Sales, kickoffs), grilles CRM maison, variantes MEDDPICC (Paper, Competition), coût de l’action / ROI vs inaction. Inventaire des pièces : [inventaire.md](inventaire.md). On documente dès qu’une mini-situation en a besoin — ou dès qu’une query pSEO tient.
 
 ## Ce que ça n’est pas
 
