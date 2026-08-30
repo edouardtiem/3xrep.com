@@ -228,7 +228,7 @@ Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas un
 
 | # | Objet | Une phrase, pour ne pas dériver |
 | --- | --- | --- |
-| 2 | Difficulté | Réglage **dans** le parcours (l’ops cache, le process est politique, tu arrives tard). Pas l’échelle de réussite. Pas un parcours nouveau. |
+| 2 | Difficulté | Réglage **dans** le parcours (l’ops cache, le process est politique, tu arrives tard). **Défaut = dur** (marché FR). Pas de cran facile. Pas l’échelle de réussite. Pas un parcours nouveau. [disclaimer.md](disclaimer.md). |
 | 3 | IA | Multiplie les **cas** d’une difficulté. Ne crée pas un parcours. |
 | 4 | Cadre théorique | Fichiers `docs/methodes/<slug>.md`. Pourquoi / psy / humain / prod. Le joueur le rencontre au trou nommé. [_modele.md](methodes/_modele.md). |
 | 5 | Outils | ChatGPT, Cowork, Grok Bot : **dossier**, pas bouche. Comment, **dans chaque fichier méthode** (lundi + CRM + outil). |

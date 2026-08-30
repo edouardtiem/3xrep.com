@@ -10,6 +10,8 @@ Contrat : [template-parcours.md](template-parcours.md).
 
 Si à la sortie le joueur dit « je ne sais pas ce qui s’est passé », c’est un échec **produit**.
 
+Les cas sont **durs** (marché FR). L’ops ne t’offre pas le DAF. Parfois lundi sera plus facile. On joue celui-ci dur. Disclaimer (landing / mail, pas le beat 1) : [disclaimer.md](disclaimer.md).
+
 ## Arc
 
 ```

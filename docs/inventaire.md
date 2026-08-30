@@ -12,7 +12,7 @@ On n’ouvre **aucun** parcours hors le test 1 tant que la semaine 2 n’a pas d
 
 Une liste de **pièces** : étape × cycle (court / long) × situation déjà mal partie.
 
-Un item ici = un **parcours** (famille). L’IA (point 3) multiplie les **cas**. La difficulté (point 2) = des **copies**, pas des variantes, pas un parcours de plus.
+Un item ici = un **parcours** (famille). L’IA (point 3) multiplie les **cas**. La difficulté (point 2) = des **copies**, pas des variantes, pas un parcours de plus. Les copies sont **dures** (marché FR). [disclaimer.md](disclaimer.md).
 
 Google cherche le **cas** (`titre_google`). Le HUD montre le **deal**. Le piège se découvre.
 

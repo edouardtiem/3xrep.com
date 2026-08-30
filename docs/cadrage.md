@@ -72,6 +72,10 @@ Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points br�
 
 Les parcours se découpent **par étape du cycle** : préparation, prospection, découverte, argumentation/démo, objection, closing intermédiaire, prix, négociation. Un parcours, une étape. **Cycle court / cycle long** = quels pièces sont dans le catalogue, pas une quête-fleuve. Beaucoup de cas (étape × cycle × difficulté × graines). Le test 1 = découverte, les deux cycles. [template-parcours.md](template-parcours.md).
 
+## Amendement — cas durs (30 août 2026, Édouard)
+
+Les cas sont durs. Le marché FR s’est durci dans beaucoup d’industries : moins facile à closer. Parfois le réel est plus facile. On joue les cas durs. Pas de mode facile. Pas un cran. Copies du dur. Disclaimer : [disclaimer.md](disclaimer.md). Dur ≠ perdu d’avance. Dur ≠ chance. Le trou reste nommé.
+
 ## Hors ce run, hors le premier test
 
 Ce run n’implémente pas l’app. Pas d’écran.

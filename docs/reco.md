@@ -14,6 +14,7 @@ Ne pas « améliorer » sans casser le cadrage. Si ça contredit [cadrage.md](ca
 8. **Premier parcours :** `nom_joueur` = Call avec l’ops. `nom_auteur` = Le DAF n’est pas dans la pièce (pas le HUD). `titre_joueur` = le deal. `titre_google` = DAF dit non. [template-parcours.md](template-parcours.md).
 9. **Méthodes :** lexique dans le jeu, rattachement obligatoire. **Dans le dur** : un fichier par méthode (lundi, CRM, ChatGPT/Cowork/Grok). Skills + pSEO plus tard. [methodes.md](methodes.md).
 10. **Cycle :** un parcours, une étape. Court / long = sous-ensemble d’étapes, pas une quête unique. Test 1 = découverte, les deux.
+11. **Cas durs.** Marché FR durci. Parfois le réel est plus facile. On joue le dur. Pas de cran facile. [disclaimer.md](disclaimer.md).
 
 ## Premier test
 

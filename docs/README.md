@@ -13,5 +13,6 @@ Porté le 30 août 2026 depuis le cadrage déjà tranché (Grok Bot / Cloud Orig
 | [inventaire.md](inventaire.md) | Pièces à couler : étape × cycle × situation. 29 parcours, 1 ouvert (test 1) |
 | [inventaire-audit.md](inventaire-audit.md) | Les 29 face au terrain : 12 tiennent, 9 échos, 6 catalogue, 2 faibles |
 | [methodes.md](methodes.md) | Lexique + rattachement. Fichiers dans le dur : [methodes/_modele.md](methodes/_modele.md) |
+| [disclaimer.md](disclaimer.md) | Cas durs (marché FR). Landing / mail. Pas un cran facile. |
 
 Lire dans cet ordre. Si un futur run contredit [cadrage.md](cadrage.md), le cadrage gagne.

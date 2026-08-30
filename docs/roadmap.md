@@ -24,7 +24,7 @@ Pas un LMS. Pas un module par méthode. Champion gentil = la même famille que l
 
 ### 2. Difficulté
 
-Sans crans, pas de variantes : des **copies**. Point 2 du template, pas encore figé.
+Sans crans, pas de variantes : des **copies**. Point 2 du template, pas encore figé. **Défaut déjà tranché :** les copies sont dures (marché FR). Pas de mode facile. [disclaimer.md](disclaimer.md).
 
 Réussite ≠ difficulté. Réussite = comment tu sors. Difficulté = comment le cas est tendu (l’ops cache, c’est politique, tu arrives tard — à figer).
 

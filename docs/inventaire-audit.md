@@ -19,7 +19,7 @@ Les deals ne meurent pas en 29 familles. Ils meurent de **trois trous**. Le rest
 
 Autour : next step pas calé (Gong : close −71 % si absent au 1er call). Feature dump (win rate 26 % → 5 %). Concurrent : réel, **minoritaire**.
 
-Le test 1 vise le trou 1. C’est le bon. Les 20 le reconnaissent — DAF **ou** gérant **ou** associé. Le HUD reste Julien, ops. « DAF dit non » cherche. Les graines = copies, pas un 30ᵉ parcours.
+Le test 1 vise le trou 1. C’est le bon. Les 20 le reconnaissent — DAF **ou** gérant **ou** associé. Le HUD reste Julien, ops. « DAF dit non » cherche. Les graines = copies **dures**, pas un 30ᵉ parcours. [disclaimer.md](disclaimer.md).
 
 ## Le biais des 29
 
