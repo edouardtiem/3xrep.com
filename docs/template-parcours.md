@@ -55,7 +55,7 @@ L’IA (point 3) multiplie les **cas**, pas les parcours. Un parcours de plus, c
 
 ### Ce que c’est
 
-- Une situation que le commercial **reconnaît avant de jouer**. Ici : tu es déjà en découverte avec un manager ops. Le DAF n’est pas là. Pas « Module 2 — Découverte ». Pas « le DAF a déjà dit non, tu ramasses ».
+- Une situation que le commercial **reconnaît avant de jouer**. Pas un numéro de module. Le `debut` dit **où** dans le cycle : prep, appel de prospection, découverte… Ici (test 1) : déjà en découverte avec un manager ops, DAF absent.
 - Un **invariant** (vérité **auteur**, pas brief joueur) : ce qui est vrai de tous les cas de la famille. Si ça bouge, c’est un autre parcours. Le joueur peut avoir à le **découvrir**.
 - Un contenant : cadre théorique + difficultés + générateur de cas + outils + échelle de réussite. Le cas est ce qu’on joue. Le parcours est ce qui **tient** les cas ensemble.
 - Partageable en une phrase. Le **cas** est cherchable. Gratuit pour le premier test.
@@ -68,10 +68,10 @@ Pourquoi la semaine 2 peut marcher : le parcours **reste**. Les cas **changent**
 - Un seul scénario à une fin.
 - Un niveau de difficulté.
 - Un cas (« la vente Acme du 12 mars », « DAF dit non »).
-- Un départ **après** le non. Le non est une **sortie** (et un titre de cas), pas le beat 1.
-- Un départ **avant** le deal (prospection, « prépare ton premier appel »). Déjà mal parti = la pièce est déjà fausse.
+- Un départ **après** le non **pour ce premier parcours**. Le non est une sortie (et un titre de cas), pas le beat 1 de « Le DAF n’est pas dans la pièce ».
+- **Tout le cycle dans une quête.** Prep → appel → découverte → DAF en 15 min = un cours. Un parcours, **un** `debut`.
 - C (vacation) comme chapitre de ce parcours. C est un **autre** parcours, plus tard.
-- Un meeting avec un bot. L’appel de découverte est la **situation** du deal (dossier, texte). Pas de visio, pas d’avatar, pas de roleplay vocal.
+- Un meeting avec un bot. L’appel (prospection ou découverte) est la **situation**. Pas de visio, pas d’avatar, pas de roleplay vocal.
 - Quelque chose qu’on « finit ».
 
 ### Test — est-ce un parcours ?
@@ -87,9 +87,11 @@ Google est le job du **cas**, pas du parcours. « DAF dit non » se cherche. Le 
 
 | Ça | C’est |
 | --- | --- |
-| Le DAF n’est pas dans la pièce | **Parcours** (le premier, le test) |
+| Le DAF n’est pas dans la pièce | **Parcours** (le premier, le test). `debut` = découverte |
 | DAF dit non | **Cas** (titre Google) **et** sortie si tu ne l’inclus pas |
 | Champion gentil, zéro pouvoir | Même famille — l’ops est là, ce n’est pas lui qui tranche |
+| Préparer sa prospection | **Parcours** possible, plus tard. `debut` = préparation. Beaucoup de boîtes. |
+| L’appel de prospection | **Parcours** possible, plus tard. `debut` = prospection |
 | Deal au forecast, dossier vide | Parcours possible, plus tard |
 | Vacation, le deal vit sans toi | Parcours possible (C), hors test |
 | Cette vente-ci, cet ops-ci | **Cas** |
@@ -109,7 +111,7 @@ Chaque parcours, dans le template, porte au minimum :
 | `nom` | Phrase de partage | Le DAF n’est pas dans la pièce |
 | `invariant` | Vrai pour **tous** les cas (auteur). Si ça bouge → autre parcours. Le joueur n’a pas ça en brief. | Tu es en découverte avec un **manager opérationnel**. Le DAF **n’est pas** dans l’appel. C’est **lui** qui tranche. |
 | `pression` | Pourquoi ça brûle **maintenant** | La pièce est déjà fausse. Si tu ne sors pas le DAF, il dira non. |
-| `debut` | Où le joueur arrive | **Dans** l’appel. Pas après le non. Pas au premier mail. Tableau vide. |
+| `debut` | Où le joueur arrive. **Un** par parcours. Voir table des débuts. | `decouverte` — dans l’entretien ops, DAF absent. Tableau vide. |
 | `cases` | Les cases du dossier qui **existent** (pas celles qui sont remplies) | Buyer économique, process de décision, champion vs coach, métrique, critère, douleur |
 | `reussites` | Échelle de sortie, du mieux au pire. Pas un score. | Voir le DAF → l’inclure sans le voir → ne pas l’inclure (il dit non) |
 | `lexique` | Méthodes que ce parcours a le droit de rattacher | [methodes.md](methodes.md) — au moins EB / Authority / Décideurs, coût de l’inaction, CRAC |
@@ -121,6 +123,25 @@ Chaque parcours, dans le template, porte au minimum :
 
 `quete` n’est pas un choix par parcours. C’est le moule du terrain. Un parcours qui demanderait un QCM, un CYOA 2 min, ou un meeting, n’entre pas dans 3xrep.
 
+### Début — un parcours, un moment
+
+`debut` n’est pas une constante du produit. C’est un champ du parcours. **Certains parcours commencent à l’appel de prospection. Beaucoup de boîtes ont besoin d’un parcours qui commence à la préparation.** Le premier test, lui, commence en découverte.
+
+Déjà mal parti **à chaque** début. On n’arrive jamais sur une page blanche pédagogique.
+
+| `debut` | Situation | Déjà mal parti = | Test 1 |
+| --- | --- | --- | --- |
+| `preparation` | Avant le premier contact. Compte, liste, angle, message. | Tu t’apprêtes à viser le mauvais, ou sans angle. La liste ment. | Non |
+| `prospection` | Dans l’appel / la séquence. | Tu es déjà au téléphone (ou dans le fil). Mauvais titre, standard, pas d’enjeu. | Non |
+| `decouverte` | Dans l’entretien. | La pièce est fausse. Ops en face, DAF absent. | **Oui** |
+| plus tard | Démo, négo, après le non, vacation (C) | Selon le parcours | Non |
+
+Règle : **un parcours, un `debut`.** On n’enchaîne pas prep → discovery → non du DAF dans la même quête de 15 min. Ça refait le cycle = un cours. Ce sont **plusieurs** parcours, plusieurs cas. On peut y revenir mardi, pas tout coller.
+
+On n’ouvre pas `preparation` ni `prospection` tant que le test semaine 2 n’a pas dit oui. On fige juste le droit : le moule les accepte.
+
+Les outils (point 5, pas ouvert) gagneront surtout à `preparation` : dossier du compte, pas un meeting. Claude Cowork, ChatGPT, Grok Bot.
+
 Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](methodes.md). Sans rattachement, ça ne part pas.
 
 ### Premier parcours — figé
@@ -130,6 +151,8 @@ Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque m
 **Gratis.** Un seul parcours pour le test. [cadrage.md](cadrage.md).
 
 Tu ne commences pas au non. Tu commences **plus tôt** : un call de découverte, un manager opérationnel, le DAF n’est pas là. Tu dois découvrir qu’il n’est pas là et qu’il décide — puis le **convier**. Sinon il dira non.
+
+**Ce parcours-ci** ne commence pas à la prep ni à l’appel de prospection. D’autres parcours, plus tard, si. `debut` = `decouverte`. [ci-dessus](#début--un-parcours-un-moment).
 
 Ce n’est pas un module « découverte » puis un module « objection ». Une seule quête A+B. L’appel est la situation. Le tableau est le produit. [deroulement.md](deroulement.md).
 

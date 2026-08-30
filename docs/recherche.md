@@ -83,6 +83,7 @@ Personne ne cherche « terrain d’entraînement vente ». Les gens cherchent le
 
 - DAF dit non — titre du cas d’entrée du premier parcours (Le DAF n’est pas dans la pièce). Le jeu commence **avant** ce non : découverte avec l’ops.
 - champion gentil, zéro pouvoir — même famille, pas un deuxième parcours
+- préparer sa prospection / cold call qui meurt — cas de parcours **futurs** (`debut` préparation ou prospection), pas le test 1
 - deal au forecast, dossier vide — parcours possible, plus tard
 - objection prix après une démo trop tôt — parcours possible, plus tard
 

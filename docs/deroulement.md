@@ -25,7 +25,9 @@ une action (convier / inclure / poser le fait)
 échelle de réussite + trou nommé
 ```
 
-Tu n’arrives **pas** après le non. Tu n’arrives **pas** non plus à « prépare ton premier appel ». Tu es déjà dans la pièce. La pièce est fausse.
+Tu n’arrives **pas** après le non. Tu n’arrives **pas** non plus à « prépare ta liste » **dans ce parcours**. Tu es déjà dans la pièce. La pièce est fausse.
+
+D’autres parcours, plus tard : préparation à la prospection, appel de prospection. Pas celui-ci. [template-parcours.md](template-parcours.md).
 
 ## Temps ressenti (pas un chrono à l’écran)
 
@@ -46,7 +48,7 @@ Total ressenti ~15 min. Si un beat disparaît, on retombe dans le CYOA ou le QCM
 
 Un manager opérationnel est en face. Le DAF n’est pas dans l’appel. Tu n’as pas le dossier.
 
-Ce n’est pas « prépare ton call ». Le deal a déjà commencé, et il a déjà mal commencé : la mauvaise personne est dans la pièce.
+Ce n’est pas « prépare ton call » **ici**. Le deal a déjà commencé, et il a déjà mal commencé : la mauvaise personne est dans la pièce.
 
 L’appel est la **situation**. Le produit, c’est le tableau. Pas de visio. Pas de bot à qui parler. Pas d’avatar.
 
