@@ -10,7 +10,7 @@ Le moule. Pas un LMS. Pas des modules.
 
 Cadre du template (5 points) : parcours → difficultés → IA qui multiplie les cas → cadre théorique → outils (dossier, pas meeting).
 
-- **Point 1 figé** — qu’est-ce qu’un parcours : [template-parcours.md](template-parcours.md). Famille de deals. `debut` = étape du cycle (prep, prospection, découverte, démo, objection, closing intermédiaire, prix, négo). Test 1 = découverte.
+- **Point 1 figé** — qu’est-ce qu’un parcours : [template-parcours.md](template-parcours.md). Famille de deals. `debut` = étape du cycle. `cycles` = court / long / les deux. Test 1 = découverte.
 - **Rattachement figé** — [methodes.md](methodes.md). Une mini-situation sans méthode ne part pas.
 - Points 2–5 : nommés, pas spécifiés. Prochain template : difficultés. Les fichiers méthode (§ 2) avancent **en parallèle**.
 - Graphe JSON + graines au niveau du **cas**. Beats A+B : [deroulement.md](deroulement.md).

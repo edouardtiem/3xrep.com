@@ -126,6 +126,7 @@ Chaque parcours, dans le template, porte au minimum :
 | `invariant` | Vrai pour **tous** les cas (auteur). Si ça bouge → autre parcours. Le joueur n’a pas ça en brief. | Tu es en découverte avec un **manager opérationnel**. Le DAF **n’est pas** dans l’appel. C’est **lui** qui tranche. |
 | `pression` | Pourquoi ça brûle **maintenant** | La pièce est déjà fausse. Si tu ne sors pas le DAF, il dira non. |
 | `debut` | Étape du cycle où le joueur arrive. **Un** par parcours. Voir [étapes](#étape-du-cycle--un-parcours-une-partie). | `decouverte` |
+| `cycles` | Court, long, ou les deux. Voir [cycle court / long](#cycle-court--cycle-long). | `court`, `long` |
 | `cases` | Les cases du dossier qui **existent** (pas celles qui sont remplies) | Buyer économique, process de décision, champion vs coach, métrique, critère, douleur |
 | `reussites` | Échelle de sortie, du mieux au pire. Pas un score. | Voir le DAF → l’inclure sans le voir → ne pas l’inclure (il dit non) |
 | `lexique` | Méthodes que ce parcours a le droit de rattacher | [methodes.md](methodes.md) — au moins EB / Authority / Décideurs, coût de l’inaction, CRAC |
@@ -164,6 +165,23 @@ On n’ouvre aucune étape hors `decouverte` tant que le test semaine 2 n’a pa
 Les outils (point 5) gagnent surtout à `preparation`. ChatGPT, Cowork, Grok Bot : dossier, pas meeting.
 
 pSEO plus tard : une query par étape + situation (« objection prix après démo », « closing intermédiaire DAF »). Même règle de titres : le HUD ne spoil pas.
+
+### Cycle court / cycle long
+
+Les étapes sont des **pièces**. Un cycle court n’en pose pas autant qu’un cycle long. On **adapte** le catalogue, on ne fusionne pas les pièces dans une quête de 15 min.
+
+Même deal réel (un seul call PME) ≠ une seule quête 3xrep. Si le court a découverte **et** prix, ce sont deux parcours, deux cas. Le lundi ça tient dans un RDV ; le terrain, lui, isole le trou.
+
+| | `court` | `long` |
+| --- | --- | --- |
+| Typique | Ticket plus bas, 1–2 interlocuteurs, semaines | Comité, mois, paper process |
+| Étapes souvent **là** | `preparation`, `prospection`, `decouverte`, `objection`, `prix` | Toutes celles du tableau + vacation plus tard |
+| Souvent **absentes** ou pliées | `argumentation_demo` (dans la découverte), `closing_intermediaire`, `negociation` (dans `prix`) | — |
+| Test 1 | `decouverte` — les deux | `decouverte` — les deux |
+
+Un parcours déclare `cycles` : `court`, `long`, ou les deux. `decouverte` (test 1) = les deux. `closing_intermediaire` / `negociation` = surtout `long`. `prix` = les deux (le trou n’est pas le même : slogan vs grille + DAF).
+
+Liste ouverte : un cycle maison (PME, enterprise, inbound) n’est qu’un **sous-ensemble ordonné** de ces étapes. On n’invente pas une étape « module 4 ». On n’oblige personne à jouer la démo s’il n’y en a pas.
 
 Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](methodes.md). Sans rattachement, ça ne part pas.
 
