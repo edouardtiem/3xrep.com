@@ -52,3 +52,13 @@ C’est la **première pièce coulée**, pour voir si le moule tient. 20 commerc
 ## Hors roadmap (mémoire seulement)
 
 Prix 3 € / 19 €, invitations, équipes, C (vacation), **autres étapes du cycle** (après le test), **pages pSEO méthodes**, acquisition Google scale : [reco.md](reco.md). Après le test semaine 2, si oui.
+
+### Place — plus tard, pas le test
+
+D’abord : les sales. Les faire jouer. Kill switch inchangé (20, semaine 2).
+
+Après, si oui : artefact portable (replay / gist, pas un feed). Pas un LinkedIn. Pas de social.
+
+Place possible : évaluer **les deux** côtés — le sales (dossier, trou nommé) **et** l’employeur (mêmes cases, de l’autre côté : territoire, ramp, buyer économique, forecast). Pas Glassdoor. Le vide nommé. Matching = superposition de deux dossiers, pas un score. L’employeur est un deuxième joueur, pas un client L&D.
+
+Pas maintenant. Pas de profil, pas d’algo, pas de recruteurs dans le premier parcours.
