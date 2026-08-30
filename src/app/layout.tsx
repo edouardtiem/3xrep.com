@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Ga4 } from "@/components/Ga4";
+import { getGaMeasurementId } from "@/lib/ga";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,12 +20,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const gaId = getGaMeasurementId();
+
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        {gaId ? <Ga4 gaId={gaId} /> : null}
+      </body>
     </html>
   );
 }
