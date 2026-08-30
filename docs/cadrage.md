@@ -20,7 +20,7 @@ Les cas changent. On ne « termine » pas un programme. On revient parce que le 
 
 Un deal déjà mal parti. Un tableau vide. Tu reconstruis le dossier **dans** le deal. Tu questions tes trous. L’objection qui arrive est la facture de ta découverte. Une action — poser un fait. Sortie qui **nomme le trou** — pas seulement gagné / perdu binaire ; une échelle de réussite si le parcours en a une.
 
-Si à la fin tu te dis « je ne sais pas ce qui s’est passé », le produit a échoué. Pas le joueur.
+Si à la fin tu te dis « je ne sais pas ce qui s’est passé », le produit a échoué. Pas le joueur. Si tu sais ce qui s’est passé et que tu ne peux pas le **rattacher à une méthode**, la valeur n’est pas délivrée.
 
 ## Ce que ce n’est pas
 
@@ -54,13 +54,18 @@ Pas d’autre KPI pour décider. Pas de « elles ont bien noté ». Pas de « le
 - 2 min CYOA / mini-QCM / chance : **rejeté** par Édouard.
 - Parcours d’entrée : **Le DAF n’est pas dans la pièce.** Tu commences **dans** la découverte avec un manager ops. Le DAF n’est pas là. Pas après le non. Pas au premier mail.
 - **« DAF dit non »** = titre du cas (Google, mail) **et** sortie si tu ne l’inclus pas. Pas le beat 1.
-- Sortie : échelle de réussite (voir le DAF > l’inclure sans le voir > ne pas l’inclure). Trou nommé. Pas un scoreboard.
+- Sortie : échelle de réussite (voir le DAF > l’inclure sans le voir > ne pas l’inclure). Trou nommé **avec la méthode** (ou la partie). Pas un scoreboard.
+- Lexique dans le jeu : BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Chaque mini-situation **rattache**. Pas un cours, pas un QCM. [methodes.md](methodes.md).
 
-Détail du ressenti : [deroulement.md](deroulement.md). Objet parcours : [template-parcours.md](template-parcours.md). Pourquoi ce format : [recherche.md](recherche.md). Reco complète : [reco.md](reco.md).
+Détail du ressenti : [deroulement.md](deroulement.md). Objet parcours : [template-parcours.md](template-parcours.md). Méthodes : [methodes.md](methodes.md). Pourquoi ce format : [recherche.md](recherche.md). Reco complète : [reco.md](reco.md).
 
 ## Amendement — entrée (30 août 2026, Édouard)
 
 Le premier parcours ne commence pas au non. On commence plus tôt : call de découverte, manager opérationnel, DAF absent. Il faut le convier, sinon il dit non. L’inclure dans la décision sans le voir est moins bien que le voir, mieux que ne pas l’inclure. L’appel est la situation du deal, pas un meeting dans le produit.
+
+## Amendement — méthodes (30 août 2026, Édouard)
+
+Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. Pas un cours. Pas un QCM. [methodes.md](methodes.md).
 
 ## Hors ce run, hors le premier test
 

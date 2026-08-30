@@ -11,6 +11,7 @@ Le moule. Pas un LMS. Pas des modules.
 Cadre du template (5 points) : parcours → difficultés → IA qui multiplie les cas → cadre théorique → outils (dossier, pas meeting).
 
 - **Point 1 figé** — qu’est-ce qu’un parcours : [template-parcours.md](template-parcours.md). Famille de deals, pas un cours. Unité de catalogue. L’unité de jeu est le **cas**. Début **dans** la découverte (ops, DAF absent), pas au non.
+- **Méthodes figées** — rattachement obligatoire : [methodes.md](methodes.md). BANT, MEDDIC/MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Pas un QCM.
 - Points 2–5 : nommés, pas spécifiés. Prochain : difficultés.
 - Graphe JSON + graines au niveau du **cas**. Beats A+B : [deroulement.md](deroulement.md).
 - Interdit dans le template : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé ».
@@ -21,7 +22,7 @@ Le test go / no-go. Un seul parcours. Gratis. **Le DAF n’est pas dans la pièc
 
 - Une quête A+B par cas, qui **commence** en découverte avec l’ops. C (vacation) = autre parcours, hors test.
 - Zéro compte. Zéro paywall.
-- Sortie = échelle de réussite + trou nommé. Interdit = « je ne sais pas ce qui s’est passé ».
+- Sortie = échelle de réussite + trou nommé **avec la méthode**. Interdit = « je ne sais pas ce qui s’est passé » **et** un trou sans rattachement.
 - 20 commerciaux. Semaine 2, elles reviennent toutes seules. Oui = produit. Non = stop.
 
 Détail du ressenti : [deroulement.md](deroulement.md). Pourquoi ce cas : [recherche.md](recherche.md).

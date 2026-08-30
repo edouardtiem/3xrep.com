@@ -12,6 +12,7 @@ Ne pas « améliorer » sans casser le cadrage. Si ça contredit [cadrage.md](ca
 6. **Rejeté :** 2 min CYOA, mini-QCM, chance, points, ligues.
 7. **Échec produit :** le joueur ne sait pas ce qui s’est passé. Le trou doit être nommé.
 8. **Premier parcours :** Le DAF n’est pas dans la pièce. Début = découverte avec l’ops, DAF absent. « DAF dit non » = titre de cas + sortie, pas le beat 1. [template-parcours.md](template-parcours.md).
+9. **Méthodes :** lexique dans le jeu, rattachement obligatoire par mini-situation. Pas un LMS. [methodes.md](methodes.md).
 
 ## Premier test
 

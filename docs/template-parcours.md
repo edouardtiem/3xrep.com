@@ -26,6 +26,8 @@ Le marché dit « parcours » pour un cours. 3xrep reprend le mot. L’objet n�
 | **Réussite** | Échelle de **sortie** du cas, déclarée par le parcours. Trou nommé. | Un score. De l’XP. Une difficulté. |
 | **Difficulté** | Réglage **dans** un parcours (point 2). Combien c’est caché, politique, tard. | Un parcours à part. Une sortie. |
 | **Cadre théorique** | Spine du parcours : pourquoi cette situation tue le deal (point 4). | Une leçon avant de jouer. |
+| **Méthode** | Grille (MEDDIC, BANT, CRAC…). Le joueur y rattache la mini-situation. | Un cours. Un parcours. |
+| **Mini-situation** | Plus petit morceau jouable. **Doit** rattacher à une méthode ou une partie. | Un cas. Un module. |
 | **Outil** | Aide à reconstruire le dossier (point 5). | Un roleplay. Un meeting. |
 
 On **termine** un cas (sortie sur l’échelle + trou nommé).  
@@ -46,7 +48,7 @@ parcours          famille (Le DAF n’est pas dans la pièce)
   └── difficulté  réglage (point 2, pas ce run)
         └── cas   ce deal-ci, ~15 min — titre Google ex. « DAF dit non »
               └── quête A+B   les beats, toujours les mêmes
-                    └── sortie   échelle de réussite + trou nommé
+                    └── sortie   échelle de réussite + trou nommé (méthode + partie)
 ```
 
 L’IA (point 3) multiplie les **cas**, pas les parcours. Un parcours de plus, c’est une situation de plus, pas une variante.
@@ -110,6 +112,7 @@ Chaque parcours, dans le template, porte au minimum :
 | `debut` | Où le joueur arrive | **Dans** l’appel. Pas après le non. Pas au premier mail. Tableau vide. |
 | `cases` | Les cases du dossier qui **existent** (pas celles qui sont remplies) | Buyer économique, process de décision, champion vs coach, métrique, critère, douleur |
 | `reussites` | Échelle de sortie, du mieux au pire. Pas un score. | Voir le DAF → l’inclure sans le voir → ne pas l’inclure (il dit non) |
+| `lexique` | Méthodes que ce parcours a le droit de rattacher | [methodes.md](methodes.md) — au moins EB / Authority / Décideurs, coût de l’inaction, CRAC |
 | `quete` | Forme de jeu | A+B seulement. Beats : [deroulement.md](deroulement.md) |
 | `cadre` | Point 4 | *pas ce run* |
 | `difficultes` | Point 2 | *pas ce run* |
@@ -118,7 +121,7 @@ Chaque parcours, dans le template, porte au minimum :
 
 `quete` n’est pas un choix par parcours. C’est le moule du terrain. Un parcours qui demanderait un QCM, un CYOA 2 min, ou un meeting, n’entre pas dans 3xrep.
 
-Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Le parcours est le contrat au-dessus : ce que tous ces graphes ont le droit d’être.
+Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](methodes.md). Sans rattachement, ça ne part pas.
 
 ### Premier parcours — figé
 
@@ -140,7 +143,7 @@ Du mieux au pire. Le trou a un nom à chaque cran.
 | **Inclure sans voir** | Tu as découvert qu’il n’est pas là et qu’il tranche. Tu l’as mis dans la décision **sans** l’avoir en face. | Moins bien que le voir. Mieux que ne pas l’inclure. |
 | **Pas inclus** | Tu n’as pas tenu la case buyer. **Le DAF dit non.** | Le pire. Titre du cas. Facture de A. |
 
-Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas une défaite XP ni une victoire. C’est un cran, avec le trou nommé.
+Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas une défaite XP ni une victoire. C’est un cran, avec le trou nommé **et** la méthode (MEDDIC Economic Buyer, BANT Authority, BEBEDC Décideurs).
 
 - 1 parcours ≠ 1 cas. Le test a besoin de **cas** qui changent, sinon la semaine 2 n’a rien à rejouer.
 - Les premiers cas peuvent être des graines écrites à la main. Le générateur IA (point 3) n’est pas requis pour la première graine.
@@ -152,9 +155,9 @@ Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas un
 | --- | --- | --- |
 | 2 | Difficulté | Réglage **dans** le parcours (l’ops cache, le process est politique, tu arrives tard). Pas l’échelle de réussite. Pas un parcours nouveau. |
 | 3 | IA | Multiplie les **cas** d’une difficulté. Ne crée pas un parcours. |
-| 4 | Cadre théorique | Spine du parcours (pourquoi / comment / psy / humain / prod). Le joueur ne la subit pas en leçon. Il la rencontre au **trou nommé**. |
+| 4 | Cadre théorique | Spine du parcours **et** des rattachements (pourquoi / comment / psy / humain / prod). Le joueur ne la subit pas en leçon. Il la rencontre au **trou nommé**, collé à la méthode. Lexique : [methodes.md](methodes.md). |
 | 5 | Outils | Claude Cowork, ChatGPT, Grok Bot : **dossier**, pas bouche. L’appel n’est pas un meeting produit. |
 
-Si le point 4 devient un cours, ou le point 5 un meeting, on a cassé le cadrage.
+Si le point 4 devient un cours, ou le point 5 un meeting, on a cassé le cadrage. Si une mini-situation n’a pas de rattachement, la valeur n’est pas délivrée.
 
 Prochain run de template : **point 2 — degrés de difficulté.**
