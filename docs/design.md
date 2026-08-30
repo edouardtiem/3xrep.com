@@ -147,3 +147,9 @@ Le message d’Édouard tient : méthode, pas chance. Le véhicule se teste **ma
 | **Surface** | `/da/surface` | Milieu : chrome Linear (sans), faits en mono. Deal = une issue. Le DAF = propriété non assignée. |
 
 Les deux : cases vides = architecture. Cas DAF dit non. Pas de score, pas de demo, pas de badge.
+
+## Motif ouvert — pas une DA
+
+Hors écran. [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md).
+
+Le CRM **trop sûr**. Le joueur à la **place du DC**. **Même phrase, étage au-dessus.** Pas « qu’est-ce qui manque ». Pas figé dans le moule. Pas les pages `/da/*`.

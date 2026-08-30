@@ -42,6 +42,8 @@ Porteurs du test 1 d’abord : MEDDIC, BANT, BEBEDC, coût de l’inaction, SONC
 
 **Call avec l’ops.** HUD = le deal. Google = DAF dit non. Pas de titre « le DAF n’est pas là ». [deroulement.md](deroulement.md).
 
+Motif ouvert (pas le moule) : CRM trop sûr, place du DC, même phrase / étage au-dessus. [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md).
+
 C’est la **première pièce coulée**, pour voir si le moule tient. 20 commerciaux. Semaine 2, elles reviennent toutes seules. Oui = produit. Non = stop.
 
 - Une quête A+B, `debut` = découverte. Zéro compte, zéro paywall.
