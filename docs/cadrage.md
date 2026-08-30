@@ -70,7 +70,7 @@ Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points br�
 
 ## Amendement — cycle (30 août 2026, Édouard)
 
-Les parcours se découpent **par étape du cycle** : préparation, prospection, découverte, argumentation/démo, objection, closing intermédiaire, prix, négociation. Un parcours, une étape. Beaucoup de cas (étape × difficulté × graines). Le test 1 = découverte seulement. Objection comme parcours ≠ module B du test 1. [template-parcours.md](template-parcours.md).
+Les parcours se découpent **par étape du cycle** : préparation, prospection, découverte, argumentation/démo, objection, closing intermédiaire, prix, négociation. Un parcours, une étape. **Cycle court / cycle long** = quels pièces sont dans le catalogue, pas une quête-fleuve. Beaucoup de cas (étape × cycle × difficulté × graines). Le test 1 = découverte, les deux cycles. [template-parcours.md](template-parcours.md).
 
 ## Hors ce run, hors le premier test
 
