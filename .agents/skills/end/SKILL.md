@@ -31,7 +31,7 @@ Auteur **toujours** : `edouardtiem <edouard@tiemh.com>`.
 git -c user.name="edouardtiem" -c user.email="edouard@tiemh.com" commit
 ```
 
-Titre de commit clair. Un commit suffit si le delta est un. Pas de commit vide.
+Titre de commit clair. Un commit suffit si le delta est un. Pas de commit vide. Ne pas écrire `git config`.
 
 ## 3. Lander sur `main` (production)
 
@@ -39,22 +39,29 @@ Cible **pour l’instant** : `main`. C’est la prod. Pas d’autre branche cibl
 
 Rebase **toutes** les branches courantes d’un coup — pas seulement celle du travail — puis ff dans `main`.
 
+Après `fetch` : ff chaque locale sur son **upstream** avant de rebase sur `main`. Sinon un local stale rate le cloud.
+
 ```bash
 git fetch origin --prune
 git checkout main
 git pull --ff-only origin main
 
-# cursor/* distantes sans locale : les prendre
-git for-each-ref --format='%(refname:short)' refs/remotes/origin/ \
-  | grep -v -E '^(origin/main|origin/HEAD)$' \
-  | while read -r ref; do
-      b=${ref#origin/}
-      git show-ref --verify --quiet "refs/heads/$b" || git branch --track "$b" "$ref"
+# origin/<branche> sans locale. Jamais HEAD, main, ni un nom qui collide avec le remote (`origin`).
+git for-each-ref --format='%(refname:lstrip=3)' refs/remotes/origin \
+  | grep -v -E '^(HEAD|main|origin)$' \
+  | while read -r b; do
+      [ -z "$b" ] && continue
+      git show-ref --verify --quiet "refs/heads/$b" || git branch --track "$b" "origin/$b"
     done
 
-# rebase + ff, une passe, toutes les locales sauf main
-for b in $(git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v -E '^main$'); do
-  git rebase --update-refs main "$b" \
+for b in $(git for-each-ref --format='%(refname:lstrip=2)' refs/heads | grep -v -E '^(main|origin)$'); do
+  git checkout "$b"
+  if git rev-parse --abbrev-ref '@{u}' >/dev/null 2>&1; then
+    git merge --ff-only '@{u}' \
+      || git rebase '@{u}' \
+      || { git rebase --abort; echo "UPSTREAM DIVERGÉ $b — skip"; git checkout main; continue; }
+  fi
+  git rebase --update-refs main \
     || { git rebase --abort; echo "CONFLIT $b — skip"; git checkout main; continue; }
   git checkout main
   git merge --ff-only "$b" \
@@ -70,6 +77,8 @@ git push origin main
 - Conflit sur la branche de travail : stop. Jamais `--force`.
 - **Jamais** `--force` ni `--force-with-lease` sur `main`.
 - Ne pas force-push `cursor/*` distantes (un agent cloud peut tourner).
+- Ne pas créer de branche locale nommée `origin`.
+- Upstream divergé : rebase la locale sur `@{u}` d’abord, puis sur `main`. Conflit → skip.
 - Push `main` après les ff. La PR se ferme toute seule si GitHub le fait ; ne merge pas « à la main » une PR déjà landée.
 
 Si on est déjà sur `main` et que le travail est commité là : `git pull --ff-only origin main`, puis la passe ci-dessus, puis push.
