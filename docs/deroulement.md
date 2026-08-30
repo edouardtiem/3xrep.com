@@ -67,7 +67,7 @@ Le jeu, ici : décider ce qui est **su**, ce qui est **supposé**, ce qui est **
 
 ### 3. Tu questions tes trous
 
-Tu n’as pas le droit à l’audit complet. Une, deux, trois questions — pas une checklist. Chaque question a un coût (temps, relation, l’ops qui s’impatiente ou se ferme).
+Tu n’as pas le droit à l’audit complet. Une, deux, trois questions — pas une checklist. Chaque question a un coût (temps, relation, l’ops qui s’impatiente ou se ferme). L’ops n’est pas un allié cadeau. C’est le marché dur.
 
 Tu entraînes le réflexe : **quel trou tue ce deal**, pas « j’ai fait mes huit lettres ».
 
