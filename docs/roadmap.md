@@ -2,63 +2,53 @@
 
 Prochains runs. Le cadrage reste [cadrage.md](cadrage.md). Si un item ici le contredit, le cadrage gagne.
 
-Ordre : template → **méthodes dans le dur** → premier parcours → design → landing. pSEO méthodes à la fin. On ne code pas auth, DB, Stripe, équipes, prix.
+**Usine**, pas un cursus. Le moule (structure) est là. On liste ce qu’on veut couler, on verse, on joue un cas pour le test. On ne code pas auth, DB, Stripe, équipes, prix.
 
-## 1. Template de parcours / quête
+## Moule — fait (point 1)
 
-Le moule. Pas un LMS. Pas des modules.
+Structure pour **estampiller** des parcours et des parties de parcours. Pas un catalogue déjà rempli. [template-parcours.md](template-parcours.md).
 
-Cadre du template (5 points) : parcours → difficultés → IA qui multiplie les cas → cadre théorique → outils (dossier, pas meeting).
+Une étape du cycle = un parcours. Un cas = un deal, A+B, ~15 min. Titres sans spoiler. Court / long = quelles pièces. Rattachement méthode obligatoire. [methodes.md](methodes.md).
 
-- **Point 1 figé** — qu’est-ce qu’un parcours : [template-parcours.md](template-parcours.md). Famille de deals. `debut` = étape du cycle. `cycles` = court / long / les deux. Test 1 = découverte.
-- **Rattachement figé** — [methodes.md](methodes.md). Une mini-situation sans méthode ne part pas.
-- Points 2–5 : nommés, pas spécifiés. Prochain template : difficultés. Les fichiers méthode (§ 2) avancent **en parallèle**.
-- Graphe JSON + graines au niveau du **cas**. Beats A+B : [deroulement.md](deroulement.md).
-- Interdit dans le template : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé ».
+Interdit : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé », tout le cycle dans une quête.
 
-## 2. Méthodes dans le dur
+## À couler
 
-Les écrire **dans ce git**. Pas un slide. Pas un Notion à côté.
+### 1. Inventaire
 
-- Un fichier `docs/methodes/<slug>.md` par méthode (et par partie si elle se Google). Copier [methodes/_modele.md](methodes/_modele.md).
-- Dedans, obligatoire : jeu + trou nommé, **lundi** (vie réelle), **CRM**, **ChatGPT / Cowork / Grok Bot** (dossier, pas meeting), pourquoi psy / humain / prod.
-- Skill agent : `.agents/skills/methodes/<slug>/` — même fond, pour générer des cas et coller le rattachement (point 3).
-- En chercher **plus**. Liste ouverte dans [methodes.md](methodes.md) (CHAMP, SPIN, SPICED, SPANCO, SIMAC, CAP, DISC, Challenger, Sandler, …).
-- Ordre d’écriture : d’abord les porteurs du test 1 (MEDDIC, BANT, BEBEDC, coût de l’inaction, SONCAS, CRAC, contreparties, BAC/CAB, points brûlés).
-- **pSEO à la fin** (pas le test 1) : une URL par slug, query = le titre, CTA = jouer le cas. Hyper bon pour l’acquisition (on cherche « MEDDIC economic buyer », pas « 3xrep »). Pas un blog formation. Pas un Calendly.
+Tous les parcours / parties qu’on veut. Recherche. Les verser dans le moule.
 
-Sans ces fichiers, le générateur IA invente, le trou nommé reste flou, le pSEO n’a pas de matière.
+Pas un LMS (« semaine 1 prospection »). Une liste de pièces : étape × cycle (court / long) × situation. Ce qu’on **produit**, pas un programme qu’on ferme.
 
-## 3. Premier parcours gratuit
+### 2. Difficulté
 
-Le test go / no-go. Un seul parcours. Gratis. **Call avec l’ops.** HUD = le deal. Google = DAF dit non. Pas de titre « le DAF n’est pas là ».
+Sans crans, pas de variantes : des **copies**. Point 2 du template, pas encore figé.
 
-- Une quête A+B par cas, qui **commence** en découverte avec l’ops. C (vacation) = autre parcours, hors test.
-- Zéro compte. Zéro paywall.
-- Sortie = échelle de réussite + trou nommé **avec la méthode**. Interdit = « je ne sais pas ce qui s’est passé » **et** un trou sans rattachement.
-- 20 commerciaux. Semaine 2, elles reviennent toutes seules. Oui = produit. Non = stop.
+Réussite ≠ difficulté. Réussite = comment tu sors. Difficulté = comment le cas est tendu (l’ops cache, c’est politique, tu arrives tard — à figer).
 
-Détail du ressenti : [deroulement.md](deroulement.md). Pourquoi ce cas : [recherche.md](recherche.md).
+### 3. Générateur
 
-## 4. Design template
+L’IA qui multiplie les **cas** pour chaque difficulté d’un parcours. Point 3. Ne crée pas un parcours. Sans les fichiers méthode, elle invente.
 
-L’écran du terrain. Pas l’écran d’un cours.
+### 4. Fichiers méthode
 
-- Next.js App Router, TypeScript, Tailwind, shadcn. [reco.md](reco.md).
-- Tableau de deal, cases vides, tension. Début / milieu / fin visibles.
-- Ça se sent jeu (échelle de réussite, rejouer). Ça ne se sent pas formation, meeting, QCM, ligue.
-- Un design qui tient pour le premier parcours **et** les suivants. Pas un one-off « DAF ».
+Le modèle est là : [methodes/_modele.md](methodes/_modele.md). **MEDDIC n’est pas écrit.** Ni BANT, ni BEBEDC, etc.
 
-Pas de v0 / Grok Build pour poser le produit.
+Un fichier `docs/methodes/<slug>.md` par méthode (jeu, lundi, CRM, ChatGPT / Cowork / Grok Bot, psy). Skills agent plus tard. pSEO à la fin (query = titre, CTA = jouer). Pas un blog formation.
 
-## 5. Landing page
+Porteurs du test 1 d’abord : MEDDIC, BANT, BEBEDC, coût de l’inaction, SONCAS, CRAC, contreparties, BAC/CAB, points brûlés.
 
-Entrée du test. Pas une page « booker 15 min ».
+### 5. Cas jouable — test semaine 2
 
-- Le cas est l’accroche (ex. DAF dit non), pas la marque.
-- Un clic → on joue. Pas un Calendly. Pas un pitch deck.
-- Cohérent avec le design template. Zéro auth, zéro Stripe.
+**Call avec l’ops.** HUD = le deal. Google = DAF dit non. Pas de titre « le DAF n’est pas là ». [deroulement.md](deroulement.md).
+
+C’est la **première pièce coulée**, pour voir si le moule tient. 20 commerciaux. Semaine 2, elles reviennent toutes seules. Oui = produit. Non = stop.
+
+- Une quête A+B, `debut` = découverte. Zéro compte, zéro paywall.
+- Sortie = échelle de réussite + trou nommé **avec la méthode**.
+- **Design** : écran du terrain (Next.js, Tailwind, shadcn). Pas v0 / Grok Build.
+- **Landing** : le cas est l’accroche. Un clic → on joue. Pas un Calendly.
 
 ## Hors roadmap (mémoire seulement)
 
-Prix 3 € / 19 €, invitations, équipes, C (vacation), **autres étapes du cycle**, **pages pSEO méthodes**, acquisition Google scale : [reco.md](reco.md). Après le test semaine 2, si oui.
+Prix 3 € / 19 €, invitations, équipes, C (vacation), **autres étapes du cycle** (après le test), **pages pSEO méthodes**, acquisition Google scale : [reco.md](reco.md). Après le test semaine 2, si oui.
