@@ -81,7 +81,7 @@ Sous 10 min, on retombe dans le CYOA. Au-dessus de 25, c’est une session de fo
 
 Personne ne cherche « terrain d’entraînement vente ». Les gens cherchent le **cas** :
 
-- DAF dit non — titre du cas d’entrée du premier parcours (Le DAF n’est pas dans la pièce). Le jeu commence **avant** ce non : découverte avec l’ops.
+- DAF dit non — `titre_google` du premier parcours (Call avec l’ops). Landing / mail. Pas le nom du cas à l’écran (le piège se découvre).
 - champion gentil, zéro pouvoir — même famille, pas un deuxième parcours
 - préparer sa prospection / cold call qui meurt — cas de parcours **futurs** (`debut` préparation ou prospection), pas le test 1
 - deal au forecast, dossier vide — parcours possible, plus tard

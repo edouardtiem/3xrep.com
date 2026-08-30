@@ -52,8 +52,9 @@ Pas d’autre KPI pour décider. Pas de « elles ont bien noté ». Pas de « le
 - **C (vacation)** hors test.
 - Ressenti **~15 min** (fenêtre 12–25).
 - 2 min CYOA / mini-QCM / chance : **rejeté** par Édouard.
-- Parcours d’entrée : **Le DAF n’est pas dans la pièce.** Tu commences **dans** la découverte avec un manager ops. Le DAF n’est pas là. Pas après le non. Pas à la prep (ce parcours-ci).
-- **« DAF dit non »** = titre du cas (Google, mail) **et** sortie si tu ne l’inclus pas. Pas le beat 1.
+- Parcours d’entrée : **Call avec l’ops** (`nom_joueur`). Auteur : Le DAF n’est pas dans la pièce. Tu commences **dans** la découverte avec un manager ops. Pas après le non. Pas à la prep (ce parcours-ci).
+- **À l’écran :** le deal (Acme, Julien, ops). **Interdit** en titre de cas : « Le DAF n’est pas là ». C’est le piège, on le découvre.
+- **« DAF dit non »** = `titre_google` (landing, mail) **et** une sortie si tu ne l’inclus pas. Pas le HUD.
 - Sortie : échelle de réussite (voir le DAF > l’inclure sans le voir > ne pas l’inclure). Trou nommé **avec la méthode** (ou la partie). Pas un scoreboard.
 - Lexique dans le jeu : BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Chaque mini-situation **rattache**. Pas un cours, pas un QCM. [methodes.md](methodes.md).
 
@@ -61,7 +62,7 @@ Détail du ressenti : [deroulement.md](deroulement.md). Objet parcours : [templa
 
 ## Amendement — entrée (30 août 2026, Édouard)
 
-Le premier parcours ne commence pas au non. On commence plus tôt : call de découverte, manager opérationnel, DAF absent. Il faut le convier, sinon il dit non. L’inclure dans la décision sans le voir est moins bien que le voir, mieux que ne pas l’inclure. L’appel est la situation du deal, pas un meeting dans le produit.
+Le premier parcours ne commence pas au non. On commence plus tôt : call de découverte, manager opérationnel. Il faut **découvrir** qu’il faut convier le DAF, sinon il dit non. L’inclure dans la décision sans le voir est moins bien que le voir, mieux que ne pas l’inclure. L’appel est la situation du deal, pas un meeting dans le produit. **On n’écrit pas le piège dans le titre du cas.**
 
 ## Amendement — méthodes (30 août 2026, Édouard)
 

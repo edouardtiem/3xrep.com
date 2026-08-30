@@ -31,7 +31,7 @@ Sans ces fichiers, le générateur IA invente, le trou nommé reste flou, le pSE
 
 ## 3. Premier parcours gratuit
 
-Le test go / no-go. Un seul parcours. Gratis. **Le DAF n’est pas dans la pièce.** Cas d’entrée (titre) : DAF dit non.
+Le test go / no-go. Un seul parcours. Gratis. **Call avec l’ops.** HUD = le deal. Google = DAF dit non. Pas de titre « le DAF n’est pas là ».
 
 - Une quête A+B par cas, qui **commence** en découverte avec l’ops. C (vacation) = autre parcours, hors test.
 - Zéro compte. Zéro paywall.
