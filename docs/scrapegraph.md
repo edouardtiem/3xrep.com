@@ -69,9 +69,31 @@ Une graine = 1 `extract` (5 crédits) sur about + éventuellement 1 `scrape` mar
 
 `search` 5 résultats FR avec prompt = 25 crédits. Assez pour caler une poignée de `titre_google`, pas pour un pSEO scale.
 
-## Ce que ça ne doit pas faire
+## SDR automatisé — ce que ça fait, ce que ça n’est pas
 
-Le marketing ScrapeGraph vend du **lead gen**, du LinkedIn, des contacts. Ça, c’est l’ancienne note consultant / Clay / PhantomBuster. **Pas 3xrep.** [cadrage.md](cadrage.md). [recherche.md](recherche.md).
+Leur page Lead Generation dit vrai **sur une couche** : `search` trouve des sites ; `extract` sort nom, rôle, description, parfois un mail générique (`contact@`) depuis /équipe ou /about. Ça, c’est des **comptes** (et des noms **déjà écrits** sur une page publique). Pas un pipe.
+
+Un SDR automatisé, c’est cinq machines. ScrapeGraph n’en est qu’une, et encore : la plus faible.
+
+| Couche | Job | ScrapeGraph | Ce qui le fait vraiment |
+| --- | --- | --- | --- |
+| 1. Comptes | Trouver des boîtes qui matchent un ICP | `search` + `extract` sur le site | Clay, Apollo, bases SIRENE / Pappers |
+| 2. Personnes | Le bon siège, pas la page « équipe » | Noms **s’ils sont sur le site**. Pas LinkedIn. Pas un graphe. | LinkedIn Sales Nav, PhantomBuster, Clay |
+| 3. Coordonnées | Un mail qui arrive | Pas une base. Pas de waterfall. Un `contact@` n’est pas un DAF. | Dropcontact, Hunter, Apollo, Kaspr |
+| 4. Envoi | Séquence, warmup, domaine | Rien | Instantly, Lemlist, Smartlead |
+| 5. Suite | Réponse, relance, CRM, RDV | Rien | Inbox + humain (ou un vrai sequencer) |
+
+Mettre « ScrapeGraph + un prompt + Make » n’est pas du SDR. C’est une liste de pages, avec des champs parfois hallucinés (l’extract LLM invente un rôle s’il n’est pas sûr). Pas d’e-mail vérifié. Pas de deliverability. LinkedIn : leur propre cookbook le cite ; ToS + RGPD, la charge est **sur nous**, pas sur eux. Ils n’ont pas de fichier contacts. [Jay Mount — GTM atlas](https://jaymountconsulting.com/data-sources/scrapegraphai).
+
+La note consultant de juin 2025 disait déjà la stack complète : Clay / PhantomBuster / Perplexity → Airtable → Relay pour le mail. ScrapeGraph **remplace Perplexity-sur-le-site**, pas Clay, pas Phantom, pas le sequencer. [Notion — automatiser l’activité](https://app.notion.com/p/20c97d1a0fc480979044d15ced455257).
+
+**Simple Sales / le cabinet**, si on rouvre l’acquisition : oui, on *peut* brancher `extract` comme lecture de site dans un waterfall. Ce n’est pas « mettre ScrapeGraph et le SDR tourne ». C’est reconstruire le produit que Clay vend.
+
+**3xrep :** non. L’acquisition figée = Google sur le cas, le mail **est** le cas. Pas 150 prospects / semaine. Pas un Calendly. Le kill switch = 20, semaine 2. Empiler un SDR à côté, c’est le deuxième produit mort. [cadrage.md](cadrage.md). [recherche.md](recherche.md) §6–7.
+
+## Ce que ça ne doit pas faire (3xrep)
+
+Le marketing ScrapeGraph vend du **lead gen**, du LinkedIn, des contacts. Couche 1, ci-dessus. **Pas le jeu.** [cadrage.md](cadrage.md). [recherche.md](recherche.md).
 
 | Tentation | Pourquoi non |
 | --- | --- |
@@ -89,7 +111,7 @@ Firecrawl (déjà vu dans Notion, 2025) est la même famille : page → markdown
 Hors ce git. Une ligne pour ne pas mélanger.
 
 - **jesaisfaire** : un extract sur une offre d’emploi / page carrière → QCM métier, éventuellement. Autre produit, autre test.
-- **Simple Sales** : search + extract = enrichissement de comptes. C’est Clay. On l’a déjà écarté comme modèle de 3xrep.
+- **Simple Sales** : `extract` = lecture de site dans un waterfall. Le SDR complet, c’est la section du dessus. Pas 3xrep.
 
 Si on ouvre ScrapeGraph, le compte et la clé restent **usine 3xrep**. Pas un outil commercial partagé.
 
