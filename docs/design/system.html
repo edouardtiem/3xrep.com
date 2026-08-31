@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3xrep — système</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: var(--lh);
+      }
+      a {
+        color: var(--fg);
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 1px solid var(--fg);
+        outline-offset: 3px;
+      }
+      .wrap {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 5rem;
+      }
+      .kicker {
+        color: var(--mute);
+        font-size: var(--fs-xs);
+        font-weight: 500;
+      }
+      h1 {
+        font-size: 1.65rem;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        margin: 0.3rem 0 0.7rem;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .theme {
+        border: 1px solid var(--line);
+        background: var(--bg-raise);
+        color: var(--fg);
+        border-radius: 99px;
+        padding: 0.25rem 0.7rem;
+        font: inherit;
+        font-size: var(--fs-xs);
+        cursor: pointer;
+      }
+      h2 {
+        font-size: var(--fs-xs);
+        font-weight: 600;
+        color: var(--mute);
+        margin: 2.5rem 0 0.8rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+      }
+      p.lead {
+        color: var(--mute);
+        margin: 0;
+        max-width: 34rem;
+      }
+      .links {
+        display: flex;
+        gap: 1.1rem;
+        margin-top: 1.1rem;
+        font-size: var(--fs-sm);
+      }
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+      }
+      .swatch {
+        border: 1px solid var(--line);
+        border-radius: var(--rad-sm);
+        overflow: hidden;
+        background: var(--bg-raise);
+      }
+      .swatch i {
+        display: block;
+        height: 2.8rem;
+      }
+      .swatch b,
+      .swatch span {
+        display: block;
+        padding: 0.35rem 0.5rem 0;
+        font-size: 0.65rem;
+        color: var(--mute);
+      }
+      .swatch b {
+        color: var(--fg);
+        font-weight: 500;
+      }
+      .swatch span {
+        padding-bottom: 0.45rem;
+      }
+      .panel {
+        background: var(--bg-raise);
+        border: 1px solid var(--line);
+        border-radius: var(--rad);
+        padding: 0.85rem 1rem;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--sure-bg);
+        color: var(--sure-fg);
+        border-radius: 99px;
+        padding: 0.2rem 0.55rem 0.2rem 0.4rem;
+        font-size: var(--fs-xs);
+        font-weight: 500;
+      }
+      .chip i {
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 99px;
+        background: var(--sure);
+      }
+      .attr {
+        display: grid;
+        grid-template-columns: 5.6rem 1fr;
+        gap: 0.5rem;
+        padding: 0.4rem 0;
+        font-size: var(--fs-sm);
+        border-bottom: 1px solid var(--line);
+      }
+      .attr:last-child {
+        border: 0;
+      }
+      .attr dt {
+        margin: 0;
+        color: var(--dim);
+      }
+      .attr dd {
+        margin: 0;
+      }
+      .av {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 99px;
+        display: inline-grid;
+        place-items: center;
+        font-size: 0.6rem;
+        font-weight: 600;
+        background: var(--avatar-julien);
+        color: #c9d6e8;
+        vertical-align: middle;
+        margin-right: 0.35rem;
+      }
+      .item {
+        display: flex;
+        gap: 0.6rem;
+        font-size: var(--fs-sm);
+      }
+      .item p {
+        margin: 0.15rem 0 0;
+        color: var(--mute);
+      }
+      .dock {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--rad);
+      }
+      .mic {
+        width: 2rem;
+        height: 2rem;
+        border: 0;
+        border-radius: 99px;
+        background: var(--bg-hover);
+        color: var(--copper);
+      }
+      textarea {
+        border: 0;
+        background: transparent;
+        color: var(--fg);
+        min-height: 3rem;
+        resize: none;
+        font: inherit;
+      }
+      .timer {
+        font-family: var(--mono);
+        font-size: var(--fs-clock);
+        font-weight: 500;
+        color: var(--copper);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .dont {
+        color: var(--mute);
+        font-size: var(--fs-sm);
+        margin: 0.4rem 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <p class="kicker">3xrep · système</p>
+          <h1>Fiche record, pas un dashboard.</h1>
+        </div>
+        <button type="button" class="theme" id="theme">clair</button>
+      </div>
+      <p class="lead">
+        Layout Attio : rail, activité, attributs à droite. Vert = étape du CRM. Cuivre = chrono. Pas de charts, pas de
+        Home / Tasks.
+      </p>
+      <p class="links">
+        <a href="cas.html">Ouvrir le cas</a>
+        <a href="system.md">Spec</a>
+      </p>
+
+      <h2>Couleur</h2>
+      <div class="swatches">
+        <div class="swatch"><i style="background: #0e0e10"></i><b>bg</b><span>#0e0e10</span></div>
+        <div class="swatch"><i style="background: #161618"></i><b>raise</b><span>#161618</span></div>
+        <div class="swatch"><i style="background: #1c1c1f"></i><b>soft</b><span>#1c1c1f</span></div>
+        <div class="swatch"><i style="background: #f2f2f3"></i><b>fg</b><span>#f2f2f3</span></div>
+        <div class="swatch"><i style="background: #9b9ba3"></i><b>mute</b><span>#9b9ba3</span></div>
+        <div class="swatch"><i style="background: #2a2a2e"></i><b>line</b><span>#2a2a2e</span></div>
+        <div class="swatch"><i style="background: #3d9a6e"></i><b>sure</b><span>étape</span></div>
+        <div class="swatch"><i style="background: #c49262"></i><b>copper</b><span>chrono</span></div>
+      </div>
+
+      <h2>Type</h2>
+      <p>Inter partout. IBM Plex Mono = chrono seulement.</p>
+
+      <h2>Étape</h2>
+      <div class="panel">
+        <span class="chip"><i></i> Négociation · 70 %</span>
+        <p class="dont">Point coloré + pill. Pas un stepper. Pas une note.</p>
+      </div>
+
+      <h2>Attribut</h2>
+      <div class="panel">
+        <dl>
+          <div class="attr"><dt>Compte</dt><dd>Acme</dd></div>
+          <div class="attr"><dt>Étape</dt><dd>Négociation</dd></div>
+          <div class="attr"><dt>Montant</dt><dd>48 000 €</dd></div>
+        </dl>
+      </div>
+
+      <h2>Activité</h2>
+      <div class="panel">
+        <div class="item">
+          <span class="av">JM</span>
+          <div>
+            <strong>Julien Morel</strong> · Call · 28 min
+            <p>« On avance si ça passe. Le budget, on verra en interne. »</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Prise</h2>
+      <p class="timer">14:22</p>
+      <div class="dock">
+        <button type="button" class="mic" aria-label="Parler">●</button>
+        <textarea placeholder="Ce que tu vois dans le dossier."></textarea>
+      </div>
+      <p class="dont">Composer Attio : champ dans la colonne activité, coins 10px, pas le mot AI.</p>
+
+      <h2>Interdit</h2>
+      <p class="dont">
+        Charts, kanban, sidebar Home / Tasks / Reports, bouton bleu Add, chatbot, Ask AI, spoiler DAF / MEDDIC, score.
+      </p>
+    </div>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById("theme");
+        var saved = localStorage.getItem("3xrep-theme");
+        var theme = saved === "light" || saved === "dark" ? saved : "dark";
+        function apply(next) {
+          theme = next;
+          root.setAttribute("data-theme", next);
+          btn.textContent = next === "dark" ? "clair" : "sombre";
+          localStorage.setItem("3xrep-theme", next);
+        }
+        apply(theme);
+        btn.addEventListener("click", function () {
+          apply(theme === "dark" ? "light" : "dark");
+        });
+      })();
+    </script>
+  </body>
+</html>

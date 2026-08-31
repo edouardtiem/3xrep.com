@@ -112,7 +112,7 @@ On vole le **craft**, pas le métier.
 - Danger : bento, charts, pipeline. C’est un HubSpot mieux dessiné.
 
 **Voler :** calme, contraste, type.  
-**Pas voler :** le CRM. 3xrep n’est pas Attio.
+**Pas voler :** le produit CRM (kanban, charts, sidebar). La **fiche** d’un deal, elle, est le terrain : [system.md](design/system.md).
 
 ### Autres (liste, pas de capture)
 
@@ -151,9 +151,9 @@ Les trois : **même cas** (`titre_joueur` = Call Acme — Julien, ops). HUD sans
 
 Pourquoi Surface se lit : un call, un tableau. Console = le même en buffer. 1.1 = le même + choisir un deal + nommer le trou après.
 
-## Ouvert — après les DA (30 août 2026, soir)
+## Ouvert — après les DA (30–31 août 2026)
 
-On quitte l’écran. Réflexions : [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md).
+Système tenu : [design/system.md](design/system.md). Terrain = fiche CRM (compte, opp + étape, contact, activité, prise). Mockup [cas.html](design/cas.html). Surface reste la DA tableau.
 
-L’infini d’une conv ne se met pas dans un chat. QCM « qu’est-ce qui manque » non plus. Piste : le cas comme un **CRM** (ça a l’air plein) ; le joueur à la place du **DC** ; après un résumé, **challenge d’étage** (même phrase, qui / douleur / budget un cran au-dessus). Pas figé. Pas le job des pages `/da/*`.
+L’infini d’une conv ne se met pas dans un chat. QCM « qu’est-ce qui manque » non plus.
 

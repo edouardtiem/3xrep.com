@@ -21,7 +21,7 @@ Le marché dit « parcours » pour un cours. 3xrep reprend le mot. L’objet n�
 | Mot | C’est | Ce n’est pas |
 | --- | --- | --- |
 | **Parcours** | Famille nommée de deals autour d’**une** situation déjà mal partie. Unité du catalogue. `nom_auteur` ≠ `nom_joueur`. | Un cours. Un module. Un spoiler affiché beat 1. |
-| **Cas** | Un deal jouable. ~15 min. Unité de jeu. Trois titres (joueur / google / sortie). | Le parcours. La théorie. Le nom du piège à l’entrée. |
+| **Cas** | Un deal jouable. ~15 min. Dossier **solide à l’œil**, plusieurs trous dedans. Trois titres (joueur / google / sortie). | Le parcours. La théorie. Le nom du piège à l’entrée. Un QCM à N trous. |
 | **Quête** | La forme A+B. Les beats. Même moule pour tous les cas. | Un chapitre. Un format CYOA. Un meeting. |
 | **Réussite** | Échelle de **sortie** du cas, déclarée par le parcours. Trou nommé. | Un score. De l’XP. Une difficulté. |
 | **Difficulté** | Réglage **dans** un parcours (point 2). Combien c’est caché, politique, tard. | Un parcours à part. Une sortie. |

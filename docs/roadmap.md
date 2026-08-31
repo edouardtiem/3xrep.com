@@ -30,6 +30,8 @@ Réussite ≠ difficulté. Réussite = comment tu sors. Difficulté = comment le
 
 L’IA qui multiplie les **cas** pour chaque difficulté d’un parcours. Point 3. Ne crée pas un parcours. Sans les fichiers méthode, elle invente. Couche graine (pages publiques → JSON, puis fiction) : [scrapegraph.md](scrapegraph.md). Pas dans le jeu.
 
+Cadence (Édouard, 31 août) : le **premier** cas se travaille longtemps (dossier solide, **plusieurs** trous, [jeu.md](jeu.md) §0). Le deuxième moins. Après, on en crée plus vite — ensemble, puis générateur. Pas « des cas faciles ».
+
 ### 4. Fichiers méthode
 
 Le modèle est là : [methodes/_modele.md](methodes/_modele.md). **MEDDIC n’est pas écrit.** Ni BANT, ni BEBEDC, etc.
@@ -46,8 +48,38 @@ C’est la **première pièce coulée**, pour voir si le moule tient. 20 commerc
 
 - Une quête A+B, `debut` = découverte. Zéro compte, zéro paywall.
 - Sortie = échelle de réussite + trou nommé **avec la méthode**.
-- **Design** : écran du terrain (Next.js, Tailwind, shadcn). Pas v0 / Grok Build. DA en test : `/da/surface` (celle qui se lit). Mécanique ouverte (CRM, place du DC, challenge d’étage) : [sessions/2026-08-30-7.md](sessions/2026-08-30-7.md). Pas figé.
+- **Design** : système figé — [design/system.md](design/system.md). HTML : [cas.html](design/cas.html). L’app Next.js porte ça. DA `/da/surface` = mémoire. Geste : [debrief.md](debrief.md). Jeu : [jeu.md](jeu.md).
 - **Landing** : le cas est l’accroche. Un clic → on joue. Pas un Calendly.
+
+## À faire — prochaine étape (app)
+
+Le HTML n’est pas le produit. On **code l’app** (Next.js, Tailwind, shadcn) à partir de [design/system.md](design/system.md).
+
+**Écart au cadrage / reco** : le test 1 disait zéro auth, zéro DB. Ici (31 août, soir) : **Supabase** + pages après le cas. Le kill switch (20, semaine 2) ne bouge pas. On n’invente pas Stripe / équipes / prix.
+
+### Pages (design system → App Router)
+
+Pas encore dessinées. Même tokens, même fiche Attio.
+
+| Surface | Job | Quand |
+| --- | --- | --- |
+| **Cas** | Porter [cas.html](design/cas.html) : fiche, activité, prise, chrono manuel, dark/light | D’abord |
+| **Sortie** | Trou(s) nommé(s) + méthode + échelle. Pont vers le prochain cas | Juste après le cas — le geste n’existe pas sans |
+| **Dashboard** | Ce que tu ouvres en revenant : tes lectures, le prochain cas. Pas un LMS, pas un rang | Après une prise |
+| **Page publique** | `3xrep.com/<pseudo>` — [ranking.md](ranking.md). Lien à envoyer. Étoile = rejouer | Après le test, ou dès qu’il y a un pseudo |
+| **Prochain cas** | Geste, pas une vitrine : sur la sortie **et** le dashboard. Même type d’erreur, autre peau | Semaine 2 |
+
+Entrée : mail / Google = le cas, un clic. Le dashboard n’est pas la landing.
+
+Plus tard (pas ces pages) : équipe vendredi (bloc dashboard), login le jour du pseudo, pSEO méthodes, Place.
+
+### Supabase
+
+Connecter un projet. Sert les prises, les lectures, plus tard le pseudo / la page. Pas un CRM 3xrep. Pas un LMS.
+
+### Usine à cas
+
+[Générateur](#3-générateur) + premier cas **Call avec l’ops** (dossier solide, plusieurs trous) + fichiers méthode du rattachement (MEDDIC, BANT, BEBEDC… encore vides). Cadence : le 1 long, le 2 moins, ensuite plus vite.
 
 ## Hors roadmap (mémoire seulement)
 
@@ -57,7 +89,7 @@ Prix 3 € / 19 €, invitations, équipes, C (vacation), **autres étapes du cy
 
 D’abord : les sales. Les faire jouer. Kill switch inchangé (20, semaine 2).
 
-Après, si oui : artefact portable (replay / gist, pas un feed). Pas un LinkedIn. Pas de social.
+Après, si oui : artefact portable (replay / gist, pas un feed). Pas un LinkedIn. Pas de social. Page `3xrep.com/<pseudo>` : [ranking.md](ranking.md) — page ≠ tableau, étoile = rejouer, challenge = semaine. Pas le test.
 
 Place possible : évaluer **les deux** côtés — le sales (dossier, trou nommé) **et** l’employeur (mêmes cases, de l’autre côté : territoire, ramp, buyer économique, forecast). Pas Glassdoor. Le vide nommé. Matching = superposition de deux dossiers, pas un score. L’employeur est un deuxième joueur, pas un client L&D.
 

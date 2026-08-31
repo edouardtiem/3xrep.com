@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Call Acme — Julien, ops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: var(--lh);
+      }
+      body {
+        display: grid;
+        grid-template-columns: var(--rail) 1fr var(--aside);
+        grid-template-rows: 1fr;
+        height: 100dvh;
+      }
+      button,
+      textarea {
+        font: inherit;
+      }
+      button:focus-visible,
+      textarea:focus-visible,
+      a:focus-visible {
+        outline: 1px solid var(--fg);
+        outline-offset: 2px;
+      }
+      a {
+        color: var(--mute);
+        text-decoration: none;
+      }
+
+      .rail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 0;
+        border-right: 1px solid var(--line);
+        background: var(--bg);
+      }
+      .mark {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: var(--rad-sm);
+        background: var(--bg-soft);
+        color: var(--fg);
+        display: grid;
+        place-items: center;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+
+      .main {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-width: 0;
+        background: var(--bg-raise);
+        border-radius: var(--rad) 0 0 var(--rad);
+        margin: 0.5rem 0 0.5rem 0.5rem;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-right: 0;
+      }
+
+      .record {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.15rem 0.85rem;
+        border-bottom: 1px solid var(--line);
+      }
+      .av {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 99px;
+        display: grid;
+        place-items: center;
+        font-size: var(--fs-2xs);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .av.acme {
+        background: var(--avatar-acme);
+        color: var(--avatar-acme-fg);
+      }
+      .av.jm {
+        background: var(--avatar-julien);
+        color: var(--avatar-julien-fg);
+      }
+      .av.you {
+        background: var(--avatar-you);
+        color: var(--avatar-you-fg);
+      }
+      .av.sm {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.6rem;
+      }
+      .record h1 {
+        margin: 0;
+        font-size: var(--fs-lg);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+      }
+      .record-sub {
+        margin: 0.2rem 0 0;
+        color: var(--mute);
+        font-size: var(--fs-xs);
+      }
+      .record-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.3rem;
+        min-width: 6.5rem;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--sure-bg);
+        color: var(--sure-fg);
+        border-radius: 99px;
+        padding: 0.2rem 0.55rem 0.2rem 0.4rem;
+        font-size: var(--fs-xs);
+        font-weight: 500;
+      }
+      .chip i {
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 99px;
+        background: var(--sure);
+      }
+      .timer {
+        font-family: var(--mono);
+        font-size: var(--fs-clock);
+        font-weight: 500;
+        color: var(--copper);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .timer.is-idle {
+        opacity: 0.45;
+      }
+      .timer.is-late {
+        color: var(--danger);
+        opacity: 1;
+      }
+      .start {
+        border: 1px solid var(--line);
+        background: var(--bg-soft);
+        color: var(--fg);
+        border-radius: 99px;
+        padding: 0.22rem 0.65rem;
+        font-size: var(--fs-xs);
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .start:hover {
+        background: var(--bg-hover);
+      }
+      .theme {
+        margin-top: auto;
+        margin-bottom: 0.65rem;
+        border: 0;
+        background: transparent;
+        color: var(--mute);
+        font-size: var(--fs-2xs);
+        cursor: pointer;
+        padding: 0.35rem;
+      }
+      .theme:hover {
+        color: var(--fg);
+      }
+
+      .feed {
+        overflow: auto;
+        padding: 0.35rem 1.15rem 0.5rem;
+      }
+      .item {
+        display: grid;
+        grid-template-columns: 1.5rem 1fr;
+        gap: 0.65rem;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .item:last-child {
+        border-bottom: 0;
+      }
+      .item-hd {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: baseline;
+      }
+      .who {
+        font-weight: 500;
+        font-size: var(--fs-sm);
+      }
+      .when {
+        color: var(--dim);
+        font-size: var(--fs-2xs);
+        white-space: nowrap;
+      }
+      .kind {
+        color: var(--mute);
+        font-size: var(--fs-xs);
+        font-weight: 400;
+      }
+      .item h3 {
+        margin: 0.15rem 0 0;
+        font-size: var(--fs-sm);
+        font-weight: 500;
+      }
+      .item .body {
+        margin: 0.25rem 0 0;
+        color: var(--mute);
+        font-size: var(--fs-sm);
+      }
+      .tr {
+        margin: 0.55rem 0 0;
+        padding: 0.55rem 0.7rem;
+        background: var(--bg-soft);
+        border-radius: var(--rad-sm);
+        font-size: var(--fs-xs);
+        color: var(--mute);
+      }
+      .tr p {
+        margin: 0 0 0.35rem;
+      }
+      .tr p:last-child {
+        margin: 0;
+      }
+      .tr b {
+        color: var(--fg);
+        font-weight: 500;
+      }
+
+      .dock {
+        margin: 0 1.15rem 0.85rem;
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        gap: 0.5rem;
+        align-items: end;
+        padding: 0.55rem 0.65rem;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--rad);
+      }
+      .mic {
+        width: 2rem;
+        height: 2rem;
+        border: 0;
+        background: var(--bg-hover);
+        color: var(--copper);
+        border-radius: 99px;
+        cursor: pointer;
+      }
+      .mic[aria-pressed="true"] {
+        background: var(--sure-bg);
+      }
+      textarea {
+        width: 100%;
+        min-height: 3.4rem;
+        resize: none;
+        border: 0;
+        background: transparent;
+        color: var(--fg);
+        padding: 0.4rem 0.15rem 0.2rem;
+        font-size: var(--fs-sm);
+      }
+      textarea::placeholder {
+        color: var(--dim);
+      }
+
+      .aside {
+        background: var(--bg-raise);
+        border: 1px solid var(--line);
+        border-radius: 0 var(--rad) var(--rad) 0;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+        overflow: auto;
+        padding: 0.85rem 0 1rem;
+      }
+      .aside h2 {
+        margin: 0;
+        padding: 0.7rem 1rem 0.35rem;
+        font-size: var(--fs-2xs);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+      .attr {
+        display: grid;
+        grid-template-columns: 5.6rem 1fr;
+        gap: 0.5rem;
+        padding: 0.38rem 1rem;
+        font-size: var(--fs-sm);
+      }
+      .attr:hover {
+        background: var(--bg-hover);
+      }
+      .attr dt {
+        margin: 0;
+        color: var(--dim);
+      }
+      .attr dd {
+        margin: 0;
+        color: var(--fg);
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .aside .chip {
+        font-size: 0.7rem;
+        padding: 0.08rem 0.4rem 0.08rem 0.3rem;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+          height: auto;
+          min-height: 100dvh;
+        }
+        .rail {
+          display: none;
+        }
+        .main {
+          margin: 0;
+          border: 0;
+          border-radius: 0;
+        }
+        .aside {
+          margin: 0;
+          border: 0;
+          border-top: 1px solid var(--line);
+          border-radius: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="rail" aria-label="3xrep">
+      <a class="mark" href="system.html" title="Système">3×</a>
+      <button type="button" class="theme" id="theme" aria-label="Thème">clair</button>
+    </nav>
+
+    <div class="main">
+      <header class="record">
+        <span class="av acme" aria-hidden="true">A</span>
+        <div>
+          <h1>Call Acme — Julien, ops</h1>
+          <p class="record-sub">Acme · Pilot ops — ligne de prod</p>
+        </div>
+        <div class="record-right">
+          <span class="chip"><i></i> Négociation · 70 %</span>
+          <div class="clock">
+            <p class="timer is-idle" id="timer" aria-live="polite">15:00</p>
+            <button type="button" class="start" id="start">Démarrer</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="feed" aria-label="Activité">
+        <article class="item">
+          <span class="av sm jm" aria-hidden="true">JM</span>
+          <div>
+            <div class="item-hd">
+              <span class="who">Julien Morel <span class="kind">· Call · 28 min</span></span>
+              <span class="when">12 mars</span>
+            </div>
+            <h3>Découverte — atelier 2</h3>
+            <p class="body">
+              Julien confirme le pilote. Deux jours perdus / semaine. Il se propose comme relais. « On avance si ça
+              passe. Le budget, on verra en interne. »
+            </p>
+            <div class="tr">
+              <p><b>04:12 · Toi</b> — Qui tranche à la fin, chez vous ?</p>
+              <p><b>04:19 · Julien</b> — On décide en interne. Moi je porte le sujet ops.</p>
+              <p><b>11:40 · Julien</b> — Si le pilote passe, on ouvre. Pas de budget dédié cette année, on verra.</p>
+              <p><b>22:03 · Toi</b> — Tu peux me présenter la personne qui signe ?</p>
+              <p><b>22:10 · Julien</b> — Plus tard. D’abord le pilote. Je gère.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="item">
+          <span class="av sm jm" aria-hidden="true">JM</span>
+          <div>
+            <div class="item-hd">
+              <span class="who">Julien Morel <span class="kind">· Mail</span></span>
+              <span class="when">10 mars</span>
+            </div>
+            <h3>Re: suite call — pilote Acme</h3>
+            <p class="body">
+              Ok pour le 12. J’ai briefé l’équipe. Pas de budget cette année, on verra Q1 si le test est propre. Tu peux
+              m’envoyer la reco en amont, je la fais tourner.
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <span class="av sm you" aria-hidden="true">TO</span>
+          <div>
+            <div class="item-hd">
+              <span class="who">Toi <span class="kind">· Note</span></span>
+              <span class="when">8 mars</span>
+            </div>
+            <h3>Qualification</h3>
+            <p class="body">
+              Champion : Julien. Next step : reco + pilote. Probabilité passée à 70 %. Décideur : Julien (ops).
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <span class="av sm you" aria-hidden="true">TO</span>
+          <div>
+            <div class="item-hd">
+              <span class="who">Toi <span class="kind">· Mail</span></span>
+              <span class="when">3 mars</span>
+            </div>
+            <h3>Proposition d’un créneau découverte</h3>
+            <p class="body">
+              Suite à ton inbound. 30 min pour cadrer l’atelier 2 et les gens à embarquer. Dispo jeudi 10h ?
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <form class="dock" aria-label="Ton retour">
+        <button type="button" class="mic" id="mic" aria-pressed="false" aria-label="Parler">●</button>
+        <label for="take" class="sr" style="position: absolute; width: 1px; height: 1px; overflow: hidden">Ton retour</label>
+        <textarea id="take" placeholder="Ce que tu vois dans le dossier."></textarea>
+      </form>
+    </div>
+
+    <aside class="aside" aria-label="Fiche">
+      <h2>Compte</h2>
+      <dl>
+        <div class="attr"><dt>Nom</dt><dd>Acme</dd></div>
+        <div class="attr"><dt>Secteur</dt><dd>Industrie</dd></div>
+        <div class="attr"><dt>Ville</dt><dd>Lyon</dd></div>
+        <div class="attr"><dt>Taille</dt><dd>180 pers.</dd></div>
+      </dl>
+      <h2>Opportunité</h2>
+      <dl>
+        <div class="attr"><dt>Nom</dt><dd>Pilot ops — ligne de prod</dd></div>
+        <div class="attr">
+          <dt>Étape</dt>
+          <dd><span class="chip"><i></i> Négociation</span></dd>
+        </div>
+        <div class="attr"><dt>Proba</dt><dd>70 %</dd></div>
+        <div class="attr"><dt>Montant</dt><dd>48 000 €</dd></div>
+        <div class="attr"><dt>Close</dt><dd>30 sept</dd></div>
+        <div class="attr"><dt>Owner</dt><dd>Toi</dd></div>
+      </dl>
+      <h2>Contact</h2>
+      <dl>
+        <div class="attr"><dt>Nom</dt><dd>Julien Morel</dd></div>
+        <div class="attr"><dt>Rôle</dt><dd>Directeur ops</dd></div>
+        <div class="attr"><dt>Mail</dt><dd>julien.morel@acme.fr</dd></div>
+        <div class="attr"><dt>Tél</dt><dd>06 18 44 02 11</dd></div>
+      </dl>
+    </aside>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var themeBtn = document.getElementById("theme");
+        var saved = localStorage.getItem("3xrep-theme");
+        var theme = saved === "light" || saved === "dark" ? saved : "dark";
+        function applyTheme(next) {
+          theme = next;
+          root.setAttribute("data-theme", next);
+          themeBtn.textContent = next === "dark" ? "clair" : "sombre";
+          localStorage.setItem("3xrep-theme", next);
+        }
+        applyTheme(theme);
+        themeBtn.addEventListener("click", function () {
+          applyTheme(theme === "dark" ? "light" : "dark");
+        });
+
+        var el = document.getElementById("timer");
+        var start = document.getElementById("start");
+        var left = 15 * 60;
+        var running = false;
+        function pad(n) {
+          return n < 10 ? "0" + n : String(n);
+        }
+        function paint() {
+          var m = Math.floor(Math.max(left, 0) / 60);
+          var s = Math.max(left, 0) % 60;
+          el.textContent = pad(m) + ":" + pad(s);
+          el.classList.toggle("is-late", running && left <= 60);
+        }
+        paint();
+        start.addEventListener("click", function () {
+          if (running) return;
+          running = true;
+          el.classList.remove("is-idle");
+          start.hidden = true;
+          var id = setInterval(function () {
+            left -= 1;
+            paint();
+            if (left <= 0) clearInterval(id);
+          }, 1000);
+        });
+
+        var mic = document.getElementById("mic");
+        mic.addEventListener("click", function () {
+          var on = mic.getAttribute("aria-pressed") === "true";
+          mic.setAttribute("aria-pressed", on ? "false" : "true");
+        });
+      })();
+    </script>
+  </body>
+</html>

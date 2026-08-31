@@ -144,3 +144,7 @@ Le joueur ne subit pas BANT en leçon. Il sent la case. À la sortie, il peut di
 C (vacation) : autre parcours, plus tard.  
 Prix, équipes, auth, Stripe : [reco.md](reco.md), mémoire seulement.  
 Ce run : ce texte. Pas d’écran.
+
+## Piste ouverte (ne remplace pas ce fichier)
+
+[debrief.md](debrief.md) tient un geste **dossier déjà là + retour 4 min**. Ça commence parfois après le non. Le cadrage et ce déroulement gagnent tant qu’on n’amende pas. Nommé, pas fusionné.
