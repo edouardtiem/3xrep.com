@@ -28,7 +28,7 @@ Réussite ≠ difficulté. Réussite = comment tu sors. Difficulté = comment le
 
 ### 3. Générateur
 
-L’IA qui multiplie les **cas** pour chaque difficulté d’un parcours. Point 3. Ne crée pas un parcours. Sans les fichiers méthode, elle invente.
+L’IA qui multiplie les **cas** pour chaque difficulté d’un parcours. Point 3. Ne crée pas un parcours. Sans les fichiers méthode, elle invente. Couche graine (pages publiques → JSON, puis fiction) : [scrapegraph.md](scrapegraph.md). Pas dans le jeu.
 
 ### 4. Fichiers méthode
 
