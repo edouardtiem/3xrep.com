@@ -1,21 +1,19 @@
 # 3xrep
 
-Terrain d’entraînement à la vente B2B. Domaine : [3xrep.com](https://3xrep.com).
+Ils créent leur agent commercial. On est le cerveau : méthode versionnée, sur ce qui est déjà dans le CRM. 99 € / mois / organisation. Pas un Gong. Pas un cours. Pas un jeu.
 
-Ce n’est pas un cours qu’on ferme. Les cas changent. On joue, avec des copains, avec des collègues. Pas de meeting dans le produit. Pas de CPF.
+Domaine : [3xrep.com](https://3xrep.com).
 
-Le premier test : un parcours gratis, vingt commerciaux. Semaine 2, elles reviennent toutes seules. Oui = produit. Non = on arrête, [jesaisfaire](https://jesaisfaire.com) reste.
+## Docs
 
-## Ce dépôt
+Lire dans cet ordre.
 
-Cadrage et recherche déjà tranchés. Rien d’écran dans ce run.
+- [docs/prd.md](docs/prd.md) — produit, prix, tools, test
+- [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM
+- [docs/icp.md](docs/icp.md) — qui + posture
+- [docs/sortie.md](docs/sortie.md) — ce que l’AE lit après le call
+- [docs/methodes.md](docs/methodes.md) — lexique, rattachement
 
-- [docs/cadrage.md](docs/cadrage.md) — ce que c’est, ce que ce n’est pas
-- [docs/recherche.md](docs/recherche.md) — marché, formats rejetés, pourquoi A+B
-- [docs/reco.md](docs/reco.md) — reco figée (format, stack plus tard, prix en mémoire)
-- [docs/deroulement.md](docs/deroulement.md) — le ressenti ~15 min (début = découverte avec l’ops, pas le non)
-- [docs/roadmap.md](docs/roadmap.md) — usine : moule fait ; inventaire, difficulté, générateur, méthodes, cas jouable
-- [docs/template-parcours.md](docs/template-parcours.md) — qu’est-ce qu’un parcours (template, point 1)
-- [docs/methodes.md](docs/methodes.md) — lexique, rattachement, fichiers par méthode
+Le terrain d’entraînement (30 août) est arrêté comme produit. Archive : [docs/terrain/](docs/terrain/).
 
-Sales Game est mort. Ce git est le git 3xrep.
+Sales Game est mort. jesaisfaire est un autre git. Ce git est le git 3xrep.

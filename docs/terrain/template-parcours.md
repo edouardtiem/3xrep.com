@@ -129,7 +129,7 @@ Chaque parcours, dans le template, porte au minimum :
 | `cycles` | Court, long, ou les deux. Voir [cycle court / long](#cycle-court--cycle-long). | `court`, `long` |
 | `cases` | Les cases du dossier qui **existent** (pas celles qui sont remplies) | Buyer économique, process de décision, champion vs coach, métrique, critère, douleur |
 | `reussites` | Échelle de sortie, du mieux au pire. Pas un score. | Voir le DAF → l’inclure sans le voir → ne pas l’inclure (il dit non) |
-| `lexique` | Méthodes que ce parcours a le droit de rattacher | [methodes.md](methodes.md) — au moins EB / Authority / Décideurs, coût de l’inaction, CRAC |
+| `lexique` | Méthodes que ce parcours a le droit de rattacher | [methodes.md](../methodes.md) — au moins EB / Authority / Décideurs, coût de l’inaction, CRAC |
 | `quete` | Forme de jeu | A+B seulement. Beats : [deroulement.md](deroulement.md) |
 | `cadre` | Point 4 | *pas ce run* |
 | `difficultes` | Point 2 | *pas ce run* |
@@ -183,7 +183,7 @@ Un parcours déclare `cycles` : `court`, `long`, ou les deux. `decouverte` (test
 
 Liste ouverte : un cycle maison (PME, enterprise, inbound) n’est qu’un **sous-ensemble ordonné** de ces étapes. On n’invente pas une étape « module 4 ». On n’oblige personne à jouer la démo s’il n’y en a pas.
 
-Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](methodes.md). Sans rattachement, ça ne part pas.
+Le graphe JSON + graines ([reco.md](reco.md)) vit au niveau du **cas**. Chaque mini-situation du graphe **rattache** à une méthode ou une partie : [methodes.md](../methodes.md). Sans rattachement, ça ne part pas.
 
 Un cas déclare aussi trois titres :
 
@@ -230,7 +230,7 @@ Gagné / perdu binaire ne suffit pas ici. « Inclure sans voir » n’est pas un
 | --- | --- | --- |
 | 2 | Difficulté | Réglage **dans** le parcours (l’ops cache, le process est politique, tu arrives tard). Pas l’échelle de réussite. Pas un parcours nouveau. |
 | 3 | IA | Multiplie les **cas** d’une difficulté. Ne crée pas un parcours. |
-| 4 | Cadre théorique | Fichiers `docs/methodes/<slug>.md`. Pourquoi / psy / humain / prod. Le joueur le rencontre au trou nommé. [_modele.md](methodes/_modele.md). |
+| 4 | Cadre théorique | Fichiers `docs/methodes/<slug>.md`. Pourquoi / psy / humain / prod. Le joueur le rencontre au trou nommé. [_modele.md](../methodes/_modele.md). |
 | 5 | Outils | ChatGPT, Cowork, Grok Bot : **dossier**, pas bouche. Comment, **dans chaque fichier méthode** (lundi + CRM + outil). |
 
 Si le point 4 devient un cours, ou le point 5 un meeting, on a cassé le cadrage. Si une mini-situation n’a pas de rattachement, la valeur n’est pas délivrée.

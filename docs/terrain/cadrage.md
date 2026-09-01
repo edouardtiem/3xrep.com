@@ -1,5 +1,7 @@
 # Cadrage — 3xrep
 
+> Terrain 30 août — **arrêté comme produit** le 1er septembre 2026. Gagnant : [../prd.md](../prd.md). Le trou et les méthodes restent. Archive : [README.md](README.md).
+
 Figé. 30 août 2026. Auteur : Édouard Tiem.
 
 ## Identité
@@ -56,9 +58,9 @@ Pas d’autre KPI pour décider. Pas de « elles ont bien noté ». Pas de « le
 - **À l’écran :** le deal (Acme, Julien, ops). **Interdit** en titre de cas : « Le DAF n’est pas là ». C’est le piège, on le découvre.
 - **« DAF dit non »** = `titre_google` (landing, mail) **et** une sortie si tu ne l’inclus pas. Pas le HUD.
 - Sortie : échelle de réussite (voir le DAF > l’inclure sans le voir > ne pas l’inclure). Trou nommé **avec la méthode** (ou la partie). Pas un scoreboard.
-- Lexique dans le jeu : BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Chaque mini-situation **rattache**. Pas un cours, pas un QCM. [methodes.md](methodes.md).
+- Lexique dans le jeu : BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC/CAB, CRAC/(A)CRAC, points brûlés, contreparties. Liste ouverte. Chaque mini-situation **rattache**. Pas un cours, pas un QCM. [methodes.md](../methodes.md).
 
-Détail du ressenti : [deroulement.md](deroulement.md). Objet parcours : [template-parcours.md](template-parcours.md). Méthodes : [methodes.md](methodes.md). Pourquoi ce format : [recherche.md](recherche.md). Reco complète : [reco.md](reco.md).
+Détail du ressenti : [deroulement.md](deroulement.md). Objet parcours : [template-parcours.md](template-parcours.md). Méthodes : [methodes.md](../methodes.md). Pourquoi ce format : [recherche.md](recherche.md). Reco complète : [reco.md](reco.md).
 
 ## Amendement — entrée (30 août 2026, Édouard)
 
@@ -66,7 +68,7 @@ Le premier parcours ne commence pas au non. On commence plus tôt : call de déc
 
 ## Amendement — méthodes (30 août 2026, Édouard)
 
-Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. **Écrit dans le dur** : un fichier par méthode (jeu + lundi + CRM + ChatGPT/Cowork/Grok). Pas un cours. Pas un QCM. [methodes.md](methodes.md).
+Le jeu inclut BANT, MEDDIC, MEDDPICC, BEBEDC, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties, coût de l’inaction, SONCAS(E) — liste ouverte. Pour que la valeur soit délivrée, chaque mini-situation se rattache à une méthode ou une partie. **Écrit dans le dur** : un fichier par méthode (jeu + lundi + CRM + ChatGPT/Cowork/Grok). Pas un cours. Pas un QCM. [methodes.md](../methodes.md).
 
 ## Amendement — cycle (30 août 2026, Édouard)
 

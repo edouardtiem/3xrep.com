@@ -1,12 +1,14 @@
 # Méthodes — rattachement
 
-La valeur n’est pas « avoir joué ». La valeur est : **pouvoir rattacher chaque mini-situation à une méthode, ou à une partie de méthode.**
+Cœur du pivot (1er sept) comme du terrain (30 août). Interface actuelle : l’agent appelle les tools, pas un jeu. [prd.md](prd.md).
 
-Ça ne fait pas un LMS. Pas de module MEDDIC. Pas de QCM « c’était quelle lettre ? ». [cadrage.md](cadrage.md). [recherche.md](recherche.md) §3.
+La valeur n’est pas « avoir joué ». La valeur est : **pouvoir rattacher chaque trou à une méthode, ou à une partie de méthode.**
 
-Le joueur **sent** la case vide dans le deal. Le produit **nomme** ensuite la méthode. S’il sent et qu’il ne peut pas rattacher, la valeur n’est pas délivrée. S’il rattache sans avoir senti, c’est un cours. Les deux échouent.
+Ça ne fait pas un LMS. Pas de module MEDDIC. Pas de QCM « c’était quelle lettre ? ». Terrain : [terrain/cadrage.md](terrain/cadrage.md). [terrain/recherche.md](terrain/recherche.md) §3.
 
-**Dans le dur :** une méthode = un fichier `docs/methodes/<slug>.md` (modèle : [_modele.md](_modele.md)). Même fond → skill agent plus tard, page pSEO plus tard. [roadmap.md](roadmap.md).
+Le commercial **sent** la case vide dans le deal. Le produit **nomme** ensuite la méthode. S’il sent et qu’il ne peut pas rattacher, la valeur n’est pas délivrée. S’il rattache sans avoir senti, c’est un cours. Les deux échouent.
+
+**Dans le dur :** une méthode = un fichier `docs/methodes/<slug>.md` (modèle : [_modele.md](_modele.md)). Même fond → tools MCP + pSEO plus tard.
 
 ## Vocabulaire
 
@@ -163,4 +165,4 @@ BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC, CAB, CRAC
 
 Point 4 (cadre théorique) : le **pourquoi** de chaque rattachement (psy, humain, prod) — **dans le fichier méthode**, section 3 du [_modele.md](_modele.md). Lundi / CRM / ChatGPT-Cowork-Grok : sections 5–7. Pas une leçon avant le beat 1.
 
-Objet parcours : [template-parcours.md](template-parcours.md). Beats : [deroulement.md](deroulement.md).
+Objet parcours (archive) : [terrain/template-parcours.md](terrain/template-parcours.md). Beats : [terrain/deroulement.md](terrain/deroulement.md).

@@ -8,7 +8,7 @@ Prochains runs. Le cadrage reste [cadrage.md](cadrage.md). Si un item ici le con
 
 Structure pour **estampiller** des parcours et des parties de parcours. Pas un catalogue déjà rempli. [template-parcours.md](template-parcours.md).
 
-Une étape du cycle = un parcours. Un cas = un deal, A+B, ~15 min. Titres sans spoiler. Court / long = quelles pièces. Rattachement méthode obligatoire. [methodes.md](methodes.md).
+Une étape du cycle = un parcours. Un cas = un deal, A+B, ~15 min. Titres sans spoiler. Court / long = quelles pièces. Rattachement méthode obligatoire. [methodes.md](../methodes.md).
 
 Interdit : CYOA 2 min, mini-QCM, chance, XP, badges, « module terminé », tout le cycle dans une quête.
 
@@ -34,7 +34,7 @@ Cadence (Édouard, 31 août) : le **premier** cas se travaille longtemps (dossie
 
 ### 4. Fichiers méthode
 
-Le modèle est là : [methodes/_modele.md](methodes/_modele.md). **MEDDIC n’est pas écrit.** Ni BANT, ni BEBEDC, etc.
+Le modèle est là : [methodes/_modele.md](../methodes/_modele.md). **MEDDIC n’est pas écrit.** Ni BANT, ni BEBEDC, etc.
 
 Un fichier `docs/methodes/<slug>.md` par méthode (jeu, lundi, CRM, ChatGPT / Cowork / Grok Bot, psy). Skills agent plus tard. pSEO à la fin (query = titre, CTA = jouer). Pas un blog formation.
 

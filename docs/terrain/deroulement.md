@@ -111,7 +111,7 @@ Exemples de sorties **interdites** (échec produit) :
 
 ## Rattachement (valeur)
 
-Chaque beat ci-dessus est fait de mini-situations. Chacune **rattache** à une méthode ou une partie. Lexique et contrat : [methodes.md](methodes.md).
+Chaque beat ci-dessus est fait de mini-situations. Chacune **rattache** à une méthode ou une partie. Lexique et contrat : [methodes.md](../methodes.md).
 
 Le joueur ne subit pas BANT en leçon. Il sent la case. À la sortie, il peut dire le nom.
 
