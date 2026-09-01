@@ -42,9 +42,20 @@ Inchangé. Page d’intention, un scroll.
    - « Qu’est-ce qui est bloqué cette semaine. Challenge. »
    - « Il a dit trop cher. Quelle case n’est pas tenue ? »
 3. Ce que ce n’est pas — Gong, CRM, cours, promesse de close. Quatre lignes.
+4. Confiance — petite, sous le checkout ou en footer. **Pas le hero.**
 
 Pas de logos clients, features grid, testimonials, layers en marketing, leçon MEDDIC.
 
+## Confiance
+
+Écarté : *We don’t have access to your data, prompts nor queries.* Faux. Le MCP est remote. `audit_deal` reçoit `evidence` (notes, mails, transcript). C’est de l’accès le temps de la requête. GDPR : on *traite*. « No access » casse le jour où un DAF ouvre les logs.
+
+Vrai : on ne se branche pas au CRM. On n’enregistre pas. On n’héberge pas l’agent. Le prompt reste dans Cursor / Claude. Le CRM reste chez eux.
+
+**Ligne :** *Your CRM and your prompts stay where they are. We don’t record. We don’t store.*
+
+« Don’t store » = contrat produit ([contournement.md](contournement.md) grade C). Si on log les bodies / replay / métrique trop grasse : on enlève la ligne. On ne met pas un claim qu’on ne code pas.
+
 ## Interdit en copy
 
-« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». Démo. Per-seat.
+« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». Démo. Per-seat. « We don’t have access to your data ».
