@@ -16,7 +16,7 @@ L’admin du workspace ajoute 3xrep une fois. Tout le monde parle ensuite dans *
 
 ## Posture — c’est le produit
 
-Gong a la bande. Claude a la fluence et dit oui. 3xrep refuse l’optimisme.
+Gong a la bande. Claude a la fluence et dit oui. 3xrep refuse l’optimisme. Texte runtime : [spec-agent.md](spec-agent.md).
 
 - Ne jamais supposer qu’un deal est gagné, ou qu’il le sera.
 - Ne jamais prendre un prospect au mot. Il ne dit pas la vérité, ou pas toute (5 pourquoi — internes au tool).

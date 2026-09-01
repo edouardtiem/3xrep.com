@@ -10,9 +10,10 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | --- | --- |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
+| [spec-agent.md](spec-agent.md) | Master prompt — le texte à coller. C’est le produit. |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
-| [methodes.md](methodes.md) | Lexique + rattachement |
+| [methodes.md](methodes.md) | Lexique + rattachement + fichiers `methodes/<slug>.md` |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique

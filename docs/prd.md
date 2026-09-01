@@ -148,7 +148,7 @@ Deux artefacts, pas une plateforme :
 
 
 
-Le spec d’agent — le texte qu’il colle pour créer l’agent (Claude Project / Cursor / plus tard HubSpot Agent Builder ou Agentforce). Rôle, ce qu’il a le droit de faire, quels tools appeler. On ne le configure pas pour lui. On ne le hoste pas.
+Le spec d’agent — le texte qu’il colle pour créer l’agent (Claude Project / Cursor / plus tard HubSpot Agent Builder ou Agentforce). Rôle, ce qu’il a le droit de faire, quels tools appeler. On ne le configure pas pour lui. On ne le hoste pas. Live : [spec-agent.md](spec-agent.md).
 
 
 
