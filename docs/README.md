@@ -10,7 +10,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | --- | --- |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
-| [landing.md](landing.md) | Home : hero VP Sales agent, terminal, logos code |
+| [landing.md](landing.md) | Home : DA Session (blanc, mono), hero, ligne, logos |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
 | [contournement.md](contournement.md) | Sans transcript sur la fiche : grades A/B/C, pas d’invention |
