@@ -10,7 +10,7 @@ Pas l’AE autonome à 20 €. Pas l’équipe qui ne vit que dans HubSpot (V2).
 | --- | --- |
 | Rôles | Founder, head of sales, n’importe quel AE du workspace. Pas un sales ops obligatoire. |
 | Stack | Claude Team / Cowork, **ou** ChatGPT Business, **ou** Notion agents — plus un CRM (ou Notion comme dossier) déjà en connector. |
-| Données | Transcripts / notes / deals accessibles à l’agent via **leur** MCP CRM, pas le nôtre. |
+| Données | Transcripts / notes / deals accessibles à l’agent via **leur** MCP CRM, pas le nôtre. Sans bande : [contournement.md](contournement.md). |
 
 L’admin du workspace ajoute 3xrep une fois. Tout le monde parle ensuite dans **cette** interface, CRM + cerveau.
 
@@ -24,4 +24,4 @@ Gong a la bande. Claude a la fluence et dit oui. 3xrep refuse l’optimisme.
 
 Sortie : [sortie.md](sortie.md). Dans le chat Cowork / ChatGPT / Notion. Pas une fiche CRM 3xrep.
 
-On ne construit pas un Gong. On n’enregistre pas.
+On ne construit pas un Gong. On n’enregistre pas. Hors cible : l’équipe qui refuse de poser ne serait-ce qu’une note.

@@ -8,7 +8,7 @@ Session Filtrer /business-brainstorm · 1er septembre 2026 · Édouard Tiem.
 Auteur de cette rédaction : agent CoS, d’après les décisions d’Édouard ce jour.
 Le cadrage terrain ([terrain/cadrage.md](terrain/cadrage.md), 30 août) reste pour l’historique. Les méthodes : [methodes.md](methodes.md).
 
-Compléments du soir (gagnent sur le PRD) : [icp.md](icp.md) (cible), [loop.md](loop.md) (boucle CRM).
+Compléments du soir (gagnent sur le PRD) : [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (§7.4). [loop.md](loop.md) = V2.
 
 
 
@@ -524,7 +524,7 @@ Même agent, autre couche. Comité, champion faible, pas de Metric, juridique, p
 
 7.4 Ce qu’on ne leur demande pas
 
-« Mets ton transcript dans 3xrep. » Si c’est un copier-coller quotidien vers nous, ça meurt. L’agent lit la fiche. Mails et meetings y sont déjà. Les transcripts y arrivent de plus en plus (HubSpot, Fireflies → CRM). S’il n’y a rien : l’agent dit « il manque le call / la note » — il n’enregistre pas.
+« Mets ton transcript dans 3xrep. » Si c’est un copier-coller quotidien vers nous, ça meurt. **Pour ce geste, [contournement.md](contournement.md) gagne.** Coller dans *leur* chat (grade C), pas chez 3xrep. Ordre : A si ça existe → sinon C → sinon B → sinon « il manque le call / la note ». Jamais inventer la réplique. On n’enregistre pas.
 
 
 
@@ -662,7 +662,7 @@ Interdit en tool : forecast_close_date, probability_to_win, write_to_crm (ils é
 
 9.3 Contrat d’un audit (même esprit que la mini-situation du 30 août)
 
-Entrée (depuis le CRM MCP ou le message) : étape, montant, notes, mails, meetings, transcript s’il est sur la fiche, next step.
+Entrée (depuis le CRM MCP ou le message) : `evidence` + étape, montant, notes, mails, meetings, transcript s’il est sur la fiche, next step. Sans verbatim : [contournement.md](contournement.md) — sauter 7/10 et réplique.
 
 Sortie :
 
@@ -1510,7 +1510,7 @@ Grok = tuyau. Cursor Cloud code. Auteur git edouardtiem <edouard@tiemh.com>.
 
 22. Docs 3xrep — quoi faire de l’existant
 
-Fait le 1er sept soir : [README.md](README.md). Live = `prd.md` + `icp.md` + `loop.md` + `methodes.md`. Le 30 août → `docs/terrain/`.
+Fait le 1er sept soir : [README.md](README.md). Live = `prd.md` + `v0.md` + `icp.md` + `sortie.md` + `contournement.md` + `methodes.md`. `loop.md` = V2. Le 30 août → `docs/terrain/`.
 
 Consigne d’origine (holding), pour mémoire :
 

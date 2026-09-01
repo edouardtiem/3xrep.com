@@ -12,6 +12,7 @@ Lire dans cet ordre.
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM
 - [docs/icp.md](docs/icp.md) — qui + posture
 - [docs/sortie.md](docs/sortie.md) — ce que l’AE lit après le call
+- [docs/contournement.md](docs/contournement.md) — sans transcript sur la fiche
 - [docs/methodes.md](docs/methodes.md) — lexique, rattachement
 
 Le terrain d’entraînement (30 août) est arrêté comme produit. Archive : [docs/terrain/](docs/terrain/).
