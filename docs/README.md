@@ -15,7 +15,8 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
 | [contournement.md](contournement.md) | Sans transcript sur la fiche : grades A/B/C, pas d’invention |
 | [methodes.md](methodes.md) | Lexique + rattachement |
-| [differentiel.md](differentiel.md) | Proposition (pas figé) — compilateur vs skill |
+| [cerveau.md](cerveau.md) | Proposition (pas figé) — comment le cerveau fonctionne |
+| [differentiel.md](differentiel.md) | Proposition (pas figé) — pourquoi, et le test face aux skills |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique
