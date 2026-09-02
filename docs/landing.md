@@ -1,6 +1,6 @@
 # Landing — 3xrep.com
 
-Figé. 1er septembre 2026, soir (DA + ligne : plus tard le même soir). Gagne sur le hero / la home. Le PRD §13 (page d’intention, pas un magazine) tient. [v0.md](v0.md) tient pour le slice produit (même porte MCP). Ici : ce que la page *dit*, à qui elle parle, comment elle *se voit*.
+Figé. 1er–2 septembre 2026. Gagne sur le hero / la home. Maquette live : `src/app/page.tsx` — Édouard : parfait (2 sept). Le PRD §13 (page d’intention, pas un magazine) tient. [v0.md](v0.md) tient pour le slice produit (même porte MCP).
 
 ## DA — Session (clair)
 
@@ -20,7 +20,7 @@ H1 en deux lignes max, measure serré. Le debrief a le droit d’être dense.
 
 Pas de deuxième H1. Pas de « tu crées / on est le cerveau » en hero : c’est le manifeste, trop interne. « VP » = le choc (un VP à 99 €). « Agent » = pas un humain. Hero EN. On ne traduit pas VP Sales.
 
-CTA : créer l’agent / payer. Pas de démo. Pas de Calendly.
+CTA : **Start — 3 audits.** Le 99 € reste dans la H1 (le poste). Pas « Payer » en primaire. Pas de démo. Pas de Calendly.
 
 ## Preuve — la fenêtre
 
@@ -52,17 +52,20 @@ Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas 
 
 Écart à [v0.md](v0.md) § « Claude Code / Codex : bonus geek » : sur la *page*, ils sont le visage. Dans le *produit*, c’est toujours le même MCP.
 
+## Mur avant checkout
+
+Pas un mail. Pas un call. **3 `audit_deal`**, clé dès la page. Le 4e : le *tool* rend le lien Stripe (pas Claude qui vend). Compteur entier, pas les bodies (*don’t store*).
+
+Checkout mute sous l’install : *Already in?* 99 € / month / organization. Ancre Modjo. Pour ceux qui paient sans passer par le quota.
+
 ## Sous le fold
 
 Page d’intention, un scroll.
 
-1. Checkout au milieu — 99 € HT / mois / org. Ancre Modjo : 99 € le siège vs 99 € la boîte. Carte.
-2. Install 10 min — URL connector (copie), spec d’agent (copie), 3 prompts :
-   - « Débriefe le call avec Julien. »
-   - « Qu’est-ce qui est bloqué cette semaine. Challenge. »
-   - « Il a dit trop cher. Quelle case n’est pas tenue ? »
-3. Ce que ce n’est pas — Gong, CRM, cours. Quatre lignes. (Le « makes you close » reste *une* clause sous le terminal, pas une liste.)
-4. Confiance — petite, sous le checkout ou en footer. **Pas le hero.**
+1. **Start — 3 audits. Then the card.** URL connector + spec + 3 prompts (copie).
+2. Checkout mute — *Already in?*
+3. Ce que ce n’est pas — Gong, CRM, cours, « you close Friday ». Quatre lignes.
+4. Confiance — footer. **Pas le hero.**
 
 Pas de logos clients, features grid, testimonials, layers en marketing, leçon MEDDIC.
 
