@@ -114,7 +114,7 @@ async function main() {
   console.log("CHECKOUT", g.status, (await g.text()).slice(0, 300));
 
   const h = await fetch(`${BASE}/`);
-  console.log("HOME", h.status, (await h.text()).includes("deal d’ops"));
+  console.log("HOME", h.status, (await h.text()).includes("Hire the best VP Sales agent"));
 
   for (const [name, body, extra] of [
     ["lookup", lookup, {}],

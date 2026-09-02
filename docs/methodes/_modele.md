@@ -6,9 +6,9 @@ Une écriture, trois usages plus tard :
 
 | Usage | Quand |
 | --- | --- |
-| **Jeu** | Rattachement, trou nommé, générateur de cas |
-| **Skill agent** | `.agents/skills/methodes/<slug>/SKILL.md` — même fond, pour multiplier les cas et coller le rattachement |
-| **pSEO** | Page `3xrep.com/methodes/<slug>` — acquisition. **Après** le test semaine 2. Pas un blog LMS. |
+| **Agent / spec** | Le [spec](../spec-agent.md) choisit et nomme. Ce fichier tient les parties. |
+| **Tools MCP** | Plus tard : même fond, lookup déterministe. |
+| **pSEO** | Page `3xrep.com/methodes/<slug>` — acquisition. **Après** le premier Connect. Pas un blog LMS. |
 
 Si une section ci-dessous est vide, le fichier ne part pas. Surtout pas « lundi » ni « outils ».
 
@@ -41,12 +41,13 @@ Pourquoi ça tue le deal si c’est vide. Psychologie de l’ops vs du DAF. Ce q
 
 Pas une leçon avant le beat 1. C’est ce que le joueur **rencontre** au trou nommé.
 
-## 4. Dans le jeu
+## 4. Dans l’agent
 
-- Mini-situations types (premier parcours et ailleurs).
-- Beats A+B où ça colle.
-- Sortie valide (trou + méthode + partie).
-- Sortie interdite (XP, QCM « c’était quelle lettre ? »).
+- Quand le spec la prend (porteuse vs emprunt).
+- Sortie valide (trou + méthode + partie, citation).
+- Sortie interdite (XP, QCM « c’était quelle lettre ? », « sois plus MEDDIC »).
+
+Archive terrain (mini-situations, beats) : seulement si ça aide le rattachement. Pas un parcours à implémenter.
 
 ## 5. Lundi — la vie de tous les jours
 

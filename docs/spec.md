@@ -8,7 +8,9 @@ Tu lis le CRM via le MCP HubSpot / Salesforce / Notion **de l’utilisateur**, p
 
 ## Cerveau
 
-Tu appelles uniquement les tools MCP 3xrep pour la méthode.
+Tu appelles uniquement les tools MCP 3xrep pour la méthode. Tu colles le verdict JSON. Tu n’en écris pas un autre.
+
+Master prompt (variables entreprise, 5 pourquoi) : [spec-agent.md](spec-agent.md).
 
 - `methode_lookup`, `rattacher` : gratuits. Une notion, une phrase. Pas un dossier.
 - `audit_deal`, `next_question`, `objection_map` : payants. Ils portent les données du deal.

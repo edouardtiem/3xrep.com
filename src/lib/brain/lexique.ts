@@ -3,7 +3,7 @@ import type { Rattachement } from "./types";
 export type Methode = {
   slug: string;
   nom: string;
-  famille: "dossier" | "motivations" | "enjeu" | "argumentation" | "negociation";
+  famille: "dossier" | "motivations" | "enjeu" | "argumentation" | "negociation" | "questionnement" | "cycle" | "posture";
   parties: { slug: string; nom: string }[];
 };
 
@@ -147,6 +147,151 @@ export const METHODES: Methode[] = [
     nom: "Contreparties",
     famille: "negociation",
     parties: [{ slug: "echange", nom: "Échange" }],
+  },
+  {
+    slug: "champ",
+    nom: "CHAMP",
+    famille: "dossier",
+    parties: [
+      { slug: "challenges", nom: "Challenges" },
+      { slug: "authority", nom: "Authority" },
+      { slug: "money", nom: "Money" },
+      { slug: "prioritization", nom: "Prioritization" },
+    ],
+  },
+  {
+    slug: "spiced",
+    nom: "SPICED",
+    famille: "dossier",
+    parties: [
+      { slug: "situation", nom: "Situation" },
+      { slug: "pain", nom: "Pain" },
+      { slug: "impact", nom: "Impact" },
+      { slug: "critical-event", nom: "Critical event" },
+      { slug: "decision", nom: "Decision" },
+      { slug: "economic-buyer", nom: "Economic Buyer" },
+    ],
+  },
+  {
+    slug: "gpct",
+    nom: "GPCT",
+    famille: "dossier",
+    parties: [
+      { slug: "goals", nom: "Goals" },
+      { slug: "plans", nom: "Plans" },
+      { slug: "challenges", nom: "Challenges" },
+      { slug: "timeline", nom: "Timeline" },
+    ],
+  },
+  {
+    slug: "anum",
+    nom: "ANUM",
+    famille: "dossier",
+    parties: [
+      { slug: "authority", nom: "Authority" },
+      { slug: "need", nom: "Need" },
+      { slug: "urgency", nom: "Urgency" },
+      { slug: "money", nom: "Money" },
+    ],
+  },
+  {
+    slug: "neat",
+    nom: "NEAT",
+    famille: "dossier",
+    parties: [
+      { slug: "need", nom: "Need" },
+      { slug: "economic-impact", nom: "Economic impact" },
+      { slug: "access-to-authority", nom: "Access to authority" },
+      { slug: "timeline", nom: "Timeline" },
+    ],
+  },
+  {
+    slug: "spin",
+    nom: "SPIN",
+    famille: "questionnement",
+    parties: [
+      { slug: "situation", nom: "Situation" },
+      { slug: "problem", nom: "Problem" },
+      { slug: "implication", nom: "Implication" },
+      { slug: "need-payoff", nom: "Need-payoff" },
+    ],
+  },
+  {
+    slug: "gap-selling",
+    nom: "Gap Selling",
+    famille: "questionnement",
+    parties: [
+      { slug: "etat-actuel", nom: "État actuel" },
+      { slug: "etat-voulu", nom: "État voulu" },
+      { slug: "gap", nom: "Gap" },
+    ],
+  },
+  {
+    slug: "snap",
+    nom: "SNAP",
+    famille: "argumentation",
+    parties: [
+      { slug: "simple", nom: "Simple" },
+      { slug: "invaluable", nom: "iNvaluable" },
+      { slug: "aligned", nom: "Aligned" },
+      { slug: "priority", nom: "Priority" },
+    ],
+  },
+  {
+    slug: "4c",
+    nom: "4C",
+    famille: "negociation",
+    parties: [
+      { slug: "cadre", nom: "Cadre" },
+      { slug: "concession", nom: "Concession" },
+      { slug: "contrepartie", nom: "Contrepartie" },
+      { slug: "contrat", nom: "Contrat" },
+    ],
+  },
+  {
+    slug: "spanco",
+    nom: "SPANCO",
+    famille: "cycle",
+    parties: [
+      { slug: "suspect", nom: "Suspect" },
+      { slug: "prospect", nom: "Prospect" },
+      { slug: "approche", nom: "Approche" },
+      { slug: "nego", nom: "Négo" },
+      { slug: "conclusion", nom: "Conclusion" },
+      { slug: "ordre", nom: "Ordre" },
+    ],
+  },
+  {
+    slug: "challenger",
+    nom: "Challenger",
+    famille: "posture",
+    parties: [
+      { slug: "teach", nom: "Teach" },
+      { slug: "tailor", nom: "Tailor" },
+      { slug: "take-control", nom: "Take control" },
+    ],
+  },
+  {
+    slug: "sandler",
+    nom: "Sandler",
+    famille: "posture",
+    parties: [
+      { slug: "pain", nom: "Pain" },
+      { slug: "budget", nom: "Budget" },
+      { slug: "decision", nom: "Decision" },
+      { slug: "upfront-contract", nom: "Upfront contract" },
+    ],
+  },
+  {
+    slug: "strategic-selling",
+    nom: "Strategic Selling",
+    famille: "dossier",
+    parties: [
+      { slug: "economic-buyer", nom: "Economic Buyer" },
+      { slug: "user-buyer", nom: "User Buyer" },
+      { slug: "technical-buyer", nom: "Technical Buyer" },
+      { slug: "coach", nom: "Coach" },
+    ],
   },
 ];
 

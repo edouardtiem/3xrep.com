@@ -8,7 +8,7 @@ La valeur n’est pas « avoir joué ». La valeur est : **pouvoir rattacher cha
 
 Le commercial **sent** la case vide dans le deal. Le produit **nomme** ensuite la méthode. S’il sent et qu’il ne peut pas rattacher, la valeur n’est pas délivrée. S’il rattache sans avoir senti, c’est un cours. Les deux échouent.
 
-**Dans le dur :** une méthode = un fichier `docs/methodes/<slug>.md` (modèle : [_modele.md](_modele.md)). Même fond → tools MCP + pSEO plus tard.
+**Dans le dur :** une méthode = un fichier `docs/methodes/<slug>.md` (modèle : [_modele.md](_modele.md)). Même fond → spec, tools MCP, pSEO. Fichier absent = la méthode n’est pas dans la bibliothèque. L’unité du moteur, elle, est la **pièce** ([cerveau.md](cerveau.md)) — plusieurs fichiers peuvent nommer la même.
 
 ## Vocabulaire
 
@@ -130,30 +130,28 @@ On n’enseigne pas le lexique entier dans le premier cas. On **rattache** tout 
 
 Le reste du lexique reste dans le moule pour les cas suivants. Une mini-situation du premier cas qui n’a **aucun** rattachement ne part pas.
 
-## Liste ouverte — en chercher plus, les écrire
+## Fichiers — écrites
 
-Le lexique **dans le jeu** (ci-dessus) est le minimum à rattacher. Le reste s’écrit fichier par fichier. Si une mini-situation ne rentre nulle part, on ajoute la méthode. On ne force pas MEDDIC par défaut.
+Une page, un slug. Le spec s’en sert. Pas un cursus. Le moteur n’exécute pas ces pages : il exécute les pièces.
 
-### À écrire en premier (porteurs du test 1)
-
-BANT, MEDDIC, MEDDPICC, BEBEDC, SONCAS(E), coût de l’inaction, BAC, CAB, CRAC/(A)CRAC, points brûlés, contreparties.
-
-### Trouvées — à écrire (pas un cursus)
-
-| Famille | Méthodes |
+| Famille | Fichier |
 | --- | --- |
-| Qualification | CHAMP, SPICED, GPCT / GPCTBA/C&I, ANUM, FAINT, NEAT |
-| Questionnement | SPIN, QQOQCCP |
-| Argumentation | CAP / APB, SIMAC, SNAP |
-| Cycle / entretien | SPANCO, ANACE, ADAPAC |
-| Prise de RDV | CROC |
-| Négociation | 4C |
-| Posture | Challenger, Sandler |
-| Profil | DISC |
+| Dossier | [bant](methodes/bant.md), [meddic](methodes/meddic.md), [meddpicc](methodes/meddpicc.md), [bebedc](methodes/bebedc.md), [spiced](methodes/spiced.md), [champ](methodes/champ.md), [gpct](methodes/gpct.md), [anum](methodes/anum.md), [neat](methodes/neat.md), [strategic-selling](methodes/strategic-selling.md) |
+| Motivations | [soncas](methodes/soncas.md), [soncase](methodes/soncase.md) |
+| Enjeu | [cout-inaction](methodes/cout-inaction.md) |
+| Questionnement | [spin](methodes/spin.md), [gap-selling](methodes/gap-selling.md) |
+| Argumentation | [bac](methodes/bac.md), [cab](methodes/cab.md), [crac](methodes/crac.md), [points-brules](methodes/points-brules.md), [snap](methodes/snap.md) |
+| Négociation | [contreparties](methodes/contreparties.md), [4c](methodes/4c.md) |
+| Cycle | [spanco](methodes/spanco.md) |
+| Posture | [challenger](methodes/challenger.md), [sandler](methodes/sandler.md) |
 
-### Encore à chercher
+Choix de grille (cycle) : dans le [spec d’agent](spec-agent.md), pas ici. Lookup MCP : `methode_lookup`.
 
-Écoles FR, méthodes internes (Uptoo, Simple Sales, kickoffs), grilles CRM maison, variantes MEDDPICC (Paper, Competition), coût de l’action / ROI vs inaction. On documente dès qu’une mini-situation en a besoin — ou dès qu’une query pSEO tient.
+### Encore à écrire
+
+FAINT, QQOQCCP, CAP / APB, SIMAC, ANACE, ADAPAC, CROC, DISC. Écoles internes. On écrit dès qu’un deal ou une query pSEO tient.
+
+Liste ouverte. Si un trou ne rentre nulle part, on ajoute la méthode. On ne force pas MEDDIC par défaut. On n’en retire pas pour « simplifier ».
 
 ## Ce que ça n’est pas
 

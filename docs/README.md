@@ -14,7 +14,8 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
 | [contournement.md](contournement.md) | Sans transcript sur la fiche : grades A/B/C, pas d’invention |
-| [methodes.md](methodes.md) | Lexique + rattachement |
+| [methodes.md](methodes.md) | Lexique + rattachement. Fichiers `methodes/<slug>.md` |
+| [spec-agent.md](spec-agent.md) | Master prompt à coller (long). Court : [spec.md](spec.md) / `/spec` |
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
 | [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |

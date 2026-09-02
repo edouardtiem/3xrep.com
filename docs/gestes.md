@@ -30,7 +30,7 @@ Si 2 échoue : c’est un **alias** du geste déjà là, pas un nouveau. Voir §
 
 Les 10 du matin : 1, 3, 5, 7, 10, 11, 12, 17, 18, 19. Le reste était soit plié dans un trop gros, soit oublié (closing intermédiaire, after-no, QBR dans [terrain/template-parcours.md](terrain/template-parcours.md) ; inbound, silence, POC, papier, RFP, prépa exec dans la semaine d’un VP).
 
-V0 code : **1 et 17** (Julien). Les autres se **déclarent** ici.
+V0 code : **7 et 17** (Julien) — `debrief-apres-call` + `passe-trous`. Les autres se **déclarent** ici.
 
 ### Entrée
 

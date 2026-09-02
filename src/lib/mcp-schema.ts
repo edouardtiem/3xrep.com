@@ -8,6 +8,8 @@ export const dealSchema = z.object({
   meetings: z.string().optional(),
   transcript: z.string().optional(),
   nextStep: z.string().optional(),
+  geste: z.enum(["debrief-apres-call", "passe-trous"]).optional(),
+  evidence: z.enum(["transcript", "notes", "emails", "chat_paste"]).optional(),
 });
 
 export const PAID_TOOLS = ["audit_deal", "next_question", "objection_map"] as const;

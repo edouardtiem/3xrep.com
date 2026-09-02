@@ -39,7 +39,7 @@ const handler = createMcpHandler(
       {
         title: "Audit deal",
         description:
-          "Cases su / supposé / vide sur CE deal. Payant (clé d’org). Entrée = artefacts CRM (notes, mails, transcript). Sortie structurée + contrat de forme. Le LLM hôte rédige les 5 blocs. Interdit : proba de close, write_to_crm.",
+          "8 étages sur CE deal (cadrer → rendre). Payant. Entrée = artefacts CRM. Sortie JSON : pièces, mort, remontée, un geste, contrat. geste=debrief-apres-call (défaut) ou passe-trous. Le LLM hôte habille. Interdit : proba de close, write_to_crm.",
         inputSchema: dealSchema,
       },
       async (deal) => jsonTool(scoreDeal(deal)),
@@ -50,7 +50,7 @@ const handler = createMcpHandler(
       {
         title: "Next question",
         description:
-          "Le geste qui coûte sur CE deal. Payant. Même entrée que audit_deal.",
+          "S’arrête à l’étage 7 : le geste qui coûte sur CE deal. Payant. Même entrée que audit_deal.",
         inputSchema: dealSchema,
       },
       async (deal) => jsonTool(nextQuestion(deal)),

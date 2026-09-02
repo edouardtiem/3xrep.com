@@ -9,6 +9,7 @@ export function corpus(deal: DealInput): string {
     deal.meetings,
     deal.transcript,
     deal.nextStep,
+    deal.objection,
   ]
     .filter(Boolean)
     .join("\n");

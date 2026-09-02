@@ -1,4 +1,4 @@
-export type Etat = "su" | "suppose" | "vide";
+export type Etat = "su" | "suppose" | "vide" | "contredit";
 
 /** Case verte sans preuve = vide. Signal sans preuve = supposé. */
 export function etatDe(opts: {
