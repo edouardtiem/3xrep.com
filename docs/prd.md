@@ -1628,6 +1628,18 @@ Affiliation live.
 
 
 
+Le spec comme canal (investiguer : l’agent forkable, pas le MCP).
+
+
+
+Recettes publiques qui requièrent 3xrep.
+
+
+
+Consultants sales : on peut offrir (0 €, pas de coût op). Self-serve. Pas d’onboarding.
+
+
+
 pSEO à l’échelle.
 
 
