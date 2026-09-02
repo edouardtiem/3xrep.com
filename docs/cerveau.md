@@ -1,8 +1,10 @@
 # Le cerveau — comment il fonctionne
 
-**Pas figé.** 2 septembre 2026. Demande d’Édouard : structurer le **fonctionnement** du cerveau avant d’y verser le knowledge.
+**Figé.** 2 septembre 2026. Validé par Édouard : les six décisions du §12 sont prises. Gagne sur [prd.md](prd.md) §9 pour la **mécanique** du cerveau. Ne casse pas [sortie.md](sortie.md) / [icp.md](icp.md) / [contournement.md](contournement.md) / [v0.md](v0.md).
 
-Ce fichier ne remplit rien. Il dit : quelles pièces, qui gagne sur qui, dans quel ordre ça tourne, et quel formulaire on remplira ensuite. Correction de [differentiel.md](differentiel.md) (voir §9). Ne casse pas [prd.md](prd.md) / [sortie.md](sortie.md) / [icp.md](icp.md) / [contournement.md](contournement.md).
+Ne pas « améliorer » sans casser ce fichier. On y ajoute du knowledge (§9), on ne rouvre pas la structure.
+
+Ce fichier ne remplit rien. Il dit : quelles pièces, qui gagne sur qui, dans quel ordre ça tourne, et quel formulaire on remplira ensuite. Corrige [differentiel.md](differentiel.md) (voir §10).
 
 ## 1. En une image
 
@@ -299,13 +301,17 @@ C’est cette règle qui rend le remplissage lent. C’est voulu : c’est elle,
 
 Pas de stockage de contenu. Pas de proba de close. Pas de `write_to_crm`. Pas d’enregistrement. Pas de citation inventée. Pas de score /100. Pas une méthode « officielle 3xrep » qui gagne sur les autres. Pas de fenêtre ratée inventée pour avoir l’air sévère.
 
-## 12. Décisions demandées
+## 12. Décisions prises (2 septembre 2026, Édouard)
 
-1. **Les trois pièces + le moteur** : c’est bien ça, le cerveau ?
-2. **Hiérarchie angle > bibliothèque > geste** : validée ?
-3. **L’angle en règles serveur** (pas en prompt), qui parle deux fois : validé ?
-4. **La règle d’admission** — six cases, dont perches et échelle : on tient ? C’est elle qui rend le remplissage lent et bon.
-5. **Les gestes publiables** en annuaire, vides sans le MCP : ok ?
-6. **La passe systématique est un geste à part** (`passe-trous`), pas le débrief quotidien : ok ? Sinon on transforme chaque call en cours et [sortie.md](sortie.md) saute.
+Gravé. On ne les rejoue pas.
 
-Après ces six oui, on remplit. Pas avant : sinon on écrit 40 fichiers dans une forme qui bouge.
+1. **Le cerveau = trois pièces + un moteur.** Bibliothèque, angle, gestes.
+2. **Hiérarchie : angle > bibliothèque > geste.** Un geste ne peut pas demander une sortie que l’angle interdit.
+3. **L’angle est un jeu de règles serveur**, pas un ton dans un prompt. Il parle deux fois : étage 4, étage 8.
+4. **Règle d’admission : six cases par pièce** — preuve valide, fausse preuve, test, mort, perches, échelle à 3 crans. Une pièce incomplète ne part pas. C’est le moat, et c’est pour ça que le remplissage est lent.
+5. **Les gestes sont publiables** en annuaire : vides sans le MCP.
+6. **La passe systématique est un geste à part** (`passe-trous`). Le débrief quotidien reste [sortie.md](sortie.md), court.
+
+Reste ouvert (pas une décision de structure) : la mémoire du jugement (§7, plus tard, identifiant de réflexe seulement, jamais de contenu).
+
+Suite : remplir, dans l’ordre du §9.
