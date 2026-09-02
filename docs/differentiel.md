@@ -2,6 +2,8 @@
 
 **Pas figé.** 2 septembre 2026. Réponse à : un skill MEDDIC + 5 pourquoi, demain tout le monde le copie. Qu’est-ce qui n’est pas un skill ?
 
+> **Corrigé par [cerveau.md](cerveau.md)** (même jour). Ce fichier garde l’analyse concurrentielle et le test. La **mécanique** est dans `cerveau.md` : la bibliothèque n’est pas remplacée par un kernel, elle est l’actif ; les gestes/skills vides sont autorisés. Écarts listés en §9 de `cerveau.md`.
+
 Gagne sur rien tant qu’Édouard n’a pas dit oui. Ne casse pas [prd.md](prd.md) / [sortie.md](sortie.md) / [icp.md](icp.md).
 
 ## Le piège
@@ -27,7 +29,7 @@ Les 5 pourquoi dans [icp.md](icp.md) sont un **prompt**. Le LLM les saute dès q
 - Mieux écrire le spec d’agent.
 - La posture « VP qui refuse l’optimisme » **si** elle vit dans le LLM. Il se ramollit.
 - Un score /100, une proba de close, « dans ton industrie on voit souvent ».
-- Des `SKILL.md` méthode téléchargeables. Ça *est* le concurrent. Le modèle jeu ([_modele.md](_modele.md) « Skill agent ») ne part pas en MCP.
+- Des `SKILL.md` méthode téléchargeables. Ça *est* le concurrent. Le modèle jeu ([methodes/_modele.md](methodes/_modele.md) « Skill agent ») ne part pas en MCP.
 - Stocker les transcripts pour un moat data. Interdit : [landing.md](landing.md), [contournement.md](contournement.md).
 
 ## Le différenciateur
