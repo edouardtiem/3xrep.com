@@ -10,7 +10,7 @@ Le cadrage terrain ([terrain/cadrage.md](terrain/cadrage.md), 30 août) reste po
 
 Compléments du soir (gagnent sur le PRD) : [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (§7.4). [loop.md](loop.md) = V2.
 
-Mécanique du cerveau (2 sept, figée, gagne sur le §9) : [cerveau.md](cerveau.md). Pourquoi : [differentiel.md](differentiel.md).
+Mécanique du cerveau (2 sept, figée, gagne sur le §9) : [cerveau.md](cerveau.md). Gestes du cycle (figé, gagne sur le « on n’ouvre pas 200 techniques ») : [gestes.md](gestes.md). Pourquoi : [differentiel.md](differentiel.md).
 
 
 
