@@ -4,7 +4,7 @@ V0 : [v0.md](v0.md). Ce fichier décrit encore le **V2** (bouton dans HubSpot). 
 
 ## V0 — une phrase
 
-Ils sont dans Cowork, ChatGPT ou Notion. L’admin a branché le CRM (officiel) + 3xrep. L’AE dit « débriefe le call avec Julien ». Il lit [sortie.md](sortie.md) **dans ce chat**. 3xrep ne touche pas HubSpot.
+Ils sont dans Cowork, ChatGPT ou Notion. L’admin a branché le CRM (officiel) + 3xrep. L’AE dit « débriefe le call avec Julien ». Il lit [sortie.md](sortie.md) **dans ce chat**. Sans transcript : [contournement.md](contournement.md). 3xrep ne touche pas HubSpot — si une note part sur le deal, c’est **leur** MCP CRM, après confirmation.
 
 
 ## Où ça s’affiche

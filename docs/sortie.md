@@ -1,6 +1,6 @@
 # Sortie — après le call
 
-Figé. 1er septembre 2026, soir. C’est **le produit**. [loop.md](loop.md) dit où ça s’affiche. Ici : ce que l’AE lit.
+Figé. 1er septembre 2026, soir. C’est **le produit**. [loop.md](loop.md) dit où ça s’affiche. Ici : ce que l’AE lit. Sans verbatim : [contournement.md](contournement.md).
 
 Le lien `3xrep.com/deal/{id}` n’est **pas** le geste. V0 : le debrief est dans Cowork / ChatGPT / Notion. V2 : un bouton sur la fiche. Voir [v0.md](v0.md).
 
@@ -8,7 +8,7 @@ C’est le débrief du 31 août, inversé : plus le commercial qui relit un faux
 
 ## Le moment
 
-Le rdv vient de se faire. Le transcript est sur la fiche. La boîte, l’interlocuteur, l’offre, les mails, les notes — déjà dans le CRM. L’AE appuie **une** fois.
+Le rdv vient de se faire. Grade A : transcript ou recap déjà sur la fiche. Sinon coller dans le chat, ou debrief sans réplique. [contournement.md](contournement.md). La boîte, l’interlocuteur, l’offre, les mails, les notes — déjà dans le CRM. L’AE appuie **une** fois.
 
 Il ne demande pas « audit » puis « mail » puis « plan ». Il reçoit **un** retour.
 
@@ -22,7 +22,9 @@ Pas un dump MEDDIC. Un debrief de DC, 30 secondes à lire.
 4. **Le plan du prochain rdv.** 1. 2. 3. Assez court pour tenir dans un call.
 5. **L’objectif.** Une phrase. Ex. : faire venir le DAF en R2. C’est le geste qui coûte. Le reste s’aligne dessus.
 
-Mail, tâche, prep : des actions **sous** ce retour (copier le mail, poser la tâche). Pas trois autres produits.
+Les 5 blocs exigent un verbatim. Sans : sauter 1 et 2. Trous + next move + objectif. Jamais inventer Y. [contournement.md](contournement.md).
+
+Mail, tâche, prep : des actions **sous** ce retour (copier le mail, poser la tâche). Pas trois autres produits. Écrire la note sur le deal = **leur** MCP CRM, après confirmation.
 
 ## Exemple (forme, pas un cas client)
 
@@ -46,3 +48,4 @@ Mail, tâche, prep : des actions **sous** ce retour (copier le mail, poser la t�
 - Une checklist de lettres à cocher.
 - « Dans ton industrie on voit souvent… » sans citer **ce** call.
 - Un plan de 12 points. Un objectif flou (« avancer le deal »).
+- Une citation qui n’est pas dans l’entrée.

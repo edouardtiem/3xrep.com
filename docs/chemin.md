@@ -14,7 +14,7 @@ Cerveau (playbooks + audit_deal / next_question / objection_map)
     └── porte HTTP    → POST /debrief               (AE, carte HubSpot)
 ```
 
-Aujourd’hui (schéma PRD) : Claude lit le CRM via **le MCP HubSpot**, puis appelle **le MCP 3xrep**. 3xrep ne parle pas à HubSpot.
+Aujourd’hui (schéma PRD) : Claude lit le CRM via **le MCP HubSpot**, puis appelle **le MCP 3xrep**. 3xrep ne parle pas à HubSpot. Note sur le deal = leur MCP, pas le nôtre. [contournement.md](contournement.md).
 
 Dans le CRM : la carte a déjà le `dealId`. Ton app a un OAuth HubSpot. Au clic, **3xrep lit la fiche** (transcript, boîte, contacts, notes), tourne le cerveau, renvoie l’objet [sortie.md](sortie.md). La carte l’affiche. Option : écrire une note sur le deal.
 
