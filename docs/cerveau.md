@@ -74,7 +74,7 @@ Des **règles**, dans le serveur, qui tournent sur les données. Exemples (le co
 
 ### 2.3 Les gestes — peu nombreux, vides de méthode
 
-Ce qu’Édouard appelle les skills. **On n’empile pas.** Un geste = un moment du cycle. Catalogue figé : [gestes.md](gestes.md) — dix, pas vingt-et-un. On s’aligne sur le *moment* (prépa, démo, prospection, autopsie…). On ne s’aligne pas sur le *livrable* (mail, script, séquence). L’angle refuse ; leur LLM habille s’ils veulent.
+Ce qu’Édouard appelle les skills. **On n’empile pas des livrables.** Un geste = un moment du cycle. Catalogue : [gestes.md](gestes.md) — 21 moments, test d’admission. On s’aligne sur le *moment* (prépa, inbound, closing, POC…). On ne s’aligne pas sur le *livrable* (mail, script, séquence). L’angle refuse ; leur LLM habille s’ils veulent.
 
 Un geste tient en ~20 lignes. Il dit : quel déclencheur, quelles **familles** de pièces appeler, quel contrat de sortie, quel grade minimum ([contournement.md](contournement.md)). Il ne contient **aucune** méthode. Il ne juge rien.
 
@@ -283,7 +283,7 @@ Ordre, quand la structure est validée :
 
 1. Les ~10 réflexes transversaux. Ils sont réutilisés par toutes les pièces : les écrire d’abord évite de les recopier dix fois.
 2. Les ~7 pièces du cas Julien, niveau 1 seulement — perches et échelle comprises.
-3. Deux gestes V0 : `debrief-apres-call` et `passe-trous`. Les huit autres : [gestes.md](gestes.md), à remplir **quand un vrai deal les demande**, pas pour coller à Craig.
+3. Deux gestes V0 : `debrief-apres-call` et `passe-trous`. Les autres : [gestes.md](gestes.md), yaml à remplir **quand un vrai deal les demande**, pas pour coller à Craig.
 4. Les règles d’angle du contrat [sortie.md](sortie.md).
 5. Niveau 2 (le pourquoi) sur ces 7 pièces. Puis on élargit **quand un vrai deal le demande**, jamais pour compléter une grille.
 
@@ -311,8 +311,8 @@ Gravé. On ne les rejoue pas.
 4. **Règle d’admission : six cases par pièce** — preuve valide, fausse preuve, test, mort, perches, échelle à 3 crans. Une pièce incomplète ne part pas. C’est le moat, et c’est pour ça que le remplissage est lent.
 5. **Les gestes sont publiables** en annuaire : vides sans le MCP.
 6. **La passe systématique est un geste à part** (`passe-trous`). Le débrief quotidien reste [sortie.md](sortie.md), court.
-7. **Alignement cycle, pas copie.** [gestes.md](gestes.md) : dix moments. Le VP refuse. On n’écrit pas le mail / le script. Les canaux ne se multiplient pas.
+7. **Alignement cycle, pas copie.** [gestes.md](gestes.md). Le VP refuse. On n’écrit pas le mail / le script. Les canaux ne se multiplient pas. Le décompte n’est pas la décision (dix était trop gros ; catalogue réel dans gestes.md).
 
 Reste ouvert (pas une décision de structure) : la mémoire du jugement (§7, plus tard, identifiant de réflexe seulement, jamais de contenu).
 
-Suite : remplir, dans l’ordre du §9. Puis les gestes [gestes.md](gestes.md) §6.4.
+Suite : remplir, dans l’ordre du §9. Puis les yaml [gestes.md](gestes.md) §7.

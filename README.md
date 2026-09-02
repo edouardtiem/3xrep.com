@@ -10,7 +10,7 @@ Lire dans cet ordre.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
-- [docs/gestes.md](docs/gestes.md) — dix moments du cycle, VP qui refuse
+- [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM
 - [docs/landing.md](docs/landing.md) — home : hero, terminal, logos
 - [docs/icp.md](docs/icp.md) — qui + posture
