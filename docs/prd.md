@@ -10,6 +10,8 @@ Le cadrage terrain ([terrain/cadrage.md](terrain/cadrage.md), 30 août) reste po
 
 Compléments du soir (gagnent sur le PRD) : [icp.md](icp.md) (cible), [loop.md](loop.md) (boucle CRM).
 
+Le 2 septembre : [plg.md](plg.md) gagne sur le §12 (essai — supprimé, remplacé par deux tools gratuits à vie) et sur le §13.2 (affiliation — statut, pas cash).
+
 
 
 0. Une phrase
