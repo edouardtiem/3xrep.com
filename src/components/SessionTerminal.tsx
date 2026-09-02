@@ -50,12 +50,9 @@ export function SessionTerminal() {
       </div>
       <div className="min-h-[22rem] space-y-3 px-3 py-3 text-[13px] leading-relaxed sm:min-h-[24rem] sm:text-[13.5px]">
         {showPrompt ? (
-          <p>
-            <span className="text-dim">you </span>
-            {DEBRIEF.prompt}
-          </p>
+          <p className="text-mute">{DEBRIEF.prompt}</p>
         ) : (
-          <p className="text-dim">you</p>
+          <p className="text-dim">&nbsp;</p>
         )}
         {showTool ? (
           <p>
