@@ -16,6 +16,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [contournement.md](contournement.md) | Sans transcript sur la fiche : grades A/B/C, pas d’invention |
 | [methodes.md](methodes.md) | Lexique + rattachement |
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
+| [gestes.md](gestes.md) | **Les gestes** : dix moments du cycle, VP qui refuse |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |

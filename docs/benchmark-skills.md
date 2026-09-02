@@ -91,13 +91,7 @@ Si les quatre sorties tiennent dans un même paragraphe « il manque le DAF, pos
 
 ## 4. Ce qu’on ne cherche pas à battre
 
-Ils gagnent, et c’est voulu, sur :
-
-- le cold, la séquence, le demo script, le win-loss deck, le plan de comp ;
-- le « envoie le recap dans les 2 h » ;
-- le zéro euro, `npx skills add`, aujourd’hui.
-
-Les prendre sur ce terrain = devenir Craig. [prd.md](prd.md) l’interdit (bouche, LMS, scoreboard). Le benchmark utile est **la zone de recouvrement** : débrief, qualif, objection, négo. Là, le markdown le plus fort (Craig) s’arrête à un template + un score. Le nôtre doit s’arrêter à un verdict + une remontée.
+Ils gagnent, et c’est voulu, sur le **livrable** (le mail, le script, le SOW, le plan de comp) et sur le zéro euro aujourd’hui. On ne les y prend pas.
 
 ## 5. Ce que ça change pour nous
 
@@ -105,7 +99,7 @@ Rien à figer. Trois lectures :
 
 1. **Craig est la capture d’écran concurrente**, pas Prospeda. Le test [differentiel.md](differentiel.md) « Claude + skill MEDDIC vs Claude + 3xrep » : remplacer MEDDIC par **Craig `call-debrief`**. C’est plus dur, donc plus honnête.
 2. La profondeur qui manque chez eux, et qui est déjà dans [cerveau.md](cerveau.md) : **fausse preuve + perches + échelle**. Si on shippe des pièces sans ça, on a écrit un Craig plus court.
-3. Ne pas ajouter cold-email / recap mail « pour être complet ». C’est exactement leur README. On aurait l’air d’eux, en payant 99 €.
+3. **Alignement cycle, pas copie** — [gestes.md](gestes.md). Un geste `prospection` qui dit « n’écris pas », pas un skill `cold-email`.
 
 ## 6. Sources
 
