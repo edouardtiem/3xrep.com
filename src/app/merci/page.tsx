@@ -1,0 +1,55 @@
+import { CopyButton } from "@/components/CopyButton";
+import { Header } from "@/components/Header";
+import { revealKey } from "@/lib/orgs";
+import { mcpUrl } from "@/lib/site";
+
+export default async function Merci({
+  searchParams,
+}: {
+  searchParams: Promise<{ session_id?: string }>;
+}) {
+  const { session_id: sessionId } = await searchParams;
+  const key = sessionId ? await revealKey(sessionId) : null;
+  const url = mcpUrl();
+  const mcpJson = key
+    ? JSON.stringify(
+        {
+          mcpServers: {
+            "3xrep": {
+              url,
+              headers: { Authorization: `Bearer ${key}` },
+            },
+          },
+        },
+        null,
+        2,
+      )
+    : null;
+
+  return (
+    <>
+      <Header />
+      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 px-6 py-16">
+        <h1 className="text-3xl font-medium tracking-tight">Clé</h1>
+        {key && mcpJson ? (
+          <>
+            <p className="text-sm text-mute">Affichée une fois. Header Bearer sur les tools payants.</p>
+            <div className="flex items-center justify-between gap-4 rounded-[10px] border border-line bg-raise px-4 py-3 font-mono text-sm">
+              <span className="truncate">{key}</span>
+              <CopyButton text={key} />
+            </div>
+            <pre className="overflow-x-auto rounded-[10px] border border-line bg-raise p-4 font-mono text-xs">
+              {mcpJson}
+            </pre>
+            <CopyButton text={mcpJson} label="Copier mcp.json" />
+          </>
+        ) : (
+          <p className="text-mute">
+            Clé déjà révélée, session inconnue, ou Stripe / Supabase pas encore branchés. En local :
+            header <span className="font-mono text-fg">Authorization: Bearer $DEV_ORG_KEY</span>.
+          </p>
+        )}
+      </main>
+    </>
+  );
+}

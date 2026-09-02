@@ -1,6 +1,8 @@
 # Roadmap — 3xrep
 
-Prochains runs. Le cadrage reste [cadrage.md](cadrage.md). Si un item ici le contredit, le cadrage gagne.
+**Archive.** Arrêté comme produit le 1er septembre 2026. Ne pas implémenter. Le live est [../prd.md](../prd.md) + [../v0.md](../v0.md). Ce fichier décrit l’usine de cas du terrain (30–31 août).
+
+Prochains runs (à l’époque). Le cadrage reste [cadrage.md](cadrage.md). Si un item ici le contredit, le cadrage gagne.
 
 **Usine**, pas un cursus. Le moule (structure) est là. On liste ce qu’on veut couler, on verse, on joue un cas pour le test. On ne code pas auth, DB, Stripe, équipes, prix.
 

@@ -1,6 +1,6 @@
 # Design — références
 
-Études d’écran, pas le produit. Cadrage : [cadrage.md](cadrage.md).
+Études d’écran, pas le produit. Cadrage : [cadrage.md](cadrage.md). Les routes `/da/*` dans le repo sont cette époque — mémoire visuelle, noindex, ne pas les étendre.
 
 ## Rejeté — v1 (30 août 2026)
 

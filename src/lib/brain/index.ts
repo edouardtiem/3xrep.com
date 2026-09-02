@@ -1,0 +1,10 @@
+export { scoreDeal } from "./audit";
+export { CONTRAT } from "./contrat";
+export type { Etat } from "./etat";
+export { layerOf } from "./layer";
+export { METHODES } from "./lexique";
+export { methodeLookup } from "./lookup";
+export { nextQuestion } from "./next-question";
+export { objectionMap } from "./objection-map";
+export { rattacher, RATTACHER_MAX } from "./rattacher";
+export type { Audit, DealInput, Geste, Layer, Trou } from "./types";
