@@ -17,6 +17,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [methodes.md](methodes.md) | Lexique + rattachement |
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
+| [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique

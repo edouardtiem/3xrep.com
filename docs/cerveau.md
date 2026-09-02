@@ -14,7 +14,7 @@ Ce fichier ne remplit rien. Il dit : quelles pièces, qui gagne sur qui, dans qu
           geste demandé + ce que le CRM a
                       ▼
 ┌─────────────────────────────────────────────┐
-│  MOTEUR 3xrep — 7 étages, déterministe      │
+│  MOTEUR 3xrep — 8 étages, déterministe      │
 │                                             │
 │   GESTES ─── quoi faire (débrief, pipe…)    │
 │      │       ne contient aucune méthode     │
