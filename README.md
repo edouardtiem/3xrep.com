@@ -21,3 +21,7 @@ Lire dans cet ordre.
 Le terrain d’entraînement (30 août) est arrêté comme produit. Archive : [docs/terrain/](docs/terrain/).
 
 Sales Game est mort. jesaisfaire est un autre git. Ce git est le git 3xrep.
+
+## Payer 99 € / org
+
+Chemin commercial : [`/install`](https://3xrep.com/install) — brancher l’agent MCP, puis checkout Stripe. Secrets Vercel / Price Stripe : [docs/checkout.md](docs/checkout.md). Aucune clé dans ce repo.

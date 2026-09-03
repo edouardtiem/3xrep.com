@@ -56,7 +56,7 @@ Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas 
 
 Pas un mail. Pas un call. **3 `audit_deal`**, clé dès la page. Le 4e : le *tool* rend le lien Stripe (pas Claude qui vend). Compteur entier, pas les bodies (*don’t store*).
 
-Checkout mute sous l’install : *Already in?* 99 € / month / organization. Ancre Modjo. Pour ceux qui paient sans passer par le quota.
+Checkout sous l’install : *Already in?* 99 € / month / organization + bouton Stripe (3 sept : palier 1 org payante, plus le mute). Ancre Modjo. Chemin commercial collé sur `/install`.
 
 ## Sous le fold
 

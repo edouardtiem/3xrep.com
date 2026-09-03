@@ -1,4 +1,4 @@
-const BASE = process.env.MCP_URL ?? "http://localhost:3002";
+const BASE = process.env.MCP_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const MCP = `${BASE}/api/mcp`;
 
 const headers = {
@@ -110,11 +110,35 @@ async function main() {
   const f = await rpc(paid, { authorization: "Bearer 3xr_dev_local" });
   console.log("PAID", f.status, f.text.slice(0, 800));
 
-  const g = await fetch(`${BASE}/api/stripe/checkout`, { method: "POST" });
-  console.log("CHECKOUT", g.status, (await g.text()).slice(0, 300));
+  const g = await fetch(`${BASE}/api/stripe/checkout`, { method: "POST", redirect: "manual" });
+  const checkoutBody = await g.text();
+  const location = g.headers.get("location") ?? "";
+  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_PRICE_ID) {
+    console.log("CHECKOUT", g.status, "sans clés → 503 attendu", checkoutBody.slice(0, 280));
+    if (g.status !== 503) {
+      throw new Error(`checkout sans clés doit être 503, pas ${g.status} (pas de faux vert)`);
+    }
+    if (!checkoutBody.includes("STRIPE_SECRET_KEY") && !checkoutBody.includes("STRIPE_PRICE_ID")) {
+      throw new Error("503 checkout doit nommer les secrets manquants");
+    }
+  } else {
+    console.log("CHECKOUT", g.status, location.slice(0, 120));
+    if (g.status !== 303 || !location.includes("checkout.stripe.com")) {
+      throw new Error(`checkout avec clés test : 303 vers checkout.stripe.com attendu, got ${g.status} ${location || checkoutBody.slice(0, 200)}`);
+    }
+    console.log("CHECKOUT_OK session créée — ne pas payer (mode test documenté dans docs/checkout.md)");
+  }
 
   const h = await fetch(`${BASE}/`);
-  console.log("HOME", h.status, (await h.text()).includes("deal d’ops"));
+  const home = await h.text();
+  console.log("HOME", h.status, home.includes("deal d'ops") || home.includes("VP Sales"));
+
+  const install = await fetch(`${BASE}/install`);
+  const installHtml = await install.text();
+  console.log("INSTALL", install.status, installHtml.includes("Payer 99") && installHtml.includes("/api/stripe/checkout"));
+  if (install.status !== 200 || !installHtml.includes('action="/api/stripe/checkout"')) {
+    throw new Error(" /install doit coller le form checkout 99 €");
+  }
 
   for (const [name, body, extra] of [
     ["lookup", lookup, {}],
