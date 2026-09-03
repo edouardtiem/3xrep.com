@@ -9,7 +9,6 @@
   --line: #2a2a26;
   --copper: #c4844a;
   --raise: #161614;
-  --fg: #e8e8e4;
 }
 
 @theme inline {
@@ -20,7 +19,8 @@
   --color-line: var(--line);
   --color-copper: var(--copper);
   --color-raise: var(--raise);
-  --color-fg: var(--fg);
+  --color-fg: var(--foreground);
+  --color-bg: var(--background);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-term-caret: term-caret 1.05s step-end infinite;

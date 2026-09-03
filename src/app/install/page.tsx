@@ -1,5 +1,7 @@
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
+import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
 export default function Install() {
@@ -18,14 +20,17 @@ export default function Install() {
     <>
       <Header />
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-12 px-6 py-16">
-        <h1 className="text-3xl font-medium tracking-tight">Install</h1>
-        <p className="text-mute">
-          The workspace admin adds 3xrep once. Each person then Connects with their own CRM
-          account — they only see their deals.
-        </p>
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-medium tracking-tight">Connect, then pay.</h1>
+          <p className="text-mute">
+            The workspace admin adds 3xrep once. Each person then Connects with their own CRM
+            account — they only see their deals. The tools are open. 99 € / month is for the
+            organization that wants the VP on its pipe every Monday.
+          </p>
+        </div>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-lg">URL</h2>
+          <h2 className="text-lg">1. Connector URL</h2>
           <div className="flex items-center justify-between gap-4 rounded-[10px] border border-line bg-raise px-4 py-3 font-mono text-sm">
             <span className="truncate">{url}</span>
             <CopyButton text={url} />
@@ -36,6 +41,13 @@ export default function Install() {
         </section>
 
         <section className="flex flex-col gap-6 text-sm leading-relaxed">
+          <div>
+            <h2 className="mb-2 text-lg">Claude Code / Cursor / Codex</h2>
+            <p className="text-mute">
+              Paste the JSON above in your MCP config, next to your HubSpot, Salesforce, or Notion
+              MCP. The spec travels with the connector.
+            </p>
+          </div>
           <div>
             <h2 className="mb-2 text-lg">Claude Team / Cowork</h2>
             <p className="text-mute">
@@ -48,28 +60,31 @@ export default function Install() {
             </p>
           </div>
           <div>
-            <h2 className="mb-2 text-lg">ChatGPT Business</h2>
+            <h2 className="mb-2 text-lg">ChatGPT Business · Notion Custom Agents</h2>
             <p className="text-mute">
-              Admin publishes the 3xrep MCP app on the workspace, plus the CRM. Individual auth.
-              Same spec on the shared GPT.
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-2 text-lg">Notion Custom Agents</h2>
-            <p className="text-mute">
-              Admin authorizes the 3xrep MCP, pastes the spec on the shared agent. Auth if the
-              server asks.
+              Admin publishes the 3xrep MCP on the workspace, plus the CRM. Individual auth. Same
+              spec on the shared agent.
             </p>
           </div>
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-lg">Three prompts</h2>
+          <h2 className="text-lg">First prompts</h2>
           <ol className="list-decimal space-y-3 pl-5 text-sm text-mute">
-            <li>Map this sentence: “anyway I&apos;m the one who runs the tool.”</li>
-            <li>What is MEDDIC Economic Buyer, and which other grid names the same box?</li>
-            <li>Debrief the call with Julien — notes, transcript, next step are on the record.</li>
+            {PROMPTS.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
           </ol>
+        </section>
+
+        <section className="flex flex-col gap-4 border-t border-line pt-10">
+          <h2 className="text-lg">2. Pay 99 € / month / organization</h2>
+          <p className="text-sm text-mute">
+            Stripe subscription, one organization, no seats. After payment:{" "}
+            <span className="font-mono">/merci</span> and a key for your org. Gong is ~$1,500 a
+            seat. We don&apos;t record. We don&apos;t store.
+          </p>
+          <CheckoutButton label="Pay 99 € / month / org" />
         </section>
       </main>
     </>

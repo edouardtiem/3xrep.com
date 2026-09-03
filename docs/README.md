@@ -10,6 +10,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | --- | --- |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
+| [checkout.md](checkout.md) | 99 € / org : secrets Vercel / Stripe, webhook, recette |
 | [landing.md](landing.md) | Home Session : maquette live, mur 3 audits |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
