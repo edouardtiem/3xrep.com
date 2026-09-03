@@ -18,7 +18,13 @@ async function copyText(text: string) {
   }
 }
 
-export function CopyButton({ text }: { text: string }) {
+export function CopyButton({
+  text,
+  label = "Copy",
+}: {
+  text: string;
+  label?: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   return (
@@ -31,7 +37,7 @@ export function CopyButton({ text }: { text: string }) {
         window.setTimeout(() => setCopied(false), 1400);
       }}
     >
-      {copied ? "Copied" : "Copy"}
+      {copied ? "Copied" : label}
     </button>
   );
 }

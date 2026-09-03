@@ -48,12 +48,22 @@ export async function orgFromRequest(req: Request): Promise<Org | null> {
 export async function issueKey(input: {
   stripeCustomerId: string | null;
   stripeSessionId: string;
-}): Promise<string> {
-  const plain = mintKey();
+}): Promise<string | null> {
   const db = admin();
   if (!db) {
     throw new Error("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY manquants");
   }
+
+  const existing = await db
+    .from("orgs")
+    .select("key_plain")
+    .eq("stripe_session_id", input.stripeSessionId)
+    .maybeSingle();
+  if (existing.data) {
+    return (existing.data.key_plain as string | null) ?? null;
+  }
+
+  const plain = mintKey();
   const { error } = await db.from("orgs").insert({
     key_hash: hashKey(plain),
     key_plain: plain,
@@ -61,7 +71,15 @@ export async function issueKey(input: {
     stripe_session_id: input.stripeSessionId,
     status: "active",
   });
-  if (error) throw error;
+  if (error) {
+    const raced = await db
+      .from("orgs")
+      .select("key_plain")
+      .eq("stripe_session_id", input.stripeSessionId)
+      .maybeSingle();
+    if (raced.data) return (raced.data.key_plain as string | null) ?? null;
+    throw error;
+  }
   return plain;
 }
 

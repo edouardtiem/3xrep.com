@@ -1,7 +1,19 @@
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
+import { ensureOrgFromCheckout } from "@/lib/checkout-complete";
 import { revealKey } from "@/lib/orgs";
 import { mcpUrl } from "@/lib/site";
+
+async function keyForSession(sessionId: string): Promise<string | null> {
+  const first = await revealKey(sessionId);
+  if (first) return first;
+  try {
+    await ensureOrgFromCheckout(sessionId);
+  } catch {
+    return null;
+  }
+  return revealKey(sessionId);
+}
 
 export default async function Merci({
   searchParams,
@@ -9,7 +21,7 @@ export default async function Merci({
   searchParams: Promise<{ session_id?: string }>;
 }) {
   const { session_id: sessionId } = await searchParams;
-  const key = sessionId ? await revealKey(sessionId) : null;
+  const key = sessionId ? await keyForSession(sessionId) : null;
   const url = mcpUrl();
   const mcpJson = key
     ? JSON.stringify(

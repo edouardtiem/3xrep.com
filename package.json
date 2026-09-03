@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsx --test src/lib/brain/brain.test.ts",
+    "test": "tsx --test src/lib/brain/brain.test.ts src/lib/stripe-env.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts",
     "recette": "tsx scripts/recette.ts"
   },
   "dependencies": {

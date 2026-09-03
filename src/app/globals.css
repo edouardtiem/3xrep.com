@@ -8,6 +8,7 @@
   --mute: #5a5a56;
   --line: #e6e6e1;
   --copper: #a56a35;
+  --raise: #ffffff;
 }
 
 @theme inline {
@@ -17,6 +18,9 @@
   --color-mute: var(--mute);
   --color-line: var(--line);
   --color-copper: var(--copper);
+  --color-raise: var(--raise);
+  --color-fg: var(--foreground);
+  --color-bg: var(--background);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

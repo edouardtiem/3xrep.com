@@ -1,3 +1,4 @@
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { mcpUrl } from "@/lib/site";
@@ -18,17 +19,19 @@ export default function Install() {
     <>
       <Header />
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-12 px-6 py-16">
-        <h1 className="text-3xl font-medium tracking-tight">Installer</h1>
-        <p className="text-mute">
-          L’admin du workspace ajoute 3xrep une fois. Chaque personne Connect ensuite avec son
-          compte CRM — elle ne voit que ses deals.
-        </p>
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-medium tracking-tight">Brancher, puis payer</h1>
+          <p className="text-mute">
+            Deux gestes. L’admin branche 3xrep une fois (Claude, ChatGPT Business ou Notion). Puis
+            99 € / org. Pas de CRM 3xrep. Pas de démo.
+          </p>
+        </div>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-lg">URL</h2>
+          <h2 className="text-lg">1. URL du connector</h2>
           <div className="flex items-center justify-between gap-4 rounded-[10px] border border-line bg-raise px-4 py-3 font-mono text-sm">
             <span className="truncate">{url}</span>
-            <CopyButton text={url} />
+            <CopyButton text={url} label="Copier" />
           </div>
           <pre className="overflow-x-auto rounded-[10px] border border-line bg-raise p-4 font-mono text-xs">
             {mcpJson}
@@ -70,6 +73,15 @@ export default function Install() {
             <li>C’est quoi MEDDIC Economic Buyer, et quelle autre grille nomme la même case ?</li>
             <li>Débriefe le call avec Julien — notes, transcript, next step sont sur la fiche.</li>
           </ol>
+        </section>
+
+        <section className="flex flex-col gap-4 border-t border-line pt-10">
+          <h2 className="text-lg">2. Payer 99 € / org</h2>
+          <p className="text-sm text-mute">
+            Abo Stripe, une organisation. Après paiement : page <span className="font-mono">/merci</span>{" "}
+            + clé Bearer pour les tools payants (<span className="font-mono">audit_deal</span>).
+          </p>
+          <CheckoutButton />
         </section>
       </main>
     </>

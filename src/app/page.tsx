@@ -1,6 +1,8 @@
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { SessionTerminal } from "@/components/SessionTerminal";
-import { AGENT_SPEC, MCP_URL, PROMPTS } from "@/lib/landing";
+import { AGENT_SPEC, PROMPTS } from "@/lib/landing";
+import { mcpUrl } from "@/lib/site";
 
 function CopyBlock({
   label,
@@ -25,6 +27,8 @@ function CopyBlock({
 }
 
 export default function Home() {
+  const connector = mcpUrl();
+
   return (
     <div className="flex flex-1 flex-col">
       <header className="mx-auto flex w-full max-w-[42rem] items-baseline justify-between px-5 py-6">
@@ -69,7 +73,7 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3">
-            <CopyBlock label="Connector URL" value={MCP_URL} />
+            <CopyBlock label="Connector URL" value={connector} />
             <CopyBlock label="Spec" value={AGENT_SPEC} />
           </div>
 
@@ -95,8 +99,15 @@ export default function Home() {
           <p className="mt-2 text-[13px]">99 € / month / organization.</p>
           <p className="text-dim mt-2 max-w-[32rem] text-[13px] leading-relaxed">
             Modjo is ~99 € a seat. Here it&apos;s 99 € for the whole team.
-            No demo.
+            No demo.{" "}
+            <a href="/install" className="text-foreground underline-offset-2 hover:underline">
+              Install then pay
+            </a>
+            .
           </p>
+          <div className="mt-5">
+            <CheckoutButton label="Pay 99 € / month / org" />
+          </div>
         </section>
 
         <section className="text-dim mt-16 space-y-2 text-[13px] leading-relaxed">
