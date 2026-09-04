@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://3xrep.com"),
-  title: "3xrep — Hire the best VP Sales agent",
+  title: "3xrep — The VP Sales who doesn't believe your CRM",
   description:
-    "This agent is the méthode that makes you close. 99 €/month for the entire organization.",
+    "A VP Sales agent for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields and names the stage that lies. 99 €/month for the entire organization.",
 };
 
 export default function RootLayout({

@@ -1,21 +1,20 @@
-export const MCP_URL =
-  process.env.NEXT_PUBLIC_MCP_URL ?? "https://mcp.3xrep.com";
-
 export const PROMPTS = [
+  "Monday. Review my pipe. What's blocked?",
   "Debrief my last client call.",
-  "What's blocked this week. Challenge.",
+  "Which close date this month is a claim, not a fact?",
   "They said it's too expensive. Which piece isn't held?",
-  "Prepare me a QBR for tomorrow.",
 ] as const;
 
-export const DEBRIEF = {
-  prompt: "Debrief the call with Julien.",
-  tool: "audit_deal",
+/** The proof window. One pass, then it stops. */
+export const SESSION = {
+  prompt: "Monday. Review my pipe. What's blocked?",
+  tool: "pipe_review",
   blocks: [
-    "Good call, 7/10. Julien is in. The need is real. The file is still an ops deal.",
-    "He said: “anyway I'm the one who runs the tool day to day.” You went to rollout. You could have asked: “and when this hits budget, do you still sign, or does it go up?” — Economic Buyer empty, Champion untested.",
-    "Before the next one, lock: who signs the budget; the cost of doing nothing (two days lost a month, not in money); the paper process. Without that it dies at signature.",
-    "Plan R2\n1. Julien brings the CFO — or names them, and why they wouldn't come.\n2. The two days / month, validated in currency, out loud.\n3. The real path: who rereads the contract, what delay, what alternative is already on the table.",
-    "Objective: the CFO is in the room in R2.",
+    "9 deals. 4 contradictions. 1 hole that repeats. No percentage.",
+    "Acme — “Negotiation” in HubSpot. Nobody who signs has been named. Julien said: “anyway I'm the one who runs the tool day to day.” Usage isn't budget. This stage is illegal.",
+    "Bolt — close date Sept 15. No decision process on record. That date is a claim, not a fact.",
+    "Cora — last touched 46 days ago. The stage is a memory, not a state.",
+    "Repeats on 6 of 9: nobody who signs. One question in every next call: “when this hits budget, do you still sign, or does it go up?”",
+    "Dune — no call on record. Not enough to judge. I won't fill the gap.",
   ],
 } as const;

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { DEBRIEF } from "@/lib/landing";
+import { SESSION } from "@/lib/landing";
 
-const PROMPT = DEBRIEF.prompt;
-const BLOCKS = DEBRIEF.blocks;
+const PROMPT = SESSION.prompt;
+const BLOCKS = SESSION.blocks;
 const OUT_LEN = BLOCKS.reduce((n, b) => n + b.length, 0);
 
 const PROMPT_CHAR_MS = 52;
@@ -109,7 +109,7 @@ export function SessionTerminal() {
 
         {showTool ? (
           <p className="mt-2">
-            <span className="text-copper">⏺ {DEBRIEF.tool}</span>
+            <span className="text-copper">⏺ {SESSION.tool}</span>
             {caret === "tool" ? <Caret /> : null}
           </p>
         ) : null}

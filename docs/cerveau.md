@@ -283,7 +283,7 @@ Ordre, quand la structure est validée :
 
 1. Les ~10 réflexes transversaux. Ils sont réutilisés par toutes les pièces : les écrire d’abord évite de les recopier dix fois.
 2. Les ~7 pièces du cas Julien, niveau 1 seulement — perches et échelle comprises.
-3. Deux gestes V0 : `debrief-apres-call` et `passe-trous`. Les autres : [gestes.md](gestes.md), yaml à remplir **quand un vrai deal les demande**, pas pour coller à Craig.
+3. Trois gestes V0 : `debrief-apres-call`, `passe-trous`, et depuis le 4 sept `pipe-review` (le seul où ChatGPT est structurellement hors-jeu : il n’a jamais transcript + état CRM ensemble, et un CRM ne contredit pas ses propres champs — §8). Les autres : [gestes.md](gestes.md), yaml à remplir **quand un vrai deal les demande**, pas pour coller à Craig.
 4. Les règles d’angle du contrat [sortie.md](sortie.md).
 5. Niveau 2 (le pourquoi) sur ces 7 pièces. Puis on élargit **quand un vrai deal le demande**, jamais pour compléter une grille.
 

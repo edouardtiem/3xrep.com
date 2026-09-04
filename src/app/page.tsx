@@ -1,7 +1,10 @@
+import Link from "next/link";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { SessionTerminal } from "@/components/SessionTerminal";
 import { Wordmark } from "@/components/Wordmark";
-import { MCP_URL, PROMPTS } from "@/lib/landing";
+import { PROMPTS } from "@/lib/landing";
+import { mcpUrl } from "@/lib/site";
 
 function CopyBlock({
   label,
@@ -26,27 +29,29 @@ function CopyBlock({
 }
 
 export default function Home() {
+  const connector = mcpUrl();
+
   return (
     <div className="flex flex-1 flex-col">
       <header className="mx-auto flex w-full max-w-[68rem] items-baseline justify-between px-5 py-6">
-        <a href="/" aria-label="3xrep" className="text-[13px]">
+        <Link href="/" aria-label="3xrep" className="text-[13px]">
           <Wordmark />
-        </a>
-        <a href="/docs" className="text-[13px]">
+        </Link>
+        <Link href="/docs" className="text-[13px]">
           docs
-        </a>
+        </Link>
       </header>
 
       <main className="mx-auto flex w-full max-w-[68rem] flex-1 flex-col px-5 pt-6 pb-24">
         <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:gap-x-14">
           <div>
             <h1 className="max-w-[22rem] text-[1.65rem] leading-[1.2] tracking-tight sm:max-w-none sm:text-[1.85rem]">
-              Hire the best VP Sales agent
+              Hire the VP Sales
               <br />
-              for 99 €/month.
+              who doesn&apos;t believe your CRM.
             </h1>
             <p className="text-dim mt-3 text-[13px] italic">
-              for the entire organization
+              99 €/month. For the entire organization.
             </p>
           </div>
 
@@ -58,8 +63,10 @@ export default function Home() {
 
           <div className="mt-6 lg:col-start-1 lg:row-start-2 lg:mt-8">
             <p className="text-mute text-[13px] leading-relaxed">
-              This agent is the méthode that makes you close. Spoiler: he
-              won&apos;t go easy on you. That&apos;s why it works.
+              Your CRM is green because someone ticked a box. This agent reads
+              the calls behind the fields and says what your CRM can&apos;t:
+              this stage is a lie. He won&apos;t go easy on you. That&apos;s
+              why it works.
             </p>
 
             <p className="text-dim mt-8 text-[11px] tracking-wide">
@@ -69,17 +76,18 @@ export default function Home() {
             <section id="start" className="mt-10 scroll-mt-8">
               <p className="text-[13px] leading-relaxed">Start.</p>
               <p className="text-dim mt-2 text-[13px] leading-relaxed">
-                Add the connector. Run it on a real deal.
+                Add the connector next to your HubSpot, Salesforce, or Notion
+                MCP. Run it on your pipe.
               </p>
               <div className="mt-6">
-                <CopyBlock label="Connector URL" value={MCP_URL} />
+                <CopyBlock label="Connector URL" value={connector} />
               </div>
             </section>
 
             <section className="mt-10">
-              <p className="text-[13px] leading-relaxed">What the VP can do.</p>
+              <p className="text-[13px] leading-relaxed">What the VP says.</p>
               <p className="text-dim mt-2 text-[13px] leading-relaxed">
-                From a debrief to a full analysis.
+                From a Monday pipe review to one call.
               </p>
               <ul className="mt-6 divide-y divide-line border-y border-line">
                 {PROMPTS.map((prompt, i) => (
@@ -105,18 +113,24 @@ export default function Home() {
               </p>
               <p className="mt-2 text-[13px]">99 € / month / organization.</p>
               <p className="text-dim mt-2 text-[13px] leading-relaxed">
-                Gong is ~$1,500 a seat. Here it&apos;s 99 € for the whole
-                organization. We don&apos;t record.
+                Gong is ~$1,500 a seat and records your calls. Here it&apos;s
+                99 € for the whole pipe, no seats, and we don&apos;t record.
               </p>
+              <div className="mt-5">
+                <CheckoutButton label="Pay 99 € / month / org" />
+              </div>
             </section>
 
             <section className="mt-12 space-y-2 text-[13px] leading-relaxed">
               <p className="text-dim">Not Gong. We don&apos;t record.</p>
-              <p className="text-dim">Not a CRM.</p>
+              <p className="text-dim">
+                Not your CRM&apos;s assistant. It fills the fields. We say which
+                ones are empty.
+              </p>
               <p className="text-dim">Not a course.</p>
               <p className="text-dim">Not &ldquo;you close Friday.&rdquo;</p>
               <p className="pt-4">
-                We name the hole that kills the deal.
+                We name the hole that kills the deal. And the stage that lies.
               </p>
             </section>
           </div>

@@ -18,10 +18,11 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [methodes.md](methodes.md) | Lexique + rattachement. Fichiers `methodes/<slug>.md` |
 | [spec-agent.md](spec-agent.md) | Master prompt à coller (long). Court : [spec.md](spec.md) / `/spec` |
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
-| [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse |
+| [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse. Codés : debrief, passe-trous, **pipe-review** |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
+| [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 99 € encaissable, où la ligne se dessinera (le pipe, la mémoire) |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique

@@ -81,6 +81,29 @@ const audit = {
   },
 };
 
+const pipe = {
+  jsonrpc: "2.0",
+  id: 7,
+  method: "tools/call",
+  params: {
+    name: "pipe_review",
+    arguments: {
+      deals: [
+        {
+          nom: "Acme",
+          etape: "Négociation",
+          closeDate: "2026-09-30",
+          montant: 120000,
+          notes: "Economic Buyer: ok",
+          transcript:
+            "Il a dit : « de toute façon c’est moi qui fais tourner l’outil au quotidien ». Deux jours perdus par mois.",
+        },
+        { nom: "Dune", etape: "Négociation", closeDate: "2026-09-10" },
+      ],
+    },
+  },
+};
+
 async function main() {
   const a = await rpc(init);
   console.log("INIT", a.status, a.text.slice(0, 400));
@@ -88,7 +111,9 @@ async function main() {
   const instr = initBody.result?.instructions ?? "";
   console.log(
     "INSTRUCTIONS",
-    instr.includes("deal coach") && instr.includes("Never default to French"),
+    instr.includes("doesn't believe the CRM") &&
+      instr.includes("pipe_review") &&
+      instr.includes("Never default to French"),
   );
 
   const b = await rpc(lookup);
@@ -102,6 +127,13 @@ async function main() {
 
   const e = await rpc(audit);
   console.log("AUDIT", e.status, e.text.slice(0, 800));
+
+  const p = await rpc(pipe);
+  console.log(
+    "PIPE",
+    p.status,
+    p.text.includes("etape_illegale") && p.text.includes("Insuffisant pour se prononcer"),
+  );
 
   const g = await fetch(`${BASE}/api/stripe/checkout`, { method: "POST", redirect: "manual" });
   const checkoutBody = await g.text();
@@ -139,6 +171,7 @@ async function main() {
     ["phrase", phrase],
     ["dossier", dossier],
     ["audit", audit],
+    ["pipe", pipe],
   ] as const) {
     try {
       const parsed = parse((await rpc(body)).text);

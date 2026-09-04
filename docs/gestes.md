@@ -30,7 +30,7 @@ Si 2 échoue : c’est un **alias** du geste déjà là, pas un nouveau. Voir §
 
 Les 10 du matin : 1, 3, 5, 7, 10, 11, 12, 17, 18, 19. Le reste était soit plié dans un trop gros, soit oublié (closing intermédiaire, after-no, QBR dans [terrain/template-parcours.md](terrain/template-parcours.md) ; inbound, silence, POC, papier, RFP, prépa exec dans la semaine d’un VP).
 
-V0 code : **7 et 17** (Julien) — `debrief-apres-call` + `passe-trous`. Les autres se **déclarent** ici.
+V0 code : **7, 17 et 18** — `debrief-apres-call` + `passe-trous` + `pipe-review` (tool `pipe_review`, 4 sept : c’est le geste qui rend la différence visible — le CRM ment, le VP le dit). Les autres se **déclarent** ici.
 
 ### Entrée
 
@@ -122,7 +122,7 @@ Cycle court : 6, 13, 14, 15, 21 souvent absents. On n’oblige personne à les j
 
 **`closing-intermediaire`.** Un next step a une date **et** une personne dans la pièce. Un oui verbal sans les deux n’est pas un close. MAP / « on convie le DAF » sans créneau = claim. C’est l’étape que les 10 avaient oubliée.
 
-**`pipe-review`.** Deal par deal : quelle pièce tue le plus tôt. Une date de close sans exhibit = claim. « Cette étape est illégale » : oui.
+**`pipe-review`.** Deal par deal : quelle pièce tue le plus tôt. Une date de close sans exhibit = claim. « Cette étape est illégale » : oui. Codé (`src/lib/brain/pipe.ts`) : `etape_illegale` (négo / propal + la pièce qui tue le plus tôt non prouvée — **une** par deal, pas la liste des cases), `date_sans_exhibit` (close date sans `qui-tranche` / process prouvé), `fiche_figee` (> 30 jours sans modif : l’étape est un souvenir), **trou systémique** (la pièce non tenue sur ≥ la moitié des deals, 2 max, ordre de la mort, avec la question du cran 1), **refus** (deal sans artefact : « il manque le call », on ne remplit pas avec les champs). Entrée = ce que le CRM prétend (`etape`, `closeDate`, `derniereModif`) + les artefacts, lus par **leur** MCP CRM.
 
 **`autopsie`.** `passe-trous` sur un deal fermé. Même remontée, au passé. Le réflexe qui a tué. Ce n’est pas un rapport trimestre, c’est *ce* dossier.
 
