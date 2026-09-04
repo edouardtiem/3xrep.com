@@ -1,21 +1,20 @@
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { methodeLookup, nextQuestion, objectionMap, rattacher, scoreDeal } from "@/lib/brain";
-import { dealSchema, jsonTool, paidToolName } from "@/lib/mcp-schema";
-import { orgFromRequest } from "@/lib/orgs";
+import { MCP_INSTRUCTIONS } from "@/lib/copy";
+import { dealSchema, jsonTool } from "@/lib/mcp-schema";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
-import { checkoutUrl } from "@/lib/site";
 
 const handler = createMcpHandler(
   (server) => {
     server.registerTool(
       "methode_lookup",
       {
-        title: "Lookup méthode",
+        title: "Method lookup",
         description:
-          "Lexique 3xrep. Gratuit. Une méthode, une lettre, une notion — pas un deal. Si tu as le dossier CRM, appelle audit_deal.",
+          "Use when they ask what a method, letter, or notion is (MEDDIC, Authority, CRAC…). Lexicon only — not a deal. If they have a CRM file, call audit_deal.",
         inputSchema: z.object({
-          q: z.string().describe("Nom de méthode ou de partie (MEDDIC, Authority, CRAC…)"),
+          q: z.string().describe("Method or part name (MEDDIC, Authority, CRAC…)"),
         }),
       },
       async ({ q }) => jsonTool(methodeLookup(q)),
@@ -24,11 +23,11 @@ const handler = createMcpHandler(
     server.registerTool(
       "rattacher",
       {
-        title: "Rattacher une phrase",
+        title: "Map a sentence",
         description:
-          "Une phrase entendue en call → rattachements méthode + partie. Gratuit. Une phrase, pas un dossier. Au-delà, refuse. Pour nommer ce qui manque sur LEUR deal : audit_deal.",
+          "Use when they paste one sentence from a call. Maps it to a method + part. One sentence, not a deal. Beyond that, refuse. To name what's missing on THEIR deal: audit_deal.",
         inputSchema: z.object({
-          phrase: z.string().describe("Une seule phrase, max 280 caractères, pas de retour à la ligne."),
+          phrase: z.string().describe("One sentence, max 280 characters, no newlines."),
         }),
       },
       async ({ phrase }) => jsonTool(rattacher(phrase)),
@@ -39,7 +38,7 @@ const handler = createMcpHandler(
       {
         title: "Audit deal",
         description:
-          "8 étages sur CE deal (cadrer → rendre). Payant. Entrée = artefacts CRM. Sortie JSON : pièces, mort, remontée, un geste, contrat. geste=debrief-apres-call (défaut) ou passe-trous. Le LLM hôte habille. Interdit : proba de close, write_to_crm.",
+          "Use when they talk about a deal, a call, a pipeline, or a CRM file. 8 stages on THIS deal (frame → render). Input = CRM artefacts. JSON out: pieces, death, climb-back, one move, contract. Paste this JSON; don't write another verdict. geste=debrief-apres-call (default) or passe-trous. Write in the user's language, or the prompt's. Forbidden: close probability, write_to_crm.",
         inputSchema: dealSchema,
       },
       async (deal) => jsonTool(scoreDeal(deal)),
@@ -50,7 +49,7 @@ const handler = createMcpHandler(
       {
         title: "Next question",
         description:
-          "S’arrête à l’étage 7 : le geste qui coûte sur CE deal. Payant. Même entrée que audit_deal.",
+          "Use when they ask what to ask next on a deal. Stops at stage 7: the move that costs on THIS deal. Same input as audit_deal. Write in the user's language, or the prompt's.",
         inputSchema: dealSchema,
       },
       async (deal) => jsonTool(nextQuestion(deal)),
@@ -61,9 +60,9 @@ const handler = createMcpHandler(
       {
         title: "Objection map",
         description:
-          "Objection → case non tenue → CRAC. Payant. Pas une punchline.",
+          "Use when they quote an objection (price, timing, competitor). Objection → unheld piece → CRAC. Not a punchline. Write in the user's language, or the prompt's.",
         inputSchema: dealSchema.extend({
-          objection: z.string().describe("L’objection entendue, une phrase."),
+          objection: z.string().describe("The objection as heard, one sentence."),
         }),
       },
       async ({ objection, ...deal }) => jsonTool(objectionMap({ ...deal, objection })),
@@ -71,34 +70,11 @@ const handler = createMcpHandler(
   },
   {
     serverInfo: { name: "3xrep", version: "0.1.0" },
+    instructions: MCP_INSTRUCTIONS,
   },
 );
 
-function unpaid(req: Request): Response {
-  const checkout = checkoutUrl();
-  return new Response(
-    JSON.stringify({
-      error: "payant",
-      checkout,
-      ligne: `audit_deal lit le CRM. 99 € / org. ${checkout}`,
-    }),
-    {
-      status: 401,
-      headers: {
-        "content-type": "application/json",
-        "www-authenticate": `Bearer realm="3xrep", resource_metadata="${new URL("/.well-known/oauth-protected-resource", req.url).toString()}"`,
-      },
-    },
-  );
-}
-
 async function gate(req: Request): Promise<Response> {
-  const paid = await paidToolName(req);
-  if (paid) {
-    const org = await orgFromRequest(req);
-    if (!org) return unpaid(req);
-    return handler(req);
-  }
   if (!rateLimit(clientIp(req))) {
     return new Response(JSON.stringify({ error: "rate_limit" }), { status: 429 });
   }

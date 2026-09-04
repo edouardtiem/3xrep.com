@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  --background: #f7f7f5;
-  --foreground: #141413;
-  --dim: #6b6b67;
-  --mute: #5a5a56;
-  --line: #e6e6e1;
-  --copper: #a56a35;
+  color-scheme: dark;
+  --background: #0e0e0c;
+  --foreground: #e8e8e4;
+  --dim: #8a8a84;
+  --mute: #9c9c96;
+  --line: #2a2a26;
+  --copper: #c4844a;
+  --raise: #161614;
+  --fg: #e8e8e4;
 }
 
 @theme inline {
@@ -17,8 +19,22 @@
   --color-mute: var(--mute);
   --color-line: var(--line);
   --color-copper: var(--copper);
+  --color-raise: var(--raise);
+  --color-fg: var(--fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-term-caret: term-caret 1.05s step-end infinite;
+}
+
+@keyframes term-caret {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 html {

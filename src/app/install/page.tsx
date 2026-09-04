@@ -18,10 +18,10 @@ export default function Install() {
     <>
       <Header />
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-12 px-6 py-16">
-        <h1 className="text-3xl font-medium tracking-tight">Installer</h1>
+        <h1 className="text-3xl font-medium tracking-tight">Install</h1>
         <p className="text-mute">
-          L’admin du workspace ajoute 3xrep une fois. Chaque personne Connect ensuite avec son
-          compte CRM — elle ne voit que ses deals.
+          The workspace admin adds 3xrep once. Each person then Connects with their own CRM
+          account — they only see their deals.
         </p>
 
         <section className="flex flex-col gap-3">
@@ -39,36 +39,36 @@ export default function Install() {
           <div>
             <h2 className="mb-2 text-lg">Claude Team / Cowork</h2>
             <p className="text-mute">
-              Owner : Settings → Connectors → Add custom connector. Coller l’URL. Activer le
-              connector CRM. Chaque user : Connect (OAuth à son nom). Coller le{" "}
+              Owner: Settings → Connectors → Add custom connector. Paste the URL. Enable the CRM
+              connector. Each user: Connect (OAuth in their name). Paste the{" "}
               <a className="text-fg underline-offset-2 hover:underline" href="/spec">
                 spec
               </a>{" "}
-              dans le Project partagé.
+              in the shared Project.
             </p>
           </div>
           <div>
             <h2 className="mb-2 text-lg">ChatGPT Business</h2>
             <p className="text-mute">
-              Admin publie l’app MCP 3xrep sur le workspace, plus le CRM. Auth individuelle. Même
-              spec collé sur le GPT partagé.
+              Admin publishes the 3xrep MCP app on the workspace, plus the CRM. Individual auth.
+              Same spec on the shared GPT.
             </p>
           </div>
           <div>
             <h2 className="mb-2 text-lg">Notion Custom Agents</h2>
             <p className="text-mute">
-              Admin autorise le MCP 3xrep, colle le spec sur l’agent partagé. Auth si le serveur
-              la demande.
+              Admin authorizes the 3xrep MCP, pastes the spec on the shared agent. Auth if the
+              server asks.
             </p>
           </div>
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-lg">Trois prompts</h2>
+          <h2 className="text-lg">Three prompts</h2>
           <ol className="list-decimal space-y-3 pl-5 text-sm text-mute">
-            <li>Rattache cette phrase : « de toute façon c’est moi qui fais tourner l’outil. »</li>
-            <li>C’est quoi MEDDIC Economic Buyer, et quelle autre grille nomme la même case ?</li>
-            <li>Débriefe le call avec Julien — notes, transcript, next step sont sur la fiche.</li>
+            <li>Map this sentence: “anyway I&apos;m the one who runs the tool.”</li>
+            <li>What is MEDDIC Economic Buyer, and which other grid names the same box?</li>
+            <li>Debrief the call with Julien — notes, transcript, next step are on the record.</li>
           </ol>
         </section>
       </main>

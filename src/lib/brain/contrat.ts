@@ -1,37 +1,38 @@
 import type { ContratRendu } from "./types";
 
 export const CONTRAT: ContratRendu = {
+  langue: "user, else prompt",
   blocs: [
     {
       id: "call",
-      job: "Le call, pas la personne. Note /10 de la découverte (rapport vs dossier), pas une note RH, pas une proba de close.",
+      job: "The call, not the person. A /10 on the discovery (rapport vs file), not an HR score, not a close probability.",
     },
     {
       id: "rate",
-      job: "Le raté, collé à une réplique. Citer le transcript (il a dit Y, tu as oublié X). Sinon se taire — c’est un cours.",
+      job: "The miss, glued to a line they said (they said Y, you skipped X). Quote the transcript. Otherwise stay quiet — that's a lecture.",
     },
     {
       id: "verrous",
-      job: "Trois choses à verrouiller avant le prochain, parce que sur CE dossier la signature coince là. Pas quinze. Pas « dans ton industrie ».",
+      job: "Three locks before the next meeting, because on THIS deal that's where signature dies. Not fifteen. Not 'in your industry'.",
     },
     {
       id: "plan",
-      job: "Plan du prochain rdv. 1. 2. 3. Assez court pour tenir dans un call.",
+      job: "Plan for the next call. 1. 2. 3. Short enough to fit in a meeting.",
     },
     {
       id: "objectif",
-      job: "Une phrase. Le geste qui coûte (ex. le DAF est dans la pièce en R2). Pas « avancer le deal ».",
+      job: "One sentence. The move that costs (e.g. the CFO is in the room in R2). Not 'move the deal'.",
     },
   ],
   interdits: [
-    "note RH sur le commercial",
-    "proba de close",
-    "tu closes vendredi",
-    "checklist de lettres à cocher",
-    "dans ton industrie on voit souvent… sans citer ce call",
-    "plan de 12 points",
-    "objectif flou",
+    "HR score on the rep",
+    "close probability",
+    "you close Friday",
+    "letter checklist",
+    "in your industry we often see… without citing this call",
+    "12-point plan",
+    "vague objective",
     "+20 XP",
-    "mauvaise réponse c’était MEDDIC",
+    "wrong answer it was MEDDIC",
   ],
 };

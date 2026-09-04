@@ -24,7 +24,7 @@ export function rattacher(phrase: string): RattacherOk | RattacherMur {
   if (p.includes("\n") || p.length > RATTACHER_MAX) {
     return {
       ok: false,
-      mur: "rattacher prend une phrase, pas un dossier. Au-delà, c’est audit_deal — 99 € / org.",
+      mur: "rattacher takes one sentence, not a deal. Beyond that, call audit_deal.",
     };
   }
   const rattachements: Rattachement[] = [];

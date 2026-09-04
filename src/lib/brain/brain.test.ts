@@ -93,3 +93,8 @@ test("rattacher refuse un dossier", () => {
     assert.ok(ok.rattachements.some((r) => r.partie === "Economic Buyer"));
   }
 });
+
+test("contrat: langue = user, else prompt", () => {
+  const a = scoreDeal({});
+  assert.equal(a.rendu.langue, "user, else prompt");
+});

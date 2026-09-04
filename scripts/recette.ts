@@ -65,17 +65,7 @@ const dossier = {
   },
 };
 
-const unpaid = {
-  jsonrpc: "2.0",
-  id: 5,
-  method: "tools/call",
-  params: {
-    name: "audit_deal",
-    arguments: { notes: "Julien ops", montant: 8000 },
-  },
-};
-
-const paid = {
+const audit = {
   jsonrpc: "2.0",
   id: 6,
   method: "tools/call",
@@ -94,6 +84,12 @@ const paid = {
 async function main() {
   const a = await rpc(init);
   console.log("INIT", a.status, a.text.slice(0, 400));
+  const initBody = parse(a.text) as { result?: { instructions?: string } };
+  const instr = initBody.result?.instructions ?? "";
+  console.log(
+    "INSTRUCTIONS",
+    instr.includes("deal coach") && instr.includes("Never default to French"),
+  );
 
   const b = await rpc(lookup);
   console.log("LOOKUP", b.status, b.text.slice(0, 500));
@@ -104,27 +100,25 @@ async function main() {
   const d = await rpc(dossier);
   console.log("DOSSIER", d.status, d.text.slice(0, 400));
 
-  const e = await rpc(unpaid);
-  console.log("UNPAID", e.status, e.text.slice(0, 400));
-
-  const f = await rpc(paid, { authorization: "Bearer 3xr_dev_local" });
-  console.log("PAID", f.status, f.text.slice(0, 800));
+  const e = await rpc(audit);
+  console.log("AUDIT", e.status, e.text.slice(0, 800));
 
   const g = await fetch(`${BASE}/api/stripe/checkout`, { method: "POST" });
   console.log("CHECKOUT", g.status, (await g.text()).slice(0, 300));
 
   const h = await fetch(`${BASE}/`);
-  console.log("HOME", h.status, (await h.text()).includes("Hire the best VP Sales agent"));
+  const home = await h.text();
+  console.log("HOME", h.status, home.includes("Hire the best VP Sales agent"));
+  console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
 
-  for (const [name, body, extra] of [
-    ["lookup", lookup, {}],
-    ["phrase", phrase, {}],
-    ["dossier", dossier, {}],
-    ["unpaid", unpaid, {}],
-    ["paid", paid, { authorization: "Bearer 3xr_dev_local" }],
+  for (const [name, body] of [
+    ["lookup", lookup],
+    ["phrase", phrase],
+    ["dossier", dossier],
+    ["audit", audit],
   ] as const) {
     try {
-      const parsed = parse((await rpc(body, extra)).text);
+      const parsed = parse((await rpc(body)).text);
       console.log("PARSED", name, JSON.stringify(parsed).slice(0, 200));
     } catch (err) {
       console.log("PARSE_FAIL", name, err);

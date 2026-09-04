@@ -41,6 +41,7 @@ export type Geste = {
 };
 
 export type ContratRendu = {
+  langue: "user, else prompt";
   blocs: { id: string; job: string }[];
   interdits: string[];
 };

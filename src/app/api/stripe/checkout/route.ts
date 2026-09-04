@@ -12,7 +12,7 @@ export async function POST() {
   const price = process.env.STRIPE_PRICE_ID;
   if (!process.env.STRIPE_SECRET_KEY || !price) {
     return new Response(
-      `<!doctype html><meta charset="utf-8"><title>Stripe</title><p>Stripe n’est pas configuré. En local : <code>STRIPE_SECRET_KEY</code> + <code>STRIPE_PRICE_ID</code>. Les tools payants marchent avec <code>DEV_ORG_KEY</code>.</p><p><a href="/">Retour</a></p>`,
+      `<!doctype html><meta charset="utf-8"><title>Stripe</title><p>Stripe n’est pas configuré. Les tools MCP n’exigent pas de paiement.</p><p><a href="/">Retour</a></p>`,
       { status: 503, headers: { "content-type": "text/html; charset=utf-8" } },
     );
   }
