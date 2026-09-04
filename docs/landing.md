@@ -46,6 +46,22 @@ Avant : *This agent is the méthode that makes you close.* Gardé : *he won’t 
 
 Écart au PRD, **LP seulement**. Spec, tools, debrief : toujours pas « tu closes ». Pas dans la H1. Pas « more deals » / « +30 % » / « tu closes vendredi ».
 
+## Où il vit (4 sept)
+
+Édouard : on ne comprend pas où vit l’agent. Le dire, et le dire vendeur : **il vit là où tu travailles déjà, au-dessus du CRM, pas dedans.** Rien à installer dans HubSpot, pas d’onglet 3xrep.
+
+Section *Where he lives.* sous le manifeste, avant *Start.* Trois lignes mono (la page est le terminal) :
+
+```
+your agent   Claude Code · Cursor · Codex · Claude
+ ├─ your CRM  HubSpot · Salesforce · Notion
+ └─ 3xrep     one URL → the verdict
+```
+
+Tient dans la colonne gauche (24 rem) sans scroll horizontal.
+
+Puis la condition, en une phrase : *He needs both. Without your CRM connected, he has nothing to read.* Pas un schéma d’archi. Pas « MCP server » en gras dans le hero. Le mot MCP n’apparaît qu’une fois (*one MCP URL*). Remplace la ligne de logos seule (Claude Code · Cursor · Codex), qui disait la plateforme sans dire la place.
+
 ## Logos
 
 Claude Code · Cursor · Codex. Cet ordre. Sous la ligne, pas à la place.

@@ -23,9 +23,10 @@ export default function Install() {
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-medium tracking-tight">Connect, then pay.</h1>
           <p className="text-mute">
-            The workspace admin adds 3xrep once. Each person then Connects with their own CRM
-            account — they only see their deals. The tools are open. 99 € / month is for the
-            organization that wants the VP on its pipe every Monday.
+            3xrep lives in your agent, not in your CRM: one MCP URL next to your HubSpot,
+            Salesforce, or Notion connector. The workspace admin adds it once. Each person then
+            Connects with their own CRM account — they only see their deals. The tools are open.
+            99 € / month is for the organization that wants the VP on its pipe every Monday.
           </p>
         </div>
 

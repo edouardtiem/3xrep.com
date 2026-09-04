@@ -69,9 +69,29 @@ export default function Home() {
               why it works.
             </p>
 
-            <p className="text-dim mt-8 text-[11px] tracking-wide">
-              Claude Code · Cursor · Codex
-            </p>
+            <section className="mt-10">
+              <p className="text-[13px] leading-relaxed">Where he lives.</p>
+              <p className="text-dim mt-2 text-[13px] leading-relaxed">
+                Not in your CRM. In your agent — one MCP URL, next to the
+                CRM connector you already have. Nothing to install in HubSpot.
+                No 3xrep tab. He reads the deal through your CRM and judges
+                it in your terminal.
+              </p>
+              <pre className="text-dim mt-5 overflow-x-auto text-[12px] leading-[1.6]">
+                <span className="text-foreground">your agent</span>
+                {"   Claude Code · Cursor · Codex · Claude\n"}
+                {" ├─ "}
+                <span className="text-foreground">your CRM</span>
+                {"  HubSpot · Salesforce · Notion\n"}
+                {" └─ "}
+                <span className="text-copper">3xrep</span>
+                {"     one URL → the verdict"}
+              </pre>
+              <p className="text-dim mt-4 text-[13px] leading-relaxed">
+                He needs both. Without your CRM connected, he has nothing to
+                read.
+              </p>
+            </section>
 
             <section id="start" className="mt-10 scroll-mt-8">
               <p className="text-[13px] leading-relaxed">Start.</p>

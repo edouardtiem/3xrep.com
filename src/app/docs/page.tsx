@@ -36,6 +36,24 @@ export default function DocsPage() {
         </div>
 
         <section className="space-y-2">
+          <h2 className="text-[13px]">Where it lives</h2>
+          <p className="text-dim">
+            3xrep is a remote MCP server. It lives in your agent — Claude
+            Code, Cursor, Codex, Claude (Cowork), ChatGPT Business, Notion
+            agents — as one URL, next to the HubSpot, Salesforce, or Notion
+            MCP you already use. It does not live in your CRM: nothing to
+            install there, no 3xrep tab, no data copied. Your agent reads
+            the deal through your CRM connector and calls 3xrep for the
+            verdict.
+          </p>
+          <p className="text-dim">
+            It needs both. Without a CRM connected to your agent, there is
+            nothing to read — paste the notes or transcript in the chat and
+            it works on that, without the CRM fields.
+          </p>
+        </section>
+
+        <section className="space-y-2">
           <h2 className="text-[13px]">Connector</h2>
           <p className="text-dim">
             <a href="/install" className="text-foreground hover:underline">
