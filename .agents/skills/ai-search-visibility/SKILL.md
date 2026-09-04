@@ -26,7 +26,7 @@ Même ladder pour **chaque** rival nommé dans la réponse — y compris un nom 
 
 `category` · `problem` · `comparison` · `brand`
 
-Lire le kind sur la ligne de [`prompt-list.md`](../../../docs/visibility/prompt-list.md). Ne pas reclasseer à la volée. Si la ligne est mauvaise : le noter, tourner quand même, proposer un edit via `build-3xrep-prompt-list`.
+Lire le kind sur la ligne de [`prompt-list.md`](../../../docs/visibility/prompt-list.md). Ne pas reclasser à la volée. Si la ligne est mauvaise : le noter, tourner quand même, proposer un edit via `build-3xrep-prompt-list`.
 
 ## Surfaces
 
