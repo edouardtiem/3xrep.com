@@ -26,6 +26,14 @@ export const GESTES: GesteDef[] = [
     grade_min: "B",
     passe_tous_les_trous: true,
   },
+  {
+    id: "pipe-review",
+    declencheur: "lundi, forecast, saut d’étape CRM, plusieurs deals",
+    familles: ["dossier", "motivations", "enjeu"],
+    contrat: "gestes.md §4 pipe-review",
+    grade_min: "B",
+    passe_tous_les_trous: false,
+  },
 ];
 
 export function gesteOf(id: GesteId | undefined): GesteDef {

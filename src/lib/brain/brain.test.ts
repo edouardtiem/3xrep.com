@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { scoreDeal } from "./audit";
 import { layerOf } from "./layer";
+import { pipeReview } from "./pipe";
 import { rattacher } from "./rattacher";
 
 const JULIEN = {
@@ -97,4 +98,46 @@ test("rattacher refuse un dossier", () => {
 test("contrat: langue = user, else prompt", () => {
   const a = scoreDeal({});
   assert.equal(a.rendu.langue, "user, else prompt");
+});
+
+test("aucun artefact → refus, pas de verdict inventé", () => {
+  assert.ok(scoreDeal({}).refus);
+  assert.equal(scoreDeal(JULIEN).refus, null);
+});
+
+test("pipe_review — négo + EB vide : l’étape ment ; date de close = claim", () => {
+  const r = pipeReview(
+    [
+      { ...JULIEN, nom: "Acme", etape: "Négociation", closeDate: "2026-09-30" },
+      { nom: "Vide", etape: "Négociation", closeDate: "2026-09-15" },
+    ],
+    new Date("2026-09-04"),
+  );
+  const acme = r.deals[0];
+  assert.equal(acme.refus, null);
+  assert.ok(
+    acme.contradictions.some((c) => c.type === "etape_illegale" && c.piece === "qui-tranche"),
+  );
+  assert.ok(acme.contradictions.some((c) => c.type === "date_sans_exhibit"));
+  assert.equal(acme.mort?.piece, "qui-tranche");
+  assert.ok(r.deals[1].refus);
+  assert.equal(r.deals[1].contradictions.length, 0);
+  assert.ok(r.rendu.interdits.includes("coverage × win rate"));
+});
+
+test("pipe_review — découverte n’est pas illégale ; fiche figée ; trou systémique", () => {
+  const r = pipeReview(
+    [
+      { ...JULIEN, nom: "A", etape: "Découverte", derniereModif: "2026-07-01" },
+      { nom: "B", etape: "Découverte", notes: "Economic Buyer: ok. Champion: oui." },
+      { nom: "C", etape: "Discovery", montant: 20_000, notes: "Call ops, il est chaud." },
+    ],
+    new Date("2026-09-04"),
+  );
+  assert.ok(!r.contradictions.some((c) => c.type === "etape_illegale"));
+  assert.ok(r.contradictions.some((c) => c.type === "fiche_figee" && c.deal === "A"));
+  const eb = r.trous_systemiques.find((t) => t.piece === "qui-tranche");
+  assert.equal(eb?.sur, 3);
+  assert.equal(eb?.deals.length, 3);
+  assert.ok(eb?.question.length);
 });

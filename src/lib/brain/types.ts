@@ -2,7 +2,7 @@ import type { Etat } from "./etat";
 
 export type Layer = 0 | 1 | 2;
 
-export type GesteId = "debrief-apres-call" | "passe-trous";
+export type GesteId = "debrief-apres-call" | "passe-trous" | "pipe-review";
 
 export type Evidence = "transcript" | "notes" | "emails" | "chat_paste";
 
@@ -83,5 +83,7 @@ export type Audit = {
   plan: string[];
   objectif: string;
   strippe: string[];
+  /** Aucun artefact : le VP ne se prononce pas. Il ne remplit pas le vide. */
+  refus: string | null;
   rendu: ContratRendu;
 };

@@ -168,6 +168,10 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     plan: stopAt >= 7 ? plan : [],
     objectif: stopAt >= 7 ? objectif : "",
     strippe,
+    refus: text.trim() ? null : REFUS,
     rendu: CONTRAT,
   };
 }
+
+export const REFUS =
+  "Insuffisant pour se prononcer : aucun artefact (notes, mails, transcript). Il manque le call. Ne pas remplir le vide.";
