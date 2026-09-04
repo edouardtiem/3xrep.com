@@ -53,7 +53,7 @@ Avant : *This agent is the méthode that makes you close.* Gardé : *he won’t 
 Section *Where he lives.* sous le manifeste, avant *Start.* Trois lignes mono (la page est le terminal) :
 
 ```
-your agent   Claude Code · Cursor · Codex · Claude
+your agent   Claude · ChatGPT · Cursor · Codex…
  ├─ your CRM  HubSpot · Salesforce · Notion
  └─ 3xrep     one URL → the verdict
 ```

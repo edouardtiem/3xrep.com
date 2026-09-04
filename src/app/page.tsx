@@ -79,7 +79,7 @@ export default function Home() {
               </p>
               <pre className="text-dim mt-5 overflow-x-auto text-[12px] leading-[1.6]">
                 <span className="text-foreground">your agent</span>
-                {"   Claude Code · Cursor · Codex · Claude\n"}
+                {"   Claude · ChatGPT · Cursor · Codex…\n"}
                 {" ├─ "}
                 <span className="text-foreground">your CRM</span>
                 {"  HubSpot · Salesforce · Notion\n"}
