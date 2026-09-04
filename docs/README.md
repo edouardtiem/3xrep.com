@@ -23,6 +23,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
 | [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 99 € encaissable, où la ligne se dessinera (le pipe, la mémoire) |
+| [visibility/](visibility/README.md) | Check AI search (skills, pas un bot SEO). Liste seed : [prompt-list.md](visibility/prompt-list.md) |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique
