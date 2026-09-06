@@ -10,4 +10,4 @@ export { objectionMap } from "./objection-map";
 export { CONTRAT_PIPE, pipeReview } from "./pipe";
 export type { Contradiction, PipeDeal, PipeReview, TrouSystemique } from "./pipe";
 export { rattacher, RATTACHER_MAX } from "./rattacher";
-export type { Audit, DealInput, Geste, GesteId, Layer, Trou } from "./types";
+export type { Audit, DealInput, Exhibit, Geste, GesteId, Layer, Trou } from "./types";

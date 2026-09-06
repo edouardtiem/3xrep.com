@@ -81,6 +81,28 @@ const audit = {
   },
 };
 
+const exhibits = {
+  jsonrpc: "2.0",
+  id: 8,
+  method: "tools/call",
+  params: {
+    name: "audit_deal",
+    arguments: {
+      etape: "découverte",
+      notes: "Economic Buyer: ok",
+      exhibits: [
+        {
+          source: "note",
+          auteur: "rep",
+          citation: "le DAF signe, on est bons",
+          piece: "qui-tranche",
+          sens: "affirme",
+        },
+      ],
+    },
+  },
+};
+
 const pipe = {
   jsonrpc: "2.0",
   id: 7,
@@ -113,6 +135,7 @@ async function main() {
     "INSTRUCTIONS",
     instr.includes("doesn't believe the CRM") &&
       instr.includes("pipe_review") &&
+      instr.includes("Extract before you call") &&
       instr.includes("Never default to French"),
   );
 
@@ -127,6 +150,13 @@ async function main() {
 
   const e = await rpc(audit);
   console.log("AUDIT", e.status, e.text.slice(0, 800));
+
+  const x = await rpc(exhibits);
+  console.log(
+    "EXHIBITS",
+    x.status,
+    x.text.includes('"gap"') && x.text.includes("demande") && !x.text.includes('"etat": "su"'),
+  );
 
   const p = await rpc(pipe);
   console.log(
@@ -171,6 +201,7 @@ async function main() {
     ["phrase", phrase],
     ["dossier", dossier],
     ["audit", audit],
+    ["exhibits", exhibits],
     ["pipe", pipe],
   ] as const) {
     try {

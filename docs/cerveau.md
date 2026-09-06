@@ -87,8 +87,8 @@ Ce qui tourne à chaque appel. `audit_deal` = le chemin complet. `next_question`
 | # | Étage | Le serveur fait | Leur LLM fait |
 | --- | --- | --- | --- |
 | 1 | **Cadrer** | Choisit les pièces selon geste + étape + layer 0/1/2 | Rien |
-| 2 | **Établir les faits** | Vérifie chaque citation, range en frise chronologique | Extrait et propose |
-| 3 | **Passer les pièces** | Tenu / supposé / vide / contredit | Propose le rattachement |
+| 2 | **Établir les faits** | Vérifie chaque citation, range en frise | Extrait les exhibits (auteur, source, pièce, sens) |
+| 3 | **Passer les pièces** | Tenu / supposé / vide / contredit — 3 conditions | Propose le rattachement |
 | 4 | **Challenger** | Applique l’angle, dégrade | Rien |
 | 5 | **Chaîner la mort** | Ordonne : qui tue le plus tôt | Rien |
 | 6 | **Remonter** | Pour **chaque** trou : la fenêtre ratée, le réflexe, l’échelle, le gain, le coût du retard | Rien |
@@ -97,11 +97,13 @@ Ce qui tourne à chaque appel. `audit_deal` = le chemin complet. `next_question`
 
 **1. Cadrer.** On ne passe pas 40 pièces à chaque fois. Un premier prospect (layer 0) n’a pas de process papier. Un cycle court n’a pas de comité. Le geste + la forme du deal décident du jeu de pièces. C’est ce qui évite la checklist de sigles.
 
-**2. Établir les faits.** Deux bacs : les **faits** (une phrase, une source — mail, call, note) et les **claims** (une affirmation sans source : l’AE qui dit « Julien est notre champion », ou une case CRM cochée). Règle mécanique : une citation qui n’est pas *littéralement* dans l’entrée est rejetée par le serveur. C’est comme ça qu’on ne peut pas inventer la réplique — pas parce qu’on l’a demandé gentiment.
+**2. Établir les faits.** L’entrée préférée est une liste d’**exhibits** : qui a parlé, source, date, citation, pièce, affirme/nie, le test posé ou pas. Leur LLM extrait. Le serveur vérifie que la citation existe *littéralement* dans le blob s’il est fourni, sinon il marque `non_verifiee`. Deux bacs : les **faits** (le prospect, dans un call / une réunion / un mail) et les **claims** (l’AE, une note, une case CRM). Une note d’AE, même citée, est un fait de **grade B** — on demande le transcript. Un titre (CFO, manager) n’est pas un fait.
+
+Sans exhibits, le fallback regex tourne encore : auteur `inconnu`, donc **jamais `su`**. Les regex servent aux perches et à ce fallback, pas au jugement.
 
 Les faits sont rangés **dans l’ordre où ils ont été dits**. Sans cette frise, l’étage 6 ne peut pas exister : on ne sait pas *à quel moment* l’info passait.
 
-**3. Passer les pièces.** Chaque pièce sélectionnée devient une question fermée posée aux faits. Quatre réponses : `tenu` (preuve valide), `supposé` (un claim, rien derrière), `vide` (rien), `contredit` (un fait dit l’inverse). Pas de note, pas de %.
+**3. Passer les pièces.** Chaque pièce sélectionnée devient une question fermée posée aux faits. Une pièce est `su` **seulement** si (1) le prospect l’affirme, (2) la source est réelle (transcript / meeting / mail), (3) le test de la pièce a été posé et répondu. Sinon : `suppose` (déclaration sans test, ou titre plausible), `vide` (rien), `contredit` (un exhibit nie — « le DAF ne signe pas »). Un CFO en face sans le test → `suppose`, raison : prior titre. Pas de note, pas de %. Le verdict porte un `gap` par pièce (claim vs fait) et une `demande` si le grade n’est pas A : coller le transcript, ou brancher un notetaker.
 
 **4. Challenger.** L’angle reprend tous les `tenu` et `supposé` et essaie de les casser, avec le niveau 1 de la bibliothèque : la preuve est-elle une preuve, ou une **fausse preuve** cataloguée ? Qui d’autre dirait exactement la même phrase ? (Un coach dit la même chose qu’un champion : la phrase ne prouve rien.) Les 5 pourquoi s’arrêtent dès qu’on touche un fait, ou au 3ᵉ cran. Sortie : des statuts **dégradés**, avec la raison.
 
@@ -211,7 +213,7 @@ exige: une source pour tout statut tenu
 si_viole: degrade en suppose
 ```
 
-**Le verdict** (ce que le tool renvoie) : les pièces avec statut + preuve ou vide + alias, la mort ordonnée, **la remontée par trou** (fenêtre, réflexe, échelle, gain, coût du retard), **un** geste, le plan, le grade, ce qui a été strippé et pourquoi.
+**Le verdict** (ce que le tool renvoie) : les pièces avec statut + preuve ou vide + alias + **gap** (claim vs fait), la mort ordonnée, **la remontée par trou** (fenêtre, réflexe, échelle, gain, coût du retard), **un** geste, le plan, le grade, ce qui a été strippé et pourquoi, **`demande`** si grade < A (coller le transcript / brancher un notetaker).
 
 ## 6. La trace — le call Julien
 

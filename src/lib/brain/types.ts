@@ -8,6 +8,35 @@ export type Evidence = "transcript" | "notes" | "emails" | "chat_paste";
 
 export type Grade = "A" | "B" | "C";
 
+export type ExhibitSource = "transcript" | "meeting" | "mail" | "note" | "crm";
+
+export type ExhibitAuteur = "prospect" | "rep" | "crm" | "inconnu";
+
+export type ExhibitSens = "affirme" | "nie";
+
+export type PieceId =
+  | "qui-tranche"
+  | "champion-vs-coach"
+  | "enjeu-chiffre"
+  | "besoin"
+  | "budget"
+  | "process-papier"
+  | "concurrents";
+
+/** One attributed line. The client LLM extracts; the server verifies and judges. */
+export type Exhibit = {
+  source: ExhibitSource;
+  auteur: ExhibitAuteur;
+  nom?: string;
+  titre?: string;
+  date?: string;
+  citation: string;
+  piece?: PieceId;
+  sens?: ExhibitSens;
+  test_pose?: boolean;
+  reponse?: string;
+};
+
 export type Rattachement = {
   methode: string;
   partie: string;
@@ -32,6 +61,7 @@ export type DealInput = {
   geste?: GesteId;
   evidence?: Evidence;
   objection?: string;
+  exhibits?: Exhibit[];
 };
 
 export type Geste = {
@@ -52,6 +82,8 @@ export type PieceVerdict = {
   rattachements: Rattachement[];
   preuve: string | null;
   raison?: string;
+  gap: { claim: string | null; fait: string | null };
+  exhibit?: Exhibit;
 };
 
 export type Mort = {
@@ -85,5 +117,7 @@ export type Audit = {
   strippe: string[];
   /** Aucun artefact : le VP ne se prononce pas. Il ne remplit pas le vide. */
   refus: string | null;
+  /** Grade < A : coller le transcript, ou brancher un notetaker. */
+  demande: string | null;
   rendu: ContratRendu;
 };

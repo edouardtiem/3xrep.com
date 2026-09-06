@@ -38,6 +38,7 @@ export type PipeDealVerdict = {
   layer: 0 | 1 | 2;
   grade: "A" | "B" | "C";
   refus: string | null;
+  demande: string | null;
   mort: Mort | null;
   geste: Geste | null;
   contradictions: Contradiction[];
@@ -98,6 +99,7 @@ function verdictDeal(
         layer: audit.layer,
         grade: audit.grade,
         refus: REFUS,
+        demande: audit.demande,
         mort: null,
         geste: null,
         contradictions: [],
@@ -162,6 +164,7 @@ function verdictDeal(
       layer: audit.layer,
       grade: audit.grade,
       refus: null,
+      demande: audit.demande,
       mort: audit.morts[0] ?? null,
       geste: audit.geste,
       contradictions,
