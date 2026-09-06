@@ -1,7 +1,7 @@
 import { corpus } from "./corpus";
 import type { Etat } from "./etat";
 import { REFUS, runMoteur } from "./moteur";
-import { PIECES } from "./pieces";
+import { pieceOf, PIECES } from "./pieces";
 import type {
   ContratRendu,
   DealInput,
@@ -51,11 +51,20 @@ export type TrouSystemique = {
   question: string;
 };
 
+export type Recommandation = {
+  type: "question-mandatory" | "gate-stage" | "train-reflex";
+  piece: string;
+  deals: string[];
+  quoi: string;
+  pourquoi: string;
+};
+
 export type PipeReview = {
   geste: "pipe-review";
   deals: PipeDealVerdict[];
   contradictions: Contradiction[];
   trous_systemiques: TrouSystemique[];
+  recommandations: Recommandation[];
   rendu: ContratRendu;
 };
 
@@ -195,6 +204,59 @@ function trousSystemiques(juges: { nom: string; pieces: PieceVerdict[] }[]): Tro
     .slice(0, 2);
 }
 
+function recommandations(
+  trous: TrouSystemique[],
+  contradictions: Contradiction[],
+): Recommandation[] {
+  const out: Recommandation[] = [];
+  const top = trous[0];
+  if (top) {
+    const piece = pieceOf(top.piece);
+    out.push({
+      type: "question-mandatory",
+      piece: top.piece,
+      deals: top.deals,
+      quoi: `rendre obligatoire avant le prochain rdv : « ${top.question} »`,
+      pourquoi: `${top.piece} non tenu sur ${top.deals.length} deals sur ${top.sur}. Sans ça le dossier meurt à ${piece?.mort.etage ?? "signature"}.`,
+    });
+  }
+
+  const groups = new Map<string, { crm: string; piece: string; deals: string[] }>();
+  for (const c of contradictions) {
+    if (c.type !== "etape_illegale") continue;
+    const regle = ETAPES.findIndex((r) => r.re.test(c.crm));
+    const key = `${regle}::${c.piece}`;
+    const g = groups.get(key) ?? { crm: c.crm, piece: c.piece, deals: [] };
+    if (!g.deals.includes(c.deal)) g.deals.push(c.deal);
+    groups.set(key, g);
+  }
+  const illegal = [...groups.values()].sort((a, b) => b.deals.length - a.deals.length)[0];
+  if (illegal && illegal.deals.length >= 2) {
+    out.push({
+      type: "gate-stage",
+      piece: illegal.piece,
+      deals: illegal.deals,
+      quoi: `gater l’étape (ou la supprimer) : ${illegal.crm} n’existe pas tant que ${illegal.piece} n’est pas tenu`,
+      pourquoi: `l’étape ment sur ${illegal.deals.length} deals. Un forecast sur cette étape est un souvenir.`,
+    });
+  }
+
+  if (top) {
+    const reflexe = pieceOf(top.piece)?.perches[0]?.reflexe;
+    if (reflexe) {
+      out.push({
+        type: "train-reflex",
+        piece: top.piece,
+        deals: top.deals,
+        quoi: `former le réflexe ${reflexe} — pas un module, le geste dans le call`,
+        pourquoi: `c’est la porte de ${top.piece}. L’info du deal suivant ne viendra pas d’un cours.`,
+      });
+    }
+  }
+
+  return out.slice(0, 3);
+}
+
 export const CONTRAT_PIPE: ContratRendu = {
   langue: "user, else prompt",
   blocs: [
@@ -211,6 +273,10 @@ export const CONTRAT_PIPE: ContratRendu = {
       job: "The hole that repeats across deals. One sentence, the deals it touches, the one question to ask in every next call.",
     },
     {
+      id: "process",
+      job: "One process change from the repeating hole: a mandatory question, a stage to gate or drop, a reflex to train. No conversion percentage. No 'you'll close more'. The next pipe_review is the test.",
+    },
+    {
       id: "gestes",
       job: "One move per deal — the one that costs. Not a to-do list. Skip deals with nothing to open.",
     },
@@ -222,6 +288,9 @@ export const CONTRAT_PIPE: ContratRendu = {
   interdits: [
     "close probability",
     "coverage × win rate",
+    "conversion rate",
+    "from x to y",
+    "you'll close more",
     "forecast in euros",
     "ranking reps",
     "you close Friday",
@@ -233,13 +302,16 @@ export const CONTRAT_PIPE: ContratRendu = {
 export function pipeReview(deals: PipeDeal[], now: Date = new Date()): PipeReview {
   const runs = deals.map((d, i) => verdictDeal(d, i, now));
   const verdicts = runs.map((r) => r.verdict);
+  const contradictions = verdicts.flatMap((v) => v.contradictions);
+  const trous = trousSystemiques(
+    runs.filter((r) => !r.verdict.refus).map((r) => ({ nom: r.verdict.nom, pieces: r.pieces })),
+  );
   return {
     geste: "pipe-review",
     deals: verdicts,
-    contradictions: verdicts.flatMap((v) => v.contradictions),
-    trous_systemiques: trousSystemiques(
-      runs.filter((r) => !r.verdict.refus).map((r) => ({ nom: r.verdict.nom, pieces: r.pieces })),
-    ),
+    contradictions,
+    trous_systemiques: trous,
+    recommandations: recommandations(trous, contradictions),
     rendu: CONTRAT_PIPE,
   };
 }

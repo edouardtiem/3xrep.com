@@ -8,6 +8,6 @@ export { runMoteur } from "./moteur";
 export { nextQuestion } from "./next-question";
 export { objectionMap } from "./objection-map";
 export { CONTRAT_PIPE, pipeReview } from "./pipe";
-export type { Contradiction, PipeDeal, PipeReview, TrouSystemique } from "./pipe";
+export type { Contradiction, PipeDeal, PipeReview, Recommandation, TrouSystemique } from "./pipe";
 export { rattacher, RATTACHER_MAX } from "./rattacher";
 export type { Audit, DealInput, Geste, GesteId, Layer, Trou } from "./types";

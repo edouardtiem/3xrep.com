@@ -140,4 +140,29 @@ test("pipe_review — découverte n’est pas illégale ; fiche figée ; trou sy
   assert.equal(eb?.sur, 3);
   assert.equal(eb?.deals.length, 3);
   assert.ok(eb?.question.length);
+  const reco = r.recommandations.find((x) => x.type === "question-mandatory");
+  assert.equal(reco?.piece, "qui-tranche");
+  assert.ok(reco?.quoi.includes(eb!.question));
+  assert.ok(r.recommandations.some((x) => x.type === "train-reflex"));
+  assert.ok(!r.recommandations.some((x) => /%|conversion|win rate/i.test(`${x.quoi} ${x.pourquoi}`)));
+});
+
+test("pipe_review — reco gate-stage si la même étape ment sur ≥ 2 deals", () => {
+  const r = pipeReview(
+    [
+      { ...JULIEN, nom: "Acme", etape: "Négociation" },
+      {
+        nom: "Bolt",
+        etape: "Negotiation",
+        montant: 80_000,
+        notes: "Economic Buyer: ok. Call ops.",
+        transcript: "Il a dit : « c’est moi qui fais tourner l’outil ».",
+      },
+    ],
+    new Date("2026-09-04"),
+  );
+  const gate = r.recommandations.find((x) => x.type === "gate-stage");
+  assert.ok(gate);
+  assert.equal(gate?.piece, "qui-tranche");
+  assert.equal(gate?.deals.length, 2);
 });

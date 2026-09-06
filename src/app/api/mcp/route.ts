@@ -8,7 +8,7 @@ import {
   rattacher,
   scoreDeal,
 } from "@/lib/brain";
-import { MCP_INSTRUCTIONS } from "@/lib/copy";
+import { CYCLE_AUDIT_PROMPT, MCP_INSTRUCTIONS } from "@/lib/copy";
 import { dealSchema, jsonTool, pipeSchema } from "@/lib/mcp-schema";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 
@@ -56,7 +56,7 @@ const handler = createMcpHandler(
       {
         title: "Pipe review",
         description:
-          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, or ask what's blocked. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif) with the artefacts (notes, mails, transcript). JSON out, per deal: what kills it first, one move, and the contradictions — etape_illegale (stage vs proven pieces), date_sans_exhibit (close date as a claim), fiche_figee (stale record) — plus the hole that repeats across deals. Deals without artefacts come back as refus. Paste this JSON. Forbidden: probability, coverage × win rate, forecast in euros, ranking reps, write_to_crm.",
+          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, what's blocked, or a monthly cycle / process audit. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif) with the artefacts (notes, mails, transcript). JSON out, per deal: what kills it first, one move, and the contradictions — etape_illegale (stage vs proven pieces), date_sans_exhibit (close date as a claim), fiche_figee (stale record) — plus the hole that repeats and one process change (mandatory question, stage to gate or drop, reflex to train). Deals without artefacts come back as refus. Paste this JSON. Forbidden: probability, coverage × win rate, conversion rate, forecast in euros, ranking reps, write_to_crm.",
         inputSchema: pipeSchema,
       },
       async ({ deals }) => jsonTool(pipeReview(deals)),
@@ -84,6 +84,23 @@ const handler = createMcpHandler(
         }),
       },
       async ({ objection, ...deal }) => jsonTool(objectionMap({ ...deal, objection })),
+    );
+
+    server.registerPrompt(
+      "cycle_audit",
+      {
+        title: "Monthly cycle audit",
+        description:
+          "Once a month: audit the whole sales cycle. Read every open deal through their CRM MCP, call pipe_review, then propose one process change (mandatory question, stage to gate or drop, reflex to train). No conversion percentage.",
+      },
+      () => ({
+        messages: [
+          {
+            role: "user" as const,
+            content: { type: "text" as const, text: CYCLE_AUDIT_PROMPT },
+          },
+        ],
+      }),
     );
   },
   {
