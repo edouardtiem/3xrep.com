@@ -17,6 +17,18 @@ Elle devient visible quand le verdict porte sur **le pipe** et **le temps** :
 
 Candidat de ligne, pas une décision : `audit_deal` / `next_question` / `objection_map` / lexique restent ouverts (c’est l’acquisition, et c’est là que ChatGPT est déjà gratuit). Le payant = le pipe et la continuité. On ne trace pas avant d’avoir vu une vraie pipe review sur un vrai HubSpot.
 
+## Siphon — vider le MCP puis résilier
+
+Ils peuvent dump le lexique (`methode_lookup` est ouvert). C’est le même markdown que les repos de skills. **On ne ferme pas ça pour se protéger** — c’est l’acquisition.
+
+Ce qu’ils n’emportent pas : le runtime sur **leur** pipe, l’audit mensuel ([gaps.md](gaps.md) §4–5), plus tard la mémoire. Un export de méthodes est un skill. Le jugement dans le temps n’est pas un prompt.
+
+ToS / DRM : théâtre. Bearer trop tôt : on n’apprend plus. Plus tard, en regardant l’usage : rate-limit les dumps évidents ; ligne = pipe + mémoire.
+
+## Data qui change le résultat
+
+Pas plus de méthodes. **Leur** CRM + **leurs** artefacts maintenant (`pipe_review`, reco de process). Mémoire de jugement plus tard (id réflexe, hash, date — zéro contenu). Pas de benchmark « dans ton industrie ». Détail : [gaps.md](gaps.md) §6.
+
 ## Interdits (tiennent)
 
 Per-seat. Essai qui expire (on désinstalle le connector, on disparaît). Footer « propulsé par 3xrep » dans un mail au prospect. Plus d’une ligne d’upsell dans une sortie de tool.
