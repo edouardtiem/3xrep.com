@@ -1,13 +1,15 @@
 export type Etat = "su" | "suppose" | "vide" | "contredit";
 
-/** Case verte sans preuve = vide. Signal sans preuve = supposé. */
+/** Tenue seulement si un fait complet. Une déclaration sans test = supposé. Une négation = contredit. */
 export function etatDe(opts: {
-  signal: boolean;
-  preuve: boolean;
+  fait: boolean;
+  declaration: boolean;
+  nie: boolean;
   vertSansPreuve?: boolean;
 }): Etat {
-  if (opts.vertSansPreuve && !opts.preuve) return "vide";
-  if (!opts.signal) return "vide";
-  if (!opts.preuve) return "suppose";
-  return "su";
+  if (opts.nie) return "contredit";
+  if (opts.vertSansPreuve && !opts.fait) return "vide";
+  if (opts.fait) return "su";
+  if (opts.declaration) return "suppose";
+  return "vide";
 }

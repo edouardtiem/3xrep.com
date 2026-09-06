@@ -26,7 +26,7 @@ L’admin du workspace branche 3xrep + le MCP HubSpot (ou Salesforce) une fois. 
 | Grade | Entrée | Ce que [sortie.md](sortie.md) a le droit de faire |
 | --- | --- | --- |
 | **A** | Transcript / recap déjà sur le deal | Les 5 blocs. C’est le rituel 99 €. |
-| **B** | Mails, notes, meetings, next step sur la fiche | Trous + next move + objectif. Pas de 7/10 du call. Pas de réplique. |
+| **B** | Mails, notes, meetings, next step sur la fiche — y compris une citation dans une note d’AE | Trous + next move + objectif. Pas de 7/10 du call. Pas de réplique. `demande` : coller le transcript dans *leur* chat, ou brancher un notetaker (Fireflies, tl;dv, HubSpot CI) pour que le prochain call arrive sur le deal. |
 | **C** | Collage **dans leur chat** Cowork / ChatGPT / Notion | Comme A si le texte est un verbatim. Comme B si ce sont des notes. 3xrep ne stocke rien. |
 
 Le collage n’est pas « mets le transcript dans 3xrep ». C’est le message, dans *leur* agent, pour *ce* call.
@@ -38,8 +38,8 @@ Ordre, toujours : A si ça existe → sinon demander C → sinon B → sinon « 
 L’AE : « débriefe le call avec Julien. »
 
 1. Claude lit le deal via **leur** MCP CRM. Transcript ou recap sur la fiche → grade A. Stop, on ne demande rien.
-2. Rien → une phrase : « Colle le recap Meet / le mail Fireflies / tes notes. Je ne les garde pas. »
-3. `audit_deal` reçoit `evidence: transcript | notes | emails | chat_paste`. Sortie dans le chat, contrat [sortie.md](sortie.md) selon le grade.
+2. Rien → le tool renvoie `demande`. L’agent dit : colle le transcript ici, **ou** branche un notetaker (Fireflies, tl;dv, HubSpot CI) pour que le prochain call arrive sur le deal. Je ne les garde pas.
+3. `audit_deal` reçoit `exhibits` (préféré) + `evidence: transcript | notes | emails | chat_paste`. Sortie dans le chat, contrat [sortie.md](sortie.md) selon le grade. Une note sans transcript = grade B, jamais `su`.
 4. Claude propose : « Je pose le debrief en note sur le deal ? » Pas d’écriture silencieuse.
 5. Oui → **leur** MCP CRM crée un *note engagement* associé au deal. Option : une tâche (« DAF en R2 »).
 
@@ -59,12 +59,12 @@ Si le MCP CRM refuse l’écriture (scopes, *sensitive data*) : le debrief reste
 
 - Tu appelles uniquement les tools 3xrep pour la méthode.
 - Tu lis et tu écris le CRM uniquement via le MCP HubSpot / Salesforce de l’utilisateur.
-- S’il y a un transcript ou un recap sur le deal, tu t’en sers. Sinon tu demandes de coller. Tu n’inventes pas de réplique.
+- S’il y a un transcript ou un recap sur le deal, tu extraies des exhibits (qui, source, citation, pièce, affirme/nie, test posé). Sinon tu colles `demande` : coller ici, ou brancher un notetaker. Tu n’inventes pas de réplique.
 - Tu n’écris une note (ou une tâche) que s’il le demande, ou après confirmation.
 
 ## `audit_deal`
 
-Entrée : `evidence` + le texte (CRM ou collage) + le deal (étape, montant, notes, mails, meetings).
+Entrée : `exhibits` (auteur, source, date, citation, pièce, affirme/nie, test posé) + `evidence` + le texte (CRM ou collage) + le deal. Sans exhibits, le blob est encore accepté : grade B, jamais `su`.
 
 Sans verbatim : sauter le 7/10 du call et la réplique. Sortir les trous + le next move + « recolle le recap, ou le prochain call n’aura pas de preuve ».
 

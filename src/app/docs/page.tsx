@@ -92,6 +92,23 @@ export default function DocsPage() {
           </p>
         </section>
 
+        <section className="space-y-2">
+          <h2 className="text-[13px]">Exhibits</h2>
+          <p className="text-dim">
+            The agent extracts before it calls: who spoke, source, date,
+            exact quote, which hole, whether they affirm or deny, whether
+            the closing question was asked. A note from the AE is a claim,
+            not a fact. A title is not proof. A piece is held only if the
+            buyer said it on a call, mail, or meeting, and the AE closed
+            the door.
+          </p>
+          <p className="text-dim">
+            No transcript on the deal: the verdict asks to paste it in this
+            chat, or to connect a notetaker (Fireflies, tl;dv, HubSpot CI)
+            so the next call lands on the CRM. We don&apos;t store it.
+          </p>
+        </section>
+
         <section className="space-y-3">
           <h2 className="text-[13px]">What the VP says</h2>
           <p className="text-dim">From a Monday pipe review to one call.</p>

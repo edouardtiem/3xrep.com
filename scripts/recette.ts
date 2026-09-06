@@ -24,6 +24,12 @@ function parse(text: string): unknown {
   return JSON.parse(text);
 }
 
+function toolPayload(text: string): unknown {
+  const outer = parse(text) as { result?: { content?: { text?: string }[] } };
+  const raw = outer.result?.content?.[0]?.text;
+  return raw ? JSON.parse(raw) : outer;
+}
+
 const init = {
   jsonrpc: "2.0",
   id: 1,
@@ -81,6 +87,28 @@ const audit = {
   },
 };
 
+const exhibits = {
+  jsonrpc: "2.0",
+  id: 8,
+  method: "tools/call",
+  params: {
+    name: "audit_deal",
+    arguments: {
+      etape: "découverte",
+      notes: "Economic Buyer: ok",
+      exhibits: [
+        {
+          source: "note",
+          auteur: "rep",
+          citation: "le DAF signe, on est bons",
+          piece: "qui-tranche",
+          sens: "affirme",
+        },
+      ],
+    },
+  },
+};
+
 const pipe = {
   jsonrpc: "2.0",
   id: 7,
@@ -113,6 +141,7 @@ async function main() {
     "INSTRUCTIONS",
     instr.includes("doesn't believe the CRM") &&
       instr.includes("pipe_review") &&
+      instr.includes("Extract before you call") &&
       instr.includes("Never default to French"),
   );
 
@@ -127,6 +156,24 @@ async function main() {
 
   const e = await rpc(audit);
   console.log("AUDIT", e.status, e.text.slice(0, 800));
+
+  const x = await rpc(exhibits);
+  const xv = toolPayload(x.text) as {
+    grade?: string;
+    demande?: string | null;
+    pieces?: { id: string; etat: string; gap?: { claim: string | null; fait: string | null } }[];
+  };
+  const eb = xv.pieces?.find((p) => p.id === "qui-tranche");
+  const exhibitsOk =
+    x.status === 200 &&
+    xv.grade === "B" &&
+    Boolean(xv.demande) &&
+    eb?.etat !== "su" &&
+    eb?.gap != null;
+  console.log("EXHIBITS", x.status, exhibitsOk);
+  if (!exhibitsOk) {
+    throw new Error(`audit_deal exhibits: grade B + demande + gap, jamais su — got ${JSON.stringify({ grade: xv.grade, etat: eb?.etat, gap: eb?.gap, demande: xv.demande })}`);
+  }
 
   const p = await rpc(pipe);
   console.log(
@@ -171,6 +218,7 @@ async function main() {
     ["phrase", phrase],
     ["dossier", dossier],
     ["audit", audit],
+    ["exhibits", exhibits],
     ["pipe", pipe],
   ] as const) {
     try {
