@@ -65,6 +65,8 @@ Quand on ouvre :
 
 Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP) → page tutoriel « agent + HubSpot » → pSEO. Mémoire / ligne payant : après une vraie `pipe_review` sur un vrai CRM ([plg.md](plg.md)). Carte HubSpot = V2 ([chemin.md](chemin.md)).
 
+**Portes** ([portes.md](portes.md)) — direction 6 sept, pas ouvert : nommer les visages (avant d’écrire, avant le rdv, lundi), dire Slack, ne pas construire Slack. Pas un item live.
+
 ## Interdit ici
 
 Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Changer le 99 € live avant l’item 3. Rouvrir le jeu / l’usine de cas.
