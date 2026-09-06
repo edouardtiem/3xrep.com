@@ -45,6 +45,8 @@ TVA / Stripe Tax : compte FR, clients EU — activer Tax + une registration **av
 
 Table déjà dans le git : [`supabase/migrations/20260902170000_orgs.sql`](../supabase/migrations/20260902170000_orgs.sql). L’appliquer sur un projet **3xrep**. Ne pas réutiliser jesaisfaire (parké).
 
+Usage MCP : [`supabase/migrations/20260906160000_mcp_calls.sql`](../supabase/migrations/20260906160000_mcp_calls.sql) — même projet, **après** `orgs`. Input + verdict 14 jours, RLS on, pas de policy anon. Sans cette table le MCP tourne quand même (le log no-op).
+
 RLS on, pas de policy anon — seul le service role écrit. `key_plain` vit le temps d’un `/merci`, puis null.
 
 ## Vercel

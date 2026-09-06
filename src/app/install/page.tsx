@@ -1,6 +1,7 @@
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
+import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
@@ -83,7 +84,7 @@ export default function Install() {
           <p className="text-sm text-mute">
             Stripe subscription, one organization, no seats. After payment:{" "}
             <span className="font-mono">/merci</span> and a key for your org. Gong is ~$1,500 a
-            seat. We don&apos;t record. We don&apos;t store.
+            seat. {TRUST_LINE}
           </p>
           <CheckoutButton label="Pay 99 € / month / org" />
         </section>
