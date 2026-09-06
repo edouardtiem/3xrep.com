@@ -39,7 +39,7 @@ export const PIECES: Piece[] = [
       /c['’]est moi qui (?:fais tourner|fait tourner)|moi qui fais tourner l['’]outil|i (?:run|operate) the tool/i,
     nie: /(?:ne (?:signe|tranche|décide) pas|n['’]est pas (?:celui|celle) qui (?:signe|décide)|does(?:n['’]t| not) sign|does(?:n['’]t| not) decide)/i,
     prior_titre:
-      /\b(daf|cfo|ceo|coo|dg|directeur financier|directrice financière|chief financial|chief executive)\b/i,
+      /\b(c-level|c[eofi]o|daf|dg|dga|pdg|directeur|directrice|director|vp|vice[- ]president|head of|chief \w+ officer|gérant|gérante|président|présidente|founder|fondateur|fondatrice)\b/i,
     vert: /(?:economic buyer|décideur|authority)\s*[:：]\s*(?:ok|oui|yes|✓|x|coché)/i,
     test: "quand ça passe en budget, c’est encore toi qui signes, ou ça remonte ?",
     mort: {
