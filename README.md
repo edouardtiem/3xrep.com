@@ -9,6 +9,7 @@ Domaine : [3xrep.com](https://3xrep.com).
 Lire dans cet ordre.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
+- [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
 - [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM

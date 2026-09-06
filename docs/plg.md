@@ -4,6 +4,8 @@
 
 Le 99 € / org est **encaissable** ([checkout.md](checkout.md), `/install` → Stripe → `/merci`). Palier sept : 1 org payante. Ce n’est pas un gate : celui qui paie paie pour l’org, pas pour débloquer un tool.
 
+Prochaine ancre, **pas live** : **$129 / month / organization**, US first. [roadmap.md](roadmap.md) item 3. Le checkout reste 99 € EUR tant que ça n’est pas ouvert.
+
 ## Où la ligne se dessinera — quand on la tracera
 
 Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)). Le doute : « ChatGPT le fait moins bien mais il le fait ; le rep répond “je signe quand même” ». Tant que le verdict porte sur *un call* et *le rep*, la différence est invisible et le gratuit total est le produit.

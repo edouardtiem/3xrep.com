@@ -2,6 +2,8 @@
 
 Figé 3 septembre 2026. Palier septembre : **1 org payante à 99 € avant le 30 sept.** Pas le parcours gratis-d’abord. V0 = cerveau MCP (Claude / ChatGPT Business / Notion). Pas d’UI CRM.
 
+Prochaine ancre, **pas live** : $129 USD / mois / org ([roadmap.md](roadmap.md) item 3). Tant que ça n’est pas ouvert : Price **99,00 EUR** ci-dessous. Ne pas créer le Price USD ici.
+
 Chemin commercial (2 min) : page [`/install`](/install) — brancher l’agent, **puis** payer. Home : bouton secondaire *Already in?*. Success : `/merci`. Webhook : org `active` + clé.
 
 ## Ce que le code lit — noms exacts
