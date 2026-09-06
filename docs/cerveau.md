@@ -301,7 +301,7 @@ C’est cette règle qui rend le remplissage lent. C’est voulu : c’est elle,
 
 ## 11. Interdits (inchangés)
 
-Pas de stockage de contenu. Pas de proba de close. Pas de `write_to_crm`. Pas d’enregistrement. Pas de citation inventée. Pas de score /100. Pas une méthode « officielle 3xrep » qui gagne sur les autres. Pas de fenêtre ratée inventée pour avoir l’air sévère. Pas de script, punchline, cold email, séquence, SOW, battlecard comme sortie d’un geste.
+Pas de proba de close. Pas de `write_to_crm`. Pas d’enregistrement (bot Zoom / Meet). Pas de citation inventée. Pas de score /100. Pas une méthode « officielle 3xrep » qui gagne sur les autres. Pas de fenêtre ratée inventée pour avoir l’air sévère. Pas de script, punchline, cold email, séquence, SOW, battlecard comme sortie d’un geste.
 
 ## 12. Décisions prises (2 septembre 2026, Édouard)
 
@@ -316,5 +316,7 @@ Gravé. On ne les rejoue pas.
 7. **Alignement cycle, pas copie.** [gestes.md](gestes.md). Le VP refuse. On n’écrit pas le mail / le script. Les canaux ne se multiplient pas. Le décompte n’est pas la décision (dix était trop gros ; catalogue réel dans gestes.md).
 
 Reste ouvert (pas une décision de structure) : la mémoire du jugement (§7, plus tard, identifiant de réflexe seulement, jamais de contenu).
+
+**6 sept 2026 :** log des tool calls (input + verdict) 14 jours, puis delete. Ce n’est pas la mémoire de jugement.
 
 Suite : remplir, dans l’ordre du §9. Puis les yaml [gestes.md](gestes.md) §7.
