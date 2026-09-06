@@ -1,16 +1,20 @@
-import type { Layer, Rattachement } from "./types";
+import type { Fait } from "./faits";
+import type { Layer, PieceId, Rattachement } from "./types";
 
 export type Famille = "dossier" | "motivations" | "enjeu";
 
+export const SOURCES_REELLES = new Set<Fait["source"]>(["transcript", "meeting", "mail"]);
+
 export type Piece = {
-  id: string;
+  id: PieceId;
   famille: Famille;
   layerMin: Layer;
   seed: Rattachement;
   question: string;
   signal: RegExp;
-  preuve_valide: RegExp;
   fausse_preuve: RegExp;
+  nie: RegExp;
+  prior_titre?: RegExp;
   vert: RegExp;
   test: string;
   mort: { etage: string; quand: string; phrase: string; ordre: number };
@@ -30,11 +34,12 @@ export const PIECES: Piece[] = [
     seed: { methode: "MEDDIC", partie: "Economic Buyer" },
     question: "qui signe le bon de commande sur ce deal",
     signal:
-      /\b(daf|cfo|dg|ceo|directeur financier|directrice financière|qui (?:tranche|signe|décide)|autorité|authority|economic buyer|décideur)\b/i,
-    preuve_valide:
-      /(?:daf|cfo|dg|ceo|directeur financier|directrice financière).{0,80}(?:signe|tranche|décide|budget)/i,
+      /\b(daf|cfo|dg|ceo|directeur financier|directrice financière|qui (?:tranche|signe|décide)|autorité|authority|economic buyer|décideur|i (?:sign|decide)|decision[- ]maker)\b/i,
     fausse_preuve:
-      /c['’]est moi qui (?:décide|fais tourner|fait tourner)|moi qui fais tourner l['’]outil/i,
+      /c['’]est moi qui (?:fais tourner|fait tourner)|moi qui fais tourner l['’]outil|i (?:run|operate) the tool/i,
+    nie: /(?:ne (?:signe|tranche|décide) pas|n['’]est pas (?:celui|celle) qui (?:signe|décide)|does(?:n['’]t| not) sign|does(?:n['’]t| not) decide)/i,
+    prior_titre:
+      /\b(daf|cfo|ceo|coo|dg|directeur financier|directrice financière|chief financial|chief executive)\b/i,
     vert: /(?:economic buyer|décideur|authority)\s*[:：]\s*(?:ok|oui|yes|✓|x|coché)/i,
     test: "quand ça passe en budget, c’est encore toi qui signes, ou ça remonte ?",
     mort: {
@@ -87,9 +92,8 @@ export const PIECES: Piece[] = [
     seed: { methode: "MEDDIC", partie: "Champion" },
     question: "est-ce un champion (vend en notre absence, risque perso) ou un coach",
     signal: /\b(champion|coach|je pousse|en interne|ops)\b/i,
-    preuve_valide:
-      /(?:risque|réputation|je pousse|en interne).{0,80}(?:daf|comité|comite)/i,
-    fausse_preuve: /c['’]est moi qui fais tourner|l['’]ops gentil/i,
+    fausse_preuve: /c['’]est moi qui fais tourner|l['’]ops gentil|i run the tool/i,
+    nie: /pas (?:un |le )?champion|not (?:a |our )?champion|c['’]est un coach|is a coach/i,
     vert: /champion\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "qu’est-ce que tu risques si tu portes ça et que le DAF dit non ?",
     mort: {
@@ -137,9 +141,9 @@ export const PIECES: Piece[] = [
     seed: { methode: "MEDDIC", partie: "Metrics" },
     question: "le coût de ne rien faire, en euros, dit par eux",
     signal:
-      /\b(jour|jours|heure|€|eur|euros|coût|cout|perte|downtime|métrique|metrics|enjeu|inaction)\b/i,
-    preuve_valide: /\d[\d\s]*\s*(?:€|eur|k€|euros)/i,
-    fausse_preuve: /ça leur coûterait cher|notre roi|notre slide/i,
+      /\b(jour|jours|heure|€|eur|euros|\$|usd|dollars?|coût|cout|cost of inaction|perte|downtime|métrique|metrics|enjeu|inaction)\b/i,
+    fausse_preuve: /ça leur coûterait cher|notre roi|notre slide|our roi slide/i,
+    nie: /pas (?:d['’]enjeu|de chiffre)|no (?:metric|number|cost of inaction)/i,
     vert: /(?:metrics|métrique|enjeu)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "deux jours de qui, à quel coût chargé ?",
     mort: {
@@ -187,9 +191,8 @@ export const PIECES: Piece[] = [
     seed: { methode: "MEDDIC", partie: "Identify pain" },
     question: "la douleur actuelle, pas un gain futur",
     signal: /\b(douleur|pain|besoin|need|problème|probleme|perdus)\b/i,
-    preuve_valide:
-      /[«"][^»"]{0,160}(?:perdus|douleur|problème|probleme|pain)[^»"]{0,80}[»"]/i,
-    fausse_preuve: /persona|ils veulent le meilleur/i,
+    fausse_preuve: /persona|ils veulent le meilleur|they want the best/i,
+    nie: /pas de (?:douleur|besoin|problème)|no (?:pain|need|problem)/i,
     vert: /(?:pain|douleur|besoin|need)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "pourquoi maintenant — qu’est-ce qui a changé ?",
     mort: {
@@ -237,8 +240,8 @@ export const PIECES: Piece[] = [
     seed: { methode: "BANT", partie: "Budget" },
     question: "enveloppe, millésime, et qui la tient",
     signal: /\b(budget|enveloppe|capex|opex)\b/i,
-    preuve_valide: /\d[\d\s]*\s*(?:€|eur|k€|euros).{0,40}(?:budget|enveloppe)/i,
-    fausse_preuve: /on verra|pas les moyens|budget\s*[:：]\s*(?:ok|oui)/i,
+    fausse_preuve: /on verra|pas les moyens|we'll see|budget\s*[:：]\s*(?:ok|oui)/i,
+    nie: /pas de budget|no budget|n['’]est pas budgété|not budgeted/i,
     vert: /budget\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "c’est un budget qui existe déjà quelque part ?",
     mort: {
@@ -287,8 +290,9 @@ export const PIECES: Piece[] = [
     question: "le chemin réel : qui relit, quel délai, quelle alternative",
     signal:
       /\b(process|processus|comité|comite|décembre|decembre|pilote|go\/no|timeline|échéance|closing|habitude de signer)\b/i,
-    preuve_valide: /\b(semaines?|jours?|mois)\b.{0,40}\b(contrat|signature|comité|comite|juridique)/i,
-    fausse_preuve: /habitude de signer|on signe en décembre|closing\s*[=:]\s*décembre/i,
+    fausse_preuve:
+      /habitude de signer|on signe en décembre|we usually sign in december|closing\s*[=:]\s*décembre/i,
+    nie: /pas de process|no (?:decision )?process|il n['’]y a pas de chemin/i,
     vert: /(?:decision process|process(?:us)?|timeline|échéance)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "qui relit le contrat, quel délai, quelle alternative déjà sur la table ?",
     mort: {
@@ -336,8 +340,8 @@ export const PIECES: Piece[] = [
     seed: { methode: "MEDDPICC", partie: "Competition" },
     question: "l’alternative réelle, y compris ne rien faire",
     signal: /\b(concurrent|concurrence|alternative|statu quo|déjà un outil|deja un outil)\b/i,
-    preuve_valide: /\b(statu quo|concurrent|alternative|ne rien faire)\b/i,
-    fausse_preuve: /on est seuls|pas de concurrent/i,
+    fausse_preuve: /on est seuls|pas de concurrent|we('re| are) the only/i,
+    nie: /pas d['’]alternative|no (?:competitor|alternative|status quo)/i,
     vert: /(?:competition|concurren(?:t|ce|ts)?)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
     test: "à part nous, vous regardez quoi — y compris ne rien faire ?",
     mort: {
@@ -382,4 +386,45 @@ export const PIECES: Piece[] = [
 
 export function pieceOf(id: string): Piece | undefined {
   return PIECES.find((p) => p.id === id);
+}
+
+export function rattacheA(piece: Piece, f: Fait): boolean {
+  if (f.piece) return f.piece === piece.id;
+  return piece.signal.test(f.texte) || piece.fausse_preuve.test(f.texte) || piece.nie.test(f.texte);
+}
+
+/** Tenue : prospect + source réelle + affirme + test posé et répondu. */
+export function preuveDe(piece: Piece, faits: Fait[]): Fait | null {
+  return (
+    faits.find(
+      (f) =>
+        f.auteur === "prospect" &&
+        f.verifie &&
+        SOURCES_REELLES.has(f.source) &&
+        f.sens !== "nie" &&
+        rattacheA(piece, f) &&
+        f.test_pose === true &&
+        Boolean(f.reponse?.trim()),
+    ) ?? null
+  );
+}
+
+export function declarationDe(piece: Piece, faits: Fait[], text: string): boolean {
+  if (faits.some((f) => rattacheA(piece, f) && f.sens !== "nie")) return true;
+  return piece.signal.test(text) || piece.fausse_preuve.test(text);
+}
+
+export function nieDe(piece: Piece, faits: Fait[], text: string): boolean {
+  if (faits.some((f) => rattacheA(piece, f) && f.sens === "nie")) return true;
+  return piece.nie.test(text);
+}
+
+export function priorTitreDe(piece: Piece, faits: Fait[], text: string): string | null {
+  if (!piece.prior_titre) return null;
+  for (const f of faits) {
+    if (f.titre && piece.prior_titre.test(f.titre)) return f.titre.trim();
+    if (f.texte && piece.prior_titre.test(f.texte)) return f.texte.match(piece.prior_titre)?.[0] ?? null;
+  }
+  const m = text.match(piece.prior_titre);
+  return m?.[0] ?? null;
 }

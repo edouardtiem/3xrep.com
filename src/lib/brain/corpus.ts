@@ -1,6 +1,6 @@
 import type { DealInput } from "./types";
 
-export function corpus(deal: DealInput): string {
+export function brut(deal: DealInput): string {
   return [
     deal.etape,
     deal.montant != null ? String(deal.montant) : "",
@@ -13,6 +13,11 @@ export function corpus(deal: DealInput): string {
   ]
     .filter(Boolean)
     .join("\n");
+}
+
+export function corpus(deal: DealInput): string {
+  const cites = (deal.exhibits ?? []).map((e) => e.citation).filter(Boolean);
+  return [brut(deal), ...cites].filter(Boolean).join("\n");
 }
 
 export function hit(re: RegExp, text: string): string | null {

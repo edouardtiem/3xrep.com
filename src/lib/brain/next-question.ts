@@ -8,6 +8,7 @@ export function nextQuestion(deal: DealInput) {
     layer: audit.layer,
     trou: audit.trous[0] ?? null,
     mort: audit.morts[0] ?? null,
+    demande: audit.demande,
     rendu: audit.rendu,
   };
 }
