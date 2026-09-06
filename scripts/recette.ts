@@ -24,6 +24,12 @@ function parse(text: string): unknown {
   return JSON.parse(text);
 }
 
+function toolPayload(text: string): unknown {
+  const outer = parse(text) as { result?: { content?: { text?: string }[] } };
+  const raw = outer.result?.content?.[0]?.text;
+  return raw ? JSON.parse(raw) : outer;
+}
+
 const init = {
   jsonrpc: "2.0",
   id: 1,
@@ -152,11 +158,22 @@ async function main() {
   console.log("AUDIT", e.status, e.text.slice(0, 800));
 
   const x = await rpc(exhibits);
-  console.log(
-    "EXHIBITS",
-    x.status,
-    x.text.includes('"gap"') && x.text.includes("demande") && !x.text.includes('"etat": "su"'),
-  );
+  const xv = toolPayload(x.text) as {
+    grade?: string;
+    demande?: string | null;
+    pieces?: { id: string; etat: string; gap?: { claim: string | null; fait: string | null } }[];
+  };
+  const eb = xv.pieces?.find((p) => p.id === "qui-tranche");
+  const exhibitsOk =
+    x.status === 200 &&
+    xv.grade === "B" &&
+    Boolean(xv.demande) &&
+    eb?.etat !== "su" &&
+    eb?.gap != null;
+  console.log("EXHIBITS", x.status, exhibitsOk);
+  if (!exhibitsOk) {
+    throw new Error(`audit_deal exhibits: grade B + demande + gap, jamais su — got ${JSON.stringify({ grade: xv.grade, etat: eb?.etat, gap: eb?.gap, demande: xv.demande })}`);
+  }
 
   const p = await rpc(pipe);
   console.log(
