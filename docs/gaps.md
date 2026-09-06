@@ -70,6 +70,8 @@ Ce qu’ils ne peuvent pas emporter en collant « prend tout » :
 2. **La continuité.** La mémoire (plus tard) et l’audit mensuel. Un dump d’avril est un snapshot. Le jugement de septembre, non.
 3. **L’angle.** Règles serveur, pas un prompt. Le modèle se ramollit dès qu’il recopie.
 
+Coller le lexique dans **leurs** skills, puis résilier : oui, pour le dictionnaire, ils n’ont plus besoin de nous. Un skill est un texte. Le modèle l’ignore, se ramollit, invente une réplique. Ils n’emportent pas la machine qui juge **leur** pipe. Sur un call, un skill volé + ChatGPT peut sembler assez proche — déjà le doute du 4 sept. La différence tient sur la liste et sur le mois d’après.
+
 Donc : **ne pas cacher la bibliothèque pour se protéger.** En faire le paywall tue l’acquisition ([plg.md](plg.md) : le lexique reste ouvert). Se protéger = que la valeur vive dans le jugement **de leurs deals dans le temps**, pas dans un export de méthodes.
 
 Ce qu’on ne fait pas : watermark, DRM, « tu n’as plus le droit de te souvenir ». Un ToS anti-scraping est du théâtre. Un Bearer trop tôt, on n’apprend plus qui s’en sert.
