@@ -2,7 +2,7 @@
 
 **Pas figé.** 2 septembre 2026. Réflexion d’Édouard : pour *bypass* la comparaison à un repo de skills sales, quels outils / données / accès ? Enrichissement ? Autre ? Rester simple, **pas d’interface**.
 
-Ne casse pas [cerveau.md](cerveau.md) (figé) ni [prd.md](prd.md) (pas de CRM à nous, pas de Gong, unlimited parce que scripté, 99 €).
+Ne casse pas [cerveau.md](cerveau.md) (figé) ni [prd.md](prd.md) (pas de CRM à nous, pas de Gong, unlimited parce que scripté, 129 dollars).
 
 ## 1. La crainte est juste
 
@@ -32,7 +32,7 @@ Donner Apollo / Clay / Hunter / un scrape LinkedIn, c’est :
 
 - **Le pack que tous les repos de skills bolt-on déjà** (Salesably : Perplexity, Exa, Hunter, Apify). On rentre dans la photo.
 - **Le job d’un autre MCP**, souvent gratuit à connecter (Apollo le dit). On est moins bon, on a le support.
-- **Le kill du 99 € unlimited.** Un agent en boucle brûle des crédits. FullEnrich le sait : il fait confirmer avant de dépenser. On n’a pas ce modèle, et on ne le veut pas.
+- **Le kill du tarif unlimited.** Un agent en boucle brûle des crédits. FullEnrich le sait : il fait confirmer avant de dépenser. On n’a pas ce modèle, et on ne le veut pas.
 - **Le contraire de l’angle.** L’enrichissement traite une fiche Apollo comme une vérité. Le cerveau traite un dire comme un claim. Un « CFO = Marie » sorti d’une base n’est **pas** un Economic Buyer tenu.
 
 Salesmotion, phrase utile : *ne connecte pas huit serveurs*. Au-delà, le modèle se trompe d’outil. 3xrep doit rester **le troisième** : leur CRM + (option) capture ou registre + **nous**. Pas un hub de vingt tools.
@@ -83,7 +83,7 @@ Ce n’est pas de l’enrichissement. C’est le niveau 1 de la bibliothèque, e
 
 Dans le spec d’agent et sous le fold de la page, **deux ou trois compagnons**, pas une marketplace :
 
-1. Leur CRM (obligatoire pour le rituel 99 €).
+1. Leur CRM (obligatoire pour le rituel payant).
 2. Un notetaker → CRM, s’ils n’ont pas Gong (Fireflies, tl;dv, recap Meet) — [contournement.md](contournement.md) grade A.
 3. Pappers, si le compte est FR — pour le fetch de `qui-tranche`, en grade D.
 

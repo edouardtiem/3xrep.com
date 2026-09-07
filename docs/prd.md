@@ -10,13 +10,15 @@ Le cadrage terrain ([terrain/cadrage.md](terrain/cadrage.md), 30 août) reste po
 
 Compléments du soir (gagnent sur le PRD) : [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (§7.4). [loop.md](loop.md) = V2.
 
+Prix catalogue (gagne sur ce fichier) : [decisions.md](decisions.md) — **129 dollars / mois / organisation**. L’ancre 99 euros du 1er sept est close.
+
 Mécanique du cerveau (2 sept, figée, gagne sur le §9) : [cerveau.md](cerveau.md). Gestes du cycle (figé, gagne sur le « on n’ouvre pas 200 techniques ») : [gestes.md](gestes.md). Pourquoi : [differentiel.md](differentiel.md).
 
 
 
 0. Une phrase
 
-Ils créent leur agent commercial. On est le cerveau : méthode versionnée, sur ce qui est déjà dans le CRM. 99 € / mois / organisation. Pas un Gong. Pas un cours. Pas un jeu.
+Ils créent leur agent commercial. On est le cerveau : méthode versionnée, sur ce qui est déjà dans le CRM. 129 dollars / mois / organisation. Pas un Gong. Pas un cours. Pas un jeu.
 
 
 
@@ -142,7 +144,7 @@ Le trou 3xrep : nommer le trou, le rattacher à une méthode, dire le next move 
 
 
 
-Tu crées ton agent. On amène l’expertise commerciale — de « je démarre à zéro » au deal complexe. L’agent lit mails, meetings, notes, transcripts déjà dans le CRM. Il fait la prépa, les angles morts, le follow-up, l’audit. 99 € / mois pour toute l’organisation.
+Tu crées ton agent. On amène l’expertise commerciale — de « je démarre à zéro » au deal complexe. L’agent lit mails, meetings, notes, transcripts déjà dans le CRM. Il fait la prépa, les angles morts, le follow-up, l’audit. 129 dollars / mois pour toute l’organisation.
 
 Deux artefacts, pas une plateforme :
 
@@ -322,7 +324,7 @@ Test = ils connectent et rappellent les tools sur un deal réel
 
 
 
-99 € / mois / organisation
+129 dollars / mois / organisation
 
 
 
@@ -474,7 +476,7 @@ Carte. Self-serve. Pas de comité.
 
 6.2 Demain — même SKU
 
-Sales Ops d’une scale-up (~40 sales) qui saura créer des agents seul et voudra tuer une ligne Modjo / réduire le coût. Même produit : une clé, 99 € la boîte, ils branchent.
+Sales Ops d’une scale-up (~40 sales) qui saura créer des agents seul et voudra tuer une ligne Modjo / réduire le coût. Même produit : une clé, 129 dollars la boîte, ils branchent.
 
 On ne les chasse pas aujourd’hui. Champion Gong, DPA, admin Salesforce, CRO : le switch est politique. Pas de meeting. Le produit que le Sales Ops de 2027 installe sans nous, c’est celui qu’on refuse d’enterprisifier en 2026 (pas de démo, pas de SSO custom, pas d’onboarding 40 seats, pas de per-seat).
 
@@ -502,7 +504,7 @@ L&D / formation / CPF.
 
 
 
-Layer 0 seul (un individu qui veut un coach perso à 20 €, style ChatGPT Plus) — on accepte qu’il paie 99 € org s’il veut, on ne build pas un SKU perso.
+Layer 0 seul (un individu qui veut un coach perso à 20 €, style ChatGPT Plus) — on accepte qu’il paie 129 dollars org s’il veut, on ne build pas un SKU perso.
 
 
 
@@ -516,7 +518,7 @@ L’agent est à eux. Les data restent chez eux.
 
 Pas de CRM, ou un tableur. Claude / ChatGPT. Spec d’agent + clé MCP. « Premier prospect, je fais quoi cette semaine. » L’agent sort le geste, pas un cours : qui voir, quoi demander, quoi écrire, quand arrêter. HubSpot pas obligatoire. Un playbook layer 0.
 
-7.2 Pipeline, deals simples (layer 1) — le rituel qui justifie 99 €
+7.2 Pipeline, deals simples (layer 1) — le rituel qui justifie 129 dollars
 
 MCP HubSpot ou Salesforce déjà là. Ils ajoutent 3xrep. Le matin : « qu’est-ce qui est bloqué, challenge. » L’agent lit les opportunités chez eux, appelle nos tools. Après un call : notes (déjà sur la fiche, ou collées une fois dans le CRM — pas un flux 3xrep). Next move, mail de follow-up, angles morts.
 
@@ -840,7 +842,7 @@ L’ancre prix / copy :
 
 
 
-Modjo, c’est ~99 € le siège. 3xrep, c’est 99 € toute l’équipe.
+Modjo, c’est ~99 € le siège. 3xrep, c’est 129 dollars toute l’équipe.
 
 On n’est pas un Gong low-cost. On est l’autre métier : ce qu’on fait du deal une fois les artefacts sur la fiche.
 
@@ -870,7 +872,7 @@ Prix
 
 
 
-99 € HT / mois / organisation
+129 dollars / mois / organisation (+ tax)
 
 
 
@@ -926,7 +928,7 @@ Compte produit 3xrep, pas jesaisfaire, pas MonParentAgé (deux comptes live jama
 
 On ne monte pas le prix pour soigner l’affiliation.
 
-Layer 0 solo vs 99 € : on assume. On vend le rituel d’équipe sur la fiche, pas un coach à 20 €.
+Layer 0 solo vs 129 dollars : on assume. On vend le rituel d’équipe sur la fiche, pas un coach à 20 €.
 
 
 
@@ -972,7 +974,7 @@ Outbound SDR, même automatisé, même « sans call ».
 
 
 
-YouTube / mails « sponsoring » des influenceurs sales. Ils vendent un insert 1 500–8 000 €, pas 20 % de 99 €. Commentaire YouTube = spam. Leur inbox sponsor ≠ affiliation SaaS.
+YouTube / mails « sponsoring » des influenceurs sales. Ils vendent un insert 1 500–8 000 €, pas 20 % de 129 dollars. Commentaire YouTube = spam. Leur inbox sponsor ≠ affiliation SaaS.
 
 
 
@@ -984,7 +986,7 @@ Démo, Calendly, « booker 15 min ».
 
 Programme (Rewardful / Tolt + Stripe), 20–30 %, payout auto. Pas de négo, pas de brief, pas de call.
 
-20 clients × 99 € × 20 % ≈ 396 € / mois pour le créateur — encore loin d’un insert. La médiane d’un affilié froid = 0.
+20 clients × 129 dollars × 20 % ≈ 516 dollars / mois pour le créateur — encore loin d’un insert. La médiane d’un affilié froid = 0.
 
 Ça vient après : MCP qui se connecte, un Stripe, 2–3 users qui ne sont pas nous.
 
@@ -998,7 +1000,7 @@ Explee (5–10 $/j, signup, pas de calendrier) : test de message seulement, si o
 
 14. Acquisition — hypothèse
 
-Les Sales Ops et founders qui ont déjà Claude + un CRM cherchent « créer un agent commercial HubSpot / Claude » et « alternative Modjo ». Ils nous trouvent via le listing Claude/Cursor, puis une page tutoriel. Ils paient 99 € parce qu’un siège Modjo coûte ça, pour toute l’équipe, sans démo.
+Les Sales Ops et founders qui ont déjà Claude + un CRM cherchent « créer un agent commercial HubSpot / Claude » et « alternative Modjo ». Ils nous trouvent via le listing Claude/Cursor, puis une page tutoriel. Ils paient 129 dollars pour toute l’équipe, sans démo.
 
 Canal principal jour 1 : annuaires MCP + une page. pSEO = levier ensuite, pas le moteur de la v1.
 
@@ -1022,7 +1024,7 @@ Spec d’agent (un markdown).
 
 
 
-Page : URL custom connector + Stripe 99 € / org + 3 prompts d’exemple.
+Page : URL custom connector + Stripe 129 dollars / org + 3 prompts d’exemple.
 
 
 
@@ -1056,7 +1058,7 @@ audit_deal (ou équivalent) part sur une opportunité réelle.
 
 
 
-Un paiement Stripe 99 €.
+Un paiement Stripe 129 dollars.
 
 Listing live (Claude et/ou Cursor) = leading indicator, pas le succès.
 
@@ -1108,7 +1110,7 @@ Pas de sales call
 
 
 
-Pass — 99 € carte
+Pass — 129 dollars carte
 
 
 
@@ -1214,7 +1216,7 @@ planned
 
 
 
-99 € / org
+129 dollars / org
 
 
 
@@ -1252,7 +1254,7 @@ Pas orphelin. Acq jour 1 = annuaires, pas encore pSEO — d’où le score Acq 1
 
 19. Score Filtrer (1er septembre 2026)
 
-Score sur le produit pivoté (méthode sur la fiche, MCP, 99 € org), pas sur le terrain.
+Score sur le produit pivoté (méthode sur la fiche, MCP, 129 dollars org), pas sur le terrain.
 
 
 
@@ -1338,7 +1340,7 @@ WTP
 
 
 
-Refus Modjo / Gong = budget réel. 99 € = un siège, toute l’équipe
+Refus Modjo / Gong = budget réel. 129 dollars = toute l’équipe, pas un siège
 
 
 
@@ -1390,7 +1392,7 @@ Ils créent l’agent. On est le cerveau.
 
 
 
-99 € / mois / organisation. Jamais de per-seat.
+129 dollars / mois / organisation. Jamais de per-seat.
 
 
 
@@ -1722,7 +1724,7 @@ Scale-up 40 sales : demain Ops saura, voudra couper les coûts. Même SKU, pas c
 
 
 
-Prix : 99 € / org / mois, pas 99 € / user. Ancre Modjo. Figé.
+Prix : 129 dollars / org / mois, pas un siège. Ancre US. Figé : [decisions.md](decisions.md).
 
 
 

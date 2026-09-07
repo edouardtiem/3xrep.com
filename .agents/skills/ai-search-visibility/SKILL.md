@@ -7,7 +7,7 @@ description: Run visibility for 3xrep. Score how web search, public AI blocks, a
 
 Un geste. Pas un bot SEO. Pas une usine de contenu. La liste vit dans ce repo : [`docs/visibility/prompt-list.md`](../../../docs/visibility/prompt-list.md). Comment tourner : [`docs/visibility/README.md`](../../../docs/visibility/README.md).
 
-3xrep = cerveau MCP vente B2B, 99 € / org / mois. Première org = cold / online only. Landing + checkout doivent convertir un inconnu. 0 ads.
+3xrep = cerveau MCP vente B2B, 129 dollars / org / mois. Première org = cold / online only. Landing + checkout doivent convertir un inconnu. 0 ads.
 
 ## Ladder (un rung, le plus haut tenu)
 

@@ -18,9 +18,9 @@ Desktop (≥ lg) : texte à gauche, session sticky à droite. La gauche emmène 
 
 **Hire the VP Sales who doesn’t believe your CRM.**
 
-*99 €/month. For the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ».
+*From $129/month. For the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ». Prix : [decisions.md](decisions.md).
 
-Avant (2 sept) : *Hire the best VP Sales agent for 99 €/month.* Écarté le 4 sept : ça vend un coach de call, exactement la forme où ChatGPT « le fait moins bien mais le fait ». Le hero dit maintenant ce que le CRM ne peut pas dire de lui-même. « VP » reste le choc. Hero EN. On ne traduit pas VP Sales.
+Avant (2 sept) : *Hire the best VP Sales agent for 99 €/month.* Écarté le 4 sept : ça vend un coach de call, exactement la forme où ChatGPT « le fait moins bien mais le fait ». Le hero dit maintenant ce que le CRM ne peut pas dire de lui-même. « VP » reste le choc. Hero EN. On ne traduit pas VP Sales. 99 euros : ancre close le 7 sept.
 
 Pas de deuxième H1. Pas de « tu crées / on est le cerveau » en hero.
 
@@ -78,14 +78,14 @@ Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas 
 
 Pas un mail. Pas un call. Connector, dès la page. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
 
-Checkout sous l’install : *Already in?* 99 € / month / organization + bouton Stripe. Ancre Gong (~$1,500 / seat). Chemin 2 min : `/install` puis Stripe ([checkout.md](checkout.md)).
+Checkout sous l’install : *Already in?* From $129 / month / organization + bouton Stripe. Ancre Gong (~$1,500 / seat). Chemin 2 min : `/install` puis Stripe ([checkout.md](checkout.md)).
 
 ## Sous le fold
 
 Page d’intention, un scroll.
 
 1. **Start.** URL connector (*next to your HubSpot, Salesforce, or Notion MCP. Run it on your pipe.*) + *What the VP says.* (4 prompts, copie : pipe review lundi, debrief, close date = claim, objection). Pas le markdown spec.
-2. Checkout — *Already in?* 99 € / org + bouton Stripe (3 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s 99 € for the whole pipe, no seats.*
+2. Checkout — *Already in?* From $129 / org + bouton Stripe (7 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s $129 for the whole pipe, no seats.*
 3. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
 4. Confiance — footer. **Pas le hero.**
 

@@ -19,7 +19,7 @@ Méthodes + rattachement + 5 pourquoi + « on est dur » = un `SKILL.md` bien é
 | [Summit53](https://www.summit53.com/) | Skills + MCP : scores MEDDPIC, decks coaching, QBR | Checklist + PowerPoint. |
 | [Salesmotion](https://github.com/salesmotion/claude-skills) | *Evidence over assertion*, MEDDIC, account intel | Intel externe, pas le dossier. |
 
-Si `audit_deal` recrache des lettres vides et des questions utiles, on est Summit53 à 99 €. Un skill suffit.
+Si `audit_deal` recrache des lettres vides et des questions utiles, on est Summit53 à 129 dollars. Un skill suffit.
 
 Les 5 pourquoi dans [icp.md](icp.md) sont un **prompt**. Le LLM les saute dès qu’il veut être gentil.
 

@@ -12,7 +12,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | --- | --- |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
-| [checkout.md](checkout.md) | 99 € / org : secrets Vercel / Stripe, webhook, recette |
+| [checkout.md](checkout.md) | 129 dollars / org : secrets Vercel / Stripe, webhook, recette |
 | [landing.md](landing.md) | Home Session : maquette live, mur 3 audits |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
@@ -22,13 +22,13 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
 | [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse. Codés : debrief, passe-trous, **pipe-review** |
 | [portes.md](portes.md) | **Direction, pas ship** (6 sept) : un visage par travail, Slack plus tard. Source Agentforce + Dust |
-| [decisions.md](decisions.md) | **Registre** des décisions de contrat. Première : journal 14 jours (6–7 sept) |
+| [decisions.md](decisions.md) | **Registre** des décisions de contrat. Journal 14 jours. Prix 129 dollars. |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
-| [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 99 € encaissable, où la ligne se dessinera (le pipe, la mémoire) |
+| [plg.md](plg.md) | Prix : tools ouverts, 129 dollars encaissable, où la ligne se dessinera (le pipe, la mémoire) |
 | [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, data lock-in |
-| [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures réelles, toutes les langues, $129 / org US first |
+| [roadmap.md](roadmap.md) | **Ouvert** : docs MCP + captures réelles, toutes les langues. Prix 129 dollars : **shippé** ([decisions.md](decisions.md)) |
 | [visibility/](visibility/README.md) | Check AI search (skills, pas un bot SEO). Liste seed : [prompt-list.md](visibility/prompt-list.md) |
 | Chat Édouard | [francais-simple](../.agents/skills/francais-simple/SKILL.md) — lui répondre sans sigle |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
