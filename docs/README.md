@@ -1,5 +1,7 @@
 # Docs 3xrep
 
+**Nouveau chat : commence ici.** Le fil d’avant n’existe plus. Tout ce qui est décidé est dans ce dossier, sur `main`.
+
 Pivot 1er septembre 2026. Ils créent l’agent. On est le cerveau.
 
 Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il reste dans [terrain/](terrain/) pour l’historique et les méthodes de fond. **Ici, le PRD gagne** — sauf [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) et [landing.md](landing.md) (hero / home), figés le soir du 1er sept, et [cerveau.md](cerveau.md) (mécanique du cerveau), figé le 2 sept.
