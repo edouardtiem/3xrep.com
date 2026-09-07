@@ -15,6 +15,7 @@ Nouveau chat : lis [docs/README.md](docs/README.md) dans l’ordre. C’est le p
 **Live aujourd’hui** (sur `main`) :
 
 - Cerveau qui juge des preuves (exhibits), pas des formes. [cerveau.md](docs/cerveau.md).
+- Journal des appels : entrée + verdict **14 jours**, puis delete. On n’entre pas dans les appels. On n’écrit pas dans leur fichier client. Plus « on ne stocke rien ».
 - Prix encaissable : **99 € / mois / organisation**. Stripe. [checkout.md](docs/checkout.md).
 - **129 dollars** = intention US, [roadmap.md](docs/roadmap.md) item 3. Pas le checkout. On ne change pas le 99 € en silence.
 

@@ -33,7 +33,7 @@ export type RunOpts = {
 };
 
 export const DEMANDE =
-  "Paste the transcript in this chat, or connect a notetaker to your CRM (Fireflies, tl;dv, HubSpot CI). We don't store it.";
+  "Paste the transcript in this chat, or connect a notetaker to your CRM (Fireflies, tl;dv, HubSpot CI).";
 
 function gradeOf(deal: DealInput): Grade {
   const faits = extraireFaits(deal);

@@ -90,11 +90,11 @@ Les 3 tools v1 restent (`audit_deal`, `next_question`, `objection_map`). Le cont
 
 Un VP se souvient : « t’avais dit le DAF en R2 ». Un skill, non, dès que le thread meurt.
 
-On **peut** plus tard stocker sans casser « we don’t store » : `org`, hash du deal, atome, `su|suppose|trou`, date. **Zéro contenu.** Pas de transcript, pas de prompt, pas de réplique.
+**Log usage (6–7 sept 2026) :** on garde input + verdict **14 jours** pour caler le VP, puis delete. Ce n’est pas la mémoire de jugement.
 
-Ça ferait : « EB toujours vide depuis le 12. Le geste n’a pas eu lieu. »
+La mémoire produit (plus tard) : `org`, hash du deal, atome, `su|suppose|trou`, date — pas le verbatim en dur. Ça ferait : « EB toujours vide depuis le 12. Le geste n’a pas eu lieu. »
 
-Pas V0. Le compilateur doit d’abord être vrai **sur un call**. Si on stocke du contenu pour « aller plus loin », on est un Gong. Si on stocke le jugement trop tôt, on a une base vide et une ligne landing à réécrire.
+Pas V0. Le compilateur doit d’abord être vrai **sur un call**. Le log 14 j sert à relire les premiers vrais calls, pas à vendre la continuité.
 
 ## Test du différenciateur
 
