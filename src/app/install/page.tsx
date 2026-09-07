@@ -1,6 +1,7 @@
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
+import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { mcpUrl } from "@/lib/site";
@@ -86,7 +87,7 @@ export default function Install() {
             Stripe subscription, one organization, no seats. Plus tax where applicable. Checkout in your
             language and currency when Stripe Adaptive Pricing applies. After payment:{" "}
             <span className="font-mono">/merci</span> and a key for your org. Gong is ~$1,500 a
-            seat. We don&apos;t record. We don&apos;t store.
+            seat. {TRUST_LINE}
           </p>
           <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
         </section>

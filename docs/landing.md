@@ -85,8 +85,8 @@ Checkout sous l’install : *Already in?* 99 € / month / organization + bouton
 Page d’intention, un scroll.
 
 1. **Start.** URL connector (*next to your HubSpot, Salesforce, or Notion MCP. Run it on your pipe.*) + *What the VP says.* (4 prompts, copie : pipe review lundi, debrief, close date = claim, objection). Pas le markdown spec.
-2. Checkout — *Already in?* 99 € / org + bouton Stripe (3 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s 99 € for the whole pipe, no seats, and we don’t record.*
-3. Ce que ce n’est pas — Gong ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
+2. Checkout — *Already in?* 99 € / org + bouton Stripe (3 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s 99 € for the whole pipe, no seats.*
+3. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
 4. Confiance — footer. **Pas le hero.**
 
 Pas de logos clients, features grid, testimonials, layers en marketing, leçon MEDDIC.
@@ -95,9 +95,9 @@ Pas de logos clients, features grid, testimonials, layers en marketing, leçon M
 
 Écarté : *We don’t have access to your data, prompts nor queries.* Faux. Le MCP est remote. `audit_deal` reçoit `evidence`. C’est de l’accès le temps de la requête.
 
-**Ligne :** *Your CRM and your prompts stay where they are. We don’t record. We don’t store.*
+**Ligne :** *We don’t join your calls. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. We don’t write to your CRM.*
 
-« Don’t store » = contrat produit ([contournement.md](contournement.md) grade C). Si on log les bodies : on enlève la ligne.
+« Don’t store » retiré le 6–7 sept 2026 : on log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). On n’écrit pas dans leur CRM.
 
 ## Interdit en copy
 

@@ -13,7 +13,7 @@ Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)). Le doute :
 Elle devient visible quand le verdict porte sur **le pipe** et **le temps** :
 
 1. **`pipe_review`** — le CRM prétend (étape, date de close, dernière modif), les calls prouvent. « Cette étape est illégale. » ChatGPT n’a jamais les deux sources ensemble ; HubSpot ne contredit pas ses propres champs. L’acheteur est le founder / head of sales qui subit le pipe, pas le rep noté. C’est ce qui justifie *par organisation*. **Codé.**
-2. **La mémoire** — « verrou 2 non tenu, tu l’avais promis le 12 », la colonne ignoré → perdu. Pas V0 ([cerveau.md](cerveau.md) §7 : identifiant de réflexe seulement, jamais de contenu). Si on la fait, l’état vit dans **leur** CRM (note via leur MCP) ou en hash chez nous — « we don’t store » reste vrai.
+2. **La mémoire** — « verrou 2 non tenu, tu l’avais promis le 12 », la colonne ignoré → perdu. Pas V0 ([cerveau.md](cerveau.md) §7 : identifiant de réflexe seulement, jamais de contenu). Si on la fait, l’état vit dans **leur** CRM (note via leur MCP) ou en hash chez nous. Le log tool 14 jours n’est **pas** cette mémoire : c’est pour caler le VP, puis delete.
 
 Candidat de ligne, pas une décision : `audit_deal` / `next_question` / `objection_map` / lexique restent ouverts (c’est l’acquisition, et c’est là que ChatGPT est déjà gratuit). Le payant = le pipe et la continuité. On ne trace pas avant d’avoir vu une vraie pipe review sur un vrai HubSpot.
 
@@ -27,7 +27,7 @@ ToS / DRM : théâtre. Bearer trop tôt : on n’apprend plus. Plus tard, en reg
 
 ## Data qui change le résultat
 
-Pas plus de méthodes. **Leur** CRM + **leurs** artefacts maintenant (`pipe_review`, reco de process). Mémoire de jugement plus tard (id réflexe, hash, date — zéro contenu). Pas de benchmark « dans ton industrie ». Détail : [gaps.md](gaps.md) §6.
+Pas plus de méthodes. **Leur** CRM + **leurs** artefacts maintenant (`pipe_review`, reco de process). Mémoire de jugement plus tard (id réflexe, hash, date). Log usage 14 jours (input + verdict) pour caler le cerveau — pas la mémoire produit. Pas de benchmark « dans ton industrie ». Détail : [gaps.md](gaps.md) §6.
 
 ## Interdits (tiennent)
 

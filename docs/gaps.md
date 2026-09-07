@@ -84,7 +84,7 @@ La connaissance, un jour, tient dans un prompt. D’accord. **Leur pipe, non.**
 
 | Quand | Data | Pourquoi ça change le résultat | Interdit |
 | --- | --- | --- | --- |
-| **Maintenant** | Leurs artefacts + ce que le CRM prétend (étape, close, dernière modif) | `pipe_review` + reco de process. Zéro stockage 3xrep. | Transcripts chez nous. Proba. |
+| **Maintenant** | Leurs artefacts + ce que le CRM prétend (étape, close, dernière modif) | `pipe_review` + reco de process. Log tool 14 jours (input + verdict), puis delete. | Bot Zoom. Proba. Mémoire permanente. |
 | **Maintenant** | Recettes de fetch dans la pièce ([acces.md](acces.md)) | « HubSpot a Marie DAF, Pappers le président — ni l’un ni l’autre n’est tenu. » | Enrichir nous-mêmes. |
 | **Dès qu’ils tournent** | Compte de pièces vides / étapes illégales **dans l’appel**, pas chez nous | L’audit mensuel. Le process (question mandatory, stage gatée) est **à eux** — on le juge au suivant. | « Dans ton industrie, 32 %. » |
 | **Plus tard** | Mémoire : `org` + hash deal + pièce + `su\|suppose\|trou` + id réflexe + date | « Verrou 2, promis le 12. » Le VP se souvient. | Contenu, bande, prompt. |

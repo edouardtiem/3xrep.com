@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
+import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Docs — 3xrep",
   description:
-    "3xrep is a VP Sales agent MCP for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields and names the stage that lies. Not Gong. We don't record.",
+    "3xrep is a VP Sales agent MCP for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields and names the stage that lies. Not Gong. We don't join your calls.",
 };
 
 const TOOLS = [
@@ -30,8 +31,7 @@ export default function DocsPage() {
           <p className="text-mute mt-4 max-w-[36rem]">
             3xrep is a VP Sales agent you add to Claude Code, Cursor, or Codex,
             next to your CRM MCP. It reads the calls behind the fields. It
-            names the hole that kills the deal, and the stage that lies. We
-            don&apos;t record. We don&apos;t store.
+            names the hole that kills the deal, and the stage that lies. {TRUST_LINE}
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function DocsPage() {
             Code, Cursor, Codex, Claude (Cowork), ChatGPT Business, Notion
             agents — as one URL, next to the HubSpot, Salesforce, or Notion
             MCP you already use. It does not live in your CRM: nothing to
-            install there, no 3xrep tab, no data copied. Your agent reads
+            install there, no 3xrep tab. Your agent reads
             the deal through your CRM connector and calls 3xrep for the
             verdict.
           </p>
@@ -105,7 +105,7 @@ export default function DocsPage() {
           <p className="text-dim">
             No transcript on the deal: the verdict asks to paste it in this
             chat, or to connect a notetaker (Fireflies, tl;dv, HubSpot CI)
-            so the next call lands on the CRM. We don&apos;t store it.
+            so the next call lands on the CRM. Tool inputs are kept 14 days.
           </p>
         </section>
 
@@ -122,7 +122,7 @@ export default function DocsPage() {
         </section>
 
         <section className="text-dim space-y-2">
-          <p>Not Gong. We don&apos;t record.</p>
+          <p>Not Gong. We don&apos;t join your calls.</p>
           <p>Not your CRM&apos;s assistant. It fills the fields. We say which ones are empty.</p>
           <p>Not a course.</p>
           <p>Not &ldquo;you close Friday.&rdquo;</p>

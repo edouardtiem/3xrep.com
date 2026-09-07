@@ -4,6 +4,7 @@ import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { SessionTerminal } from "@/components/SessionTerminal";
 import { Wordmark } from "@/components/Wordmark";
+import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
@@ -137,7 +138,7 @@ export default function Home() {
               </p>
               <p className="text-dim mt-2 text-[13px] leading-relaxed">
                 Gong is ~$1,500 a seat and records your calls. Here it&apos;s
-                ${LIST_PRICE_USD} for the whole pipe, no seats, and we don&apos;t record.
+                ${LIST_PRICE_USD} for the whole pipe, no seats.
               </p>
               <div className="mt-5">
                 <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
@@ -145,7 +146,7 @@ export default function Home() {
             </section>
 
             <section className="mt-12 space-y-2 text-[13px] leading-relaxed">
-              <p className="text-dim">Not Gong. We don&apos;t record.</p>
+              <p className="text-dim">Not Gong. We don&apos;t join your calls.</p>
               <p className="text-dim">
                 Not your CRM&apos;s assistant. It fills the fields. We say which
                 ones are empty.
@@ -161,8 +162,7 @@ export default function Home() {
       </main>
 
       <footer className="text-dim mx-auto w-full max-w-[68rem] px-5 pb-10 text-[11px] leading-relaxed">
-        Your CRM and your prompts stay where they are. We don&apos;t record.
-        We don&apos;t store.
+        {TRUST_LINE}
       </footer>
     </div>
   );
