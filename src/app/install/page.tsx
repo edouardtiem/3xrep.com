@@ -2,6 +2,7 @@ import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { PROMPTS } from "@/lib/landing";
+import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { mcpUrl } from "@/lib/site";
 
 export default function Install() {
@@ -26,7 +27,8 @@ export default function Install() {
             3xrep lives in your agent, not in your CRM: one MCP URL next to your HubSpot,
             Salesforce, or Notion connector. The workspace admin adds it once. Each person then
             Connects with their own CRM account — they only see their deals. The tools are open.
-            99 € / month is for the organization that wants the VP on its pipe every Monday.
+            From ${LIST_PRICE_USD} / month is for the organization that wants the VP on its pipe every Monday.
+            Stripe Checkout shows your language and local currency when eligible.
           </p>
         </div>
 
@@ -79,13 +81,14 @@ export default function Install() {
         </section>
 
         <section className="flex flex-col gap-4 border-t border-line pt-10">
-          <h2 className="text-lg">2. Pay 99 € / month / organization</h2>
+          <h2 className="text-lg">2. Pay ${LIST_PRICE_USD} / month / organization</h2>
           <p className="text-sm text-mute">
-            Stripe subscription, one organization, no seats. After payment:{" "}
+            Stripe subscription, one organization, no seats. Plus tax where applicable. Checkout in your
+            language and currency when Stripe Adaptive Pricing applies. After payment:{" "}
             <span className="font-mono">/merci</span> and a key for your org. Gong is ~$1,500 a
             seat. We don&apos;t record. We don&apos;t store.
           </p>
-          <CheckoutButton label="Pay 99 € / month / org" />
+          <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
         </section>
       </main>
     </>

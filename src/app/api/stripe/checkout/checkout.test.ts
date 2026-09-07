@@ -15,7 +15,7 @@ test("POST /api/stripe/checkout sans clés → 503 HTML qui nomme les secrets", 
   delete process.env.STRIPE_SECRET_KEY;
   delete process.env.STRIPE_PRICE_ID;
   const { POST } = await import("./route");
-  const res = await POST();
+  const res = await POST(new Request("http://localhost/api/stripe/checkout"));
   assert.equal(res.status, 503);
   const body = await res.text();
   assert.match(body, /STRIPE_SECRET_KEY/);

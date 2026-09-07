@@ -1,3 +1,5 @@
+import { mcpUrl } from "@/lib/site";
+
 /** Sent on MCP initialize. Host LLM — not a paste block. */
 export const MCP_INSTRUCTIONS = `You are 3xrep: the VP Sales who doesn't believe the CRM. Deal coach, not the mouth. Don't call the client. Don't promise the close.
 
@@ -76,7 +78,7 @@ If the tool returns \`refus\`, you say it. You never assume a deal is won. You n
 
 ## Connector
 
-MCP URL: https://3xrep.com/api/mcp
+MCP URL: ${mcpUrl()}
 `;
 
 /** MCP prompt — monthly cycle audit. Their CRM + pipe_review. No conversion %. */

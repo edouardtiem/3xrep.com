@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { CopyButton } from "@/components/CopyButton";
 import { SessionTerminal } from "@/components/SessionTerminal";
@@ -51,7 +52,7 @@ export default function Home() {
               who doesn&apos;t believe your CRM.
             </h1>
             <p className="text-dim mt-3 text-[13px] italic">
-              99 €/month. For the entire organization.
+              From ${LIST_PRICE_USD}/month. For the entire organization.
             </p>
           </div>
 
@@ -131,13 +132,15 @@ export default function Home() {
               <p className="text-dim text-[11px] tracking-wide uppercase">
                 Already in?
               </p>
-              <p className="mt-2 text-[13px]">99 € / month / organization.</p>
+              <p className="mt-2 text-[13px]">
+                From ${LIST_PRICE_USD} / month / organization. Local currency and language at checkout.
+              </p>
               <p className="text-dim mt-2 text-[13px] leading-relaxed">
                 Gong is ~$1,500 a seat and records your calls. Here it&apos;s
-                99 € for the whole pipe, no seats, and we don&apos;t record.
+                ${LIST_PRICE_USD} for the whole pipe, no seats, and we don&apos;t record.
               </p>
               <div className="mt-5">
-                <CheckoutButton label="Pay 99 € / month / org" />
+                <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
               </div>
             </section>
 

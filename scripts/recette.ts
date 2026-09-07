@@ -210,7 +210,7 @@ async function main() {
   const installHtml = await install.text();
   console.log("INSTALL", install.status, installHtml.includes('action="/api/stripe/checkout"'));
   if (install.status !== 200 || !installHtml.includes('action="/api/stripe/checkout"')) {
-    throw new Error("/install doit porter le form checkout 99 €");
+    throw new Error("/install doit porter le form checkout $129");
   }
 
   for (const [name, body] of [

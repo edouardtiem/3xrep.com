@@ -1,6 +1,6 @@
-# Checkout 99 € / org
+# Checkout $129 / org (USD anchor)
 
-Figé 3 septembre 2026. Palier septembre : **1 org payante à 99 € avant le 30 sept.** Pas le parcours gratis-d’abord. V0 = cerveau MCP (Claude / ChatGPT Business / Notion). Pas d’UI CRM.
+Marché US first — prix catalogue **$129 USD / mois / org**. Stripe Checkout : **langue** du navigateur (`Accept-Language` → locale Stripe) et **devise locale** quand [Adaptive Pricing](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing) est activé sur le compte. Palier septembre : **1 org payante à $129 avant le 30 sept.**
 
 Prochaine ancre, **pas live** : $129 USD / mois / org ([roadmap.md](roadmap.md) item 3). Tant que ça n’est pas ouvert : Price **99,00 EUR** ci-dessous. Ne pas créer le Price USD ici.
 
@@ -19,7 +19,7 @@ Aucun secret n’est dans le git. Ne pas inventer de clés. Ne pas coller une cl
 | `SUPABASE_SERVICE_ROLE_KEY` | Même projet → service_role (secret). Jamais `NEXT_PUBLIC_`. | `eyJ…` ou `sb_secret_…` |
 | `NEXT_PUBLIC_SITE_URL` | URL publique du site. Tant que `3xrep.com` n’est pas accroché au projet Vercel : l’URL `*.vercel.app` de prod. | `https://…` sans slash final |
 
-Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). `NEXT_PUBLIC_MCP_URL` n’est plus le default de la home — l’URL connector = `{NEXT_PUBLIC_SITE_URL}/api/mcp`.
+Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). L’URL connector collée sur home / docs / install / spec est toujours `https://3xrep.com/api/mcp`. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirects Stripe, sitemap, recette locale.
 
 Le code **ne** lit **pas** `STRIPE_SECRET_KEY_LIVE` ni `SUPABASE_SECRET_KEY`. Si le secret est sous un autre nom : 503. Ce n’est pas un faux vert.
 
@@ -29,7 +29,7 @@ Le catalogue live du compte injecté dans cet environnement n’a **aucun** Prod
 
 1. [Products](https://dashboard.stripe.com/products) → Add product.
 2. Nom : `3xrep` (un produit = un plan ; pas deux paliers sur le même product).
-3. Price : **Recurring**, **99,00 EUR**, interval **Monthly**. Billing period monthly.
+3. Price : **Recurring**, **129,00 USD** (anchor), interval **Monthly**. Adaptive Pricing ON au checkout → devise/locale client quand éligible. Taxes : Stripe Tax quand activé.
 4. Copier l’id `price_…` → `STRIPE_PRICE_ID` sur Vercel.
 5. [Webhooks](https://dashboard.stripe.com/webhooks) → Add endpoint :
    - URL : `https://<NEXT_PUBLIC_SITE_URL>/api/stripe/webhook`
@@ -39,7 +39,7 @@ Le catalogue live du compte injecté dans cet environnement n’a **aucun** Prod
 
 Mode test : mêmes gestes dans [test mode](https://dashboard.stripe.com/test/products) (`rk_test_` / `sk_test_`, `price_` test, `whsec_` test). Carte `ACCT-000015`. Ne pas encaisser en live pour une recette.
 
-TVA / Stripe Tax : compte FR, clients EU — activer Tax + une registration **avant** `automatic_tax`. Le code ne l’allume pas.
+TVA / Stripe Tax : activer Tax + registrations (US sales tax, EU VAT selon marché) **avant** `automatic_tax` dans le code. Le code ne l’allume pas encore.
 
 ## Action humaine Supabase (projet 3xrep)
 

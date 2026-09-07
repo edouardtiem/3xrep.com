@@ -1,4 +1,10 @@
-export function CheckoutButton({ label = "Payer 99 € / mois / org" }: { label?: string }) {
+import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+
+export function CheckoutButton({
+  label = `Pay $${LIST_PRICE_USD} / month / org`,
+}: {
+  label?: string;
+}) {
   return (
     <form action="/api/stripe/checkout" method="post">
       <button

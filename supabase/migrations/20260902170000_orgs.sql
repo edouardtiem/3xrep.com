@@ -1,4 +1,4 @@
--- orgs: une clé = un workspace = 99 € / mois. Service role only.
+-- orgs: une clé = un workspace = $129 / mois (USD anchor). Service role only.
 create table if not exists public.orgs (
   id uuid primary key default gen_random_uuid(),
   key_hash text not null unique,
