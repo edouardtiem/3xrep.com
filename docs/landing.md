@@ -97,7 +97,7 @@ Pas de logos clients, features grid, testimonials, layers en marketing, leçon M
 
 **Ligne :** *We don’t join your calls. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. We don’t write to your CRM.*
 
-« Don’t store » retiré le 6–7 sept 2026 : on log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). On n’écrit pas dans leur CRM.
+« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). On n’écrit pas dans leur CRM.
 
 ## Interdit en copy
 
