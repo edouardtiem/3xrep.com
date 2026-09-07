@@ -56,3 +56,44 @@ Ligne publique (site, install, docs) :
 Seulement si : on allonge ou on coupe les 14 jours ; on stocke autre chose que entrée + verdict ; on promet la mémoire « le 12 ». Une nouvelle section. On ne réécrit pas celle-ci.
 
 Note du jour : [sessions/2026-09-07-4.md](sessions/2026-09-07-4.md).
+
+---
+
+## 2026-09-06 / 07 — Prix 129 dollars
+
+**Qui :** Édouard. Tranché le 6 sept (roadmap US first). Confirmé live le 7 sept (Stripe + copy). Confirmé le 7 sept soir : *ne garde pas les deux — on passe à 129 dollars.*
+
+**Figé.** Gagne sur l’ancre 99 € du 1er–3 sept ([prd.md](prd.md), [landing.md](landing.md) avant ce jour). Gagne sur [roadmap.md](roadmap.md) item 3 « pas encore shippé ».
+
+### Ce qui était vrai
+
+99 euros / mois / organisation. Ancre Modjo (un siège France). Checkout Stripe en euros. Le 129 dollars était une intention : marché US, pas le checkout.
+
+### Ce qui est vrai maintenant
+
+**129 dollars / mois / organisation.** Ancre US. Une organisation, jamais un siège. Devise et langue au checkout (Adaptive Pricing). Pas deux prix. Pas un palier 99 et un palier 129.
+
+Ligne publique (hero, install, docs) :
+
+*From $129/month. For the entire organization.*
+
+### Ce que ce n’est pas
+
+| Ça | Non — c’est |
+| --- | --- |
+| Un siège | Toujours l’organisation |
+| 199 euros | Territoire démo. 129 reste self-serve |
+| Deux Prices sur le même product | Un Price USD. L’ancien 99 euros ne vit plus |
+| Changer le montant en silence | Cette section. On ne revient pas à 99 |
+
+### Où ça vit
+
+- Copy : `LIST_PRICE_USD` dans `src/lib/stripe-checkout-session.ts` (hero, install, layout).
+- Stripe : Price récurrent 129,00 USD → `STRIPE_PRICE_ID`. [checkout.md](checkout.md).
+- Contrat : [landing.md](landing.md), [plg.md](plg.md), [prd.md](prd.md) (complément : ce registre gagne).
+
+### Rouvrir
+
+Seulement si : on change le montant ; on ajoute un siège ; on rouvre un palier euros. Une nouvelle section. On ne réécrit pas celle-ci.
+
+Note du jour : [sessions/2026-09-07-5.md](sessions/2026-09-07-5.md).

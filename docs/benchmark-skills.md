@@ -29,7 +29,7 @@ Référent 3xrep : [cerveau.md](cerveau.md), [sortie.md](sortie.md). Le test : l
 | Bouche (mail, séquence, cold) | **Oui** — c’est le README | Follow-up + cold call | 400+ SDR | Oui | Roleplay | Non. Spec : dossier, pas bouche |
 | Enregistre / roleplay | Demande d’enregistrer | Transcript | — | — | Drill vocal | Interdit |
 | Versionné côté serveur | Snapshot git chez l’user | Plugin | Snapshot | — | Gist | Runtime live |
-| Prix | 0 € | 0 € | 0 € | Freemium MCP | 0 € | 99 € / org |
+| Prix | 0 € | 0 € | 0 € | Freemium MCP | 0 € | 129 dollars / org |
 
 ## 2. Pack par pack
 

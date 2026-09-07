@@ -1,10 +1,10 @@
 # Roadmap — 3xrep
 
-**Live.** 6 septembre 2026. Édouard : docs MCP en détail + captures réelles (Cursor, Claude Code) + site dans toutes les langues + **$129 / mois / organisation**, US first.
+**Live.** 6 septembre 2026. Édouard : docs MCP en détail + captures réelles (Cursor, Claude Code) + site dans toutes les langues. Le **129 dollars / mois / organisation** (US first) est **shippé** — [decisions.md](decisions.md).
 
 Gagne sur [terrain/roadmap.md](terrain/roadmap.md) (archive jeu, 30–31 août). Le PRD tenait l’ordre *MCP → listing → page → pSEO*. Ici : ce qu’on ouvre **maintenant**. Ne pas implémenter le reste.
 
-Live aujourd’hui : 99 € / org, `/docs` en anglais, tools ouverts. Rien de ce fichier n’est shippé.
+Live aujourd’hui : 129 dollars / org, `/docs` en anglais, tools ouverts. Restent ouverts ici : le détail des docs et les langues.
 
 ## Ouvert — dans cet ordre
 
@@ -47,19 +47,11 @@ Le **site** est anglais seulement (`/`, `/docs`, `/install`, `/spec`). US first 
 
 Détection : `Accept-Language` + préfixe (`/fr/docs`, `/de/docs`…). EN sans préfixe. Le connector et le JSON MCP ne changent pas.
 
-### 3. Prix — $129 / mois / organisation
+### 3. Prix — $129 / mois / organisation — **shippé** (7 sept)
 
-US first. L’ancre 99 € était Modjo (siège FR). On vise les US : **$129 / month / organization**. Toujours une org, jamais un siège.
+US first. L’ancre 99 euros était Modjo (siège France). Close. Catalogue : **$129 / month / organization**. Toujours une org, jamais un siège. [decisions.md](decisions.md). [checkout.md](checkout.md).
 
-Live **tant que cet item n’est pas shippé** : 99 € (hero, `/install`, Stripe EUR, [checkout.md](checkout.md)). On ne change pas le checkout en silence.
-
-Quand on ouvre :
-
-- Price Stripe **USD**, recurring monthly, $129. Nouveau `price_…` → `STRIPE_PRICE_ID`. Pas deux paliers sur le même product. Action humaine sur le Stripe **3xrep**.
-- Copy : `$129/month. For the entire organization.` Ancre Gong (~$1,500 / seat) tient, mieux en dollar.
-- Palier sept (1 org payante) tient. Le montant change, pas le kill.
-
-199 € = territoire démo ([prd.md](prd.md) §12). $129 reste self-serve. Per-seat interdit. On ne monte pas pour soigner l’affiliation.
+199 euros = territoire démo ([prd.md](prd.md) §12). 129 dollars reste self-serve. Per-seat interdit. On ne monte pas pour soigner l’affiliation. On ne rouvre pas le 99 euros.
 
 ## Ensuite — pas ouvert
 
@@ -69,4 +61,4 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Changer le 99 € live avant l’item 3. Rouvrir le jeu / l’usine de cas.
+Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Rouvrir le 99 euros. Rouvrir le jeu / l’usine de cas.

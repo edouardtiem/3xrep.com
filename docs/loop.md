@@ -47,7 +47,7 @@ Remplacé. Un bouton, une [sortie](sortie.md). Mail / plan = actions sous le deb
 
 « Un agent chez eux » = idéal si leur HubSpot Agent Hub / Agentforce appelle notre MCP : *leur* LLM, *notre* cerveau, *leur* crédits. Setup admin, pas v1 pour tout le monde.
 
-v1 dans l’app 3xrep : le cerveau sort le geste ; un brouillon est assemblé (playbook + LLM **borné**, pas unlimited à nos frais). 99 € + drafts LLM illimités = kill marge. Ils relisent et envoient.
+v1 dans l’app 3xrep : le cerveau sort le geste ; un brouillon est assemblé (playbook + LLM **borné**, pas unlimited à nos frais). 129 dollars + drafts LLM illimités = kill marge. Ils relisent et envoient.
 
 ## `/pipeline`
 

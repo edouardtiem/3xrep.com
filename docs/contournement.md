@@ -25,7 +25,7 @@ L’admin du workspace branche 3xrep + le MCP HubSpot (ou Salesforce) une fois. 
 
 | Grade | Entrée | Ce que [sortie.md](sortie.md) a le droit de faire |
 | --- | --- | --- |
-| **A** | Transcript / recap déjà sur le deal | Les 5 blocs. C’est le rituel 99 €. |
+| **A** | Transcript / recap déjà sur le deal | Les 5 blocs. C’est le rituel payant. |
 | **B** | Mails, notes, meetings, next step sur la fiche — y compris une citation dans une note d’AE | Trous + next move + objectif. Pas de 7/10 du call. Pas de réplique. `demande` : coller le transcript dans *leur* chat, ou brancher un notetaker (Fireflies, tl;dv, HubSpot CI) pour que le prochain call arrive sur le deal. |
 | **C** | Collage **dans leur chat** Cowork / ChatGPT / Notion | Comme A si le texte est un verbatim. Comme B si ce sont des notes. 3xrep garde l’input 14 jours, puis delete. |
 

@@ -16,8 +16,7 @@ Nouveau chat : lis [docs/README.md](docs/README.md) dans l’ordre. C’est le p
 
 - Cerveau qui juge des preuves (exhibits), pas des formes. [cerveau.md](docs/cerveau.md).
 - Journal des appels : entrée + verdict **14 jours**, puis delete. Décision : [docs/decisions.md](docs/decisions.md). On n’entre pas dans les appels. On n’écrit pas dans leur fichier client. Plus « on ne stocke rien ».
-- Prix encaissable : **99 € / mois / organisation**. Stripe. [checkout.md](docs/checkout.md).
-- **129 dollars** = intention US, [roadmap.md](docs/roadmap.md) item 3. Pas le checkout. On ne change pas le 99 € en silence.
+- Prix : **129 dollars / mois / organisation**. Stripe. [checkout.md](docs/checkout.md). Décision : [docs/decisions.md](docs/decisions.md). Pas 99 euros. Pas deux paliers.
 
 **Direction, pas ship** : [portes.md](docs/portes.md) — un visage par travail, Slack plus tard. Une base à nous = demain, pas un fichier client sans fenêtre.
 
