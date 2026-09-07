@@ -85,6 +85,46 @@ git push origin main
 
 Si on est déjà sur `main` et que le travail est commité là : `git pull --ff-only origin main`, puis la passe ci-dessus, puis push.
 
+## 3b. Une seule branche : `main`
+
+Toujours finir sur `main` : `git checkout main`.
+
+Miroir de `.agents/skills/end/SKILL.md` §3b. En cas d’écart, le fichier `.agents` gagne.
+
+Puis, pour chaque branche **locale et distante** sauf `main` :
+
+1. Si elle n’a **aucun** commit hors de `main` : la supprimer (`git branch -D`, `git push origin --delete`). C’est la branche de travail. Elle ne reste pas.
+2. Si elle a encore du travail hors de `main` : **ne pas supprimer**. Le dire en ligne 1 du rapport. C’est le seul cas où une branche survit.
+
+Ne jamais supprimer `main`. Pas de `--force` sur `main`.
+
+```bash
+git checkout main
+
+# Locales
+for b in $(git for-each-ref --format='%(refname:lstrip=2)' refs/heads | grep -v -E '^(main|origin)$'); do
+  extra=$(git rev-list --count main.."$b")
+  if [ "$extra" = "0" ]; then
+    git branch -D "$b"
+  else
+    echo "HORS MAIN $b ($extra commits) — gardée"
+  fi
+done
+
+# Distantes
+git fetch origin --prune
+git for-each-ref --format='%(refname:lstrip=3)' refs/remotes/origin \
+  | grep -v -E '^(HEAD|main|origin)$' \
+  | while read -r b; do
+      extra=$(git rev-list --count main.."origin/$b")
+      if [ "$extra" = "0" ]; then
+        git push origin --delete "$b"
+      else
+        echo "HORS MAIN origin/$b ($extra commits) — gardée"
+      fi
+    done
+```
+
 ## 4. Rapport — court, français
 
 Quatre lignes max :
