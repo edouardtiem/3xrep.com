@@ -149,6 +149,8 @@ Pas avant :
 
 Rouvrir ce fichier = une de ces trois, ou une URL source différente à coller en §2.
 
+La base à nous (fichier sans fenêtre, voix, objets) n’est **pas** une de ces trois. C’est une autre société. Voir §7.
+
 ## 6. Interdit
 
 - Huit MCP, huit SKU, « Agentforce 3xrep ».
@@ -156,3 +158,28 @@ Rouvrir ce fichier = une de ces trois, ou une URL source différente à coller e
 - Slack comme logo dans le row Cursor · Claude Code · Codex.
 - Promettre la mémoire ou un pourcentage de signatures.
 - Copier leur roster pour « être complet ».
+
+## 7. Demain — la base (réflexion, 7 sept)
+
+Édouard : plus tard, une base à nous. Les gens construisent le dossier à l’écrit ou à la voix, créent des objets, les lient. Le tableau de bord, c’est eux. Ça vit dans *leur* assistant (Claude Code, Cowork…). Pas aujourd’hui.
+
+**Pas un fichier client sans fenêtre.** Un fichier, même sans écran, garde les fiches (qui, étape, date, cases). C’est HubSpot. Nous on juge si les cases sont vraies.
+
+Deux chemins si une base existe un jour :
+
+| Base | On est |
+| --- | --- |
+| Le jugement (affaire, pièce, vide depuis le 12, zéro contenu) | Le même cerveau, avec de la mémoire. [plg.md](plg.md) |
+| Le dossier (noms, étapes, dates, notes) | HubSpot sans onglet. On aura envie de remplir. On arrête de dire non. |
+
+Une vraie boîte, oui — parce que **le dossier habite chez nous**, pas parce qu’il y a une base. Aujourd’hui partir = débrancher le connecteur.
+
+Le sans-fenêtre est juste : on ne leur fait pas de tableau. Leur assistant *est* la fenêtre. Si on se met à le faire, on est HubSpot.
+
+Le danger n’est pas la base. C’est **quoi** on laisse créer. N’importe quel objet parce qu’ils ont écrit une phrase = un tableur à la voix. Autre métier.
+
+Version qui resterait nous : ils parlent, le dossier se pose, les objets sont les **pièces** (qui signe, le chiffre dit par eux). Pas « une table livraisons ». La voix remplit. Elle n’invente pas un deuxième logiciel.
+
+Si on tient le fichier, la règle naît **avec** la base, pas après : on stocke ce qu’ils ont dit, on ne coche pas à leur place.
+
+Aujourd’hui : le cerveau sur *leur* fichier. Ouvrir ça = une deuxième société dans la même marque, ou on change de métier. Pas un item [roadmap.md](roadmap.md).
