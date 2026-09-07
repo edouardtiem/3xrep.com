@@ -22,7 +22,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
 | [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse. Codés : debrief, passe-trous, **pipe-review** |
 | [portes.md](portes.md) | **Direction, pas ship** (6 sept) : un visage par travail, Slack plus tard. Source Agentforce + Dust |
-| [decisions.md](decisions.md) | **Registre** des décisions d’contrat. Première : journal 14 jours (6–7 sept) |
+| [decisions.md](decisions.md) | **Registre** des décisions de contrat. Première : journal 14 jours (6–7 sept) |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
