@@ -1,43 +1,55 @@
-# Visibility — 3xrep dans les réponses AI
+# Visibility — 3xrep dans les réponses AI et sur Google
 
-Pas un bot SEO. Pas une cron. Pas de pub. Le check vit **dans ce repo**, tourné à la main par un agent qui lit les skills.
+Deux gestes, même dossier.
 
-Skills :
+| Geste | Skill | Droit |
+| --- | --- | --- |
+| **Check** | [`ai-search-visibility`](../../.agents/skills/ai-search-visibility/SKILL.md) | Mesurer. Capturer. Une action nommée. **Ne pose pas** le site. |
+| **Boucle** | [`seo-geo`](../../.agents/skills/seo-geo/SKILL.md) | Mesurer **et** changer le site **en anglais**. Impressions + clics. Finit par `/end`. |
 
-- [`.agents/skills/ai-search-visibility/SKILL.md`](../../.agents/skills/ai-search-visibility/SKILL.md) — **run visibility for 3xrep**
-- [`.agents/skills/build-3xrep-prompt-list/SKILL.md`](../../.agents/skills/build-3xrep-prompt-list/SKILL.md) — construire / éditer la liste
+Liste : [`prompt-list.md`](prompt-list.md). **Seed, à valider.** Comment shipper : [`seo-geo.md`](seo-geo.md). Bus geo : [`bus.md`](bus.md).
 
-Liste : [`prompt-list.md`](prompt-list.md). **Seed, à valider.** Ne pas la traiter comme figée.
+Pas de pub payante. Pas d’usine de pages. Pas de second git.
 
-## Comment tourner
+## Check — mesurer
 
 1. Invoker `/ai-search-visibility` (ou « run visibility for 3xrep »).
 2. L’agent lit `prompt-list.md`, tourne les **5 top** d’abord.
 3. Pour chaque prompt : web search + blocs AI **publics** + sa propre réponse. Texte et liens **avant** le jugement.
 4. Surfaces login (ChatGPT, Claude.ai, …) : il liste **awaiting paste**. Tu colles, il reprend. Il ne les marque pas `absent`.
-5. Sortie : table + **une** action nommée avec URL.
+5. Sortie : table + **une** action nommée avec URL. Il **ajoute** aussi une entrée au [bus](bus.md).
 
-Ne pas lui demander de publier, poster, acheter un slot, ou ouvrir Grok Build.
+Ne pas lui demander d’acheter un slot, ou d’ouvrir Grok Build. Poser le site = la boucle `seo-geo`, pas ce check.
+
+## Boucle — poser (anglais)
+
+Automation Cursor : coller le brief dans [`seo-geo.md`](seo-geo.md). Elle lit le bus, Search Console / Analytics / Ads (mots, si branchés), change le site, `/end`.
+
+Toi : brancher les trois comptes + créer l’automation — [roadmap](../roadmap.md) « Toi ».
 
 ## Où ça vit
 
 | Quoi | Où | Quand on crée |
 | --- | --- | --- |
 | Liste | [`prompt-list.md`](prompt-list.md) | déjà (seed) |
+| Bus geo | [`bus.md`](bus.md) | déjà (boîte aux lettres) |
 | Captures (texte + liens) | `captures/YYYY-MM-DD.md` | premier run qui capture |
-| Brief de l’action semaine | `briefs/YYYY-MM-DD.md` | seulement si l’action a besoin d’un texte à coller **plus tard**, après un oui |
+| Brief de l’action semaine | `briefs/YYYY-MM-DD.md` | seulement si le **check** a besoin d’un texte à coller plus tard |
+| Runs de la boucle | `runs/YYYY-MM-DD.md` | premier tour `seo-geo` |
+| Exports Search Console | `exports/YYYY-MM-DD-gsc.csv` | si tu déposes un export à la main |
 
-Pas de dossier vide. On crée `captures/` et `briefs/` au premier fichier.
+Pas de dossier vide. On crée `captures/`, `briefs/`, `runs/`, `exports/` au premier fichier.
 
-Une capture = le verbatim et les URLs, pas le jugement. Le jugement est dans le message (et peut être recopié en bas du fichier du jour).
+Une capture = le verbatim et les URLs, pas le jugement. Le jugement du check est dans le message. Le jugement de la boucle est le run + le diff.
 
 ## Règles qui tiennent
 
 - Pas de citation inventée.
 - Surface sautée ≠ absent.
-- Rien ne sort du repo (post, page, listing) sans **yes** explicite.
-- Ne jamais nommer Édouard / Uptoo / OC comme builder. Première org = inconnu, cold, online. 0 ads.
+- Site en anglais. Français / villes : plus tard.
+- Ne jamais nommer Édouard / Uptoo / OC comme builder. Première org = inconnu, cold, online. 0 ads payants.
+- La boucle `seo-geo` a le droit de poser : Édouard l’a dit. Le check, non.
 
 ## Hors scope
 
-Routines cron. Ads. UI CRM. Merge. Usine pSEO. Crawler / `llms.txt` / schema comme livrable. Second git « SEO ».
+Usine pSEO. Crawler / `llms.txt` comme livrable. Second git « SEO ». `docs/loops/`. `_SIGNAL-BUS.md`. Acheter un clic.

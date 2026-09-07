@@ -29,7 +29,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 99 € encaissable, où la ligne se dessinera (le pipe, la mémoire) |
 | [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, data lock-in |
 | [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures réelles, toutes les langues, $129 / org US first |
-| [visibility/](visibility/README.md) | Check AI search (skills, pas un bot SEO). Liste seed : [prompt-list.md](visibility/prompt-list.md) |
+| [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
 | Chat Édouard | [francais-simple](../.agents/skills/francais-simple/SKILL.md) — lui répondre sans sigle |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 

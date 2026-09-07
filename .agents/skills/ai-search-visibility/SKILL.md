@@ -46,6 +46,7 @@ Login (ChatGPT, Claude.ai, Gemini, Perplexity connecté, etc.) = **pas** une sur
    4. Citer **une** phrase exacte (verbatim de la capture) + **un** lien. Pas de phrase = pas de rung au-dessus d’absent. Pas de lien 3xrep = pas **cited**.
 3. Lister ce qui **attend un paste** (assistant login) : prompt, surface, pourquoi bloqué. Ne pas scorer ces lignes.
 4. Une **seule** action nommée pour la semaine, avec URL. Pas un backlog. Pas « écrire du contenu ». L’action doit pouvoir se faire sans se nommer, sans warm-intro, sans pub.
+5. **Ajouter au bus** — pour chaque finding actionnable (rung sous recommended, ou phrase citable manquante), une entrée ouverte dans [`docs/visibility/bus.md`](../../../docs/visibility/bus.md). Phrase exacte + url. La boucle [`seo-geo`](../seo-geo/SKILL.md) les reprend et pose. Ce check **ne pose pas** le site.
 
 Relire [`landing.md`](../../../docs/landing.md) / [`icp.md`](../../../docs/icp.md) seulement pour juger si une description 3xrep est **fausse**. Pas pour réécrire le check en pitch.
 
@@ -63,14 +64,16 @@ Puis :
 
 Écrire le brief (si l’action en a besoin) dans `docs/visibility/briefs/YYYY-MM-DD.md`. Créer le dossier au premier brief. Ne pas pousser le brief hors du repo.
 
+Ajouter les findings au [`bus.md`](../../../docs/visibility/bus.md) (section Ouvert). Une entrée par finding actionnable. La boucle `seo-geo` les reprend.
+
 ## Rules
 
 - **Never invent a citation.** Pas de lien deviné. Pas de « ChatGPT a dit » sans capture. Training data ≠ capture.
 - **Never report a skipped surface as empty / absent.** Skipped = `skipped — awaiting paste` (ou raison). Absent = capturé et 3xrep n’y est pas.
-- **Never publish or post without an explicit yes.** Pas de tweet, listing, commentaire, PR de copy live, `llms.txt` en prod, page pSEO. Brief dans le repo seulement.
+- **Never publish or post from this check.** Pas de tweet, listing, commentaire, copy live, `llms.txt` en prod, page pSEO. Brief + **entrée bus**. Poser le site = skill `seo-geo`, pas ici.
 - **Never warm-intro.** Ne jamais nommer Édouard, Uptoo, ou OC comme builder, auteur, preuve, ou réseau. L’acheteur froid ne doit pas pouvoir remonter à eux.
-- Pas d’ads. Pas de cron. Pas d’UI CRM. Pas de Grok Build. Pas un second repo « SEO ».
-- Ne pas fusionner cette PR / ce check avec un land `main` sauf si on te le demande.
+- Pas d’ads. Pas d’UI CRM. Pas de Grok Build. Pas un second repo « SEO ».
+- Ce check ne land pas tout seul. La boucle `seo-geo` finit par `/end`.
 
 ## Hors scope (cette invocation)
 

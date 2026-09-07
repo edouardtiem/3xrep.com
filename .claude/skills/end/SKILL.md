@@ -13,7 +13,9 @@ Ce skill est **3xrep** (`github.com/edouardtiem/3xrep.com`). Jamais le `/end` de
 
 ## 3xrep n’a pas ça — no-op
 
-Pas de loops, pas de `/sync-loops`, pas de `_SIGNAL-BUS.md`, pas de `_HUMAN-TODO.md`, pas de `docs/loops/`, pas de skill `documente`, pas de DEC/SIG. Ne les crée pas. Ignore-les.
+Pas les loops MonParentAgé : pas de `/sync-loops`, pas de `_SIGNAL-BUS.md`, pas de `_HUMAN-TODO.md`, pas de `docs/loops/`, pas de skill `documente`, pas de DEC/SIG. Ne les crée pas. Ignore-les.
+
+Les gestes 3xrep (`seo-geo`, `ai-search-visibility`, `scan-sales-gaps`) ne sont pas ça. Le bus visibilité est [`docs/visibility/bus.md`](../../../docs/visibility/bus.md).
 
 ## 1. Documenter d’abord — seulement s’il y a matière
 

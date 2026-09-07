@@ -61,6 +61,23 @@ Quand on ouvre :
 
 199 € = territoire démo ([prd.md](prd.md) §12). $129 reste self-serve. Per-seat interdit. On ne monte pas pour soigner l’affiliation.
 
+## Toi — pas l’agent
+
+Tâches humaines. L’agent ne peut pas les faire. Sans elles, la [boucle visibilité](visibility/seo-geo.md) tourne quand même (bus + pages) et n’invente pas les chiffres.
+
+### 4. Brancher Google + automation Cursor (visibilité)
+
+Pour que la boucle `seo-geo` lise des vrais chiffres, puis les pose en anglais :
+
+1. **Search Console** — propriété `https://3xrep.com` vérifiée. Accès lecture pour l’agent (compte de service dans l’environnement Cursor Cloud, ou un export CSV dans `docs/visibility/exports/`).
+2. **Google Analytics** — le tag `G-YWQX4MDHZP` est déjà sur le site. Brancher l’**API** de la même propriété (sessions, pages). Le tag tout seul ne suffit pas à l’agent.
+3. **Google Ads** — accès aux **mots du secteur** (planificateur). Budget zéro. Ne pas créer de campagne. On ne dépense pas.
+4. **Automation Cursor Cloud** — une suffit. Nom `3xrep — seo geo`. Coller le brief de [seo-geo.md](visibility/seo-geo.md). Branche ce repo. Cadence : une fois par semaine.
+
+L’agent geo externe, s’il est une autre automation : il écrit seulement dans [bus.md](visibility/bus.md). Il ne change pas le site.
+
+Français et pages ville : item 2 + plus tard. Pas cette tâche.
+
 ## Ensuite — pas ouvert
 
 Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP) → page tutoriel « agent + HubSpot » → pSEO. Mémoire / ligne payant : après une vraie `pipe_review` sur un vrai CRM ([plg.md](plg.md)). Carte HubSpot = V2 ([chemin.md](chemin.md)).
