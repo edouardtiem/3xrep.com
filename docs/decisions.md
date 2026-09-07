@@ -22,9 +22,13 @@ On disait : tes prompts restent chez toi. On n’enregistre pas. **On ne stocke 
 
 ### Ce qui est vrai maintenant
 
-On garde **l’entrée et le verdict** de chaque appel d’outil, **quatorze jours**, puis on efface.
+On garde **la demande et la réponse** de chaque appel d’outil, **quatorze jours**, puis on efface.
 
-Pour : relire les premiers vrais dossiers, caler le directeur, améliorer le cerveau. Pas pour vendre une mémoire. Pas pour un tableau de bord.
+La demande, c’est tout ce que l’outil a reçu : transcript, extraits, notes, ce que le fichier client prétend. La réponse, c’est le verdict. C’est ça qu’on relit pour améliorer. Sans les deux, le journal ne sert à rien.
+
+On n’entre **pas** dans l’appel : pas de robot Zoom / Meet, on n’enregistre pas le son. Si le texte de l’appel arrive dans la demande (collé, ou déjà sur la fiche), on le garde avec le verdict.
+
+Pour : analyser demande + réponse, caler le directeur, améliorer le cerveau. Pas pour vendre une mémoire. Pas pour un tableau de bord.
 
 Ligne publique (site, install, docs) :
 
@@ -35,7 +39,7 @@ Ligne publique (site, install, docs) :
 | Ça | Non — c’est |
 | --- | --- |
 | La mémoire « le trou du 12 » | Plus tard, hash, zéro contenu ([plg.md](plg.md), [cerveau.md](cerveau.md)) |
-| Un enregistreur | Pas de bot Zoom / Meet. On n’entre pas dans l’appel |
+| Un enregistreur / « on n’a pas le call » | Pas de bot Zoom. On a le texte **s’il est dans la demande**, plus le verdict |
 | Écrire chez eux | Toujours interdit |
 | Garder pour toujours | 14 jours, puis delete |
 | Un fichier client à nous | [portes.md](portes.md) §7 — demain, autre décision |
