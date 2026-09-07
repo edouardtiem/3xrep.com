@@ -18,3 +18,12 @@ export const SESSION = {
     "Dune — no call on record. Not enough to judge. I won't fill the gap.",
   ],
 } as const;
+
+/** Phone: stop at Bolt. Desktop keeps the rest. */
+export const SESSION_MOBILE_BLOCK_COUNT = 3;
+
+export function sessionBlocks(compact: boolean) {
+  return compact
+    ? SESSION.blocks.slice(0, SESSION_MOBILE_BLOCK_COUNT)
+    : SESSION.blocks;
+}

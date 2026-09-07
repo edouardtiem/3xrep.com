@@ -1,6 +1,14 @@
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { AGENT_SPEC } from "@/lib/copy";
+import { pageMeta } from "@/lib/docs";
+
+export const metadata = pageMeta({
+  title: "Agent spec",
+  description:
+    "The 3xrep agent spec: paste it in a Claude Project, GPT, or Notion agent. Deal coach, not the mouth. Reads the CRM through your connector. Calls 3xrep for the verdict.",
+  path: "/spec",
+});
 
 export default function SpecPage() {
   return (

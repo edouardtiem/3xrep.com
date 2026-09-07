@@ -30,7 +30,7 @@ export function CopyButton({
   return (
     <button
       type="button"
-      className="text-dim hover:text-foreground shrink-0 cursor-pointer text-[11px] tracking-wide uppercase"
+      className="text-dim hover:text-foreground shrink-0 cursor-pointer text-xs tracking-wide uppercase"
       onClick={async () => {
         await copyText(text);
         setCopied(true);

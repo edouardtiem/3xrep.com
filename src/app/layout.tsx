@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://3xrep.com"),
-  title: "3xrep — The VP Sales who doesn't believe your CRM",
+  title: "3xrep — The VP Sales agent who doesn't believe your CRM",
   description:
-    `A VP Sales agent for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields and names the stage that lies. From $${LIST_PRICE_USD}/month for the entire organization.`,
+    `A VP Sales agent for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields, names the stage that lies, and makes you sign more deals. From $${LIST_PRICE_USD}/month for the entire organization.`,
 };
 
 export default function RootLayout({

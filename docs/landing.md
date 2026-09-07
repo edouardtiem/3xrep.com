@@ -10,13 +10,13 @@ Fond **quasi-noir** (`#0e0e0c`). **Tout mono** (Geist Mono). Texte `#e8e8e4`. Fi
 
 Un accent cuivre sur le statut MCP / `audit_deal`. Le reste se tait.
 
-H1 en deux lignes max, measure serré. Le debrief a le droit d’être dense.
+H1 en trois lignes max, measure serré. Le debrief a le droit d’être dense.
 
-Desktop (≥ lg) : texte à gauche, session sticky à droite. La gauche emmène URL + *What the VP can do.* (4 prompts, une ligne) + checkout mute, pour que la session suive jusqu’en bas. Mobile : H1 → session → manifeste → URL.
+Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + l’URL connector dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → URL.
 
 ## Hero
 
-**Hire the VP Sales who doesn’t believe your CRM.**
+**Hire the VP Sales agent who doesn’t believe your CRM and make you sign more deals.**
 
 *99 €/month. For the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ».
 
@@ -34,7 +34,9 @@ Session Claude Code / Cursor, même papier. Un passage, puis ça s’arrête :
 
 Avant : *Débriefe le call avec Julien.* → `audit_deal` → la [sortie](sortie.md). Toujours vrai dans le produit ; sur la page, c’est le pipe qui montre l’écart.
 
-Titlebar minuscule (`claude code · MCP 3xrep`). Le motion *est* le mockup. Si le chrome mange le debrief, on a perdu.
+Titlebar minuscule (`claude code · MCP 3xrep`). Le motion *est* le mockup. Si le chrome mange le debrief, on a perdu. Fenêtre à **hauteur fixe** : le texte défile dedans. Mobile : on s’arrête à Bolt (pas Cora / Dune).
+
+Marques sous la fenêtre, blanc sur noir. Deux lignes : *Works with every agent.* (Claude · ChatGPT · Gemini · Cursor · Notion) puis *And these CRMs.* (HubSpot · Salesforce · Pipedrive · Attio · Close). Notion est un agent, pas un fichier client.
 
 ## Sous la fenêtre — l’écart à Claude
 
@@ -44,7 +46,7 @@ Sans ça, on est un thème Cursor. Claude parle déjà. Une ligne, mute, mono. P
 
 Avant : *This agent is the méthode that makes you close.* Gardé : *he won’t go easy on you. That’s why it works.*
 
-Écart au PRD, **LP seulement**. Spec, tools, debrief : toujours pas « tu closes ». Pas dans la H1. Pas « more deals » / « +30 % » / « tu closes vendredi ».
+Écart au PRD, **LP seulement** (7 sept, Édouard) : le hero a le droit de dire *and make you sign more deals* — l’objet de la page, sans chiffre. Spec, tools, debrief : toujours pas « tu closes ». Pas « +30 % ». Pas « tu closes vendredi ».
 
 ## Où il vit (4 sept)
 
@@ -53,8 +55,8 @@ Avant : *This agent is the méthode that makes you close.* Gardé : *he won’t 
 Section *Where he lives.* sous le manifeste, avant *Start.* Trois lignes mono (la page est le terminal) :
 
 ```
-your agent   Claude · ChatGPT · Cursor · Codex…
- ├─ your CRM  HubSpot · Salesforce · Notion
+your agent   Claude · ChatGPT · Cursor · Notion…
+ ├─ your CRM  HubSpot · Salesforce · Pipedrive · Attio…
  └─ 3xrep     one URL → the verdict
 ```
 
@@ -64,9 +66,7 @@ Puis la condition, en une phrase : *He needs both. Without your CRM connected, h
 
 ## Logos
 
-Claude Code · Cursor · Codex. Cet ordre. Sous la ligne, pas à la place.
-
-Pas une soupe. Pas ChatGPT / Notion / Cowork dans le row. Claude (Cowork) seulement si on ajoute *un* quatrième, pas aujourd’hui.
+Sous la fenêtre Session, blanc sur noir. *Works with every agent.* Claude · ChatGPT · Gemini · Cursor · Notion. *And these CRMs.* HubSpot · Salesforce · Pipedrive · Attio · Close. Pas à la place du schéma *Where he lives.* Notion n’est pas dans la ligne CRM.
 
 ## Wedge visiteur
 
@@ -84,10 +84,11 @@ Checkout sous l’install : *Already in?* 99 € / month / organization + bouton
 
 Page d’intention, un scroll.
 
-1. **Start.** URL connector (*next to your HubSpot, Salesforce, or Notion MCP. Run it on your pipe.*) + *What the VP says.* (4 prompts, copie : pipe review lundi, debrief, close date = claim, objection). Pas le markdown spec.
-2. Checkout — *Already in?* 99 € / org + bouton Stripe (3 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s 99 € for the whole pipe, no seats.*
-3. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
-4. Confiance — footer. **Pas le hero.**
+1. Premier écran : H1 + prix + manifeste + **cadran URL connector**. Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
+2. Sous le fold : *Where he lives.* + *What the VP says.* (4 prompts). Pas de second cadran URL.
+3. Checkout — *Already in?* 99 € / org + bouton Stripe (3 sept, palier 1 org payante). *Gong is ~$1,500 a seat and records your calls. Here it’s 99 € for the whole pipe, no seats.*
+4. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
+5. Confiance — footer. **Pas le hero.**
 
 Pas de logos clients, features grid, testimonials, layers en marketing, leçon MEDDIC.
 
@@ -101,4 +102,4 @@ Pas de logos clients, features grid, testimonials, layers en marketing, leçon M
 
 ## Interdit en copy
 
-« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « More deals ». « Tu closes vendredi ». Démo. Per-seat. « We don’t have access to your data ». Session dark / mesh / orb / particle graph. Un pourcentage de forecast, un pipeline pondéré, un classement de reps (le VP juge le pipe, pas les gens).
+« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « Tu closes vendredi ». Démo. Per-seat. « We don’t have access to your data ». Session dark / mesh / orb / particle graph. Un pourcentage de forecast, un pipeline pondéré, un classement de reps (le VP juge le pipe, pas les gens). *More deals* : oui dans le hero, sans chiffre. Pas dans le spec ni les tools.

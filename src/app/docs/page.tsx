@@ -1,22 +1,49 @@
-import type { Metadata } from "next";
-import { Header } from "@/components/Header";
+import Link from "next/link";
+import { DocsEnd } from "@/components/DocsEnd";
+import { JsonLd } from "@/components/JsonLd";
 import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
+import {
+  DOC_FAQ,
+  TOOLS,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  pageMeta,
+  softwareJsonLd,
+} from "@/lib/docs";
 import { mcpUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Docs — 3xrep",
+export const metadata = pageMeta({
+  title: "Docs",
   description:
-    "3xrep is a VP Sales agent MCP for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields and names the stage that lies. Not Gong. We don't join your calls.",
-};
+    "3xrep is a VP Sales agent MCP for Claude, ChatGPT, Cursor, and Codex. How it works, use cases, sales methodologies, and why it is not a ChatGPT prompt. We don't join your calls.",
+  path: "/docs",
+});
 
-const TOOLS = [
-  ["pipe_review", "Several deals. Which stage is illegal, which close date is a claim, which hole repeats."],
-  ["audit_deal", "One call. The /10, the miss quoted, three locks, a plan, one objective."],
-  ["next_question", "The one move that costs on this deal."],
-  ["objection_map", "The objection → the piece that isn't held."],
-  ["methode_lookup", "MEDDIC, BANT, BEBEDC… a notion, not a deal."],
-  ["rattacher", "One sentence from a call → which method, which part."],
+const TOC = [
+  {
+    href: "/docs/how-it-works",
+    title: "How it works",
+    blurb:
+      "Two connectors. Evidence, not a guess. Why Claude or ChatGPT alone is not a VP.",
+  },
+  {
+    href: "/docs/use-cases",
+    title: "Use cases",
+    blurb:
+      "Monday pipe. Call debrief. Follow-up that writes back to the CRM. Agent routines.",
+  },
+  {
+    href: "/docs/methods",
+    title: "Methods",
+    blurb:
+      "MEDDIC, BANT, BEBEDC, SPIN… aliases of the hole. Not a course. What the buyer said.",
+  },
+  {
+    href: "/install",
+    title: "Install",
+    blurb: "Add the 3xrep MCP. Connect your CRM with their docs. Then pay.",
+  },
 ] as const;
 
 export default function DocsPage() {
@@ -24,25 +51,41 @@ export default function DocsPage() {
 
   return (
     <>
-      <Header />
-      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16 text-[13px] leading-relaxed">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Docs", path: "/docs" }])} />
+      <JsonLd data={faqJsonLd()} />
+      <JsonLd data={softwareJsonLd()} />
+      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16 leading-relaxed">
         <div>
-          <h1 className="text-[1.65rem] leading-[1.2] tracking-tight">Docs</h1>
+          <h1 className="text-[1.75rem] leading-[1.2] tracking-tight sm:text-[2rem]">
+            Docs
+          </h1>
           <p className="text-mute mt-4 max-w-[36rem]">
-            3xrep is a VP Sales agent you add to Claude Code, Cursor, or Codex,
-            next to your CRM MCP. It reads the calls behind the fields. It
-            names the hole that kills the deal, and the stage that lies. {TRUST_LINE}
+            3xrep is a VP Sales agent you add to Claude, ChatGPT, Cursor, or
+            Codex, next to your CRM MCP. It reads the calls behind the fields.
+            It names the hole that kills the deal, and the stage that lies.{" "}
+            {TRUST_LINE}
           </p>
         </div>
 
+        <nav aria-label="In this docs" className="space-y-4">
+          {TOC.map((item) => (
+            <p key={item.href}>
+              <Link href={item.href} className="text-foreground hover:underline">
+                {item.title}
+              </Link>
+              <span className="text-dim"> — {item.blurb}</span>
+            </p>
+          ))}
+        </nav>
+
         <section className="space-y-2">
-          <h2 className="text-[13px]">Where it lives</h2>
+          <h2 className="text-lg">Where it lives</h2>
           <p className="text-dim">
             3xrep is a remote MCP server. It lives in your agent — Claude
-            Code, Cursor, Codex, Claude (Cowork), ChatGPT Business, Notion
-            agents — as one URL, next to the HubSpot, Salesforce, or Notion
-            MCP you already use. It does not live in your CRM: nothing to
-            install there, no 3xrep tab. Your agent reads
+            Code, Cursor, Codex, Claude (Cowork), ChatGPT, Notion agents — as
+            one URL, next to the HubSpot, Salesforce, Pipedrive, Attio, or
+            Notion MCP you already use. It does not live in your CRM: nothing
+            to install there, no 3xrep tab. Your agent reads
             the deal through your CRM connector and calls 3xrep for the
             verdict.
           </p>
@@ -54,29 +97,46 @@ export default function DocsPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-[13px]">Connector</h2>
+          <h2 className="text-lg">Not a ChatGPT prompt</h2>
           <p className="text-dim">
-            <a href="/install" className="text-foreground hover:underline">
+            Claude and ChatGPT already know MEDDIC, BANT, SPIN, Challenger.
+            They recite. They stay useful. They fill the gap when the call is
+            missing.{" "}
+            <Link
+              href="/docs/how-it-works"
+              className="text-foreground hover:underline"
+            >
+              How it works
+            </Link>{" "}
+            is the compiler: held, assumed, or empty, from what the buyer
+            said. A skill can be ignored. The JSON cannot.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg">Connector</h2>
+          <p className="text-dim">
+            <Link href="/install" className="text-foreground hover:underline">
               Install
-            </a>
+            </Link>
             . URL: <span className="text-foreground">{connector}</span>
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-[13px]">Agent spec</h2>
+          <h2 className="text-lg">Agent spec</h2>
           <p className="text-dim">
             The prompt that travels with them. Claude Project, GPT, Notion
             agent. Also sent as MCP instructions on connect.{" "}
-            <a href="/spec" className="text-foreground hover:underline">
+            <Link href="/spec" className="text-foreground hover:underline">
               Spec
-            </a>
+            </Link>
             .
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-[13px]">Tools</h2>
+          <h2 className="text-lg">Tools</h2>
           <ul className="text-dim space-y-1.5">
             {TOOLS.map(([name, job]) => (
               <li key={name}>
@@ -93,7 +153,7 @@ export default function DocsPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-[13px]">Exhibits</h2>
+          <h2 className="text-lg">Exhibits</h2>
           <p className="text-dim">
             The agent extracts before it calls: who spoke, source, date,
             exact quote, which hole, whether they affirm or deny, whether
@@ -110,7 +170,7 @@ export default function DocsPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-[13px]">What the VP says</h2>
+          <h2 className="text-lg">What the VP says</h2>
           <p className="text-dim">From a Monday pipe review to one call.</p>
           <ol className="text-dim space-y-1">
             {PROMPTS.map((prompt, i) => (
@@ -121,15 +181,32 @@ export default function DocsPage() {
           </ol>
         </section>
 
+        <section className="space-y-3">
+          <h2 className="text-lg">FAQ</h2>
+          <dl className="space-y-5">
+            {DOC_FAQ.map((row) => (
+              <div key={row.q}>
+                <dt className="text-foreground">{row.q}</dt>
+                <dd className="text-dim mt-1">{row.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <section className="text-dim space-y-2">
           <p>Not Gong. We don&apos;t join your calls.</p>
-          <p>Not your CRM&apos;s assistant. It fills the fields. We say which ones are empty.</p>
+          <p>
+            Not your CRM&apos;s assistant. It fills the fields. We say which
+            ones are empty.
+          </p>
           <p>Not a course.</p>
           <p>Not &ldquo;you close Friday.&rdquo;</p>
           <p className="text-foreground pt-2">
             We name the hole that kills the deal. And the stage that lies.
           </p>
         </section>
+
+        <DocsEnd />
       </main>
     </>
   );
