@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { TRUST_LINE } from "@/lib/copy";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
-import { PUBLIC_SITE } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 
 export const DOC_NAV = [
   { href: "/docs", label: "overview" },
@@ -324,6 +324,13 @@ export const DOC_FAQ = [
     a: "We don't join your calls. We don't write to your CRM. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. Your agent reads the file through your CRM's official connector. If you want a note, a task, or a follow-up email on the record, your agent writes it through that same connector — after you confirm.",
   },
   {
+    q: "Is 3xrep an alternative to Gong that doesn't record calls?",
+    a:
+      "Gong records your calls, about $1,500 a seat. 3xrep does not join your calls. It is a VP Sales agent you add to Claude or ChatGPT next to your CRM. From $" +
+      LIST_PRICE_USD +
+      "/month for the entire organization.",
+  },
+  {
     q: "Which CRMs work with 3xrep?",
     a: "Any CRM that ships an official MCP your agent can connect: HubSpot, Salesforce, Pipedrive, Attio, Notion, Close, and others. 3xrep does not install inside the CRM. No tab, no app review, no data copy.",
   },
@@ -339,7 +346,7 @@ export function pageMeta({
   path: string;
 }): Metadata {
   const branded = /3xrep/i.test(title) ? title : `${title} — 3xrep`;
-  const url = `${PUBLIC_SITE}${path}`;
+  const url = `${siteUrl()}${path}`;
   return {
     title: branded,
     description,
@@ -369,7 +376,7 @@ export function breadcrumbJsonLd(
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${PUBLIC_SITE}${item.path}`,
+      item: `${siteUrl()}${item.path}`,
     })),
   };
 }
@@ -394,7 +401,7 @@ export function softwareJsonLd() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "3xrep",
-    url: PUBLIC_SITE,
+    url: siteUrl(),
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:

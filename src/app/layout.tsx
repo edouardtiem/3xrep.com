@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Ga4 } from "@/components/Ga4";
 import { getGaMeasurementId } from "@/lib/ga";
+import { siteUrl } from "@/lib/site";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import "./globals.css";
 
@@ -17,10 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://3xrep.com"),
+  metadataBase: new URL(siteUrl()),
   title: "3xrep — The VP Sales agent who doesn't believe your CRM",
   description:
-    `A VP Sales agent for Claude Code, Cursor, and Codex. It reads the calls behind your CRM fields, names the stage that lies, and makes you sign more deals. From $${LIST_PRICE_USD}/month for the entire organization.`,
+    `A VP Sales agent for Claude, ChatGPT, Cursor, and Codex. It reads the calls behind your CRM fields, names the stage that lies, and does not record your calls. From $${LIST_PRICE_USD}/month for the entire organization.`,
 };
 
 export default function RootLayout({

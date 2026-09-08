@@ -13,7 +13,7 @@ import { mcpUrl } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Install the 3xrep MCP",
   description:
-    "Add the 3xrep MCP to Claude, Cursor, or ChatGPT, then connect HubSpot, Salesforce, Pipedrive, Attio, or Notion with their official docs. From $" +
+    "Gong records your calls. 3xrep does not join them. Add the VP Sales agent MCP to Claude, Cursor, or ChatGPT, next to HubSpot or Salesforce. From $" +
     LIST_PRICE_USD +
     "/month for the organization.",
   path: "/install",

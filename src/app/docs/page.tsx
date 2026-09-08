@@ -12,11 +12,14 @@ import {
   softwareJsonLd,
 } from "@/lib/docs";
 import { mcpUrl } from "@/lib/site";
+import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 
 export const metadata = pageMeta({
-  title: "Docs",
+  title: "What is 3xrep",
   description:
-    "3xrep is a VP Sales agent MCP for Claude, ChatGPT, Cursor, and Codex. How it works, use cases, sales methodologies, and why it is not a ChatGPT prompt. We don't join your calls.",
+    "3xrep is a VP Sales agent you add to Claude, ChatGPT, Cursor, or Codex next to your CRM. It names the stage that lies. It does not record calls. From $" +
+    LIST_PRICE_USD +
+    "/month for the organization.",
   path: "/docs",
 });
 
@@ -57,7 +60,7 @@ export default function DocsPage() {
       <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16 leading-relaxed">
         <div>
           <h1 className="text-[1.75rem] leading-[1.2] tracking-tight sm:text-[2rem]">
-            Docs
+            What is 3xrep
           </h1>
           <p className="text-mute mt-4 max-w-[36rem]">
             3xrep is a VP Sales agent you add to Claude, ChatGPT, Cursor, or

@@ -9,6 +9,10 @@ import { TRUST_LINE } from "@/lib/copy";
 import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 function CopyBlock({
   label,
   value,

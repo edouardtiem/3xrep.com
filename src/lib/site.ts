@@ -1,6 +1,7 @@
-/** Public product origin. What users paste. Not the preview / local origin. */
+/** Public product origin. What users paste (MCP). Not the preview / local origin. */
 export const PUBLIC_SITE = "https://3xrep.com";
 
+/** Host that returns 200. Apex 308s to www — canonicals must match the sitemap. */
 export function siteUrl(): string {
   const raw =
     process.env.NEXT_PUBLIC_SITE_URL ??
