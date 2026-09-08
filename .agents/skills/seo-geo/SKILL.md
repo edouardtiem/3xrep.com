@@ -28,14 +28,13 @@ Les consignes acheteur en français (liste de visibilité) se **lisent**. Le cor
 
 ## Sources — dans cet ordre
 
-1. **Bus geo** — [`docs/visibility/bus.md`](../../../docs/visibility/bus.md). L’agent geo externe **écrit** ici. Tu **lis** tout ce qui est encore ouvert. Une ligne sans citation + url ne compte pas.
-2. **Dernières captures** — `docs/visibility/captures/` si le dossier existe. Le check [`ai-search-visibility`](../ai-search-visibility/SKILL.md) peut aussi avoir ajouté au bus.
-3. **Search Console** — requêtes, pages, impressions, clics, taux de clic, position. 28 jours vs 28 jours d’avant. Anglais d’abord.
-4. **Google Analytics** — sessions depuis la recherche, pages vues, ce que font les gens après le clic (`/`, `/docs`, `/install`).
-5. **Google Ads (mots seulement)** — idées de mots du secteur (agent VP Sales, alternative à Gong, sales enablement, AI sales coach). **Ne pas dépenser. Ne pas créer de campagne.**
-6. **Le site tel qu’il est** — titres, descriptions, H1, sitemap, `robots`, liens internes.
+1. **Search Console + Analytics** — **obligatoire.** Lance `npm run visibility-google`. Ça appelle les deux comptes (28 jours vs 28 jours d’avant). Lis le fichier écrit dans `docs/visibility/exports/`. Sans ce lancement, le tour n’est pas un vrai tour.
+2. **Bus geo** — [`docs/visibility/bus.md`](../../../docs/visibility/bus.md). L’agent geo externe **écrit** ici. Tu **lis** tout ce qui est encore ouvert. Une ligne sans citation + url ne compte pas.
+3. **Dernières captures** — `docs/visibility/captures/` si le dossier existe. Le check [`ai-search-visibility`](../ai-search-visibility/SKILL.md) peut aussi avoir ajouté au bus.
+4. **Google Ads (mots seulement)** — idées de mots du secteur (agent VP Sales, alternative à Gong, sales enablement, AI sales coach). **Ne pas dépenser. Ne pas créer de campagne.**
+5. **Le site tel qu’il est** — titres, descriptions, H1, sitemap, `robots`, liens internes.
 
-Si Search Console / Analytics / Ads **ne sont pas branchés** : le dire en une ligne. Continuer avec le bus, les captures, le web public, l’audit de page. **Ne pas inventer un volume, un rang, un taux de clic.**
+Si la commande sort `pas branché` (code 2) : le dire dans le run. Continuer avec le bus, les captures, le web public, l’audit de page. **Ne pas inventer un volume, un rang, un taux de clic.** Ne pas inventer un accès : le tag public `G-YWQX4MDHZP` n’est pas une lecture.
 
 ## Avant de coder
 
@@ -50,8 +49,8 @@ Relire le cerveau seulement pour **ne pas mentir** (on n’enregistre pas, on n�
 
 ## Étapes
 
-1. **Lire le bus.** Copier les findings ouverts. S’il est vide et qu’il n’y a pas de capture récente : tourner les **5 top** du check visibilité (web + blocs AI publics seulement). Écrire les findings dans le bus, puis continuer. Surfaces login = awaiting paste, pas `absent`.
-2. **Tirer les chiffres** si les comptes sont là. Sinon passer.
+1. **Aller sur Search Console et Analytics.** `npm run visibility-google`. Pas un export à la main d’abord. Pas « je n’ai pas les chiffres donc je saute ». Si code 2 : recopier `pas branché` dans le run, continuer. Si code 0 : coller les tables dans le run.
+2. **Lire le bus.** Copier les findings ouverts. S’il est vide et qu’il n’y a pas de capture récente : tourner les **5 top** du check visibilité (web + blocs AI publics seulement). Écrire les findings dans le bus, puis continuer. Surfaces login = awaiting paste, pas `absent`.
 3. **Juger.** Une table (dans le run, pas dans le chat seul) :
 
    | requête / consigne | source | impressions | clics | geo (rung) | levier | fix |
@@ -97,9 +96,10 @@ Le hero : seulement si une requête perd clairement parce que le H1 ne dit pas l
 # SEO + GEO — YYYY-MM-DD
 
 Comptes : Search Console oui/non · Analytics oui/non · Ads (mots) oui/non
+Commande : `npm run visibility-google` — code 0 / 1 / 2
 Bus : N ouverts, N traités
 
-## Chiffres (ou « pas branché »)
+## Chiffres (export, ou « pas branché »)
 
 | requête | page | impressions | clics | position |
 | --- | --- | --- | --- | --- |

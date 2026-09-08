@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsx --test src/lib/brain/brain.test.ts src/lib/mcp-log.test.ts src/lib/stripe-env.test.ts src/lib/stripe-checkout-session.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts",
-    "recette": "tsx scripts/recette.ts"
+    "test": "tsx --test src/lib/brain/brain.test.ts src/lib/mcp-log.test.ts src/lib/stripe-env.test.ts src/lib/stripe-checkout-session.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts src/lib/visibility-google.test.ts",
+    "recette": "tsx scripts/recette.ts",
+    "visibility-google": "tsx scripts/visibility-google.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",

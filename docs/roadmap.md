@@ -63,16 +63,17 @@ Quand on ouvre :
 
 ## Toi — pas l’agent
 
-Tâches humaines. L’agent ne peut pas les faire. Sans elles, la [boucle visibilité](visibility/seo-geo.md) tourne quand même (bus + pages) et n’invente pas les chiffres.
+Tâches humaines. L’agent ne peut pas les faire. Sans elles, `npm run visibility-google` sort `pas branché`. La [boucle visibilité](visibility/seo-geo.md) continue (bus + pages) et n’invente pas les chiffres.
 
 ### 4. Brancher Google + automation Cursor (visibilité)
 
-Pour que la boucle `seo-geo` lise des vrais chiffres, puis les pose en anglais :
+La boucle **va** sur Search Console et Analytics via `npm run visibility-google`. Toi tu poses les clés :
 
-1. **Search Console** — propriété `https://3xrep.com` vérifiée. Accès lecture pour l’agent (compte de service dans l’environnement Cursor Cloud, ou un export CSV dans `docs/visibility/exports/`).
-2. **Google Analytics** — le tag `G-YWQX4MDHZP` est déjà sur le site. Brancher l’**API** de la même propriété (sessions, pages). Le tag tout seul ne suffit pas à l’agent.
-3. **Google Ads** — accès aux **mots du secteur** (planificateur). Budget zéro. Ne pas créer de campagne. On ne dépense pas.
-4. **Automation Cursor Cloud** — une suffit. Nom `3xrep — seo geo`. Coller le brief de [seo-geo.md](visibility/seo-geo.md). Branche ce repo. Cadence : une fois par semaine.
+1. **Search Console** — propriété `https://3xrep.com`. Ajouter l’email du compte de service (lecture).
+2. **Analytics** — même email, Viewer. Id numérique de la propriété (`GA4_PROPERTY_ID`). Le tag `G-YWQX4MDHZP` ne suffit pas.
+3. Secrets Cursor Cloud : `GOOGLE_SERVICE_ACCOUNT_JSON`, `GSC_SITE_URL`, `GA4_PROPERTY_ID` — détail dans [seo-geo.md](visibility/seo-geo.md).
+4. **Google Ads** — mots du secteur seulement. Budget zéro. Pas de campagne.
+5. **Automation Cursor Cloud** — nom `3xrep — seo geo`. Coller le brief de [seo-geo.md](visibility/seo-geo.md). Cadence : une fois par semaine.
 
 L’agent geo externe, s’il est une autre automation : il écrit seulement dans [bus.md](visibility/bus.md). Il ne change pas le site.
 

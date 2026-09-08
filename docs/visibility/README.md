@@ -23,7 +23,7 @@ Ne pas lui demander d’acheter un slot, ou d’ouvrir Grok Build. Poser le site
 
 ## Boucle — poser (anglais)
 
-Automation Cursor : coller le brief dans [`seo-geo.md`](seo-geo.md). Elle lit le bus, Search Console / Analytics / Ads (mots, si branchés), change le site, `/end`.
+Automation Cursor : coller le brief dans [`seo-geo.md`](seo-geo.md). Elle **lance** `npm run visibility-google` (Search Console + Analytics), lit le bus, change le site, `/end`.
 
 Toi : brancher les trois comptes + créer l’automation — [roadmap](../roadmap.md) « Toi ».
 
@@ -36,7 +36,7 @@ Toi : brancher les trois comptes + créer l’automation — [roadmap](../roadma
 | Captures (texte + liens) | `captures/YYYY-MM-DD.md` | premier run qui capture |
 | Brief de l’action semaine | `briefs/YYYY-MM-DD.md` | seulement si le **check** a besoin d’un texte à coller plus tard |
 | Runs de la boucle | `runs/YYYY-MM-DD.md` | premier tour `seo-geo` |
-| Exports Search Console | `exports/YYYY-MM-DD-gsc.csv` | si tu déposes un export à la main |
+| Exports Search Console + Analytics | `exports/YYYY-MM-DD.md` | `npm run visibility-google` |
 
 Pas de dossier vide. On crée `captures/`, `briefs/`, `runs/`, `exports/` au premier fichier.
 

@@ -8,12 +8,13 @@ Le check assistants ([README](README.md), skill `ai-search-visibility`) **mesure
 
 ## Ce que ça fait
 
-1. Lit le [bus geo](bus.md) (ce que l’agent externe a trouvé).
-2. Lit Search Console, Google Analytics, Google Ads **mots du secteur** — s’ils sont branchés. Pas de dépense.
-3. Juge impressions **et** clics.
-4. Change le site **en anglais** (titres, textes, une URL neuve au plus s’il manque une page).
-5. Écrit `runs/YYYY-MM-DD.md`. Coche le bus.
-6. Enchaîne [`/end`](../../.agents/skills/end/SKILL.md) — commit, rebase, `main`.
+1. **Va sur Search Console et Google Analytics** — `npm run visibility-google`. Pas optionnel.
+2. Lit le [bus geo](bus.md) (ce que l’agent externe a trouvé).
+3. Google Ads **mots du secteur** — s’ils sont branchés. Pas de dépense.
+4. Juge impressions **et** clics.
+5. Change le site **en anglais** (titres, textes, une URL neuve au plus s’il manque une page).
+6. Écrit `runs/YYYY-MM-DD.md`. Coche le bus.
+7. Enchaîne [`/end`](../../.agents/skills/end/SKILL.md) — commit, rebase, `main`.
 
 Français et pages ville : plus tard. Pas maintenant.
 
@@ -25,28 +26,28 @@ On n’en **crée** une (anglais, une par tour) que si une requête a de la dema
 
 ## Toi — brancher (l’agent ne peut pas)
 
-Sans ça, la boucle tourne quand même (bus + web public + pages). Elle n’invente pas les chiffres.
+Sans les secrets, `npm run visibility-google` sort `pas branché`. La boucle continue (bus + pages). Elle n’invente pas les chiffres. Le tag `G-YWQX4MDHZP` dans la page **n’est pas** une lecture.
 
-1. **Search Console** — propriété `https://3xrep.com`. Vérifiée. Un accès lecture pour l’agent (compte de service, ou export CSV posé dans `exports/` au premier fichier).
-2. **Google Analytics** — le tag public est déjà `G-YWQX4MDHZP`. Il faut l’**API** (même compte, propriété 3xrep) pour que l’agent lise sessions / pages, pas seulement le tag dans la page.
-3. **Google Ads** — accès **planificateur de mots** / idées de requêtes du secteur. Budget = 0. Aucune campagne à créer.
-4. **Automation Cursor Cloud** — coller le brief ci-dessous. Une automation suffit. Branche ce repo.
+1. Compte Google Cloud. Activer **Search Console API** et **Google Analytics Data API**.
+2. Compte de service, rôle lecture. Télécharger le JSON.
+3. **Search Console** — propriété `https://3xrep.com` (ou `sc-domain:3xrep.com`). Ajouter l’email du compte de service (droits lecture).
+4. **Analytics** — même email, Viewer sur la propriété 3xrep. Copier l’id numérique (Admin → Property settings), pas le tag `G-…`.
+5. **Google Ads** — mots du secteur seulement. Budget = 0. Aucune campagne.
+6. **Cursor Cloud** — coller le brief. Secrets dans l’environnement de l’automation (pas dans git) :
 
-Où poser les secrets : environnement Cursor Cloud du repo 3xrep (pas dans git). Noms suggérés, quand tu branches :
-
-| Compte | Quoi |
+| Nom | Quoi |
 | --- | --- |
-| Search Console | clé / compte de service + propriété `https://3xrep.com` |
-| Analytics | même clé + id de propriété |
-| Ads | même clé ou token développeur, **lecture mots seulement** |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | le JSON entier du compte de service |
+| `GSC_SITE_URL` | `https://3xrep.com/` (défaut si vide) |
+| `GA4_PROPERTY_ID` | id numérique de la propriété Analytics |
 
-Si tu préfères un export à la main : `docs/visibility/exports/YYYY-MM-DD-gsc.csv` (créer `exports/` au premier fichier). La boucle lit ça.
+Noms aussi dans [`.env.example`](../../.env.example). Export à la main seulement si l’API refuse : `docs/visibility/exports/` (créer au premier fichier). La commande reste obligatoire.
 
 ## Brief automation (à coller dans Cursor)
 
 Nom : `3xrep — seo geo`. Branche ce repo. Prompt :
 
-> Tourne le skill `.agents/skills/seo-geo/SKILL.md`. Repo 3xrep.com. Anglais seulement sur le site. Lis le bus `docs/visibility/bus.md` (findings geo de l’agent externe — reprends-les dans le fix). Lis Search Console, Google Analytics, Google Ads (mots du secteur, ne pas dépenser) s’ils sont branchés. Objectif : plus d’impressions et plus de clics. Pose les correctifs. Écris `docs/visibility/runs/YYYY-MM-DD.md`. Finis par le skill `.agents/skills/end/SKILL.md` (commit, rebase, main). Ne crée pas `docs/loops/` ni `_SIGNAL-BUS.md`.
+> Tourne le skill `.agents/skills/seo-geo/SKILL.md`. Repo 3xrep.com. Anglais seulement sur le site. **D’abord** `npm run visibility-google` (Search Console + Analytics — obligatoire, ne pas sauter). Lis le bus `docs/visibility/bus.md` (findings geo de l’agent externe — reprends-les dans le fix). Google Ads : mots du secteur seulement, ne pas dépenser. Objectif : plus d’impressions et plus de clics. Pose les correctifs. Écris `docs/visibility/runs/YYYY-MM-DD.md`. Finis par le skill `.agents/skills/end/SKILL.md` (commit, rebase, main). Ne crée pas `docs/loops/` ni `_SIGNAL-BUS.md`.
 
 Cadence suggérée : une fois par semaine. Search Console a du retard ; plus souvent n’aide pas.
 
