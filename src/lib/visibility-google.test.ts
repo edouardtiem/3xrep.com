@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { generateKeyPairSync } from "node:crypto";
-import { test } from "node:test";
+import { afterEach, test } from "node:test";
 import {
   formatGoogleVisibilityMarkdown,
   GSC_SITE_DEFAULT,
@@ -19,8 +19,24 @@ const accountJson = JSON.stringify({
   private_key: pem,
 });
 
+const KEYS = [
+  "GOOGLE_SERVICE_ACCOUNT_JSON",
+  "GOOGLE_APPLICATION_CREDENTIALS",
+  "GSC_SITE_URL",
+  "GA4_PROPERTY_ID",
+] as const;
+const saved = Object.fromEntries(KEYS.map((k) => [k, process.env[k]]));
+
+afterEach(() => {
+  for (const k of KEYS) {
+    if (saved[k] === undefined) delete process.env[k];
+    else process.env[k] = saved[k];
+  }
+});
+
 test("config : sans clé, liste ce qui manque", () => {
-  const got = readGoogleVisibilityConfig({});
+  for (const k of KEYS) delete process.env[k];
+  const got = readGoogleVisibilityConfig();
   assert.equal(got.ok, false);
   if (!got.ok) {
     assert.deepEqual(got.missing, [
@@ -31,10 +47,10 @@ test("config : sans clé, liste ce qui manque", () => {
 });
 
 test("config : clé + propriété Analytics, site Search Console par défaut", () => {
-  const got = readGoogleVisibilityConfig({
-    GOOGLE_SERVICE_ACCOUNT_JSON: accountJson,
-    GA4_PROPERTY_ID: "123456789",
-  });
+  process.env.GOOGLE_SERVICE_ACCOUNT_JSON = accountJson;
+  process.env.GA4_PROPERTY_ID = "123456789";
+  delete process.env.GSC_SITE_URL;
+  const got = readGoogleVisibilityConfig();
   assert.equal(got.ok, true);
   if (got.ok) {
     assert.equal(got.config.gscSiteUrl, GSC_SITE_DEFAULT);
