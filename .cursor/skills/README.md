@@ -31,7 +31,7 @@ Sinon : skip. Pas de scrape pour le plaisir. Pas de veille permanente.
 
 ### Publier
 
-Brouillons **seulement** jusqu’à **les trois** :
+Brouillons seulement jusqu’à les trois (go explicite inclus) :
 
 1. Compte X **marque 3xrep** (pas un visage).
 2. Au moins une org payante via `/install`.

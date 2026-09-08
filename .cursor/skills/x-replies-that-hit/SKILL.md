@@ -7,7 +7,17 @@ description: Draft 3xrep X replies that hit — light sarcasm not gratuitous mea
 
 Une réponse. Ironie **légère**. Éloge **précis** si c’est vraiment bien. **Une** phrase 3xrep, pas un pitch.
 
-Règles partagées : [README](../README.md). Posts originaux : `founder-x-growth` + `elon-musk-voice`.
+Posts originaux : `founder-x-growth` + `elon-musk-voice`.
+
+## Règles partagées
+
+Détail : [README](../README.md). Tiennent ici :
+
+- Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
+- Web seulement si le sujet est vivant. Sinon skip.
+- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Forme
 

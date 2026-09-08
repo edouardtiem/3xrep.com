@@ -7,7 +7,15 @@ description: Draft 3xrep X posts in a Musk-like register — short sentences, mi
 
 Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
 
-Règles partagées : [README](../README.md).
+## Règles partagées
+
+Détail : [README](../README.md). Tiennent ici :
+
+- Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
+- Web seulement si le sujet est vivant. Sinon skip.
+- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Ce que c’est
 

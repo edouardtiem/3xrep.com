@@ -7,7 +7,17 @@ description: Founder patterns that grow a brand X account for 3xrep — cadence,
 
 Comment un compte **marque** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. Pas un visage fondateur. Pas un ghostwriter qui « fait l’Elon ».
 
-Règles partagées : [README](../README.md). Registre des posts : `elon-musk-voice`. Réponses : `x-replies-that-hit`.
+Registre des posts : `elon-musk-voice`. Réponses : `x-replies-that-hit`.
+
+## Règles partagées
+
+Détail : [README](../README.md). Tiennent ici :
+
+- Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
+- Web seulement si le sujet est vivant. Sinon skip.
+- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Gates — avant tout
 
@@ -77,7 +87,7 @@ Pas de compte / pas de go / sujet hors produit / appel cher sans oui.
 
 ## Interdit
 
-- Poster, DM, follow/like auto, fil auto.
+- Poster, message privé auto, follow/like auto, fil auto.
 - Compte Édouard / Tiem comme visage 3xrep.
 - Nommer Uptoo, OC, amis.
 - Calendly, démo, per-seat, 99 €, pourcentage de signatures, « on remplace Gong ».
