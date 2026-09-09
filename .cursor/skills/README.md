@@ -41,8 +41,12 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 
 ### Voix, secret, prix
 
-- Voix **fondateur**. Première personne : I / we built 3xrep. Posture : Ed. qui run le produit, pas un compte marque sans visage.
+- Compte **fondateur** : `@Edouardtiem`, affichage **Ed.**, bio **run @3xrep**. Elon (Grok) gère ce compte-là. Pas un compte marque sans visage.
 - Sur X : **Ed.** / founder of 3xrep. Handle `@Edouardtiem` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
+- **Je vs Il.** I / me = le fondateur (construire, livrer, prix, décision, avis). He / the agent / 3xrep = le geste produit (n’entre pas dans l’appel, juge le fichier client, ne comble pas le trou, verdict du lundi). Pas de « I » sur chaque post. Zéro première personne si le punch est plus net en fait produit.
+  - Mauvais : *Gong records. I don’t join it.* (ça dit que Ed. n’entre pas)
+  - Bon Il : *Gong records. He doesn’t join the call.* / *The agent doesn’t join.* / *3xrep doesn’t join the call.*
+  - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
 - Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.

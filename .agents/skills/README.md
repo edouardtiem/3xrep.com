@@ -2,7 +2,7 @@
 
 Gestes **produit** (site, visibilité, gaps, clôture). Corps ici.
 
-**X / croissance du compte fondateur :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue. Voix Ed. / I / we built 3xrep. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
+**X / croissance du compte fondateur :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue. Compte Ed. **Je vs Il** : I = fondateur (build / prix / avis) ; he / the agent = geste produit. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
 
 | Ici | X (Cursor) |
 | --- | --- |

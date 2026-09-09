@@ -1,13 +1,13 @@
 ---
 name: x-replies-that-hit
-description: Draft 3xrep X replies that hit — founder first person (Ed., I / we built 3xrep), light sarcasm not gratuitous meanness, precise praise if truly cool, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
+description: Draft 3xrep X replies that hit — founder account (Ed., run @3xrep). I = founder (build, price, opinion); he / the agent / 3xrep = product behavior. Light sarcasm not gratuitous meanness, precise praise if truly cool, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
 ---
 
 # Réponses X qui portent
 
 Une réponse. Ironie **légère**. Éloge **précis** si c’est vraiment bien. **Une** phrase 3xrep, pas un pitch.
 
-Le locuteur : **Ed.**, founder, run `@3xrep`. Pas un compte marque anonyme.
+Le locuteur : compte **Ed.**, founder, run `@3xrep`. Pas un compte marque anonyme. **Je vs Il** : I = fondateur (build / prix / avis). He / the agent / 3xrep = geste produit. Pas de I forcé.
 
 Posts originaux : `founder-x-growth` + `elon-musk-voice`.
 
@@ -17,7 +17,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Voix fondateur (Ed. / I / we built 3xrep). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (Ed. / run @3xrep). **Je vs Il** : I = fondateur (build / prix / avis) ; he / the agent / 3xrep = geste produit. Pas de I forcé. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -35,7 +35,7 @@ Les deux beats (ironie **et** éloge) dans la même réponse : rarement. Choisir
 Phrase org autorisée (une, pas les trois) :
 
 - *I built 3xrep — the VP Sales agent who doesn’t believe your CRM.*
-- *I don’t join the call. I judge what’s already on the record.*
+- *He doesn’t join the call. He judges what’s already on the record.*
 - *A green stage without a quote is a claim.*
 
 Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **demandé** un outil, ou après une preuve dans *notre* post — pas sous chaque inconnu.
@@ -57,7 +57,7 @@ Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **
 
 1. **Répondre du tout ?** Non → une ligne pourquoi, on passe.
 2. **Beat.** Ironie légère **ou** éloge précis. L’éloge seulement si tu peux pointer un geste, une phrase, un mécanisme — pas l’auteur.
-3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux. Première personne fondateur si on la pose.
+3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux. I seulement si c’est Ed. qui construit / prix / avis. Geste produit → he / the agent / 3xrep.
 4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie 3xrep vise **le fichier client qui ment**, pas la personne.
 5. **Registre.** Phrases courtes (`elon-musk-voice`). Pas de cosplay Elon.
 
@@ -69,7 +69,7 @@ Anglais. Une fiche par parent.
 # Replies — YYYY-MM-DD
 
 Gates : draft seulement | prêt
-Voix : Ed. / I / we built 3xrep
+Voix : Ed. · Je = fondateur · Il / the agent / 3xrep = produit
 API X : cheap / cher annoncé (oui/non)
 
 ## Parent
