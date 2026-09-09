@@ -1,11 +1,11 @@
 ---
 name: founder-x-growth
-description: Founder patterns that grow a brand X account for 3xrep — cadence, hooks, reply vs post, proof, soft CTA. Drafts only until X account, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
+description: Founder patterns that grow the founder X account for 3xrep — cadence, hooks, reply vs post, proof, soft CTA. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
 ---
 
-# Croissance X — patterns fondateur, compte marque
+# Croissance X — patterns fondateur, compte fondateur
 
-Comment un compte **marque** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. Pas un visage fondateur. Pas un ghostwriter qui « fait l’Elon ».
+Comment le compte **fondateur** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. Ed. qui run `@3xrep`. Pas un compte marque sans visage. Pas un ghostwriter qui « fait l’Elon ».
 
 Registre des posts : `elon-musk-voice`. Réponses : `x-replies-that-hit`.
 
@@ -15,19 +15,19 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
-- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Voix fondateur (Ed. / I / we built 3xrep). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Gates — avant tout
 
 Les **trois**, sinon draft seulement :
 
-1. Compte X marque **3xrep**.
+1. Compte X utilisable : `@Edouardtiem`, affichage **Ed.**, bio **run @3xrep**.
 2. Org payante via `https://3xrep.com/install`.
 3. Go explicite du fondateur.
 
-Dire lesquels manquent. Ne pas « commencer doucement » sur un compte perso.
+Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la société ».
 
 ## Mix
 
@@ -41,7 +41,7 @@ Dire lesquels manquent. Ne pas « commencer doucement » sur un compte perso.
 
 ## Accroches qui tiennent (3xrep)
 
-Oui : *Your CRM says negotiation.* / *A green checkbox is a claim.* / *Gong records. We don’t join the call.*
+Oui : *Your CRM says negotiation.* / *A green checkbox is a claim.* / *Gong records. I don’t join the call.*
 
 Non : *AI will replace your VP.* / *Stop doing sales training.* / *We replace Gong.* / *Sign 30% more.*
 
@@ -51,7 +51,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 
 1. Gates (ci-dessus).
 2. Contexte : [`README.md`](../../../README.md), home, `/install`. Plus profond seulement si claim douteuse.
-3. Compte existant ? Lecture **bon marché** (profil, derniers posts). Pas d’archive. Coût annoncé avant un appel cher ([README](../README.md) § API X).
+3. Compte existant ? Lecture **bon marché** (profil `@Edouardtiem`, derniers posts). Pas d’archive. Coût annoncé avant un appel cher ([README](../README.md) § API X).
 4. Web : seulement si un concurrent / outil / actu est le sujet du brief. Sinon skip.
 
 ## Étapes
@@ -59,7 +59,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 1. **État.** Zéro post / quelques posts / déjà une voix. Une ligne.
 2. **Mix de la semaine.** Nombre de posts originaux + nombre de réponses. Noms de fils où répondre (produit, pas culture war).
 3. **Chaque post prévu :** accroche (8 mots) · preuve (oui/non, laquelle) · lien doux (oui/non). Si ni preuve ni idée nette : tuer le post.
-4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses).
+4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses). Première personne fondateur.
 5. **Calendrier** en anglais, dates, **statut draft** tant que les gates ne sont pas verts.
 
 ## Sortie
@@ -67,6 +67,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 ```md
 # X growth — YYYY-MM-DD
 
+Compte : @Edouardtiem · Ed. · run @3xrep
 Gates : compte X · org payante · go → draft seulement | prêt
 Cadence proposée : N posts / semaine · ~N réponses / jour
 API X : pas d’appel / lectures cheap / appel cher annoncé (oui/non)
@@ -78,7 +79,7 @@ API X : pas d’appel / lectures cheap / appel cher annoncé (oui/non)
 
 ## Drafts
 
-(posts + réponses, anglais)
+(posts + réponses, anglais, I / we built 3xrep)
 
 ## Pas fait
 
@@ -88,8 +89,8 @@ Pas de compte / pas de go / sujet hors produit / appel cher sans oui.
 ## Interdit
 
 - Poster, message privé auto, follow/like auto, fil auto.
-- Compte Édouard / Tiem comme visage 3xrep.
-- Nommer Uptoo, OC, amis.
+- Compte marque anonyme à la place du visage fondateur.
+- Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Calendly, démo, per-seat, 99 €, pourcentage de signatures, « on remplace Gong ».
 - Usine de 30 posts « pour remplir ».
 - Éditer le site. Mots du marché → `x-language-radar`.

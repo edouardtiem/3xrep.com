@@ -33,15 +33,17 @@ Sinon : skip. Pas de scrape pour le plaisir. Pas de veille permanente.
 
 Brouillons seulement jusqu’à les trois (go explicite inclus) :
 
-1. Compte X **marque 3xrep** (pas un visage).
+1. Compte X **utilisable** : `@Edouardtiem`, affichage **Ed.**, bio **run @3xrep**.
 2. Au moins une org payante via `/install`.
 3. **Go explicite** du fondateur.
 
 Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de message privé auto.**
 
-### Marque, secret, prix
+### Voix, secret, prix
 
-- Marque seulement. Jamais Édouard, Tiem, Uptoo, OC, amis, comme builder, auteur, preuve, ou réseau. Cold / online.
+- Voix **fondateur**. Première personne : I / we built 3xrep. Posture : Ed. qui run le produit, pas un compte marque sans visage.
+- Sur X : **Ed.** / founder of 3xrep. Handle `@Edouardtiem` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
+- Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
 - Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.
 - Copy X : **anglais**. Comme le site.
@@ -59,7 +61,7 @@ Lire `get_usage_credits` avant une série d’appels. Crédits = argent.
 ## Interdit (tous)
 
 - Deepfake / cosplay d’Elon la personne.
-- Nommer le builder ou le réseau.
+- Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Auto-DM. Calendly. Démo.
 - « On remplace Gong ». Promettre un pourcentage de signatures.
 - Éditer le site live (home, `/install`, README) **sans** oui fondateur. Le radar **propose**. `seo-geo` pose, pas ces skills.

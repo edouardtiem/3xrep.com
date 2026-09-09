@@ -1,11 +1,13 @@
 ---
 name: x-replies-that-hit
-description: Draft 3xrep X replies that hit — light sarcasm not gratuitous meanness, precise praise if truly cool, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
+description: Draft 3xrep X replies that hit — founder first person (Ed., I / we built 3xrep), light sarcasm not gratuitous meanness, precise praise if truly cool, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
 ---
 
 # Réponses X qui portent
 
 Une réponse. Ironie **légère**. Éloge **précis** si c’est vraiment bien. **Une** phrase 3xrep, pas un pitch.
+
+Le locuteur : **Ed.**, founder, run `@3xrep`. Pas un compte marque anonyme.
 
 Posts originaux : `founder-x-growth` + `elon-musk-voice`.
 
@@ -15,8 +17,8 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
-- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Voix fondateur (Ed. / I / we built 3xrep). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Forme
@@ -32,8 +34,8 @@ Les deux beats (ironie **et** éloge) dans la même réponse : rarement. Choisir
 
 Phrase org autorisée (une, pas les trois) :
 
-- *3xrep is the VP Sales agent who doesn’t believe your CRM.*
-- *We don’t join the call. We judge what’s already on the record.*
+- *I built 3xrep — the VP Sales agent who doesn’t believe your CRM.*
+- *I don’t join the call. I judge what’s already on the record.*
 - *A green stage without a quote is a claim.*
 
 Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **demandé** un outil, ou après une preuve dans *notre* post — pas sous chaque inconnu.
@@ -55,7 +57,7 @@ Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **
 
 1. **Répondre du tout ?** Non → une ligne pourquoi, on passe.
 2. **Beat.** Ironie légère **ou** éloge précis. L’éloge seulement si tu peux pointer un geste, une phrase, un mécanisme — pas l’auteur.
-3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux.
+3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux. Première personne fondateur si on la pose.
 4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie 3xrep vise **le fichier client qui ment**, pas la personne.
 5. **Registre.** Phrases courtes (`elon-musk-voice`). Pas de cosplay Elon.
 
@@ -67,6 +69,7 @@ Anglais. Une fiche par parent.
 # Replies — YYYY-MM-DD
 
 Gates : draft seulement | prêt
+Voix : Ed. / I / we built 3xrep
 API X : cheap / cher annoncé (oui/non)
 
 ## Parent
@@ -85,7 +88,7 @@ Phrase org : non | (la phrase)
 
 - Méchanceté gratuite. Harcèlement. Ratio comme sport.
 - Pitch lourd, Calendly, DM, « happy to hop on a call ».
-- Nommer Édouard, Tiem, Uptoo, OC, amis.
+- Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - « We replace Gong ». Pourcentage de signatures. Prix en première ligne sous un inconnu.
 - Poster sans go. Réponses auto. Follow/like auto.
 - Éditer le site.

@@ -9,14 +9,16 @@ Scanner la langue **vivante** autour de nos sujets. Dire quels mots marchent. Pr
 
 **On ne touche pas au site.** Sortie = recommandations. Sans oui fondateur : pas de PR copy live. (La boucle qui pose le site, c’est `seo-geo`, autre geste, autre oui.)
 
+Copy X (si le brief en demande) : voix **fondateur** — Ed., I / we built 3xrep. Copy site (home, `/install`, README) : produit, sauf si le fondateur demande un visage.
+
 ## Règles partagées
 
 Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
-- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Voix fondateur sur X (Ed. / I / we built 3xrep). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post ni sur le site.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Sujets (départ)
@@ -57,7 +59,7 @@ Pas `/docs`, pas `/spec`, pas le cerveau, pas une URL neuve — **sauf** si une 
    | **éviter** | Ça pop, ça ferait mentir (coach de call, « on remplace Gong », win rate, per-seat) |
 
 4. **Injecter (adopter seulement).** Une surface, une phrase, un endroit (H1, sous-titre, paragraphe 2, ligne README). Pas un dumping du mot partout. Le hero ne bouge que si l’acheteur perd **clairement** sans ce mot — et le sens (VP Sales, le fichier client qui ment, *he won’t go easy on you*) tient.
-5. **Écrire la reco.** Pas le patch. Pas `seo-geo`. Pas `/end` sur du copy live.
+5. **Écrire la reco.** Pas le patch. Pas `seo-geo`. Pas `/end` sur du copy live. Si une phrase X est jointe : première personne fondateur.
 
 ## Sortie — pour Jon / CoS
 
@@ -70,6 +72,7 @@ Pour : Jon / CoS
 Web : fait | skip (sujet pas vivant)
 API X : pas d’appel / cheap / cher annoncé (oui/non)
 Site : **aucune edit**. Reco seulement.
+X (si joint) : Ed. / I / we built 3xrep
 
 ## Termes
 
@@ -106,6 +109,6 @@ Exemple **harness** (modèle, pas une vérité) :
 - Éditer home, `/install`, README, ou le reste, sans **oui fondateur explicite**.
 - Inventer un volume, un rang, une citation.
 - Coller un mot à la mode qui nous fait coach de call, Gong-killer, ou promesse de signatures.
-- Nommer Édouard, Tiem, Uptoo, OC, amis.
+- Nommer Uptoo, OC, amis. Coller le nom légal complet sur le site ou dans chaque post.
 - Usine de pages. Locale FR sur le site. Pub.
 - Poster sur X (autre skill, autres gates).

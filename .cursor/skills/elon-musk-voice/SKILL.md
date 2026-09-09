@@ -1,11 +1,13 @@
 ---
 name: elon-musk-voice
-description: Draft 3xrep X posts in a Musk-like register — short sentences, mission plus tech, punch. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
+description: Draft 3xrep X posts in a Musk-like register — short sentences, mission plus tech, punch. Founder first person (Ed., I / we built 3xrep). Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
 ---
 
-# Registre Musk — brouillons X 3xrep
+# Registre Musk — brouillons X fondateur
 
 Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
+
+Le locuteur : **Ed.**, founder, run `@3xrep`. Première personne. Pas un compte marque anonyme.
 
 ## Règles partagées
 
@@ -13,8 +15,8 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X + org payante `/install` + go explicite. Pas de message privé auto. Marque seulement (pas Édouard / Tiem). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
-- Secret : cold / online. Jamais Uptoo, OC, amis comme builder.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Voix fondateur (Ed. / I / we built 3xrep). Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
 ## Ce que c’est
@@ -25,9 +27,9 @@ Détail : [README](../README.md). Tiennent ici :
 | Mission **et** comment ça marche, dans le même souffle | Mission sans mécanisme, ou jargon sans enjeu |
 | Un punch, puis silence | Fil de 19 posts, TED, « thread 🧵 » |
 | Ce qui est vrai (le fichier client ment, on n’enregistre pas) | Mème Tesla / Mars / doge / politique d’Elon |
-| Voix **3xrep** | Première personne Elon, « as Elon would say », imitation de sa vie |
+| Je / we **fondateur** (I built 3xrep, we don’t join the call) | Je / we **comme Elon** (Tesla, SpaceX, « my companies ») |
 
-3xrep = ils créent l’agent. On est le cerveau. $129 / org / mois. Pas un Gong. Pas un cours.
+3xrep = ils créent l’agent. Je suis le cerveau. $129 / org / mois. Pas un Gong. Pas un cours.
 
 ## Avant
 
@@ -39,8 +41,8 @@ Détail : [README](../README.md). Tiennent ici :
 ## Étapes
 
 1. **Une idée.** Une. Si tu en as trois, trois drafts séparés, pas un fil.
-2. **Mission + technique.** La phrase 2 dit *comment* (MCP à côté du fichier client, exhibits, le stage est illégal, on n’entre pas dans l’appel). Pas « AI-powered sales ».
-3. **Couper.** Chaque phrase > 20 mots : couper ou tuer. Adverbes de politesse : dehors. « We believe », « super excited », « game-changer » : dehors.
+2. **Mission + technique.** La phrase 2 dit *comment* (MCP à côté du fichier client, exhibits, le stage est illégal, I don’t join the call). Pas « AI-powered sales ».
+3. **Couper.** Chaque phrase > 20 mots : couper ou tuer. Adverbes de politesse : dehors. « We believe », « super excited », « game-changer » : dehors. « We » corporate sans visage : dehors. « I / we » fondateur : garder.
 4. **Punch.** La dernière ligne porte seule. Souvent un fait produit : *This stage is illegal.* / *I won’t fill the gap.* / *He won’t go easy on you.*
 5. **Anti-sosie.** Relire la grille ci-dessous. Un oui → recommencer.
 
@@ -56,13 +58,14 @@ Le registre survit **sans son nom**. Si on enlève « Musk » du titre du skill,
 
 ## Sortie
 
-Anglais. 1 à 3 brouillons. **Pas postés.**
+Anglais. 1 à 3 brouillons. **Pas postés.** Voix : Ed. / founder, pas un compte marque.
 
 ```md
 # Drafts X — registre — YYYY-MM-DD
 
 Gates : compte X oui/non · org payante oui/non · go explicite oui/non
 Action : draft seulement / prêt à poster (les trois oui)
+Voix : Ed. / I / we built 3xrep
 
 ## 1
 <post>
@@ -79,7 +82,7 @@ Lien doux : au plus **une** fois, après une preuve, jamais en ouverture. Prix s
 ## Interdit
 
 - Publier. Message privé. Follow / like auto.
-- Nommer Édouard, Tiem, Uptoo, OC, amis.
+- Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - « We replace Gong ». Pourcentage de signatures.
 - Appel X cher sans annoncer le coût ([README](../README.md) § API X).
 - Éditer le site. Reco de mots → skill `x-language-radar`.
