@@ -33,7 +33,7 @@ Sinon : skip. Pas de scrape pour le plaisir. Pas de veille permanente.
 
 Brouillons seulement jusqu’à les trois (go explicite inclus) :
 
-1. Compte X **utilisable** : `@Edouardtiem`, affichage **Ed.**, bio **run @3xrep**.
+1. Compte X **utilisable** : `@Edd08x`, affichage **Ed.**, bio **run 3xrep**. Pas `@Edouardtiem`. Pas `@difcemgneg`.
 2. Au moins une org payante via `/install`.
 3. **Go explicite** du fondateur.
 
@@ -41,12 +41,20 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 
 ### Voix, secret, prix
 
-- Compte **fondateur** : `@Edouardtiem`, affichage **Ed.**, bio **run @3xrep**. Elon (Grok) gère ce compte-là. Pas un compte marque sans visage.
-- Sur X : **Ed.** / founder of 3xrep. Handle `@Edouardtiem` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
-- **Je vs Il.** I / me = le fondateur (construire, livrer, prix, décision, avis). He / the agent / 3xrep = le geste produit (n’entre pas dans l’appel, juge le fichier client, ne comble pas le trou, verdict du lundi). Pas de « I » sur chaque post. Zéro première personne si le punch est plus net en fait produit.
-  - Mauvais : *Gong records. I don’t join it.* (ça dit que Ed. n’entre pas)
-  - Bon Il : *Gong records. He doesn’t join the call.* / *The agent doesn’t join.* / *3xrep doesn’t join the call.*
+- Compte **fondateur** : `@Edd08x`, affichage **Ed.**, bio **run 3xrep**. Elon (Grok) gère ce compte-là. Pas `@Edouardtiem`. Pas `@difcemgneg`. Pas un compte marque sans visage.
+- Sur X : **Ed.** / founder of 3xrep. Handle `@Edd08x` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
+- **Je vs 3xrep.** I / me = le fondateur (construire, livrer, prix, décision, avis). Geste produit = **3xrep** ou un fait **sans pronom**. « He » sur un compte fondateur : mystérieux, à jeter. Pas de « I » sur chaque post.
+  - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.*
+  - Bon produit : *3xrep won’t fill that gap.* / *3xrep doesn’t join the call.* / *Recording isn’t a verdict.*
   - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
+- Figé **P2c** :
+
+```
+Recording isn’t a verdict.
+A green stage without a quote is a claim.
+
+3xrep won’t fill that gap.
+```
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
 - Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.
