@@ -1,13 +1,13 @@
 ---
 name: x-replies-that-hit
-description: Draft 3xrep X replies that hit — founder account (@Edd08x, Ed., run 3xrep). I = founder (build, price, opinion); product behavior = 3xrep or a fact with no pronoun — not he. Light sarcasm not gratuitous meanness, precise praise if truly cool, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
+description: Draft 3xrep X replies that hit — founder account (@Edd08x, Ed., run 3xrep). Mode A (VP Sales agent) or Mode B (intelligence layer on the CRM, inside Claude). I = founder (build, price, opinion); product named 3xrep — not he. Light sarcasm not gratuitous meanness, one org sentence without a heavy pitch. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
 ---
 
 # Réponses X qui portent
 
 Une réponse. Ironie **légère**. Éloge **précis** si c’est vraiment bien. **Une** phrase 3xrep, pas un pitch.
 
-Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep** : I = fondateur (build / prix / avis). Geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé.
+Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque réponse : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
 
 Posts originaux : `founder-x-growth` + `elon-musk-voice`.
 
@@ -17,7 +17,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep** : I = fondateur (build / prix / avis) ; geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -25,18 +25,18 @@ Détail : [README](../README.md). Tiennent ici :
 
 | Beat | Oui | Non |
 | --- | --- | --- |
-| **Ironie** | Le fichier client est vert. Qui peut signer ? | « This is so dumb. » Ratio, pile-on, humiliation |
+| **Ironie** | Another recorder. Still no VP in the agent. | « This is so dumb. » Ratio, pile-on, humiliation |
 | **Éloge** | Nommer **exactement** ce qui est cool, une phrase | « Love this! » / « Fire 🔥 » / éloge pour exister dans le fil |
 | **3xrep** | **Une** phrase org, si ça aide le fil | Feature list, prix + spec + lien dans la même réponse |
 | **Longueur** | 1–3 phrases. Souvent 1–2. | Essai. « Actually, » + cinq paragraphes |
 
 Les deux beats (ironie **et** éloge) dans la même réponse : rarement. Choisir.
 
-Phrase org autorisée (une, pas les trois) :
+Phrase org autorisée (une, pas trois) :
 
-- *I built 3xrep — the VP Sales agent who doesn’t believe your CRM.*
-- *3xrep doesn’t join the call.*
-- *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.* (P2c, une ligne)
+- **Mode A :** *I built 3xrep — the VP Sales agent for the whole org.* / *Not seats. Not a course. Not a recorder.*
+- **Mode B :** *3xrep is an intelligence layer on top of your CRM. Inside Claude. One MCP URL next to the connector.*
+- **Avancé, pas défaut :** *3xrep won’t fill that gap.* — seulement si le fil parle déjà stage / quote.
 
 Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **demandé** un outil, ou après une preuve dans *notre* post — pas sous chaque inconnu.
 
@@ -57,7 +57,7 @@ Puis **stop**. Lien doux `https://3xrep.com/install` seulement si le parent a **
 
 1. **Répondre du tout ?** Non → une ligne pourquoi, on passe.
 2. **Beat.** Ironie légère **ou** éloge précis. L’éloge seulement si tu peux pointer un geste, une phrase, un mécanisme — pas l’auteur.
-3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux. I seulement si c’est Ed. qui construit / prix / avis. Geste produit → **3xrep** ou un fait sans pronom. Pas de « he ».
+3. **Phrase org.** Zéro ou une. Zéro est souvent mieux. Jamais deux. **Mode A** ou **Mode B**. I seulement si c’est Ed. qui construit / prix / avis. Geste produit → **3xrep**. Pas de « he ». Pas de jargon pipe en réponse froide.
 4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie 3xrep vise **le fichier client qui ment**, pas la personne.
 5. **Registre.** Phrases courtes (`elon-musk-voice`). Pas de cosplay Elon.
 
@@ -70,11 +70,13 @@ Anglais. Une fiche par parent.
 
 Gates : draft seulement | prêt
 Voix : @Edd08x · Ed. · Je = fondateur · produit = 3xrep ou fait sans pronom
+Mode : A | B
 API X : cheap / cher annoncé (oui/non)
 
 ## Parent
 URL ou citation exacte (une phrase)
 Beat : ironie | éloge | skip
+Mode : A | B
 Phrase org : non | (la phrase)
 
 ## Draft

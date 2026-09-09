@@ -1,13 +1,13 @@
 ---
 name: elon-musk-voice
-description: Draft 3xrep X posts in a Musk-like register — short sentences, mission plus tech, punch. Founder account (@Edd08x, Ed., run 3xrep). I = founder (build, price, opinion); product behavior = 3xrep or a fact with no pronoun — not he. Not I on every tweet. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
+description: Draft 3xrep X posts in a Musk-like register — short sentences, mission plus tech, punch. Founder account (@Edd08x, Ed., run 3xrep). Mode A (VP Sales agent is the future) or Mode B (intelligence layer on the CRM, inside Claude). I = founder (build, price, opinion); product named 3xrep — not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
 ---
 
 # Registre Musk — brouillons X fondateur
 
 Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
 
-Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep** : I = fondateur (build / prix / avis). Geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé.
+Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque post : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
 
 ## Règles partagées
 
@@ -15,7 +15,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep** : I = fondateur (build / prix / avis) ; geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -30,7 +30,7 @@ Détail : [README](../README.md). Tiennent ici :
 | Je **fondateur** (I built 3xrep, I price the org, I’m not selling seats) | I pour un geste **produit** (I don’t join the call) |
 | **3xrep** ou un fait sans pronom pour le geste produit | « He » (mystérieux sur un compte fondateur) / Je / we **comme Elon** |
 
-3xrep = ils créent l’agent. 3xrep is the brain. $129 / org / mois. Pas un Gong. Pas un cours.
+3xrep = they create the agent. 3xrep is the VP Sales brain. $129 / org / mois. Pas un Gong. Pas un cours. Pas un enregistreur. Pas par siège.
 
 ## Avant
 
@@ -41,10 +41,10 @@ Détail : [README](../README.md). Tiennent ici :
 
 ## Étapes
 
-1. **Une idée.** Une. Si tu en as trois, trois drafts séparés, pas un fil.
-2. **Mission + technique.** La phrase 2 dit *comment* (MCP à côté du fichier client, exhibits, le stage est illégal, 3xrep doesn’t join the call). Pas « AI-powered sales ».
+1. **Une idée.** Une. **Mode A** ou **Mode B**. Si tu en as trois, trois drafts séparés, pas un fil.
+2. **Mission + technique.** Mode A : pourquoi un VP Sales agent (org, pas sièges, pas un cours, pas un enregistreur). Mode B : *comment* ça se place (couche d’intelligence sur tout le fichier client, dans Claude, une URL MCP à côté du connecteur). Pas « AI-powered sales ». Pas stage / quote / fill the gap en ouverture.
 3. **Couper.** Chaque phrase > 20 mots : couper ou tuer. Adverbes de politesse : dehors. « We believe », « super excited », « game-changer » : dehors. « We » corporate sans visage : dehors. I seulement si c’est Ed. qui construit, prix, décide. I ou « he » pour un geste produit : jeter. Zéro pronom si le punch tient sans.
-4. **Punch.** La dernière ligne porte seule. Figé **P2c** : *Recording isn’t a verdict. / A green stage without a quote is a claim. / 3xrep won’t fill that gap.* Autre fait : *3xrep doesn’t join the call.*
+4. **Punch.** La dernière ligne porte seule. Mode A : *The VP Sales agent is the future.* / *I’m not selling seats.* Mode B : *One MCP URL next to the CRM connector.* / *Not another CRM tab.* Avancé (fil déjà dans le jargon) : *3xrep won’t fill that gap.*
 5. **Anti-sosie.** Relire la grille ci-dessous. Un oui → recommencer.
 
 ## Anti-sosie (un oui = jeter)
@@ -67,10 +67,12 @@ Anglais. 1 à 3 brouillons. **Pas postés.** Compte : `@Edd08x` / Ed. Pronoms : 
 Gates : compte X oui/non · org payante oui/non · go explicite oui/non
 Action : draft seulement / prêt à poster (les trois oui)
 Voix : @Edd08x · Ed. · Je = fondateur · produit = 3xrep ou fait sans pronom
+Mode : A | B
 
 ## 1
 <post>
 
+Mode : A | B
 Pourquoi le punch : (une ligne)
 Lien doux : non | https://3xrep.com/install (une fois, après une preuve)
 

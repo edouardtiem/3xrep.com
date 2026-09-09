@@ -2,7 +2,7 @@
 
 Gestes **produit** (site, visibilité, gaps, clôture). Corps ici.
 
-**X / croissance du compte fondateur :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue. Compte `@Edd08x` (Ed., run 3xrep). **Je vs 3xrep** : I = fondateur (build / prix / avis) ; geste produit = 3xrep ou un fait sans pronom. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
+**X / croissance du compte fondateur :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue. Compte `@Edd08x` (Ed., run 3xrep). **Mode A** (VP Sales agent) ou **Mode B** (couche sur le CRM, dans Claude). **Je vs 3xrep**. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
 
 | Ici | X (Cursor) |
 | --- | --- |

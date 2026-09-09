@@ -45,16 +45,11 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 - Sur X : **Ed.** / founder of 3xrep. Handle `@Edd08x` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
 - **Je vs 3xrep.** I / me = le fondateur (construire, livrer, prix, décision, avis). Geste produit = **3xrep** ou un fait **sans pronom**. « He » sur un compte fondateur : mystérieux, à jeter. Pas de « I » sur chaque post.
   - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.*
-  - Bon produit : *3xrep won’t fill that gap.* / *3xrep doesn’t join the call.* / *Recording isn’t a verdict.*
   - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
-- Figé **P2c** :
-
-```
-Recording isn’t a verdict.
-A green stage without a quote is a claim.
-
-3xrep won’t fill that gap.
-```
+- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux. Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie) — même le fondateur ne le lit pas à froid.
+  - **Mode A — affirmation.** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.*
+  - **Mode B — où ça vit.** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
+- **Avancé, pas défaut.** *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.* / P2c : seulement si le fil parle déjà ce langage.
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
 - Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.

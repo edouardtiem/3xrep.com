@@ -1,11 +1,11 @@
 ---
 name: founder-x-growth
-description: Founder patterns that grow the founder X account for 3xrep — cadence, hooks, reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). I = founder (build, price, opinion); product behavior = 3xrep or a fact with no pronoun — not he. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
+description: Founder patterns that grow the founder X account for 3xrep — cadence, Mode A or Mode B hooks, reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). Pipeline jargon is advanced, not default. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
 ---
 
 # Croissance X — patterns fondateur, compte fondateur
 
-Comment le compte **fondateur** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. `@Edd08x`, Ed., bio **run 3xrep**. Pas un compte marque sans visage. Pas un ghostwriter qui « fait l’Elon ». **Je vs 3xrep** : I = build / prix / avis. Geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé.
+Comment le compte **fondateur** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. `@Edd08x`, Ed., bio **run 3xrep**. Pas un compte marque sans visage. Pas un ghostwriter qui « fait l’Elon ». **Je vs 3xrep**. Chaque post : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
 
 Registre des posts : `elon-musk-voice`. Réponses : `x-replies-that-hit`.
 
@@ -15,7 +15,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep** : I = fondateur (build / prix / avis) ; geste produit = **3xrep** ou un fait sans pronom. Pas de « he ». Pas de I forcé. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -35,17 +35,21 @@ Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la
 | --- | --- |
 | **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. |
 | **Cadence** | Tenable. 1 post original / jour **max** une fois le go. Mieux : 3–5 / semaine + réponses le jour même. Silence 10 jours puis rafale : interdit. |
-| **Accroche** | Les 8 premiers mots = un fait. Pas « Unpopular opinion ». Pas « Here’s why ». |
-| **Preuve** | Un moment produit (P2c : *Recording isn’t a verdict.* / *3xrep won’t fill that gap.*). Ou un Je fondateur (*I built…*, *I price the org…*). Pas « we’re live », pas « building in public » vide. |
+| **Accroche** | Les 8 premiers mots = Mode A (VP Sales agent / org / pas sièges) ou Mode B (couche sur le CRM, dans Claude). Pas « Unpopular opinion ». Pas stage / quote / fill the gap en ouverture. |
+| **Preuve** | Mode A : org, pas sièges, pas un cours, pas un enregistreur (*I built…*, *I price the org…*). Mode B : une URL MCP à côté du connecteur, pas un onglet. Pas « we’re live », pas « building in public » vide. |
 | **Lien doux** | `https://3xrep.com/install` **une** fois, **après** la preuve. Pas chaque post. Pas en première ligne. |
 
 ## Accroches qui tiennent (3xrep)
 
-Oui : *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep doesn’t join the call.* / *I built 3xrep. I’m not selling seats.*
+**Mode A :** *The VP Sales agent is the future.* / *I built 3xrep for the whole org.* / *Not seats. Not a course. Not a recorder.* / *I price 3xrep $129 / org / month.*
 
-Non : *AI will replace your VP.* / *Stop doing sales training.* / *We replace Gong.* / *Sign 30% more.*
+**Mode B :** *An intelligence layer on top of your whole CRM.* / *3xrep runs inside the Claude agent you already use.* / *One MCP URL next to the CRM connector.* / *Not another CRM tab.*
 
-Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier client. Pas l’AE qui ne sort pas de HubSpot.
+**Avancé, pas défaut :** *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.*
+
+Non : *AI will replace your VP.* / *Stop doing sales training.* / *We replace Gong.* / *Sign 30% more.* / *He doesn’t join the call.*
+
+Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier client. Pas le commercial qui ne sort pas de HubSpot.
 
 ## Avant
 
@@ -58,8 +62,8 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 
 1. **État.** Zéro post / quelques posts / déjà une voix. Une ligne.
 2. **Mix de la semaine.** Nombre de posts originaux + nombre de réponses. Noms de fils où répondre (produit, pas culture war).
-3. **Chaque post prévu :** accroche (8 mots) · preuve (oui/non, laquelle) · lien doux (oui/non). Si ni preuve ni idée nette : tuer le post.
-4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses). **Je vs 3xrep** : I seulement pour build / prix / avis. Geste produit → **3xrep** ou un fait sans pronom. Pas de « he ».
+3. **Chaque post prévu :** mode (A/B) · accroche (8 mots) · preuve (oui/non, laquelle) · lien doux (oui/non). Si ni Mode A ni Mode B : tuer le post.
+4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses). **Je vs 3xrep**. Geste produit → **3xrep**. Jargon pipe seulement si le fil est déjà dedans.
 5. **Calendrier** en anglais, dates, **statut draft** tant que les gates ne sont pas verts.
 
 ## Sortie
@@ -74,12 +78,12 @@ API X : pas d’appel / lectures cheap / appel cher annoncé (oui/non)
 
 ## Semaine
 
-| jour | type (post/réponse) | accroche | preuve | lien doux |
+| jour | type (post/réponse) | mode (A/B) | accroche | preuve | lien doux |
 | --- | --- | --- | --- | --- |
 
 ## Drafts
 
-(posts + réponses, anglais, Je vs 3xrep)
+(posts + réponses, anglais, Mode A ou B, Je vs 3xrep)
 
 ## Pas fait
 
