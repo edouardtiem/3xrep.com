@@ -35,7 +35,7 @@ Surprise OK s’il y a une **preuve** (phrase + URL) et un Mode A ou B **vrai**.
 
 Ordre : lexique d’abord, trend ensuite. Jamais l’inverse.
 
-1. **Vivant ?** Actu, outil, concurrent, mot de la semaine. Web public. X cheap : `get_trends_by_woeid` (monde `1`, US `23424977`), `search_news`, timeline courte. Archive / `search_posts_all` = cher → annoncer le coût, attendre ([README](../README.md) § API X).
+1. **Vivant ?** Actu, outil, concurrent, mot de la semaine. Les **candidats** partent du lexique, puis web public + `search_news` (X cheap). `get_trends_by_woeid` (monde `1`, US `23424977`) = **veto**, pas la liste du jour : si le mot est sport, culture war, DOGE, routine, on skip ce mot, même #1. Un sujet lexique peut être vivant **sans** être dans cette liste. Archive / `search_posts_all` = cher → annoncer le coût, attendre ([README](../README.md) § API X).
 2. **Adjacent ?** Les trois, sinon skip :
    - Le mot est dans le lexique (ou preuve qu’il y est collé).
    - Une phrase **Mode A** ou **Mode B** est vraie sans mentir.
@@ -45,7 +45,7 @@ Ordre : lexique d’abord, trend ensuite. Jamais l’inverse.
 
 Oui : news MCP / Claude → Mode B. Hype AI SDR → Mode A (*the VP Sales agent is the future*, pas *we are your AI SDR*). Gong / recorders → Mode A (*not a recorder*), **jamais** « we replace Gong ».
 
-Non : #1 mondial hors lexique. « AI took my job » sans fichier client. Un mème, puis 3xrep en dernière ligne.
+Non : #1 mondial hors lexique. MCP DeFi / crypto. « AI took my job » sans fichier client. Un mème, puis 3xrep en dernière ligne.
 
 ## 2. Un post ou un fil
 
