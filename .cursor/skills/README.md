@@ -10,6 +10,9 @@ Oui CoS 8 septembre 2026. Brouillons jusqu’au go. **Ne pas merger sans oui.** 
 | [`founder-x-growth`](founder-x-growth/SKILL.md) | Cadence, accroches, réponse vs post, preuve, lien doux. |
 | [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Réponses qui portent : ironie légère, éloge précis, **une** phrase 3xrep. |
 | [`x-language-radar`](x-language-radar/SKILL.md) | Langue du web / X autour de nos sujets → reco à Jon / CoS. **Pas** d’edit live. |
+| [`x-trending-posts`](x-trending-posts/SKILL.md) | 1 to 2 posts originaux / jour sur un trend **adjacent** au lexique. Fil 2 to 4 max, 1 fil / jour. Ouvre radar + voix + croissance. |
+
+`x-trending-posts` : compte `@Edd08x` (Ed., run 3xrep). Chaque original = **Mode A** ou **Mode B**. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`.
 
 Site / Google : skills `.agents` (`seo-geo`, visibilité). Ici : X seulement.
 

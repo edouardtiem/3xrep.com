@@ -2,10 +2,10 @@
 
 Gestes **produit** (site, visibilité, gaps, clôture). Corps ici.
 
-**X / croissance du compte marque :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
+**X / croissance du compte marque :** les craft skills sont sous [`.cursor/skills/`](../../.cursor/skills/README.md) — registre, cadence, réponses, radar de langue, posts tendance. Ne pas recopier les corps ici. Brouillons jusqu’au go. Pas Grok Build.
 
 | Ici | X (Cursor) |
 | --- | --- |
 | `seo-geo` · `ai-search-visibility` · `build-3xrep-prompt-list` | `elon-musk-voice` |
 | `scan-sales-gaps` · `decide-sales-gaps` | `founder-x-growth` |
-| `end` · `francais-simple` | `x-replies-that-hit` · `x-language-radar` |
+| `end` · `francais-simple` | `x-replies-that-hit` · `x-language-radar` · `x-trending-posts` |
