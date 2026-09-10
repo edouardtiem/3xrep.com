@@ -1,9 +1,9 @@
 ---
 name: elon-musk-voice
-description: Draft 3xrep X posts in a Musk-like register — short sentences, mission plus tech, punch. Founder account (@Edd08x, Ed., run 3xrep). Mode A (VP Sales agent is the future) or Mode B (intelligence layer on the CRM, inside Claude). I = founder (build, price, opinion); product named 3xrep — not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
+description: Draft 3xrep X posts in a Musk-like register. Short sentences, mission plus tech, punch. Founder account (@Edd08x, Ed., run 3xrep). Mode A (VP Sales agent is the future) or Mode B (intelligence layer on the CRM, inside Claude). I = founder (build, price, opinion); product named 3xrep, not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
 ---
 
-# Registre Musk — brouillons X fondateur
+# Registre Musk. Brouillons X fondateur
 
 Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
 
@@ -15,7 +15,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -49,7 +49,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 ## Anti-sosie (un oui = jeter)
 
-- Signature, photo, ou « — Elon ».
+- Signature, photo, ou le nom Elon en fin de post.
 - Je / we **comme si on était lui** (Tesla, SpaceX, xAI, « my companies »).
 - Imitation de tics personnels (lmao en rafale, « ! », memes doge) **sans** contenu 3xrep.
 - Politique, culture war, compte d’Elon cité comme autorité produit.
@@ -62,7 +62,7 @@ Le registre survit **sans son nom**. Si on enlève « Musk » du titre du skill,
 Anglais. 1 à 3 brouillons. **Pas postés.** Compte : `@Edd08x` / Ed. Pronoms : Je vs 3xrep.
 
 ```md
-# Drafts X — registre — YYYY-MM-DD
+# Drafts X. registre. YYYY-MM-DD
 
 Gates : compte X oui/non · org payante oui/non · go explicite oui/non
 Action : draft seulement / prêt à poster (les trois oui)
@@ -85,6 +85,7 @@ Lien doux : au plus **une** fois, après une preuve, jamais en ouverture. Prix s
 ## Interdit
 
 - Publier. Message privé. Follow / like auto.
+- Tiret long (—), tiret moyen (–), ou `--` comme ponctuation.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - « We replace Gong ». Pourcentage de signatures.
 - Appel X cher sans annoncer le coût ([README](../README.md) § API X).

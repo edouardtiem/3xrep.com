@@ -1,9 +1,9 @@
 ---
 name: founder-x-growth
-description: Founder patterns that grow the founder X account for 3xrep — cadence, Mode A or Mode B hooks, reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). Pipeline jargon is advanced, not default. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
+description: Founder patterns that grow the founder X account for 3xrep. Cadence, Mode A or Mode B hooks, reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). Pipeline jargon is advanced, not default. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
 ---
 
-# Croissance X — patterns fondateur, compte fondateur
+# Croissance X. Patterns fondateur, compte fondateur
 
 Comment le compte **fondateur** grandit vraiment : rythme, accroche, répondre plus que poster, preuve, lien doux. `@Edd08x`, Ed., bio **run 3xrep**. Pas un compte marque sans visage. Pas un ghostwriter qui « fait l’Elon ». **Je vs 3xrep**. Chaque post : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
 
@@ -15,11 +15,11 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
-## Gates — avant tout
+## Gates, avant tout
 
 Les **trois**, sinon draft seulement :
 
@@ -34,7 +34,7 @@ Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la
 | Levier | Règle |
 | --- | --- |
 | **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. |
-| **Cadence** | Tenable. 1 post original / jour **max** une fois le go. Mieux : 3–5 / semaine + réponses le jour même. Silence 10 jours puis rafale : interdit. |
+| **Cadence** | Tenable. 1 post original / jour **max** une fois le go. Mieux : 3 to 5 / semaine + réponses le jour même. Silence 10 jours puis rafale : interdit. |
 | **Accroche** | Les 8 premiers mots = Mode A (VP Sales agent / org / pas sièges) ou Mode B (couche sur le CRM, dans Claude). Pas « Unpopular opinion ». Pas stage / quote / fill the gap en ouverture. |
 | **Preuve** | Mode A : org, pas sièges, pas un cours, pas un enregistreur (*I built…*, *I price the org…*). Mode B : une URL MCP à côté du connecteur, pas un onglet. Pas « we’re live », pas « building in public » vide. |
 | **Lien doux** | `https://3xrep.com/install` **une** fois, **après** la preuve. Pas chaque post. Pas en première ligne. |
@@ -69,7 +69,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 ## Sortie
 
 ```md
-# X growth — YYYY-MM-DD
+# X growth. YYYY-MM-DD
 
 Compte : @Edd08x · Ed. · run 3xrep
 Gates : compte X · org payante · go → draft seulement | prêt
@@ -93,6 +93,7 @@ Pas de compte / pas de go / sujet hors produit / appel cher sans oui.
 ## Interdit
 
 - Poster, message privé auto, follow/like auto, fil auto.
+- Tiret long (—), tiret moyen (–), ou `--` comme ponctuation.
 - Compte marque anonyme à la place du visage fondateur.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Calendly, démo, per-seat, 99 €, pourcentage de signatures, « on remplace Gong ».

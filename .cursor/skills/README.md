@@ -1,4 +1,4 @@
-# Skills Cursor — X 3xrep
+# Skills Cursor. X 3xrep
 
 Craft du compte X. Corps ici, pas dans [`.agents/skills/`](../../.agents/skills/README.md).
 
@@ -46,9 +46,10 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 - **Je vs 3xrep.** I / me = le fondateur (construire, livrer, prix, décision, avis). Geste produit = **3xrep** ou un fait **sans pronom**. « He » sur un compte fondateur : mystérieux, à jeter. Pas de « I » sur chaque post.
   - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.*
   - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
-- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux. Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie) — même le fondateur ne le lit pas à froid.
-  - **Mode A — affirmation.** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.*
-  - **Mode B — où ça vit.** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
+- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux. Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie). Même le fondateur ne le lit pas à froid.
+  - **Mode A (affirmation).** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.*
+  - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
+- **Ponctuation X.** Point, virgule, ou phrases séparées. Pas de tiret long (—). Pas de tiret moyen (–). Pas de `--` comme ponctuation.
 - **Avancé, pas défaut.** *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.* / P2c : seulement si le fil parle déjà ce langage.
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
 - Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
@@ -68,6 +69,7 @@ Lire `get_usage_credits` avant une série d’appels. Crédits = argent.
 ## Interdit (tous)
 
 - Deepfake / cosplay d’Elon la personne.
+- Tiret long (—), tiret moyen (–), ou `--` comme ponctuation dans la copy X ou les exemples. Point, virgule, phrases séparées.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Auto-DM. Calendly. Démo.
 - « On remplace Gong ». Promettre un pourcentage de signatures.
