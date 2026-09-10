@@ -8,7 +8,7 @@ Oui CoS 8 septembre 2026. Brouillons jusqu’au go. **Ne pas merger sans oui.** 
 | --- | --- |
 | [`elon-musk-voice`](elon-musk-voice/SKILL.md) | Registre : phrases courtes, mission + technique, punch. Pas un sosie d’Elon. |
 | [`founder-x-growth`](founder-x-growth/SKILL.md) | Cadence, accroches, réponse vs post, preuve, lien doux. |
-| [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Réponses qui portent : ironie légère, éloge précis, **une** phrase 3xrep. |
+| [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Réponses qui portent. Idée Mode A ou B. Nommer 3xrep environ 1 fois sur 4 ou 5. |
 | [`x-language-radar`](x-language-radar/SKILL.md) | Langue du web / X autour de nos sujets → reco à Jon / CoS. **Pas** d’edit live. |
 
 Site / Google : skills `.agents` (`seo-geo`, visibilité). Ici : X seulement.
@@ -46,13 +46,14 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 - **Je vs 3xrep.** I / me = le fondateur (construire, livrer, prix, décision, avis). Geste produit = **3xrep** ou un fait **sans pronom**. « He » sur un compte fondateur : mystérieux, à jeter. Pas de « I » sur chaque post.
   - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.*
   - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
-- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux. Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie). Même le fondateur ne le lit pas à froid.
-  - **Mode A (affirmation).** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.*
-  - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
+- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux (l’idée). Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie). Même le fondateur ne le lit pas à froid.
+  - **Mode A (affirmation).** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. Post : *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.* Réponse sans nom : *The VP Sales agent is the future. Not seats. Not a course. Not a recorder.*
+  - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. Post : *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.* Réponse sans nom : *An intelligence layer on top of your whole CRM. Inside the Claude agent you already use.*
+- **Réponses.** Environ **1 sur 4 ou 5** nomme 3xrep (20 to 25 %). Les autres : un avis utile (idée Mode A ou B) **sans** 3xrep, **sans** « I built », **sans** lien install. Quand la case 20 to 25 % part : **une** phrase org légère max (3xrep / I built…). Lien install seulement si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Préférer les fils à grande portée. Pas le même texte collé sous plusieurs parents.
 - **Ponctuation X.** Point, virgule, ou phrases séparées. Pas de tiret long (—). Pas de tiret moyen (–). Pas de `--` comme ponctuation.
 - **Avancé, pas défaut.** *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.* / P2c : seulement si le fil parle déjà ce langage.
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
-- Lien doux, une fois : `https://3xrep.com/install`. Pas un argumentaire.
+- Lien doux (posts) : `https://3xrep.com/install` une fois, après une preuve. Réponses : seulement si le parent a demandé un outil.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.
 - Copy X : **anglais**. Comme le site.
 

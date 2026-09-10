@@ -33,7 +33,7 @@ Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la
 
 | Levier | Règle |
 | --- | --- |
-| **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. |
+| **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. **3xrep dans ~1 réponse sur 4 ou 5.** Les autres : avis utile, sans nom produit. Préférer les fils à grande portée. Pas le même texte collé. |
 | **Cadence** | Tenable. 1 post original / jour **max** une fois le go. Mieux : 3 to 5 / semaine + réponses le jour même. Silence 10 jours puis rafale : interdit. |
 | **Accroche** | Les 8 premiers mots = Mode A (VP Sales agent / org / pas sièges) ou Mode B (couche sur le CRM, dans Claude). Pas « Unpopular opinion ». Pas stage / quote / fill the gap en ouverture. |
 | **Preuve** | Mode A : org, pas sièges, pas un cours, pas un enregistreur (*I built…*, *I price the org…*). Mode B : une URL MCP à côté du connecteur, pas un onglet. Pas « we’re live », pas « building in public » vide. |
@@ -63,7 +63,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 1. **État.** Zéro post / quelques posts / déjà une voix. Une ligne.
 2. **Mix de la semaine.** Nombre de posts originaux + nombre de réponses. Noms de fils où répondre (produit, pas culture war).
 3. **Chaque post prévu :** mode (A/B) · accroche (8 mots) · preuve (oui/non, laquelle) · lien doux (oui/non). Si ni Mode A ni Mode B : tuer le post.
-4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses). **Je vs 3xrep**. Geste produit → **3xrep**. Jargon pipe seulement si le fil est déjà dedans.
+4. **Rédiger** via `elon-musk-voice` (posts) et `x-replies-that-hit` (réponses). Posts : Mode A ou B, 3xrep si ça sert. Réponses : voir le rythme 1 sur 4 ou 5. Pas une phrase org sous chaque parent.
 5. **Calendrier** en anglais, dates, **statut draft** tant que les gates ne sont pas verts.
 
 ## Sortie
@@ -83,7 +83,7 @@ API X : pas d’appel / lectures cheap / appel cher annoncé (oui/non)
 
 ## Drafts
 
-(posts + réponses, anglais, Mode A ou B, Je vs 3xrep)
+(posts + réponses, anglais. Réponses : ~1 sur 4 ou 5 nomme 3xrep. Pas le même texte collé.)
 
 ## Pas fait
 
@@ -98,4 +98,5 @@ Pas de compte / pas de go / sujet hors produit / appel cher sans oui.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Calendly, démo, per-seat, 99 €, pourcentage de signatures, « on remplace Gong ».
 - Usine de 30 posts « pour remplir ».
+- Phrase org 3xrep sous chaque réponse. Coller le même texte partout.
 - Éditer le site. Mots du marché → `x-language-radar`.

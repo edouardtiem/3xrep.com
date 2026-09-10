@@ -7,7 +7,9 @@ description: Draft 3xrep X posts in a Musk-like register. Short sentences, missi
 
 Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
 
-Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque post : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
+Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque **post** : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
+
+Réponses : skill `x-replies-that-hit`. Pas une phrase org sous chaque parent (~1 sur 4 ou 5).
 
 ## Règles partagées
 
