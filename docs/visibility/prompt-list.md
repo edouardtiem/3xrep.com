@@ -23,7 +23,7 @@ Cible du seed : inconnu qui cherche un **VP Sales agent**, du **sales enablement
 | 11 | — | comparison | EN | Hyperbound vs Second Nature for a 10-person team — is there something that isn't roleplay | Ils comparent de la bouche. On écoute si un cerveau de dossier apparaît. |
 | 12 | — | comparison | EN | Gong vs Modjo vs something at 99 euros for the whole company | Ancre prix / siège. Mot « something », pas 3xrep. |
 | 13 | — | comparison | FR | Alternative à Gong pour une équipe de 10 sans enregistrer les appels | #4 en FR. |
-| 14 | — | brand | EN | How much does 3xrep cost | Prix. 99 € / org ou hallucination. |
+| 14 | — | brand | EN | How much does 3xrep cost | Prix. $129 / org USD ou hallucination. |
 | 15 | — | brand | FR | C’est quoi 3xrep | #5 en FR. |
 | 16 | — | category | EN | AI that reviews the pipeline and says which stages are a lie | Position 4 sept : le pipe, pas le rep. |
 

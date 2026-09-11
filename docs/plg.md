@@ -2,9 +2,7 @@
 
 **Pas figé.** 4 septembre 2026. Édouard : pas de ligne gratuit / payant dans le code. Tous les tools sont ouverts. Pas de Bearer, pas d’essai, pas de quota. On apprend d’abord s’ils l’utilisent, beaucoup, comment monétiser, si c’est le bon produit.
 
-Le 99 € / org est **encaissable** ([checkout.md](checkout.md), `/install` → Stripe → `/merci`). Palier sept : 1 org payante. Ce n’est pas un gate : celui qui paie paie pour l’org, pas pour débloquer un tool.
-
-Prochaine ancre, **pas live** : **$129 / month / organization**, US first. [roadmap.md](roadmap.md) item 3. Le checkout reste 99 € EUR tant que ça n’est pas ouvert.
+Le **$129 / month / organization** (USD) est **encaissable** ([checkout.md](checkout.md), `/install` → Stripe → `/merci`). Palier sept : 1 org payante. Ce n’est pas un gate : celui qui paie paie pour l’org, pas pour débloquer un tool. Live depuis l’item 3 ([roadmap.md](roadmap.md)).
 
 ## Où la ligne se dessinera — quand on la tracera
 

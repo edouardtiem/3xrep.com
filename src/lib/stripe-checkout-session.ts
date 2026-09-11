@@ -5,6 +5,20 @@ import { stripePriceId } from "@/lib/stripe-env";
 
 /** Anchor price (USD). Checkout may show local currency via Adaptive Pricing. */
 export const LIST_PRICE_USD = 129;
+export const LIST_PRICE_CENTS = LIST_PRICE_USD * 100;
+
+/** The Price behind STRIPE_PRICE_ID must be this — never display $129 and charge 99 €. */
+export function isAnchorPrice(price: {
+  currency: string | null;
+  unit_amount: number | null;
+  recurring?: { interval: string } | null;
+}): boolean {
+  return (
+    price.currency === "usd" &&
+    price.unit_amount === LIST_PRICE_CENTS &&
+    price.recurring?.interval === "month"
+  );
+}
 
 const STRIPE_LOCALES = new Set<Stripe.Checkout.SessionCreateParams.Locale>([
   "auto",

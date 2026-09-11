@@ -12,7 +12,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | --- | --- |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
-| [checkout.md](checkout.md) | 99 € / org : secrets Vercel / Stripe, webhook, recette |
+| [checkout.md](checkout.md) | 129 $ / org USD : secrets Vercel / Stripe, webhook, recette |
 | [landing.md](landing.md) | Home Session : maquette live, mur 3 audits |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
@@ -26,7 +26,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
-| [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 99 € encaissable, où la ligne se dessinera (le pipe, la mémoire) |
+| [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 129 $ encaissable, où la ligne se dessinera (le pipe, la mémoire) |
 | [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, data lock-in |
 | [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures réelles, toutes les langues, $129 / org US first |
 | [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
