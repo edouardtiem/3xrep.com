@@ -55,4 +55,4 @@ L’agent geo externe, s’il est une **autre** automation : il n’écrit **que
 
 ## Hors scope
 
-Acheter un clic. Campagne Ads. Pages ville. Locale française. Usine pSEO. Second git. Changer le 99 €. Nommer le builder.
+Acheter un clic. Campagne Ads. Pages ville. Locale française. Usine pSEO. Second git. Changer le $129 live. Nommer le builder.

@@ -47,7 +47,7 @@ Lire, court :
 - [`docs/landing.md`](../../../docs/landing.md) — le hero doit rester vrai
 - [`docs/visibility/prompt-list.md`](../../../docs/visibility/prompt-list.md) — mots d’acheteur, pas à recaser en pitch
 
-Relire le cerveau seulement pour **ne pas mentir** (on n’enregistre pas, on n’écrit pas dans leur fichier client, 99 € tant que le 129 dollars n’est pas shippé).
+Relire le cerveau seulement pour **ne pas mentir** (on n’enregistre pas, on n’écrit pas dans leur fichier client, **$129 / org / mois**).
 
 ## Étapes
 
@@ -83,7 +83,7 @@ Le hero : seulement si une requête perd clairement parce que le H1 ne dit pas l
 - Acheter un clic, créer une campagne, monter un budget.
 - Inventer une citation, un volume, un rang.
 - Nommer Édouard, Uptoo, OC comme builder, preuve, ou réseau.
-- Changer 99 € en 129 dollars. Le checkout live ne bouge pas ici.
+- Changer le $129 live. Le checkout ne bouge pas ici.
 - Promettre un pourcentage de signatures.
 - Usine de pages. Plus d’une URL neuve par tour.
 - Second git « SEO ». `docs/loops/`. `_SIGNAL-BUS.md`. `_HUMAN-TODO.md`.

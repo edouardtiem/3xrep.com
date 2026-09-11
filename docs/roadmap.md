@@ -4,7 +4,7 @@
 
 Gagne sur [terrain/roadmap.md](terrain/roadmap.md) (archive jeu, 30–31 août). Le PRD tenait l’ordre *MCP → listing → page → pSEO*. Ici : ce qu’on ouvre **maintenant**. Ne pas implémenter le reste.
 
-Live aujourd’hui : 99 € / org, `/docs` en anglais, tools ouverts. Rien de ce fichier n’est shippé.
+Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, tools ouverts. Item 3 (prix) **shippé** le 11 sept 2026. Items 1–2 encore ouverts.
 
 ## Ouvert — dans cet ordre
 
@@ -51,13 +51,7 @@ Détection : `Accept-Language` + préfixe (`/fr/docs`, `/de/docs`…). EN sans p
 
 US first. L’ancre 99 € était Modjo (siège FR). On vise les US : **$129 / month / organization**. Toujours une org, jamais un siège.
 
-Live **tant que cet item n’est pas shippé** : 99 € (hero, `/install`, Stripe EUR, [checkout.md](checkout.md)). On ne change pas le checkout en silence.
-
-Quand on ouvre :
-
-- Price Stripe **USD**, recurring monthly, $129. Nouveau `price_…` → `STRIPE_PRICE_ID`. Pas deux paliers sur le même product. Action humaine sur le Stripe **3xrep**.
-- Copy : `$129/month. For the entire organization.` Ancre Gong (~$1,500 / seat) tient, mieux en dollar.
-- Palier sept (1 org payante) tient. Le montant change, pas le kill.
+**Shippé** 11 sept 2026 (Édouard : remplacer tous les 99 € du site par 129 $). Hero, `/install`, Stripe USD, [checkout.md](checkout.md). Copy : `$129/month. For the entire organization.` Ancre Gong (~$1,500 / seat). Palier sept (1 org payante) tient. Le montant a changé, pas le kill.
 
 199 € = territoire démo ([prd.md](prd.md) §12). $129 reste self-serve. Per-seat interdit. On ne monte pas pour soigner l’affiliation.
 
@@ -87,4 +81,4 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Changer le 99 € live avant l’item 3. Rouvrir le jeu / l’usine de cas.
+Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas.

@@ -51,7 +51,7 @@ Promesses marketing (à ne pas copier) :
 - Box : 75–80 % du travail commercial dans Slack ; 76 % alignment, 75 % visibilité, 30 % accès au contexte plus vite.
 - Salesforce en interne : 130 000 leads contactés, 3 200 opportunités en 4 mois.
 
-Prix (page Slack, capture 6 sept) : add-on **125 $ / siège / mois** (Enterprise / Unlimited) **ou** Edition Agentforce 1 Sales **550 $ / siège / mois** (agents + Data 360 + Slack + Tableau). Aussi un modèle crédits. Per-seat. L’ancre inverse de nous (99 € / org, pas de siège).
+Prix (page Slack, capture 6 sept) : add-on **125 $ / siège / mois** (Enterprise / Unlimited) **ou** Edition Agentforce 1 Sales **550 $ / siège / mois** (agents + Data 360 + Slack + Tableau). Aussi un modèle crédits. Per-seat. L’ancre inverse de nous ($129 / org, pas de siège).
 
 Différenciateur qu’ils clament : seuls à unir fichier client + Agentforce + Slack ; sync auto ; permissions Salesforce qui suivent dans Slack.
 
@@ -137,7 +137,7 @@ On ne prend pas :
 - Les heures rendues, le *25 hours*, le *more deals*.
 - La requête « meilleur agent d’outbound » — elle veut une bouche. « Préparer un rendez-vous » et « la liste ment » : oui, la réponse reste le VP.
 
-Ancre prix utile : eux vendent **125 $ / siège** (Salesforce) pour écrire et synchroniser. Nous : 99 € / organisation pour dire que l’étape ment. Ne pas ouvrir une guerre de sièges. L’écart se dit : pas de siège, pas d’enregistrement, pas de stylo dans leur fichier.
+Ancre prix utile : eux vendent **125 $ / siège** (Salesforce) pour écrire et synchroniser. Nous : $129 / organisation pour dire que l’étape ment. Ne pas ouvrir une guerre de sièges. L’écart se dit : pas de siège, pas d’enregistrement, pas de stylo dans leur fichier.
 
 ## 5. Quand on rouvre
 

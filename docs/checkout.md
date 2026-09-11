@@ -2,7 +2,7 @@
 
 Marché US first — prix catalogue **$129 USD / mois / org**. Stripe Checkout : **langue** du navigateur (`Accept-Language` → locale Stripe) et **devise locale** quand [Adaptive Pricing](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing) est activé sur le compte. Palier septembre : **1 org payante à $129 avant le 30 sept.**
 
-Prochaine ancre, **pas live** : $129 USD / mois / org ([roadmap.md](roadmap.md) item 3). Tant que ça n’est pas ouvert : Price **99,00 EUR** ci-dessous. Ne pas créer le Price USD ici.
+Live (11 sept 2026, Édouard) : Price **129,00 USD** recurring monthly. Plus de 99 € sur le site ni au checkout.
 
 Chemin commercial (2 min) : page [`/install`](/install) — brancher l’agent, **puis** payer. Home : bouton secondaire *Already in?*. Success : `/merci`. Webhook : org `active` + clé.
 

@@ -1,5 +1,9 @@
-import { checkoutSessionParams } from "@/lib/stripe-checkout-session";
-import { missingCheckoutSecrets, stripeClient } from "@/lib/stripe-env";
+import {
+  checkoutSessionParams,
+  isAnchorPrice,
+  LIST_PRICE_USD,
+} from "@/lib/stripe-checkout-session";
+import { missingCheckoutSecrets, stripeClient, stripePriceId } from "@/lib/stripe-env";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +26,14 @@ export async function POST(req: Request) {
 
   try {
     const stripe = stripeClient();
+    const price = await stripe.prices.retrieve(stripePriceId()!);
+    if (!isAnchorPrice(price)) {
+      return html(
+        502,
+        "Stripe",
+        `STRIPE_PRICE_ID n’est pas <code>$${LIST_PRICE_USD} USD / mois</code> (reçu ${price.unit_amount ?? "?"} ${price.currency}). Poser le Price 129,00 USD recurring monthly — pas 99 EUR.`,
+      );
+    }
     const session = await stripe.checkout.sessions.create(checkoutSessionParams(req));
     if (!session.url) {
       return html(502, "Stripe", "Checkout sans URL — la session Stripe n’a pas renvoyé de lien.");
