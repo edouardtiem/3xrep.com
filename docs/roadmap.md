@@ -79,6 +79,39 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 **Portes** ([portes.md](portes.md)) — direction 6 sept, pas ouvert : nommer les visages (avant d’écrire, avant le rdv, lundi), dire Slack, ne pas construire Slack. Pas un item live.
 
+### 5. Pan croissance — leurs utilisateurs (pas nous)
+
+**Direction. Pas ship.** 12 septembre 2026. Édouard : un pan **produit**. Le commercial (ou l’équipe) qui se sert de 3xrep. Guider **leurs** utilisateurs à prendre des rendez-vous.
+
+**Ce n’est pas** la croissance de 3xrep : pas notre acquisition, pas notre LinkedIn, pas notre siphon, pas notre prospection à nous.
+
+À venir, pour eux :
+
+- Préparer la prospection téléphonique
+- Créer des listes
+- Enrichir : lignes directrices et outils, puis comment installer
+- Potentiellement plusieurs canaux : email, téléphone, LinkedIn, WhatsApp, messages vocaux
+- Rédiger des emails
+- Guider vers le rendez-vous
+
+Pas live. Ne pas coder. Ne pas ouvrir comme les items 1–4.
+
+**Tension — on ne la cache pas.** Le cerveau juge des preuves, pas des formes ([cerveau.md](cerveau.md)). On n’entre pas dans les appels. On n’écrit pas dans leur fichier client ([decisions.md](decisions.md)).
+
+Ce pan frotte ça :
+
+| Ils demandent | Déjà interdit / déjà dit |
+| --- | --- |
+| Rédiger des emails, des séquences | Geste `prospection` : souvent **n’écris pas** ([gestes.md](gestes.md)). [portes.md](portes.md) : « on écrit le mail » on ne prend pas. Une séquence poussée dans HubSpot = écrire dans leur fichier. Leur LLM peut habiller **après** le verdict — ce n’est pas le produit. |
+| Guider vers le rendez-vous | Guider (juger si le rdv est mérité, quelle pièce tester) ≠ booker. « On te booke » : non. `inbound` refuse déjà de booker la démo demandée. |
+| Enrichir (outils + installer) | [acces.md](acces.md) : on ne devient pas Apollo / Clay. Lignes directrices + **leurs** outils, oui. Un hub d’enrichissement à nous, non. Une fiche enrichie n’est pas une preuve. |
+| Plusieurs canaux | [gestes.md](gestes.md) : un geste `prospection`, pas quatre. LinkedIn / mail / tel / WhatsApp / vocal n’existent pas pour nous. Le canal est le leur. |
+| Prospection téléphone | On prépare (raison, cran 1). On n’entre pas dans l’appel. Pas de bot. |
+
+La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième cerveau. C’est le même jugement, plus tôt — listes, canaux, rdv — **sans** devenir la bouche ni le stylo.
+
+Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs guider, enrichir chez eux vs chez nous). Pas avant.
+
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas.
+Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Confondre ce pan avec notre acquisition.
