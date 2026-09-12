@@ -16,11 +16,19 @@ export function runWithMcpRequest<T>(req: Request, fn: () => T): T {
   return logStore.run({ req }, fn);
 }
 
-function admin(): SupabaseClient | null {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+/** Documented names first, then Supabase dashboard aliases. Without either pair the brain still answers. */
+export function supabaseEnv(): { url: string; key: string } | null {
+  const url = process.env.SUPABASE_URL?.trim() || process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() || "";
+  const key =
+    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() || process.env.SUPABASE_SECRET_KEY?.trim() || "";
   if (!url || !key) return null;
-  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  return { url, key };
+}
+
+function admin(): SupabaseClient | null {
+  const env = supabaseEnv();
+  if (!env) return null;
+  return createClient(env.url, env.key, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
 export function capJson(value: unknown): unknown {
@@ -126,7 +134,7 @@ export function withMcpLog<Args extends Record<string, unknown>, R>(
     const t0 = Date.now();
     try {
       const result = await run(args);
-      void logCall({
+      await logCall({
         tool,
         ok: true,
         input: args,
@@ -135,7 +143,7 @@ export function withMcpLog<Args extends Record<string, unknown>, R>(
       });
       return result;
     } catch (err) {
-      void logCall({
+      await logCall({
         tool,
         ok: false,
         input: args,
