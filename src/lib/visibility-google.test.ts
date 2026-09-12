@@ -21,6 +21,7 @@ const accountJson = JSON.stringify({
 
 const KEYS = [
   "GOOGLE_SERVICE_ACCOUNT_JSON",
+  "GA4_SERVICE_ACCOUNT_JSON",
   "GOOGLE_APPLICATION_CREDENTIALS",
   "GSC_SITE_URL",
   "GA4_PROPERTY_ID",
@@ -39,10 +40,7 @@ test("config : sans clé, liste ce qui manque", () => {
   const got = readGoogleVisibilityConfig();
   assert.equal(got.ok, false);
   if (!got.ok) {
-    assert.deepEqual(got.missing, [
-      "GOOGLE_SERVICE_ACCOUNT_JSON",
-      "GA4_PROPERTY_ID",
-    ]);
+    assert.deepEqual(got.missing, ["GOOGLE_SERVICE_ACCOUNT_JSON"]);
   }
 });
 
@@ -55,6 +53,21 @@ test("config : clé + propriété Analytics, site Search Console par défaut", (
   if (got.ok) {
     assert.equal(got.config.gscSiteUrl, GSC_SITE_DEFAULT);
     assert.equal(got.config.ga4PropertyId, "123456789");
+    assert.equal(
+      got.config.serviceAccount.client_email,
+      "loop@3xrep.iam.gserviceaccount.com",
+    );
+  }
+});
+
+test("config : GA4_SERVICE_ACCOUNT_JSON suffit, propriété découvrable plus tard", () => {
+  delete process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  process.env.GA4_SERVICE_ACCOUNT_JSON = accountJson;
+  delete process.env.GA4_PROPERTY_ID;
+  const got = readGoogleVisibilityConfig();
+  assert.equal(got.ok, true);
+  if (got.ok) {
+    assert.equal(got.config.ga4PropertyId, null);
     assert.equal(
       got.config.serviceAccount.client_email,
       "loop@3xrep.iam.gserviceaccount.com",
@@ -111,6 +124,51 @@ test("format : tables Search Console et Analytics", () => {
   assert.match(md, /\|\s*\/\s*\|\s*7\s*\|\s*4\s*\|/);
 });
 
+test("pull : un compte sans 3xrep.com n’exporte pas l’autre site", async () => {
+  const fetchFn: typeof fetch = async (input) => {
+    const url = String(input);
+    if (url.includes("oauth2.googleapis.com/token")) {
+      return Response.json({ access_token: "tok" });
+    }
+    if (url.includes("/webmasters/v3/sites") && !url.includes("searchAnalytics")) {
+      return Response.json({
+        siteEntry: [{ siteUrl: "https://www.example-other.com/" }],
+      });
+    }
+    if (url.includes("analyticsadmin.googleapis.com")) {
+      return Response.json({
+        accountSummaries: [
+          {
+            displayName: "autre",
+            propertySummaries: [
+              { property: "properties/111", displayName: "autre web" },
+            ],
+          },
+        ],
+      });
+    }
+    return Response.json({ error: "should not query foreign property" }, { status: 500 });
+  };
+
+  const pull = await pullGoogleVisibility(
+    {
+      serviceAccount: {
+        client_email: "loop@3xrep.iam.gserviceaccount.com",
+        private_key: pem,
+      },
+      gscSiteUrl: GSC_SITE_DEFAULT,
+      ga4PropertyId: null,
+    },
+    fetchFn,
+    new Date("2026-09-08T12:00:00Z"),
+  );
+
+  assert.equal(pull.gsc.current.length, 0);
+  assert.equal(pull.ga4.current.length, 0);
+  assert.match(pull.gsc.error ?? "", /3xrep\.com/);
+  assert.match(pull.ga4.error ?? "", /introuvable/);
+});
+
 test("pull : appelle Search Console et Analytics, pas d’invention si une API casse", async () => {
   const calls: string[] = [];
   const fetchFn: typeof fetch = async (input, init) => {
@@ -118,6 +176,23 @@ test("pull : appelle Search Console et Analytics, pas d’invention si une API c
     calls.push(`${init?.method ?? "GET"} ${url}`);
     if (url.includes("oauth2.googleapis.com/token")) {
       return Response.json({ access_token: "tok" });
+    }
+    if (url.includes("/webmasters/v3/sites") && !url.includes("searchAnalytics")) {
+      return Response.json({
+        siteEntry: [{ siteUrl: "https://3xrep.com/" }],
+      });
+    }
+    if (url.includes("analyticsadmin.googleapis.com")) {
+      return Response.json({
+        accountSummaries: [
+          {
+            displayName: "3xrep",
+            propertySummaries: [
+              { property: "properties/999", displayName: "3xrep web" },
+            ],
+          },
+        ],
+      });
     }
     if (url.includes("searchAnalytics/query")) {
       return Response.json({

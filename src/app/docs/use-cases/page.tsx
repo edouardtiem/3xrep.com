@@ -6,9 +6,9 @@ import { breadcrumbJsonLd, pageMeta } from "@/lib/docs";
 import { PROMPTS } from "@/lib/landing";
 
 export const metadata = pageMeta({
-  title: "Use cases",
+  title: "CRM says negotiation. Nobody can sign.",
   description:
-    "VP Sales agent use cases: Monday pipeline review, call debrief, follow-up after a meeting, notes and email back into HubSpot or Salesforce via your CRM MCP and agent routines.",
+    "Our CRM says the deal is in negotiation but nobody on their side can sign. Monday pipe review with a VP Sales agent that reads the calls behind the fields.",
   path: "/docs/use-cases",
 });
 

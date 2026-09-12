@@ -48,7 +48,9 @@ type FetchFn = typeof fetch;
 export function serviceAccountFromEnv(
   env: NodeJS.ProcessEnv = process.env,
 ): ServiceAccount | null {
-  const raw = env.GOOGLE_SERVICE_ACCOUNT_JSON?.trim();
+  const raw = (
+    env.GOOGLE_SERVICE_ACCOUNT_JSON || env.GA4_SERVICE_ACCOUNT_JSON
+  )?.trim();
   if (raw) return parseServiceAccountJson(raw);
   const path = env.GOOGLE_APPLICATION_CREDENTIALS?.trim();
   if (!path) return null;
@@ -87,16 +89,17 @@ export function readGoogleVisibilityConfig(
   | { ok: false; missing: string[] } {
   const missing: string[] = [];
   const serviceAccount = serviceAccountFromEnv(env);
-  if (!serviceAccount) missing.push("GOOGLE_SERVICE_ACCOUNT_JSON");
+  if (!serviceAccount) {
+    missing.push("GOOGLE_SERVICE_ACCOUNT_JSON");
+  }
 
   const gscSiteUrl = (env.GSC_SITE_URL?.trim() || GSC_SITE_DEFAULT).replace(
     /\/?$/,
     "/",
   );
   const ga4PropertyId = env.GA4_PROPERTY_ID?.trim() || null;
-  if (!ga4PropertyId) missing.push("GA4_PROPERTY_ID");
 
-  if (missing.length || !serviceAccount) {
+  if (!serviceAccount) {
     return { ok: false, missing };
   }
   return { ok: true, config: { serviceAccount, gscSiteUrl, ga4PropertyId } };
@@ -164,6 +167,88 @@ async function googleAccessToken(
     throw new Error(body.error || `token ${res.status}`);
   }
   return body.access_token;
+}
+
+function pickGa4PropertyId(body: unknown): string | null {
+  const summaries = (body as {
+    accountSummaries?: {
+      displayName?: string;
+      propertySummaries?: { property?: string; displayName?: string }[];
+    }[];
+  }).accountSummaries;
+  if (!Array.isArray(summaries)) return null;
+  const props = summaries.flatMap((a) =>
+    (a.propertySummaries ?? []).map((p) => ({
+      id: (p.property ?? "").replace(/^properties\//, ""),
+      name: `${a.displayName ?? ""} ${p.displayName ?? ""}`.toLowerCase(),
+    })),
+  );
+  const numbered = props.filter((p) => /^\d+$/.test(p.id));
+  const named = numbered.find((p) => p.name.includes("3xrep"));
+  return named?.id ?? null;
+}
+
+function pickGscSiteUrl(body: unknown, preferred: string): string | null {
+  const entries = (body as { siteEntry?: { siteUrl?: string }[] }).siteEntry;
+  if (!Array.isArray(entries) || entries.length === 0) return null;
+  const urls = entries.map((e) => e.siteUrl ?? "").filter(Boolean);
+  const want = [
+    preferred,
+    preferred.replace(/\/$/, ""),
+    "https://www.3xrep.com/",
+    "https://3xrep.com/",
+    "sc-domain:3xrep.com",
+  ];
+  for (const w of want) {
+    const hit = urls.find((u) => u === w || u === `${w}/`);
+    if (hit) return hit.endsWith("/") || hit.startsWith("sc-domain:") ? hit : `${hit}/`;
+  }
+  const three = urls.find((u) => /3xrep\.com/i.test(u));
+  if (!three) return null;
+  return three.endsWith("/") || three.startsWith("sc-domain:") ? three : `${three}/`;
+}
+
+export async function discoverGoogleSites(
+  token: string,
+  preferredGsc: string,
+  fetchFn: FetchFn,
+): Promise<{ gscSiteUrl: string | null; ga4PropertyId: string | null; error: string | null }> {
+  let gscSiteUrl: string | null = null;
+  let ga4PropertyId: string | null = null;
+  let error: string | null = null;
+  try {
+    const gscRes = await fetchFn(
+      "https://searchconsole.googleapis.com/webmasters/v3/sites",
+      { headers: { authorization: `Bearer ${token}` } },
+    );
+    const gscBody: unknown = await gscRes.json();
+    if (!gscRes.ok) {
+      const err = gscBody as { error?: { message?: string } };
+      error = err.error?.message || `search console sites ${gscRes.status}`;
+    } else {
+      gscSiteUrl = pickGscSiteUrl(gscBody, preferredGsc);
+    }
+  } catch (e) {
+    error = e instanceof Error ? e.message : "search console sites";
+  }
+  try {
+    const gaRes = await fetchFn(
+      "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
+      { headers: { authorization: `Bearer ${token}` } },
+    );
+    const gaBody: unknown = await gaRes.json();
+    if (!gaRes.ok) {
+      const err = gaBody as { error?: { message?: string } };
+      const msg = err.error?.message || `analytics admin ${gaRes.status}`;
+      error = error ? `${error} · ${msg}` : msg;
+    } else {
+      ga4PropertyId = pickGa4PropertyId(gaBody);
+    }
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : "analytics admin";
+    error = error ? `${error} · ${msg}` : msg;
+  }
+  return { gscSiteUrl, ga4PropertyId, error };
 }
 
 function num(v: unknown): number {
@@ -287,26 +372,38 @@ export async function pullGoogleVisibility(
   const gsc = { current: [] as GscRow[], previous: [] as GscRow[], error: null as string | null };
   const ga4 = { current: [] as Ga4Row[], previous: [] as Ga4Row[], error: null as string | null };
 
-  try {
-    gsc.current = await gscQuery(token, config.gscSiteUrl, window.current, fetchFn);
-    gsc.previous = await gscQuery(token, config.gscSiteUrl, window.previous, fetchFn);
-  } catch (e) {
-    gsc.error = e instanceof Error ? e.message : "search console";
+  const found = await discoverGoogleSites(token, config.gscSiteUrl, fetchFn);
+  const gscSiteUrl = found.gscSiteUrl;
+  const ga4PropertyId = config.ga4PropertyId ?? found.ga4PropertyId;
+
+  if (!gscSiteUrl) {
+    gsc.error =
+      found.error ??
+      "aucune propriété 3xrep.com sur ce compte Google — autre site, chiffres ignorés";
+  } else {
+    try {
+      gsc.current = await gscQuery(token, gscSiteUrl, window.current, fetchFn);
+      gsc.previous = await gscQuery(token, gscSiteUrl, window.previous, fetchFn);
+    } catch (e) {
+      gsc.error = e instanceof Error ? e.message : "search console";
+    }
   }
 
-  if (!config.ga4PropertyId) {
-    ga4.error = "GA4_PROPERTY_ID manquant";
+  if (!ga4PropertyId) {
+    ga4.error = found.error
+      ? `propriété Analytics introuvable (${found.error})`
+      : "propriété Analytics introuvable — pose GA4_PROPERTY_ID";
   } else {
     try {
       ga4.current = await ga4Report(
         token,
-        config.ga4PropertyId,
+        ga4PropertyId,
         window.current,
         fetchFn,
       );
       ga4.previous = await ga4Report(
         token,
-        config.ga4PropertyId,
+        ga4PropertyId,
         window.previous,
         fetchFn,
       );
