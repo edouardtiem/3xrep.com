@@ -37,6 +37,11 @@ const TOC = [
       "Monday pipe. Call debrief. Follow-up that writes back to the CRM. Agent routines.",
   },
   {
+    href: "/docs/gong-alternative",
+    title: "Gong alternative",
+    blurb: `Gong records. 3xrep does not join the call. Same VP, $${LIST_PRICE_USD} / org.`,
+  },
+  {
     href: "/docs/methods",
     title: "Methods",
     blurb:

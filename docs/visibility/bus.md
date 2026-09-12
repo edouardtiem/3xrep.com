@@ -29,6 +29,26 @@ Rien pour l’instant. L’agent geo ajoute **au-dessus** de cette phrase, jamai
 
 ## Traité
 
+### 2026-09-12 — seo-geo (web public)
+- query: Alternatives to Gong that don't record calls
+- surface: web
+- rung: absent
+- phrase exacte: No bot in the call
+- url: https://www.claap.io/claap-vs-gong
+- levier: les deux
+- fix suggéré: une URL anglaise dont le H1 dit Gong alternative that doesn't record
+- posé le 2026-09-12 : https://www.3xrep.com/docs/gong-alternative
+
+### 2026-09-12 — seo-geo (web public)
+- query: Our CRM says the deal is in negotiation but nobody on their side can sign
+- surface: web
+- rung: absent
+- phrase exacte: The CRM's next-step field says "follow up"
+- url: https://dealcollab.io/blog/why-deals-stall
+- levier: clics
+- fix suggéré: titre / description `/docs/use-cases` avec les mots de la requête
+- posé le 2026-09-12 : https://www.3xrep.com/docs/use-cases
+
 ### 2026-09-08 — seo-geo (web public)
 - query: What is 3xrep
 - surface: web (DuckDuckGo, Bing, TrainHeroic)

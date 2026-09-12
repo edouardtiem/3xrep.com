@@ -37,7 +37,7 @@ Sans les secrets, `npm run visibility-google` sort `pas branché`. La boucle con
 
 | Nom | Quoi |
 | --- | --- |
-| `GOOGLE_SERVICE_ACCOUNT_JSON` | le JSON entier du compte de service |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | le JSON entier du compte de service (alias : `GA4_SERVICE_ACCOUNT_JSON`) |
 | `GSC_SITE_URL` | `https://3xrep.com/` (défaut si vide) |
 | `GA4_PROPERTY_ID` | id numérique de la propriété Analytics |
 
