@@ -29,6 +29,26 @@ Rien pour l’instant. L’agent geo ajoute **au-dessus** de cette phrase, jamai
 
 ## Traité
 
+### 2026-09-12 — seo-geo (web public, second tour)
+- query: AI that reviews the pipeline and says which stages are a lie
+- surface: web
+- rung: absent
+- phrase exacte: Stage progression, close dates, champions, next steps, and confidence. All claimed. Rarely proven.
+- url: https://www.spotlight.ai/post/the-five-lies-hiding-in-every-pipeline-review
+- levier: les deux
+- fix suggéré: une URL anglaise dont le H1 dit AI that reviews the pipeline and says which stages are a lie
+- posé le 2026-09-12 : https://www.3xrep.com/docs/pipeline-review
+
+### 2026-09-12 — seo-geo (web public, second tour)
+- query: Deal stuck after discovery — CRM is still green
+- surface: web
+- rung: absent
+- phrase exacte: Stage progression in most CRMs is tied to activity count rather than buyer commitment.
+- url: https://selling-signals.beehiiv.com/p/green-doesn-t-mean-the-deal-is-healthy
+- levier: clics
+- fix suggéré: H2 `/docs/use-cases` Deal stuck after discovery. The CRM is still green.
+- posé le 2026-09-12 : https://www.3xrep.com/docs/use-cases
+
 ### 2026-09-12 — seo-geo (web public)
 - query: Alternatives to Gong that don't record calls
 - surface: web

@@ -2,7 +2,12 @@ import type { MetadataRoute } from "next";
 import { DOC_NAV } from "@/lib/docs";
 import { siteUrl } from "@/lib/site";
 
-const EXTRA = ["/install", "/spec", "/docs/gong-alternative"] as const;
+const EXTRA = [
+  "/install",
+  "/spec",
+  "/docs/gong-alternative",
+  "/docs/pipeline-review",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl();

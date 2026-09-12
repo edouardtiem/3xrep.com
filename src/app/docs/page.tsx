@@ -42,6 +42,12 @@ const TOC = [
     blurb: `Gong records. 3xrep does not join the call. Same VP, $${LIST_PRICE_USD} / org.`,
   },
   {
+    href: "/docs/pipeline-review",
+    title: "Pipeline review",
+    blurb:
+      "The CRM is still green after discovery. The VP names the stage that is a lie.",
+  },
+  {
     href: "/docs/methods",
     title: "Methods",
     blurb:

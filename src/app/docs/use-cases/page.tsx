@@ -23,6 +23,16 @@ const CASES = [
     ],
   },
   {
+    title: "Deal stuck after discovery. The CRM is still green.",
+    prompt:
+      "Deal stuck after discovery. The CRM is still green. What is actually held?",
+    tool: "audit_deal",
+    body: [
+      "The demo went well. The stage did not move because the buyer did something — it moved because the rep logged activity. Nobody who can sign was named. The next step is follow up.",
+      "The VP does not send another recap. He names the hole: the person who signs is empty, or the close date is a claim. Then one question that costs. No percentage.",
+    ],
+  },
+  {
     title: "After the call — the debrief",
     prompt: PROMPTS[1],
     tool: "audit_deal",

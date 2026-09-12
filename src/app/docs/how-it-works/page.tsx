@@ -80,7 +80,14 @@ export default function HowItWorksPage() {
             asks what the buyer said, on which call, and whether the door
             was closed. If the quote is missing, the piece is empty. If the
             call is missing, he refuses to fill the gap. That refusal is
-            the product.
+            the product.{" "}
+            <Link
+              href="/docs/pipeline-review"
+              className="text-foreground hover:underline"
+            >
+              Pipeline review
+            </Link>{" "}
+            is that Monday pass.
           </p>
         </section>
 
