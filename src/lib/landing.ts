@@ -5,6 +5,27 @@ export const PROMPTS = [
   "They said it's too expensive. Which piece isn't held?",
 ] as const;
 
+/** What the visitor pastes into the agent. Not page copy. */
+export function agentSetupPrompt(url: string): string {
+  return `Add 3xrep as a remote MCP connector next to my CRM (HubSpot, Salesforce, Pipedrive, Attio, or Close) — not instead of it. Nothing to install in the CRM.
+
+URL: ${url}
+
+Claude Code:
+claude mcp add --transport http 3xrep ${url}
+
+Cursor / Codex — merge this into .cursor/mcp.json:
+{
+  "mcpServers": {
+    "3xrep": { "url": "${url}" }
+  }
+}
+
+Claude or ChatGPT: Settings → Connectors → Add custom connector → paste the URL.
+
+When both connectors are on, say: Monday. Review my pipe. What's blocked?`;
+}
+
 /** The proof window. One pass, then it stops. */
 export const SESSION = {
   prompt: "Monday. Review my pipe. What's blocked?",

@@ -6,7 +6,7 @@ import { SessionTerminal } from "@/components/SessionTerminal";
 import { Wordmark } from "@/components/Wordmark";
 import { WorksWith } from "@/components/WorksWith";
 import { TRUST_LINE } from "@/lib/copy";
-import { PROMPTS } from "@/lib/landing";
+import { PROMPTS, agentSetupPrompt } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
 export const metadata = {
@@ -45,7 +45,17 @@ function HeroPitch({ connector }: { connector: string }) {
         why it works.
       </p>
       <div className="mt-8">
-        <CopyBlock label="Connector URL" value={connector} />
+        <CopyButton
+          tone="loud"
+          label="Copy the agent prompt"
+          text={agentSetupPrompt(connector)}
+        />
+        <p className="text-dim mt-2 leading-relaxed">
+          Paste it into Claude Code, Cursor, or any agent.
+        </p>
+        <div className="mt-4">
+          <CopyBlock label="Connector URL" value={connector} />
+        </div>
       </div>
     </>
   );

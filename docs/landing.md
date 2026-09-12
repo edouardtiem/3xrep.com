@@ -12,7 +12,7 @@ Un accent cuivre sur le statut MCP / `audit_deal`. Le reste se tait.
 
 H1 en trois lignes max, measure serré. Le debrief a le droit d’être dense.
 
-Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + l’URL connector dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → URL.
+Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + **Copy the agent prompt** + l’URL connector dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → bouton → URL.
 
 ## Hero
 
@@ -24,7 +24,7 @@ Avant (2 sept) : *Hire the best VP Sales agent for 99 €/month.* Écarté le 4 
 
 Pas de deuxième H1. Pas de « tu crées / on est le cerveau » en hero.
 
-CTA : **Start.** sur la page (connector). Nav : **docs** → `/docs` (SEO, pas le fold). Pas « Payer » en primaire. Pas de démo. Pas de Calendly.
+CTA : **Copy the agent prompt.** Colle dans l’agent (Claude Code, Cursor, n’importe lequel). L’URL connector reste dessous, pas le premier geste. Nav : **docs** → `/docs` (SEO, pas le fold). Pas « Payer » en primaire. Pas de démo. Pas de Calendly.
 
 ## Preuve — la fenêtre
 
@@ -76,7 +76,7 @@ Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas 
 
 ## Install
 
-Pas un mail. Pas un call. Connector, dès la page. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
+Pas un mail. Pas un call. Premier geste : coller la consigne dans l’agent. L’URL reste sur la page. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
 
 Checkout sous l’install : *Already in?* $129 / month / organization + bouton Stripe. Ancre Gong (~$1,500 / seat). Chemin 2 min : `/install` puis Stripe ([checkout.md](checkout.md)).
 
@@ -84,7 +84,7 @@ Checkout sous l’install : *Already in?* $129 / month / organization + bouton S
 
 Page d’intention, un scroll.
 
-1. Premier écran : H1 + prix + manifeste + **cadran URL connector**. Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
+1. Premier écran : H1 + prix + manifeste + **Copy the agent prompt** + cadran URL connector. Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
 2. Sous le fold : *Where he lives.* + *What the VP says.* (4 prompts). Pas de second cadran URL.
 3. Checkout — *Already in?* $129 / org + bouton Stripe (3 sept, palier 1 org payante ; 11 sept : USD). *Gong is ~$1,500 a seat and records your calls. Here it’s $129 for the whole pipe, no seats.*
 4. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*

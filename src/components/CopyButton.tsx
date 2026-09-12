@@ -18,19 +18,28 @@ async function copyText(text: string) {
   }
 }
 
+const TONE = {
+  quiet:
+    "text-dim hover:text-foreground shrink-0 cursor-pointer text-xs tracking-wide uppercase",
+  loud:
+    "w-full cursor-pointer border border-line bg-fg px-4 py-2.5 text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground",
+} as const;
+
 export function CopyButton({
   text,
   label = "Copy",
+  tone = "quiet",
 }: {
   text: string;
   label?: string;
+  tone?: keyof typeof TONE;
 }) {
   const [copied, setCopied] = useState(false);
 
   return (
     <button
       type="button"
-      className="text-dim hover:text-foreground shrink-0 cursor-pointer text-xs tracking-wide uppercase"
+      className={TONE[tone]}
       onClick={async () => {
         await copyText(text);
         setCopied(true);
