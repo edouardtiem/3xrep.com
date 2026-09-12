@@ -21,7 +21,9 @@ Aucun secret n’est dans le git. Ne pas inventer de clés. Ne pas coller une cl
 
 Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). L’URL connector collée sur home / docs / install / spec est toujours `https://3xrep.com/api/mcp`. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirects Stripe, sitemap, recette locale.
 
-Le code **ne** lit **pas** `STRIPE_SECRET_KEY_LIVE` ni `SUPABASE_SECRET_KEY`. Si le secret est sous un autre nom : 503. Ce n’est pas un faux vert.
+Le code **ne** lit **pas** `STRIPE_SECRET_KEY_LIVE`. Si le secret Stripe est sous un autre nom : 503. Ce n’est pas un faux vert.
+
+Journal MCP (`src/lib/mcp-log.ts`) : `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`, sinon les noms dashboard `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SECRET_KEY`. Sans ça le cerveau répond, le journal reste vide. L’écriture est attendue avant de rendre le verdict.
 
 ## Action humaine Stripe (compte 3xrep)
 
