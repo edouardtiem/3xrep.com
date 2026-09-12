@@ -85,36 +85,38 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 **Ce n’est pas** la croissance de 3xrep : pas notre acquisition, pas notre LinkedIn, pas notre siphon, pas notre prospection à nous.
 
-**Chemin complet : le courriel seul.** Un utilisateur peut dire « je ne veux pas passer des appels » et quand même : créer des listes, enrichir, rédiger, viser un rendez-vous. On n’écrit pas qu’il doit appeler.
+**Must : le téléphone.** Beaucoup de commerciaux appellent via la téléphonie sur internet (Aircall et équivalents). Le pan **inclut** : préparer la prospection téléphonique, le téléphone, Aircall / VoIP. Pas un à-côté. Pas « plus tard si on veut ». On ne construit pas Aircall maintenant.
 
-Téléphone, LinkedIn, WhatsApp, messages vocaux : **dans le pan, optionnels**. Pas un passage obligé.
+Ne pas écrire que l’utilisateur n’a pas besoin d’appeler. (« Je ne veux pas passer des appels » / vendre 3xrep par courriel seulement : c’est la façon d’Édouard de vendre **nous**. Pas une contrainte produit.)
 
 À venir, pour eux :
 
+- Préparer la prospection téléphonique
+- Le téléphone, Aircall / VoIP (**must**)
 - Créer des listes
 - Enrichir : lignes directrices et outils, puis comment installer
-- Rédiger des courriels
+- Plusieurs canaux : email, téléphone, LinkedIn, WhatsApp, messages vocaux
+- Rédiger des emails
 - Guider vers le rendez-vous
-- Optionnel : téléphone, LinkedIn, WhatsApp, messages vocaux — préparer la prospection téléphonique **s’ils** veulent appeler
 
-Pas live. Ne pas coder. Ne pas ouvrir comme les items 1–4.
+Pas live. Ne pas coder. Ne pas ouvrir comme les items 1–4. Ne pas brancher Aircall aujourd’hui.
 
-**Où ça colle.** Le cerveau juge des preuves, pas des formes ([cerveau.md](cerveau.md)). Un fil de courriels **est** une preuve. On n’entre pas dans les appels — ça va avec « je ne veux pas passer des appels ». On n’écrit pas dans leur fichier client ([decisions.md](decisions.md)) : le connecteur **guide**, **eux** envoient.
+**Tension — on ne la cache pas.** Le cerveau juge des preuves, pas des formes ([cerveau.md](cerveau.md)). On n’entre pas dans les appels. On n’écrit pas dans leur fichier client ([decisions.md](decisions.md)).
 
-**Où ça frotte encore** — on ne le cache pas :
+Le must téléphone **frotte** l’interdit « on n’entre pas dans les appels » : juger / guider un appel Aircall (raison, cran 1, pièce à tester) **sans** entrer dans l’appel, sans bot, sans bande. Le connecteur guide. Eux décrochent. Eux envoient.
 
 | Ils demandent | Déjà interdit / déjà dit |
 | --- | --- |
-| Rédiger des courriels, des séquences | Geste `prospection` : souvent **n’écris pas** ([gestes.md](gestes.md)). [portes.md](portes.md) : « on écrit le mail » on ne prend pas. Une séquence poussée dans HubSpot = écrire dans leur fichier. Le connecteur guide (raison, cran 1, ou refuse). Eux collent et envoient. Leur LLM peut habiller **après** le verdict — ce n’est pas le produit qui poste. |
-| Guider vers le rendez-vous | Guider (juger si le rdv est mérité, quelle pièce tester) ≠ booker. « On te booke » : non. `inbound` refuse déjà de booker la démo demandée. |
+| Préparer / guider l’appel (Aircall, VoIP) | Must du pan. On n’entre pas : pas de robot Zoom / Meet / Aircall. Pas d’enregistrement. Un transcript **s’il arrive dans la demande** (collé, ou déjà sur la fiche) est une preuve, comme aujourd’hui ([decisions.md](decisions.md)). |
+| Rédiger des emails, des séquences | Geste `prospection` : souvent **n’écris pas** ([gestes.md](gestes.md)). [portes.md](portes.md) : « on écrit le mail » on ne prend pas. Une séquence poussée dans HubSpot = écrire dans leur fichier. Le connecteur guide. Eux collent et envoient. |
+| Guider vers le rendez-vous | Guider ≠ booker. « On te booke » : non. `inbound` refuse déjà de booker la démo demandée. |
 | Enrichir (outils + installer) | [acces.md](acces.md) : on ne devient pas Apollo / Clay. Lignes directrices + **leurs** outils, oui. Un hub d’enrichissement à nous, non. Une fiche enrichie n’est pas une preuve. |
-| Plusieurs canaux | [gestes.md](gestes.md) : un geste `prospection`, pas quatre. Le canal est le leur. Courriel seul = chemin complet. Tel / LinkedIn / WhatsApp / vocal = option. |
-| Prospection téléphone | Option. On prépare (raison, cran 1) **s’ils** veulent appeler. On n’entre pas dans l’appel. Pas de bot. On n’oblige personne à décrocher. |
+| Plusieurs canaux | [gestes.md](gestes.md) : un geste `prospection`, pas quatre. Le canal est le leur. Téléphone / Aircall = must du **pan**, pas un 22e geste. |
 
-La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième cerveau. C’est le même jugement, plus tôt — listes, courriel, rdv — **sans** devenir la bouche ni le stylo.
+La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième cerveau. C’est le même jugement, plus tôt — listes, téléphone, canaux, rdv — **sans** devenir la bouche ni le stylo.
 
-Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs guider, enrichir chez eux vs chez nous). Pas avant.
+Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs guider, enrichir chez eux vs chez nous, guider Aircall sans entrer dans l’appel). Pas avant.
 
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Confondre ce pan avec notre acquisition. Obliger l’utilisateur à appeler.
+Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Brancher Aircall maintenant. Confondre ce pan avec notre acquisition. Traiter le téléphone comme un à-côté. Écrire que l’utilisateur n’a pas besoin d’appeler.
