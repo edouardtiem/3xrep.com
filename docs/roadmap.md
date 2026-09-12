@@ -85,33 +85,36 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 **Ce n’est pas** la croissance de 3xrep : pas notre acquisition, pas notre LinkedIn, pas notre siphon, pas notre prospection à nous.
 
+**Chemin complet : le courriel seul.** Un utilisateur peut dire « je ne veux pas passer des appels » et quand même : créer des listes, enrichir, rédiger, viser un rendez-vous. On n’écrit pas qu’il doit appeler.
+
+Téléphone, LinkedIn, WhatsApp, messages vocaux : **dans le pan, optionnels**. Pas un passage obligé.
+
 À venir, pour eux :
 
-- Préparer la prospection téléphonique
 - Créer des listes
 - Enrichir : lignes directrices et outils, puis comment installer
-- Potentiellement plusieurs canaux : email, téléphone, LinkedIn, WhatsApp, messages vocaux
-- Rédiger des emails
+- Rédiger des courriels
 - Guider vers le rendez-vous
+- Optionnel : téléphone, LinkedIn, WhatsApp, messages vocaux — préparer la prospection téléphonique **s’ils** veulent appeler
 
 Pas live. Ne pas coder. Ne pas ouvrir comme les items 1–4.
 
-**Tension — on ne la cache pas.** Le cerveau juge des preuves, pas des formes ([cerveau.md](cerveau.md)). On n’entre pas dans les appels. On n’écrit pas dans leur fichier client ([decisions.md](decisions.md)).
+**Où ça colle.** Le cerveau juge des preuves, pas des formes ([cerveau.md](cerveau.md)). Un fil de courriels **est** une preuve. On n’entre pas dans les appels — ça va avec « je ne veux pas passer des appels ». On n’écrit pas dans leur fichier client ([decisions.md](decisions.md)) : le connecteur **guide**, **eux** envoient.
 
-Ce pan frotte ça :
+**Où ça frotte encore** — on ne le cache pas :
 
 | Ils demandent | Déjà interdit / déjà dit |
 | --- | --- |
-| Rédiger des emails, des séquences | Geste `prospection` : souvent **n’écris pas** ([gestes.md](gestes.md)). [portes.md](portes.md) : « on écrit le mail » on ne prend pas. Une séquence poussée dans HubSpot = écrire dans leur fichier. Leur LLM peut habiller **après** le verdict — ce n’est pas le produit. |
+| Rédiger des courriels, des séquences | Geste `prospection` : souvent **n’écris pas** ([gestes.md](gestes.md)). [portes.md](portes.md) : « on écrit le mail » on ne prend pas. Une séquence poussée dans HubSpot = écrire dans leur fichier. Le connecteur guide (raison, cran 1, ou refuse). Eux collent et envoient. Leur LLM peut habiller **après** le verdict — ce n’est pas le produit qui poste. |
 | Guider vers le rendez-vous | Guider (juger si le rdv est mérité, quelle pièce tester) ≠ booker. « On te booke » : non. `inbound` refuse déjà de booker la démo demandée. |
 | Enrichir (outils + installer) | [acces.md](acces.md) : on ne devient pas Apollo / Clay. Lignes directrices + **leurs** outils, oui. Un hub d’enrichissement à nous, non. Une fiche enrichie n’est pas une preuve. |
-| Plusieurs canaux | [gestes.md](gestes.md) : un geste `prospection`, pas quatre. LinkedIn / mail / tel / WhatsApp / vocal n’existent pas pour nous. Le canal est le leur. |
-| Prospection téléphone | On prépare (raison, cran 1). On n’entre pas dans l’appel. Pas de bot. |
+| Plusieurs canaux | [gestes.md](gestes.md) : un geste `prospection`, pas quatre. Le canal est le leur. Courriel seul = chemin complet. Tel / LinkedIn / WhatsApp / vocal = option. |
+| Prospection téléphone | Option. On prépare (raison, cran 1) **s’ils** veulent appeler. On n’entre pas dans l’appel. Pas de bot. On n’oblige personne à décrocher. |
 
-La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième cerveau. C’est le même jugement, plus tôt — listes, canaux, rdv — **sans** devenir la bouche ni le stylo.
+La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième cerveau. C’est le même jugement, plus tôt — listes, courriel, rdv — **sans** devenir la bouche ni le stylo.
 
 Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs guider, enrichir chez eux vs chez nous). Pas avant.
 
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Confondre ce pan avec notre acquisition.
+Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Confondre ce pan avec notre acquisition. Obliger l’utilisateur à appeler.
