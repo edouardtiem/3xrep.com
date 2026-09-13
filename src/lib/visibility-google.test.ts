@@ -4,6 +4,7 @@ import { afterEach, test } from "node:test";
 import {
   formatGoogleVisibilityMarkdown,
   GSC_SITE_DEFAULT,
+  normalizeGscSiteUrl,
   notConnectedMessage,
   parseServiceAccountJson,
   pullGoogleVisibility,
@@ -42,6 +43,23 @@ test("config : sans clé, liste ce qui manque", () => {
   if (!got.ok) {
     assert.deepEqual(got.missing, ["GOOGLE_SERVICE_ACCOUNT_JSON"]);
   }
+});
+
+test("config : sc-domain n’ajoute pas de slash", () => {
+  process.env.GOOGLE_SERVICE_ACCOUNT_JSON = accountJson;
+  process.env.GSC_SITE_URL = "sc-domain:example.com";
+  process.env.GA4_PROPERTY_ID = "123456789";
+  const got = readGoogleVisibilityConfig();
+  assert.equal(got.ok, true);
+  if (got.ok) {
+    assert.equal(got.config.gscSiteUrl, "sc-domain:example.com");
+    assert.equal(got.config.ga4PropertyId, "123456789");
+  }
+  assert.equal(
+    normalizeGscSiteUrl("sc-domain:example.com/"),
+    "sc-domain:example.com",
+  );
+  assert.equal(normalizeGscSiteUrl("https://3xrep.com"), GSC_SITE_DEFAULT);
 });
 
 test("config : clé + propriété Analytics, site Search Console par défaut", () => {

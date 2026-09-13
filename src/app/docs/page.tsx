@@ -48,6 +48,11 @@ const TOC = [
       "The CRM is still green after discovery. The VP names the stage that is a lie.",
   },
   {
+    href: "/docs/pricing",
+    title: "How much does 3xrep cost",
+    blurb: `$${LIST_PRICE_USD} / month for the organization. Not per seat.`,
+  },
+  {
     href: "/docs/methods",
     title: "Methods",
     blurb:

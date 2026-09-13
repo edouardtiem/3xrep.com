@@ -331,6 +331,13 @@ export const DOC_FAQ = [
       "/month for the entire organization.",
   },
   {
+    q: "How much does 3xrep cost?",
+    a:
+      "$" +
+      LIST_PRICE_USD +
+      "/month for the entire organization. Not per seat. 3xrep is a VP Sales agent you add to Claude or ChatGPT next to your CRM. It does not record calls.",
+  },
+  {
     q: "Which CRMs work with 3xrep?",
     a: "Any CRM that ships an official MCP your agent can connect: HubSpot, Salesforce, Pipedrive, Attio, Notion, Close, and others. 3xrep does not install inside the CRM. No tab, no app review, no data copy.",
   },

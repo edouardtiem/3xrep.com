@@ -7,6 +7,7 @@ const EXTRA = [
   "/spec",
   "/docs/gong-alternative",
   "/docs/pipeline-review",
+  "/docs/pricing",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

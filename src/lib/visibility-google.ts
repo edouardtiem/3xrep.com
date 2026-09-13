@@ -3,6 +3,12 @@ import { createSign } from "node:crypto";
 
 export const GSC_SITE_DEFAULT = "https://3xrep.com/";
 
+export function normalizeGscSiteUrl(raw: string): string {
+  const trimmed = raw.trim();
+  if (trimmed.startsWith("sc-domain:")) return trimmed.replace(/\/$/, "");
+  return trimmed.replace(/\/?$/, "/");
+}
+
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const SCOPES = [
   "https://www.googleapis.com/auth/webmasters.readonly",
@@ -93,9 +99,8 @@ export function readGoogleVisibilityConfig(
     missing.push("GOOGLE_SERVICE_ACCOUNT_JSON");
   }
 
-  const gscSiteUrl = (env.GSC_SITE_URL?.trim() || GSC_SITE_DEFAULT).replace(
-    /\/?$/,
-    "/",
+  const gscSiteUrl = normalizeGscSiteUrl(
+    env.GSC_SITE_URL?.trim() || GSC_SITE_DEFAULT,
   );
   const ga4PropertyId = env.GA4_PROPERTY_ID?.trim() || null;
 

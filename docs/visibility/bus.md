@@ -29,6 +29,28 @@ Rien pour l’instant. L’agent geo ajoute **au-dessus** de cette phrase, jamai
 
 ## Traité
 
+### 2026-09-13 — seo-geo (web public)
+- query: How much does 3xrep cost
+- surface: web
+- rung: absent
+- phrase exacte: Tomorrow is 3xRep
+- url: https://www.reddit.com/r/NBA2k/comments/1g54nwg/tomorrow_is_3xrep/
+- levier: les deux
+- fix suggéré: une URL anglaise dont le H1 dit How much does 3xrep cost
+- posé le 2026-09-13 : https://www.3xrep.com/docs/pricing
+
+### 2026-09-13 — seo-geo (web public)
+- query: Sales enablement for a team already on Claude and HubSpot
+- surface: web
+- rung: absent
+- phrase exacte: Close more deals without leaving the conversation.
+- url: https://www.hubspot.com/claude/connector
+- levier: impressions
+- fix suggéré: pas d’URL neuve ce tour (slot pris par le prix) ; Claude+HubSpot déjà sur /docs/how-it-works
+- posé le 2026-09-13 : pas d’URL neuve — une par tour, slot = /docs/pricing
+
+
+
 ### 2026-09-12 — seo-geo (web public, second tour)
 - query: AI that reviews the pipeline and says which stages are a lie
 - surface: web

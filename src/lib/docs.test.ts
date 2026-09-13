@@ -31,3 +31,10 @@ test("sitemap lists the pipeline-review URL", () => {
   const urls = sitemap().map((entry) => entry.url);
   assert.ok(urls.includes("https://www.3xrep.com/docs/pipeline-review"));
 });
+
+test("sitemap lists the pricing URL", () => {
+  delete process.env.NEXT_PUBLIC_SITE_URL;
+  process.env.VERCEL_PROJECT_PRODUCTION_URL = "www.3xrep.com";
+  const urls = sitemap().map((entry) => entry.url);
+  assert.ok(urls.includes("https://www.3xrep.com/docs/pricing"));
+});
