@@ -2,13 +2,13 @@
 
 Craft du compte X. Corps ici, pas dans [`.agents/skills/`](../../.agents/skills/README.md).
 
-Oui CoS 8 septembre 2026. Brouillons jusqu’au go. **Ne pas merger sans oui.** Ne pas publier sans oui.
+Oui CoS 8 septembre 2026. Oui fondateur 14 septembre 2026 : réponses humaines, moins de maximes, registre Session landing. Brouillons jusqu’au go. **Ne pas merger sans oui.** Ne pas publier sans oui.
 
 | Skill | Geste |
 | --- | --- |
-| [`elon-musk-voice`](elon-musk-voice/SKILL.md) | Registre : phrases courtes, mission + technique, punch. Pas un sosie d’Elon. |
-| [`founder-x-growth`](founder-x-growth/SKILL.md) | Cadence, accroches, réponse vs post, preuve, lien doux. |
-| [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Réponses qui portent. Idée Mode A ou B. Nommer 3xrep environ 1 fois sur 4 ou 5. |
+| [`elon-musk-voice`](elon-musk-voice/SKILL.md) | Registre : phrases courtes, fait de terrain (Session landing), pas une maxime. Pas un sosie d’Elon. |
+| [`founder-x-growth`](founder-x-growth/SKILL.md) | Cadence, accroches, réponse vs post, preuve, lien doux. Pas de triade maxime → produit. |
+| [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Réponses humaines. 1 idée, 1–2 phrases. Vocabulaire de terrain. 3xrep / « I built » au plus ~1 fois sur 5. |
 | [`x-language-radar`](x-language-radar/SKILL.md) | Langue du web / X autour de nos sujets → reco à Jon / CoS. **Pas** d’edit live. |
 
 Site / Google : skills `.agents` (`seo-geo`, visibilité). Ici : X seulement.
@@ -44,18 +44,22 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 - Compte **fondateur** : `@Edd08x`, affichage **Ed.**, bio **run 3xrep**. Elon (Grok) gère ce compte-là. Pas `@Edouardtiem`. Pas `@difcemgneg`. Pas un compte marque sans visage.
 - Sur X : **Ed.** / founder of 3xrep. Handle `@Edd08x` pour l’ops (gates, profil). Pas le nom légal complet dans chaque post.
 - **Je vs 3xrep.** I / me = le fondateur (construire, livrer, prix, décision, avis). Geste produit = **3xrep** ou un fait **sans pronom**. « He » sur un compte fondateur : mystérieux, à jeter. Pas de « I » sur chaque post.
-  - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.*
-  - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.*
-- **Mode A ou Mode B.** Chaque post original / réponse = **un** des deux (l’idée). Pas un catalogue. Pas le jargon de liste d’affaires en ouverture (stage / quote / fill the gap / this stage is a lie). Même le fondateur ne le lit pas à froid.
-  - **Mode A (affirmation).** The VP Sales agent is the future. Pourquoi : agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. Post : *I built 3xrep for the whole org. Not seats. Not a course. Not a recorder.* Réponse sans nom : *The VP Sales agent is the future. Not seats. Not a course. Not a recorder.*
-  - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. Post : *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.* Réponse sans nom : *An intelligence layer on top of your whole CRM. Inside the Claude agent you already use.*
-- **Réponses.** Environ **1 sur 4 ou 5** nomme 3xrep (20 to 25 %). Les autres : un avis utile (idée Mode A ou B) **sans** 3xrep, **sans** « I built », **sans** lien install. Quand la case 20 to 25 % part : **une** phrase org légère max (3xrep / I built…). Lien install seulement si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Préférer les fils à grande portée. Pas le même texte collé sous plusieurs parents.
+  - Mauvais : *He won’t fill that gap.* / *He doesn’t join the call.* / *Gong records. I don’t join it.* / *I built 3xrep so the CRM stage still matches that win.*
+  - Bon Je : *I built 3xrep.* / *I price the org $129 / month.* / *I’m not selling seats.* Rare dans les réponses (~1 sur 5).
+- **Registre = Session landing** (`src/lib/landing.ts`). Phrases courtes, concrètes. Vocabulaire de terrain : **stage, close date, owner, call, pipe**. Sur X : pas de tiret long, même si le site en a.
+  - Oui : *That date is a claim, not a fact.* / *This stage is illegal.* / *I won't fill the gap.* / *Opens don't close deals. Did anyone actually call back?* / *If the stage still says Negotiation and nobody who signs is named, the stage is fake.*
+  - Non (triade) : *Opens are vanity. The callback is the verdict. 3xrep will not celebrate the open.*
+  - **Interdit en punchline X :** race, scarce, fiction, verdict, triad, vanity.
+- **Moins de maximes.** Une idée, 1–2 phrases (réponses). Interdit : maxime → jugement → produit. Interdit : « I built 3xrep so… ».
+- **Mode A ou Mode B.** Chaque post original = **un** des deux (**l’idée**, pas un slogan à coller). Pas un catalogue.
+  - **Mode A (affirmation).** Agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. Post : *Not seats. Not a course. Not a recorder.* Pas *The VP Sales agent is the future* en ouverture de chaque post.
+  - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. Post : *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
+- **Réponses.** Environ **1 sur 5** nomme 3xrep ou « I built ». Les autres : un avis de terrain **sans** 3xrep, **sans** « I built », **sans** lien install. Quand la case ~1/5 part : **une** phrase légère. Jamais la triade. Lien `https://www.3xrep.com/install` seulement si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Préférer les fils à grande portée. Pas le même texte collé sous plusieurs parents.
 - **Ponctuation X.** Point, virgule, ou phrases séparées. Pas de tiret long (—). Pas de tiret moyen (–). Pas de `--` comme ponctuation.
-- **Avancé, pas défaut.** *Recording isn’t a verdict.* / *A green stage without a quote is a claim.* / *3xrep won’t fill that gap.* / P2c : seulement si le fil parle déjà ce langage.
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
-- Lien doux (posts) : `https://3xrep.com/install` une fois, après une preuve. Réponses : seulement si le parent a demandé un outil.
+- Lien doux (posts) : `https://3xrep.com/install` une fois, après une preuve. Réponses : `https://www.3xrep.com/install` seulement si le parent a demandé un outil.
 - Prix live : **$129 / org / mois**. Pas 99 €. Pas par siège. Pas un pourcentage de signatures.
-- Copy X : **anglais**. Comme le site.
+- Copy X : **anglais**. Comme le site. Pas de post live sans go.
 
 ### API X
 
@@ -71,8 +75,10 @@ Lire `get_usage_credits` avant une série d’appels. Crédits = argent.
 
 - Deepfake / cosplay d’Elon la personne.
 - Tiret long (—), tiret moyen (–), ou `--` comme ponctuation dans la copy X ou les exemples. Point, virgule, phrases séparées.
+- La triade maxime → jugement → produit. « I built 3xrep so… ». Punchline : race, scarce, fiction, verdict, triad, vanity.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Auto-DM. Calendly. Démo.
 - « On remplace Gong ». Promettre un pourcentage de signatures.
 - Éditer le site live (home, `/install`, README) **sans** oui fondateur. Le radar **propose**. `seo-geo` pose, pas ces skills.
+- Éditer un post X live.
 - Grok Build. Second git. `docs/loops/`.
