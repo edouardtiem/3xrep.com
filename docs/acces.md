@@ -65,6 +65,8 @@ fetch:
 
 Grade nouveau, utile ici : **D — externe, pas confirmé**. Pappers « président = Marie X » n’est pas un `tenu`. C’est un candidat à faire parler. L’enrichissement s’arrête à Marie. Nous, on dit : maintenant, la question du cran 1.
 
+**Leur propre site, au premier branchement** (14 sept) : l’URL qu’ils donnent pour décrire **leur** société n’est pas Apollo. C’est le profil org. [decisions.md](decisions.md).
+
 C’est le contraire d’un data product. C’est le cerveau qui se sert de la matière que le marché a déjà posée sur leur agent.
 
 ### B. Les calculettes — pas de donnée tierce
@@ -96,8 +98,8 @@ On ne les installe pas. On ne les facture pas. On dit : branchez ceux-là, *puis
 | Apollo / ZoomInfo / FullEnrich / Hunter | Job 2, déjà pris. Crédits. Fausse preuve. |
 | Clay | Job 3. Il faut un ops. On n’en a pas. |
 | Fireflies / Gong en propre | On enregistre. Interdit. |
-| Sequences / mail send | Bouche. Interdit. |
-| Benchmarks industrie (« en HVAC… ») | Cours. Interdit. |
+| Sequences / mail send | Bouche. Interdit. (Juger si une suite devrait partir : oui, [decisions.md](decisions.md) 2026-09-14.) |
+| Benchmarks industrie (« en HVAC… ») / « similar teams 34 % » | Cours ou classement. Interdit. Confirmation après X fins sur **une pièce** : oui, poids de la méthode. |
 | Un MCP Pappers *à nous* | Pappers existe. On composerait mal. |
 | Vingt tools « pour faire riche » | L’assistant se trompe d’outil. HN + Salesmotion. |
 

@@ -86,15 +86,15 @@ Les 3 tools v1 restent (`audit_deal`, `next_question`, `objection_map`). Le cont
 | Version | Snapshot markdown | Runtime live |
 | Mémoire | La fenêtre de chat | Voir plus bas |
 
-## Mémoire de jugement — pas maintenant
+## Mémoire de jugement — actée 14 sept, pas ship
 
 Un VP se souvient : « t’avais dit le DAF en R2 ». Un skill, non, dès que le thread meurt.
 
-**Log usage (6–7 sept 2026) :** on garde input + verdict **14 jours** pour caler le VP, puis delete. Ce n’est pas la mémoire de jugement.
+**Log usage (6–7 sept 2026) :** on garde input + verdict **14 jours** pour caler le VP, puis delete. Ce n’est pas la mémoire de jugement. Tient.
 
-La mémoire produit (plus tard) : `org`, hash du deal, atome, `su|suppose|trou`, date — pas le verbatim en dur. Ça ferait : « EB toujours vide depuis le 12. Le geste n’a pas eu lieu. »
+**Squelette (14 sept)** : `org`, hash du deal, atome, `su|suppose|trou`, date, tranche de montant, dénouement quand une routine le ramène — pas le verbatim. « EB toujours vide depuis le 12. Le geste n’a pas eu lieu. » Après X fins sur la pièce : confirmation chez les maisons qu’on voit. Contrat : [decisions.md](decisions.md) 2026-09-14.
 
-Pas V0. Le compilateur doit d’abord être vrai **sur un call**. Le log 14 j sert à relire les premiers vrais calls, pas à vendre la continuité.
+Le compilateur reste vrai **sur un call**. Le souvenir est le fossé. V0 n’attendait pas ça ; le 14 sept l’ouvre, le code ne l’a pas encore.
 
 ## Test du différenciateur
 
@@ -111,7 +111,7 @@ Si (2) sans verbatim invente Y : on a cassé [contournement.md](contournement.md
 
 ## V0 — ce qu’on code pour que ça se voie
 
-Pas 40 fichiers. Pas de mémoire. Pas de skill store.
+Pas 40 fichiers. Pas de skill store. Mémoire : actée, pas dans le V0 déjà shippé.
 
 1. Kernel des 7 atomes du test 1, en données (pas en prose).
 2. `audit_deal` exécute les 7 crans, strip inclus.

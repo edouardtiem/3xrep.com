@@ -2,7 +2,7 @@
 
 **Pas figé.** 6 septembre 2026. Édouard : une automation Cursor qui liste les gaps vs la connaissance sales mondiale ; une loop plus rare qui décide d’intégrer ; le MCP qui propose un audit mensuel du cycle user ; comment se protéger de qui vide le MCP puis arrête de payer ; quelle data force à rester.
 
-Ne casse pas [cerveau.md](cerveau.md) (admission à six cases, la bibliothèque est l’actif, **plus de méthodes n’est pas le moat**). Ne casse pas [plg.md](plg.md) (tools ouverts). Ne casse pas [differentiel.md](differentiel.md). Ne crée pas `docs/loops/`.
+Ne casse pas [cerveau.md](cerveau.md) (admission à six cases, la bibliothèque est l’actif, **plus de méthodes n’est pas le moat**). Ne casse pas [plg.md](plg.md) (essai + 129 $, pas du per-seat). Ne casse pas [differentiel.md](differentiel.md). Ne crée pas `docs/loops/`.
 
 B2B d’abord. B2C : park, jusqu’à ce qu’on l’ouvre.
 
@@ -84,11 +84,12 @@ La connaissance, un jour, tient dans un prompt. D’accord. **Leur pipe, non.**
 
 | Quand | Data | Pourquoi ça change le résultat | Interdit |
 | --- | --- | --- | --- |
-| **Maintenant** | Leurs artefacts + ce que le CRM prétend (étape, close, dernière modif) | `pipe_review` + reco de process. Log tool 14 jours (input + verdict), puis delete. | Bot Zoom. Proba. Mémoire permanente. |
-| **Maintenant** | Recettes de fetch dans la pièce ([acces.md](acces.md)) | « HubSpot a Marie DAF, Pappers le président — ni l’un ni l’autre n’est tenu. » | Enrichir nous-mêmes. |
-| **Dès qu’ils tournent** | Compte de pièces vides / étapes illégales **dans l’appel**, pas chez nous | L’audit mensuel. Le process (question mandatory, stage gatée) est **à eux** — on le juge au suivant. | « Dans ton industrie, 32 %. » |
-| **Plus tard** | Mémoire : `org` + hash deal + pièce + `su\|suppose\|trou` + id réflexe + date | « Verrou 2, promis le 12. » Le VP se souvient. | Contenu, bande, prompt. |
-| **Plus tard** | Leur cycle comme graphe (étapes qu’ils ont gatées / dropées après un audit) | Le moteur cadre sur **leur** process, pas une grille générique. | Un playbook 3xrep officiel. |
+| **Maintenant (live)** | Leurs artefacts + ce que le CRM prétend | `pipe_review` + reco de process. Log tool 14 jours, puis delete. | Bot Zoom. Proba de close. |
+| **Maintenant** | Recettes de fetch dans la pièce ([acces.md](acces.md)) | « HubSpot a Marie DAF, Pappers le président — ni l’un ni l’autre n’est tenu. » | Enrichir des *prospects*. Leur propre URL au premier branchement : oui ([decisions.md](decisions.md) 2026-09-14). |
+| **Dès qu’ils tournent** | Compte de pièces vides / étapes illégales **dans l’appel**, pas chez nous | L’audit mensuel. Reco de process. | « Vous closerez plus ». Calculette montant × %. |
+| **Acté, pas ship** | Squelette : `org` + hash + pièce + `su\|suppose\|trou` + id réflexe + date + tranche + dénouement | « Verrou 2, promis le 12. » Fossé. | Verbatim pour toujours. Fichier client. |
+| **Acté, pas ship** | Après **X** fins sur **cette** pièce, compte anonymisé | « Chez les maisons qu’on voit, ce trou précède un perdu dans N % des fins. » Poids de la méthode. | « Similar teams 34 % ». Appliquer N % à *leur* 412k. Afficher N avant X. |
+| **Plus tard** | Leur cycle comme graphe (étapes gatées / dropées après un audit) | Le moteur cadre sur **leur** process. | Un playbook 3xrep officiel. |
 
 Ce n’est pas plus de méthode. C’est **leur** historique de jugement + **leur** process. Un prompt tout seul n’a ni l’un ni l’autre.
 
@@ -110,4 +111,4 @@ B2C, le jour où on l’ouvre : d’autres pièces (pas d’EB, pas de papier). 
 2. **Intégrer = rare, humain, admission.** L’automation propose. Elle ne shippe pas une pièce.
 3. **Audit mensuel user = `pipe_review` + reco de process.** Pas un % de conversion. Prompt MCP `cycle_audit`.
 4. **Siphon du lexique : on l’accepte.** Le lock-in est le jugement dans le temps, pas le markdown.
-5. **Data maintenant : leur CRM + les recos.** Data plus tard : mémoire de jugement, zéro contenu. Pas de benchmark industrie.
+5. **Data live : leur CRM + les recos + journal 14 j.** Data actée : squelette sans fin, profil maison, confirmation après X. Pas de classement d’équipes. [decisions.md](decisions.md) 2026-09-14.

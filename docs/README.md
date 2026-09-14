@@ -22,13 +22,13 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [cerveau.md](cerveau.md) | **Le cerveau** : bibliothèque, angle, gestes, moteur 8 étages |
 | [gestes.md](gestes.md) | **Les gestes** : 21 moments du cycle, VP qui refuse. Codés : debrief, passe-trous, **pipe-review** |
 | [portes.md](portes.md) | **Direction, pas ship** (6 sept) : un visage par travail, Slack plus tard. Source Agentforce + Dust |
-| [decisions.md](decisions.md) | **Registre** des décisions de contrat. Première : journal 14 jours (6–7 sept) |
+| [decisions.md](decisions.md) | **Registre** des décisions de contrat. Journal 14 jours (6–7 sept). **Squelette + essai + parrainage (14 sept, pas ship).** |
 | [differentiel.md](differentiel.md) | Pourquoi ce cerveau — paysage concurrentiel, test face aux skills |
 | [acces.md](acces.md) | Proposition (pas figé) — pas d’enrichissement, fetch chez eux |
 | [benchmark-skills.md](benchmark-skills.md) | Benchmark (pas figé) — packs markdown gratuits vs le cerveau |
-| [plg.md](plg.md) | Prix (pas figé) : tools ouverts, 129 $ encaissable, où la ligne se dessinera (le pipe, la mémoire) |
-| [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, data lock-in |
-| [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures réelles, toutes les langues, $129 / org. **À venir** (item 5, pas ouvert) : pan croissance pour **leurs** commerciaux — preuves sur le dossier, proposer de brancher la source (Aircall, courriels, transcription : optionnels). Pas notre acquisition. |
+| [plg.md](plg.md) | **Prix figé 14 sept** : 129 $ / org, essai qui coupe, parrainage, parcours agent. Live code : encore tools ouverts jusqu’à l’item 6. |
+| [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, squelette + confirmation après X |
+| [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures, langues, $129 / org. **À venir** : item 5 pan croissance (leurs commerciaux). **Item 6** squelette / essai / parrainage — acté, pas ouvert. |
 | [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
 | Chat Édouard | [francais-simple](../.agents/skills/francais-simple/SKILL.md) — lui répondre sans sigle |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |

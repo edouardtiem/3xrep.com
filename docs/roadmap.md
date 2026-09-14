@@ -75,7 +75,7 @@ Français et pages ville : item 2 + plus tard. Pas cette tâche.
 
 ## Ensuite — pas ouvert
 
-Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP) → page tutoriel « agent + HubSpot » → pSEO. Mémoire / ligne payant : après une vraie `pipe_review` sur un vrai CRM ([plg.md](plg.md)). Carte HubSpot = V2 ([chemin.md](chemin.md)).
+Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP) → page tutoriel « agent + HubSpot » → pSEO. Carte HubSpot = V2 ([chemin.md](chemin.md)).
 
 **Portes** ([portes.md](portes.md)) — direction 6 sept, pas ouvert : nommer les visages (avant d’écrire, avant le rdv, lundi), dire Slack, ne pas construire Slack. Pas un item live.
 
@@ -127,6 +127,21 @@ La porte « avant d’écrire » existe déjà. Ce pan n’est pas un deuxième 
 
 Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs guider, enrichir chez eux vs chez nous, proposer Aircall sans entrer dans l’appel). Pas avant.
 
+### 6. Squelette, essai, parrainage
+
+**Acté. Pas ship.** 14 septembre 2026. Contrat : [decisions.md](decisions.md) 2026-09-14. Opération : [plg.md](plg.md).
+
+À coder, dans cet ordre, **quand on ouvre** (pas maintenant) :
+
+1. Org d’essai (sans carte au jour 0) + durées 14 / 28 / 42 (base 14, on empile) + un parrainage.
+2. Profil au premier branchement (titre, mission, URL maison).
+3. Table squelette (hash, pièce, date, tranche, dénouement). Journal 14 j **tient**.
+4. Phrase de coupure si essai fini et pas payé — pas un verdict.
+5. Parcours dans la consigne d’agent (fichier client → routine liste → drapeaux → reco d’écriture chez eux → suites jugées).
+6. Confirmation après X + somme des portes cassées. Copy confiance.
+
+Kill switch (enlever le mur Stripe) : Édouard. Pas l’agent.
+
 ## Interdit ici
 
-Per-seat. Essai qui expire. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Brancher Aircall maintenant. Confondre ce pan avec notre acquisition. Imposer un canal (téléphone, courriel, Aircall). Prendre une note collée par l’utilisateur pour une citation du client.
+Per-seat. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Coder l’item 6 sans ouvrir. Brancher Aircall maintenant. Confondre le pan 5 avec notre acquisition. Imposer un canal (téléphone, courriel, Aircall). Prendre une note collée par l’utilisateur pour une citation du client. Calculette montant × % = perdu. Classement d’équipes. Carte obligatoire au jour 0 (pas le premier pas de l’essai).

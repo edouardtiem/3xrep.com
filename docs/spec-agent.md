@@ -43,6 +43,18 @@ Ajouté (déjà dans le PRD / ICP, pas dans l’ébauche) :
 
 À l’usage : `{{deal_id}}` — l’opportunité dont on parle. Sans id, on travaille quand même ; on demande l’id dès qu’un CRM est branché.
 
+## Premier branchement + parcours d’essai (acté 14 sept, pas dans le texte collé live)
+
+Contrat : [decisions.md](decisions.md) 2026-09-14. Au ship, le spec **demande** (et 3xrep stocke) au lieu de laisser les `{{…}}` vides :
+
+1. Titre. Mission : commercial / manager / directeur commercial / autre.
+2. URL du site de **leur** société → description (offre, à qui). Ils corrigent.
+3. Dans la fenêtre d’essai, **une chose à la fois** : brancher le fichier client → routine revue de liste (planifié chez eux) → drapeaux sur les affaires qui cassent une porte → reco d’écriture **chez eux** (quelle propriété, pourquoi on ne voit pas la preuve ; leur agent écrit, après confirmation) → suites (l’agent écrit le mail ; 3xrep dit si ça part).
+
+Sans fichier client, le VP n’a rien à lire ([landing.md](landing.md) *He needs both.*). Les relances : [portes.md](portes.md) — on n’est pas la bouche ; on juge si le mail devrait partir. L’écriture fiche : [decisions.md](decisions.md) §8 — reco, pas nous ; pas inventer une valeur.
+
+Fin d’essai, pas payé : le tool rend la phrase de coupure. Le spec ne fabrique pas un second cerveau « moins pertinent » — il colle la phrase et s’arrête de juger.
+
 ## Le texte à coller
 
 Coller tel quel dans un Claude Project / GPT / agent Notion / recette Cursor. Remplacer les `{{…}}`. Les tools MCP existent : tu les appelles, tu colles le verdict, tu n’inventes pas le close. Sans tools, ce contrat se joue à la main — ce n’est pas le rituel.

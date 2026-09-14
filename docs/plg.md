@@ -1,32 +1,67 @@
-# Prix
+# Prix, essai, parrainage
 
-**Pas figé.** 4 septembre 2026. Édouard : pas de ligne gratuit / payant dans le code. Tous les tools sont ouverts. Pas de Bearer, pas d’essai, pas de quota. On apprend d’abord s’ils l’utilisent, beaucoup, comment monétiser, si c’est le bon produit.
+**Figé le 14 septembre 2026** (Édouard). Gagne sur ce fichier au 4 sept (tools ouverts, pas d’essai, pas de comparaison). Contrat : [decisions.md](decisions.md) 2026-09-14. Live code **tant que l’item 6 n’est pas shippé** : tools encore ouverts, 129 $ encaissable, pas de mur — [checkout.md](checkout.md), [roadmap.md](roadmap.md) item 3.
 
-Le **$129 / month / organization** (USD) est **encaissable** ([checkout.md](checkout.md), `/install` → Stripe → `/merci`). Palier sept : 1 org payante. Ce n’est pas un gate : celui qui paie paie pour l’org, pas pour débloquer un tool. Live depuis l’item 3 ([roadmap.md](roadmap.md)).
+Le **$129 / month / organization** (USD) tient. Jamais de siège. Palier sept : 1 org payante — inchangé.
 
-## Où la ligne se dessinera — quand on la tracera
+## Ce qu’ils achètent
 
-Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)). Le doute : « ChatGPT le fait moins bien mais il le fait ; le rep répond “je signe quand même” ». Tant que le verdict porte sur *un call* et *le rep*, la différence est invisible et le gratuit total est le produit.
+Pas un tool de plus. Le juge sur **leur liste**, dans **le temps**, plus le souvenir, plus — assez tard — la confirmation chez les autres maisons.
 
-Elle devient visible quand le verdict porte sur **le pipe** et **le temps** :
+Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)) : tant que le verdict porte sur *un call* et *le commercial*, ChatGPT suffit. La différence est le pipe + le temps. **Acté** le 14 sept : on construit ça, et on le met derrière un essai qui coupe.
 
-1. **`pipe_review`** — le CRM prétend (étape, date de close, dernière modif), les calls prouvent. « Cette étape est illégale. » ChatGPT n’a jamais les deux sources ensemble ; HubSpot ne contredit pas ses propres champs. L’acheteur est le founder / head of sales qui subit le pipe, pas le rep noté. C’est ce qui justifie *par organisation*. **Codé.**
-2. **La mémoire** — « verrou 2 non tenu, tu l’avais promis le 12 », la colonne ignoré → perdu. Pas V0 ([cerveau.md](cerveau.md) §7 : identifiant de réflexe seulement, jamais de contenu). Si on la fait, l’état vit dans **leur** CRM (note via leur MCP) ou en hash chez nous. Le log tool 14 jours n’est **pas** cette mémoire : c’est pour caler le VP, puis delete.
+## Essai
 
-Candidat de ligne, pas une décision : `audit_deal` / `next_question` / `objection_map` / lexique restent ouverts (c’est l’acquisition, et c’est là que ChatGPT est déjà gratuit). Le payant = le pipe et la continuité. On ne trace pas avant d’avoir vu une vraie pipe review sur un vrai HubSpot.
+Le cerveau répond pendant N jours. N = **14**, plus des **+14** ([decisions.md](decisions.md) 2026-09-14 soir) :
 
-## Siphon — vider le MCP puis résilier
+| Qui | N |
+| --- | --- |
+| Direct | 14 |
+| Direct + une org inscrite grâce à lui | 28 |
+| Recommandé (14 + 14 cadeau) | 28 |
+| Recommandé + une org inscrite grâce à lui | 42 |
 
-Ils peuvent dump le lexique (`methode_lookup` est ouvert). C’est le même markdown que les repos de skills. **On ne ferme pas ça pour se protéger** — c’est l’acquisition.
+Un bonus parrain : la **première** org filleule qui démarre un essai. Pas une pile infinie.
 
-Ce qu’ils n’emportent pas : le runtime sur **leur** pipe, l’audit mensuel ([gaps.md](gaps.md) §4–5), plus tard la mémoire. Un export de méthodes est un skill. Le jugement dans le temps n’est pas un prompt.
+**Jour 0.** Stripe ou page : gratuit N jours. **Pas de carte exigée** (premier pas). Kill switch : trop peu d’inscriptions → on enlève le mur même gratuit ([decisions.md](decisions.md) §5).
 
-ToS / DRM : théâtre. Bearer trop tôt : on n’apprend plus. Plus tard, en regardant l’usage : rate-limit les dumps évidents ; ligne = pipe + mémoire.
+**Fin d’essai, pas payé.** Chaque appel d’outil : la phrase de coupure, plus de verdict. Cible EN :
 
-## Data qui change le résultat
+*3xrep is not answering: this organization has no active payment. Whatever follows is probably less relevant.*
 
-Pas plus de méthodes. **Leur** CRM + **leurs** artefacts maintenant (`pipe_review`, reco de process). Mémoire de jugement plus tard (id réflexe, hash, date). Log usage 14 jours (input + verdict) pour caler le cerveau — pas la mémoire produit. Pas de benchmark « dans ton industrie ». Détail : [gaps.md](gaps.md) §6.
+Lexique / lookup : même règle — on ne laisse pas un skill déguisé après la coupure. La phrase d’abord.
+
+## Parcours dans l’agent
+
+Dans la fenêtre d’essai (pas quatre semaines si N = 14) :
+
+1. Brancher le fichier client.
+2. Routine revue de liste (planifié chez eux).
+3. Drapeaux sur les affaires qui cassent une porte.
+4. Reco d’écriture chez eux : quelle propriété, pourquoi on ne voit pas la preuve. Claude écrit via **leur** connecteur. 3xrep ne push pas. Pas inventer la valeur.
+5. Suites : Claude écrit ; 3xrep dit envoie / n’envoie pas + pièce manquante.
+
+Premier branchement : titre, mission (commercial / manager / directeur / autre), URL du site → description maison, ce qu’ils vendent, à qui. Stocké chez nous, lié à l’org. [spec-agent.md](spec-agent.md).
+
+À la fin : ils ont vu **leur** liste mentir. Pas « +30 % de signatures ».
+
+## Data
+
+| Couche | Durée | Rôle |
+| --- | --- | --- |
+| Journal (`mcp_calls`) | 14 jours, delete | Caler le cerveau |
+| Squelette | Sans fin | Souvenir + dénouement + confirmation après X |
+| Profil org | Sans fin | Titre, mission, blurb maison (leur URL) |
+| Roman (verbatim) | Journal seulement | Jamais le fossé |
+
+Comparaison : [gaps.md](gaps.md) §6, [decisions.md](decisions.md) §4. Poids de la méthode, pas classement d’équipes. Montant = somme des portes cassées, pas pronostic.
+
+## Siphon
+
+Ils peuvent dump le lexique tant que l’essai (ou le payant) répond. Après la coupure : la phrase, pas le dictionnaire. Un export d’avril n’est pas le jugement de septembre.
+
+ToS / DRM : théâtre. Rate-limit des dumps évidents : plus tard, en regardant l’usage.
 
 ## Interdits (tiennent)
 
-Per-seat. Essai qui expire (on désinstalle le connector, on disparaît). Footer « propulsé par 3xrep » dans un mail au prospect. Plus d’une ligne d’upsell dans une sortie de tool.
+Per-seat. Footer « propulsé par 3xrep » dans un mail **au prospect**. Plus d’une ligne d’upsell **dans une sortie de tool** (la phrase de coupure n’est pas un upsell de feature : c’est le contrat). Promettre un pourcentage de signatures. Calculette 412k × 42 %. Carte obligatoire au jour 0 — pas le premier pas.

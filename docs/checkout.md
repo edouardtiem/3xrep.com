@@ -6,6 +6,18 @@ Live (11 sept 2026, Édouard) : Price **129,00 USD** recurring monthly. Plus de 
 
 Chemin commercial (2 min) : page [`/install`](/install) — brancher l’agent, **puis** payer. Home : bouton secondaire *Already in?*. Success : `/merci`. Webhook : org `active` + clé.
 
+## Cible essai — pas live
+
+[decisions.md](decisions.md) 2026-09-14, [plg.md](plg.md). **Ne pas coder ici tant que l’item 6 n’est pas ouvert.**
+
+- Checkout (ou page) : *gratuit N jours*. N = 14, ou 28, ou 42 (base 14 + briques parrainage, [decisions.md](decisions.md) 2026-09-14 soir).
+- **Pas de carte exigée** au jour 0 (premier pas). Stripe `trial_period_days` + `payment_method_collection: if_required` si ça tient ; sinon org essai sans customer Stripe.
+- Webhooks en plus (au ship) : `customer.subscription.trial_will_end`, `customer.subscription.updated` (essai → active / past_due).
+- Fin d’essai, pas payé : status org `lapsed` (nom à caler). Le MCP rend la phrase de coupure, pas le verdict.
+- Kill switch : retirer le mur — Édouard.
+
+Live aujourd’hui : paiement = org tout de suite, tools ouverts **sans** clé.
+
 ## Ce que le code lit — noms exacts
 
 Aucun secret n’est dans le git. Ne pas inventer de clés. Ne pas coller une clé d’un autre produit (Mon Parent Agé, jesaisfaire).

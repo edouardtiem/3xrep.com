@@ -56,3 +56,183 @@ Ligne publique (site, install, docs) :
 Seulement si : on allonge ou on coupe les 14 jours ; on stocke autre chose que entrée + verdict ; on promet la mémoire « le 12 ». Une nouvelle section. On ne réécrit pas celle-ci.
 
 Note du jour : [sessions/2026-09-07-4.md](sessions/2026-09-07-4.md).
+
+---
+
+## 2026-09-14 — Squelette, essai qui coupe, parrainage
+
+**Qui :** Édouard. Fil du 13–14 sept. Acté le 14 sept.
+
+**Figé.** Gagne sur : [plg.md](plg.md) (tools ouverts, pas d’essai, pas de comparaison), [gaps.md](gaps.md) « pas de benchmark industrie », [cerveau.md](cerveau.md) « mémoire plus tard », [roadmap.md](roadmap.md) « essai qui expire » interdit, [differentiel.md](differentiel.md) « mémoire pas maintenant ». Ne casse pas le journal 14 jours ci-dessus : le **texte** de l’appel s’efface toujours. Ne casse pas : pas d’enregistrement, pas de `write_to_crm` **chez 3xrep**, pas de proba de close, pas de pourcentage de signatures promis. Écrire dans leur fichier = **leur** agent, via **leur** connecteur, d’après nos reco — [§8](#8-écrire-chez-eux--reco-pas-nous).
+
+### Ce qui était vrai
+
+Journal : demande + verdict, 14 jours, delete. Pas de souvenir « vide depuis le 12 ». Pas de comparaison aux autres maisons. Tous les tools ouverts, pas de cadenas, pas d’essai. Payer = org + clé, ça ne débloque pas un tool. La mémoire et la ligne payant attendaient une vraie `pipe_review`.
+
+### Ce qui est vrai maintenant
+
+Trois couches de data, plus un essai, plus un parcours dans l’agent.
+
+#### 1. Journal — inchangé
+
+Demande + verdict : **14 jours**, puis delete. Caler le cerveau. Pas le fossé.
+
+#### 2. Squelette — sans limite de temps
+
+On garde, **sans date de fin** :
+
+| On garde | On ne garde pas |
+| --- | --- |
+| `org` + hash de l’affaire (pas le nom) | Le verbatim, les mails, les notes en dur |
+| Pièce + `su \| suppose \| trou` + date | Un fichier client (noms, étapes, tâches) |
+| Tranche de montant, étape **prétendue** | Un classement de commerciaux |
+| Plus tard : gagné / perdu / encore ouvert, **quand une routine ramène le dénouement** | Leur case « pourquoi perdu » comme vérité |
+
+Ça permet : « cette pièce est vide depuis le 12 ». Chez **eux**, une fois des fins : « quand elle était vide, l’affaire est plus souvent passée à perdu ». Pas un roman. Pas HubSpot chez nous.
+
+#### 3. Profil au premier branchement
+
+La première fois, l’agent demande (et on stocke **chez nous**, lié à l’org) :
+
+- Titre.
+- Mission : commercial / manager / directeur commercial / autre.
+- URL du site de **leur** société → on en tire une description (ce qu’ils vendent, à qui). Ils corrigent.
+
+Ce n’est pas de l’enrichissement de prospects ([acces.md](acces.md)). C’est **leur** maison, **leur** URL. Les variables du [spec-agent.md](spec-agent.md) (`company_name`, offre, comptes visés…) cessent d’être un copier-coller vide : elles se remplissent ici.
+
+Pas un carnet au hasard (« il aime les mails courts »). Pas un `soul.md` qui avale tout.
+
+#### 4. Comparaison — poids de la méthode, après X
+
+Le trou d’aujourd’hui reste le trou. Dès qu’on a **X histoires terminées sur cette pièce** (jugement puis gagné ou perdu), on peut ajouter :
+
+*Chez les maisons qu’on voit, ce trou précède un perdu dans N % des fins.*
+
+X se cale au ship (assez pour que N ne soit pas du bruit). Une pièce rare n’affiche pas de N. En dessous de X : le trou seulement.
+
+Montant dit **simplement** : somme des lignes qui cassent une porte déjà vraie sans nous (étape « on signe » sans budget tenu ; personne qui tranche ; etc.). La méthode dit : fragile. On additionne ce qui est écrit.
+
+Trois phrases. 1 et 2 oui. 3 non.
+
+1. Chez toi : ces affaires cassent cette porte. Somme écrite : 412 000 dollars.
+2. Chez ceux qu’on voit : quand ce trou était là, 42 % des fins sont passées à perdu.
+3. Donc tes 412 000 × 42 % vont mourir — ou « 412 000 en danger » au sens *cet argent s’envole / revient si tu paies*.
+
+Le 42 % confirme la **règle**. Il ne multiplie pas **leur** liste. Pas de calculette. Pas « les équipes comme vous convertissent à 51 % ». Pas un classement Sarah.
+
+#### 5. Essai qui coupe
+
+Le cerveau répond pendant l’essai. À la fin, sans paiement : on **coupe le jugement**.
+
+Ce qui reste, à **chaque** appel d’outil : une phrase, puis plus de verdict 3xrep. L’assistant continue à parler tout seul — on le dit.
+
+Cible EN (copy au ship) :
+
+*3xrep is not answering: this organization has no active payment. Whatever follows is probably less relevant.*
+
+Pas un silence. Pas un 401 vide. Pas le lexique qui continue comme si de rien.
+
+**Jour 0 — premier pas.** Stripe (ou page) : *gratuit N jours*. **Carte pas exigée** pour ce premier pas. Si Stripe permet un essai sans moyen de paiement, on le prend. Sinon : inscription essai, carte plus tard.
+
+**Kill switch.** Si trop peu d’inscriptions : on enlève le mur Stripe **même gratuit** (retour outils ouverts sans compte). Édouard l’a dit. Sans org identifiée, on ne peut plus couper à la fin de l’essai — c’est le prix du switch. Le paiement redevient dû seulement quand une org existe.
+
+**À la fin de l’essai :** paiement obligatoire (129 $ / mois / org) ou la phrase ci-dessus.
+
+#### 6. Durées — parrainage d’organisations
+
+Unité = une **organisation**, pas un siège. Un bonus : **la première** org filleule qui démarre un essai. Pas +14 par filleul à l’infini (à rouvrir si on voit l’usage).
+
+| Qui | Essai | S’il parraine une org |
+| --- | --- | --- |
+| Inscription directe | **14 jours** | **28 jours** (14+14) |
+| Org recommandée | **30 jours** (15+15 du parrainage) | **45 jours** (30+15) |
+
+Le filleul part déjà avec 15 jours offerts par le lien. Le parrain (direct) gagne +14. Le parrain déjà filleul gagne +15 pour coller à 45.
+
+#### 7. Parcours dans l’agent (pendant l’essai)
+
+Une chose à la fois, **dans la fenêtre d’essai** (14 / 28 / 30 / 45 jours — pas quatre semaines calendaires pour le premier user) :
+
+1. Brancher le fichier client.
+2. Routine : revue de la liste (lundi / planifié Claude ou ChatGPT).
+3. Drapeaux sur des affaires (étape qui ment, pièce vide).
+4. Suites : l’agent écrit le mail ; 3xrep dit si ça devrait partir, quelle pièce manque. On n’envoie pas. On n’est pas la bouche.
+5. Reco d’écriture **chez eux** : quelle propriété changer, parce qu’on ne voit pas la preuve ([§8](#8-écrire-chez-eux--reco-pas-nous)).
+
+À la fin de l’essai, ils ont **vu** leur liste mentir. La carte fait moins mal. On ne promet pas un pourcentage de signatures. Feeling visé : *je peux générer plus de revenu avec ça* — hero déjà : *make you sign more deals*, sans chiffre. Spec et tools : toujours pas « tu closes ».
+
+#### 8. Écrire chez eux — reco, pas nous
+
+**3xrep n’écrit jamais** dans HubSpot / Salesforce / Notion. Pas de tool `write_to_crm`. La ligne publique *We don’t write to your CRM* tient : **nous**.
+
+**Leur agent (Claude, ChatGPT…)** lit et écrit via **leur** connecteur fichier client. C’est déjà [v0.md](v0.md) / [contournement.md](contournement.md).
+
+Le verdict **recommande** quoi écrire, et pourquoi. Exemple : *cette propriété dit « négociation » ; on ne voit personne qui tranche dans les preuves. Propose de la corriger (étape, champ, note) — après confirmation.* Autre : *le champ budget est coché ; aucun chiffre dit par eux. Ne le laisse pas vert.*
+
+On recommande de **retirer le mensonge** (case verte sans preuve, étape illégale). On ne recommande pas de **remplir le trou en inventant** (poser un nom de DAF qu’on n’a pas). Une reco sans exhibit = « vide, va chercher », pas « écris Marie ».
+
+Confirmation avant d’écrire : tient. L’humain dit oui, ou l’agent a déjà la règle dans la consigne. 3xrep ne pousse pas le champ.
+
+### Ce que ce n’est pas
+
+| Ça | Non |
+| --- | --- |
+| Garder les appels pour toujours | Le roman (journal) reste 14 j. Le squelette, lui, reste. |
+| Gong / enregistreur | Pas de bot. Pas de bande. |
+| HubSpot chez nous | Pas les fiches. Profil maison + squelette de jugement. |
+| Pronostic / forecast | Somme des portes cassées + confirmation de la règle. Pas 412k × 42 %. |
+| Classement d’équipes | Pas « similar teams 34 % ». |
+| Séquenceur / on écrit le mail | Claude habille. On juge. |
+| 3xrep pousse les champs HubSpot | Reco dans le verdict. Eux écrivent. Pas remplir une case sans preuve. |
+| Essai silencieux | On coupe le cerveau ; on laisse la phrase. |
+| Tools ouverts pour toujours (live actuel) | Live jusqu’au ship. Après ship : essai puis mur. Kill switch si l’acquisition meurt. |
+
+### Où ça vit
+
+- Contrat : cette section. Opération : [plg.md](plg.md). Cerveau : [cerveau.md](cerveau.md) §7. Feuille de route : [roadmap.md](roadmap.md) item 6. Page : [landing.md](landing.md) Confiance (cible au ship). Checkout : [checkout.md](checkout.md) (cible). Spec : [spec-agent.md](spec-agent.md) premier branchement + parcours.
+- Code live **inchangé** tant qu’on ne shippe pas : `mcp_calls` 14 j, tools ouverts, `TRUST_LINE` actuelle, org créée au paiement Stripe.
+- Au ship : table squelette ; table / champs org (essai, fin, parrain, profil) ; cadenas ; phrase de coupure.
+
+### Rouvrir
+
+Nouvelle section si : on exige la carte au jour 0 ; on empile les bonus parrainage ; on change les durées ; on affiche le 42 % avant X ; on promet que le montant « en danger » revient ; on tient leur fichier client ; **3xrep** write chez eux ; on renvoie un vrai verdict après la coupure. Kill switch (enlever le mur) : Édouard, pas un agent.
+
+Note du jour : [sessions/2026-09-14.md](sessions/2026-09-14.md).
+
+---
+
+## 2026-09-14 (soir) — Essai : base 14, on empile
+
+**Qui :** Édouard. Même jour. Gagne sur le tableau §6 de la section 2026-09-14 ci-dessus (les 15 / 30 / 45).
+
+**Figé.** Le reste de cette section tient (squelette, coupure, reco d’écriture, un bonus parrainage pas une pile infinie).
+
+### Ce qui était vrai (ce matin)
+
+Direct : 14, ou 28 s’il parraine. Filleul : 30 (15+15), ou 45 s’il parraine.
+
+### Ce qui est vrai maintenant
+
+**Base = 14 jours.** On n’additionne que des **+14**.
+
+| Qui | Comment on compte | Total |
+| --- | --- | --- |
+| Inscription directe | base | **14** |
+| Direct + une org qui s’inscrit grâce à lui | base + parrain | **28** |
+| Org recommandée | base + cadeau filleul | **28** |
+| Filleul + une org qui s’inscrit grâce à lui | base + filleul + parrain | **42** |
+
+Quatre briques, toujours 14 :
+
+1. Essai.
+2. +14 si **une** nouvelle org s’inscrit (parrain).
+3. +14 cadeau si on est arrivé par un lien (filleul).
+4. Le filleul peut aussi gagner le +14 parrain.
+
+Toujours **la première** org filleule qui démarre un essai. Pas +14 par filleul à l’infini.
+
+### Rouvrir
+
+Nouvelle section. Celle du matin, on ne la réécrit pas.
+
+Note : [sessions/2026-09-14.md](sessions/2026-09-14.md).

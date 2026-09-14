@@ -27,7 +27,7 @@ L’admin du workspace branche 3xrep + le MCP HubSpot (ou Salesforce) une fois. 
 | --- | --- | --- |
 | **A** | Transcript / recap déjà sur le deal | Les 5 blocs. C’est le rituel 99 €. |
 | **B** | Mails, notes, meetings, next step sur la fiche — y compris une citation dans une note d’AE | Trous + next move + objectif. Pas de 7/10 du call. Pas de réplique. `demande` : coller le transcript dans *leur* chat, ou brancher un notetaker (Fireflies, tl;dv, HubSpot CI) pour que le prochain call arrive sur le deal. |
-| **C** | Collage **dans leur chat** Cowork / ChatGPT / Notion | Comme A si le texte est un verbatim. Comme B si ce sont des notes. 3xrep garde l’input 14 jours, puis delete. |
+| **C** | Collage **dans leur chat** Cowork / ChatGPT / Notion | Comme A si le texte est un verbatim. Comme B si ce sont des notes. 3xrep garde l’input **14 jours**, puis delete (journal). Le squelette (hash, pièce, date — [decisions.md](decisions.md) 2026-09-14) n’est pas ce texte. |
 
 Le collage n’est pas « mets le transcript dans 3xrep ». C’est le message, dans *leur* agent, pour *ce* call.
 
@@ -47,11 +47,11 @@ C → A pour la fois d’après : la note est sur la fiche. Le collage n’est p
 
 ## Ce qu’on écrit / ce qu’on n’écrit pas
 
-**Oui :** une note = le debrief (call, réplique si on l’a, 3 verrous, plan 1.2.3, objectif). Une tâche optionnelle = le geste qui coûte.
+**Oui :** une note = le debrief (call, réplique si on l’a, 3 verrous, plan 1.2.3, objectif). Une tâche optionnelle = le geste qui coûte. Une **reco** de propriété : *ce champ ment / est vide, voilà pourquoi ; Claude, via leur connecteur, propose de le corriger* ([decisions.md](decisions.md) §8, 14 sept).
 
-**Non :** le dump brut du transcript (job du notetaker). Les propriétés du deal (stage, montant, champs MEDDIC, proba). Un 7/10 posé sur la fiche partagée sans OK. Un tool 3xrep qui write.
+**Non :** le dump brut du transcript (job du notetaker). Un tool 3xrep qui `write_to_crm`. Remplir un champ avec un nom / un chiffre **inventé**. Une proba.
 
-« Update la carte » = la timeline. Pas le pipeline.
+« Update la carte » = la timeline, ou la reco ci-dessus exécutée **par leur agent**. Pas 3xrep qui pousse le pipeline.
 
 Si le MCP CRM refuse l’écriture (scopes, *sensitive data*) : le debrief reste dans le chat. La fiche attend. Ce n’est pas un bug 3xrep.
 
@@ -60,7 +60,7 @@ Si le MCP CRM refuse l’écriture (scopes, *sensitive data*) : le debrief reste
 - Tu appelles uniquement les tools 3xrep pour la méthode.
 - Tu lis et tu écris le CRM uniquement via le MCP HubSpot / Salesforce de l’utilisateur.
 - S’il y a un transcript ou un recap sur le deal, tu extraies des exhibits (qui, source, citation, pièce, affirme/nie, test posé). Sinon tu colles `demande` : coller ici, ou brancher un notetaker. Tu n’inventes pas de réplique.
-- Tu n’écris une note (ou une tâche) que s’il le demande, ou après confirmation.
+- Tu n’écris une note, une tâche, ou un champ que s’il le demande, ou après confirmation. Tu n’écris **que** via le MCP CRM de l’utilisateur. 3xrep ne write pas. Une reco 3xrep « ce champ ment » ≠ inventer la valeur.
 
 ## `audit_deal`
 

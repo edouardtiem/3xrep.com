@@ -96,10 +96,12 @@ Pas de logos clients, features grid, testimonials, layers en marketing, leçon M
 
 Écarté : *We don’t have access to your data, prompts nor queries.* Faux. Le MCP est remote. `audit_deal` reçoit `evidence`. C’est de l’accès le temps de la requête.
 
-**Ligne :** *We don’t join your calls. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. We don’t write to your CRM.*
+**Ligne live (code, tant que l’item 6 n’est pas shippé) :** *We don’t join your calls. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. We don’t write to your CRM.*
 
-« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). On n’écrit pas dans leur CRM.
+**Ligne cible (au ship, [decisions.md](decisions.md) 2026-09-14) :** *We don’t join your calls. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember and, with enough cases, to confirm the rule. We don’t write to your CRM.*
+
+« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). **Nous** n’écrivons pas dans leur CRM. Leur agent peut, via leur connecteur, d’après une reco 3xrep (propriété qui ment / vide — pas une valeur inventée). Le 14 sept : le **squelette** (hash, pièce, date — pas le roman) reste ; la confirmation après X et l’essai qui coupe — pas dans le `TRUST_LINE` tant que le code ne le fait pas.
 
 ## Interdit en copy
 
-« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « Tu closes vendredi ». Démo. Per-seat. « We don’t have access to your data ». Session dark / mesh / orb / particle graph. Un pourcentage de forecast, un pipeline pondéré, un classement de reps (le VP juge le pipe, pas les gens). *More deals* : oui dans le hero, sans chiffre. Pas dans le spec ni les tools.
+« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « Tu closes vendredi ». Démo. Per-seat. « We don’t have access to your data ». Session dark / mesh / orb / particle graph. Un pourcentage de forecast, un pipeline pondéré, un classement de reps (le VP juge le pipe, pas les gens). *More deals* : oui dans le hero, sans chiffre. Pas dans le spec ni les tools. Calculette « $412k × 42% at risk ». « Similar teams convert at 51% ».

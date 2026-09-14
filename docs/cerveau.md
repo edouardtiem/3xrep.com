@@ -260,7 +260,7 @@ Trois choses que ça donne, qu’une liste de cases ne donne pas :
 2. **Le réflexe, pas l’info.** L’info sert ce deal. Le réflexe sert les suivants. C’est là qu’on entraîne, sans faire un cours — ce que le terrain visait, obtenu sur un vrai dossier.
 3. **L’honnêteté.** Un trou sans fenêtre est marqué « pas atteignable ici ». On ne fabrique pas un remords.
 
-**Plus tard, pas V0 :** si on stocke l’identifiant du réflexe raté (jamais le contenu — [contournement.md](contournement.md)), on peut dire « tu loupes cette porte pour la quatrième fois ». C’est le VP qui se souvient. Il faut d’abord que la passe soit vraie sur un call.
+**Souvenir — acté 14 sept, pas encore ship** ([decisions.md](decisions.md) 2026-09-14). On stocke l’identifiant du réflexe / de la pièce (jamais le verbatim — [contournement.md](contournement.md)). « Tu loupes cette porte pour la quatrième fois. » « Vide depuis le 12. » Après X fins sur **cette** pièce : confirmation chez les maisons qu’on voit (poids de la méthode, pas pronostic, pas classement d’équipes). Le journal 14 jours n’est pas ça.
 
 ## 8. Pourquoi les agents CRM ne font pas ça
 
@@ -301,7 +301,7 @@ C’est cette règle qui rend le remplissage lent. C’est voulu : c’est elle,
 
 ## 11. Interdits (inchangés)
 
-Pas de proba de close. Pas de `write_to_crm`. Pas d’enregistrement (bot Zoom / Meet). Pas de citation inventée. Pas de score /100. Pas une méthode « officielle 3xrep » qui gagne sur les autres. Pas de fenêtre ratée inventée pour avoir l’air sévère. Pas de script, punchline, cold email, séquence, SOW, battlecard comme sortie d’un geste.
+Pas de proba de close. Pas de `write_to_crm` **dans nos tools**. Pas d’enregistrement (bot Zoom / Meet). Pas de citation inventée. Pas de score /100. Pas une méthode « officielle 3xrep » qui gagne sur les autres. Pas de fenêtre ratée inventée pour avoir l’air sévère. Pas de script, punchline, cold email, séquence, SOW, battlecard comme sortie d’un geste. Pas de calculette « montant × % des autres = perdu ». Le % après X confirme la **règle** ; la somme des portes cassées est un total écrit, pas un forecast. Reco d’écriture chez eux : oui. Pousser le champ nous-mêmes, ou remplir sans preuve : non.
 
 ## 12. Décisions prises (2 septembre 2026, Édouard)
 
@@ -315,8 +315,8 @@ Gravé. On ne les rejoue pas.
 6. **La passe systématique est un geste à part** (`passe-trous`). Le débrief quotidien reste [sortie.md](sortie.md), court.
 7. **Alignement cycle, pas copie.** [gestes.md](gestes.md). Le VP refuse. On n’écrit pas le mail / le script. Les canaux ne se multiplient pas. Le décompte n’est pas la décision (dix était trop gros ; catalogue réel dans gestes.md).
 
-Reste ouvert (pas une décision de structure) : la mémoire du jugement (§7, plus tard, identifiant de réflexe seulement, jamais de contenu).
+**14 sept 2026 :** mémoire de jugement **actée** — squelette sans fin, zéro verbatim, comparaison après X, profil au premier branchement. Pas ship. [decisions.md](decisions.md) 2026-09-14. Le moteur (admission, angle, interdits ci-dessus) ne change pas.
 
-**6–7 sept 2026 :** log des tool calls (input + verdict) 14 jours, puis delete. Ce n’est pas la mémoire de jugement. C’est pour caler le VP.
+**6–7 sept 2026 :** log des tool calls (input + verdict) 14 jours, puis delete. Ce n’est pas la mémoire de jugement. C’est pour caler le VP. Tient.
 
 Suite : remplir, dans l’ordre du §9. Puis les yaml [gestes.md](gestes.md) §7.
