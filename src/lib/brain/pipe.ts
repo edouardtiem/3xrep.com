@@ -1,9 +1,11 @@
 import { correctionsFromPipe, sommePortesCassees } from "@/lib/corrections";
+import { A_RISQUE_MOT, actionPourDeal, REGLER_AGENDA } from "./action";
 import { corpus } from "./corpus";
 import type { Etat } from "./etat";
 import { REFUS, runMoteur } from "./moteur";
 import { pieceOf, PIECES } from "./pieces";
 import type {
+  Action,
   ContratRendu,
   CorrectionCrm,
   DealInput,
@@ -47,6 +49,7 @@ export type PipeDealVerdict = {
   geste: Geste | null;
   contradictions: Contradiction[];
   etats: { id: string; etat: Etat }[];
+  action: Action | null;
 };
 
 export type TrouSystemique = {
@@ -65,6 +68,27 @@ export type Recommandation = {
   pourquoi: string;
 };
 
+export type LundiTotaux = {
+  liste: number | null;
+  a_risque: number | null;
+  ce_mois: number | null;
+  ce_mois_a_risque: number | null;
+};
+
+export type LundiLecture = {
+  etat: "solide" | "fragile";
+  motif: string;
+  regler: string;
+};
+
+export type Lundi = {
+  totaux: LundiTotaux;
+  a_risque_mot: typeof A_RISQUE_MOT;
+  ce_mois: { nom: string; montant: number | null }[];
+  reste: { nom: string; montant: number | null }[];
+  lecture: LundiLecture;
+};
+
 export type PipeReview = {
   geste: "pipe-review";
   deals: PipeDealVerdict[];
@@ -74,6 +98,7 @@ export type PipeReview = {
   rendu: ContratRendu;
   somme_portes_cassees: number | null;
   corrections_crm: CorrectionCrm[];
+  lundi: Lundi;
 };
 
 /** Ce qu’une étape CRM prétend. Une pièce non prouvée = l’étape ment. */
@@ -96,11 +121,21 @@ function jours(depuis: string, now: Date): number | null {
   return Math.floor((now.getTime() - t) / 86_400_000);
 }
 
+function actionOf(
+  deal: PipeDeal,
+  pieces: PieceVerdict[],
+  etape: string | null,
+  refus: string | null,
+  contradictions: Contradiction[],
+): Action {
+  return actionPourDeal({ deal, pieces, etape, refus, contradictions });
+}
+
 function verdictDeal(
   deal: PipeDeal,
   i: number,
   now: Date,
-): { verdict: PipeDealVerdict; pieces: PieceVerdict[] } {
+): { verdict: PipeDealVerdict; pieces: PieceVerdict[]; deal: PipeDeal } {
   const nom = deal.nom?.trim() || `deal ${i + 1}`;
   const etape = deal.etape?.trim() || null;
   const closeDate = deal.closeDate?.trim() || null;
@@ -120,8 +155,10 @@ function verdictDeal(
         geste: null,
         contradictions: [],
         etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
+        action: actionOf(deal, audit.pieces, etape, REFUS, []),
       },
       pieces: audit.pieces,
+      deal,
     };
   }
 
@@ -186,8 +223,71 @@ function verdictDeal(
       geste: audit.geste,
       contradictions,
       etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
+      action: actionOf(deal, audit.pieces, etape, null, contradictions),
     },
     pieces: audit.pieces,
+    deal,
+  };
+}
+
+function inCalendarMonth(closeDate: string | null, now: Date): boolean {
+  if (!closeDate) return false;
+  const t = Date.parse(closeDate);
+  if (Number.isNaN(t)) return false;
+  const d = new Date(t);
+  return d.getUTCFullYear() === now.getUTCFullYear() && d.getUTCMonth() === now.getUTCMonth();
+}
+
+function sommeMontants(deals: { montant?: number }[]): number | null {
+  let sum = 0;
+  let any = false;
+  for (const d of deals) {
+    if (d.montant == null || !Number.isFinite(d.montant)) continue;
+    sum += d.montant;
+    any = true;
+  }
+  return any ? sum : null;
+}
+
+function risqueCeMois(c: Contradiction): boolean {
+  return c.type === "etape_illegale" || c.type === "date_sans_exhibit" || c.type === "fiche_figee";
+}
+
+function lundiOf(
+  runs: { verdict: PipeDealVerdict; deal: PipeDeal }[],
+  trous: TrouSystemique[],
+  aRisque: number | null,
+  now: Date,
+): Lundi {
+  const ligne = (r: { verdict: PipeDealVerdict; deal: PipeDeal }) => ({
+    nom: r.verdict.nom,
+    montant: r.deal.montant != null && Number.isFinite(r.deal.montant) ? r.deal.montant : null,
+  });
+  const ceMoisRuns = runs.filter((r) => inCalendarMonth(r.verdict.closeDate, now));
+  const resteRuns = runs.filter((r) => !inCalendarMonth(r.verdict.closeDate, now));
+  const liste = sommeMontants(runs.map((r) => r.deal));
+  const ce_mois = sommeMontants(ceMoisRuns.map((r) => r.deal));
+  const ceMoisRisque = ceMoisRuns.filter((r) => r.verdict.contradictions.some(risqueCeMois));
+  const ce_mois_a_risque = sommeMontants(ceMoisRisque.map((r) => r.deal));
+  const fragile = liste != null && aRisque != null && aRisque * 2 >= liste;
+  const nNous = runs.filter((r) => r.verdict.action?.next_step_cote === "nous").length;
+  const top = trous[0];
+  const etapes = nNous
+    ? `${nNous} prochaine${nNous > 1 ? "s" : ""} étape${nNous > 1 ? "s" : ""} chez nous.`
+    : "Les prochaines étapes datées chez le prospect comptent.";
+  const motif = top
+    ? `${top.piece} se répète sur ${top.deals.length} affaires sur ${top.sur}. ${etapes}`
+    : etapes;
+  return {
+    totaux: { liste, a_risque: aRisque, ce_mois, ce_mois_a_risque },
+    a_risque_mot: A_RISQUE_MOT,
+    ce_mois: ceMoisRuns.map(ligne),
+    reste: resteRuns.map(ligne),
+    lecture: {
+      etat: fragile ? "fragile" : "solide",
+      motif,
+      regler: REGLER_AGENDA,
+    },
   };
 }
 
@@ -273,28 +373,24 @@ export const CONTRAT_PIPE: ContratRendu = {
   langue: "user, else prompt",
   blocs: [
     {
-      id: "pipe",
-      job: "The pipe, not the rep. N deals, N contradictions, N holes that repeat. No percentage, no coverage, no weighted pipeline.",
+      id: "totaux",
+      job: "Four written sums, not a forecast: total list, at risk (late stage that is not market practice), what the file says this month, this month at risk. Speak lundi.a_risque_mot. No percentage.",
     },
     {
-      id: "contradictions",
-      job: "One per line: what the CRM claims (stage, close date, last touch) vs what the calls prove (the piece, its state). 'This stage is illegal' is allowed. 'This close date is a claim' is allowed. Quote, or stay quiet.",
+      id: "ce_mois",
+      job: "Named deals this month. Each: the sales move (quoi), why (methods from action.rattachements), objection only if action.objection is a quote. Late stage without the signer: a meeting with whoever signs, not a negotiation with ops. Homework next-steps don't count.",
     },
     {
-      id: "systemique",
-      job: "The hole that repeats across deals. One sentence, the deals it touches, the one question to ask in every next call.",
+      id: "reste",
+      job: "The rest of the list. Same shape, less urgency.",
     },
     {
-      id: "process",
-      job: "One process change from the repeating hole: a mandatory question, a stage to gate or drop, a reflex to train. No conversion percentage. No 'you'll close more'. The next pipe_review is the test.",
-    },
-    {
-      id: "gestes",
-      job: "One move per deal — the one that costs. Not a to-do list. Skip deals with nothing to open.",
+      id: "lecture",
+      job: "Solid or fragile. The repeating pattern. One house rule for tomorrow (lundi.lecture.regler). No 'you'll close more'.",
     },
     {
       id: "refus",
-      job: "Deals with no artefact: 'not enough to judge — the call is missing'. Never fill the gap with the CRM fields.",
+      job: "Deals with no artefact: the call is missing. Don't invent an objection. Never fill the gap with CRM fields.",
     },
   ],
   interdits: [
@@ -304,6 +400,9 @@ export const CONTRAT_PIPE: ContratRendu = {
     "from x to y",
     "you'll close more",
     "forecast in euros",
+    "signature théorique",
+    "forte chance de perdre",
+    "MEDDIC score",
     "ranking reps",
     "you close Friday",
     "rewriting CRM fields — say the correction, they write it in their CRM",
@@ -318,6 +417,7 @@ export function pipeReview(deals: PipeDeal[], now: Date = new Date()): PipeRevie
   const trous = trousSystemiques(
     runs.filter((r) => !r.verdict.refus).map((r) => ({ nom: r.verdict.nom, pieces: r.pieces })),
   );
+  const somme = sommePortesCassees(deals, contradictions);
   return {
     geste: "pipe-review",
     deals: verdicts,
@@ -325,7 +425,8 @@ export function pipeReview(deals: PipeDeal[], now: Date = new Date()): PipeRevie
     trous_systemiques: trous,
     recommandations: recommandations(trous, contradictions),
     rendu: CONTRAT_PIPE,
-    somme_portes_cassees: sommePortesCassees(deals, contradictions),
+    somme_portes_cassees: somme,
     corrections_crm: correctionsFromPipe(contradictions),
+    lundi: lundiOf(runs, trous, somme, now),
   };
 }

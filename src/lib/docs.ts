@@ -13,14 +13,14 @@ export const DOC_NAV = [
 export const TOOLS = [
   [
     "pipe_review",
-    "Several deals. Which stage is illegal, which close date is a claim, which hole repeats.",
+    "Several deals. Monday page: written totals, at risk = not market practice, one move per deal.",
   ],
   [
     "audit_deal",
-    "One call. The /10, the miss quoted, three locks, a plan, one objective.",
+    "One call. The /10, the miss quoted, three locks, a plan on their calendar, one objective.",
   ],
-  ["next_question", "The one move that costs on this deal."],
-  ["objection_map", "The objection → the piece that isn't held."],
+  ["next_question", "The question, why, who must be in the room — not send-the-contract."],
+  ["objection_map", "Their sentence → the hole. Dig in the next meeting, don't reply by email."],
   ["methode_lookup", "MEDDIC, BANT, BEBEDC… a notion, not a deal."],
   ["rattacher", "One sentence from a call → which method, which part."],
   ["set_org_profile", "Once: title, mission, their company URL."],

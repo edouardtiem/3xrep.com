@@ -1,3 +1,4 @@
+export { actionPourDeal, nextStepCote, A_RISQUE_MOT } from "./action";
 export { scoreDeal } from "./audit";
 export { CONTRAT } from "./contrat";
 export type { Etat } from "./etat";
@@ -8,6 +9,6 @@ export { runMoteur } from "./moteur";
 export { nextQuestion } from "./next-question";
 export { objectionMap } from "./objection-map";
 export { CONTRAT_PIPE, pipeReview } from "./pipe";
-export type { Contradiction, PipeDeal, PipeReview, Recommandation, TrouSystemique } from "./pipe";
+export type { Contradiction, Lundi, PipeDeal, PipeReview, Recommandation, TrouSystemique } from "./pipe";
 export { rattacher, RATTACHER_MAX } from "./rattacher";
-export type { Audit, DealInput, Exhibit, Geste, GesteId, Layer, Trou } from "./types";
+export type { Action, Audit, DealInput, Exhibit, Geste, GesteId, Layer, NextStepCote, Trou } from "./types";

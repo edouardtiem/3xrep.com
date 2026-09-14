@@ -93,44 +93,65 @@ Cycle court : 6, 13, 14, 15, 21 souvent absents. On n’oblige personne à les j
 ## 4. Ce que le VP fait, moment par moment
 
 **`prospection`.** Avant d’écrire : as-tu une *raison* (pièce ouverte chez eux, pas un persona) ? Si non : **n’écris pas**. Si oui : le premier cran, pas les 80 mots. LinkedIn / mail / tel n’existent pas pour nous.
+*Sortie :* une raison déjà ouverte chez eux, ou n’écris pas. Une question. Pas de séquence.
 
 **`inbound`.** Ils ont demandé une démo. C’est une perche, pas un contrat. Une pièce à tester *avant* de booker, ou on ne booke pas. « Ils sont chauds » n’est pas une preuve.
+*Sortie :* ne pas poser le lien. Une case à tester avant le créneau, ou on ne booke pas.
 
 **`prepa-call`.** Une à trois pièces à tester dans *ce* rdv, dans l’ordre de la mort. La question du cran 1 de la première. Ce qu’on n’a pas le droit de poser (pas d’exhibit, ou ça brûlerait un point). Pas une liste SPIN.
+*Sortie :* 1 à 3 questions rattachées. Objectif = une date chez eux pour la suite, pas « bien qualifier ».
 
 **`prepa-suivi`.** Le claim de la dernière fois (un). Le test qui le tuerait cette heure. On n’ajoute une pièce que si la mort l’exige. Refaire BEBEDC = trou.
+*Sortie :* un claim, un test. Si la dernière étape était un devoir chez nous, le geste est un créneau, pas un recap.
 
 **`prepa-demo`.** Quel **fait** la démo doit poser (BAC, points brûlés). Quelle slide est interdite tant que `qui-tranche` ou `enjeu-chiffre` est vide. « Tu n’as pas le droit de montrer le module X : tu n’as personne pour l’acheter. »
+*Sortie :* le fait à poser. La slide interdite tant que celui qui signe ou l’enjeu n’est pas tenu.
 
 **`prepa-exec`.** Un fait que *cet* EB peut acheter. Ce qu’on ne raconte pas (le parcours ops, les features). S’il n’y a pas d’enjeu chiffré *dit par eux*, on n’a pas de rdv exec — on a un récap. Le geste le dit.
+*Sortie :* un chiffre que cette personne peut acheter, ou ce n’est pas un rdv dirigeant.
 
 **`no-show`.** Le créneau manqué est un exhibit sur la priorité, le champion, ou `qui-tranche` — pas un problème d’agenda. 4e créneau = non, sauf pièce nouvelle. On ne « relance pas le lien ».
+*Sortie :* un rendez-vous avec une personne nommée, ou on arrête. Pas le lien renvoyé.
 
 **`ghost`.** Quelle pièce a tué le fil (souvent next step sans date, ou EB jamais convie). Un cran, ou **arrêter**. Le checking-in est un livrable interdit.
+*Sortie :* la case qui a tué. Un cran, ou arrêter. Pas « prendre des nouvelles ».
 
 **`objection`.** L’objection est la pièce non tenue. CRAC = le réflexe, pas la réplique. « Trop cher » sans coût de l’inaction = Metrics vide. On ne répond pas au prix.
+*Sortie :* leur phrase, la case, une question dans le prochain rendez-vous. Pas un mail de réplique. « Je dois en parler en interne » = décideurs / champion, pas le prix.
 
 **`prix`.** Pas de montant tant que l’enjeu n’est pas un chiffre *dit par eux*. Un SOW avant ça, c’est un claim. Le geste rend le trou, pas le tarif.
+*Sortie :* le trou (enjeu / Metrics), pas le tarif.
 
 **`nego`.** Chaque concession exige un retour (accès EB, process, date, case study). Sans retour = trou Contreparties. Pas de « je peux faire 10 % ». Prépa de séance de négo = le même geste, pas un 22e.
+*Sortie :* le retour exigé, ou interdit. On ne négocie pas avec l’ops s’il ne signe pas.
 
 **`poc`.** Critère de succès *dit par eux*, date de sortie, qui tranche à la fin, timebox. Sans ça : **pas d’essai**. Un kickoff sans critère est une démo déguisée.
+*Sortie :* critère + date + qui signe, ou pas d’essai.
 
 **`rfp`.** Si `qui-tranche` ou critères d’achat vides : **n’y va pas** — tu es la colonne. Si tenus : le cran qui décide si on joue. On ne rédige pas la réponse.
+*Sortie :* n’y va pas si on ne sait pas qui signe. On ne remplit pas la grille.
 
 **`papier`.** Le process réel : qui, combien de cycles, quoi bloque, quelle date n’est pas un espoir. « C’est chez legal » = pièce vide. Questionnaire sécu = le process, pas un side quest.
+*Sortie :* un créneau avec la personne qui bloque. « Préparer les questions » ne compte pas.
 
 **`closing-intermediaire`.** Un next step a une date **et** une personne dans la pièce. Un oui verbal sans les deux n’est pas un close. MAP / « on convie le DAF » sans créneau = claim. C’est l’étape que les 10 avaient oubliée.
+*Sortie :* date + personne **chez eux**, ou ce n’est pas une prochaine étape.
 
 **`pipe-review`.** Deal par deal : quelle pièce tue le plus tôt. Une date de close sans exhibit = claim. « Cette étape est illégale » : oui. Codé (`src/lib/brain/pipe.ts`) : `etape_illegale` (négo / propal + la pièce qui tue le plus tôt non prouvée — **une** par deal, pas la liste des cases), `date_sans_exhibit` (close date sans `qui-tranche` / process prouvé), `fiche_figee` (> 30 jours sans modif : l’étape est un souvenir), **trou systémique** (la pièce non tenue sur ≥ la moitié des deals, 2 max, ordre de la mort, avec la question du cran 1), **refus** (deal sans artefact : « il manque le call », on ne remplit pas avec les champs). Entrée = ce que le CRM prétend (`etape`, `closeDate`, `derniereModif`) + les artefacts, lus par **leur** MCP CRM.
+*Sortie :* quatre coupes écrites (liste, à risque = pas la pratique des grilles, ce mois, ce mois à risque), une reco de vente par affaire (quoi, pourquoi, grilles), solide ou fragile, une règle dès demain. Pas un pronostic.
 
 **`autopsie`.** `passe-trous` sur un deal fermé. Même remontée, au passé. Le réflexe qui a tué. Ce n’est pas un rapport trimestre, c’est *ce* dossier.
+*Sortie :* au passé, le réflexe, la grille. Une chose à ne plus faire. Pas « on a perdu sur le prix » sans preuve.
 
 **`apres-non`.** Le non a une pièce. Qui d’autre dans le compte, ou on arrête. Recycle sans trou nommé = prospection sans raison.
+*Sortie :* la case du non. Qui d’autre, ou on arrête. Pas le mail « si tu changes d’avis ».
 
 **`qbr`.** L’installé a un enjeu (chiffre *dit par eux*, maintenant). L’expansion a un `qui-tranche`. Sinon ce n’est pas un QBR, c’est une visite.
+*Sortie :* celui qui signe + un enjeu maintenant, ou c’est une visite. Pas le tour des fonctions.
 
 **`debrief` / `passe-trous`.** Inchangés ([sortie.md](sortie.md), [cerveau.md](cerveau.md) §7).
+*Sortie débrief :* cinq blocs, plan et objectif = rendez-vous chez eux, rattachements nommés, objection = citation ou silence.
+*Sortie passe-trous :* une case, un geste, le pourquoi. Pas la liste des lettres vides.
 
 ## 5. Pas un geste — alias ou hors catalogue
 

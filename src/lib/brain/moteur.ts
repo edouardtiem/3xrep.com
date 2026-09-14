@@ -28,6 +28,7 @@ import type {
   Trou,
 } from "./types";
 import { correctionsFromAudit } from "@/lib/corrections";
+import { actionPourDeal, planChezEux } from "./action";
 
 export type RunOpts = {
   stopAt?: 7 | 8;
@@ -231,8 +232,15 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
       };
 
   const suivants = morts.slice(0, 3).map((m) => pieceOf(m.piece)!.echelle[0].question);
-  const plan = suivants.length > 0 ? suivants : [];
-  const objectif = tetePiece?.objectif ?? "";
+  const refus = text.trim() ? null : REFUS;
+  const action = actionPourDeal({
+    deal,
+    pieces,
+    etape: deal.etape,
+    refus,
+  });
+  const plan = stopAt >= 7 ? planChezEux(suivants, action) : [];
+  const objectif = stopAt >= 7 ? action.quoi : "";
 
   const strippe: string[] = [];
   if (stopAt >= 8) {
@@ -250,12 +258,13 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     morts,
     remontees: stopAt >= 6 ? remontees : [],
     geste,
-    plan: stopAt >= 7 ? plan : [],
-    objectif: stopAt >= 7 ? objectif : "",
+    plan,
+    objectif,
     strippe,
-    refus: text.trim() ? null : REFUS,
+    refus,
     demande: grade === "A" ? null : DEMANDE,
     rendu: CONTRAT,
+    action,
   };
   if (stopAt >= 8) audit.corrections_crm = correctionsFromAudit(deal, audit);
   return audit;

@@ -17,11 +17,11 @@ export const CONTRAT: ContratRendu = {
     },
     {
       id: "plan",
-      job: "Plan for the next call. 1. 2. 3. Short enough to fit in a meeting.",
+      job: "Plan for the next meeting ON THEIR calendar. 1. 2. 3. Sales moves, not homework (no recap, no slides, no 'send the contract'). Name the method parts the tool returned.",
     },
     {
       id: "objectif",
-      job: "One sentence. The move that costs (e.g. the CFO is in the room in R2). Not 'move the deal'.",
+      job: "One sentence. A named person + a date on THEIR calendar (e.g. the signer is in the room). Not 'move the deal'. If the CRM next step is homework, say it doesn't count and replace it with a slot.",
     },
   ],
   interdits: [
@@ -32,6 +32,8 @@ export const CONTRAT: ContratRendu = {
     "in your industry we often see… without citing this call",
     "12-point plan",
     "vague objective",
+    "homework instead of a meeting",
+    "invented objection",
     "+20 XP",
     "wrong answer it was MEDDIC",
   ],

@@ -10,5 +10,6 @@ export function nextQuestion(deal: DealInput) {
     mort: audit.morts[0] ?? null,
     demande: audit.demande,
     rendu: audit.rendu,
+    action: audit.action ?? null,
   };
 }

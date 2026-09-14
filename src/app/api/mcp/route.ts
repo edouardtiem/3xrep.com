@@ -48,7 +48,7 @@ const handler = createMcpHandler(
       {
         title: "Audit deal",
         description:
-          "Use when they talk about ONE deal, a call, or a CRM file. 8 stages on THIS deal (frame → render). Input = CRM artefacts. JSON out: pieces, death, climb-back, one move, contract, souvenir, CRM corrections. Paste this JSON; don't write another verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals, the pipe, a forecast, a stage: pipe_review. Write in the user's language, or the prompt's. Forbidden: close probability, write_to_crm.",
+          "Use when they talk about ONE deal, a call, or a CRM file. JSON out includes action (quoi, pourquoi, methods) plus pieces, death, climb-back, five-block contract, souvenir, CRM corrections. Speak action — don't invent a second verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals: pipe_review. Write in the user's language. Forbidden: close probability, write_to_crm, invented objection.",
         inputSchema: dealSchema,
       },
       withGate("audit_deal", async (deal) => jsonTool(scoreDeal(deal))),
@@ -59,7 +59,7 @@ const handler = createMcpHandler(
       {
         title: "Pipe review",
         description:
-          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, what's blocked, or a monthly cycle / process audit. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif, crm_id) with the artefacts (notes, mails, transcript). JSON out, per deal: what kills it first, one move, and the contradictions — plus the hole that repeats, one process change, written sum of broken doors, souvenir, CRM corrections. Deals without artefacts come back as refus. Paste this JSON. Forbidden: probability, coverage × win rate, conversion rate, forecast in euros, ranking reps, write_to_crm.",
+          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, what's blocked, or a monthly cycle / process audit. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif, crm_id) with the artefacts. JSON out: lundi (four written sums, this month, the rest, solid/fragile, one rule) plus per-deal action. Speak lundi, don't dump a lab report. Forbidden: probability, coverage × win rate, conversion rate, forecast in euros, signature théorique, ranking reps, write_to_crm.",
         inputSchema: pipeSchema,
       },
       withGate("pipe_review", async ({ deals }) => jsonTool(pipeReview(deals))),
@@ -70,7 +70,7 @@ const handler = createMcpHandler(
       {
         title: "Next question",
         description:
-          "Use when they ask what to ask next on a deal. Stops at stage 7: the move that costs on THIS deal. Same input as audit_deal. Write in the user's language, or the prompt's.",
+          "Use when they ask what to ask next on a deal. Returns action: the question, why (methods), who must be in the room. If the file says send the contract and the signer isn't held: don't send. Same input as audit_deal. Write in the user's language.",
         inputSchema: dealSchema,
       },
       withGate("next_question", async (deal) => jsonTool(nextQuestion(deal))),
@@ -81,7 +81,7 @@ const handler = createMcpHandler(
       {
         title: "Objection map",
         description:
-          "Use when they quote an objection (price, timing, competitor). Objection → unheld piece → CRAC. Not a punchline. Write in the user's language, or the prompt's.",
+          "Use when they quote an objection (price, timing, competitor, 'I need to talk internally'). Objection → unheld piece → CRAC in the next meeting — not a punchline email. If they didn't paste the sentence, ask; don't invent. Write in the user's language.",
         inputSchema: dealSchema.extend({
           objection: z.string().describe("The objection as heard, one sentence."),
         }),
@@ -124,7 +124,7 @@ const handler = createMcpHandler(
       {
         title: "Monthly cycle audit",
         description:
-          "Once a month: audit the whole sales cycle. Read every open deal through their CRM MCP, call pipe_review, then propose one process change (mandatory question, a stage to gate or drop, a reflex to train). No conversion percentage.",
+          "Once a month: audit the whole sales cycle. Read every open deal through their CRM MCP, call pipe_review, speak the Monday page plus one house rule. No conversion percentage.",
       },
       () => ({
         messages: [

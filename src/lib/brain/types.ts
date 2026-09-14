@@ -73,6 +73,18 @@ export type Geste = {
   piece: string;
 };
 
+export type NextStepCote = "eux" | "nous" | "absent";
+
+/** Sales move the user reads — not a flag. */
+export type Action = {
+  quoi: string;
+  pourquoi: string;
+  rattachements: Rattachement[];
+  objection: string | null;
+  next_step_cote: NextStepCote;
+  question: string | null;
+};
+
 export type ContratRendu = {
   langue: "user, else prompt";
   blocs: { id: string; job: string }[];
@@ -133,4 +145,5 @@ export type Audit = {
   demande: string | null;
   rendu: ContratRendu;
   corrections_crm?: CorrectionCrm[];
+  action?: Action;
 };

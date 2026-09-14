@@ -1,5 +1,5 @@
 import { runMoteur } from "./moteur";
-import type { DealInput } from "./types";
+import type { DealInput, Rattachement } from "./types";
 
 const MAP: { re: RegExp; piece: string; crac: string }[] = [
   {
@@ -18,34 +18,67 @@ const MAP: { re: RegExp; piece: string; crac: string }[] = [
     crac: "Creuser l’alternative réelle (y compris ne rien faire). Reformuler le coût de rester. Pas une punchline produit.",
   },
   {
-    re: /\b(je dois en parler|internal|mon chef|on verra)\b/i,
+    re: /\b(je dois en parler|internal|mon chef|en interne|on verra)\b/i,
     piece: "champion-vs-coach",
-    crac: "Creuser s’il porte ou s’il recule. Reformuler le risque pour lui. Contrôler : il amène le DAF, ou il nomme pourquoi pas.",
+    crac: "Ce n’est pas une objection prix — c’est décideurs / champion. Creuser s’il porte ou s’il recule. Contrôler : il amène celui qui signe, ou il nomme pourquoi pas.",
   },
 ];
 
 export function objectionMap(input: DealInput & { objection: string }) {
-  const audit = runMoteur({ ...input, objection: input.objection });
-  const hit = MAP.find((m) => m.re.test(input.objection)) ?? MAP[0];
-  const cible = audit.pieces.find((c) => c.id === hit.piece);
+  const phrase = input.objection.trim();
+  const audit = runMoteur({ ...input, objection: phrase });
+  if (!phrase) {
+    return {
+      objection: "",
+      refus: "Coller la phrase exacte. Ne pas inventer l’objection.",
+      piece: null,
+      crac: null,
+      trou: null,
+      rattachements: [] as Rattachement[],
+      geste: audit.geste,
+      layer: audit.layer,
+      morts: audit.morts,
+      rendu: audit.rendu,
+      action: audit.action ?? null,
+    };
+  }
+  const hit = MAP.find((m) => m.re.test(phrase));
+  const piece = hit?.piece ?? audit.morts[0]?.piece ?? "qui-tranche";
+  const cible = audit.pieces.find((c) => c.id === piece);
+  const rattachements: Rattachement[] = cible?.rattachements ?? [];
   const trou =
-    cible && cible.etat !== "su" && cible.rattachements[0]
+    cible && cible.etat !== "su" && rattachements[0]
       ? {
           piece: cible.id,
-          methode: cible.rattachements[0].methode,
-          partie: cible.rattachements[0].partie,
+          methode: rattachements[0].methode,
+          partie: rattachements[0].partie,
           preuve: cible.preuve,
           etat: cible.etat,
+          rattachements,
         }
       : (audit.trous[0] ?? null);
+  const crac =
+    hit?.crac ??
+    "Creuser dans le prochain rendez-vous. Ne pas répondre par mail. Ne pas inventer une punchline.";
+  const base = audit.action;
   return {
-    objection: input.objection,
-    piece: hit.piece,
-    crac: hit.crac,
+    objection: phrase,
+    refus: null,
+    piece,
+    crac,
     trou,
+    rattachements,
     geste: audit.geste,
     layer: audit.layer,
     morts: audit.morts,
     rendu: audit.rendu,
+    action: {
+      quoi: `Dans le prochain rendez-vous chez eux, creuser cette phrase — pas un mail de réplique.${base?.question ? ` Poser : « ${base.question} »` : ""}`,
+      pourquoi: base?.pourquoi ?? "",
+      rattachements: base?.rattachements ?? rattachements,
+      objection: phrase,
+      next_step_cote: base?.next_step_cote ?? "absent",
+      question: base?.question ?? null,
+    },
   };
 }
