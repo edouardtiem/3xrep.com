@@ -1,15 +1,15 @@
 ---
 name: elon-musk-voice
-description: Draft 3xrep X posts in a Musk-like register. Short sentences, mission plus tech, punch. Founder account (@Edd08x, Ed., run 3xrep). Mode A (VP Sales agent is the future) or Mode B (intelligence layer on the CRM, inside Claude). I = founder (build, price, opinion); product named 3xrep, not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
+description: Draft 3xrep X posts in a short, concrete register (landing Session, not maxim posters). Founder account (@Edd08x, Ed., run 3xrep). Mode A or Mode B is the idea, not a slogan triad. I = founder (build, price, opinion); product named 3xrep, not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
 ---
 
 # Registre Musk. Brouillons X fondateur
 
-Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, mission collée à la technique, un punch, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
+Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, un fait, on s’arrête. On n’écrit **pas** *en tant qu’* Elon.
 
-Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque **post** : **Mode A** ou **Mode B**. Pas de I forcé. Pas de « he ».
+Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque **post** : **Mode A** ou **Mode B** (l’idée). Pas de I forcé. Pas de « he ». Pas de triade maxime → jugement → produit.
 
-Réponses : skill `x-replies-that-hit`. Pas une phrase org sous chaque parent (~1 sur 4 ou 5).
+Réponses : skill `x-replies-that-hit`. Pas une phrase org sous chaque parent (~1 sur 5).
 
 ## Règles partagées
 
@@ -17,7 +17,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** (VP Sales agent = the future, org, pas sièges / cours / enregistreur) ou **Mode B** (couche d’intelligence sur tout le CRM, dans Claude / MCP). Jargon pipe = avancé, pas défaut. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing (`src/lib/landing.ts`). Vocabulaire de terrain : stage, close date, owner, call, pipe. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -25,11 +25,12 @@ Détail : [README](../README.md). Tiennent ici :
 
 | On prend | On laisse |
 | --- | --- |
-| Phrases courtes. Un point. Encore une. | Phrases qui s’empilent, « excited to announce » |
+| Phrases courtes. Un point. Encore une. Comme la Session. | Maximes d’affiche. « excited to announce » |
+| Un fait de terrain (stage, close date, owner, call, pipe) | Punchline : race, scarce, fiction, verdict, triad, vanity |
 | Mission **et** comment ça marche, dans le même souffle | Mission sans mécanisme, ou jargon sans enjeu |
-| Un punch, puis silence | Fil de 19 posts, TED, « thread 🧵 » |
+| Un punch concret, puis silence | Fil de 19 posts, TED, « thread 🧵 », triade maxime → jugement → produit |
 | Ce qui est vrai (le fichier client ment, on n’enregistre pas) | Mème Tesla / Mars / doge / politique d’Elon |
-| Je **fondateur** (I built 3xrep, I price the org, I’m not selling seats) | I pour un geste **produit** (I don’t join the call) |
+| Je **fondateur** (I built 3xrep, I price the org, I’m not selling seats). Rare. Pas « I built so… » | I pour un geste **produit** (I don’t join the call) |
 | **3xrep** ou un fait sans pronom pour le geste produit | « He » (mystérieux sur un compte fondateur) / Je / we **comme Elon** |
 
 3xrep = they create the agent. 3xrep is the VP Sales brain. $129 / org / mois. Pas un Gong. Pas un cours. Pas un enregistreur. Pas par siège.
@@ -44,9 +45,9 @@ Détail : [README](../README.md). Tiennent ici :
 ## Étapes
 
 1. **Une idée.** Une. **Mode A** ou **Mode B**. Si tu en as trois, trois drafts séparés, pas un fil.
-2. **Mission + technique.** Mode A : pourquoi un VP Sales agent (org, pas sièges, pas un cours, pas un enregistreur). Mode B : *comment* ça se place (couche d’intelligence sur tout le fichier client, dans Claude, une URL MCP à côté du connecteur). Pas « AI-powered sales ». Pas stage / quote / fill the gap en ouverture.
-3. **Couper.** Chaque phrase > 20 mots : couper ou tuer. Adverbes de politesse : dehors. « We believe », « super excited », « game-changer » : dehors. « We » corporate sans visage : dehors. I seulement si c’est Ed. qui construit, prix, décide. I ou « he » pour un geste produit : jeter. Zéro pronom si le punch tient sans.
-4. **Punch.** La dernière ligne porte seule. Mode A : *The VP Sales agent is the future.* / *I’m not selling seats.* Mode B : *One MCP URL next to the CRM connector.* / *Not another CRM tab.* Avancé (fil déjà dans le jargon) : *3xrep won’t fill that gap.*
+2. **Écrire comme la Session.** Mode A : org, pas sièges, pas un cours, pas un enregistreur. Mode B : couche d’intelligence sur tout le fichier client, dans Claude, une URL MCP à côté du connecteur. Pas « AI-powered sales ». Pas *The VP Sales agent is the future* en ouverture. Un fait : *This stage is illegal.* / *That date is a claim, not a fact.* / *I won't fill the gap.*
+3. **Couper.** 1–3 phrases. Chaque phrase > 20 mots : couper ou tuer. Adverbes de politesse : dehors. « We believe », « super excited », « game-changer » : dehors. « We » corporate sans visage : dehors. I seulement si c’est Ed. qui construit, prix, décide. I ou « he » pour un geste produit : jeter. Zéro pronom si le punch tient sans. « I built 3xrep so… » : jeter.
+4. **Punch.** La dernière ligne porte seule. Concrète. Mode A : *I’m not selling seats.* / *This stage is illegal.* Mode B : *One MCP URL next to the CRM connector.* / *I won't fill the gap.* Pas : *Opens are vanity.* / *The callback is the verdict.* / *Recording isn't a verdict.*
 5. **Anti-sosie.** Relire la grille ci-dessous. Un oui → recommencer.
 
 ## Anti-sosie (un oui = jeter)
@@ -70,12 +71,13 @@ Gates : compte X oui/non · org payante oui/non · go explicite oui/non
 Action : draft seulement / prêt à poster (les trois oui)
 Voix : @Edd08x · Ed. · Je = fondateur · produit = 3xrep ou fait sans pronom
 Mode : A | B
+Triade : non
 
 ## 1
 <post>
 
 Mode : A | B
-Pourquoi le punch : (une ligne)
+Pourquoi le punch : (une ligne, fait de terrain)
 Lien doux : non | https://3xrep.com/install (une fois, après une preuve)
 
 ## Anti-sosie
@@ -86,8 +88,10 @@ Lien doux : au plus **une** fois, après une preuve, jamais en ouverture. Prix s
 
 ## Interdit
 
-- Publier. Message privé. Follow / like auto.
+- Publier. Message privé. Follow / like auto. Éditer un post live.
 - Tiret long (—), tiret moyen (–), ou `--` comme ponctuation.
+- La triade maxime → jugement → produit. « I built 3xrep so… ».
+- Punchline : race, scarce, fiction, verdict, triad, vanity.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - « We replace Gong ». Pourcentage de signatures.
 - Appel X cher sans annoncer le coût ([README](../README.md) § API X).
