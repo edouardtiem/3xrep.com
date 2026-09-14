@@ -153,7 +153,7 @@ function QuestionList({
               key={thread.id}
               type="button"
               aria-current={on ? "true" : undefined}
-              className={`cursor-pointer rounded-full px-3 py-1.5 text-left text-[0.75rem] leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
+              className={`min-h-9 cursor-pointer rounded-full px-3.5 py-2 text-left text-[0.75rem] leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
                 on
                   ? "bg-[var(--cw-raise)] text-[var(--cw-fg)]"
                   : "text-[var(--cw-dim)] hover:bg-[var(--cw-raise)] hover:text-[var(--cw-fg)]"
@@ -169,8 +169,8 @@ function QuestionList({
   }
 
   return (
-    <aside className="flex w-[15.5rem] shrink-0 flex-col border-r border-[var(--cw-line)] bg-[var(--cw-side)] p-2.5">
-      <ul className="flex flex-col gap-0.5">
+    <aside className="flex w-[15.5rem] shrink-0 flex-col border-r border-[var(--cw-line)] bg-[var(--cw-side)] p-2">
+      <ul className="flex flex-col gap-1">
         {LP_THREADS.map((thread) => {
           const on = thread.id === activeId;
           return (
@@ -178,11 +178,11 @@ function QuestionList({
               <button
                 type="button"
                 aria-current={on ? "true" : undefined}
-              className={`w-full cursor-pointer rounded-lg px-2.5 py-2 text-left text-[0.75rem] leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
-                on
-                  ? "bg-[var(--cw-raise)] text-[var(--cw-fg)]"
-                  : "text-[var(--cw-dim)] hover:bg-[var(--cw-raise)] hover:text-[var(--cw-fg)]"
-              }`}
+                className={`w-full cursor-pointer rounded-lg px-3 py-2.5 text-left text-[0.8125rem] leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
+                  on
+                    ? "bg-[var(--cw-raise)] text-[var(--cw-fg)] shadow-[inset_2px_0_0_0_var(--cw-fg)]"
+                    : "text-[var(--cw-dim)] hover:bg-[var(--cw-raise)] hover:text-[var(--cw-fg)]"
+                }`}
                 onClick={() => onPick(thread.id)}
               >
                 {thread.question}
@@ -308,7 +308,7 @@ function ModeTabs({
         type="button"
         role="tab"
         aria-selected={mode === "alone"}
-        className={`cursor-pointer rounded-full px-2.5 py-1 text-[0.75rem] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
+        className={`cursor-pointer rounded-full px-2.5 py-1 text-[0.75rem] whitespace-nowrap transition-colors hover:text-[var(--cw-fg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
           mode === "alone"
             ? "bg-[var(--cw-raise)] text-[var(--cw-fg)]"
             : "text-[var(--cw-dim)]"
@@ -321,7 +321,7 @@ function ModeTabs({
         type="button"
         role="tab"
         aria-selected={mode === "with"}
-        className={`cursor-pointer rounded-full px-2.5 py-1 text-[0.75rem] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
+        className={`cursor-pointer rounded-full px-2.5 py-1 text-[0.75rem] whitespace-nowrap transition-colors hover:text-[var(--cw-fg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)] ${
           mode === "with"
             ? "bg-[var(--cw-raise)] text-[var(--cw-fg)]"
             : "text-[var(--cw-dim)]"
@@ -404,11 +404,28 @@ export function CoworkDemo() {
         />
         <button
           type="button"
-          className="mx-3 mb-3 flex min-w-0 shrink-0 cursor-pointer items-center gap-2 rounded-2xl bg-[var(--cw-raise)] px-3 py-2.5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)]"
+          aria-label="Replay this question"
+          className="mx-3 mb-3 flex min-w-0 shrink-0 cursor-pointer items-center gap-2 rounded-2xl bg-[var(--cw-raise)] px-2.5 py-2 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cw-fg)]"
           onClick={() => setPlay((n) => n + 1)}
         >
-          <span className="text-[var(--cw-dim)] min-w-0 text-[0.85rem] leading-snug">
+          <span
+            aria-hidden
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--cw-line)] text-[var(--cw-fg)]"
+          >
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-current stroke-[2]">
+              <path d="M12 7v10M7 12h10" strokeLinecap="round" />
+            </svg>
+          </span>
+          <span className="text-[var(--cw-dim)] min-w-0 flex-1 truncate text-[0.85rem] leading-snug">
             {thread.question}
+          </span>
+          <span
+            aria-hidden
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--cw-fg)] text-[var(--cw-bg)]"
+          >
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
+              <path d="M4.5 19.5 20 12 4.5 4.5 7.2 12z" />
+            </svg>
           </span>
         </button>
       </div>
