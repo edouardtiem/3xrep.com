@@ -12,25 +12,25 @@ Un accent cuivre sur le statut MCP / `audit_deal`. Le reste se tait.
 
 H1 en trois lignes max, measure serré. Le debrief a le droit d’être dense.
 
-Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + **Copy the agent prompt** + l’URL connector dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → bouton → URL.
+Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + **Start 14 days free** + l’URL connector (*needs your key*) dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → bouton → URL.
 
 ## Hero
 
 **Hire the VP Sales agent who doesn’t believe your CRM and make you sign more deals.**
 
-*$129/month. For the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ».
+*14 days free. Then $129/month for the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ».
 
 Avant (2 sept) : *Hire the best VP Sales agent for 99 €/month.* Écarté le 4 sept : ça vend un coach de call, exactement la forme où ChatGPT « le fait moins bien mais le fait ». Le hero dit maintenant ce que le CRM ne peut pas dire de lui-même. « VP » reste le choc. Hero EN. On ne traduit pas VP Sales.
 
 Pas de deuxième H1. Pas de « tu crées / on est le cerveau » en hero.
 
-CTA : **Copy the agent prompt.** Colle dans l’agent (Claude Code, Cursor, n’importe lequel). L’URL connector reste dessous, pas le premier geste. Nav : **docs** → `/docs` (SEO, pas le fold). Pas « Payer » en primaire. Pas de démo. Pas de Calendly.
+CTA : **Start 14 days free** → `/start`. L’URL connector reste dessous, avec *needs your key*. Nav : **docs** → `/docs` (SEO, pas le fold). *Already in?* plus bas : payer 129 dollars tout de suite. Pas de démo. Pas de Calendly.
 
 ## Preuve — la fenêtre
 
 Session Claude Code / Cursor, même papier. Un passage, puis ça s’arrête :
 
-*Monday. Review my pipe. What’s blocked?* → `pipe_review` → 9 deals, 4 contradictions, 1 trou qui se répète. Acme : « Negotiation » dans HubSpot, personne qui signe, la réplique de Julien, *this stage is illegal*. Bolt : date de close = claim. Cora : 46 jours sans modif. Le trou systémique + la question. Dune : pas de call, *I won’t fill the gap*.
+*Monday. Review my pipe. What’s blocked?* → `pipe_review` → 9 deals, 4 contradictions, 1 trou qui se répète. Acme : « Negotiation » dans HubSpot, personne qui signe, la réplique de Julien, *this stage is illegal*. Bolt : date de close = claim. Cora : 46 jours sans modif. Le trou systémique + la question. Dune : pas de call, *I won’t fill the gap*. Desktop seulement, une ligne de plus (14 sept, le code le fait) : *He remembers the hole, not the call.* Pas un faux « vide depuis le 12 » dans la fenêtre.
 
 Avant : *Débriefe le call avec Julien.* → `audit_deal` → la [sortie](sortie.md). Toujours vrai dans le produit ; sur la page, c’est le pipe qui montre l’écart.
 
@@ -76,7 +76,7 @@ Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas 
 
 ## Install
 
-Pas un mail. Pas un call. Premier geste : coller la consigne dans l’agent. L’URL reste sur la page. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
+Pas un mail. Pas un call. Premier geste : **Start 14 days free**. L’URL reste sur la page, *needs your key*. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
 
 Checkout sous l’install : *Already in?* $129 / month / organization + bouton Stripe. Ancre Gong (~$1,500 / seat). Chemin 2 min : `/install` puis Stripe ([checkout.md](checkout.md)).
 
@@ -84,7 +84,7 @@ Checkout sous l’install : *Already in?* $129 / month / organization + bouton S
 
 Page d’intention, un scroll.
 
-1. Premier écran : H1 + prix + manifeste + **Copy the agent prompt** + cadran URL connector. Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
+1. Premier écran : H1 + *14 days free* + manifeste + **Start 14 days free** + cadran URL connector (*needs your key*). Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
 2. Sous le fold : *Where he lives.* + *What the VP says.* (4 prompts). Pas de second cadran URL.
 3. Checkout — *Already in?* $129 / org + bouton Stripe (3 sept, palier 1 org payante ; 11 sept : USD). *Gong is ~$1,500 a seat and records your calls. Here it’s $129 for the whole pipe, no seats.*
 4. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
@@ -96,11 +96,9 @@ Pas de logos clients, features grid, testimonials, layers en marketing, leçon M
 
 Écarté : *We don’t have access to your data, prompts nor queries.* Faux. Le MCP est remote. `audit_deal` reçoit `evidence`. C’est de l’accès le temps de la requête.
 
-**Ligne live (code, tant que l’item 6 n’est pas shippé) :** *We don’t join your calls. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. We don’t write to your CRM.*
+**Ligne live (14 sept, item 6) :** *We don’t join your calls. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember and, with enough cases, to confirm the rule. We don’t write to your CRM.*
 
-**Ligne cible (au ship, [decisions.md](decisions.md) 2026-09-14) :** *We don’t join your calls. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember and, with enough cases, to confirm the rule. We don’t write to your CRM.*
-
-« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). **Nous** n’écrivons pas dans leur CRM. Leur agent peut, via leur connecteur, d’après une reco 3xrep (propriété qui ment / vide — pas une valeur inventée). Le 14 sept : le **squelette** (hash, pièce, date — pas le roman) reste ; la confirmation après X et l’essai qui coupe — pas dans le `TRUST_LINE` tant que le code ne le fait pas.
+« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). **Nous** n’écrivons pas dans leur CRM. Leur agent peut, via leur connecteur, d’après une reco 3xrep (propriété qui ment / vide — pas une valeur inventée). Le 14 sept : le **squelette** (hash, pièce, date — pas le roman) reste. La confirmation 42 % n’est **pas** affichée dans ce ship.
 
 ## Interdit en copy
 

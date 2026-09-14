@@ -236,3 +236,61 @@ Toujours **la première** org filleule qui démarre un essai. Pas +14 par filleu
 Nouvelle section. Celle du matin, on ne la réécrit pas.
 
 Note : [sessions/2026-09-14.md](sessions/2026-09-14.md).
+
+---
+
+## 2026-09-14 (ship item 6) — Carte J+7, avoir 129, horloge au jugement
+
+**Qui :** Édouard. Même jour, après le soir. Gagne sur : carte « plus tard » sans date ; parrain qui gagne des **jours** ; horloge à l’inscription ; tools ouverts ; afficher le 42 % dans ce ship. Ne réécrit pas les sections du matin ni du soir.
+
+**Figé et shippé.**
+
+### Ce qui était vrai (matin + soir)
+
+Essai 14 / 28 / 42 en empilant des +14. Parrain : jours offerts, **la première** org filleule. Carte pas exigée au jour 0, sans dire quand. Horloge dès l’inscription. Live code : tools ouverts. Le 42 % était la phrase 2, à caler au ship.
+
+### Ce qui est vrai maintenant
+
+Les choix du matin tiennent : juge, squelette sans roman, on n’écrit pas chez eux, 129 dollars / mois / organisation.
+
+Ce qui change, parce que ça fait plus d’argent :
+
+- **Pas de carte le premier jour.** Carte obligatoire **7 jours après le premier jugement**. Le cerveau continue pendant ces 7 jours. 0 euro tant que l’essai n’est pas fini.
+- L’horloge de 14 jours **démarre au premier jugement réel** (`pipe_review` / `audit_deal` / `next_question` / `objection_map`), pas à l’inscription. Le dictionnaire ne démarre pas l’horloge. Une org qui ne juge jamais ne coûte presque rien.
+- Le filleul arrivé par un lien : **28 jours**. Le parrain **n’a plus de jours offerts**. Il gagne **129 dollars d’avoir par filleul qui paie au moins une fois**, sans plafond, uniquement sur la facture 3xrep, jamais un virement. Le filleul « compte » pour l’argent seulement s’il a **payé**. Les +14 jours filleul tombent dès le lien (`trial_days=28`).
+- **Rien sans clé** : ni jugement, ni dictionnaire. Phrase si pas de clé : commence l’essai, colle ta clé.
+- On demande l’argent **deux fois** : lien carte dans le premier verdict (après l’horloge), puis phrase de coupure si l’essai est fini et pas payé.
+- On shippe : **votre liste ment + souvenir des trous + reco d’écriture**. Le « 42 % chez les autres maisons » se calcule plus tard. On stocke déjà le squelette pour y arriver. Pas d’affichage 42 % dans ce ship.
+- Voie rapide : payer 129 dollars tout de suite **reste**. Org `active`, pas d’horloge.
+- Kill switch : variable `MCP_OPEN_TOOLS=1`. Édouard seulement. Retour tools ouverts.
+
+Phrase de coupure (paiement), une fois, sans doublon :
+
+*3xrep is not answering: this organization has no active payment. Whatever follows is probably less relevant.*
+
+Jour 7 sans carte : autre phrase — poser la carte. Dès que la carte est là, le cerveau reprend jusqu’à la fin de l’essai.
+
+### Ce que ce n’est pas
+
+| Ça | Non |
+| --- | --- |
+| Carte obligatoire au jour 0 | Premier pas = mail + clé |
+| Parrain gagne des jours | Il gagne 129 dollars d’avoir, sans plafond, si le filleul paie |
+| Horloge à l’inscription | Au premier jugement |
+| 42 % / calculette / « similar teams » | Colonnes prêtes, zéro affichage |
+| Mail de récupération de clé | Clé montrée une fois. Portail Stripe une fois la carte posée. Resend plus tard |
+| OAuth directory Claude | Listings = plus tard |
+| `write_to_crm` chez 3xrep | Reco ; leur agent écrit après confirmation ; pas inventer une valeur |
+
+### Où ça vit
+
+- Code : `src/lib/trial.ts`, `src/lib/access.ts`, `src/lib/mcp-gate.ts`, `src/lib/skeleton.ts`, `src/lib/referrals.ts`, `/start`, checkout `mode=card`.
+- Tables : [migration item 6](../supabase/migrations/20260914180000_item6_trial.sql). `mcp_calls` **inchangé**.
+- Copy : `TRUST_LINE`, phrases de coupure, consigne MCP. Page : hero *Start 14 days free*.
+- Kill switch : `MCP_OPEN_TOOLS` — **absente** en prod au ship.
+
+### Rouvrir
+
+Nouvelle section si : on exige la carte au jour 0 ; on plafonne les avoirs parrain ; on affiche le 42 % ; on démarre l’horloge à l’inscription ; on rouvre les tools sans clé en prod. Kill switch : Édouard.
+
+Note : [sessions/2026-09-14.md](sessions/2026-09-14.md).

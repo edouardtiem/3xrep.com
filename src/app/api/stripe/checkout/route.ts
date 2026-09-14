@@ -4,12 +4,15 @@ import {
   LIST_PRICE_USD,
 } from "@/lib/stripe-checkout-session";
 import { missingCheckoutSecrets, stripeClient, stripePriceId } from "@/lib/stripe-env";
+import { orgById } from "@/lib/orgs";
+import { verifyOrgSig } from "@/lib/checkout-token";
+import { stripeTrialEndUnix } from "@/lib/trial";
 
 export const dynamic = "force-dynamic";
 
 function html(status: number, title: string, body: string) {
   return new Response(
-    `<!doctype html><meta charset="utf-8"><title>${title}</title><p>${body}</p><p><a href="/install">Retour — brancher puis payer</a></p>`,
+    `<!doctype html><meta charset="utf-8"><title>${title}</title><p>${body}</p><p><a href="/start">Start 14 days free</a> · <a href="/install">Install</a></p>`,
     { status, headers: { "content-type": "text/html; charset=utf-8" } },
   );
 }
@@ -25,6 +28,42 @@ export async function POST(req: Request) {
   }
 
   try {
+    const url = new URL(req.url);
+    const mode = url.searchParams.get("mode") === "card" ? "card" : "pay";
+    const orgId = url.searchParams.get("org");
+    const sig = url.searchParams.get("sig");
+
+    let extra: {
+      mode?: "pay" | "card";
+      orgId?: string;
+      email?: string | null;
+      trialEndUnix?: number | null;
+    } = { mode };
+
+    if (mode === "card") {
+      if (!orgId || !verifyOrgSig(orgId, sig)) {
+        return html(400, "Stripe", "Lien carte invalide. Repars de l’essai.");
+      }
+      const org = await orgById(orgId);
+      if (!org) return html(404, "Stripe", "Organisation introuvable.");
+      if (org.status === "active") {
+        return html(400, "Stripe", "This organization already pays.");
+      }
+      if (!org.trial_ends_at && org.status !== "lapsed") {
+        return html(
+          400,
+          "Stripe",
+          "The trial clock starts on the first judgment. Add a card from the verdict.",
+        );
+      }
+      extra = {
+        mode: "card",
+        orgId,
+        email: org.email,
+        trialEndUnix: stripeTrialEndUnix(org.trial_ends_at),
+      };
+    }
+
     const stripe = stripeClient();
     const price = await stripe.prices.retrieve(stripePriceId()!);
     if (!isAnchorPrice(price)) {
@@ -34,7 +73,7 @@ export async function POST(req: Request) {
         `STRIPE_PRICE_ID n’est pas <code>$${LIST_PRICE_USD} USD / mois</code> (reçu ${price.unit_amount ?? "?"} ${price.currency}). Poser le Price 129,00 USD recurring monthly — pas 99 EUR.`,
       );
     }
-    const session = await stripe.checkout.sessions.create(checkoutSessionParams(req));
+    const session = await stripe.checkout.sessions.create(checkoutSessionParams(req, extra));
     if (!session.url) {
       return html(502, "Stripe", "Checkout sans URL — la session Stripe n’a pas renvoyé de lien.");
     }

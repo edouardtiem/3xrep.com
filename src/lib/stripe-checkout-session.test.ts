@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
+  checkoutSessionParams,
   isAnchorPrice,
   LIST_PRICE_CENTS,
   LIST_PRICE_USD,
@@ -24,6 +25,21 @@ test("stripeCheckoutLocale: en-GB conservé", () => {
 test("stripeCheckoutLocale: absent → auto", () => {
   const req = new Request("http://localhost/api/stripe/checkout");
   assert.equal(stripeCheckoutLocale(req), "auto");
+});
+
+test("checkoutSessionParams card mode: trial_end + always collect", () => {
+  process.env.STRIPE_PRICE_ID = "price_test";
+  const req = new Request("http://localhost/api/stripe/checkout");
+  const params = checkoutSessionParams(req, {
+    mode: "card",
+    orgId: "2c1a0b3e-4d5f-6789-abcd-ef0123456789",
+    email: "a@b.com",
+    trialEndUnix: 1_800_000_000,
+  });
+  assert.equal(params.payment_method_collection, "always");
+  assert.equal(params.client_reference_id, "2c1a0b3e-4d5f-6789-abcd-ef0123456789");
+  assert.equal(params.customer_email, "a@b.com");
+  assert.equal(params.subscription_data?.trial_end, 1_800_000_000);
 });
 
 test("isAnchorPrice: $129 USD monthly only", () => {

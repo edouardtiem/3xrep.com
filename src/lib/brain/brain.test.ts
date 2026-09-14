@@ -283,3 +283,31 @@ test("legacy Julien garde ses résultats (fallback)", () => {
   assert.equal(a.morts[0]?.piece, "qui-tranche");
   assert.ok(a.pieces.find((c) => c.id === "qui-tranche")?.gap.claim?.toLowerCase().includes("economic buyer"));
 });
+
+test("pipe_review — somme des portes cassées, pas un forecast", () => {
+  const r = pipeReview(
+    [
+      { ...JULIEN, nom: "Acme", etape: "Négociation", montant: 120_000 },
+      {
+        nom: "Bolt",
+        etape: "Negotiation",
+        montant: 80_000,
+        notes: "Economic Buyer: ok. Call ops.",
+        transcript: "Il a dit : « c’est moi qui fais tourner l’outil ».",
+      },
+    ],
+    new Date("2026-09-04"),
+  );
+  assert.equal(r.somme_portes_cassees, 200_000);
+  assert.ok(r.corrections_crm.length > 0);
+  assert.ok(r.corrections_crm.every((c) => c.ne_pas.includes("inventer")));
+  assert.ok(r.deals[0].etats.length > 0);
+  assert.ok(!JSON.stringify(r).includes("412000 ×"));
+});
+
+test("audit reco d’écriture sans nom inventé", () => {
+  const a = scoreDeal({ ...JULIEN, etape: "Négociation" });
+  assert.ok(a.corrections_crm?.length);
+  assert.ok(a.corrections_crm?.every((c) => !/marie|daf\s/i.test(c.ne_pas)));
+  assert.ok(a.corrections_crm?.some((c) => c.propriete === "etape"));
+});

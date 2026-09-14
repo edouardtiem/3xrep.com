@@ -1,6 +1,6 @@
 # Prix, essai, parrainage
 
-**Figé le 14 septembre 2026** (Édouard). Gagne sur ce fichier au 4 sept (tools ouverts, pas d’essai, pas de comparaison). Contrat : [decisions.md](decisions.md) 2026-09-14. Live code **tant que l’item 6 n’est pas shippé** : tools encore ouverts, 129 $ encaissable, pas de mur — [checkout.md](checkout.md), [roadmap.md](roadmap.md) item 3.
+**Figé le 14 septembre 2026** (Édouard). Gagne sur ce fichier au 4 sept (tools ouverts, pas d’essai, pas de comparaison). Contrat : [decisions.md](decisions.md) 2026-09-14 + **ship item 6** (carte J+7, avoir 129, horloge au jugement). Live code : cadenas + essai, 129 $ encaissable — [checkout.md](checkout.md).
 
 Le **$129 / month / organization** (USD) tient. Jamais de siège. Palier sept : 1 org payante — inchangé.
 
@@ -8,28 +8,30 @@ Le **$129 / month / organization** (USD) tient. Jamais de siège. Palier sept : 
 
 Pas un tool de plus. Le juge sur **leur liste**, dans **le temps**, plus le souvenir, plus — assez tard — la confirmation chez les autres maisons.
 
-Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)) : tant que le verdict porte sur *un call* et *le commercial*, ChatGPT suffit. La différence est le pipe + le temps. **Acté** le 14 sept : on construit ça, et on le met derrière un essai qui coupe.
+Session du 4 sept ([sessions/2026-09-04.md](sessions/2026-09-04.md)) : tant que le verdict porte sur *un call* et *le commercial*, ChatGPT suffit. La différence est le pipe + le temps. **Shippé** le 14 sept : derrière un essai qui coupe.
 
 ## Essai
 
-Le cerveau répond pendant N jours. N = **14**, plus des **+14** ([decisions.md](decisions.md) 2026-09-14 soir) :
+Le cerveau répond pendant N jours. L’horloge **démarre au premier jugement**, pas à l’inscription.
 
 | Qui | N |
 | --- | --- |
 | Direct | 14 |
-| Direct + une org inscrite grâce à lui | 28 |
-| Recommandé (14 + 14 cadeau) | 28 |
-| Recommandé + une org inscrite grâce à lui | 42 |
+| Arrivé par un lien (`?ref=`) | 28 |
 
-Un bonus parrain : la **première** org filleule qui démarre un essai. Pas une pile infinie.
+Le parrain **ne gagne pas de jours**. Il gagne **129 dollars d’avoir** sur sa facture 3xrep, par filleul qui **paie** au moins une fois, sans plafond, jamais un virement.
 
-**Jour 0.** Stripe ou page : gratuit N jours. **Pas de carte exigée** (premier pas). Kill switch : trop peu d’inscriptions → on enlève le mur même gratuit ([decisions.md](decisions.md) §5).
+**Jour 0.** Page `/start` : mail, clé une fois. **Pas de carte.** Kill switch : `MCP_OPEN_TOOLS=1` — Édouard seulement ([decisions.md](decisions.md) ship item 6).
+
+**Jour 7 après le premier jugement, sans carte.** Plus de verdict jusqu’à la carte. Phrase : poser la carte. 0 euro jusqu’à la fin d’essai.
 
 **Fin d’essai, pas payé.** Chaque appel d’outil : la phrase de coupure, plus de verdict. Cible EN :
 
 *3xrep is not answering: this organization has no active payment. Whatever follows is probably less relevant.*
 
-Lexique / lookup : même règle — on ne laisse pas un skill déguisé après la coupure. La phrase d’abord.
+Lexique / lookup : même règle — on ne laisse pas un skill déguisé après la coupure. La phrase d’abord. Pas de clé : autre phrase, vers `/start`.
+
+Voie rapide : payer 129 dollars tout de suite, sans essai. Org `active`.
 
 ## Parcours dans l’agent
 

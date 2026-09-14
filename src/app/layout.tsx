@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: "3xrep — The VP Sales agent who doesn't believe your CRM",
   description:
-    `A VP Sales agent for Claude, ChatGPT, Cursor, and Codex. It reads the calls behind your CRM fields, names the stage that lies, and does not record your calls. From $${LIST_PRICE_USD}/month for the entire organization.`,
+    `A VP Sales agent for Claude, ChatGPT, Cursor, and Codex. It reads the calls behind your CRM fields, names the stage that lies, and does not record your calls. 14 days free, then $${LIST_PRICE_USD}/month for the entire organization.`,
 };
 
 export default function RootLayout({

@@ -30,7 +30,7 @@ export default function PricingPage() {
           </h1>
           <p className="text-mute mt-4 max-w-[36rem]">
             ${LIST_PRICE_USD} per month for the entire organization. Not per
-            seat. 3xrep is a VP Sales agent you add to Claude, ChatGPT,
+            seat. 14 days free. 3xrep is a VP Sales agent you add to Claude, ChatGPT,
             Cursor, or Codex, next to your CRM. It names the stage that
             lies. It does not record calls.
           </p>
@@ -59,7 +59,7 @@ export default function PricingPage() {
           <Link href="/install" className="text-foreground hover:underline">
             Install
           </Link>
-          <span className="text-dim"> — then pay. Same ${LIST_PRICE_USD}.</span>
+          <span className="text-dim"> — 14 days free, then ${LIST_PRICE_USD}.</span>
         </p>
       </main>
       <DocsEnd />

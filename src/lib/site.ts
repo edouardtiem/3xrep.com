@@ -19,3 +19,22 @@ export function checkoutUrl(): string {
 export function mcpUrl(): string {
   return `${PUBLIC_SITE}/api/mcp`;
 }
+
+export function mcpUrlWithKey(key: string): string {
+  return `${mcpUrl()}?key=${encodeURIComponent(key)}`;
+}
+
+export function mcpClientJson(key: string): string {
+  return JSON.stringify(
+    {
+      mcpServers: {
+        "3xrep": {
+          url: mcpUrl(),
+          headers: { Authorization: `Bearer ${key}` },
+        },
+      },
+    },
+    null,
+    2,
+  );
+}

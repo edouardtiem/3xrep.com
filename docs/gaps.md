@@ -87,7 +87,7 @@ La connaissance, un jour, tient dans un prompt. D’accord. **Leur pipe, non.**
 | **Maintenant (live)** | Leurs artefacts + ce que le CRM prétend | `pipe_review` + reco de process. Log tool 14 jours, puis delete. | Bot Zoom. Proba de close. |
 | **Maintenant** | Recettes de fetch dans la pièce ([acces.md](acces.md)) | « HubSpot a Marie DAF, Pappers le président — ni l’un ni l’autre n’est tenu. » | Enrichir des *prospects*. Leur propre URL au premier branchement : oui ([decisions.md](decisions.md) 2026-09-14). |
 | **Dès qu’ils tournent** | Compte de pièces vides / étapes illégales **dans l’appel**, pas chez nous | L’audit mensuel. Reco de process. | « Vous closerez plus ». Calculette montant × %. |
-| **Acté, pas ship** | Squelette : `org` + hash + pièce + `su\|suppose\|trou` + id réflexe + date + tranche + dénouement | « Verrou 2, promis le 12. » Fossé. | Verbatim pour toujours. Fichier client. |
+| **Live (14 sept)** | Squelette : `org` + hash + pièce + `su\|suppose\|trou` + id réflexe + date + tranche + dénouement si passé | « Verrou 2, promis le 12. » Fossé. | Verbatim pour toujours. Fichier client. |
 | **Acté, pas ship** | Après **X** fins sur **cette** pièce, compte anonymisé | « Chez les maisons qu’on voit, ce trou précède un perdu dans N % des fins. » Poids de la méthode. | « Similar teams 34 % ». Appliquer N % à *leur* 412k. Afficher N avant X. |
 | **Plus tard** | Leur cycle comme graphe (étapes gatées / dropées après un audit) | Le moteur cadre sur **leur** process. | Un playbook 3xrep officiel. |
 
@@ -111,4 +111,4 @@ B2C, le jour où on l’ouvre : d’autres pièces (pas d’EB, pas de papier). 
 2. **Intégrer = rare, humain, admission.** L’automation propose. Elle ne shippe pas une pièce.
 3. **Audit mensuel user = `pipe_review` + reco de process.** Pas un % de conversion. Prompt MCP `cycle_audit`.
 4. **Siphon du lexique : on l’accepte.** Le lock-in est le jugement dans le temps, pas le markdown.
-5. **Data live : leur CRM + les recos + journal 14 j.** Data actée : squelette sans fin, profil maison, confirmation après X. Pas de classement d’équipes. [decisions.md](decisions.md) 2026-09-14.
+5. **Data live : leur CRM + les recos + journal 14 j + squelette + profil.** Confirmation après X / 42 % : pas ce ship. Pas de classement d’équipes. [decisions.md](decisions.md) 2026-09-14.

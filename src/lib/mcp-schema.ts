@@ -53,6 +53,12 @@ export const exhibitSchema = z.object({
 export const dealSchema = z.object({
   etape: z.string().optional(),
   montant: z.number().optional(),
+  crm_id: z.string().optional().describe("CRM opportunity id. Stable. Prefer this over the name."),
+  nom: z.string().optional(),
+  denouement: z
+    .enum(["gagne", "perdu", "ouvert"])
+    .optional()
+    .describe("Won / lost / still open — only if they know. Never invent."),
   notes: z.string().optional(),
   mails: z.string().optional(),
   meetings: z.string().optional(),

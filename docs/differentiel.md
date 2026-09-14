@@ -86,15 +86,15 @@ Les 3 tools v1 restent (`audit_deal`, `next_question`, `objection_map`). Le cont
 | Version | Snapshot markdown | Runtime live |
 | Mémoire | La fenêtre de chat | Voir plus bas |
 
-## Mémoire de jugement — actée 14 sept, pas ship
+## Mémoire de jugement — souvenir shippé 14 sept, pas le 42 %
 
 Un VP se souvient : « t’avais dit le DAF en R2 ». Un skill, non, dès que le thread meurt.
 
 **Log usage (6–7 sept 2026) :** on garde input + verdict **14 jours** pour caler le VP, puis delete. Ce n’est pas la mémoire de jugement. Tient.
 
-**Squelette (14 sept)** : `org`, hash du deal, atome, `su|suppose|trou`, date, tranche de montant, dénouement quand une routine le ramène — pas le verbatim. « EB toujours vide depuis le 12. Le geste n’a pas eu lieu. » Après X fins sur la pièce : confirmation chez les maisons qu’on voit. Contrat : [decisions.md](decisions.md) 2026-09-14.
+**Squelette (14 sept, live) :** `org`, hash du deal, atome, `su|suppose|trou`, date, tranche de montant, dénouement si l’agent le passe — pas le verbatim. « EB toujours vide depuis le 12. » La confirmation chez les maisons (42 %) n’est **pas** affichée. Contrat : [decisions.md](decisions.md) 2026-09-14 ship.
 
-Le compilateur reste vrai **sur un call**. Le souvenir est le fossé. V0 n’attendait pas ça ; le 14 sept l’ouvre, le code ne l’a pas encore.
+Le compilateur reste vrai **sur un call**. Le souvenir est le fossé.
 
 ## Test du différenciateur
 

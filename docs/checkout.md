@@ -4,19 +4,22 @@ Marché US first — prix catalogue **$129 USD / mois / org**. Stripe Checkout :
 
 Live (11 sept 2026, Édouard) : Price **129,00 USD** recurring monthly. Plus de 99 € sur le site ni au checkout.
 
-Chemin commercial (2 min) : page [`/install`](/install) — brancher l’agent, **puis** payer. Home : bouton secondaire *Already in?*. Success : `/merci`. Webhook : org `active` + clé.
+Chemin commercial : page [`/start`](/start) — mail, clé une fois, **puis** le connecteur. Home : bouton principal *Start 14 days free*. Voie rapide : *Already in?* → payer 129 dollars. Success : `/merci`. Webhook : org `trial` (carte) ou `active` (payer maintenant) + clé.
 
-## Cible essai — pas live
+## Essai — live (14 sept, item 6)
 
-[decisions.md](decisions.md) 2026-09-14, [plg.md](plg.md). **Ne pas coder ici tant que l’item 6 n’est pas ouvert.**
+[decisions.md](decisions.md) 2026-09-14 ship. Horloge au **premier jugement**. Direct 14 jours, filleul 28. Carte à J+7. 0 euro jusqu’à la fin d’essai.
 
-- Checkout (ou page) : *gratuit N jours*. N = 14, ou 28, ou 42 (base 14 + briques parrainage, [decisions.md](decisions.md) 2026-09-14 soir).
-- **Pas de carte exigée** au jour 0 (premier pas). Stripe `trial_period_days` + `payment_method_collection: if_required` si ça tient ; sinon org essai sans customer Stripe.
-- Webhooks en plus (au ship) : `customer.subscription.trial_will_end`, `customer.subscription.updated` (essai → active / past_due).
-- Fin d’essai, pas payé : status org `lapsed` (nom à caler). Le MCP rend la phrase de coupure, pas le verdict.
-- Kill switch : retirer le mur — Édouard.
+- `/start` : org tout de suite, pas de customer Stripe tant qu’ils n’ouvrent pas le paiement.
+- Checkout **poser la carte** (`?mode=card`) : `client_reference_id` = org, `trial_end` = fin déjà calculée, `payment_method_collection: always`. **On ne crée pas une deuxième org.**
+- Checkout **payer maintenant** : abo tout de suite, org `active`. Comme avant.
+- Webhooks : `checkout.session.completed`, `customer.subscription.deleted`, **plus** `customer.subscription.trial_will_end`, `customer.subscription.updated`, `invoice.paid`, `charge.refunded`.
+- Fin d’essai, pas payé : status `lapsed`. Le connecteur rend la phrase de coupure, pas le verdict.
+- Jour 7 sans carte : phrase « poser la carte », pas le JSON de jugement.
+- Kill switch : `MCP_OPEN_TOOLS=1` — Édouard. **Absente en prod au ship.**
+- Parrain : avoir 129 dollars (`customers.createBalanceTransaction`) quand `invoice.paid` du filleul a un montant > 0. Sinon crédit `queued`. Remboursement → reverse. Même mail / même customer / même empreinte de carte → pas d’avoir.
 
-Live aujourd’hui : paiement = org tout de suite, tools ouverts **sans** clé.
+Live : **rien sans clé** (jugement et dictionnaire). Canonical : `Authorization: Bearer`. Secours : `?key=` sur l’URL du connecteur.
 
 ## Ce que le code lit — noms exacts
 
@@ -31,7 +34,7 @@ Aucun secret n’est dans le git. Ne pas inventer de clés. Ne pas coller une cl
 | `SUPABASE_SERVICE_ROLE_KEY` | Même projet → service_role (secret). Jamais `NEXT_PUBLIC_`. | `eyJ…` ou `sb_secret_…` |
 | `NEXT_PUBLIC_SITE_URL` | URL publique du site. Tant que `3xrep.com` n’est pas accroché au projet Vercel : l’URL `*.vercel.app` de prod. | `https://…` sans slash final |
 
-Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). L’URL connector collée sur home / docs / install / spec est toujours `https://3xrep.com/api/mcp`. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirects Stripe, sitemap, recette locale.
+Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). Kill switch Édouard : `MCP_OPEN_TOOLS=1` (absente en prod). L’URL connector collée sur home / docs / install / spec est toujours `https://3xrep.com/api/mcp`. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirects Stripe, sitemap, recette locale.
 
 Le code **ne** lit **pas** `STRIPE_SECRET_KEY_LIVE`. Si le secret Stripe est sous un autre nom : 503. Ce n’est pas un faux vert.
 
@@ -47,7 +50,7 @@ Le catalogue live du compte injecté dans cet environnement n’a **aucun** Prod
 4. Copier l’id `price_…` → `STRIPE_PRICE_ID` sur Vercel.
 5. [Webhooks](https://dashboard.stripe.com/webhooks) → Add endpoint :
    - URL : `https://<NEXT_PUBLIC_SITE_URL>/api/stripe/webhook`
-   - Events : `checkout.session.completed`, `customer.subscription.deleted`
+   - Events : `checkout.session.completed`, `customer.subscription.deleted`, `customer.subscription.updated`, `customer.subscription.trial_will_end`, `invoice.paid`, `charge.refunded`
    - Copier `whsec_…` → `STRIPE_WEBHOOK_SECRET`.
 6. Restricted key (recommandé) ou secret key → `STRIPE_SECRET_KEY`. Marquer **Sensitive** dans Vercel.
 
@@ -59,7 +62,9 @@ TVA / Stripe Tax : activer Tax + registrations (US sales tax, EU VAT selon march
 
 Table déjà dans le git : [`supabase/migrations/20260902170000_orgs.sql`](../supabase/migrations/20260902170000_orgs.sql). L’appliquer sur un projet **3xrep**. Ne pas réutiliser jesaisfaire (parké).
 
-Usage MCP : [`supabase/migrations/20260906160000_mcp_calls.sql`](../supabase/migrations/20260906160000_mcp_calls.sql) — même projet, **après** `orgs`. Input + verdict 14 jours, RLS on, pas de policy anon. Sans cette table le MCP tourne quand même (le log no-op).
+Item 6 : [`supabase/migrations/20260914180000_item6_trial.sql`](../supabase/migrations/20260914180000_item6_trial.sql) — **après** `orgs`. Colonnes essai / profil / parrain, tables `judgment_skeleton` et `referral_credits`. Sans ça : `/start` et le souvenir cassent.
+
+Usage MCP : [`supabase/migrations/20260906160000_mcp_calls.sql`](../supabase/migrations/20260906160000_mcp_calls.sql) — même projet, **après** `orgs`. Input + verdict 14 jours, RLS on, pas de policy anon. Sans cette table le MCP tourne quand même (le log no-op). **On n’y touche pas** pour l’item 6.
 
 RLS on, pas de policy anon — seul le service role écrit. `key_plain` vit le temps d’un `/merci`, puis null.
 
@@ -83,6 +88,7 @@ npm run recette
 # NEXT_PUBLIC_SITE_URL=http://localhost:3000
 npm run recette
 # CHECKOUT 303 + Location checkout.stripe.com — s’arrêter avant de payer
+# HOME 200 + « 14 days free » ; /start 200 ; sans clé le connecteur coupe
 ```
 
 Webhook local : `stripe listen --forward-to localhost:3000/api/stripe/webhook` puis coller le `whsec_…` CLI dans `STRIPE_WEBHOOK_SECRET`.

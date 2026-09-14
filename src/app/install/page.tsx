@@ -13,7 +13,7 @@ import { mcpUrl } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Install the 3xrep MCP",
   description:
-    "Gong records your calls. 3xrep does not join them. Add the VP Sales agent MCP to Claude, Cursor, or ChatGPT, next to HubSpot or Salesforce. From $" +
+    "Gong records your calls. 3xrep does not join them. Add the VP Sales agent MCP to Claude, Cursor, or ChatGPT, next to HubSpot or Salesforce. 14 days free, then $" +
     LIST_PRICE_USD +
     "/month for the organization.",
   path: "/install",
@@ -47,8 +47,8 @@ function Pay() {
     <section id="pay" className="flex flex-col gap-4">
       <p className="text-dim text-xs tracking-wide uppercase">Already in?</p>
       <p>
-        From ${LIST_PRICE_USD} / month / organization. Local currency and
-        language at checkout.
+        14 days free, then ${LIST_PRICE_USD} / month / organization. Local
+        currency and language at checkout.
       </p>
       <p className="text-dim leading-relaxed">
         Gong is ~$1,500 a seat and records your calls. Here it&apos;s $
@@ -82,7 +82,7 @@ export default function Install() {
       {
         "@type": "HowToStep",
         name: "Add the 3xrep connector",
-        text: `Paste ${url} as a custom MCP connector in Claude, Cursor, Codex, ChatGPT, or Notion.`,
+        text: `Start 14 days free, then paste the 3xrep URL as a custom MCP connector in Claude, Cursor, Codex, ChatGPT, or Notion. The connector needs your key.`,
       },
       {
         "@type": "HowToStep",
@@ -110,8 +110,16 @@ export default function Install() {
           <p className="text-mute mt-4 max-w-[36rem]">
             One URL in the agent you already use. Their HubSpot or Salesforce
             connector beside it — not inside it. Nothing to install in HubSpot.
-            No 3xrep tab. The tools are open. ${LIST_PRICE_USD} / month is for
-            the organization that wants the VP on its pipe every Monday.
+            No 3xrep tab. Start 14 days free, then paste the key. ${LIST_PRICE_USD}{" "}
+            / month is for the organization that wants the VP on its pipe every Monday.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/start"
+              className="inline-block border border-line bg-fg px-4 py-2.5 text-bg hover:opacity-90"
+            >
+              Start 14 days free
+            </Link>
           </p>
         </div>
 
@@ -120,7 +128,11 @@ export default function Install() {
         <section className="flex flex-col gap-4">
           <h2 className="text-lg">1. The URL</h2>
           <p className="text-dim">
-            Same address everywhere. The{" "}
+            Same address everywhere. It needs your key —{" "}
+            <Link href="/start" className="text-foreground hover:underline">
+              start 14 days free
+            </Link>
+            . The{" "}
             <Link href="/spec" className="text-foreground hover:underline">
               spec
             </Link>{" "}
@@ -232,7 +244,7 @@ export default function Install() {
         </section>
 
         <section className="flex flex-col gap-4 border-t border-line pt-10">
-          <p className="text-dim">That&apos;s the setup. Pay for the org.</p>
+          <p className="text-dim">That&apos;s the setup. Trial first, or pay for the org.</p>
           <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
         </section>
       </main>

@@ -82,15 +82,39 @@ export function stripeCheckoutLocale(req: Request): Stripe.Checkout.SessionCreat
   return "auto";
 }
 
-export function checkoutSessionParams(req: Request): Stripe.Checkout.SessionCreateParams {
+export function checkoutSessionParams(
+  req: Request,
+  opts?: {
+    mode?: "pay" | "card";
+    orgId?: string;
+    email?: string | null;
+    trialEndUnix?: number | null;
+  },
+): Stripe.Checkout.SessionCreateParams {
   const origin = siteUrl();
-  return {
+  const mode = opts?.mode ?? "pay";
+  const params: Stripe.Checkout.SessionCreateParams = {
     mode: "subscription",
     line_items: [{ price: stripePriceId()!, quantity: 1 }],
     success_url: `${origin}/merci?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/install`,
+    cancel_url: mode === "card" ? `${origin}/start` : `${origin}/install`,
     integration_identifier: `3xrep-org-${randomBytes(4).toString("hex")}`,
     locale: stripeCheckoutLocale(req),
     adaptive_pricing: { enabled: true },
   };
+  if (opts?.email) params.customer_email = opts.email;
+  if (opts?.orgId) {
+    params.client_reference_id = opts.orgId;
+    params.metadata = { org_id: opts.orgId, mode };
+  }
+  if (mode === "card") {
+    params.payment_method_collection = "always";
+    if (opts?.trialEndUnix) {
+      params.subscription_data = {
+        trial_end: opts.trialEndUnix,
+        metadata: opts.orgId ? { org_id: opts.orgId } : undefined,
+      };
+    }
+  }
+  return params;
 }

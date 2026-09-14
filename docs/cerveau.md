@@ -315,7 +315,7 @@ Gravé. On ne les rejoue pas.
 6. **La passe systématique est un geste à part** (`passe-trous`). Le débrief quotidien reste [sortie.md](sortie.md), court.
 7. **Alignement cycle, pas copie.** [gestes.md](gestes.md). Le VP refuse. On n’écrit pas le mail / le script. Les canaux ne se multiplient pas. Le décompte n’est pas la décision (dix était trop gros ; catalogue réel dans gestes.md).
 
-**14 sept 2026 :** mémoire de jugement **actée** — squelette sans fin, zéro verbatim, comparaison après X, profil au premier branchement. Pas ship. [decisions.md](decisions.md) 2026-09-14. Le moteur (admission, angle, interdits ci-dessus) ne change pas.
+**14 sept 2026 :** mémoire de jugement **shippée** pour le souvenir (squelette sans fin, zéro verbatim, `souvenir` dans le verdict). Comparaison après X / 42 % : **pas** dans ce ship. Profil au premier branchement : `set_org_profile`. [decisions.md](decisions.md) 2026-09-14 ship. Le moteur (admission, angle, interdits ci-dessus) ne change pas.
 
 **6–7 sept 2026 :** log des tool calls (input + verdict) 14 jours, puis delete. Ce n’est pas la mémoire de jugement. C’est pour caler le VP. Tient.
 

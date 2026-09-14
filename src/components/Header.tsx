@@ -4,6 +4,7 @@ import { Wordmark } from "@/components/Wordmark";
 const links = [
   { href: "/docs", label: "docs" },
   { href: "/install", label: "install" },
+  { href: "/start", label: "start" },
 ];
 
 export function Header() {

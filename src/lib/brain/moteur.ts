@@ -27,6 +27,7 @@ import type {
   Remontee,
   Trou,
 } from "./types";
+import { correctionsFromAudit } from "@/lib/corrections";
 
 export type RunOpts = {
   stopAt?: 7 | 8;
@@ -240,7 +241,7 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     }
   }
 
-  return {
+  const audit: Audit = {
     geste_demande: gesteDef.id as GesteId,
     layer,
     grade,
@@ -256,6 +257,8 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     demande: grade === "A" ? null : DEMANDE,
     rendu: CONTRAT,
   };
+  if (stopAt >= 8) audit.corrections_crm = correctionsFromAudit(deal, audit);
+  return audit;
 }
 
 export const REFUS =

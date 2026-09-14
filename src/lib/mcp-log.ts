@@ -1,6 +1,8 @@
 import { AsyncLocalStorage } from "node:async_hooks";
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { orgFromRequest } from "@/lib/orgs";
+import { admin, supabaseEnv } from "@/lib/supabase-admin";
+
+export { supabaseEnv };
 
 export const MAX_JSON_BYTES = 200_000;
 export const RETENTION_DAYS = 14;
@@ -16,19 +18,8 @@ export function runWithMcpRequest<T>(req: Request, fn: () => T): T {
   return logStore.run({ req }, fn);
 }
 
-/** Documented names first, then Supabase dashboard aliases. Without either pair the brain still answers. */
-export function supabaseEnv(): { url: string; key: string } | null {
-  const url = process.env.SUPABASE_URL?.trim() || process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() || "";
-  const key =
-    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() || process.env.SUPABASE_SECRET_KEY?.trim() || "";
-  if (!url || !key) return null;
-  return { url, key };
-}
-
-function admin(): SupabaseClient | null {
-  const env = supabaseEnv();
-  if (!env) return null;
-  return createClient(env.url, env.key, { auth: { persistSession: false, autoRefreshToken: false } });
+export function currentMcpRequest(): Request | undefined {
+  return logStore.getStore()?.req;
 }
 
 export function capJson(value: unknown): unknown {

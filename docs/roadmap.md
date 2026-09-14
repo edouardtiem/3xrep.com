@@ -4,7 +4,7 @@
 
 Gagne sur [terrain/roadmap.md](terrain/roadmap.md) (archive jeu, 30–31 août). Le PRD tenait l’ordre *MCP → listing → page → pSEO*. Ici : ce qu’on ouvre **maintenant**. Ne pas implémenter le reste.
 
-Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, tools ouverts. Item 3 (prix) **shippé** le 11 sept 2026. Items 1–2 encore ouverts.
+Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, essai 14 jours derrière une clé. Item 3 (prix) **shippé** le 11 sept 2026. Item 6 (essai / souvenir / parrainage) **shippé** le 14 sept 2026. Items 1–2 encore ouverts.
 
 ## Ouvert — dans cet ordre
 
@@ -129,19 +129,21 @@ Rouvrir seulement si Édouard tranche la tension (écrire vs juger, booker vs gu
 
 ### 6. Squelette, essai, parrainage
 
-**Acté. Pas ship.** 14 septembre 2026. Contrat : [decisions.md](decisions.md) 2026-09-14. Opération : [plg.md](plg.md).
+**Shippé.** 14 septembre 2026. Contrat : [decisions.md](decisions.md) 2026-09-14 ship. Opération : [plg.md](plg.md).
 
-À coder, dans cet ordre, **quand on ouvre** (pas maintenant) :
+Ce qui est live :
 
-1. Org d’essai (sans carte au jour 0) + durées 14 / 28 / 42 (base 14, on empile) + un parrainage.
-2. Profil au premier branchement (titre, mission, URL maison).
-3. Table squelette (hash, pièce, date, tranche, dénouement). Journal 14 j **tient**.
-4. Phrase de coupure si essai fini et pas payé — pas un verdict.
-5. Parcours dans la consigne d’agent (fichier client → routine liste → drapeaux → reco d’écriture chez eux → suites jugées).
-6. Confirmation après X + somme des portes cassées. Copy confiance.
+1. `/start` — org d’essai sans carte au jour 0. Direct 14 jours, filleul 28. Horloge au premier jugement. Carte à J+7.
+2. Profil au premier branchement (titre, mission, URL maison) — `set_org_profile`, ne bloque pas la première revue de liste.
+3. Table squelette (hash, pièce, date, tranche, dénouement si passé). Journal 14 j **tient**. Souvenir dans le verdict. Somme des portes cassées (écrit, pas forecast). Reco d’écriture chez eux.
+4. Phrase de coupure si essai fini et pas payé — pas un verdict. Phrase carte au jour 7.
+5. Parcours dans la consigne d’agent. Parrain : 129 dollars d’avoir si le filleul paie, sans plafond.
+6. Pas le 42 % dans ce ship.
 
-Kill switch (enlever le mur Stripe) : Édouard. Pas l’agent.
+Kill switch : `MCP_OPEN_TOOLS=1`. Édouard. Pas l’agent. Absente en prod.
+
+Hors ce ship : confirmation 42 %, dénouement automatique, OAuth directory, pan croissance, Slack, carte HubSpot, Resend, plafond sur les avoirs.
 
 ## Interdit ici
 
-Per-seat. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Coder l’item 6 sans ouvrir. Brancher Aircall maintenant. Confondre le pan 5 avec notre acquisition. Imposer un canal (téléphone, courriel, Aircall). Prendre une note collée par l’utilisateur pour une citation du client. Calculette montant × % = perdu. Classement d’équipes. Carte obligatoire au jour 0 (pas le premier pas de l’essai).
+Per-seat. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Brancher Aircall maintenant. Confondre le pan 5 avec notre acquisition. Imposer un canal (téléphone, courriel, Aircall). Prendre une note collée par l’utilisateur pour une citation du client. Calculette montant × % = perdu. Classement d’équipes. Carte obligatoire au jour 0 (pas le premier pas de l’essai). Afficher le 42 % avant X.

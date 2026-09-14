@@ -145,7 +145,7 @@ Pas avant :
 
 1. Une vraie `pipe_review` sur un vrai HubSpot ([plg.md](plg.md), [roadmap.md](roadmap.md)).
 2. Une phrase Slack à ajouter sous *Where he lives.* — copy seulement, pas une app.
-3. La mémoire de jugement (squelette **shippé**) — alors (b) devient un produit, pas une intention. Actée 14 sept, pas live : [decisions.md](decisions.md).
+3. La mémoire de jugement (squelette **shippé** pour le souvenir, 14 sept) — alors (b) devient un produit, pas une intention. Le 42 % n’est pas live. [decisions.md](decisions.md).
 
 Rouvrir ce fichier = une de ces trois, ou une URL source différente à coller en §2.
 
@@ -156,7 +156,7 @@ La base à nous (fichier sans fenêtre, voix, objets) n’est **pas** une de ces
 - Huit MCP, huit SKU, « Agentforce 3xrep ».
 - Un agent 3xrep qui écrit le mail, booke, ou `write_to_crm`. Leur assistant, via **leur** connecteur, après une reco : oui ([decisions.md](decisions.md) §8).
 - Slack comme logo dans le row Cursor · Claude Code · Codex.
-- Promettre la mémoire **avant** le ship du squelette, ou un pourcentage de signatures.
+- Promettre un pourcentage de signatures, ou le 42 % avant X.
 - Copier leur roster pour « être complet ».
 
 ## 7. Demain — la base (réflexion, 7 sept)

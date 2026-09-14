@@ -4,6 +4,7 @@ import { siteUrl } from "@/lib/site";
 
 const EXTRA = [
   "/install",
+  "/start",
   "/spec",
   "/docs/gong-alternative",
   "/docs/pipeline-review",

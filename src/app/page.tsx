@@ -6,7 +6,7 @@ import { SessionTerminal } from "@/components/SessionTerminal";
 import { Wordmark } from "@/components/Wordmark";
 import { WorksWith } from "@/components/WorksWith";
 import { TRUST_LINE } from "@/lib/copy";
-import { PROMPTS, agentSetupPrompt } from "@/lib/landing";
+import { PROMPTS } from "@/lib/landing";
 import { mcpUrl } from "@/lib/site";
 
 export const metadata = {
@@ -45,13 +45,14 @@ function HeroPitch({ connector }: { connector: string }) {
         why it works.
       </p>
       <div className="mt-8">
-        <CopyButton
-          tone="loud"
-          label="Copy the agent prompt"
-          text={agentSetupPrompt(connector)}
-        />
+        <Link
+          href="/start"
+          className="inline-block w-full cursor-pointer border border-line bg-fg px-4 py-2.5 text-center text-bg hover:opacity-90"
+        >
+          Start 14 days free
+        </Link>
         <p className="text-dim mt-2 leading-relaxed">
-          Paste it into Claude Code, Cursor, or any agent.
+          No card today. The connector needs your key.
         </p>
         <div className="mt-4">
           <CopyBlock label="Connector URL" value={connector} />
@@ -70,8 +71,9 @@ export default function Home() {
         <Link href="/" aria-label="3xrep">
           <Wordmark />
         </Link>
-        <Link href="/docs">
-          docs
+        <Link href="/docs">docs</Link>
+        <Link href="/start" className="ml-6">
+          start
         </Link>
       </header>
 
@@ -86,7 +88,7 @@ export default function Home() {
               and make you sign more deals.
             </h1>
             <p className="text-dim mt-3 italic">
-              From ${LIST_PRICE_USD}/month. For the entire organization.
+              14 days free. Then ${LIST_PRICE_USD}/month for the entire organization.
             </p>
             <div className="mt-6 hidden lg:block">
               <HeroPitch connector={connector} />
@@ -157,7 +159,7 @@ export default function Home() {
                 Already in?
               </p>
               <p className="mt-2">
-                From ${LIST_PRICE_USD} / month / organization. Local currency and language at checkout.
+                ${LIST_PRICE_USD} / month / organization after the trial. Local currency and language at checkout.
               </p>
               <p className="text-dim mt-2 leading-relaxed">
                 Gong is ~$1,500 a seat and records your calls. Here it&apos;s

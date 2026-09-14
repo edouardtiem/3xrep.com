@@ -61,7 +61,7 @@ const TOC = [
   {
     href: "/install",
     title: "Install",
-    blurb: "Add the 3xrep MCP. Connect your CRM with their docs. Then pay.",
+    blurb: "Start 14 days free. Add the 3xrep MCP with your key. Connect your CRM. Then pay.",
   },
 ] as const;
 

@@ -62,6 +62,9 @@ export type DealInput = {
   evidence?: Evidence;
   objection?: string;
   exhibits?: Exhibit[];
+  crm_id?: string;
+  nom?: string;
+  denouement?: "gagne" | "perdu" | "ouvert";
 };
 
 export type Geste = {
@@ -103,6 +106,15 @@ export type Remontee = {
   cout_du_retard: string;
 };
 
+export type CorrectionCrm = {
+  propriete: string;
+  crm: string;
+  piece: string;
+  action: "corriger-apres-confirmation";
+  pourquoi: string;
+  ne_pas: string;
+};
+
 export type Audit = {
   geste_demande: GesteId;
   layer: Layer;
@@ -120,4 +132,5 @@ export type Audit = {
   /** Grade < A : coller le transcript, ou brancher un notetaker. */
   demande: string | null;
   rendu: ContratRendu;
+  corrections_crm?: CorrectionCrm[];
 };

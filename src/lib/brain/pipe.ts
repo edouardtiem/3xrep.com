@@ -1,9 +1,11 @@
+import { correctionsFromPipe, sommePortesCassees } from "@/lib/corrections";
 import { corpus } from "./corpus";
 import type { Etat } from "./etat";
 import { REFUS, runMoteur } from "./moteur";
 import { pieceOf, PIECES } from "./pieces";
 import type {
   ContratRendu,
+  CorrectionCrm,
   DealInput,
   Geste,
   Mort,
@@ -16,6 +18,8 @@ export type PipeDeal = DealInput & {
   nom?: string;
   closeDate?: string;
   derniereModif?: string;
+  crm_id?: string;
+  denouement?: "gagne" | "perdu" | "ouvert";
 };
 
 export type Contradiction =
@@ -42,6 +46,7 @@ export type PipeDealVerdict = {
   mort: Mort | null;
   geste: Geste | null;
   contradictions: Contradiction[];
+  etats: { id: string; etat: Etat }[];
 };
 
 export type TrouSystemique = {
@@ -67,6 +72,8 @@ export type PipeReview = {
   trous_systemiques: TrouSystemique[];
   recommandations: Recommandation[];
   rendu: ContratRendu;
+  somme_portes_cassees: number | null;
+  corrections_crm: CorrectionCrm[];
 };
 
 /** Ce qu’une étape CRM prétend. Une pièce non prouvée = l’étape ment. */
@@ -112,6 +119,7 @@ function verdictDeal(
         mort: null,
         geste: null,
         contradictions: [],
+        etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
       },
       pieces: audit.pieces,
     };
@@ -177,6 +185,7 @@ function verdictDeal(
       mort: audit.morts[0] ?? null,
       geste: audit.geste,
       contradictions,
+      etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
     },
     pieces: audit.pieces,
   };
@@ -316,5 +325,7 @@ export function pipeReview(deals: PipeDeal[], now: Date = new Date()): PipeRevie
     trous_systemiques: trous,
     recommandations: recommandations(trous, contradictions),
     rendu: CONTRAT_PIPE,
+    somme_portes_cassees: sommePortesCassees(deals, contradictions),
+    corrections_crm: correctionsFromPipe(contradictions),
   };
 }

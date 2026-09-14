@@ -23,6 +23,7 @@ export const TOOLS = [
   ["objection_map", "The objection → the piece that isn't held."],
   ["methode_lookup", "MEDDIC, BANT, BEBEDC… a notion, not a deal."],
   ["rattacher", "One sentence from a call → which method, which part."],
+  ["set_org_profile", "Once: title, mission, their company URL."],
 ] as const;
 
 export type CrmDocLink = { label: string; href: string };
@@ -321,7 +322,7 @@ export const DOC_FAQ = [
   },
   {
     q: "Do you record calls or write to the CRM?",
-    a: "We don't join your calls. We don't write to your CRM. Tool inputs and verdicts are kept 14 days to improve the VP, then deleted. Your agent reads the file through your CRM's official connector. If you want a note, a task, or a follow-up email on the record, your agent writes it through that same connector — after you confirm.",
+    a: "We don't join your calls. We don't write to your CRM. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember. Your agent reads the file through your CRM's official connector. If you want a note, a task, or a follow-up email on the record, your agent writes it through that same connector — after you confirm.",
   },
   {
     q: "Is 3xrep an alternative to Gong that doesn't record calls?",
@@ -335,7 +336,7 @@ export const DOC_FAQ = [
     a:
       "$" +
       LIST_PRICE_USD +
-      "/month for the entire organization. Not per seat. 3xrep is a VP Sales agent you add to Claude or ChatGPT next to your CRM. It does not record calls.",
+      "/month for the entire organization. Not per seat. 14 days free, then the VP stays if you pay. 3xrep is a VP Sales agent you add to Claude or ChatGPT next to your CRM. It does not record calls.",
   },
   {
     q: "Which CRMs work with 3xrep?",

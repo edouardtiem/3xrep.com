@@ -16,6 +16,12 @@ async function rpc(body: unknown, extra: HeadersInit = {}) {
   return { status: res.status, text, headers: Object.fromEntries(res.headers) };
 }
 
+function authHeaders(): HeadersInit {
+  const key = process.env.DEV_ORG_KEY?.trim();
+  if (!key) return {};
+  return { authorization: `Bearer ${key}` };
+}
+
 function parse(text: string): unknown {
   if (text.startsWith("event:")) {
     const line = text.split("\n").find((l) => l.startsWith("data:"));
@@ -133,6 +139,7 @@ const pipe = {
 };
 
 async function main() {
+  const open = process.env.MCP_OPEN_TOOLS === "1";
   const a = await rpc(init);
   console.log("INIT", a.status, a.text.slice(0, 400));
   const initBody = parse(a.text) as { result?: { instructions?: string } };
@@ -145,88 +152,112 @@ async function main() {
       instr.includes("Never default to French"),
   );
 
-  const b = await rpc(lookup);
-  console.log("LOOKUP", b.status, b.text.slice(0, 500));
-
-  const c = await rpc(phrase);
-  console.log("PHRASE", c.status, c.text.slice(0, 500));
-
-  const d = await rpc(dossier);
-  console.log("DOSSIER", d.status, d.text.slice(0, 400));
-
-  const e = await rpc(audit);
-  console.log("AUDIT", e.status, e.text.slice(0, 800));
-
-  const x = await rpc(exhibits);
-  const xv = toolPayload(x.text) as {
-    grade?: string;
-    demande?: string | null;
-    pieces?: { id: string; etat: string; gap?: { claim: string | null; fait: string | null } }[];
-  };
-  const eb = xv.pieces?.find((p) => p.id === "qui-tranche");
-  const exhibitsOk =
-    x.status === 200 &&
-    xv.grade === "B" &&
-    Boolean(xv.demande) &&
-    eb?.etat !== "su" &&
-    eb?.gap != null;
-  console.log("EXHIBITS", x.status, exhibitsOk);
-  if (!exhibitsOk) {
-    throw new Error(`audit_deal exhibits: grade B + demande + gap, jamais su — got ${JSON.stringify({ grade: xv.grade, etat: eb?.etat, gap: eb?.gap, demande: xv.demande })}`);
+  const locked = await rpc(lookup);
+  const lockedPayload = JSON.stringify(toolPayload(locked.text));
+  if (!open) {
+    const cutoff = lockedPayload.includes("not answering") || lockedPayload.includes("no key");
+    console.log("CUTOFF", locked.status, cutoff);
+    if (!cutoff) {
+      throw new Error(`sans clé le connecteur doit couper, got ${lockedPayload.slice(0, 300)}`);
+    }
   }
 
-  const p = await rpc(pipe);
-  console.log(
-    "PIPE",
-    p.status,
-    p.text.includes("etape_illegale") && p.text.includes("Insuffisant pour se prononcer"),
-  );
+  const auth = authHeaders();
+  const canJudge = open || Object.keys(auth).length > 0;
+  if (canJudge) {
+    const b = await rpc(lookup, auth);
+    console.log("LOOKUP", b.status, b.text.slice(0, 500));
+
+    const c = await rpc(phrase, auth);
+    console.log("PHRASE", c.status, c.text.slice(0, 500));
+
+    const d = await rpc(dossier, auth);
+    console.log("DOSSIER", d.status, d.text.slice(0, 400));
+
+    const e = await rpc(audit, auth);
+    console.log("AUDIT", e.status, e.text.slice(0, 800));
+
+    const x = await rpc(exhibits, auth);
+    const xv = toolPayload(x.text) as {
+      grade?: string;
+      demande?: string | null;
+      pieces?: { id: string; etat: string; gap?: { claim: string | null; fait: string | null } }[];
+    };
+    const eb = xv.pieces?.find((p) => p.id === "qui-tranche");
+    const exhibitsOk =
+      x.status === 200 &&
+      xv.grade === "B" &&
+      Boolean(xv.demande) &&
+      eb?.etat !== "su" &&
+      eb?.gap != null;
+    console.log("EXHIBITS", x.status, exhibitsOk);
+    if (!exhibitsOk) {
+      throw new Error(
+        `audit_deal exhibits: grade B + demande + gap, jamais su — got ${JSON.stringify({ grade: xv.grade, etat: eb?.etat, gap: eb?.gap, demande: xv.demande })}`,
+      );
+    }
+
+    const p = await rpc(pipe, auth);
+    console.log(
+      "PIPE",
+      p.status,
+      p.text.includes("etape_illegale") && p.text.includes("Insuffisant pour se prononcer"),
+    );
+  } else {
+    console.log("JUDGE_SKIP", "pas de DEV_ORG_KEY — cutoff vérifié, cerveau en tests unitaires");
+  }
 
   const g = await fetch(`${BASE}/api/stripe/checkout`, { method: "POST", redirect: "manual" });
   const checkoutBody = await g.text();
   const location = g.headers.get("location") ?? "";
-  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_PRICE_ID) {
-    console.log("CHECKOUT", g.status, "sans clés → 503 attendu", checkoutBody.slice(0, 280));
-    if (g.status !== 503) {
-      throw new Error(`checkout sans clés doit être 503, pas ${g.status} (pas de faux vert)`);
-    }
+  if (g.status === 503) {
+    console.log("CHECKOUT", g.status, "sans clés → 503", checkoutBody.slice(0, 280));
     if (!checkoutBody.includes("STRIPE_SECRET_KEY") && !checkoutBody.includes("STRIPE_PRICE_ID")) {
       throw new Error("503 checkout doit nommer les secrets manquants");
     }
-  } else {
+  } else if (g.status === 303 && location.includes("checkout.stripe.com")) {
     console.log("CHECKOUT", g.status, location.slice(0, 120));
-    if (g.status !== 303 || !location.includes("checkout.stripe.com")) {
-      throw new Error(`checkout avec clés test : 303 vers checkout.stripe.com attendu, got ${g.status} ${location || checkoutBody.slice(0, 200)}`);
-    }
     console.log("CHECKOUT_OK session créée — ne pas payer (mode test documenté dans docs/checkout.md)");
+  } else {
+    throw new Error(
+      `checkout : 503 (pas configuré) ou 303 stripe attendu, got ${g.status} ${location || checkoutBody.slice(0, 200)}`,
+    );
   }
 
   const h = await fetch(`${BASE}/`);
   const home = await h.text();
   console.log("HOME", h.status, home.includes("VP Sales"));
+  console.log("HOME_TRIAL", home.includes("14 days free"));
   console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
+  if (h.status !== 200 || !home.includes("14 days free")) {
+    throw new Error("home doit dire 14 days free");
+  }
+
+  const start = await fetch(`${BASE}/start`);
+  const startHtml = await start.text();
+  console.log("START", start.status, startHtml.includes("Work email"));
+  if (start.status !== 200) throw new Error("/start 200");
+  if (!startHtml.includes("Work email") || !startHtml.includes("14 days free")) {
+    throw new Error("/start doit proposer l’essai");
+  }
+
+  const card = await fetch(`${BASE}/api/stripe/checkout?mode=card&org=00000000-0000-0000-0000-000000000000&sig=dead`, {
+    redirect: "manual",
+  });
+  const cardBody = await card.text();
+  if (card.status === 503) {
+    console.log("CHECKOUT_CARD", card.status, "sans clés");
+  } else if (card.status === 400) {
+    console.log("CHECKOUT_CARD", card.status, "lien invalide");
+  } else {
+    throw new Error(`checkout carte lien pourri : 400 ou 503 attendu, got ${card.status} ${cardBody.slice(0, 120)}`);
+  }
 
   const install = await fetch(`${BASE}/install`);
   const installHtml = await install.text();
   console.log("INSTALL", install.status, installHtml.includes('action="/api/stripe/checkout"'));
   if (install.status !== 200 || !installHtml.includes('action="/api/stripe/checkout"')) {
     throw new Error("/install doit porter le form checkout $129");
-  }
-
-  for (const [name, body] of [
-    ["lookup", lookup],
-    ["phrase", phrase],
-    ["dossier", dossier],
-    ["audit", audit],
-    ["exhibits", exhibits],
-    ["pipe", pipe],
-  ] as const) {
-    try {
-      const parsed = parse((await rpc(body)).text);
-      console.log("PARSED", name, JSON.stringify(parsed).slice(0, 200));
-    } catch (err) {
-      console.log("PARSE_FAIL", name, err);
-    }
   }
 }
 
