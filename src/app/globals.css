@@ -59,3 +59,87 @@ body {
   background: var(--foreground);
   color: var(--background);
 }
+
+html:has(.lp-root) {
+  background: #eef0f2;
+  color-scheme: light;
+}
+
+html:has(.lp-root) body {
+  background: #eef0f2;
+  color: #16171a;
+  font-family: var(--font-lp), ui-sans-serif, system-ui, sans-serif;
+}
+
+.lp-root {
+  --background: #eef0f2;
+  --foreground: #16171a;
+  --dim: #5c6168;
+  --mute: #5c6168;
+  --line: #d5d8dc;
+  --raise: #ffffff;
+  --copper: #c4844a;
+  color-scheme: light;
+  font-family: var(--font-lp), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.cw {
+  color-scheme: dark;
+  --cw-bg: #181818;
+  --cw-side: #111111;
+  --cw-raise: #252525;
+  --cw-line: #2e2e2e;
+  --cw-fg: #ececec;
+  --cw-dim: #8a8a8a;
+  --cw-hub: #ff7a59;
+  --cw-ok: #3dd68c;
+  background: var(--cw-bg);
+  color: var(--cw-fg);
+}
+
+@keyframes lp-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.lp-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.lp-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: lp-marquee 32s linear infinite;
+}
+
+.lp-marquee:hover .lp-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-marquee {
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .lp-marquee-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+}

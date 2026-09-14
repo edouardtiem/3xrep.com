@@ -35,20 +35,52 @@ const CRMS = [
   { name: "Close" },
 ] as const;
 
-function Mark({ name, d }: { name: string; d?: string }) {
+function Mark({
+  name,
+  d,
+  large = false,
+}: {
+  name: string;
+  d?: string;
+  large?: boolean;
+}) {
   return (
-    <span className="flex items-center gap-2 text-foreground">
+    <span className="flex shrink-0 items-center gap-2.5 text-foreground">
       {d ? (
         <svg
           viewBox="0 0 24 24"
           aria-hidden
-          className="h-3.5 w-3.5 shrink-0 fill-current"
+          className={`shrink-0 fill-current ${large ? "h-8 w-8" : "h-3.5 w-3.5"}`}
         >
           <path d={d} />
         </svg>
       ) : null}
-      <span>{name}</span>
+      <span className={large ? "text-[1.05rem]" : undefined}>{name}</span>
     </span>
+  );
+}
+
+function Marquee({
+  marks,
+}: {
+  marks: readonly { name: string; d?: string }[];
+}) {
+  const row = marks.map((mark) => (
+    <Mark key={mark.name} large {...mark} />
+  ));
+  return (
+    <div className="lp-marquee">
+      <div className="lp-marquee-track">
+        <div className="flex items-center gap-10 pr-10 motion-reduce:flex-wrap motion-reduce:gap-x-8 motion-reduce:gap-y-4">
+          {row}
+        </div>
+        <div className="flex items-center gap-10 pr-10 motion-reduce:hidden" aria-hidden>
+          {marks.map((mark) => (
+            <Mark key={`dup-${mark.name}`} large {...mark} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -71,7 +103,39 @@ function Row({
   );
 }
 
-export function WorksWith() {
+export function WorksWith({
+  bare = false,
+  marquee = false,
+}: {
+  bare?: boolean;
+  marquee?: boolean;
+}) {
+  if (marquee) {
+    return (
+      <div className="-mx-5 space-y-8 sm:-mx-10">
+        <Marquee marks={AGENTS} />
+        <Marquee marks={CRMS} />
+      </div>
+    );
+  }
+
+  if (bare) {
+    return (
+      <div className="space-y-6 text-[0.8125rem]">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-foreground">
+          {AGENTS.map((mark) => (
+            <Mark key={mark.name} {...mark} />
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-foreground">
+          {CRMS.map((mark) => (
+            <Mark key={mark.name} {...mark} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="mt-4 space-y-4 text-[0.7rem]">
       <Row label="Works with every agent." marks={AGENTS} />

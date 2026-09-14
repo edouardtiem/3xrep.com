@@ -1,6 +1,6 @@
 import { referralStartUrl } from "@/lib/checkout-token";
 import { CopyButton } from "@/components/CopyButton";
-import { Header } from "@/components/Header";
+import { LpHeader } from "@/components/lp/LpHeader";
 import { pageMeta } from "@/lib/docs";
 import { agentSetupPrompt } from "@/lib/landing";
 import { orgById, revealStartKey } from "@/lib/orgs";
@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = pageMeta({
   title: "Start 14 days free",
-  description: `14 days free. Then $${LIST_PRICE_USD}/month for the entire organization. No card today. The connector needs your key.`,
+  description: `14 days free. Then $${LIST_PRICE_USD} a month for the whole company. No card today.`,
   path: "/start",
 });
 
@@ -36,28 +36,64 @@ function KeyPanel({
   const spec = agentSetupPrompt(url, keyPlain);
   const ref = referralCode ? referralStartUrl(referralCode) : null;
   return (
-    <>
-      <p className="text-sm text-mute">Shown once. Paste the JSON into your agent. Needs the key.</p>
-      <div className="flex items-center justify-between gap-4 rounded-[10px] border border-line bg-raise px-4 py-3 font-mono text-sm">
-        <span className="truncate">{keyPlain}</span>
-        <CopyButton text={keyPlain} />
+    <div className="flex flex-col gap-10">
+      <div>
+        <p className="text-[1.125rem] leading-[1.5]">Your key. Shown once.</p>
+        <p className="text-mute mt-2 leading-[1.5]">
+          Add 3xrep in the assistant you already use, next to HubSpot.
+        </p>
+        <div className="mt-4 flex items-center justify-between gap-4 rounded-lg border border-line bg-raise px-4 py-3 font-mono text-sm">
+          <span className="truncate">{keyPlain}</span>
+          <CopyButton text={keyPlain} />
+        </div>
       </div>
-      <pre className="overflow-x-auto rounded-[10px] border border-line bg-raise p-4 font-mono text-xs">
-        {mcpJson}
-      </pre>
-      <CopyButton text={mcpJson} />
-      <p className="text-dim text-xs">
-        Clients that cannot send a header: use {withKey}
+
+      <div>
+        <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+          Claude
+        </p>
+        <p className="text-mute mt-3 leading-[1.5]">
+          Settings → Connectors → Add custom connector. Paste this address and
+          your key.
+        </p>
+        <p className="mt-3 font-mono text-sm break-all">{url}</p>
+      </div>
+
+      <div>
+        <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+          ChatGPT
+        </p>
+        <p className="text-mute mt-3 leading-[1.5]">
+          Settings → Connectors → Add custom connector. Same address, same key.
+        </p>
+      </div>
+
+      <p className="text-mute leading-[1.5]">
+        Then connect HubSpot (or Salesforce) next to 3xrep. He needs both.
       </p>
-      <div className="mt-4">
-        <CopyButton tone="loud" label="Copy the agent prompt" text={spec} />
-      </div>
+
+      <details className="border-t border-line pt-8">
+        <summary className="cursor-pointer text-[1.125rem] leading-[1.5]">
+          If you use Cursor
+        </summary>
+        <div className="mt-4 flex flex-col gap-4">
+          <pre className="overflow-x-auto rounded-lg border border-line bg-raise p-4 font-mono text-xs">
+            {mcpJson}
+          </pre>
+          <CopyButton text={mcpJson} label="Copy JSON" />
+          <p className="text-dim text-[0.8125rem]">
+            If the client cannot send a header, use {withKey}
+          </p>
+          <CopyButton tone="loud" label="Copy the agent prompt" text={spec} />
+        </div>
+      </details>
+
       {ref ? (
-        <p className="text-dim mt-4 text-sm">
+        <p className="text-dim text-[0.8125rem]">
           Refer a team: {ref} — you get ${LIST_PRICE_USD} credit when they pay.
         </p>
       ) : null}
-    </>
+    </div>
   );
 }
 
@@ -73,40 +109,47 @@ export default async function Start({
 
   return (
     <>
-      <Header />
-      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 px-6 py-16">
-        <h1 className="text-3xl font-medium tracking-tight">14 days free</h1>
+      <LpHeader />
+      <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-8 px-5 py-16 sm:px-10">
+        <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
+          14 days free
+        </h1>
         {key ? (
           <KeyPanel keyPlain={key} referralCode={org?.referral_code} />
         ) : t ? (
-          <p className="text-mute">
-            Key already shown. Add a card from a verdict, or pay ${LIST_PRICE_USD} / month from{" "}
-            <a href="/install" className="underline">
+          <p className="text-mute leading-[1.5]">
+            Key already shown. Add a card from a verdict, or pay $
+            {LIST_PRICE_USD} a month from{" "}
+            <a
+              href="/install"
+              className="underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            >
               install
             </a>
             .
           </p>
         ) : (
           <>
-            <p className="text-mute leading-relaxed">
-              Work email. No card today. The VP starts when you judge a deal. Day 7: add a
-              card (still $0 until day 14). Then ${LIST_PRICE_USD}/month for the organization.
+            <p className="text-mute max-w-[40ch] leading-[1.5]">
+              Work email. No card today. The 14 days start when you review a
+              deal. Day 7: add a card (still $0 until day 14). Then $
+              {LIST_PRICE_USD} a month for the whole company.
             </p>
             <form action="/api/orgs/start" method="post" className="flex flex-col gap-4">
               {ref ? <input type="hidden" name="ref" value={ref} /> : null}
-              <label className="flex flex-col gap-2 text-sm">
+              <label className="flex flex-col gap-2 text-[0.9375rem]">
                 Work email
                 <input
                   type="email"
                   name="email"
                   required
-                  className="border border-line bg-raise px-3 py-2 font-mono"
+                  className="rounded-lg border border-line bg-raise px-3 py-2.5"
                   autoComplete="email"
                 />
               </label>
               <button
                 type="submit"
-                className="cursor-pointer border border-line bg-fg px-4 py-2.5 text-bg hover:opacity-90"
+                className="w-fit cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               >
                 Start 14 days free
               </button>
