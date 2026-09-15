@@ -1,3 +1,4 @@
+/** Density for founder X posts. Not live home copy — that is lp-demo / CoworkDemo. */
 export const PROMPTS = [
   "Monday. Review my pipe. What's blocked?",
   "Debrief my last client call.",
@@ -39,7 +40,7 @@ Claude or ChatGPT: Settings → Connectors → Add custom connector → paste th
 When both connectors are on, say: Monday. Review my pipe. What's blocked?`;
 }
 
-/** The proof window. One pass, then it stops. */
+/** Density reference for founder X posts. Not the live home. Do not restore SessionTerminal. */
 export const SESSION = {
   prompt: "Monday. Review my pipe. What's blocked?",
   tool: "pipe_review",

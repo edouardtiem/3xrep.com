@@ -13,7 +13,7 @@ Lire dans cet ordre.
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
 - [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM
-- [docs/landing.md](docs/landing.md) — home : hero, terminal, logos
+- [docs/landing.md](docs/landing.md) — home claire : Cowork, pas le terminal
 - [docs/icp.md](docs/icp.md) — qui + posture
 - [docs/sortie.md](docs/sortie.md) — ce que l’AE lit après le call
 - [docs/contournement.md](docs/contournement.md) — sans transcript sur la fiche

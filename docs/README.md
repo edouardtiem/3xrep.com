@@ -4,7 +4,7 @@
 
 Pivot 1er septembre 2026. Ils créent l’agent. On est le cerveau.
 
-Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il reste dans [terrain/](terrain/) pour l’historique et les méthodes de fond. **Ici, le PRD gagne** — sauf [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) et [landing.md](landing.md) (hero / home), figés le soir du 1er sept, et [cerveau.md](cerveau.md) (mécanique du cerveau), figé le 2 sept.
+Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il reste dans [terrain/](terrain/) pour l’historique et les méthodes de fond. **Ici, le PRD gagne** — sauf [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (figés le soir du 1er sept), [landing.md](landing.md) (home Cowork, **15 sept** — l’ancienne page terminal est morte), et [cerveau.md](cerveau.md) (mécanique du cerveau), figé le 2 sept.
 
 ## Lire dans cet ordre
 
@@ -13,7 +13,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
 | [checkout.md](checkout.md) | 129 $ / org USD : secrets Vercel / Stripe, webhook, recette |
-| [landing.md](landing.md) | Home Session : maquette live, mur 3 audits |
+| [landing.md](landing.md) | Home claire : fenêtre Cowork, IBM Plex. Pas le terminal. |
 | [icp.md](icp.md) | Qui + posture |
 | [sortie.md](sortie.md) | Ce que l’AE lit après le call |
 | [contournement.md](contournement.md) | Sans transcript sur la fiche : grades A/B/C, pas d’invention |

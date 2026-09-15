@@ -1,105 +1,70 @@
 # Landing — 3xrep.com
 
-Figé 1er–2 septembre 2026 pour la **structure** (page d’intention, un scroll, la fenêtre = la preuve). **Copie rouverte le 4 sept** : le pipe, pas le rep ([sessions/2026-09-04.md](sessions/2026-09-04.md)). Le design est à refaire (Édouard, 4 sept : pas satisfait — second temps). Maquette live : `src/app/page.tsx`. Le PRD §13 tient. [v0.md](v0.md) tient pour le slice produit (même porte MCP).
+**Live (15 sept 2026, `pre_main`) :** la maison claire. IBM Plex Sans. Papier `#eef0f2`. Home = la fenêtre Cowork, pas un terminal. L’ancienne page noire Geist Mono est **supprimée**. Ne pas la restaurer.
 
-## DA — Session (clair)
+Maquette live : `src/app/page.tsx` → `src/components/home/Home.tsx`. Preuve : `src/components/home/CoworkDemo.tsx`. `/lp` redirige en 308 vers `/`. Les études `/da/*` restent à part (sombres, Geist, noindex).
 
-Pas les DA terrain (Surface / Console = le jeu). Pas un trou noir Cursor **sur du blanc** (cliché Linear).
+Le PRD tient. [v0.md](v0.md) tient pour le slice produit (même porte).
 
-Fond **quasi-noir** (`#0e0e0c`). **Tout mono** (Geist Mono). Texte `#e8e8e4`. Filet `#2a2a26`. La page **est** le terminal : même papier. La fenêtre Session est un cran plus noire (`#000`). Pas de vert, glow, CRT, mesh, orb. Accent cuivre sur MCP / `audit_deal`.
+## Maison
 
-Un accent cuivre sur le statut MCP / `audit_deal`. Le reste se tait.
+Fond papier (`#eef0f2`). Texte `#16171a`. Mute `#5c6168`. Filet `#d5d8dc`. Raise blanc. Police **IBM Plex Sans**. Pas tout mono. Pas de vert, glow, CRT, mesh, orb.
 
-H1 en trois lignes max, measure serré. Le debrief a le droit d’être dense.
+La fenêtre Cowork est un îlot sombre (`#181818`) dans la page claire — le chrome Claude, pas le costume du site.
 
-Desktop (≥ lg) : un tiers texte / deux tiers fenêtre, toute la largeur. Le bloc texte (mesure 24 rem, lignes à gauche) est collé à la barre, face à la fenêtre. Sticky, hauts alignés avec le H1. La gauche emmène le manifeste + **Start 14 days free** + l’URL connector (*needs your key*) dès le premier écran. Mobile : H1 → session (hauteur fixe, s’arrête à Bolt) → manifeste → bouton → URL.
+Même papier sur `/`, `/start`, `/docs`, `/install`, `/spec`, `/merci`. Un header : wordmark → `/`, docs, start.
+
+Desktop (≥ lg) : un tiers texte / deux tiers fenêtre. Gauche sticky : H1 + essai + **Start 14 days free**. Droite : Cowork. Mobile : H1 → fenêtre (chrome téléphone Claude, pas une maison vide, pas le clavier).
 
 ## Hero
 
-**Hire the VP Sales agent who doesn’t believe your CRM and make you sign more deals.**
+**Your AI believes your CRM. We don't.**
 
-*14 days free. Then $129/month for the entire organization.* — petit, italique, tout de suite sous. Ça tue la lecture « par siège ».
+*14 days free. Then $129 a month for the whole company.* — tout de suite sous. Ça tue la lecture « par siège ». Pas le mot agent. *He lives in Claude.*
 
-Avant (2 sept) : *Hire the best VP Sales agent for 99 €/month.* Écarté le 4 sept : ça vend un coach de call, exactement la forme où ChatGPT « le fait moins bien mais le fait ». Le hero dit maintenant ce que le CRM ne peut pas dire de lui-même. « VP » reste le choc. Hero EN. On ne traduit pas VP Sales.
+CTA : **Start 14 days free** → `/start`. *No card today.* Nav : **docs** → `/docs`. Payer 129 dollars plus bas, pas dans le premier écran. Pas de démo Calendly. Pas d’URL connecteur dans le hero (la clé est sur `/start`).
 
-Pas de deuxième H1. Pas de « tu crées / on est le cerveau » en hero.
+## Preuve — la fenêtre Cowork
 
-CTA : **Start 14 days free** → `/start`. L’URL connector reste dessous, avec *needs your key*. Nav : **docs** → `/docs` (SEO, pas le fold). *Already in?* plus bas : payer 129 dollars tout de suite. Pas de démo. Pas de Calendly.
+Pas un terminal Cursor. Un juge dans Claude, à côté de HubSpot.
 
-## Preuve — la fenêtre
+Quatre questions, **le même fil** : *What's stuck this week?* / *Debrief last call* / *Close dates* / *Too expensive.* On clique, ça continue. Claude seul vs Claude + 3xrep : on garde HubSpot, on échange la dernière réponse.
 
-Session Claude Code / Cursor, même papier. Un passage, puis ça s’arrête :
+Copy de la fenêtre : plus d’« illegal » (ce n’est pas une négo). Plus de « trou » sur la page. Punch : *He remembers what's missing, not the call.*
 
-*Monday. Review my pipe. What’s blocked?* → `pipe_review` → 9 deals, 4 contradictions, 1 trou qui se répète. Acme : « Negotiation » dans HubSpot, personne qui signe, la réplique de Julien, *this stage is illegal*. Bolt : date de close = claim. Cora : 46 jours sans modif. Le trou systémique + la question. Dune : pas de call, *I won’t fill the gap*. Desktop seulement, une ligne de plus (14 sept, le code le fait) : *He remembers the hole, not the call.* Pas un faux « vide depuis le 12 » dans la fenêtre.
-
-Avant : *Débriefe le call avec Julien.* → `audit_deal` → la [sortie](sortie.md). Toujours vrai dans le produit ; sur la page, c’est le pipe qui montre l’écart.
-
-Titlebar minuscule (`claude code · MCP 3xrep`). Le motion *est* le mockup. Si le chrome mange le debrief, on a perdu. Fenêtre à **hauteur fixe** : le texte défile dedans. Mobile : on s’arrête à Bolt (pas Cora / Dune).
-
-Marques sous la fenêtre, blanc sur noir. Deux lignes : *Works with every agent.* (Claude · ChatGPT · Gemini · Cursor · Notion) puis *And these CRMs.* (HubSpot · Salesforce · Pipedrive · Attio · Close). Notion est un agent, pas un fichier client.
-
-## Sous la fenêtre — l’écart à Claude
-
-Sans ça, on est un thème Cursor. Claude parle déjà. Une ligne, mute, mono. Pas une section « what we do ».
-
-**Your CRM is green because someone ticked a box. This agent reads the calls behind the fields and says what your CRM can’t: this stage is a lie. He won’t go easy on you. That’s why it works.**
-
-Avant : *This agent is the méthode that makes you close.* Gardé : *he won’t go easy on you. That’s why it works.*
-
-Écart au PRD, **LP seulement** (7 sept, Édouard) : le hero a le droit de dire *and make you sign more deals* — l’objet de la page, sans chiffre. Spec, tools, debrief : toujours pas « tu closes ». Pas « +30 % ». Pas « tu closes vendredi ».
-
-## Où il vit (4 sept)
-
-Édouard : on ne comprend pas où vit l’agent. Le dire, et le dire vendeur : **il vit là où tu travailles déjà, au-dessus du CRM, pas dedans.** Rien à installer dans HubSpot, pas d’onglet 3xrep.
-
-Section *Where he lives.* sous le manifeste, avant *Start.* Trois lignes mono (la page est le terminal) :
-
-```
-your agent   Claude · ChatGPT · Cursor · Notion…
- ├─ your CRM  HubSpot · Salesforce · Pipedrive · Attio…
- └─ 3xrep     one URL → the verdict
-```
-
-Tient dans la colonne gauche (24 rem) sans scroll horizontal.
-
-Puis la condition, en une phrase : *He needs both. Without your CRM connected, he has nothing to read.* Pas un schéma d’archi. Pas « MCP server » en gras dans le hero. Le mot MCP n’apparaît qu’une fois (*one MCP URL*). Remplace la ligne de logos seule (Claude Code · Cursor · Codex), qui disait la plateforme sans dire la place.
+Téléphone : chrome Claude, chips, composer. Desktop : sidebar + fil.
 
 ## Logos
 
-Sous la fenêtre Session, blanc sur noir. *Works with every agent.* Claude · ChatGPT · Gemini · Cursor · Notion. *And these CRMs.* HubSpot · Salesforce · Pipedrive · Attio · Close. Pas à la place du schéma *Where he lives.* Notion n’est pas dans la ligne CRM.
-
-## Wedge visiteur
-
-Premier visiteur = founder déjà dans l’agent de code. Un AE qui ne sort pas de HubSpot n’est plus le premier écran. Assumé. Même SKU, même porte. Pas un troisième produit.
-
-Écart à [v0.md](v0.md) § « Claude Code / Codex : bonus geek » : sur la *page*, ils sont le visage. Dans le *produit*, c’est toujours le même MCP.
-
-## Install
-
-Pas un mail. Pas un call. Premier geste : **Start 14 days free**. L’URL reste sur la page, *needs your key*. Le spec voyage dans le MCP (`instructions` à initialize). Hub crawlable : `/docs`. Long form : `/spec`.
-
-Checkout sous l’install : *Already in?* $129 / month / organization + bouton Stripe. Ancre Gong (~$1,500 / seat). Chemin 2 min : `/install` puis Stripe ([checkout.md](checkout.md)).
+Bandeau sous le premier écran. *Works with every agent.* Claude · ChatGPT · Gemini · Cursor · Notion. *And these CRMs.* HubSpot · Salesforce · Pipedrive · Attio · Close. Défilement lent. Notion est un agent, pas un fichier client.
 
 ## Sous le fold
 
-Page d’intention, un scroll.
+1. Premier écran : H1 + essai + Start + fenêtre. Un tiers / deux tiers. Sticky.
+2. *He lives in Claude or ChatGPT, next to HubSpot. Not inside HubSpot.*
+3. Logos.
+4. Prix — *$129 a month for the whole company.* Après l’essai. *Gong is about $1,250 a month for a team of ten. We are $129 a month for the whole company.* Bouton Stripe.
+5. Ce que ce n’est pas — Gong (*We don't join your calls.*) ; **Not your CRM's assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name what's missing. And the stage in HubSpot that isn't true.*
+6. Confiance — footer. **Pas le hero.**
 
-1. Premier écran : H1 + *14 days free* + manifeste + **Start 14 days free** + cadran URL connector (*needs your key*). Un tiers texte (bloc collé à la barre) / deux tiers fenêtre. Sticky, hauts alignés avec le H1.
-2. Sous le fold : *Where he lives.* + *What the VP says.* (4 prompts). Pas de second cadran URL.
-3. Checkout — *Already in?* $129 / org + bouton Stripe (3 sept, palier 1 org payante ; 11 sept : USD). *Gong is ~$1,500 a seat and records your calls. Here it’s $129 for the whole pipe, no seats.*
-4. Ce que ce n’est pas — Gong (*We don’t join your calls.*) ; **Not your CRM’s assistant. It fills the fields. We say which ones are empty.** ; cours ; « you close Friday ». Puis ce que c’est : *We name the hole that kills the deal. And the stage that lies.*
-5. Confiance — footer. **Pas le hero.**
+Pas de logos clients, features grid, testimonials, leçon MEDDIC.
 
-Pas de logos clients, features grid, testimonials, layers en marketing, leçon MEDDIC.
+## Install / start
+
+Premier geste : **Start 14 days free**. Trois temps, puis l’e-mail. La clé une fois. Claude puis ChatGPT. Cursor plié. Mode d’emploi long : `/install` (manuel après la clé, payer en bas). Spec : `/spec`.
+
+Checkout : *Already in?* $129 / month for the whole company + bouton Stripe. Ancre Gong (~$1,250 / mois pour dix). Chemin : `/install` puis Stripe ([checkout.md](checkout.md)).
 
 ## Confiance
 
-Écarté : *We don’t have access to your data, prompts nor queries.* Faux. Le MCP est remote. `audit_deal` reçoit `evidence`. C’est de l’accès le temps de la requête.
-
 **Ligne live (14 sept, item 6) :** *We don’t join your calls. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember and, with enough cases, to confirm the rule. We don’t write to your CRM.*
 
-« Don’t store » retiré le 6–7 sept 2026 : [decisions.md](decisions.md). On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre toujours pas les calls (pas de bot Zoom). **Nous** n’écrivons pas dans leur CRM. Leur agent peut, via leur connecteur, d’après une reco 3xrep (propriété qui ment / vide — pas une valeur inventée). Le 14 sept : le **squelette** (hash, pièce, date — pas le roman) reste. La confirmation 42 % n’est **pas** affichée dans ce ship.
+On log les bodies des tool calls 14 jours (`mcp_calls`), puis delete. On n’enregistre pas les calls. **Nous** n’écrivons pas dans leur fichier client. La confirmation 42 % n’est **pas** affichée.
 
 ## Interdit en copy
 
-« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « Tu closes vendredi ». Démo. Per-seat. « We don’t have access to your data ». Session dark / mesh / orb / particle graph. Un pourcentage de forecast, un pipeline pondéré, un classement de reps (le VP juge le pipe, pas les gens). *More deals* : oui dans le hero, sans chiffre. Pas dans le spec ni les tools. Calculette « $412k × 42% at risk ». « Similar teams convert at 51% ».
+« On remplace Gong ». « Tu closes +30 % ». « Tu feras ×3 ». « Tu closes vendredi ». Démo Calendly. Per-seat. « We don’t have access to your data ». Terminal noir / mesh / orb. Un pourcentage de forecast, un classement de reps. *More deals* : pas dans le hero actuel. Pas dans le spec ni les tools. Calculette « $412k × 42% at risk ». « Similar teams convert at 51% ». Le mot **illegal** sur la page publique. Restaurer `SessionTerminal`.
+
+## Histoire (ne pas ship)
+
+1er–4 sept : hero *Hire the VP Sales agent…*, page = terminal Geist Mono, fenêtre Session. Écarté le 14–15 sept : public = gens qui vendent déjà avec Claude / ChatGPT, pas des fondateurs Cursor. Le mock Session reste dans `src/lib/landing.ts` (`SESSION`) pour la densité des posts X — pas pour la home.

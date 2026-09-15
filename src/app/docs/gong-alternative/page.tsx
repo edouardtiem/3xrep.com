@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
+import { DocPage, DocSection } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/docs";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
@@ -8,9 +8,9 @@ import { TRUST_LINE } from "@/lib/copy";
 export const metadata = pageMeta({
   title: "Gong alternative that doesn't record calls",
   description:
-    "Gong records your calls, about $1,500 a seat. 3xrep does not join them. A VP Sales agent next to Claude or ChatGPT and your CRM. From $" +
+    "Gong records your calls, about $1,250 a month for a team of ten. 3xrep does not join them. He lives in Claude or ChatGPT, next to HubSpot. $" +
     LIST_PRICE_USD +
-    "/month for the organization.",
+    " a month for the whole company.",
   path: "/docs/gong-alternative",
 });
 
@@ -23,49 +23,34 @@ export default function GongAlternativePage() {
           { name: "Gong alternative", path: "/docs/gong-alternative" },
         ])}
       />
-      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16 leading-relaxed">
-        <div>
-          <h1 className="text-[1.75rem] leading-[1.2] tracking-tight sm:text-[2rem]">
-            A Gong alternative that doesn&apos;t record calls
-          </h1>
-          <p className="text-mute mt-4 max-w-[36rem]">
-            Gong records the call. Most “no bot” tools still capture audio.
-            3xrep does not join the call. It is a VP Sales agent you add to
-            Claude, ChatGPT, Cursor, or Codex, next to your CRM. From $
-            {LIST_PRICE_USD}/month for the entire organization.
+      <DocPage
+        title="A Gong alternative that doesn't record calls"
+        lead={`Gong records the call. Most “no bot” tools still capture audio. 3xrep does not join the call. He lives in Claude or ChatGPT, next to HubSpot. $${LIST_PRICE_USD} a month for the whole company.`}
+      >
+        <DocSection title="What he judges">
+          <p>
+            HubSpot is green because someone ticked a box. He reads the calls,
+            notes, and mails already on the record — through your connector,
+            not ours — and names the stage that isn&apos;t true. Nobody who
+            can sign. A close date that is a guess. What repeats.
           </p>
-        </div>
+          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
+        </DocSection>
 
-        <section className="space-y-2">
-          <h2 className="text-lg">What it judges</h2>
-          <p className="text-dim">
-            The CRM is green because someone ticked a box. This agent reads
-            the calls, notes, and mails already on the record — through{" "}
-            <em>your</em> CRM connector, not ours — and names the stage that
-            lies. Nobody who can sign. A close date that is a claim. A hole
-            that repeats.
+        <DocSection title="Not a recorder. Not a seat tax.">
+          <p>
+            We do not replace Gong. We do not score talk-to-listen. We do not
+            write back to HubSpot. If you want a note on the deal, Claude
+            writes it through HubSpot, after you confirm.
           </p>
-          <p className="text-dim">{TRUST_LINE}</p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-lg">Not a recorder. Not a seat tax.</h2>
-          <p className="text-dim">
-            We do not replace Gong. We do not score talk-to-listen. We do
-            not write back to HubSpot or Salesforce. If you want a note on
-            the deal, your agent writes it through the CRM connector, after
-            you confirm.
+          <p>
+            Gong is about $1,250 a month for a team of ten. We are $
+            {LIST_PRICE_USD} a month for the whole company.
           </p>
-        </section>
+        </DocSection>
 
-        <p>
-          <Link href="/install" className="text-foreground hover:underline">
-            Install
-          </Link>
-          <span className="text-dim"> — one URL, next to your CRM.</span>
-        </p>
-      </main>
-      <DocsEnd />
+        <DocsEnd />
+      </DocPage>
     </>
   );
 }

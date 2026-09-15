@@ -4,10 +4,10 @@ import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { siteUrl } from "@/lib/site";
 
 export const DOC_NAV = [
-  { href: "/docs", label: "overview" },
-  { href: "/docs/how-it-works", label: "how it works" },
-  { href: "/docs/use-cases", label: "use cases" },
-  { href: "/docs/methods", label: "methods" },
+  { href: "/docs", label: "Overview" },
+  { href: "/docs/how-it-works", label: "How it works" },
+  { href: "/docs/use-cases", label: "Use cases" },
+  { href: "/docs/methods", label: "Methods" },
 ] as const;
 
 export const TOOLS = [
@@ -312,35 +312,36 @@ export const METHOD_FAMILIES: readonly {
 export const DOC_FAQ = [
   {
     q: "What is 3xrep?",
-    a: "A VP Sales agent you add to Claude, ChatGPT, Cursor, or Codex, next to your CRM connector. It reads the calls behind the fields and names the hole that kills the deal, and the stage that lies. From $" +
+    a:
+      "He lives in Claude or ChatGPT, next to HubSpot. He reads the calls behind the fields and names what's missing, and the stage that isn't true. 14 days free, then $" +
       LIST_PRICE_USD +
-      "/month for the entire organization.",
+      " a month for the whole company.",
   },
   {
     q: "How is 3xrep different from Claude or ChatGPT?",
-    a: "Claude and ChatGPT can recite MEDDIC. They stay polite. 3xrep is a compiler of holes: a tool that returns held, assumed, or empty from what the buyer said — not from what the rep believes or what the CRM ticked. A markdown skill can be ignored. A JSON verdict cannot.",
+    a: "Claude and ChatGPT can recite MEDDIC. They stay polite. They believe the green box. 3xrep asks what the buyer said. If the quote is missing, the piece is empty. A file of instructions can be ignored. The verdict cannot.",
   },
   {
     q: "Do you record calls or write to the CRM?",
-    a: "We don't join your calls. We don't write to your CRM. Call text is kept 14 days, then deleted. We keep a hole log (no transcripts) to remember. Your agent reads the file through your CRM's official connector. If you want a note, a task, or a follow-up email on the record, your agent writes it through that same connector — after you confirm.",
+    a: "We don't join your calls. We don't write to your CRM. Call text is kept 14 days, then deleted. We remember what's missing, not the call. Your assistant reads the file through HubSpot or Salesforce. If you want a note on the record, your assistant writes it — after you confirm.",
   },
   {
     q: "Is 3xrep an alternative to Gong that doesn't record calls?",
     a:
-      "Gong records your calls, about $1,500 a seat. 3xrep does not join your calls. It is a VP Sales agent you add to Claude or ChatGPT next to your CRM. From $" +
+      "Gong records your calls — about $1,250 a month for a team of ten. 3xrep does not join your calls. He lives in Claude or ChatGPT, next to HubSpot. $" +
       LIST_PRICE_USD +
-      "/month for the entire organization.",
+      " a month for the whole company.",
   },
   {
     q: "How much does 3xrep cost?",
     a:
       "$" +
       LIST_PRICE_USD +
-      "/month for the entire organization. Not per seat. 14 days free, then the VP stays if you pay. 3xrep is a VP Sales agent you add to Claude or ChatGPT next to your CRM. It does not record calls.",
+      " a month for the whole company. Not per person who sells. 14 days free. We don't join your calls.",
   },
   {
     q: "Which CRMs work with 3xrep?",
-    a: "Any CRM that ships an official MCP your agent can connect: HubSpot, Salesforce, Pipedrive, Attio, Notion, Close, and others. 3xrep does not install inside the CRM. No tab, no app review, no data copy.",
+    a: "HubSpot, Salesforce, Pipedrive, Attio, Notion, Close — any file that ships an official connector your assistant can add. Nothing to install inside HubSpot. No 3xrep tab.",
   },
 ] as const;
 
@@ -413,7 +414,7 @@ export function softwareJsonLd() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "VP Sales agent MCP for Claude, ChatGPT, Cursor, and Codex. Judges CRM deals from call evidence. Does not join calls. Does not write to the CRM.",
+      "Lives in Claude or ChatGPT, next to HubSpot. Judges deals from what the buyer said. Does not join calls. Does not write to the CRM.",
     offers: {
       "@type": "Offer",
       price: String(LIST_PRICE_USD),

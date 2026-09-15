@@ -1,24 +1,25 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/Wordmark";
 
-const links = [
-  { href: "/docs", label: "docs" },
-  { href: "/install", label: "install" },
-  { href: "/start", label: "start" },
-];
-
 export function Header() {
   return (
-    <header className="flex items-baseline justify-between border-b border-line px-6 py-4">
-      <Link href="/" aria-label="3xrep" className="text-sm tracking-tight text-fg">
+    <header className="mx-auto flex w-full max-w-[88rem] items-baseline justify-between px-5 py-6 sm:px-10">
+      <Link href="/" aria-label="3xrep" className="text-[0.95rem]">
         <Wordmark />
       </Link>
-      <nav className="flex gap-6 text-sm text-mute">
-        {links.map((l) => (
-          <Link key={l.href} href={l.href} className="hover:text-fg">
-            {l.label}
-          </Link>
-        ))}
+      <nav className="flex gap-5 text-[0.8125rem] leading-[1.4] text-mute">
+        <Link
+          href="/docs"
+          className="hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+        >
+          docs
+        </Link>
+        <Link
+          href="/start"
+          className="hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+        >
+          start
+        </Link>
       </nav>
     </header>
   );

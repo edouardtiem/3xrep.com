@@ -35,7 +35,7 @@ Requêtes à tourner (déjà sur la page) :
 
 Un deal sans call : le refus à l’écran (*I won’t fill the gap*). Sans ça, on a l’air d’un skill MEDDIC.
 
-Pas de captures inventées. Pas de GIF du `SessionTerminal`. Si on n’a pas encore tourné sur un vrai HubSpot, on attend — [plg.md](plg.md) : la première vraie `pipe_review` est le test.
+Pas de captures inventées. Pas de GIF de la fenêtre Cowork. Si on n’a pas encore tourné sur un vrai HubSpot, on attend — [plg.md](plg.md) : la première vraie `pipe_review` est le test.
 
 ### 2. Toutes les langues
 

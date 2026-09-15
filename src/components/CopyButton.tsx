@@ -22,7 +22,7 @@ const TONE = {
   quiet:
     "text-dim hover:text-foreground shrink-0 cursor-pointer text-xs tracking-wide uppercase",
   loud:
-    "w-full cursor-pointer border border-line bg-fg px-4 py-2.5 text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground",
+    "w-fit cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground",
 } as const;
 
 export function CopyButton({

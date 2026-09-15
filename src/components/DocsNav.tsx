@@ -8,11 +8,8 @@ export function DocsNav() {
   const path = usePathname();
 
   return (
-    <nav
-      aria-label="Docs"
-      className="border-b border-line px-6"
-    >
-      <ul className="mx-auto flex w-full max-w-2xl gap-6 overflow-x-auto py-3 text-sm">
+    <nav aria-label="Docs" className="border-b border-line">
+      <ul className="mx-auto flex w-full max-w-[40rem] gap-6 overflow-x-auto px-5 py-4 text-[0.8125rem] sm:px-10">
         {DOC_NAV.map((item) => {
           const on =
             item.href === "/docs"

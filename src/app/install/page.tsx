@@ -6,27 +6,26 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { TRUST_LINE } from "@/lib/copy";
 import { CRM_CONNECTORS, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
-import { PROMPTS } from "@/lib/landing";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { mcpUrl } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Install the 3xrep MCP",
+  title: "Install 3xrep",
   description:
-    "Gong records your calls. 3xrep does not join them. Add the VP Sales agent MCP to Claude, Cursor, or ChatGPT, next to HubSpot or Salesforce. 14 days free, then $" +
+    "Add him in Claude or ChatGPT, next to HubSpot. 14 days free, then $" +
     LIST_PRICE_USD +
-    "/month for the organization.",
+    " a month for the whole company. We don't join your calls.",
   path: "/install",
 });
 
 function Snippet({ label, text }: { label: string; text: string }) {
   return (
-    <div className="rounded-[4px] border border-line">
-      <div className="flex items-center justify-between gap-3 border-b border-line px-3 py-2">
-        <span className="text-dim text-xs tracking-wide uppercase">{label}</span>
+    <div className="rounded-lg border border-line bg-raise">
+      <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-2">
+        <span className="text-dim text-[0.75rem]">{label}</span>
         <CopyButton text={text} />
       </div>
-      <pre className="overflow-x-auto px-3 py-3 text-[0.8125rem] leading-relaxed whitespace-pre-wrap">
+      <pre className="overflow-x-auto px-4 py-3 font-mono text-[0.8125rem] leading-relaxed whitespace-pre-wrap">
         {text}
       </pre>
     </div>
@@ -36,26 +35,9 @@ function Snippet({ label, text }: { label: string; text: string }) {
 function Fold({ title, children }: { title: string; children: ReactNode }) {
   return (
     <details className="border-b border-line">
-      <summary className="cursor-pointer py-2.5">{title}</summary>
-      <div className="text-dim pb-3 leading-relaxed">{children}</div>
+      <summary className="cursor-pointer py-4">{title}</summary>
+      <div className="text-mute pb-6 leading-[1.5]">{children}</div>
     </details>
-  );
-}
-
-function Pay() {
-  return (
-    <section id="pay" className="flex flex-col gap-4">
-      <p className="text-dim text-xs tracking-wide uppercase">Already in?</p>
-      <p>
-        14 days free, then ${LIST_PRICE_USD} / month / organization. Local
-        currency and language at checkout.
-      </p>
-      <p className="text-dim leading-relaxed">
-        Gong is ~$1,500 a seat and records your calls. Here it&apos;s $
-        {LIST_PRICE_USD} for the whole pipe, no seats. {TRUST_LINE}
-      </p>
-      <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
-    </section>
   );
 }
 
@@ -75,24 +57,29 @@ export default function Install() {
   const howTo = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Install the 3xrep MCP and connect a CRM",
+    name: "Add 3xrep next to HubSpot",
     description:
-      "Add 3xrep to your agent, connect your CRM with the vendor's official MCP, then run a pipe review.",
+      "Add 3xrep in Claude or ChatGPT, connect HubSpot beside it, then ask what's stuck this week.",
     step: [
       {
         "@type": "HowToStep",
-        name: "Add the 3xrep connector",
-        text: `Start 14 days free, then paste the 3xrep URL as a custom MCP connector in Claude, Cursor, Codex, ChatGPT, or Notion. The connector needs your key.`,
+        name: "Start 14 days free",
+        text: "Get your key. No card today.",
       },
       {
         "@type": "HowToStep",
-        name: "Connect your CRM",
-        text: "Add your CRM's official MCP next to 3xrep. Follow HubSpot, Salesforce, Pipedrive, Attio, Notion, or Close docs. Each person connects with their own account.",
+        name: "Add him in Claude",
+        text: `Settings → Connectors → Add custom connector. Paste ${url} and your key.`,
       },
       {
         "@type": "HowToStep",
-        name: "Run it on the pipe",
-        text: PROMPTS[0],
+        name: "Connect HubSpot beside it",
+        text: "Add HubSpot or Salesforce next to 3xrep. He needs both.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Monday",
+        text: "Say: Monday. What's stuck this week?",
       },
     ],
   };
@@ -102,99 +89,79 @@ export default function Install() {
       <Header />
       <JsonLd data={breadcrumbJsonLd([{ name: "Install", path: "/install" }])} />
       <JsonLd data={howTo} />
-      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-12 px-6 py-16 leading-relaxed">
+      <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-16 px-5 py-16 sm:px-10">
         <div>
-          <h1 className="text-[1.75rem] leading-[1.2] tracking-tight sm:text-[2rem]">
-            Add him next to your CRM.
+          <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
+            Add him next to HubSpot.
           </h1>
-          <p className="text-mute mt-4 max-w-[36rem]">
-            One URL in the agent you already use. Their HubSpot or Salesforce
-            connector beside it — not inside it. Nothing to install in HubSpot.
-            No 3xrep tab. Start 14 days free, then paste the key. ${LIST_PRICE_USD}{" "}
-            / month is for the organization that wants the VP on its pipe every Monday.
+          <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
+            You already have a key from start. Claude first. HubSpot beside
+            it. Nothing to install inside HubSpot.
           </p>
-          <p className="mt-6">
+          <p className="mt-8">
             <Link
               href="/start"
-              className="inline-block border border-line bg-fg px-4 py-2.5 text-bg hover:opacity-90"
+              className="inline-block cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             >
               Start 14 days free
             </Link>
           </p>
         </div>
 
-        <Pay />
-
-        <section className="flex flex-col gap-4">
-          <h2 className="text-lg">1. The URL</h2>
-          <p className="text-dim">
-            Same address everywhere. It needs your key —{" "}
-            <Link href="/start" className="text-foreground hover:underline">
-              start 14 days free
-            </Link>
-            . The{" "}
-            <Link href="/spec" className="text-foreground hover:underline">
-              spec
-            </Link>{" "}
-            travels with it.
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            The address
+          </h2>
+          <p className="text-mute leading-[1.5]">
+            Same everywhere. It needs your key.
           </p>
-          <Snippet label="Connector URL" text={url} />
-          <div className="border-t border-line">
-            <Fold title="Cursor / Codex">
+          <Snippet label="Address" text={url} />
+        </section>
+
+        <section>
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            Claude or ChatGPT
+          </h2>
+          <p className="text-mute mt-5 leading-[1.5]">
+            Settings → Connectors → Add custom connector. Paste the address
+            and the key.
+          </p>
+          <div className="mt-8 border-t border-line">
+            <Fold title="Cursor">
               <p>
-                Settings → MCP, or paste the JSON in{" "}
-                <span className="text-foreground">.cursor/mcp.json</span>.{" "}
-                <a
-                  href="https://cursor.com/docs/mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
-                >
-                  Cursor docs
-                </a>
-                . Next to your CRM connector, not instead of it.
+                Settings → MCP, or paste this in{" "}
+                <span className="text-foreground">.cursor/mcp.json</span>. Next
+                to HubSpot, not instead of it.
               </p>
-              <div className="mt-3">
+              <div className="mt-4">
                 <Snippet label="mcp.json" text={mcpJson} />
               </div>
             </Fold>
             <Fold title="Claude Code">
-              <p>
-                Run the command, or add the same JSON to{" "}
-                <span className="text-foreground">.mcp.json</span>.
-              </p>
-              <div className="mt-3">
+              <p>Run the command, or add the same file as .mcp.json.</p>
+              <div className="mt-4">
                 <Snippet label="Claude Code" text={claudeAdd} />
               </div>
-            </Fold>
-            <Fold title="Claude Team / Cowork">
-              Owner: Settings → Connectors → Add custom connector. Paste the
-              URL. Enable the CRM connector. Each person Connects with their
-              own account. Paste the spec in the shared Project.
-            </Fold>
-            <Fold title="ChatGPT · Notion Custom Agents">
-              Admin publishes 3xrep on the workspace, plus the CRM. Each
-              person signs in as themselves. Same spec on the shared agent.
             </Fold>
           </div>
         </section>
 
-        <section className="flex flex-col gap-4">
-          <h2 className="text-lg">2. Your CRM beside it</h2>
-          <p className="text-dim">
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            HubSpot beside it
+          </h2>
+          <p className="text-mute leading-[1.5]">
             They ship the connector. You add it beside 3xrep. Each person
-            signs in as themselves — they only see their deals. Without a CRM,
-            paste the notes in the chat: he still judges, the fields are
-            missing.
+            signs in as themselves.
           </p>
           <ul className="divide-y divide-line border-y border-line">
             {CRM_CONNECTORS.map((crm) => (
               <li
                 key={crm.name}
-                className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-2.5"
+                className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-4"
               >
                 <span>{crm.name}</span>
-                <span className="text-dim">
+                <span className="text-dim text-[0.8125rem]">
                   {crm.docs.map((doc, i) => (
                     <span key={doc.href}>
                       {i > 0 ? " · " : null}
@@ -212,40 +179,29 @@ export default function Install() {
               </li>
             ))}
           </ul>
-          <p className="text-dim">
-            Another CRM with an official connector works the same way.{" "}
-            <Link href="/docs/how-it-works" className="text-foreground hover:underline">
-              How it works
-            </Link>
-            .
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            Then say
+          </h2>
+          <p className="text-[1.125rem] leading-[1.5]">
+            Monday. What&apos;s stuck this week?
           </p>
         </section>
 
-        <section className="flex flex-col gap-3">
-          <h2 className="text-lg">3. Then say</h2>
-          <ul className="divide-y divide-line border-y border-line">
-            {PROMPTS.map((prompt, i) => (
-              <li key={prompt} className="flex items-baseline gap-3 py-2.5">
-                <span className="text-dim w-5 shrink-0 text-xs">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="min-w-0 flex-1 leading-snug">{prompt}</p>
-                <CopyButton text={prompt} />
-              </li>
-            ))}
-          </ul>
-          <p className="text-dim">
-            More Monday pipe, debrief, follow-up:{" "}
-            <Link href="/docs/use-cases" className="text-foreground hover:underline">
-              use cases
-            </Link>
-            .
+        <section className="space-y-5 border-t border-line pt-16">
+          <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            ${LIST_PRICE_USD} a month for the whole company.
           </p>
-        </section>
-
-        <section className="flex flex-col gap-4 border-t border-line pt-10">
-          <p className="text-dim">That&apos;s the setup. Trial first, or pay for the org.</p>
-          <CheckoutButton label={`Pay $${LIST_PRICE_USD} / month / org`} />
+          <p className="text-mute leading-[1.5]">
+            After the trial. Gong is about $1,250 a month for a team of ten.
+          </p>
+          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
+          <CheckoutButton
+            label={`Pay $${LIST_PRICE_USD} a month`}
+            className="cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          />
         </section>
       </main>
     </>

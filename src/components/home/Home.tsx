@@ -3,8 +3,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
-import { CoworkDemo } from "@/components/lp/CoworkDemo";
-import { LpHeader } from "@/components/lp/LpHeader";
+import { Header } from "@/components/Header";
+import { CoworkDemo } from "@/components/home/CoworkDemo";
 import { WorksWith } from "@/components/WorksWith";
 import { TRUST_LINE } from "@/lib/copy";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
@@ -29,10 +29,10 @@ function Band({
   );
 }
 
-export function LpHome() {
+export function Home() {
   return (
     <div className="flex flex-1 flex-col">
-      <LpHeader />
+      <Header />
 
       <div className="mx-auto w-full max-w-[88rem] flex-1 px-5 pt-8 pb-16 sm:px-10 sm:pt-10 lg:pb-16">
         <div className="flex flex-col lg:grid lg:grid-cols-[minmax(18rem,26rem)_minmax(0,1fr)] lg:items-start lg:gap-12">

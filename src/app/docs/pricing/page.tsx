@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
+import { DocPage, DocSection } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/docs";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   description:
     "3xrep costs $" +
     LIST_PRICE_USD +
-    "/month for the entire organization. Not per seat. A VP Sales agent next to Claude or ChatGPT and your CRM. It does not record calls.",
+    " a month for the whole company. Not per person who sells. 14 days free. He lives in Claude or ChatGPT, next to HubSpot. We don't join your calls.",
   path: "/docs/pricing",
 });
 
@@ -23,46 +23,33 @@ export default function PricingPage() {
           { name: "Pricing", path: "/docs/pricing" },
         ])}
       />
-      <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-6 py-16 leading-relaxed">
-        <div>
-          <h1 className="text-[1.75rem] leading-[1.2] tracking-tight sm:text-[2rem]">
-            How much does 3xrep cost
-          </h1>
-          <p className="text-mute mt-4 max-w-[36rem]">
-            ${LIST_PRICE_USD} per month for the entire organization. Not per
-            seat. 14 days free. 3xrep is a VP Sales agent you add to Claude, ChatGPT,
-            Cursor, or Codex, next to your CRM. It names the stage that
-            lies. It does not record calls.
-          </p>
-        </div>
-
-        <section className="space-y-2">
-          <h2 className="text-lg">One price. The whole pipe.</h2>
-          <p className="text-dim">
-            Gong is about $1,500 a seat and records your calls. Here it is $
-            {LIST_PRICE_USD} for the whole pipe, no seats. Local currency at
+      <DocPage
+        title="How much does 3xrep cost"
+        lead={`$${LIST_PRICE_USD} a month for the whole company. Not per person who sells. 14 days free. He lives in Claude or ChatGPT, next to HubSpot. We don't join your calls.`}
+      >
+        <DocSection title="One price. The whole company.">
+          <p>
+            After the trial. One price, no matter how many people sell. Gong
+            is about $1,250 a month for a team of ten. We are $
+            {LIST_PRICE_USD} a month for the whole company. Local currency at
             checkout.
           </p>
-          <p className="text-dim">{TRUST_LINE}</p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-lg">What you are not paying for</h2>
-          <p className="text-dim">
-            Not a call recorder. Not a tab inside HubSpot or Salesforce.
-            The agent lives next to your CRM connector, in the tool you
-            already use.
+          <p>
+            No card today. The 14 days start when you review a deal. Day 7:
+            add a card (still $0 until day 14).
           </p>
-        </section>
+          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
+        </DocSection>
 
-        <p>
-          <Link href="/install" className="text-foreground hover:underline">
-            Install
-          </Link>
-          <span className="text-dim"> — 14 days free, then ${LIST_PRICE_USD}.</span>
-        </p>
-      </main>
-      <DocsEnd />
+        <DocSection title="What you are not paying for">
+          <p>
+            Not a call recorder. Not a tab inside HubSpot. He lives next to
+            the file, in the assistant you already use.
+          </p>
+        </DocSection>
+
+        <DocsEnd />
+      </DocPage>
     </>
   );
 }
