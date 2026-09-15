@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { TRUST_LINE } from "@/lib/copy";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { siteUrl } from "@/lib/site";
 
