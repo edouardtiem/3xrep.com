@@ -79,6 +79,8 @@ Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP
 
 **Portes** ([portes.md](portes.md)) — direction 6 sept, pas ouvert : nommer les visages (avant d’écrire, avant le rdv, lundi), dire Slack, ne pas construire Slack. Pas un item live.
 
+**Notre chasse (Gojiberry)** — brouillon 15 sept. Pas allumé. Pas un item live. **Ce n’est pas le pan 5** : ici on cherche **nos** inscriptions, pas les rendez-vous de **leurs** utilisateurs. Séquence : [gtm/gojiberry-sequence.md](gtm/gojiberry-sequence.md). Recherche : [market/recherche-commerciale.md](market/recherche-commerciale.md). Coller une boîte mail, caler la campagne éteinte, go d’Édouard. Ne pas coder. Ne pas confondre avec le pan 5.
+
 ### 5. Pan croissance — leurs utilisateurs (pas nous)
 
 **Direction. Pas ship.** 12 septembre 2026. Édouard : un pan **produit**. Le commercial (ou l’équipe) qui se sert de 3xrep. Guider **leurs** utilisateurs à prendre des rendez-vous.
