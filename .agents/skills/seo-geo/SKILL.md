@@ -60,7 +60,7 @@ Relire le cerveau seulement pour **ne pas mentir** (on n’enregistre pas, on n�
 4. **Poser.** Le plus petit jeu de changements anglais qui tient les deux leviers. Preuve pour chaque changement : une ligne Search Console, un mot Ads, ou une citation geo + url. Sans preuve = on ne touche pas.
 5. **Écrire le run** : `docs/visibility/runs/YYYY-MM-DD.md` (créer `runs/` au premier fichier). Suffixe `-2` si deux tours le même jour.
 6. **Cocher le bus.** Les findings traités passent sous **Traité**, avec la date et l’URL changée.
-7. **Finir par `/end`.** Lire [`.agents/skills/end/SKILL.md`](../end/SKILL.md) et enchaîner. Ne pas redemander. C’est le land sur `main`.
+7. **Finir par `/end`.** Lire [`.agents/skills/end/SKILL.md`](../end/SKILL.md) et enchaîner. Ne pas redemander. C’est le land sur `pre_main`.
 
 ## Ce que tu as le droit de changer
 

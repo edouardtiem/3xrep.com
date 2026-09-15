@@ -1,6 +1,6 @@
 # Docs 3xrep
 
-**Nouveau chat : commence ici.** Le fil d’avant n’existe plus. Tout ce qui est décidé est dans ce dossier, sur `main`.
+Tout ce qui est décidé est dans ce dossier. Le fil d’avant n’existe plus. Un nouveau chat lit [AGENTS.md](../AGENTS.md), puis le [README](../README.md).
 
 Pivot 1er septembre 2026. Ils créent l’agent. On est le cerveau.
 
@@ -30,7 +30,6 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [gaps.md](gaps.md) | Gaps vs le monde (scan / décider), audit mensuel du cycle, siphon, squelette + confirmation après X |
 | [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures, langues, $129 / org. **À venir** : item 5 pan croissance (leurs commerciaux). **Item 6** squelette / essai / parrainage — **shippé** 14 sept. |
 | [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
-| Chat Édouard | [francais-simple](../.agents/skills/francais-simple/SKILL.md) — lui répondre sans sigle |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique

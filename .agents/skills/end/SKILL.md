@@ -1,6 +1,6 @@
 ---
 name: end
-description: Clôture 3xrep — un geste (on finit / ok go / pousse / commit / merge). Documente s’il y a matière, rebase toutes les branches courantes sur main (prod), lander ff-only. Jamais le /end MonParentAgé ni venture-os.
+description: Clôture 3xrep — un geste (on finit / ok go / pousse / commit / merge). Documente s’il y a matière, lander ff-only sur pre_main. Prod (main) seulement s’il le dit. Jamais le /end MonParentAgé ni venture-os.
 ---
 
 # /end — 3xrep
@@ -35,99 +35,94 @@ git -c user.name="edouardtiem" -c user.email="edouard@tiemh.com" commit
 
 Titre de commit clair. Un commit suffit si le delta est un. Pas de commit vide. Ne pas écrire `git config`.
 
-## 3. Lander sur `main` (production)
+## 3. Lander sur `pre_main`
 
-Cible **pour l’instant** : `main`. C’est la prod. Pas d’autre branche cible.
+Cible par défaut : `pre_main` (avant la prod). Pas `main`.
 
-Rebase **toutes** les branches courantes d’un coup — pas seulement celle du travail — puis ff dans `main`.
+`main` seulement s’il dit que c’est **la prod**.
 
-Après `fetch` : ff chaque locale sur son **upstream** avant de rebase sur `main`. Sinon un local stale rate le cloud.
+On lande **la branche du travail**, pas toutes les branches. Les autres essais restent.
 
 ```bash
 git fetch origin --prune
-git checkout main
-git pull --ff-only origin main
+work=$(git branch --show-current)
 
-# origin/<branche> sans locale. Jamais HEAD, main, ni un nom qui collide avec le remote (`origin`).
-git for-each-ref --format='%(refname:lstrip=3)' refs/remotes/origin \
-  | grep -v -E '^(HEAD|main|origin)$' \
-  | while read -r b; do
-      [ -z "$b" ] && continue
-      git show-ref --verify --quiet "refs/heads/$b" || git branch --track "$b" "origin/$b"
-    done
+if [ "$work" = "main" ]; then
+  echo "SUR MAIN — stop, sauf s’il a dit que c’est la prod"
+  exit 1
+fi
 
-for b in $(git for-each-ref --format='%(refname:lstrip=2)' refs/heads | grep -v -E '^(main|origin)$'); do
-  git checkout "$b"
+git checkout pre_main
+git pull --ff-only origin pre_main
+
+if [ "$work" != "pre_main" ]; then
+  git checkout "$work"
   if git rev-parse --abbrev-ref '@{u}' >/dev/null 2>&1; then
     git merge --ff-only '@{u}' \
       || git rebase '@{u}' \
-      || { git rebase --abort; echo "UPSTREAM DIVERGÉ $b — skip"; git checkout main; continue; }
+      || { git rebase --abort; echo "UPSTREAM DIVERGÉ $work — stop"; exit 1; }
   fi
-  git rebase --update-refs main \
-    || { git rebase --abort; echo "CONFLIT $b — skip"; git checkout main; continue; }
-  git checkout main
-  git merge --ff-only "$b" \
-    || echo "PAS FF $b — skip"
-done
+  git rebase --update-refs pre_main \
+    || { git rebase --abort; echo "CONFLIT $work — stop"; exit 1; }
+  git checkout pre_main
+  git merge --ff-only "$work" \
+    || { echo "PAS FF $work — stop"; exit 1; }
+fi
 
-git push origin main
+git push origin pre_main
 ```
 
-- `--update-refs` : les branches empilées bougent avec.
-- Merge **ff-only** seulement. Si ça refuse : rebase encore sur le `main` neuf, jamais un merge commit pour forcer.
-- Conflit sur une branche **autre** que le travail : abort, skip, le dire. Ne bloque pas le land.
+- Merge **ff-only** seulement. Si ça refuse : rebase encore sur le `pre_main` neuf, jamais un merge commit pour forcer.
 - Conflit sur la branche de travail : stop. Jamais `--force`.
-- **Jamais** `--force` ni `--force-with-lease` sur `main`.
+- **Jamais** `--force` ni `--force-with-lease` sur `main` ni `pre_main`.
 - Ne pas force-push `cursor/*` distantes (un agent cloud peut tourner).
 - Ne pas créer de branche locale nommée `origin`.
-- Upstream divergé : rebase la locale sur `@{u}` d’abord, puis sur `main`. Conflit → skip.
-- Push `main` après les ff. La PR se ferme toute seule si GitHub le fait ; ne merge pas « à la main » une PR déjà landée.
 
-Si on est déjà sur `main` et que le travail est commité là : `git pull --ff-only origin main`, puis la passe ci-dessus, puis push.
+Si on est déjà sur `pre_main` et que le travail est commité là : `git pull --ff-only origin pre_main`, puis push.
 
-## 3b. Une seule branche : `main`
+## 3b. Prod — seulement s’il le dit
 
-Toujours finir sur `main` : `git checkout main`.
-
-Puis, pour chaque branche **locale et distante** sauf `main` :
-
-1. Si elle n’a **aucun** commit hors de `main` : la supprimer (`git branch -D`, `git push origin --delete`). C’est la branche de travail. Elle ne reste pas.
-2. Si elle a encore du travail hors de `main` : **ne pas supprimer**. Le dire en ligne 1 du rapport. C’est le seul cas où une branche survit.
-
-Ne jamais supprimer `main`. Pas de `--force` sur `main`.
+S’il a dit que c’est **la prod** :
 
 ```bash
 git checkout main
+git pull --ff-only origin main
+git merge --ff-only pre_main \
+  || { echo "PAS FF pre_main → main — stop"; exit 1; }
+git push origin main
+```
 
-# Locales
-for b in $(git for-each-ref --format='%(refname:lstrip=2)' refs/heads | grep -v -E '^(main|origin)$'); do
-  extra=$(git rev-list --count main.."$b")
+Jamais `--force` sur `main`. Ne pas merger un essai directement dans `main`.
+
+## 3c. Branche de travail
+
+Toujours finir sur `pre_main` (ou `main` si prod).
+
+Si la branche du travail n’a **aucun** commit hors de `pre_main` : la supprimer (`git branch -D`, `git push origin --delete` si elle a un distant). C’est la branche de l’essai. Elle ne reste pas.
+
+Ne jamais supprimer `main` ni `pre_main`. Ne pas balayer les autres essais.
+
+`$work` = la branche du pas 3 (déjà capturée avant le checkout `pre_main`).
+
+```bash
+git checkout pre_main
+
+if [ "$work" != "pre_main" ] && [ "$work" != "main" ]; then
+  extra=$(git rev-list --count pre_main.."$work")
   if [ "$extra" = "0" ]; then
-    git branch -D "$b"
+    git branch -D "$work"
+    git push origin --delete "$work" 2>/dev/null || true
   else
-    echo "HORS MAIN $b ($extra commits) — gardée"
+    echo "HORS PRE_MAIN $work ($extra commits) — gardée"
   fi
-done
-
-# Distantes
-git fetch origin --prune
-git for-each-ref --format='%(refname:lstrip=3)' refs/remotes/origin \
-  | grep -v -E '^(HEAD|main|origin)$' \
-  | while read -r b; do
-      extra=$(git rev-list --count main.."origin/$b")
-      if [ "$extra" = "0" ]; then
-        git push origin --delete "$b"
-      else
-        echo "HORS MAIN origin/$b ($extra commits) — gardée"
-      fi
-    done
+fi
 ```
 
 ## 4. Rapport — court, français
 
 Quatre lignes max :
 
-1. Landé sur `main` (`sha`) — branches rebase / landées / skip — ou bloqué, pourquoi.
+1. Landé sur `pre_main` (`sha`) — ou prod `main` — ou bloqué, pourquoi.
 2. Ce qui est entré (fichiers / idée, pas un roman).
 3. Journal : chemin, ou « pas de note ».
 4. Suite éventuelle (une phrase). Pas d’appel. Pas de Stripe. Pas d’app inventée.

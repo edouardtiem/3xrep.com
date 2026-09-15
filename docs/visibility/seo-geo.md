@@ -14,7 +14,7 @@ Le check assistants ([README](README.md), skill `ai-search-visibility`) **mesure
 4. Juge impressions **et** clics.
 5. Change le site **en anglais** (titres, textes, une URL neuve au plus s’il manque une page).
 6. Écrit `runs/YYYY-MM-DD.md`. Coche le bus.
-7. Enchaîne [`/end`](../../.agents/skills/end/SKILL.md) — commit, rebase, `main`.
+7. Enchaîne [`/end`](../../.agents/skills/end/SKILL.md) — commit, rebase, `pre_main`.
 
 Français et pages ville : plus tard. Pas maintenant.
 
@@ -47,7 +47,7 @@ Noms aussi dans [`.env.example`](../../.env.example). Export à la main seulemen
 
 Nom : `3xrep — seo geo`. Branche ce repo. Prompt :
 
-> Tourne le skill `.agents/skills/seo-geo/SKILL.md`. Repo 3xrep.com. Anglais seulement sur le site. **D’abord** `npm run visibility-google` (Search Console + Analytics — obligatoire, ne pas sauter). Lis le bus `docs/visibility/bus.md` (findings geo de l’agent externe — reprends-les dans le fix). Google Ads : mots du secteur seulement, ne pas dépenser. Objectif : plus d’impressions et plus de clics. Pose les correctifs. Écris `docs/visibility/runs/YYYY-MM-DD.md`. Finis par le skill `.agents/skills/end/SKILL.md` (commit, rebase, main). Ne crée pas `docs/loops/` ni `_SIGNAL-BUS.md`.
+> Tourne le skill `.agents/skills/seo-geo/SKILL.md`. Repo 3xrep.com. Anglais seulement sur le site. **D’abord** `npm run visibility-google` (Search Console + Analytics — obligatoire, ne pas sauter). Lis le bus `docs/visibility/bus.md` (findings geo de l’agent externe — reprends-les dans le fix). Google Ads : mots du secteur seulement, ne pas dépenser. Objectif : plus d’impressions et plus de clics. Pose les correctifs. Écris `docs/visibility/runs/YYYY-MM-DD.md`. Finis par le skill `.agents/skills/end/SKILL.md` (commit, rebase, pre_main). Ne crée pas `docs/loops/` ni `_SIGNAL-BUS.md`.
 
 Cadence suggérée : une fois par semaine. Search Console a du retard ; plus souvent n’aide pas.
 

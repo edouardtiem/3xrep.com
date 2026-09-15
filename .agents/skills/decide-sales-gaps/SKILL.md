@@ -53,4 +53,4 @@ Si go pièce : **ne pas** écrire le yaml dans ce run sauf demande explicite («
 - Intégrer parce que le scan est long.
 - B2C.
 - Win rate, « ça nous rend plus complets ».
-- Force-push, land `main` sauf `/end`.
+- Force-push. Lander sauf via `/end`.

@@ -10,17 +10,42 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # 3xrep
 
-Nouveau chat : lis [docs/README.md](docs/README.md) dans l’ordre. C’est le produit. Ne te fie pas à la mémoire d’un autre fil.
+Lis [README.md](README.md). C’est le produit. Ne te fie pas à un autre fil.
 
-**Live aujourd’hui** (sur `main`) :
+Si on décide le contraire du README : corrige le README, ou propose si c’est gros.
 
-- Cerveau qui juge des preuves (exhibits), pas des formes. [cerveau.md](docs/cerveau.md).
-- Journal des appels : entrée + verdict **14 jours**, puis delete. Décision : [docs/decisions.md](docs/decisions.md). On n’entre pas dans les appels. On n’écrit pas dans leur fichier client. Plus « on ne stocke rien ».
-- Prix encaissable : **129 dollars / mois / organisation**. Stripe USD. [checkout.md](docs/checkout.md).
-- Essai **14 jours** (28 si parrainage). L’horloge part au premier jugement. Carte obligatoire 7 jours après. Tout derrière une clé. Parrain : **129 dollars d’avoir** si le filleul paie. Souvenir des trous + reco d’écriture. Pas le 42 %. Kill switch : `MCP_OPEN_TOOLS=1` (Édouard, absente en prod).
+Si la façon de travailler (ce fichier) ne colle plus : mets à jour `AGENTS.md`.
 
-**Direction, pas ship** : [portes.md](docs/portes.md) — un visage par travail, Slack plus tard. Une base à nous = demain, pas un fichier client sans fenêtre. Confirmation 42 % = plus tard.
+Un choix déjà pris, c’est le live. Ce n’est pas un stop à la discussion. S’il explore (« c’est possible ? », « et si ? », « je pense ») : dire le choix, puis les autres options, ce que ça casserait, ce que ça ouvrirait. On ne change le README que s’il décide. S’il demande de faire : la décision gagne, sauf s’il la rouvre.
 
-Cloud : le disque peut dater d’un snapshot. Avant de dire « ça n’existe pas » : `git fetch origin main` et lis `main`.
+## Te parler
 
-Édouard dans le chat : [.agents/skills/francais-simple/SKILL.md](.agents/skills/francais-simple/SKILL.md).
+Comme un humain. Un enfant de quinze ans doit tout comprendre, du premier coup.
+
+Français. Phrases courtes. Une idée par phrase. Mots de tous les jours.
+
+Pas d’abréviation. Pas de mot anglais s’il existe en français. Pas de jargon à nous (« le pipe est vert », « l’étape est illégale », « la liste ment »). Pas de tic (« lundi » pour dire la suite, « wait / go »).
+
+Pas un cours. Pas deux idées collées avec « tu as raison… tu as tort… ». Pas six chiffres dans le même souffle. S’il ne suit plus : une chose à la fois, on recommence.
+
+Le site, le cerveau, le code : leur voix à eux. On ne les réécrit pas dans ce français-là, sauf s’il le demande.
+
+## Branches
+
+Dis tout de suite sur quelle branche on est.
+
+- `main` = prod. On n’y touche que s’il dit que c’est la prod.
+- `pre_main` = avant la prod. Défaut pour un chat. On atterrit ici.
+- Toute autre branche = un essai. Elle peut ne pas être dans `pre_main`.
+
+Un chat peut partir de n’importe quelle branche. Question, faute, petite copie : rester où on est.
+
+Nouvelle fonction, ou vrai changement : nouvelle branche depuis `pre_main`, nom `feat/sujet` ou `fix/sujet`.
+
+Le dossier ouvert n’est pas tout le git. Avant de dire « ça n’existe pas » : `git fetch`, puis regarder `pre_main` et les autres branches (noms, derniers commits, demandes de fusion ouvertes).
+
+S’il parle d’un travail déjà commencé : trouver la branche, aller dessus. Ne pas recommencer sur `pre_main`. Ne pas ouvrir une branche neuve. Ce qui n’est pas enregistré dans git est invisible.
+
+## Cloud
+
+Le disque peut dater d’un snapshot. `git fetch` avant de conclure.
