@@ -4,6 +4,8 @@ Ils créent leur agent commercial. On est le cerveau : méthode versionnée, sur
 
 Domaine : [3xrep.com](https://3xrep.com).
 
+Accueil : sales buddy, « Your sales day, figured out. ». Journée priorisée, prochain geste sur le dossier et aide après l’appel. `/da/buddy` redirige vers `/`. Décision du 16 septembre 2026.
+
 ## Docs
 
 Lire dans cet ordre.
@@ -14,7 +16,7 @@ Lire dans cet ordre.
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
 - [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM
-- [docs/landing.md](docs/landing.md) — home claire : Cowork, pas le terminal
+- [docs/landing.md](docs/landing.md) — accueil sales buddy et parcours de démarrage
 - [docs/icp.md](docs/icp.md) — qui + posture
 - [docs/sortie.md](docs/sortie.md) — ce que l’AE lit après le call
 - [docs/contournement.md](docs/contournement.md) — sans transcript sur la fiche

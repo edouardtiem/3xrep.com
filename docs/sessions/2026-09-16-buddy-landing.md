@@ -5,3 +5,7 @@ Reprise de l’étude locale `/da/buddy` et des mascottes. Refonte selon la rech
 Publication demandée sur `pre_main`. La page reste une étude non indexée ; pas de remplacement de `/` ni de publication sur `main`.
 
 [Vérification des difficultés couvertes et limites](../audits/2026-09-16-buddy-landing.md). Les essais réels des plateformes restent séparés.
+
+## Promotion en accueil
+
+Édouard autorise ensuite le remplacement de `/` et la publication sur `main`. Le composant rejoint `src/components/buddy`. Suppression du bandeau d’étude, indexation de l’accueil et métadonnées de partage. `/da/buddy` redirige définitivement vers `/`. README et documentation de la page mis à jour.
