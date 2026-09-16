@@ -1,3 +1,4 @@
+import type { HorizonPlan, HorizonSlot } from "@/lib/brain/horizon";
 import type { Audit, DealInput } from "@/lib/brain/types";
 import type { PipeDeal, PipeReview } from "@/lib/brain/pipe";
 import { scoreDeal } from "@/lib/brain/audit";
@@ -40,6 +41,18 @@ function parseJsonTool(result: unknown): Record<string, unknown> | null {
   }
 }
 
+async function souvenirSlot(org: OrgRow, slot: HorizonSlot): Promise<Souvenir[]> {
+  if (!slot.crm_id || slot.refus) return [];
+  return recordPieces({
+    orgId: org.id,
+    dealHash: dealHash(org.id, slot.crm_id, slot.nom),
+    pieces: (slot.etats ?? []).map((e) => ({ id: e.id, etat: e.etat })),
+    amountBucket: amountBucket(slot.montant),
+    claimedStage: slot.etape,
+    denouement: null,
+  });
+}
+
 async function enrichTool(
   tool: string,
   args: Record<string, unknown>,
@@ -68,6 +81,14 @@ async function enrichTool(
           denouement: d.denouement ?? null,
         }),
       );
+    }
+    return jsonTool({ ...data, souvenir, ...extra });
+  }
+
+  if (tool === "plan_horizon") {
+    const plan = data as unknown as HorizonPlan;
+    for (const slot of plan.agenda ?? []) {
+      souvenir = souvenir.concat(await souvenirSlot(org, slot));
     }
     return jsonTool({ ...data, souvenir, ...extra });
   }

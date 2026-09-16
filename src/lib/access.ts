@@ -69,7 +69,7 @@ export function trialExtras(org: OrgRow | null): {
   }
   if (!org.title || !org.mission || !org.company_url) {
     out.demande_profil =
-      "Ask title, mission (rep / manager / VP sales / other), and their company URL, then call set_org_profile. Do not block the first pipe_review on this.";
+      "Ask title, mission (rep / manager / VP sales / other), and their company URL, then call set_org_profile. Do not block the first plan_horizon or pipe_review on this.";
   }
   return out;
 }

@@ -183,6 +183,8 @@ test("objection_map — en interne n’est pas le prix ; phrase exigée", () => 
 
 test("consigne assistant : page du lundi, pas un dump", () => {
   assert.match(MCP_INSTRUCTIONS, /lundi/);
+  assert.match(MCP_INSTRUCTIONS, /plan_horizon/);
+  assert.match(MCP_INSTRUCTIONS, /Gmail/);
   assert.match(MCP_INSTRUCTIONS, /don't write a sequence/i);
   assert.match(MCP_INSTRUCTIONS, /Extract before you call/);
   assert.match(MCP_INSTRUCTIONS, /Never default to French/);

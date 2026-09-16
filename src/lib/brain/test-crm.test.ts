@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { scoreDeal } from "./audit";
 import { pipeReview } from "./pipe";
-import { TEST_CRM_DEAL_INPUT_SQL, TEST_CRM_PUBLIC_TABLE, toPipeDeal } from "./test-crm";
+import { TEST_CRM_DEAL_INPUT_SQL, TEST_CRM_PUBLIC_TABLE, toHorizonItems, toPipeDeal, horizonDayRows } from "./test-crm";
 
 const NORDIK = toPipeDeal({
   id: "2c11a1f1-b343-4cd0-92f1-4fc0b21c88df",
@@ -60,6 +60,7 @@ const DUNE = toPipeDeal({
 
 test("toPipeDeal maps the test CRM row to pipe_review fields", () => {
   assert.equal(NORDIK.nom, "Nordik");
+  assert.equal(NORDIK.crm_id, "2c11a1f1-b343-4cd0-92f1-4fc0b21c88df");
   assert.equal(NORDIK.montant, 90_000);
   assert.equal(NORDIK.closeDate, "2026-09-30");
   assert.equal(NORDIK.evidence, "transcript");
@@ -67,6 +68,13 @@ test("toPipeDeal maps the test CRM row to pipe_review fields", () => {
   assert.equal(DUNE.exhibits, undefined);
   assert.equal(TEST_CRM_PUBLIC_TABLE, "test_crm_opportunities");
   assert.match(TEST_CRM_DEAL_INPUT_SQL, /test\.deal_input/);
+});
+
+test("toHorizonItems maps agenda / taches / courriels onto plan_horizon items", () => {
+  const items = toHorizonItems(horizonDayRows());
+  assert.equal(items.length, 7);
+  assert.ok(items.some((i) => i.kind === "rdv" && i.deal.nom === "Dune"));
+  assert.ok(items.some((i) => i.kind === "mail" && i.mail?.sens === "entrant"));
 });
 
 test("Nordik seed: the brain returns a verdict, not a refusal", () => {

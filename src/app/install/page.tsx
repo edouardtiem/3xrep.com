@@ -59,7 +59,7 @@ export default function Install() {
     "@type": "HowTo",
     name: "Add 3xrep next to HubSpot",
     description:
-      "Add 3xrep in Claude or ChatGPT, connect HubSpot beside it, then ask what's stuck this week.",
+      "Add 3xrep in Claude or ChatGPT, connect HubSpot, Gmail, and Calendar beside it, then ask what today is.",
     step: [
       {
         "@type": "HowToStep",
@@ -74,12 +74,17 @@ export default function Install() {
       {
         "@type": "HowToStep",
         name: "Connect HubSpot beside it",
-        text: "Add HubSpot or Salesforce next to 3xrep. He needs both.",
+        text: "Add HubSpot or Salesforce next to 3xrep. He needs the CRM.",
       },
       {
         "@type": "HowToStep",
-        name: "Monday",
-        text: "Say: Monday. What's stuck this week?",
+        name: "Gmail and Calendar",
+        text: "In Claude, connect Gmail and Google Calendar. Then Slack, Notion, a notetaker if you can.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Morning",
+        text: "Say: Morning. What's today?",
       },
     ],
   };
@@ -96,7 +101,8 @@ export default function Install() {
           </h1>
           <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
             You already have a key from start. Claude first. HubSpot beside
-            it. Nothing to install inside HubSpot.
+            it. Then Gmail and Calendar in Claude. Nothing to install inside
+            HubSpot.
           </p>
           <p className="mt-8">
             <Link
@@ -183,10 +189,23 @@ export default function Install() {
 
         <section className="space-y-5">
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
+            Gmail and Calendar
+          </h2>
+          <p className="text-mute leading-[1.5]">
+            In Claude, connect Gmail and Google Calendar. Then Slack, Notion,
+            a notetaker if you can. Without them we still judge the CRM.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
             Then say
           </h2>
           <p className="text-[1.125rem] leading-[1.5]">
-            Monday. What&apos;s stuck this week?
+            Morning. What&apos;s today?
+          </p>
+          <p className="text-dim text-[0.8125rem] leading-[1.4]">
+            Monday still reviews the list: What&apos;s stuck this week?
           </p>
         </section>
 

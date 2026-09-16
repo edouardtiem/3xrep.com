@@ -85,6 +85,39 @@ export const pipeSchema = z.object({
   deals: z.array(pipeDealSchema).min(1).max(40),
 });
 
+export const horizonItemSchema = z.object({
+  kind: z
+    .enum(["rdv", "tache", "mail", "affaire"])
+    .describe("Calendar hold, CRM task, mail, or a deal with no slot."),
+  quand: z
+    .string()
+    .optional()
+    .describe("Start of the meeting or due date. ISO with the user's offset."),
+  titre: z.string().optional().describe("Event or mail subject."),
+  deal: pipeDealSchema,
+  mail: z
+    .object({
+      sens: z.enum(["entrant", "sortant"]).describe("entrant = they wrote. sortant = we wrote."),
+      extrait: z.string().optional().describe("Short excerpt. Not a dump."),
+      destinataire: z.string().optional(),
+    })
+    .optional(),
+});
+
+export const horizonSchema = z.object({
+  fenetre: z
+    .union([z.literal(1), z.literal(7), z.literal(30)])
+    .describe("1 = today. 7 = this week. 30 = this month. Same brain."),
+  maintenant: z
+    .string()
+    .describe("User's local now, ISO with offset. Example: 2026-09-16T08:00:00+02:00."),
+  items: z
+    .array(horizonItemSchema)
+    .min(1)
+    .max(80)
+    .describe("What Claude already read in Gmail, Calendar, and the CRM. 3xrep does not fetch."),
+});
+
 export function jsonTool(data: unknown) {
   return {
     content: [{ type: "text" as const, text: JSON.stringify(data, null, 2) }],

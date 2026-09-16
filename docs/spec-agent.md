@@ -43,17 +43,19 @@ Ajouté (déjà dans le PRD / ICP, pas dans l’ébauche) :
 
 À l’usage : `{{deal_id}}` — l’opportunité dont on parle. Sans id, on travaille quand même ; on demande l’id dès qu’un CRM est branché.
 
-## Premier branchement + parcours d’essai (live 14 sept)
+## Premier branchement + parcours d’essai
 
-Contrat : [decisions.md](decisions.md) 2026-09-14 ship. Le spec **demande** (et 3xrep stocke) au lieu de laisser les `{{…}}` vides. Texte collé : `MCP_INSTRUCTIONS` / `AGENT_SPEC` dans le code.
+Contrat : [sales-buddy.md](sales-buddy.md). Texte collé : `MCP_INSTRUCTIONS` / `AGENT_SPEC` dans le code.
 
 1. Titre. Mission : commercial / manager / directeur commercial / autre.
-2. URL du site de **leur** société → description (offre, à qui). Ils corrigent. Tool `set_org_profile`. Ne bloque pas la première revue de liste.
-3. Dans la fenêtre d’essai, **une chose à la fois** : brancher le fichier client → routine revue de liste (planifié chez eux) → drapeaux (étape qui ment, pièce vide, souvenir) → reco d’écriture **chez eux** (quelle propriété, pourquoi on ne voit pas la preuve ; leur agent écrit, après confirmation ; pas inventer une valeur) → suites (l’agent écrit le mail ; 3xrep dit si ça part).
+2. URL du site de **leur** société → description (offre, à qui). Ils corrigent. Tool `set_org_profile`. Ne bloque pas le premier `plan_horizon`.
+3. Dans Claude : connecteur **3xrep** + **CRM** (HubSpot / Salesforce).
+4. **À minima** Gmail + Calendar (connecteurs Claude / Google). Puis Slack, Notion, un notetaker s’ils peuvent.
+5. Premier geste : prompt MCP `morning` → Claude ramasse → `plan_horizon` `fenetre=1`. `day.md` à droite, **chez eux**. Écriture HubSpot = leur MCP, après un oui, d’après nos reco.
+6. Sans Gmail / Calendar : on juge le CRM ; on **demande** les connecteurs manquants. On ne bloque pas comme sans clé.
+7. Le lundi / le cycle : `pipe_review` (inchangé). Fin d’essai, pas payé : le tool rend la phrase de coupure.
 
 Sans fichier client, le VP n’a rien à lire ([landing.md](landing.md) *He needs both.*). Les relances : [portes.md](portes.md) — on n’est pas la bouche ; on juge si le mail devrait partir. L’écriture fiche : [decisions.md](decisions.md) §8 — reco, pas nous ; pas inventer une valeur.
-
-Fin d’essai, pas payé : le tool rend la phrase de coupure. Le spec ne fabrique pas un second cerveau « moins pertinent » — il colle la phrase et s’arrête de juger.
 
 ## Le texte à coller
 

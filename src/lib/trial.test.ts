@@ -127,6 +127,7 @@ test("judging tools vs lexicon", () => {
   assert.equal(isJudgingTool("pipe_review"), true);
   assert.equal(isJudgingTool("next_question"), true);
   assert.equal(isJudgingTool("objection_map"), true);
+  assert.equal(isJudgingTool("plan_horizon"), true);
   assert.equal(isJudgingTool("methode_lookup"), false);
   assert.equal(isJudgingTool("rattacher"), false);
   assert.equal(isJudgingTool("set_org_profile"), false);

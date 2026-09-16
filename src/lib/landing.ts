@@ -27,6 +27,8 @@ export function agentSetupPrompt(url: string, key?: string) {
 }`;
   return `Add 3xrep as a remote MCP connector next to my CRM (HubSpot, Salesforce, Pipedrive, Attio, or Close) — not instead of it. Nothing to install in the CRM.
 
+At minimum also connect Gmail and Google Calendar in Claude. Then Slack, Notion, a notetaker if you can.
+
 URL: ${url}${auth}
 
 Claude Code:
@@ -37,7 +39,7 @@ ${json}
 
 Claude or ChatGPT: Settings → Connectors → Add custom connector → paste the URL${key ? " and the key" : ""}.
 
-When both connectors are on, say: Monday. Review my pipe. What's blocked?`;
+When 3xrep, the CRM, Gmail, and Calendar are on, say: Morning. What's today?`;
 }
 
 /** Density reference for founder X posts. Not the live home. Do not restore SessionTerminal. */

@@ -1,5 +1,7 @@
 export { actionPourDeal, nextStepCote, A_RISQUE_MOT } from "./action";
 export { scoreDeal } from "./audit";
+export { planHorizon } from "./horizon";
+export type { Fenetre, HorizonItem, HorizonPlan, HorizonSlot } from "./horizon";
 export { CONTRAT } from "./contrat";
 export type { Etat } from "./etat";
 export { layerOf } from "./layer";

@@ -42,8 +42,8 @@ function KeyPanel({
           Your key. Shown once.
         </p>
         <p className="text-mute mt-4 leading-[1.5]">
-          Add him in Claude, next to HubSpot. Then ask what&apos;s stuck this
-          week.
+          Add him in Claude, next to HubSpot. Then Gmail and Calendar.
+          Ask what today is.
         </p>
         <div className="mt-6 flex items-center justify-between gap-4 rounded-lg border border-line bg-raise px-4 py-3 font-mono text-sm">
           <span className="truncate">{keyPlain}</span>
@@ -72,15 +72,20 @@ function KeyPanel({
       </div>
 
       <p className="text-mute leading-[1.5]">
-        Then connect HubSpot (or Salesforce) next to 3xrep. He needs both.
+        Then connect HubSpot (or Salesforce) next to 3xrep. Then Gmail and
+        Calendar in Claude. He needs the CRM. Without mail and calendar we
+        still judge the file.
       </p>
 
       <div>
         <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-          Monday
+          Morning
         </p>
         <p className="text-mute mt-4 leading-[1.5]">
-          In Claude, say: Monday. What&apos;s stuck this week?
+          In Claude, say: Morning. What&apos;s today?
+        </p>
+        <p className="text-dim mt-3 text-[0.8125rem] leading-[1.4]">
+          Monday still reviews the list: What&apos;s stuck this week?
         </p>
       </div>
 
@@ -150,8 +155,9 @@ export default async function Start({
         ) : (
           <>
             <ol className="text-mute max-w-[40ch] space-y-5 text-[1.125rem] leading-[1.5]">
-              <li>Add him in Claude or ChatGPT.</li>
-              <li>Monday, ask what&apos;s stuck.</li>
+              <li>Add him in Claude or ChatGPT, next to the CRM.</li>
+              <li>Connect Gmail and Calendar in Claude.</li>
+              <li>In the morning, ask what today is.</li>
               <li>The 14 days start when you review a deal.</li>
             </ol>
             <form action="/api/orgs/start" method="post" className="flex flex-col gap-6">

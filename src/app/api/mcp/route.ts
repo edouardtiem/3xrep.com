@@ -5,13 +5,14 @@ import {
   nextQuestion,
   objectionMap,
   pipeReview,
+  planHorizon,
   rattacher,
   scoreDeal,
 } from "@/lib/brain";
-import { CYCLE_AUDIT_PROMPT, CUTOFF_NO_KEY, MCP_INSTRUCTIONS } from "@/lib/copy";
+import { CYCLE_AUDIT_PROMPT, CUTOFF_NO_KEY, MCP_INSTRUCTIONS, MORNING_PROMPT } from "@/lib/copy";
 import { withGate } from "@/lib/mcp-gate";
 import { runWithMcpRequest } from "@/lib/mcp-log";
-import { dealSchema, jsonTool, pipeSchema } from "@/lib/mcp-schema";
+import { dealSchema, horizonSchema, jsonTool, pipeSchema } from "@/lib/mcp-schema";
 import { setProfile } from "@/lib/profile";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 
@@ -66,6 +67,19 @@ const handler = createMcpHandler(
     );
 
     server.registerTool(
+      "plan_horizon",
+      {
+        title: "Plan horizon",
+        description:
+          "Use in the morning, or for the next 7 / 30 days. Claude already read Gmail, Calendar, and the CRM — pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda — don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
+        inputSchema: horizonSchema,
+      },
+      withGate("plan_horizon", async ({ fenetre, maintenant, items }) =>
+        jsonTool(planHorizon({ fenetre, maintenant, items })),
+      ),
+    );
+
+    server.registerTool(
       "next_question",
       {
         title: "Next question",
@@ -116,6 +130,23 @@ const handler = createMcpHandler(
             refus: err instanceof Error ? err.message : "profil",
           });
         }
+      }),
+    );
+
+    server.registerPrompt(
+      "morning",
+      {
+        title: "This morning",
+        description:
+          "Today: read Gmail, Calendar, and the CRM through the user's Claude connectors, call plan_horizon fenetre=1, speak the agenda. day.md is theirs. No write_to_crm.",
+      },
+      () => ({
+        messages: [
+          {
+            role: "user" as const,
+            content: { type: "text" as const, text: MORNING_PROMPT },
+          },
+        ],
       }),
     );
 

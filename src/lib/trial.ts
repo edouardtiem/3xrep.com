@@ -19,6 +19,7 @@ export const JUDGING_TOOLS = [
   "pipe_review",
   "next_question",
   "objection_map",
+  "plan_horizon",
 ] as const;
 
 export function isJudgingTool(tool: string): boolean {
