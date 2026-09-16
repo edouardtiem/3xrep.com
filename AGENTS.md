@@ -30,6 +30,14 @@ Pas un cours. Pas deux idées collées avec « tu as raison… tu as tort… ».
 
 Le site, le cerveau, le code : leur voix à eux. On ne les réécrit pas dans ce français-là, sauf s’il le demande.
 
+## Copie pour le visiteur
+
+Lui, il ouvre Claude. Il voit les mails, le calendrier, le fichier client, et 3xrep qui dit quoi faire. Pour lui, on suit la journée. Une phrase comme *he keeps track of everything else* parle de ça. Ce n’est pas un mensonge.
+
+Le code, lui : on n’avale pas Gmail. On n’écrit pas dans HubSpot. On garde un squelette (les trous, pas le roman) pour se souvenir et apprendre.
+
+Ne pas tuer une ligne de la page parce que « le fichier n’est pas chez nous ». Couper seulement si ça promet qu’on entre dans leur boîte, qu’on écrit le fichier client, ou qu’on garde les appels pour toujours.
+
 ## Branches
 
 Dis tout de suite sur quelle branche on est.
