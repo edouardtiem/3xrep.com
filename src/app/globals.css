@@ -118,3 +118,33 @@ body {
     gap: 1.5rem 2rem;
   }
 }
+
+@keyframes buddy-ink {
+  from {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .buddy-ink {
+    animation: buddy-ink 0.55s ease both;
+  }
+
+  .buddy-ink-1 {
+    animation-delay: 0.15s;
+  }
+  .buddy-ink-2 {
+    animation-delay: 0.45s;
+  }
+  .buddy-ink-3 {
+    animation-delay: 0.75s;
+  }
+  .buddy-ink-4 {
+    animation-delay: 1.05s;
+  }
+}
