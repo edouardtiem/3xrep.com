@@ -1,24 +1,25 @@
+import { objectionPiece } from "./priorite";
 import { runMoteur } from "./moteur";
 import type { DealInput, Rattachement } from "./types";
 
 const MAP: { re: RegExp; piece: string; crac: string }[] = [
   {
-    re: /\b(cher|prix|coûte|coute|trop)\b/i,
+    re: /\b(cher|prix|coûte|coute|expensive|price|cost)\b/i,
     piece: "enjeu-chiffre",
     crac: "Creuser le « trop cher » — cher contre quoi. Reformuler le coût d’inaction. Argumenter seulement après le chiffre. Contrôler : le DAF entend-il le même nombre ?",
   },
   {
-    re: /\b(budget|pas d[e’']argent|pas les moyens)\b/i,
+    re: /\b(budget|pas d[e’']argent|pas les moyens|money|afford)\b/i,
     piece: "budget",
     crac: "Creuser qui tient l’enveloppe. Reformuler : pas de budget ≠ pas de DAF. Argumenter l’accès, pas la remise. Contrôler le millésime.",
   },
   {
-    re: /\b(déjà|deja|on a un outil|concurrent|statu quo)\b/i,
+    re: /\b(déjà|deja|on a un outil|concurrent|statu quo|competitor|alternative|status quo|already)\b/i,
     piece: "concurrents",
     crac: "Creuser l’alternative réelle (y compris ne rien faire). Reformuler le coût de rester. Pas une punchline produit.",
   },
   {
-    re: /\b(je dois en parler|internal|mon chef|en interne|on verra)\b/i,
+    re: /\b(je dois en parler|internal|mon chef|my boss|en interne|on verra)\b/i,
     piece: "champion-vs-coach",
     crac: "Ce n’est pas une objection prix — c’est décideurs / champion. Creuser s’il porte ou s’il recule. Contrôler : il amène celui qui signe, ou il nomme pourquoi pas.",
   },
@@ -43,7 +44,7 @@ export function objectionMap(input: DealInput & { objection: string }) {
     };
   }
   const hit = MAP.find((m) => m.re.test(phrase));
-  const piece = hit?.piece ?? audit.morts[0]?.piece ?? "qui-tranche";
+  const piece = objectionPiece(phrase) ?? audit.morts[0]?.piece ?? "qui-tranche";
   const cible = audit.pieces.find((c) => c.id === piece);
   const rattachements: Rattachement[] = cible?.rattachements ?? [];
   const trou =
@@ -56,14 +57,20 @@ export function objectionMap(input: DealInput & { objection: string }) {
           etat: cible.etat,
           rattachements,
         }
-      : (audit.trous[0] ?? null);
+      : null;
   const crac =
     hit?.crac ??
     "Creuser dans le prochain rendez-vous. Ne pas répondre par mail. Ne pas inventer une punchline.";
   const base = audit.action;
+  const question = cible?.etat === "su" ? "Ce point est documenté : qu’est-ce qui a changé, ou qu’est-ce qui bloque encore ?" : base?.question ?? null;
   return {
     objection: phrase,
-    refus: null,
+    pieces: audit.pieces,
+    methode: audit.methode,
+    priorite: audit.priorite,
+    verification: audit.verification,
+    refus: audit.refus,
+    corrections_crm: audit.corrections_crm,
     piece,
     crac,
     trou,
@@ -73,12 +80,12 @@ export function objectionMap(input: DealInput & { objection: string }) {
     morts: audit.morts,
     rendu: audit.rendu,
     action: {
-      quoi: `Dans le prochain rendez-vous chez eux, creuser cette phrase — pas un mail de réplique.${base?.question ? ` Poser : « ${base.question} »` : ""}`,
+      quoi: `Dans le prochain rendez-vous chez eux, creuser cette phrase — pas un mail de réplique.${question ? ` Poser : « ${question} »` : ""}`,
       pourquoi: base?.pourquoi ?? "",
-      rattachements: base?.rattachements ?? rattachements,
+      rattachements,
       objection: phrase,
       next_step_cote: base?.next_step_cote ?? "absent",
-      question: base?.question ?? null,
+      question,
     },
   };
 }

@@ -1,6 +1,6 @@
 import { correctionsFromPipe, sommePortesCassees } from "@/lib/corrections";
 import { A_RISQUE_MOT, actionPourDeal, REGLER_AGENDA } from "./action";
-import { corpus } from "./corpus";
+import { STAGES } from "./priorite";
 import type { Etat } from "./etat";
 import { REFUS, runMoteur } from "./moteur";
 import { pieceOf, PIECES } from "./pieces";
@@ -24,7 +24,7 @@ export type PipeDeal = DealInput & {
   denouement?: "gagne" | "perdu" | "ouvert";
 };
 
-export type Contradiction =
+export type Contradiction = { crm_id?: string | null } & (
   | {
       type: "etape_illegale";
       deal: string;
@@ -35,9 +35,11 @@ export type Contradiction =
       raison: string;
     }
   | { type: "date_sans_exhibit"; deal: string; crm: string; piece: string; raison: string }
-  | { type: "fiche_figee"; deal: string; crm: string; jours: number; raison: string };
+  | { type: "fiche_figee"; deal: string; crm: string; jours: number; raison: string });
 
 export type PipeDealVerdict = {
+  crm_id: string | null;
+  methode: import("./method-selection").MethodSelection;
   nom: string;
   etape: string | null;
   closeDate: string | null;
@@ -76,7 +78,7 @@ export type LundiTotaux = {
 };
 
 export type LundiLecture = {
-  etat: "solide" | "fragile";
+  etat: "solide" | "fragile" | "indetermine";
   motif: string;
   regler: string;
 };
@@ -102,16 +104,7 @@ export type PipeReview = {
 };
 
 /** Ce qu’une étape CRM prétend. Une pièce non prouvée = l’étape ment. */
-const ETAPES: { re: RegExp; exige: string[] }[] = [
-  {
-    re: /\b(n[ée]go\w*|negotiation|contract|contrat|closing|commit\w*|verbal|signature|legal|juridique|procurement|achats)\b/i,
-    exige: ["qui-tranche", "enjeu-chiffre", "budget", "process-papier"],
-  },
-  {
-    re: /\b(propos\w*|proposal|devis|quote|pricing|d[ée]mo\w*|[ée]valuation|poc|pilot\w*)\b/i,
-    exige: ["qui-tranche", "enjeu-chiffre"],
-  },
-];
+const ETAPES = STAGES;
 
 const FIGEE_JOURS = 30;
 
@@ -141,10 +134,12 @@ function verdictDeal(
   const closeDate = deal.closeDate?.trim() || null;
   const audit = runMoteur({ ...deal, geste: "pipe-review" }, { stopAt: 7 });
 
-  if (!corpus(deal).replace(etape ?? "", "").trim()) {
+  if (audit.refus) {
     return {
       verdict: {
         nom,
+        crm_id: deal.crm_id ?? null,
+        methode: audit.methode,
         etape,
         closeDate,
         layer: audit.layer,
@@ -173,6 +168,7 @@ function verdictDeal(
       contradictions.push({
         type: "etape_illegale",
         deal: nom,
+        crm_id: deal.crm_id ?? null,
         crm: `étape : ${etape}`,
         piece: p.id,
         etat: p.etat,
@@ -184,12 +180,13 @@ function verdictDeal(
 
   if (closeDate) {
     const tranche = etatDe("qui-tranche");
-    const papier = etatDe("process-papier");
+    const papier = etatDe("echeance");
     const manque = [tranche, papier].find((p) => p && p.etat !== "su");
     if (manque) {
       contradictions.push({
         type: "date_sans_exhibit",
         deal: nom,
+        crm_id: deal.crm_id ?? null,
         crm: `close : ${closeDate}`,
         piece: manque.id,
         raison: `une date de close sans ${manque.rattachements[0]?.partie ?? manque.id} prouvé est un claim, pas un fait.`,
@@ -203,6 +200,7 @@ function verdictDeal(
       contradictions.push({
         type: "fiche_figee",
         deal: nom,
+        crm_id: deal.crm_id ?? null,
         crm: `dernière modif : ${deal.derniereModif}`,
         jours: j,
         raison: `la fiche n’a pas bougé depuis ${j} jours : l’étape est un souvenir, pas un état.`,
@@ -213,6 +211,8 @@ function verdictDeal(
   return {
     verdict: {
       nom,
+      crm_id: deal.crm_id ?? null,
+      methode: audit.methode,
       etape,
       closeDate,
       layer: audit.layer,
@@ -270,6 +270,8 @@ function lundiOf(
   const ceMoisRisque = ceMoisRuns.filter((r) => r.verdict.contradictions.some(risqueCeMois));
   const ce_mois_a_risque = sommeMontants(ceMoisRisque.map((r) => r.deal));
   const fragile = liste != null && aRisque != null && aRisque * 2 >= liste;
+  const incomplete = runs.some(r => r.verdict.refus || r.deal.montant == null ||
+    r.verdict.etats.some(p => p.etat !== "su"));
   const nNous = runs.filter((r) => r.verdict.action?.next_step_cote === "nous").length;
   const top = trous[0];
   const etapes = nNous
@@ -284,8 +286,8 @@ function lundiOf(
     ce_mois: ceMoisRuns.map(ligne),
     reste: resteRuns.map(ligne),
     lecture: {
-      etat: fragile ? "fragile" : "solide",
-      motif,
+      etat: fragile ? "fragile" : incomplete ? "indetermine" : "solide",
+      motif: incomplete && !fragile ? "Données ou preuves insuffisantes pour conclure à une liste solide. " + motif : motif,
       regler: REGLER_AGENDA,
     },
   };

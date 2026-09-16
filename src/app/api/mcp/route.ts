@@ -12,7 +12,7 @@ import {
 import { CYCLE_AUDIT_PROMPT, CUTOFF_NO_KEY, MCP_INSTRUCTIONS, MORNING_PROMPT } from "@/lib/copy";
 import { withGate } from "@/lib/mcp-gate";
 import { runWithMcpRequest } from "@/lib/mcp-log";
-import { dealSchema, horizonSchema, jsonTool, pipeSchema } from "@/lib/mcp-schema";
+import { dealSchema, horizonSchema, jsonTool, pipeSchema, salesContextSchema } from "@/lib/mcp-schema";
 import { setProfile } from "@/lib/profile";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 
@@ -71,11 +71,11 @@ const handler = createMcpHandler(
       {
         title: "Plan horizon",
         description:
-          "Use in the morning, or for the next 7 / 30 days. Claude already read Gmail, Calendar, and the CRM — pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda — don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
+          "Use in the morning, or for the next 7 / 30 days. The host assistant already read Gmail, Calendar, and the CRM — pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda — don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
         inputSchema: horizonSchema,
       },
-      withGate("plan_horizon", async ({ fenetre, maintenant, items }) =>
-        jsonTool(planHorizon({ fenetre, maintenant, items })),
+      withGate("plan_horizon", async (input) =>
+        jsonTool(planHorizon(input)),
       ),
     );
 
@@ -112,6 +112,8 @@ const handler = createMcpHandler(
         description:
           "Once, at first connection. Title, mission (rep / manager / VP sales / other), their company URL — not a prospect URL. Stores a short blurb of what they sell.",
         inputSchema: z.object({
+          contexte: salesContextSchema.optional(),
+          company_blurb: z.string().max(500).optional().describe("User-corrected company description, when supplied."),
           title: z.string().describe("Job title"),
           mission: z
             .string()
@@ -138,7 +140,7 @@ const handler = createMcpHandler(
       {
         title: "This morning",
         description:
-          "Today: read Gmail, Calendar, and the CRM through the user's Claude connectors, call plan_horizon fenetre=1, speak the agenda. day.md is theirs. No write_to_crm.",
+          "Today: read Gmail, Calendar, and the CRM through the user's available connectors, call plan_horizon fenetre=1, speak the agenda. day.md is theirs. No write_to_crm.",
       },
       () => ({
         messages: [

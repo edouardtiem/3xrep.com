@@ -1,13 +1,14 @@
 import { CONTRAT } from "./contrat";
-import { corpus } from "./corpus";
+import { artefacts } from "./corpus";
+import { selectMethod } from "./method-selection";
+import { prioriser } from "./priorite";
 import { etatDe } from "./etat";
-import { aUnVerbatim, extraireFaits, literalementDans, type Fait } from "./faits";
+import { aUnVerbatim, extraireFaits, faitsCourants, literalementDans, type Fait } from "./faits";
 import { gesteOf } from "./gestes";
 import { layerOf } from "./layer";
 import { expand } from "./lexique";
 import {
   PIECES,
-  SOURCES_REELLES,
   declarationDe,
   nieDe,
   pieceOf,
@@ -38,51 +39,27 @@ export const DEMANDE =
   "Paste the transcript in this chat, or connect a notetaker to your CRM (Fireflies, tl;dv, HubSpot CI).";
 
 function gradeOf(deal: DealInput): Grade {
-  const faits = extraireFaits(deal);
-  if (
-    faits.some(
-      (f) => f.auteur === "prospect" && f.verifie && SOURCES_REELLES.has(f.source),
-    )
-  ) {
-    return "A";
-  }
-  if (deal.evidence === "chat_paste" && aUnVerbatim(deal)) return "A";
-  if (!deal.exhibits?.length && deal.transcript && aUnVerbatim(deal)) return "A";
-  if (deal.evidence === "chat_paste") return "C";
-  if (
-    deal.notes ||
-    deal.mails ||
-    deal.meetings ||
-    deal.nextStep ||
-    deal.transcript ||
-    deal.exhibits?.length
-  ) {
-    return "B";
-  }
-  return "C";
-}
-
-function cadrer(layer: Audit["layer"], familles: Piece["famille"][]) {
-  return PIECES.filter((p) => p.layerMin <= layer && familles.includes(p.famille));
+  if (aUnVerbatim(deal)) return "A";
+  return artefacts(deal).trim() ? "B" : "C";
 }
 
 function gapDe(piece: Piece, faits: Fait[], preuve: Fait | null) {
   const claim =
     faits.find(
       (f) =>
-        rattacheA(piece, f) &&
+        f.verifie && rattacheA(piece, f) &&
         (f.auteur === "rep" || f.auteur === "crm" || f.kind === "claim"),
     )?.texte ?? null;
   return { claim, fait: preuve?.texte ?? null };
 }
 
 function exhibitDe(piece: Piece, faits: Fait[], preuve: Fait | null): Exhibit | undefined {
-  return preuve?.exhibit ?? faits.find((f) => rattacheA(piece, f) && f.exhibit)?.exhibit;
+  return preuve?.exhibit ?? faits.find((f) => f.verifie && rattacheA(piece, f) && f.exhibit)?.exhibit;
 }
 
 function passer(piece: Piece, faits: Fait[], text: string): PieceVerdict {
   const preuve = preuveDe(piece, faits);
-  const nie = nieDe(piece, faits, text);
+  const nie = nieDe(piece, faits);
   const declaration = declarationDe(piece, faits, text);
   const vertSansPreuve = piece.vert.test(text);
   const etat = etatDe({
@@ -92,14 +69,13 @@ function passer(piece: Piece, faits: Fait[], text: string): PieceVerdict {
     vertSansPreuve,
   });
   const nieTexte =
-    faits.find((f) => rattacheA(piece, f) && f.sens === "nie")?.texte ??
-    text.match(piece.nie)?.[0] ??
+    faits.find((f) => f.verifie && rattacheA(piece, f) && piece.nie.test(f.texte))?.texte ??
     null;
   return {
     id: piece.id,
     etat,
     rattachements: expand(piece.seed),
-    preuve: preuve?.texte ?? (etat === "contredit" ? nieTexte : null),
+    preuve: etat === "contredit" ? nieTexte : preuve?.texte ?? null,
     raison: nie
       ? "exhibit qui nie"
       : vertSansPreuve && !preuve
@@ -111,11 +87,12 @@ function passer(piece: Piece, faits: Fait[], text: string): PieceVerdict {
 }
 
 function challenger(v: PieceVerdict, piece: Piece, text: string, faits: Fait[]): PieceVerdict {
+  if (v.etat === "contredit") return v;
   const preuveFausse = Boolean(v.preuve && piece.fausse_preuve.test(v.preuve));
   const fausse =
     preuveFausse ||
     piece.fausse_preuve.test(text) ||
-    faits.some((f) => rattacheA(piece, f) && piece.fausse_preuve.test(f.texte));
+    faits.some((f) => f.verifie && rattacheA(piece, f) && piece.fausse_preuve.test(f.texte));
 
   if (v.etat === "su" && (!v.preuve || !(text.includes(v.preuve) || faits.some((f) => f.texte === v.preuve && f.verifie)))) {
     return { ...v, etat: "suppose", raison: "un dire n’est pas une preuve" };
@@ -145,7 +122,7 @@ function challenger(v: PieceVerdict, piece: Piece, text: string, faits: Fait[]):
   }
 
   const titre = priorTitreDe(piece, faits, text);
-  if (titre && v.etat !== "contredit") {
+  if (titre) {
     return {
       ...v,
       etat: "suppose",
@@ -156,15 +133,13 @@ function challenger(v: PieceVerdict, piece: Piece, text: string, faits: Fait[]):
 }
 
 function fenetreDe(piece: Piece, deal: DealInput, faits: Fait[]): string | null {
-  const attache = faits.find((x) => rattacheA(piece, x) && x.auteur === "prospect" && x.verifie);
+  if (!aUnVerbatim(deal)) return null;
+  const allowed = faits.filter(f => f.verifie && f.kind === "fait" && ["transcript", "meeting"].includes(f.source));
+  const attache = allowed.find(f => rattacheA(piece, f));
   if (attache) return attache.texte;
-  const blob = corpus(deal);
   for (const p of piece.perches) {
-    const f = faits.find((x) => p.signal.test(x.texte) && literalementDans(deal, x.texte));
+    const f = allowed.find(x => p.signal.test(x.texte) && literalementDans(deal, x.texte));
     if (f) return f.texte;
-    if (p.exemple && blob.includes(p.exemple)) return p.exemple;
-    const m = blob.match(p.signal);
-    if (m?.[0] && blob.includes(m[0])) return m[0];
   }
   return null;
 }
@@ -191,11 +166,20 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
   const gesteDef = gesteOf(deal.geste);
   const layer = layerOf(deal);
   const grade = gradeOf(deal);
-  const text = corpus(deal);
-  const faits = extraireFaits(deal);
-
-  const jeu = cadrer(layer, gesteDef.familles);
-  const pieces = jeu.map((p) => challenger(passer(p, faits, text), p, text, faits));
+  const text = artefacts(deal);
+  const allFacts = extraireFaits(deal);
+  const faits = faitsCourants(allFacts);
+  const methode = selectMethod(deal);
+  const jeu = PIECES.filter(p => methode.pieces.includes(p.id));
+  const evaluated = jeu.map(p => {
+    const verdict = challenger(passer(p, faits, text), p, text, faits);
+    const spiced: Partial<Record<string, string>> = { besoin: "Pain", "enjeu-chiffre": "Impact", echeance: "Critical event", "qui-tranche": "Decision", "criteres-achat": "Decision", "process-decision": "Decision" };
+    if (methode.grille === "SPICED" && spiced[p.id]) verdict.rattachements = [{ methode: "SPICED", partie: spiced[p.id]! }, ...verdict.rattachements];
+    else verdict.rattachements = [...verdict.rattachements].sort((a, b) => Number(b.methode === methode.grille) - Number(a.methode === methode.grille));
+    return verdict;
+  });
+  const priority = prioriser(deal, evaluated);
+  const pieces = [...priority.pieces, ...evaluated.filter(p => p.etat === "su")];
 
   const trous: Trou[] = pieces.flatMap((c) =>
     c.etat === "su"
@@ -214,8 +198,7 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     .map((c) => {
       const p = pieceOf(c.id)!;
       return { piece: c.id, ...p.mort };
-    })
-    .sort((a, b) => a.ordre - b.ordre);
+    });
 
   const cibles = gesteDef.passe_tous_les_trous ? morts : morts.slice(0, 1);
   const remontees = cibles.map((m) => remonter(pieceOf(m.piece)!, deal, faits));
@@ -242,16 +225,18 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
   const plan = stopAt >= 7 ? planChezEux(suivants, action) : [];
   const objectif = stopAt >= 7 ? action.quoi : "";
 
-  const strippe: string[] = [];
+  const strippe: string[] = ["7/10 du call — barème non défini"];
   if (stopAt >= 8) {
-    if (grade !== "A") {
-      strippe.push("7/10 du call", "réplique");
-    }
+    if (grade !== "A") strippe.push("7/10 du call", "réplique");
   }
 
   const audit: Audit = {
     geste_demande: gesteDef.id as GesteId,
     layer,
+    methode,
+    priorite: { piece: tete?.piece ?? null, raison: priority.raison },
+    verification: allFacts.filter(f => f.index != null).map(f => ({ index: f.index!, statut: f.verification,
+      raison: f.verification === "verifiee" ? "Citation retrouvée dans la source fournie ; auteur et vérité restent déclarés." : "Pas de preuve tenue : fournir le passage source et la question/réponse exactes." })),
     grade,
     pieces,
     trous,
@@ -263,7 +248,8 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     strippe,
     refus,
     demande: grade === "A" ? null : DEMANDE,
-    rendu: CONTRAT,
+    rendu: { ...CONTRAT, blocs: refus ? [{ id: "refus", job: REFUS }]
+      : CONTRAT.blocs.filter(b => grade === "A" || !["call", "rate"].includes(b.id)) },
     action,
   };
   if (stopAt >= 8) audit.corrections_crm = correctionsFromAudit(deal, audit);

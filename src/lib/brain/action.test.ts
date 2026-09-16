@@ -83,6 +83,7 @@ test("citation qui nie → objection ; relancer = chez nous", () => {
   const deal = {
     etape: "Négociation" as const,
     nextStep: "Relancer Karim",
+    transcript: "moi je ne signe pas, ça passe au comité",
     exhibits: [
       {
         source: "transcript" as const,

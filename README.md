@@ -10,6 +10,7 @@ Lire dans cet ordre.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
 - [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first
+- [docs/audits/2026-09-16-corrections-cerveau.md](docs/audits/2026-09-16-corrections-cerveau.md) — corrections sur sales-buddy, règles de preuve et limites des essais
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
 - [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse
 - [docs/v0.md](docs/v0.md) — Claude / ChatGPT / Notion, pas d’UI CRM

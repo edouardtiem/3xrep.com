@@ -169,7 +169,6 @@ export const METHODES: Methode[] = [
       { slug: "impact", nom: "Impact" },
       { slug: "critical-event", nom: "Critical event" },
       { slug: "decision", nom: "Decision" },
-      { slug: "economic-buyer", nom: "Economic Buyer" },
     ],
   },
   {
@@ -317,6 +316,8 @@ export const EQUIVALENCES: Rattachement[][] = [
   [
     { methode: "MEDDIC", partie: "Decision process" },
     { methode: "MEDDPICC", partie: "Decision process" },
+  ],
+  [
     { methode: "BANT", partie: "Timeline" },
     { methode: "BEBEDC", partie: "Échéance" },
   ],

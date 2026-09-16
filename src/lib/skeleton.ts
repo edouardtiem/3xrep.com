@@ -6,6 +6,8 @@ import type { PieceVerdict } from "@/lib/brain/types";
 export type SkeletonEtat = "su" | "suppose" | "trou";
 
 export type Souvenir = {
+  crm_id?: string;
+  affaire?: string;
   piece: string;
   etat: SkeletonEtat;
   depuis: string | null;
@@ -35,8 +37,9 @@ export function amountBucket(montant: number | undefined): string | null {
   return "250k+";
 }
 
-export function dealHash(orgId: string, crmId?: string | null, nom?: string | null): string {
-  const raw = (crmId?.trim() || nom?.trim().toLowerCase().replace(/\s+/g, " ") || "unknown").slice(0, 200);
+export function dealHash(orgId: string, crmId?: string | null, nom?: string | null): string | null {
+  const raw = crmId?.trim() || nom?.trim().toLowerCase().replace(/\s+/g, " ");
+  if (!raw) return null;
   return createHash("sha256").update(`${orgId}:${raw}`).digest("hex");
 }
 
@@ -55,7 +58,7 @@ type PieceIn = Pick<PieceVerdict, "id" | "etat"> & { reflexe?: string | null };
 
 export async function recordPieces(input: {
   orgId: string;
-  dealHash: string;
+  dealHash: string | null;
   pieces: PieceIn[];
   amountBucket: string | null;
   claimedStage: string | null;
@@ -63,52 +66,16 @@ export async function recordPieces(input: {
   now?: Date;
 }): Promise<Souvenir[]> {
   const db = admin();
-  if (!db || input.orgId === "dev") return [];
-  const now = input.now ?? new Date();
-  const iso = now.toISOString();
-
-  const { data: existing } = await db
-    .from("judgment_skeleton")
-    .select("piece, etat, trou_since, times_trou, reflex_id, denouement")
-    .eq("org_id", input.orgId)
-    .eq("deal_hash", input.dealHash);
-
-  const prev = new Map(
-    ((existing ?? []) as SkeletonRow[]).map((r) => [r.piece, r]),
-  );
-
+  if (!db || !input.dealHash || input.orgId === "dev") return [];
+  const rows: SkeletonRow[] = [];
   for (const p of input.pieces) {
-    const etat = mapEtat(p.etat);
-    const was = prev.get(p.id);
-    const isTrou = etat === "trou";
-    const times = isTrou ? (was?.times_trou ?? 0) + 1 : 0;
-    const trouSince = isTrou ? (was?.trou_since ?? iso) : null;
-    const row = {
-      org_id: input.orgId,
-      deal_hash: input.dealHash,
-      piece: p.id,
-      etat,
-      reflex_id: p.reflexe ?? was?.reflex_id ?? null,
-      judged_at: iso,
-      trou_since: trouSince,
-      times_trou: times,
-      amount_bucket: input.amountBucket,
-      claimed_stage: input.claimedStage,
-      denouement: input.denouement ?? was?.denouement ?? null,
-    };
-    const { error } = await db.from("judgment_skeleton").upsert(row, {
-      onConflict: "org_id,deal_hash,piece",
+    const { data, error } = await db.rpc("record_judgment_piece", {
+      p_org: input.orgId, p_hash: input.dealHash, p_piece: p.id, p_etat: mapEtat(p.etat),
+      p_reflex: p.reflexe ?? null, p_amount: input.amountBucket,
+      p_stage: input.claimedStage, p_outcome: input.denouement ?? null,
     });
-    if (error) console.error("judgment_skeleton", error.message);
-    prev.set(p.id, {
-      piece: p.id,
-      etat,
-      trou_since: trouSince,
-      times_trou: times,
-      reflex_id: row.reflex_id,
-      denouement: row.denouement as SkeletonRow["denouement"],
-    });
+    if (error) throw new Error(`judgment_skeleton: ${error.message}`);
+    rows.push(...((data ?? []) as SkeletonRow[]));
   }
-
-  return souvenirFromRows([...prev.values()]);
+  return souvenirFromRows(rows);
 }

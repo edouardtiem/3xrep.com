@@ -46,13 +46,13 @@ export default function Install() {
   const mcpJson = JSON.stringify(
     {
       mcpServers: {
-        "3xrep": { url },
+        "3xrep": { url, headers: { Authorization: "Bearer YOUR_KEY" } },
       },
     },
     null,
     2,
   );
-  const claudeAdd = `claude mcp add --transport http 3xrep ${url}`;
+  const claudeAdd = `claude mcp add --transport http 3xrep ${url} --header "Authorization: Bearer YOUR_KEY"`;
 
   const howTo = {
     "@context": "https://schema.org",
@@ -69,7 +69,7 @@ export default function Install() {
       {
         "@type": "HowToStep",
         name: "Add him in Claude",
-        text: `Settings → Connectors → Add custom connector. Paste ${url} and your key.`,
+        text: `Settings → Connectors → Add custom connector. Use ${url}?key=YOUR_KEY as the URL.`,
       },
       {
         "@type": "HowToStep",
@@ -100,9 +100,8 @@ export default function Install() {
             Add him next to HubSpot.
           </h1>
           <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
-            You already have a key from start. Claude first. HubSpot beside
-            it. Then Gmail and Calendar in Claude. Nothing to install inside
-            HubSpot.
+            Use the key from start. Choose your assistant below, then connect
+            your CRM, Gmail and Calendar there. Nothing to install inside HubSpot.
           </p>
           <p className="mt-8">
             <Link
@@ -119,20 +118,30 @@ export default function Install() {
             The address
           </h2>
           <p className="text-mute leading-[1.5]">
-            Same everywhere. It needs your key.
+            Use your private key from start. Keep the complete address private.
           </p>
-          <Snippet label="Address" text={url} />
+          <Snippet label="Private connector address" text={`${url}?key=YOUR_KEY`} />
         </section>
 
         <section>
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            Claude or ChatGPT
+            Claude
           </h2>
           <p className="text-mute mt-5 leading-[1.5]">
-            Settings → Connectors → Add custom connector. Paste the address
-            and the key.
+            Settings → Connectors → Add custom connector. Replace YOUR_KEY
+            in the address above with your key. Paste that complete address.
+            This connection uses the key in the URL, not an OAuth sign-in.
           </p>
           <div className="mt-8 border-t border-line">
+            <Fold title="ChatGPT Work — test connection">
+              <p>Enable developer mode in Settings → Security and login. Open Plugins,
+                choose +, then add a custom MCP server with your private connector address.
+                If the workspace does not offer this option, ask its administrator to enable it.</p>
+              <p className="mt-3">This setup still needs validation in a real Work workspace.
+                It is not a published OAuth plugin. Before using customer data, check that
+                3xrep tools appear and run a fictional deal through audit_deal.</p>
+              <a className="mt-3 inline-block underline" href="https://developers.openai.com/plugins/deploy/connect-chatgpt">Official ChatGPT connection guide</a>
+            </Fold>
             <Fold title="Cursor">
               <p>
                 Settings → MCP, or paste this in{" "}
@@ -193,7 +202,7 @@ export default function Install() {
           </h2>
           <p className="text-mute leading-[1.5]">
             In Claude, connect Gmail and Google Calendar. Then Slack, Notion,
-            a notetaker if you can. Without them we still judge the CRM.
+            a notetaker if you can. If a connector is unavailable, we can still examine the CRM sources you provide. An empty inbox is not a connection error.
           </p>
         </section>
 

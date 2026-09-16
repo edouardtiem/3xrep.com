@@ -20,8 +20,23 @@ export type PieceId =
   | "enjeu-chiffre"
   | "besoin"
   | "budget"
+  | "echeance"
+  | "criteres-achat"
+  | "process-decision"
   | "process-papier"
   | "concurrents";
+
+export type SourceDocument = { id: string; type: ExhibitSource; texte: string; date?: string };
+export type SalesContext = {
+  cycle?: "court" | "moyen" | "long";
+  interlocuteurs?: number;
+  comite?: boolean;
+  papier?: boolean;
+  concurrence?: boolean;
+  probleme_reconnu?: boolean;
+  moment?: "qualification" | "decouverte" | "demo" | "objection" | "negociation" | "signature";
+  entreprise?: string;
+};
 
 /** One attributed line. The client LLM extracts; the server verifies and judges. */
 export type Exhibit = {
@@ -34,6 +49,8 @@ export type Exhibit = {
   piece?: PieceId;
   sens?: ExhibitSens;
   test_pose?: boolean;
+  question?: string;
+  source_id?: string;
   reponse?: string;
 };
 
@@ -62,6 +79,9 @@ export type DealInput = {
   evidence?: Evidence;
   objection?: string;
   exhibits?: Exhibit[];
+  sources?: SourceDocument[];
+  contexte?: SalesContext;
+  contexte_entreprise?: SalesContext;
   crm_id?: string;
   nom?: string;
   denouement?: "gagne" | "perdu" | "ouvert";
@@ -119,6 +139,8 @@ export type Remontee = {
 };
 
 export type CorrectionCrm = {
+  crm_id?: string | null;
+  affaire?: string;
   propriete: string;
   crm: string;
   piece: string;
@@ -130,6 +152,9 @@ export type CorrectionCrm = {
 export type Audit = {
   geste_demande: GesteId;
   layer: Layer;
+  methode: import("./method-selection").MethodSelection;
+  priorite: { piece: string | null; raison: string };
+  verification: { index: number; statut: string; raison: string }[];
   grade: Grade;
   pieces: PieceVerdict[];
   trous: Trou[];

@@ -18,7 +18,7 @@ test("dossier vide → pièces vides, layer 0", () => {
   assert.equal(a.layer, 0);
   assert.ok(a.pieces.every((c) => c.etat === "vide"));
   assert.ok(a.trous.length > 0);
-  assert.equal(a.rendu.blocs.length, 5);
+  assert.equal(a.rendu.blocs.length, 1);
   assert.ok(!a.pieces.some((p) => p.id === "process-papier"));
 });
 
@@ -57,15 +57,15 @@ test("Julien — 8 étages : vide, mort, fenêtre, un geste", () => {
   assert.equal(a.grade, "A");
   assert.equal(a.pieces.find((c) => c.id === "qui-tranche")?.etat, "vide");
   assert.equal(a.pieces.find((c) => c.id === "enjeu-chiffre")?.etat, "suppose");
-  assert.equal(a.pieces.find((c) => c.id === "process-papier")?.etat, "suppose");
-  assert.equal(a.morts[0]?.piece, "qui-tranche");
-  const r = a.remontees.find((x) => x.piece === "qui-tranche");
+  assert.equal(a.pieces.find((c) => c.id === "echeance")?.etat, "suppose");
+  assert.equal(a.morts[0]?.piece, "besoin");
+  const r = scoreDeal({ ...JULIEN, geste: "passe-trous" }).remontees.find((x) => x.piece === "qui-tranche");
   assert.ok(r?.fenetre?.includes("fais tourner"));
   assert.equal(r?.reflexe, "usage-nest-pas-budget");
-  assert.equal(a.geste.piece, "qui-tranche");
+  assert.equal(a.geste.piece, "besoin");
   assert.ok(a.plan.length >= 1);
   assert.ok(a.objectif.length > 0);
-  assert.equal(a.strippe.length, 0);
+  assert.ok(a.strippe.some(s => s.includes("barème")));
   assert.equal(a.remontees.length, 1);
 });
 
@@ -189,6 +189,7 @@ test("manager « c’est moi qui signe » + test posé + non → su malgré le t
         piece: "qui-tranche",
         sens: "affirme",
         test_pose: true,
+        question: "il y a personne d’autre ?",
         reponse: "non, il n’y a personne d’autre",
       },
     ],
@@ -240,7 +241,7 @@ test("montant $ seul → enjeu pas su", () => {
 
 test("dossier EN en exhibits → même verdict que FR", () => {
   const fr = scoreDeal({
-    transcript: "c’est moi qui signe. il n’y a personne d’autre.",
+    transcript: "c’est moi qui signe. Qui d’autre décide ? il n’y a personne d’autre.",
     exhibits: [
       {
         source: "transcript",
@@ -250,22 +251,24 @@ test("dossier EN en exhibits → même verdict que FR", () => {
         piece: "qui-tranche",
         sens: "affirme",
         test_pose: true,
+        question: "Qui d’autre décide ?",
         reponse: "il n’y a personne d’autre",
       },
     ],
   });
   const en = scoreDeal({
-    transcript: "I sign. There is nobody else in the decision.",
+    transcript: "I sign. Who else decides? There is nobody else in the decision.",
     exhibits: [
       {
         source: "transcript",
         auteur: "prospect",
         titre: "manager",
-        citation: "I sign. There is nobody else in the decision.",
+        citation: "I sign.",
         piece: "qui-tranche",
         sens: "affirme",
         test_pose: true,
-        reponse: "nobody else",
+        question: "Who else decides?",
+        reponse: "There is nobody else in the decision.",
       },
     ],
   });
@@ -279,8 +282,8 @@ test("legacy Julien garde ses résultats (fallback)", () => {
   assert.equal(a.grade, "A");
   assert.equal(a.pieces.find((c) => c.id === "qui-tranche")?.etat, "vide");
   assert.equal(a.pieces.find((c) => c.id === "enjeu-chiffre")?.etat, "suppose");
-  assert.equal(a.pieces.find((c) => c.id === "process-papier")?.etat, "suppose");
-  assert.equal(a.morts[0]?.piece, "qui-tranche");
+  assert.equal(a.pieces.find((c) => c.id === "echeance")?.etat, "suppose");
+  assert.equal(a.morts[0]?.piece, "besoin");
   assert.ok(a.pieces.find((c) => c.id === "qui-tranche")?.gap.claim?.toLowerCase().includes("economic buyer"));
 });
 

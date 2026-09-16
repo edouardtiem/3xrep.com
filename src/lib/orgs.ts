@@ -1,3 +1,4 @@
+import type { SalesContext } from "@/lib/brain/types";
 import { createHash, randomBytes } from "node:crypto";
 import { admin } from "@/lib/supabase-admin";
 import { trialDaysFor, trialWindow, type OrgStatus } from "@/lib/trial";
@@ -24,12 +25,13 @@ export type OrgRow = {
   mission: string | null;
   company_url: string | null;
   company_blurb: string | null;
+  sales_context?: SalesContext | null;
   card_fingerprint: string | null;
   start_token: string | null;
 };
 
 const ORG_COLS =
-  "id, status, email, trial_days, trial_started_at, trial_ends_at, card_deadline_at, stripe_customer_id, stripe_subscription_id, stripe_session_id, referral_code, referred_by_org_id, title, mission, company_url, company_blurb, card_fingerprint, start_token";
+  "id, status, email, trial_days, trial_started_at, trial_ends_at, card_deadline_at, stripe_customer_id, stripe_subscription_id, stripe_session_id, referral_code, referred_by_org_id, title, mission, company_url, company_blurb, sales_context, card_fingerprint, start_token";
 
 function hashKey(plain: string): string {
   return createHash("sha256").update(plain).digest("hex");
@@ -83,6 +85,7 @@ function asRow(data: Record<string, unknown>): OrgRow {
     mission: (data.mission as string | null) ?? null,
     company_url: (data.company_url as string | null) ?? null,
     company_blurb: (data.company_blurb as string | null) ?? null,
+    sales_context: (data.sales_context as SalesContext | null) ?? null,
     card_fingerprint: (data.card_fingerprint as string | null) ?? null,
     start_token: (data.start_token as string | null) ?? null,
   };
@@ -382,9 +385,11 @@ export async function updateOrgProfile(
     mission: string;
     company_url: string;
     company_blurb: string | null;
+    sales_context?: SalesContext;
   },
 ): Promise<void> {
   const db = admin();
   if (!db) return;
-  await db.from("orgs").update(profile).eq("id", orgId);
+  const { error } = await db.from("orgs").update(profile).eq("id", orgId);
+  if (error) throw new Error("Impossible d’enregistrer le profil.");
 }

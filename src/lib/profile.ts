@@ -1,3 +1,4 @@
+import type { SalesContext } from "@/lib/brain/types";
 import { updateOrgProfile, type OrgRow } from "@/lib/orgs";
 
 const MISSIONS = ["commercial", "manager", "directeur commercial", "autre"] as const;
@@ -51,7 +52,7 @@ export async function blurbFromUrl(url: URL): Promise<string | null> {
 
 export async function setProfile(
   org: OrgRow,
-  input: { title: string; mission: string; company_url: string },
+  input: { title: string; mission: string; company_url: string; contexte?: SalesContext; company_blurb?: string },
 ): Promise<{ title: string; mission: Mission; company_url: string; company_blurb: string | null }> {
   const url = safeCompanyUrl(input.company_url);
   if (!url) throw new Error("company_url invalide");
@@ -60,7 +61,8 @@ export async function setProfile(
     title: input.title.trim().slice(0, 80),
     mission: parseMission(input.mission),
     company_url: url.toString(),
-    company_blurb: blurb,
+    company_blurb: input.company_blurb?.trim().slice(0, 500) || blurb,
+    ...(input.contexte ? { sales_context: input.contexte } : {}),
   };
   if (org.id !== "dev") await updateOrgProfile(org.id, profile);
   return profile;

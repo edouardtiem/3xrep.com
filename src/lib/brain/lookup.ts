@@ -1,3 +1,4 @@
+import { METHOD_GUIDANCE } from "./method-guidance";
 import { METHODES } from "./lexique";
 
 export function methodeLookup(q: string) {
@@ -19,6 +20,7 @@ export function methodeLookup(q: string) {
       nom: m.nom,
       famille: m.famille,
       parties: m.parties,
+      guidage: METHOD_GUIDANCE[m.slug] ?? { source: null, usage: "Lexique uniquement.", adaptation: "Cette entrée n’est pas un moteur autonome de la méthode." },
     })),
   };
 }

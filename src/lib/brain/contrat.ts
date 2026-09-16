@@ -5,7 +5,7 @@ export const CONTRAT: ContratRendu = {
   blocs: [
     {
       id: "call",
-      job: "The call, not the person. A /10 on the discovery (rapport vs file), not an HR score, not a close probability.",
+      job: "The call, not the person. Describe what the supplied call establishes. No /10: the server has no validated rating rubric. Never invent a score.",
     },
     {
       id: "rate",

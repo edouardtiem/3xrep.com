@@ -1,3 +1,4 @@
+import { stageRequirements } from "@/lib/brain/priorite";
 import type { Audit, CorrectionCrm, DealInput } from "@/lib/brain/types";
 
 export type { CorrectionCrm };
@@ -7,9 +8,12 @@ const NE_PAS = "inventer une valeur (nom, date, montant) pour remplir le trou";
 export function correctionsFromAudit(deal: DealInput, audit: Audit): CorrectionCrm[] {
   if (audit.refus) return [];
   const out: CorrectionCrm[] = [];
-  const tete = audit.morts[0];
+  const required = stageRequirements(deal.etape);
+  const tete = audit.morts.find(m => required.includes(m.piece));
   if (deal.etape?.trim() && tete) {
     out.push({
+      crm_id: deal.crm_id ?? null,
+      affaire: deal.nom,
       propriete: "etape",
       crm: deal.etape.trim(),
       piece: tete.piece,
@@ -21,6 +25,8 @@ export function correctionsFromAudit(deal: DealInput, audit: Audit): CorrectionC
   for (const p of audit.pieces) {
     if (p.raison !== "case verte sans source") continue;
     out.push({
+      crm_id: deal.crm_id ?? null,
+      affaire: deal.nom,
       propriete: p.id,
       crm: "case verte",
       piece: p.id,
@@ -33,6 +39,7 @@ export function correctionsFromAudit(deal: DealInput, audit: Audit): CorrectionC
 }
 
 export type PipeContradiction = {
+  crm_id?: string | null;
   type: string;
   deal: string;
   crm?: string;
@@ -45,10 +52,12 @@ export function correctionsFromPipe(contradictions: PipeContradiction[]): Correc
   const seen = new Set<string>();
   for (const c of contradictions) {
     if (c.type !== "etape_illegale" || !c.piece || !c.crm) continue;
-    const key = `${c.deal}:${c.piece}`;
+    const key = `${c.crm_id ?? c.deal}:${c.piece}`;
     if (seen.has(key)) continue;
     seen.add(key);
     out.push({
+      crm_id: c.crm_id ?? null,
+      affaire: c.deal,
       propriete: "etape",
       crm: c.crm,
       piece: c.piece,
@@ -61,18 +70,18 @@ export function correctionsFromPipe(contradictions: PipeContradiction[]): Correc
 }
 
 export function sommePortesCassees(
-  deals: { nom?: string; montant?: number }[],
+  deals: { crm_id?: string; nom?: string; montant?: number }[],
   contradictions: PipeContradiction[],
 ): number | null {
   const illegal = new Set(
-    contradictions.filter((c) => c.type === "etape_illegale").map((c) => c.deal),
+    contradictions.filter((c) => c.type === "etape_illegale").map((c) => c.crm_id ? `id:${c.crm_id}` : `name:${c.deal}`),
   );
   if (illegal.size === 0) return null;
   let sum = 0;
   let any = false;
   deals.forEach((d, i) => {
     const nom = d.nom?.trim() || `deal ${i + 1}`;
-    if (!illegal.has(nom) || d.montant == null || !Number.isFinite(d.montant)) return;
+    if (!illegal.has(d.crm_id ? `id:${d.crm_id}` : `name:${nom}`) || d.montant == null || !Number.isFinite(d.montant)) return;
     sum += d.montant;
     any = true;
   });

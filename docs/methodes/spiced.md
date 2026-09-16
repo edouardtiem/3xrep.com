@@ -4,7 +4,7 @@
 slug: spiced
 nom: SPICED
 famille: dossier
-parties: [situation, pain, impact, critical-event, decision, economic-buyer]
+parties: [situation, pain, impact, critical-event, decision]
 debuts: [decouverte]
 pseo:
   - SPICED sales
@@ -14,9 +14,9 @@ pseo:
 
 ## 1. Identité
 
-Grille moderne (Winning by Design / SaaS). Situation, Pain, Impact, Critical event, Economic buyer, Decision. Ce qu’elle force : un **événement critique** (pourquoi maintenant) et un impact, pas seulement un pain. Ce que ce n’est pas : MEDDIC renommé, ni un CRM à remplir pour le manager.
+Grille moderne (Winning by Design / SaaS). Situation, Pain, Impact, Critical event, Decision. Ce qu’elle force : un **événement critique** (pourquoi maintenant) et un impact, pas seulement un pain. Ce que ce n’est pas : MEDDIC renommé, ni un CRM à remplir pour le manager.
 
-Chevauchements : Pain = Identify Pain. Impact = Metrics / Enjeu / coût de l’inaction. Critical event = Timeline **avec cause**. Decision = Decision process + criteria. Economic buyer = EB / Authority.
+Chevauchements : Pain = Identify Pain. Impact = Metrics / Enjeu / coût de l’inaction. Critical event = Timeline **avec cause**. Decision = Decision process + criteria. L’autorité peut être examinée dans Decision ; ce n’est pas une sixième lettre.
 
 ## 2. Parties
 
@@ -27,7 +27,6 @@ Chevauchements : Pain = Identify Pain. Impact = Metrics / Enjeu / coût de l’i
 | **Impact** | Conséquence chiffrée ou politique. | « C’est important. » | Pain sans impact. |
 | **Critical event** | Une date **externe** (audit, fin de contrat, levée, saison, board). | Notre close date. | « Ils veulent aller vite. » |
 | **Decision** | Comment + sur quoi. | « Comité. » | Process vide. |
-| **Economic buyer** | Qui tranche l’argent. | N+1. | Ops seul. |
 
 Phrase de trou : « SPICED Critical event vide — close date = ton quarter, pas leur audit. »
 
@@ -64,3 +63,7 @@ Sur chaque deal en forecast : « quel événement, s’il glisse de 60 jours, tu
 ## 8. pSEO
 
 Queries : `SPICED sales`, `critical event`, `SPICED vs MEDDIC`. CTA = agent sur le deal.
+
+## Source et adaptation
+
+Source : [Winning by Design](https://winningbydesign.com/spiced-framework/). La sélection pour un cycle moyen et les états de preuve sont des règles 3xrep. Le moteur distingue la grille du geste de conversation. Un impact qualitatif reste à examiner ; le détecteur chiffré ne couvre pas toute la méthode.

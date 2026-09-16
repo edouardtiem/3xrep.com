@@ -1,5 +1,7 @@
 import { pieceOf } from "./pieces";
-import type { Action, DealInput, Exhibit, NextStepCote, PieceVerdict, Rattachement } from "./types";
+import { extraireFaits, faitsCourants } from "./faits";
+import { prioriser } from "./priorite";
+import type { Action, DealInput, NextStepCote, PieceVerdict, Rattachement } from "./types";
 
 export const A_RISQUE_MOT = "pas la pratique de ces grilles, donc à risque";
 
@@ -33,27 +35,14 @@ export function nommerGrilles(rattachements: Rattachement[]): string {
 }
 
 export function objectionCitee(deal: DealInput): string | null {
-  const exhibits = deal.exhibits ?? [];
-  const nie = exhibits.find(
-    (e) => e.auteur === "prospect" && e.sens === "nie" && e.citation.trim(),
-  );
-  if (nie) return nie.citation.trim();
-  return null;
+  const nie = faitsCourants(extraireFaits(deal)).find(f =>
+    f.verifie && f.auteur === "prospect" && f.kind === "fait" && f.sens === "nie" &&
+    Boolean(f.piece && pieceOf(f.piece)?.nie.test(f.texte)));
+  return nie?.texte ?? null;
 }
 
 function aUnAppel(deal: DealInput): boolean {
-  if (deal.transcript?.trim() || deal.mails?.trim() || deal.meetings?.trim()) return true;
-  return (deal.exhibits ?? []).some((e) => exhibitAppel(e));
-}
-
-function exhibitAppel(e: Exhibit): boolean {
-  return e.auteur === "prospect" && (e.source === "transcript" || e.source === "meeting" || e.source === "mail");
-}
-
-function tetePiece(pieces: PieceVerdict[]): PieceVerdict | undefined {
-  return [...pieces]
-    .filter((p) => p.etat !== "su")
-    .sort((a, b) => (pieceOf(a.id)?.mort.ordre ?? 99) - (pieceOf(b.id)?.mort.ordre ?? 99))[0];
+  return extraireFaits(deal).some(f => f.verifie && ["transcript", "meeting", "mail"].includes(f.source));
 }
 
 export function actionPourDeal(input: {
@@ -66,7 +55,7 @@ export function actionPourDeal(input: {
   const deal = input.deal;
   const cote = nextStepCote(deal.nextStep);
   const tranche = input.pieces.find((p) => p.id === "qui-tranche");
-  const tete = tetePiece(input.pieces) ?? tranche;
+  const tete = prioriser(deal, input.pieces).pieces[0];
   const rattachements = tete?.rattachements ?? [];
   const def = tete ? pieceOf(tete.id) : undefined;
   const question = def?.echelle[0]?.question ?? def?.question ?? null;
@@ -86,6 +75,8 @@ export function actionPourDeal(input: {
     quoi = `Ne pas envoyer le contrat.${q || " Obtenir un nom ou un rendez-vous avec celui qui signe."}`;
   } else if (tardive && signerVide) {
     quoi = `Poser un créneau avec celui qui peut signer — pas une négo avec la personne en face.${q}`;
+  } else if (!tete) {
+    quoi = "Aucun manque établi dans les pièces examinées. Confirmer la prochaine étape convenue, sans inventer un nouveau trou.";
   } else if (cote === "nous") {
     quoi = `La prochaine étape écrite (« ${deal.nextStep} ») est chez nous : ça ne compte pas. Poser une date dans l’agenda du prospect.${q}`;
   } else if (cote === "eux") {
