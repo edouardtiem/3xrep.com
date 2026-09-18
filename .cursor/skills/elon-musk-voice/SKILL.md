@@ -17,7 +17,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing (`src/lib/landing.ts`). Vocabulaire de terrain : stage, close date, owner, call, pipe. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing (`src/lib/landing.ts`). Posts : vocabulaire de terrain (stage, close date, owner, call, pipe). Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 

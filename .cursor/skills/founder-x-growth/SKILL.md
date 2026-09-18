@@ -1,6 +1,6 @@
 ---
 name: founder-x-growth
-description: Founder patterns that grow the founder X account for 3xrep. Cadence, Mode A or Mode B as the idea (not maxim slogans), reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). Replies use field vocabulary; 3xrep / I built in about 1 in 5. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
+description: Founder patterns that grow the founder X account for 3xrep. Cadence, Mode A or Mode B as the idea (not maxim slogans), reply vs post, proof, soft CTA. Account @Edd08x (Ed., run 3xrep). Replies mirror the parent first; CRM nouns gated; 3xrep / I built in about 1 in 5 when the parent is already deal/file. Drafts only until X usable, a paying /install, and explicit go. Use for X growth, posting cadence, or founder-x-growth.
 ---
 
 # Croissance X. Patterns fondateur, compte fondateur
@@ -15,7 +15,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing. Vocabulaire de terrain : stage, close date, owner, call, pipe. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing. Posts : vocabulaire de terrain (stage, close date, owner, call, pipe). Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 

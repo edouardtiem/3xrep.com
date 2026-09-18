@@ -1,6 +1,6 @@
 ---
 name: x-replies-that-hit
-description: Draft human 3xrep X replies for @Edd08x. One idea, 1–2 sentences, field words (stage, close date, owner, call, pipe). No maxim→judgment→product triad. Name 3xrep or I built in about 1 in 5 replies. Install link only if the parent asked for a tool. Register = landing Session. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
+description: Draft human 3xrep X replies for @Edd08x. One idea, 1–2 sentences. Mirror the parent's nouns first. CRM nouns (stage, close date, owner, opp, pipe, who signs) only if the parent is already sales/CRM/RevOps/MEDDIC. No maxim→judgment→product triad. Name 3xrep or I built in about 1 in 5 replies, and only when the parent is already deal/file. Install link only if the parent asked for a tool. Register = landing Session. Use when drafting X replies, quote-tweets, or x-replies-that-hit.
 ---
 
 # Réponses X qui portent
@@ -19,7 +19,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Réponses : 1 idée, 1–2 phrases. Vocabulaire de terrain. 3xrep / « I built » ~1 sur 5. Lien `https://www.3xrep.com/install` seulement si le parent a demandé un outil. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Réponses : 1 idée, 1–2 phrases. Lexique du parent d’abord. stage / close date / owner / opp / pipe / who signs seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. 3xrep / « I built » ~1 sur 5. Lien `https://www.3xrep.com/install` seulement si le parent a demandé un outil. Prix **$129 / org / mois**.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -28,13 +28,13 @@ Détail : [README](../README.md). Tiennent ici :
 | Beat | Oui | Non |
 | --- | --- | --- |
 | **Idée** | 1 idée. 1–2 phrases. Un fait de terrain. | Maxime → jugement → produit. 3 phrases. Essai |
-| **Mots** | stage, close date, owner, call, pipe | Punchline : race, scarce, fiction, verdict, triad, vanity |
+| **Mots** | First: the parent's nouns/verbs. CRM nouns (stage, close date, owner, opp, pipe, who signs) only if the parent is already in a sales/CRM/RevOps/MEDDIC frame | Punchline: race, scarce, fiction, verdict, triad, vanity. Also: forcing stage/owner/close date onto tech, joke, shipping, hiring, or ops parents |
 | **Ironie** | Another recorder. Still no owner on the file. | « This is so dumb. » Ratio, pile-on, humiliation |
 | **Éloge** | Nommer **exactement** ce qui est cool, une phrase | « Love this! » / « Fire 🔥 » / éloge pour exister dans le fil |
 | **3xrep** | **~1 sur 5.** Une phrase légère. | « I built 3xrep so… ». Nom sous chaque parent. Feature list, prix + spec + lien |
 | **Longueur** | 1 or 2 phrases. | 3+ phrases. « Actually, » + cinq paragraphes |
 
-Les deux beats (ironie **et** éloge) dans la même réponse : rarement. Choisir.
+Les deux beats (ironie **et** éloge) dans la même réponse : rarement. Choisir. L’ironie *Still no owner on the file* seulement si le parent est déjà fichier client / CRM.
 
 ## Registre = landing Session
 
@@ -47,6 +47,17 @@ Même densité que `SESSION.blocks` dans `src/lib/landing.ts`. Sur X : pas de ti
 - *The stage is a memory, not a state.*
 
 Le « I » de *I won't fill the gap* est la ligne VP de la Session. Ce n’est pas « I built ». Ne pas coller les deux.
+
+Ces lignes Session sont pour un parent déjà CRM / pipe / MEDDIC, et pour les posts originaux. Pas de colle universelle sous un parent tech, blague, shipping, embauche, ou ops.
+
+## Parent first (anti–mis-position)
+
+1. **Mirror their lexicon.** Reuse 1–2 of the parent's concrete nouns or verbs (opens, MCP, Clay, dashboard, approval, segments, order status…). If you cannot name what *they* claimed, skip or reread the parent.
+2. **CRM nouns are gated.** Words: stage, close date, owner, opp, pipe, who signs, Economic Buyer, fake stage.
+   - **Allowed** when the parent is already about deals, CRM, pipeline, MEDDIC/MEDDPICC, RevOps number/file, AE/SDR cycle, or explicit opp hygiene.
+   - **Forbidden** as the punch when the parent is agent/tooling/context (agentOS, MCP news, LLM roles), product ops (SAP/WhatsApp/order status), joke/photo/behind-the-scenes, hiring, pure build-in-public shipping, or abstract AI philosophy.
+3. **One concrete take on THEIR claim.** Not a universal maxim that would fit any parent. Test: swap the parent URL — if the reply still works unchanged, rewrite.
+4. **Reality-Check is not the default.** Pattern to avoid: “[Parent thing] is fine/easy/table stakes. Still need an owner/stage/close date.” Use that beat at most rarely, and only when the parent already invited a file/CRM contrast.
 
 ## Interdit : la triade
 
@@ -63,12 +74,19 @@ Autres jetés : *Opens are vanity.* / *The callback is the verdict.* / *Recordin
 
 Répondre au parent avec un fait. Pas un slogan Mode A / Mode B.
 
-- *Opens don't close deals. Did anyone actually call back?*
-- *If the stage still says Negotiation and nobody who signs is named, the stage is fake.*
-- *No decision process on record. That close date is a claim, not a fact.*
-- *No call on record. I won't fill the gap.*
+**Si le parent est déjà CRM / pipe / MEDDIC :**
+- Opens don't close deals. Did anyone actually call back?
+- If the stage still says Negotiation and nobody who signs is named, the stage is fake.
+- No decision process on record. That close date is a claim, not a fact.
+
+**Si le parent est tech / agents / shipping (pas de stage/owner) :**
+- A hundred tools you never call still tax the window. Rent, not purchase.  (mirror agentOS)
+- Order status in chat closes the wait. The handoff to a human when stock lies is the hard part.  (mirror SAP/ops — no "stage on the opp")
+- Talking a Clay workflow into existence is easy. The first verified email that books is the proof.  (mirror Clay — owner/call only if you stay in their nouns)
 
 **Case ~1 sur 5 (une phrase 3xrep / I built, pas la triade) :**
+
+Seulement si le parent est déjà vente / CRM / agent × fichier client, **et** la phrase ajoute un fait (où ça vit / org / pas un enregistreur). Pas un Reality-Check générique. Pas le même sticker Claude+CRM sous deux parents d’affilée.
 
 - *I built 3xrep. It says that on a Monday pipe review, in Claude.*
 - *3xrep lives in Claude, next to the CRM. Not another tab.*
@@ -77,6 +95,12 @@ Répondre au parent avec un fait. Pas un slogan Mode A / Mode B.
 Puis **stop**. Lien `https://www.3xrep.com/install` **seulement** si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Pas sous chaque inconnu.
 
 Préférer les fils à **grande portée**. Pas le même texte collé sous plusieurs parents.
+
+## Mode A vs Mode B (réponses)
+
+- **Mode B (défaut, ~4/5):** un avis de terrain **dans le registre du parent**. Pas de 3xrep. Pas de sticker Claude+CRM. Si le parent n'est pas CRM, ne pas importer le vocabulaire Session CRM.
+- **Mode A (~1/5):** une phrase 3xrep / I built **seulement** si (a) le parent est déjà vente/CRM/agent×fichier client, **et** (b) la phrase ajoute un fait (où ça vit / org / pas un enregistreur), pas un Reality-Check générique.
+- Mode A / Mode B sur un **post original** = idée produit. Sur une **réponse** = dose de produit, pas une excuse pour coller stage/owner partout.
 
 ## Quand on ne répond pas
 
@@ -96,10 +120,11 @@ Préférer les fils à **grande portée**. Pas le même texte collé sous plusie
 
 1. **Répondre du tout ?** Non → une ligne pourquoi, on passe. Préférer **grande portée**.
 2. **Beat.** Ironie légère **ou** éloge précis. L’éloge seulement si tu peux pointer un geste, une phrase, un mécanisme. Pas l’auteur.
-3. **Une idée.** 1–2 phrases. Vocabulaire de terrain. Compter la série : ~1 mention 3xrep / « I built » sur 5. Défaut : zéro, pas de lien. Case ~1/5 : **une** phrase légère. Jamais la triade. Jamais « I built 3xrep so… ». I seulement si c’est Ed. qui construit / prix / avis. Produit nommé → **3xrep**. Pas de « he ».
-4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie vise **le fichier client qui ment**, pas la personne.
-5. **Contrôle.** Plus de 2 phrases → couper. Punchline race / scarce / fiction / verdict / triad / vanity → jeter. Ça sonne comme une maxime d’affiche → réécrire comme la Session.
-6. **Registre.** Phrases courtes. Pas de cosplay Elon. Pas de tiret long. Pas le même draft collé deux fois.
+2b. **Lexique parent.** Écrire les 2–3 mots du parent que tu réutilises. Si tu allais écrire stage/owner/close date et qu'ils n'y sont pas: soit le parent est CRM (ok), soit tu changes de mots, soit skip.
+3. **Une idée.** 1–2 phrases. Un avis concret sur **leur** claim. Compter la série : ~1 mention 3xrep / « I built » sur 5, et seulement si le parent est déjà deal/file. Défaut : zéro, pas de lien. Case ~1/5 : **une** phrase légère. Jamais la triade. Jamais « I built 3xrep so… ». I seulement si c’est Ed. qui construit / prix / avis. Produit nommé → **3xrep**. Pas de « he ».
+4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie vise **leur claim**, ou le fichier client qui ment si le parent est déjà CRM. Pas la personne.
+5. **Contrôle.** Plus de 2 phrases → couper. Punchline race / scarce / fiction / verdict / triad / vanity → jeter. Ça sonne comme une maxime d’affiche → réécrire comme la Session. Swap le parent URL : si la réponse tient inchangée → réécrire. Reality-Check (« X is fine. Still need owner/stage ») hors parent CRM → jeter.
+6. **Registre.** Phrases courtes. Pas de cosplay Elon. Pas de tiret long. Pas le même draft collé deux fois. Parent hors CRM : pas de stage / owner / close date collés.
 
 ## Sortie
 
@@ -118,8 +143,11 @@ API X : cheap / cher annoncé (oui/non)
 URL ou citation exacte (une phrase)
 Portée : haute | moyenne | skip
 Beat : ironie | éloge | skip
-Nomme 3xrep : non | oui (une phrase)
+Lexique parent : mot1, mot2
+CRM nouns : gated | allowed (parent déjà CRM)
+Nomme 3xrep : non | oui (une phrase ; parent déjà deal/file)
 Triade : non
+Reality-Check : non
 Lien install : non | oui (le parent a demandé un outil)
 
 ## Draft
@@ -135,6 +163,10 @@ Lien install : non | oui (le parent a demandé un outil)
 - Tiret long (—), tiret moyen (–), ou `--` comme ponctuation.
 - La triade maxime → jugement → produit. « I built 3xrep so… ».
 - Punchline : race, scarce, fiction, verdict, triad, vanity.
+- Coller stage / close date / owner / opp / pipe sous un parent hors vente–CRM–RevOps–MEDDIC.
+- Le template Reality-Check (“X is fine. Still need an owner on the stage/opp.”) en défaut.
+- Coller « 3xrep lives/sits in Claude next to the CRM » sous deux parents d'affilée.
+- « table stakes » + pivot CRM. « Capability without a named next step » hors fil agents/outils.
 - Pitch lourd, Calendly, DM, « happy to hop on a call ».
 - Nommer 3xrep / « I built » / lien install sous (presque) chaque parent. Coller le même texte partout.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
