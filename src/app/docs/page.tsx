@@ -1,136 +1,36 @@
 import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
-import { DocPage, DocSection } from "@/components/DocPage";
+import { DocPage, DocSection, DocPrompt } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
-import { TRUST_LINE } from "@/lib/copy";
-import {
-  DOC_FAQ,
-  breadcrumbJsonLd,
-  faqJsonLd,
-  pageMeta,
-  softwareJsonLd,
-} from "@/lib/docs";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+import { Blob } from "@/components/buddy/Blob";
+import { Hand } from "@/components/buddy/Hand";
+import { DOC_FAQ, breadcrumbJsonLd, faqJsonLd, pageMeta, softwareJsonLd } from "@/lib/docs";
+import styles from "@/components/docs.module.css";
 
-export const metadata = pageMeta({
-  title: "What is 3xrep",
-  description:
-    "He lives in Claude or ChatGPT, next to HubSpot. He names what's missing, and the stage that isn't true. Standard price: $" +
-    LIST_PRICE_USD +
-    " a month for the whole company. We don't join your calls.",
-  path: "/docs",
-});
-
-const TOC = [
-  {
-    href: "/docs/how-it-works",
-    title: "How it works",
-    blurb: "Two connectors. What the buyer said. Why Claude alone is not enough.",
-  },
-  {
-    href: "/docs/use-cases",
-    title: "Use cases",
-    blurb: "Monday. After a call. A date that is a guess. Too expensive.",
-  },
-  {
-    href: "/docs/gong-alternative",
-    title: "Gong alternative",
-    blurb: `Gong records. We don't join the call. $${LIST_PRICE_USD} for the company.`,
-  },
-  {
-    href: "/docs/pipeline-review",
-    title: "Pipeline review",
-    blurb: "The list is green. The stage isn't true.",
-  },
-  {
-    href: "/docs/pricing",
-    title: "How much does 3xrep cost",
-    blurb: `$${LIST_PRICE_USD} a month for the whole company.`,
-  },
-  {
-    href: "/docs/methods",
-    title: "Methods",
-    blurb: "MEDDIC, BANT, BEBEDC — names for what's missing. Not a course.",
-  },
-  {
-    href: "/install",
-    title: "Install",
-    blurb: "Claude first. HubSpot beside it.",
-  },
-] as const;
-
+export const metadata=pageMeta({title:"Your guide to 3xrep",description:"Get your sales buddy ready, find a useful first question, and make 3xrep part of your sales day.",path:"/docs"});
+const guides=[
+  {href:"/docs/how-it-works",title:"Get to know your sales buddy",description:"How your context becomes a useful next move."},
+  {href:"/docs/use-cases",title:"Find your first question",description:"Start the day, prepare a call, or work through a reply."},
+  {href:"/docs/pipeline-review",title:"Look beyond today",description:"Review your deals and prepare for the next 7 or 30 days."},
+  {href:"/docs/methods",title:"Understand the advice",description:"The sales methods behind a question or recommendation."},
+  {href:"/docs/gong-alternative",title:"Know what happens to your context",description:"Call notes, recordings, memory and privacy."},
+  {href:"/docs/pricing",title:"Beta, Founding 20 & pricing",description:"What is included, how places are awarded, and what comes next."},
+];
 export default function DocsPage() {
-  return (
-    <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Docs", path: "/docs" }])} />
-      <JsonLd data={faqJsonLd()} />
-      <JsonLd data={softwareJsonLd()} />
-      <DocPage
-        title="What is 3xrep"
-        lead="He lives in Claude or ChatGPT, next to HubSpot. Not inside HubSpot. He reads the calls behind the fields."
-      >
-        <nav aria-label="In these docs" className="space-y-6">
-          {TOC.map((item) => (
-            <p key={item.href} className="text-[1.125rem] leading-[1.5]">
-              <Link href={item.href} className="text-foreground hover:underline">
-                {item.title}
-              </Link>
-              <span className="text-mute"> — {item.blurb}</span>
-            </p>
-          ))}
-        </nav>
-
-        <DocSection title="Where he lives">
-          <p>
-            In the assistant you already use — Claude, ChatGPT, Cursor. One
-            address, next to HubSpot or Salesforce. Nothing to install in
-            HubSpot. No 3xrep tab.
-          </p>
-          <p>
-            He needs both. Without HubSpot connected, paste the notes in the
-            chat. He still judges. The fields are missing.
-          </p>
-        </DocSection>
-
-        <DocSection title="Not a ChatGPT prompt">
-          <p>
-            Claude already knows MEDDIC. He recites. He stays useful. He fills
-            the gap when the call is missing.{" "}
-            <Link href="/docs/how-it-works" className="text-foreground hover:underline">
-              How it works
-            </Link>{" "}
-            is the other thing: held, assumed, or empty — from what the buyer
-            said.
-          </p>
-        </DocSection>
-
-        <DocSection title="What we are not">
-          <p>Not Gong. We don&apos;t join your calls.</p>
-          <p>
-            Not your CRM&apos;s assistant. It fills the fields. We say which
-            ones are empty.
-          </p>
-          <p>Not a course. Not &ldquo;you close Friday.&rdquo;</p>
-          <p className="text-foreground">
-            We name what&apos;s missing. And the stage in HubSpot that isn&apos;t
-            true.
-          </p>
-          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
-        </DocSection>
-
-        <DocSection title="Questions">
-          <dl className="space-y-10">
-            {DOC_FAQ.map((row) => (
-              <div key={row.q}>
-                <dt className="text-foreground">{row.q}</dt>
-                <dd className="mt-3">{row.a}</dd>
-              </div>
-            ))}
-          </dl>
-        </DocSection>
-
-        <DocsEnd />
-      </DocPage>
-    </>
-  );
+  return <>
+    <JsonLd data={breadcrumbJsonLd([{name:"Guide",path:"/docs"}])} /><JsonLd data={faqJsonLd()} /><JsonLd data={softwareJsonLd()} />
+    <DocPage title="A little help for your sales day." lead="Your sales buddy helps you work out what deserves attention, why it matters, and what to do next. Here’s how to bring 3xrep into the chat where you already work.">
+      <DocSection title="Start with the deal in front of you.">
+        <p>Connect 3xrep alongside your CRM in your AI assistant. In Claude, add your inbox and calendar when available. Then ask about your day, an upcoming call, or a buyer’s latest reply.</p>
+        <DocPrompt>Morning. What needs my attention today?</DocPrompt>
+        <p>New here? <Link href="/install">Follow the connection guide</Link>. Already connected? <Link href="/docs/use-cases">Find a question to try</Link>.</p>
+      </DocSection>
+      <div className={styles.welcome}><Blob pose="note" /><Hand className={styles.hand}>One useful next move. Then the next.</Hand></div>
+      <nav aria-label="Explore the guide" className={styles.guides}>{guides.map(item=><Link className={styles.guide} key={item.href} href={item.href}><strong>{item.title}</strong><span>{item.description}</span><span aria-hidden="true">↗</span></Link>)}</nav>
+      <DocSection title="A few things to know">
+        <div className={styles.faq}>{DOC_FAQ.map(row=><details key={row.q}><summary>{row.q}</summary><p>{row.a}</p></details>)}</div>
+      </DocSection>
+      <DocsEnd />
+    </DocPage>
+  </>;
 }

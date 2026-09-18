@@ -1,65 +1,17 @@
-import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
-import { DocPage, DocSection } from "@/components/DocPage";
+import { DocPage,DocSection } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
-import { METHOD_FAMILIES, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
-
-export const metadata = pageMeta({
-  title: "Sales methodologies",
-  description:
-    "MEDDIC, MEDDPICC, BANT, BEBEDC, SPIN, Challenger, SONCAS, CRAC — 3xrep names what's missing with the words your team already uses. Evidence from the buyer, not a course.",
-  path: "/docs/methods",
-});
-
-export default function MethodsPage() {
-  return (
-    <>
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Docs", path: "/docs" },
-          { name: "Methods", path: "/docs/methods" },
-        ])}
-      />
-      <DocPage
-        title="Sales methodologies"
-        lead="We don't teach the grid. We name what's missing with the words your team already uses. Several methods can name the same piece. A green checkbox without a quote is empty."
-      >
-        <DocSection title="Not a course. Not one right grid.">
-          <p>
-            ChatGPT will explain MEDDIC. 3xrep asks whether the person who
-            signs is held on this deal — from what they said, not from the
-            field you ticked. The same gap is Authority and Décideurs. We
-            don&apos;t pick a winner.{" "}
-            <Link href="/docs/how-it-works" className="text-foreground hover:underline">
-              How it works
-            </Link>
-            .
-          </p>
-        </DocSection>
-
-        {METHOD_FAMILIES.map((family) => (
-          <DocSection key={family.title} title={family.title}>
-            <p>{family.lead}</p>
-            {family.methods.map((method) => (
-              <div key={method.name} className="space-y-2 pt-4">
-                <h3 className="text-foreground">{method.name}</h3>
-                <p className="text-dim text-[0.8125rem]">{method.parts}</p>
-                <p>{method.forces}</p>
-              </div>
-            ))}
-          </DocSection>
-        ))}
-
-        <DocSection title="The overlap is the point">
-          <p>
-            Who signs: Economic Buyer, Authority, Décideurs. The number: a
-            figure they said, not a slide. We attach all the names that fit.
-            We don&apos;t quiz you on the letters.
-          </p>
-        </DocSection>
-
-        <DocsEnd />
-      </DocPage>
-    </>
-  );
-}
+import { METHOD_FAMILIES,breadcrumbJsonLd,pageMeta } from "@/lib/docs";
+import styles from "@/components/docs.module.css";
+export const metadata=pageMeta({title:"The sales methods behind 3xrep",description:"How 3xrep uses sales methods to explain a recommendation and adapt it to the deal in front of you.",path:"/docs/methods"});
+export default function MethodsPage(){return <>
+  <JsonLd data={breadcrumbJsonLd([{name:"Guide",path:"/docs"},{name:"Sales methods",path:"/docs/methods"}])}/>
+  <DocPage title="A reason behind the recommendation." lead="Sales methods help 3xrep explain why a question matters or a next step is worth taking. The advice should fit your deal, from a short buying cycle to a decision involving several people.">
+    <DocSection title="The method helps you ask a better question."><p>Suppose you know who uses the product, but not who approves the purchase. Different methods give that question different names: Economic Buyer in MEDDIC, Authority in BANT, Décideurs in BEBEDC.</p><p>The practical next step is to clarify how the purchase gets approved. You can use that advice without memorizing a framework.</p></DocSection>
+    <DocSection title="Explore the methods by what they help with."><p>Open a group to see the ideas behind the advice. These are reference descriptions, not a checklist every deal must follow.</p>
+      <div className={styles.reference}>{METHOD_FAMILIES.map(family=><details key={family.title}><summary>{family.title}</summary><p>{family.lead}</p><dl>{family.methods.map(method=><div key={method.name}><dt>{method.name}</dt><dd className={styles.parts}>{method.parts}</dd><dd>{method.forces}</dd></div>)}</dl></details>)}</div>
+    </DocSection>
+    <DocSection title="The evidence still comes first."><p>A framework does not prove that a deal is ready to progress. 3xrep works from the context available, distinguishes assumptions from support, and asks for what is missing.</p><p>As new information arrives, the recommendation can change. A useful method helps explain that change.</p></DocSection>
+    <DocsEnd />
+  </DocPage>
+</>;}

@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...docs,
-    ...EXTRA.map((path) => ({
+    ...EXTRA.filter((path) => !DOC_NAV.some((item) => item.href === path)).map((path) => ({
       url: `${base}${path}`,
       changeFrequency: "monthly" as const,
       priority: path === "/install" ? 0.8 : 0.5,

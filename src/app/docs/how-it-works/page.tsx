@@ -1,105 +1,35 @@
 import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
-import { DocPage, DocSection } from "@/components/DocPage";
+import { DocPage, DocSection, DocPrompt } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
 import { TOOLS, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
-
-export const metadata = pageMeta({
-  title: "How 3xrep works",
-  description:
-    "Two connectors: HubSpot is the file, 3xrep is the judgment. Held, assumed, or empty — from what the buyer said. We don't join your calls.",
-  path: "/docs/how-it-works",
-});
-
-export default function HowItWorksPage() {
-  return (
-    <>
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Docs", path: "/docs" },
-          { name: "How it works", path: "/docs/how-it-works" },
-        ])}
-      />
-      <DocPage
-        title="How it works"
-        lead="You talk to Claude. Claude has two connectors. One reads the file. One judges it. We don't join your calls. We don't write to HubSpot."
-      >
-        <DocSection title="Two connectors">
-          <p>He lives in Claude or ChatGPT, next to HubSpot. Not inside HubSpot.</p>
-          <p>
-            3xrep does not read HubSpot itself. It receives what Claude already
-            pulled — notes, mails, meetings, transcripts on the record — and
-            returns held, assumed, or empty.{" "}
-            <Link href="/install" className="text-foreground hover:underline">
-              Install
-            </Link>{" "}
-            is those two steps.
-          </p>
-          <p>
-            A correction to a field is said, then written by you through
-            HubSpot, after you confirm. Call text lasts fourteen days, then
-            goes.
-          </p>
-        </DocSection>
-
-        <DocSection title="Why Claude alone is not enough">
-          <p>
-            Ask for MEDDIC, you get a checklist. Ask for a coaching email, you
-            get a polite paragraph. That is a file of instructions the model
-            can ignore the moment it wants to be useful.
-          </p>
-          <p>
-            A director does not believe HubSpot because someone ticked a box.
-            He asks what the buyer said, on which call, and whether the door
-            was closed. If the quote is missing, the piece is empty. If the
-            call is missing, he refuses to fill the gap. That refusal is the
-            product.
-          </p>
-        </DocSection>
-
-        <DocSection title="What the buyer said">
-          <p>
-            Before it calls a tool, Claude extracts exhibits: who spoke,
-            source, date, exact quote, which piece, whether they affirm or
-            deny.
-          </p>
-          <ul className="list-disc space-y-3 pl-5">
-            <li>
-              Held only if the buyer said it on a call, a mail, or a meeting,
-              and the door was closed.
-            </li>
-            <li>A note from the commercial is a claim, not a fact.</li>
-            <li>A title — CFO, manager — is a label, not proof.</li>
-            <li>A green checkbox without a quote is empty.</li>
-            <li>
-              No transcript: paste it in this chat, or connect a notetaker so
-              the next call lands on the deal. We don&apos;t invent the line
-              they never said.
-            </li>
-          </ul>
-        </DocSection>
-
-        <DocSection title="What the tools return">
-          <ul className="space-y-3">
-            {TOOLS.map(([name, job]) => (
-              <li key={name}>
-                <span className="text-foreground">{name}</span>
-                <span> — {job}</span>
-              </li>
-            ))}
-          </ul>
-          <p>
-            No probability of close. No &ldquo;you close Friday.&rdquo; No
-            write to HubSpot.{" "}
-            <Link href="/spec" className="text-foreground hover:underline">
-              Spec
-            </Link>{" "}
-            is the text that travels with them.
-          </p>
-        </DocSection>
-
-        <DocsEnd />
-      </DocPage>
-    </>
-  );
-}
+import styles from "@/components/docs.module.css";
+export const metadata=pageMeta({title:"How 3xrep works",description:"Your AI brings the context. 3xrep helps you find the priority, understand what is missing, and choose a next move.",path:"/docs/how-it-works"});
+export default function HowItWorksPage(){return <>
+  <JsonLd data={breadcrumbJsonLd([{name:"Guide",path:"/docs"},{name:"How it works",path:"/docs/how-it-works"}])}/>
+  <DocPage title="Your context. A clearer next move." lead="Your CRM, inbox and calendar tell your AI what happened. 3xrep adds sales judgment so you can decide what deserves attention next.">
+    <DocSection title="It starts in your usual chat.">
+      <p>Add 3xrep as a connector in your AI assistant, alongside the tools you use for work. Your assistant brings the relevant notes, messages and deal details to 3xrep. You keep talking in the same chat.</p>
+      <p>Start with Claude and a connected CRM. Inbox and calendar access make the day easier to plan. If a source is unavailable, work from the context you have. <Link href="/install">See the connection steps and requirements</Link>.</p>
+      <p className={styles.note}>ChatGPT Work setup is documented; end-to-end validation is still in progress. Availability depends on your workspace and connectors.</p>
+    </DocSection>
+    <DocSection title="Ask about a real moment.">
+      <p>Before a call, bring the latest deal context. After it, bring what the buyer said. When they reply, return to the conversation. New evidence can change the advice.</p>
+      <DocPrompt>They asked for a proposal. What should I clarify before sending it?</DocPrompt>
+    </DocSection>
+    <DocSection title="Get an action and a reason.">
+      <p>3xrep looks at what is supported by the available evidence, what is still an assumption, and what needs clarifying. It recommends a sales move and explains the reasoning behind it.</p>
+      <p>For example, a buyer asking for a proposal may still leave a question open: who will approve the purchase? The next useful step could be bringing that person into the conversation.</p>
+      <p>If information is missing, 3xrep says so. It can still help with the available context, without inventing a quote or treating a CRM field as proof.</p>
+    </DocSection>
+    <DocSection title="You decide what happens next.">
+      <p>Your AI can help draft a reply or prepare a note from the recommendation. You review it and decide what to send. Changes to your CRM happen through your own tools, with your approval.</p>
+      <p>3xrep does not join calls or write to your CRM. <Link href="/docs/gong-alternative">Read how context and memory are handled</Link>.</p>
+    </DocSection>
+    <DocSection title="If you want to see the tools">
+      <div className={styles.reference}><details><summary>The tools your assistant uses</summary><dl>{TOOLS.map(([name,job])=><div key={name}><dt><code>{name}</code></dt><dd>{job}</dd></div>)}</dl></details></div>
+      <p>You do not need to remember their names. Ask in your own words. The <Link href="/spec">agent setup instructions</Link> describe how your assistant should use them.</p>
+    </DocSection>
+    <DocsEnd />
+  </DocPage>
+</>;}

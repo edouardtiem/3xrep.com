@@ -1,52 +1,16 @@
+import Link from "next/link";
 import { DocsEnd } from "@/components/DocsEnd";
-import { DocPage, DocSection } from "@/components/DocPage";
+import { DocPage, DocSection, DocPrompt } from "@/components/DocPage";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbJsonLd, pageMeta } from "@/lib/docs";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
-import { TRUST_LINE } from "@/lib/copy";
-
-export const metadata = pageMeta({
-  title: "AI that reviews the pipeline and says which stages are a lie",
-  description:
-    "Deal stuck after discovery. The CRM is still green. A director who names the stage that isn't true and the close date that is a guess. It does not record calls. From $" +
-    LIST_PRICE_USD +
-    " a month for the whole company.",
-  path: "/docs/pipeline-review",
-});
-
-export default function PipelineReviewPage() {
-  return (
-    <>
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Docs", path: "/docs" },
-          { name: "Pipeline review", path: "/docs/pipeline-review" },
-        ])}
-      />
-      <DocPage
-        title="AI that reviews the pipeline and says which stages are a lie"
-        lead={`HubSpot is green because someone ticked a box. He reads the calls already on the record — through your connector, not ours — and names the stage that isn't true. Discovery happened. Nobody who can sign. The close date is a guess. $${LIST_PRICE_USD} a month for the whole company.`}
-      >
-        <DocSection title="What a Monday review actually returns">
-          <p>
-            Not a forecast. Not a percentage. Four written cuts: the list, at
-            risk, this month, this month at risk. Then each file: a sales
-            move, a date in the prospect&apos;s calendar. Solid or fragile.
-            One house rule.
-          </p>
-          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
-        </DocSection>
-
-        <DocSection title="Not a recorder. Not a coaching tab.">
-          <p>
-            We do not join the call. We do not score talk-to-listen. We do not
-            write the stage back to HubSpot. If you want a note on the deal,
-            Claude writes it through HubSpot, after you confirm.
-          </p>
-        </DocSection>
-
-        <DocsEnd />
-      </DocPage>
-    </>
-  );
-}
+import { breadcrumbJsonLd,pageMeta } from "@/lib/docs";
+export const metadata=pageMeta({title:"Review your pipeline with 3xrep",description:"Find what needs attention across your deals, question unsupported close dates, and prepare for the next 7 or 30 days.",path:"/docs/pipeline-review"});
+export default function PipelineReviewPage(){return <>
+  <JsonLd data={breadcrumbJsonLd([{name:"Guide",path:"/docs"},{name:"Your pipeline",path:"/docs/pipeline-review"}])}/>
+  <DocPage title="See what needs attention across your deals." lead="A pipeline review should help you decide where to spend your time. Bring the deal context into your chat and ask what needs a closer look.">
+    <DocSection title="Start with what the deals actually show."><p>Your CRM may say “proposal” while the person approving the purchase is still unknown. A close date may be entered before the buyer’s decision process is clear. 3xrep helps you spot those gaps and choose a next move for each deal.</p><DocPrompt>Review my open deals. Which ones need attention, and what should I do next?</DocPrompt></DocSection>
+    <DocSection title="Use the view that fits your question."><p><strong>Today:</strong> prepare for the conversations and commitments in front of you.</p><p><strong>Next 7 days:</strong> see what needs preparing before it becomes urgent.</p><p><strong>Next 30 days:</strong> take a longer view of upcoming decisions and open questions.</p><p>A review across deals and a plan for your calendar answer different questions. Your assistant can use both when the relevant context is available.</p><DocPrompt>Look at the next 30 days. Which buyer decisions should I prepare for?</DocPrompt></DocSection>
+    <DocSection title="Ask why a date or stage is uncertain."><p>The useful answer names the evidence and the question still open. For example: has the buyer confirmed who decides, what they need to see, and when they can make that decision?</p><p>3xrep does not turn those gaps into a made-up probability of winning. It gives you something to investigate or act on.</p></DocSection>
+    <DocSection title="Keep the next review connected to the work."><p>When new information arrives, return to the deal in your chat. Where a stable CRM deal identifier is available, 3xrep keeps a compact record of gaps to support continuity.</p><p>Your assistant’s current context still matters. <Link href="/docs/gong-alternative">Read what 3xrep remembers</Link>.</p></DocSection>
+    <DocsEnd />
+  </DocPage>
+</>;}

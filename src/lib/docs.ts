@@ -3,26 +3,26 @@ import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { siteUrl } from "@/lib/site";
 
 export const DOC_NAV = [
-  { href: "/docs", label: "Overview" },
+  { href: "/docs", label: "Start here" },
   { href: "/docs/how-it-works", label: "How it works" },
-  { href: "/docs/use-cases", label: "Use cases" },
-  { href: "/docs/methods", label: "Methods" },
+  { href: "/docs/use-cases", label: "Questions to try" },
+  { href: "/docs/pipeline-review", label: "Your pipeline" },
+  { href: "/docs/methods", label: "Sales methods" },
+  { href: "/docs/gong-alternative", label: "Context & privacy" },
+  { href: "/docs/pricing", label: "Beta & pricing" },
 ] as const;
 
 export const TOOLS = [
-  [
-    "pipe_review",
-    "Several deals. Monday page: written totals, at risk = not market practice, one move per deal.",
-  ],
-  [
-    "audit_deal",
-    "One call. The /10, the miss quoted, three locks, a plan on their calendar, one objective.",
-  ],
-  ["next_question", "The question, why, who must be in the room — not send-the-contract."],
-  ["objection_map", "Their sentence → the hole. Dig in the next meeting, don't reply by email."],
-  ["methode_lookup", "MEDDIC, BANT, BEBEDC… a notion, not a deal."],
-  ["rattacher", "One sentence from a call → which method, which part."],
-  ["set_org_profile", "Once: title, mission, their company URL."],
+  ["plan_horizon", "Plan today, the next 7 days or the next 30 days using the context your assistant brings."],
+  ["pipe_review", "Review several deals, identify open questions and suggest a next move for each."],
+  ["audit_deal", "Examine one deal, explain what is supported and what still needs clarifying."],
+  ["next_question", "Suggest the question or action that would help move a deal forward."],
+  ["objection_map", "Work from the buyer’s actual objection to identify what to explore next."],
+  ["methode_lookup", "Explain a sales method or one of its concepts."],
+  ["rattacher", "Connect a short statement to the relevant sales-method concepts."],
+  ["set_org_profile", "Save your role and company context to make the advice more relevant."],
+  ["workspace_status", "Check your workspace’s access, beta or Founding status."],
+  ["beta_feedback", "Save feedback on a result when you choose to share it."],
 ] as const;
 
 export type CrmDocLink = { label: string; href: string };
@@ -125,223 +125,196 @@ export const METHOD_FAMILIES: readonly {
   methods: readonly MethodEntry[];
 }[] = [
   {
-    title: "Qualification — the file",
-    lead: "The boxes. A box ticked without proof is empty.",
+    title: "Understanding the deal",
+    lead: "Who is involved, what matters to them and how they will decide.",
     methods: [
       {
         name: "BANT",
         parts: "Budget, Authority, Need, Timeline",
         forces:
-          "Short cycle. Authority is who signs, not who took the call.",
+          "Clarify the need, budget, timing and who can approve the purchase.",
       },
       {
         name: "MEDDIC",
         parts:
           "Metrics, Economic Buyer, Decision criteria, Decision process, Identify pain, Champion",
         forces:
-          "Committee deals. A missing letter — or a letter checked without a quote — is a deal that stalls.",
+          "Explore measurable value, the decision process and the people involved in a more complex deal.",
       },
       {
         name: "MEDDPICC",
         parts: "MEDDIC + Paper process + Competition",
         forces:
-          "Legal, procurement, and the real alternative — including doing nothing.",
+          "Bring procurement, legal steps and competing options into the conversation.",
       },
       {
         name: "BEBEDC",
         parts: "Besoin, Enjeu, Budget, Échéance, Décideurs, Concurrents",
         forces:
-          "French discovery grid. Décideurs is not the ops on the call. Enjeu is not Besoin.",
+          "Separate the business need from what is at stake, then clarify budget, timing, decision-makers and alternatives.",
       },
       {
         name: "SPICED",
         parts: "Situation, Pain, Impact, Critical event, Decision",
-        forces: "Why now. A date without a critical event is a hope.",
+        forces: "Connect the problem and its impact to an event that makes timing matter.",
       },
       {
         name: "CHAMP",
         parts: "Challenges, Authority, Money, Prioritization",
-        forces: "Start from their challenge, not from your budget field.",
+        forces: "Start with the customer’s challenge, then explore authority, budget and priority.",
       },
       {
         name: "GPCT",
         parts: "Goals, Plans, Challenges, Timeline",
-        forces: "What they already planned. A goal without a plan is a wish.",
+        forces: "Understand what the buyer wants to achieve, what they have planned and what stands in the way.",
       },
       {
         name: "ANUM",
         parts: "Authority, Need, Urgency, Money",
-        forces: "Authority first. Don't demo for someone who can't sign.",
+        forces: "Clarify decision authority alongside the need, urgency and funding.",
       },
       {
         name: "NEAT",
         parts: "Need, Economic impact, Access to authority, Timeline",
-        forces: "Access is a piece. 'We'll bring the CFO later' is not access.",
+        forces: "Explore the economic impact and how to reach the people involved in the decision.",
       },
       {
         name: "Strategic Selling",
         parts: "Buying influences — economic, user, technical, coach",
         forces:
-          "Map the room. One friendly user is not a buying committee.",
+          "Map the different people who influence a purchase and the role each plays.",
       },
     ],
   },
   {
-    title: "Motivation — this person",
-    lead: "The ops and the CFO don't move on the same lever. A persona is not a person.",
+    title: "Understanding the person",
+    lead: "Look for the priorities expressed by this buyer.",
     methods: [
       {
         name: "SONCAS",
         parts: "Sécurité, Orgueil, Nouveauté, Confort, Argent, Sympathie",
         forces:
-          "What moves this person. Talking money to pride, or pride to a CFO, is a hole.",
+          "Explore what matters to this person using what they say, rather than assumptions about their job title.",
       },
       {
         name: "SONCASE",
         parts: "SONCAS + Environnement",
-        forces: "Same grid, plus the sustainability lever when they named it.",
+        forces: "Include environmental concerns when the buyer identifies them as a priority.",
       },
     ],
   },
   {
-    title: "The number",
-    lead: "A slide is not a metric. The buyer has to say the number.",
+    title: "Making value concrete",
+    lead: "Connect the problem to an impact the buyer can recognize.",
     methods: [
       {
         name: "Cost of inaction",
         parts: "Time, risk, downtime, missed revenue — in a number they own",
         forces:
-          "MEDDIC Metrics and BEBEDC Enjeu in figures. If they say 'too expensive' and you have no number, you have nothing to put on the table.",
+          "Work with the buyer to quantify the time, cost or risk of leaving the problem unresolved.",
       },
     ],
   },
   {
-    title: "Questioning",
-    lead: "Situation questions fill a CRM. They don't hold a piece.",
+    title: "Asking useful questions",
+    lead: "Help the buyer explore the problem and the outcome they want.",
     methods: [
       {
         name: "SPIN",
         parts: "Situation, Problem, Implication, Need-payoff",
         forces:
-          "Don't stay in situation. Implication is where pain becomes a reason to move.",
+          "Move from understanding the situation to exploring the problem, its consequences and the value of solving it.",
       },
       {
         name: "Gap Selling",
         parts: "Current state vs future state",
         forces:
-          "The gap has to be theirs, measured. Your future-state slide is a claim.",
+          "Clarify the distance between the current situation and the outcome the buyer wants.",
       },
     ],
   },
   {
-    title: "Argument — advancing",
-    lead: "An objection is usually a piece that isn't held. Don't punch a line.",
+    title: "Explaining and responding",
+    lead: "Make the value clear and work through concerns with the buyer.",
     methods: [
       {
         name: "CAB",
         parts: "Characteristic → Advantage → Benefit",
-        forces: "Start from the offer. Benefit is the last step, not the first.",
+        forces: "Connect a feature to an advantage and a benefit that is relevant to the buyer.",
       },
       {
         name: "BAC",
         parts: "Benefit → Advantage → Characteristic",
-        forces: "Start from them. The feature is only the proof.",
+        forces: "Start with the buyer’s benefit, then explain the advantage and the feature behind it.",
       },
       {
         name: "CRAC",
         parts: "Creuser, Reformuler, Argumenter, Contrôler",
         forces:
-          "Treat the objection before you reply. Dig first. The no is the empty box.",
+          "Explore the objection, check your understanding, respond and verify whether the concern is resolved.",
       },
       {
         name: "Points brûlés",
         parts: "A locked agreement you don't reopen",
-        forces: "Advance by small yeses. Reopening a burned point is a hole.",
+        forces: "Build on agreements already reached while staying open to genuinely new information.",
       },
       {
         name: "SNAP",
         parts: "Simple, iNvaluable, Aligned, Priority",
-        forces: "They are overwhelmed. Complexity is not rigor.",
+        forces: "Keep the next step simple, useful, aligned with the buyer’s needs and worth their attention.",
       },
     ],
   },
   {
-    title: "Negotiation",
-    lead: "Giving without a return is a hole. Discount, delay, scope, access: each concession costs.",
+    title: "Negotiating the next step",
+    lead: "Make the terms and the exchange clear to both sides.",
     methods: [
       {
         name: "Contreparties",
         parts: "Nothing for nothing",
         forces:
-          "A discount that doesn't buy the economic buyer, a date, or a process is a gift.",
+          "Make the exchange behind a concession explicit, whether it concerns price, scope or timing.",
       },
       {
         name: "4C",
         parts: "Contexte, Critères, Compromis, Contrôle",
-        forces: "Name the trade before you move a number.",
+        forces: "Clarify the context and criteria before agreeing on a compromise and checking the outcome.",
       },
     ],
   },
   {
-    title: "Cycle and posture",
-    lead: "A stage name is not a state. A nice relationship is not a champion.",
+    title: "Guiding the conversation",
+    lead: "Match the approach to the stage and the people involved.",
     methods: [
       {
         name: "SPANCO",
         parts: "Suspect, Prospect, Approach, Negotiation, Closing, Order",
         forces:
-          "The cycle as they name it. Jumping a stage in the CRM without the piece is illegal.",
+          "Use the sales stage as a starting point, then check whether the deal’s evidence supports it.",
       },
       {
         name: "Challenger",
         parts: "Teach, Tailor, Take control",
         forces:
-          "The account is often in the status quo. Being liked is not teaching.",
+          "Offer a relevant perspective, adapt it to the buyer and help the conversation move toward a decision.",
       },
       {
         name: "Sandler",
         parts: "Pain, budget, decision — equal business stature",
         forces:
-          "Don't chase. A student who won't let you test pain is not a deal.",
+          "Discuss the problem, budget and decision process openly, with a balanced working relationship.",
       },
     ],
   },
 ];
 
 export const DOC_FAQ = [
-  {
-    q: "What is 3xrep?",
-    a:
-      "He lives in Claude or ChatGPT, next to HubSpot. He reads the calls behind the fields and names what's missing, and the stage that isn't true. Standard price: $" +
-      LIST_PRICE_USD +
-      " a month for the whole company.",
-  },
-  {
-    q: "How is 3xrep different from Claude or ChatGPT?",
-    a: "Claude and ChatGPT can recite MEDDIC. They stay polite. They believe the green box. 3xrep asks what the buyer said. If the quote is missing, the piece is empty. A file of instructions can be ignored. The verdict cannot.",
-  },
-  {
-    q: "Do you record calls or write to the CRM?",
-    a: "We don't join your calls. We don't write to your CRM. Call text is kept 14 days, then deleted. We remember what's missing, not the call. Your assistant reads the file through HubSpot or Salesforce. If you want a note on the record, your assistant writes it — after you confirm.",
-  },
-  {
-    q: "Is 3xrep an alternative to Gong that doesn't record calls?",
-    a:
-      "Gong records your calls — about $1,250 a month for a team of ten. 3xrep does not join your calls. He lives in Claude or ChatGPT, next to HubSpot. $" +
-      LIST_PRICE_USD +
-      " a month for the whole company.",
-  },
-  {
-    q: "How much does 3xrep cost?",
-    a:
-      "$" +
-      LIST_PRICE_USD +
-      " a month for the whole company at the standard price. No per-seat charge. See /start for the current beta or trial offer. We don't join your calls.",
-  },
-  {
-    q: "Which CRMs work with 3xrep?",
-    a: "HubSpot, Salesforce, Pipedrive, Attio, Notion, Close — any file that ships an official connector your assistant can add. Nothing to install inside HubSpot. No 3xrep tab.",
-  },
+  { q: "Where do I use 3xrep?", a: "In your AI chat. Start with Claude and your connected CRM, then add your inbox and calendar when available. The connection guide covers setup requirements. ChatGPT Work validation is still in progress." },
+  { q: "What does 3xrep add to my assistant?", a: "Sales judgment grounded in the context of your deal: what needs attention, what is still uncertain, and a useful next move with a reason behind it. Sales methods guide the advice; the situation determines how they apply." },
+  { q: "Do I need a transcript?", a: "A transcript can help, but you can also work from notes and messages. Bring what you have into your chat. 3xrep should make uncertainty clear instead of inventing something the buyer never said." },
+  { q: "Does 3xrep record calls or change my CRM?", a: "3xrep does not join calls or write to your CRM. Tool inputs and results, including any call text sent to 3xrep, are kept for 14 days and then deleted. A compact record of deal gaps remains without transcripts. Usage metadata and voluntary feedback are stored separately." },
+  { q: "Is my workspace free forever when I sign up?", a: "No. During an open beta, you can try 3xrep without a credit card. Founding status is awarded manually after meaningful use, within a limit of 20 organizations. Only an awarded Founding workspace keeps its base plan free forever. See Beta & pricing for the current offer." },
+  { q: "Can my whole team use it?", a: "Access belongs to the organization. Your workspace administrator may need to allow the connector, and each person’s access to the CRM still depends on the permissions in your own tools. The standard plan is priced per company, not per seat." },
 ] as const;
 
 export function pageMeta({
@@ -413,9 +386,11 @@ export function softwareJsonLd() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "Lives in Claude or ChatGPT, next to HubSpot. Judges deals from what the buyer said. Does not join calls. Does not write to the CRM.",
+      "A sales buddy in your AI chat. Helps prioritize your day, prepare conversations and choose the next move using the context you bring.",
     offers: {
       "@type": "Offer",
+      name: "Standard monthly plan per organization",
+      url: `${siteUrl()}/docs/pricing`,
       price: String(LIST_PRICE_USD),
       priceCurrency: "USD",
     },

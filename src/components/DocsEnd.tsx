@@ -1,19 +1,8 @@
 import Link from "next/link";
-
+import styles from "./docs.module.css";
 export function DocsEnd() {
-  return (
-    <section className="border-t border-line pt-16">
-      <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-        Add him to Claude. Next to HubSpot.
-      </p>
-      <p className="mt-8">
-        <Link
-          href="/start"
-          className="inline-block cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-        >
-          Start without a card
-        </Link>
-      </p>
-    </section>
-  );
+  return <section className={styles.end}>
+    <div><h2>Bring your next deal.</h2><p>Start with one question in your usual AI chat.</p></div>
+    <Link href="/start" className={styles.button}>Get started <span aria-hidden="true">↗</span></Link>
+  </section>;
 }

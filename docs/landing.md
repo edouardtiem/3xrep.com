@@ -27,3 +27,9 @@ Accueil indexable, adresse canonique `/`, titre et description dédiés, métado
 ## Validation des besoins
 
 [Recherche du 15 septembre](market/recherche-commerciale.md) et [vérification de la page](audits/2026-09-16-buddy-landing.md). La cohérence du message est vérifiée. Les essais réels du produit dans Claude et ChatGPT Work restent à faire.
+
+## Documentation publique — 18 septembre 2026
+
+Les sept pages `/docs` suivent la voix sales buddy : journée, préparation, prochain geste et retour après un échange. Navigation complète, colonne de lecture, rubriques repliables pour les questions, méthodes et outils. Même papier gris, typographie et cuivre que l’accueil. Les exemples ne promettent ni résultat ni accès universel aux connecteurs.
+
+`/docs/gong-alternative` conserve son adresse mais devient le guide « Context & privacy » : notes, mémoire, conservation et place des outils de capture. Suppression des comparaisons de prix concurrentes non vérifiées. La page tarifs conserve les états bêta ouverte, places complètes et parcours standard. Les adresses existantes restent accessibles et les métadonnées suivent les nouveaux textes.

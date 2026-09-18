@@ -1,33 +1,14 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DOC_NAV } from "@/lib/docs";
+import styles from "./docs.module.css";
 
 export function DocsNav() {
-  const path = usePathname();
-
-  return (
-    <nav aria-label="Docs" className="border-b border-line">
-      <ul className="mx-auto flex w-full max-w-[40rem] gap-6 overflow-x-auto px-5 py-4 text-[0.8125rem] sm:px-10">
-        {DOC_NAV.map((item) => {
-          const on =
-            item.href === "/docs"
-              ? path === "/docs"
-              : path === item.href || path.startsWith(`${item.href}/`);
-          return (
-            <li key={item.href} className="shrink-0">
-              <Link
-                href={item.href}
-                aria-current={on ? "page" : undefined}
-                className={on ? "text-foreground" : "text-mute hover:text-foreground"}
-              >
-                {item.label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
+  const path=usePathname();
+  return <nav aria-label="Documentation" className={styles.nav}>
+    <p className={styles.navTitle}>The 3xrep guide</p>
+    <ul>{DOC_NAV.map(item=><li key={item.href}><Link href={item.href} aria-current={path===item.href ? "page" : undefined}>{item.label}</Link></li>)}</ul>
+    <Link href="/install" className={styles.setup}>Connect 3xrep <span aria-hidden="true">↗</span></Link>
+  </nav>;
 }
