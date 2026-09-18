@@ -312,7 +312,7 @@ export const DOC_FAQ = [
   {
     q: "What is 3xrep?",
     a:
-      "He lives in Claude or ChatGPT, next to HubSpot. He reads the calls behind the fields and names what's missing, and the stage that isn't true. 14 days free, then $" +
+      "He lives in Claude or ChatGPT, next to HubSpot. He reads the calls behind the fields and names what's missing, and the stage that isn't true. Standard price: $" +
       LIST_PRICE_USD +
       " a month for the whole company.",
   },
@@ -336,7 +336,7 @@ export const DOC_FAQ = [
     a:
       "$" +
       LIST_PRICE_USD +
-      " a month for the whole company. Not per person who sells. 14 days free. We don't join your calls.",
+      " a month for the whole company at the standard price. No per-seat charge. See /start for the current beta or trial offer. We don't join your calls.",
   },
   {
     q: "Which CRMs work with 3xrep?",

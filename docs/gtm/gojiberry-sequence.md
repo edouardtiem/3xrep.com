@@ -1,83 +1,98 @@
-# Séquence Gojiberry — brouillon
+# Gojiberry — Founding 20
 
-**15 septembre 2026.** Brouillon. Pas allumé. Recherche : [../market/recherche-commerciale.md](../market/recherche-commerciale.md).
-
-Outil : Gojiberry. But : **inscriptions** (`/start`), pas de rendez-vous.
-
-Le compte a déjà un robot « VP of Sales ». **On ne le allume pas.** Nouvelle liste. Nouveau robot. Nouvelle campagne courriel seulement, **éteinte**, jusqu’au go. Il faudra coller une boîte mail avant d’envoyer.
-
-## Cible (test)
-
-Titres : Account Executive, Sales Executive, Account Manager, Sales Manager.
-
-Pas directeur. Pas responsable des ventes. Pas le chasseur de rendez-vous.
-
-Métier : Software Development & SaaS.
-
-Taille : 11–50 et 51–200.
-
-Lieux : États-Unis, Royaume-Uni, Canada.
-
-Maisons : privée, startup. Pas Gong, Clari, People.ai, Attention.
-
-Signaux pour **trouver** (pas pour écrire le mail) : ChatGPT, Claude, « pipeline review », Gong, activité récente.
+18 septembre 2026. Remplace le brouillon du 15 septembre. Livrable prêt à saisir dans Gojiberry ; aucun message envoyé, aucune campagne activée par cette implémentation.
 
 ## Campagne
 
-Courriel seulement. Texte **figé** (le même pour tout le monde), pas leur assistant.
+Nom : `3xrep — Founding 20 — EN`. Courriel seulement. Campagne indépendante du robot « VP of Sales ». Quatre étapes, arrêt immédiat après réponse ou désinscription. Jours 0, 3, 7 et 12. Ne pas contacter plusieurs personnes de la même entreprise en parallèle.
 
-Variable : `[FirstName]`.
+Cible : commerciaux, responsables commerciaux et dirigeants qui vendent, actifs sur LinkedIn, avec un propos concret sur leur métier. Priorité à ceux qui utilisent déjà Claude ou ChatGPT avec leur fichier client. Le titre seul ne suffit pas. Marchés anglophones, conformément au site. Le but est un essai sur un vrai dossier, pas un rendez-vous.
 
-Langue : anglais.
+Lien : `https://3xrep.com/start?utm_source=gojiberry&utm_medium=email&utm_campaign=founding-20`
 
-But dans Gojiberry : conversation, pas démo.
+X : `https://3xrep.com/start?utm_source=x&utm_medium=social&utm_campaign=founding-20`
 
-Trois mails. Stop.
+## Personnalisation vérifiable
 
-| Mail | Quand | Sujet |
-| --- | --- | --- |
-| 1 | jour 0 | if you don't use AI, delete this email |
-| 2 | +3 jours | they went quiet. you still have the number. |
-| 3 | +4 jours encore | should I stop |
+Conserver pour chaque contact : adresse de la publication, date, propos exact utile, raison du contact. Ces éléments restent dans l’outil de prospection ; ils ne vont pas dans les événements produit.
 
-Pas de lien dans les deux premiers. Ils répondent, on envoie `https://3xrep.com/start`. Lien seulement au troisième.
+La documentation officielle confirme `[FirstName]` et les modèles avec consignes : [fonctionnement des messages](https://help.gojiberry.ai/en/articles/12960286-how-ai-messages-work-very-important), [modèles](https://help.gojiberry.ai/en/articles/15964851-how-to-use-ai-templates). Les autres données se sélectionnent dans l’éditeur. Ne pas inventer `{{topic}}` ou `{{detail}}`.
 
-Jamais de calendrier. Si leur boîte unique propose un créneau : on envoie l’install.
+Les instructions en italiques ci-dessous servent à la génération ou à la préparation humaine. Elles ne doivent jamais apparaître dans un envoi. Vérifier chaque aperçu avant lancement. Si le prénom manque, supprimer la salutation.
 
-## Mail 1
+Consigne commune à coller dans le champ de génération :
 
-Subject: if you don't use AI, delete this email
+> Write as Edouard, the person building 3xrep. Use only the supplied prospect context. A specific opening must be backed by the saved post URL and an actual point in that post. Do not invent a quote, familiarity, a compliment, a customer, a result, or knowledge of their tools. If there is no usable post, use the fallback verbatim. Keep the offer and its conditions unchanged. A signup does not secure a Founding place. No meeting request. No sales jargon. No unfilled placeholders. Do not claim places remain unless availability was checked before sending.
+
+## 1 — Invitation, jour 0
+
+Subject: a sales question
 
 [FirstName] —
 
-if you do, I can help you close more deals. now. for free.
+*Une phrase sur un point précis de sa publication. Exemple de forme, jamais à copier sans preuve : « Your point about pipeline reviews turning into reporting meetings is exactly what I’m trying to work on. »*
 
-not a call. after the meeting, you know what to do next. on that deal. tonight.
+I’m building 3xrep to help work out what deserves attention next, using the sales context already in your AI chat.
 
-reply if you want the link.
+I’m looking for 20 teams to help shape it. I’d value your feedback on a real deal. No credit card during beta.
 
-## Mail 2
+Teams that qualify through real use and receive a Founding place keep the base plan free forever.
 
-Subject: they went quiet. you still have the number.
+Want to try it?
 
-happens all the time. they like the call. then nothing.
+Edouard
 
-I send you the next move. not a follow-up email. the thing to do on that deal. 14 days. no card.
+Repli sans publication exploitable : `I’m looking for people doing sales day to day to try something I’m building.` Remplace la première phrase ; ne prétend pas avoir lu une publication.
 
-reply if you want it.
+## 2 — Pourquoi cette personne, jour 3
 
-## Mail 3
+Subject: why I asked
 
-Subject: should I stop
+*Reprendre en une phrase la raison vérifiable du premier contact, sans nouvelle flatterie.*
 
-if you want it: 3 minutes. one link. your deals. 14 days free.
+I’m trying to learn whether 3xrep earns a place in a real sales day. Signups alone won’t tell me much.
 
-https://3xrep.com/start
+Happy to send the link if you’re curious.
 
-if not, I'll stop.
+Edouard
 
-## Suite
+Repli : `I’m asking people doing the work, because I need feedback on real deals.`
 
-1. Coller une boîte mail dans Gojiberry.
-2. Caler liste + robot + campagne **éteinte** avec ces textes.
-3. Édouard dit go.
+## 3 — Le retour dans l’usage, jour 7
+
+Subject: today, next week, next month
+
+One thing I’m testing with 3xrep:
+
+Today: what needs attention now.
+Next 7 days: what needs preparing.
+Next 30 days: what needs a longer view.
+
+It works from the context you bring through your AI chat. If it helps in your sales day, I want to know. If it misses, I need that too.
+
+Want the beta link?
+
+Edouard
+
+## 4 — Dernier message, jour 12
+
+Subject: last note
+
+I’ll leave it here.
+
+If you want to try 3xrep, the beta is free while it’s open:
+https://3xrep.com/start?utm_source=gojiberry&utm_medium=email&utm_campaign=founding-20
+
+The page explains whether Founding places are still available.
+
+Edouard
+
+## Préparation dans Gojiberry
+
+1. Créer la liste et la campagne dédiée, laissée éteinte.
+2. Ajouter les quatre étapes de courriel et leurs délais. Associer chaque modèle à son étape.
+3. Ajouter seulement des contacts dont les informations et la raison du contact sont vérifiées. Relire les premiers aperçus, puis tous ceux dont la personnalisation est incertaine.
+4. Relier une boîte d’envoi et vérifier les règles d’arrêt et de désinscription.
+5. Avant toute activation, vérifier que la bêta est ouverte sur `/start`. Les messages ne promettent jamais une place disponible sans vérification.
+
+Aucun accès Gojiberry n’est nécessaire pour utiliser ces textes comme livrable du dépôt. La saisie dans le compte et le lancement restent des opérations séparées.

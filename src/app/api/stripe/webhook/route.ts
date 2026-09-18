@@ -1,4 +1,5 @@
-import { attachStripe, issueKey, orgByCustomer, orgById, revokeByCustomer, setOrgStatus } from "@/lib/orgs";
+import { syncBaseSubscription } from "@/lib/stripe-base-access";
+import { attachStripe, issueKey, orgByCustomer, orgById, setOrgStatus } from "@/lib/orgs";
 import { applyQueuedCredits, creditParrainOnPaid, reverseCreditsForFilleul } from "@/lib/referrals";
 import { missingWebhookSecrets, stripeClient, stripeWebhookSecret } from "@/lib/stripe-env";
 import { statusAfterCheckout } from "@/lib/trial";
@@ -76,13 +77,17 @@ export async function POST(req: Request) {
           stripeSubscriptionId: sub,
           status: statusAfterCheckout(org, paid),
         });
+        if (sub) await syncBaseSubscription(stripe,org,sub);
         if (customer) await applyQueuedCredits(orgId);
       } else {
         await issueKey({
           stripeCustomerId: customer,
           stripeSessionId: session.id,
+          stripeSubscriptionId: sub,
           email: session.customer_email ?? session.customer_details?.email ?? null,
         });
+        const org=customer ? await orgByCustomer(customer) : null;
+        if(org && sub) await syncBaseSubscription(stripe,org,sub);
       }
     }
 
@@ -90,25 +95,11 @@ export async function POST(req: Request) {
       // Dashboard event. Cutoff is computed from trial_ends_at; no extra write.
     }
 
-    if (event.type === "customer.subscription.updated") {
-      const sub = event.data.object;
-      const cus = customerId(sub.customer);
-      if (!cus) return Response.json({ received: true });
-      const org = await orgByCustomer(cus);
-      if (!org) return Response.json({ received: true });
-      const extra: Record<string, unknown> = { stripe_subscription_id: sub.id };
-      if (sub.status === "active") await setOrgStatus(org.id, "active", extra);
-      else if (sub.status === "trialing") await setOrgStatus(org.id, "trial", extra);
-      else if (sub.status === "past_due" || sub.status === "unpaid" || sub.status === "incomplete_expired") {
-        await setOrgStatus(org.id, "lapsed", extra);
-      }
-      else if (sub.status === "canceled") await setOrgStatus(org.id, "canceled", extra);
-    }
-
-    if (event.type === "customer.subscription.deleted") {
-      const sub = event.data.object;
-      const id = customerId(sub.customer);
-      if (id) await revokeByCustomer(id);
+    if (event.type === "customer.subscription.updated" || event.type === "customer.subscription.deleted") {
+      const sub=event.data.object;
+      const cus=customerId(sub.customer);
+      const org=(cus ? await orgByCustomer(cus) : null) ?? (sub.metadata.org_id && UUID_RE.test(sub.metadata.org_id) ? await orgById(sub.metadata.org_id) : null);
+      if(org) await syncBaseSubscription(stripe,org,sub.id);
     }
 
     if (event.type === "invoice.paid") {
@@ -116,9 +107,14 @@ export async function POST(req: Request) {
       const cus = customerId(invoice.customer);
       if (cus && invoice.amount_paid > 0) {
         const org = await orgByCustomer(cus);
-        if (org) await setOrgStatus(org.id, "active");
+        const subscription=invoice.parent?.subscription_details?.subscription;
+        const subscriptionId=typeof subscription === "string" ? subscription : subscription?.id;
+        if (org && subscriptionId) await syncBaseSubscription(stripe,org,subscriptionId);
         const fp = await fingerprintFromInvoice(stripe, invoice);
-        if (fp && org) await setOrgStatus(org.id, "active", { card_fingerprint: fp });
+        if (fp && org) {
+          const fresh=await orgById(org.id);
+          if(fresh) await setOrgStatus(org.id, fresh.status as import("@/lib/trial").OrgStatus, { card_fingerprint: fp });
+        }
         await creditParrainOnPaid({
           filleulCustomerId: cus,
           amountPaid: invoice.amount_paid,

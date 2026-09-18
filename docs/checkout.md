@@ -1,5 +1,7 @@
 # Checkout $129 / org (USD anchor)
 
+**18 septembre 2026 — Founding 20 :** les règles ci-dessous décrivent le parcours standard. La bêta et les droits Founding sont indépendants du statut Stripe. Voir [la procédure actuelle](beta/founding-20.md). Le paiement exige désormais un lien signé lié à l’organisation ; les liens anonymes renvoient à `/start`.
+
 Marché US first — prix catalogue **$129 USD / mois / org**. Stripe Checkout : **langue** du navigateur (`Accept-Language` → locale Stripe) et **devise locale** quand [Adaptive Pricing](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing) est activé sur le compte. Palier septembre : **1 org payante à $129 avant le 30 sept.**
 
 Live (11 sept 2026, Édouard) : Price **129,00 USD** recurring monthly. Plus de 99 € sur le site ni au checkout.

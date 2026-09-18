@@ -11,7 +11,7 @@ export function DocsEnd() {
           href="/start"
           className="inline-block cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
         >
-          Start 14 days free
+          Start without a card
         </Link>
       </p>
     </section>

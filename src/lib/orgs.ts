@@ -1,3 +1,5 @@
+import type { FoundingFields } from "@/lib/founding";
+import { attribution } from "@/lib/founding";
 import type { SalesContext } from "@/lib/brain/types";
 import { createHash, randomBytes } from "node:crypto";
 import { admin } from "@/lib/supabase-admin";
@@ -8,7 +10,7 @@ export type Org = {
   status: string;
 };
 
-export type OrgRow = {
+export type OrgRow = FoundingFields & {
   id: string;
   status: OrgStatus | string;
   email: string | null;
@@ -31,7 +33,7 @@ export type OrgRow = {
 };
 
 const ORG_COLS =
-  "id, status, email, trial_days, trial_started_at, trial_ends_at, card_deadline_at, stripe_customer_id, stripe_subscription_id, stripe_session_id, referral_code, referred_by_org_id, title, mission, company_url, company_blurb, sales_context, card_fingerprint, start_token";
+  "id, status, email, trial_days, trial_started_at, trial_ends_at, card_deadline_at, stripe_customer_id, stripe_subscription_id, stripe_session_id, referral_code, referred_by_org_id, title, mission, company_url, company_blurb, sales_context, card_fingerprint, start_token, founding_state, founding_granted_at, beta_enrolled_at, beta_access_until, base_billing_blocked, comped, is_internal";
 
 function hashKey(plain: string): string {
   return createHash("sha256").update(plain).digest("hex");
@@ -69,6 +71,13 @@ export function tokenFromRequest(req: Request): string | null {
 
 function asRow(data: Record<string, unknown>): OrgRow {
   return {
+    founding_state: String(data.founding_state ?? "none"),
+    founding_granted_at: data.founding_granted_at as string | null,
+    beta_enrolled_at: data.beta_enrolled_at as string | null,
+    beta_access_until: data.beta_access_until as string | null,
+    base_billing_blocked: data.base_billing_blocked === true,
+    comped: data.comped === true,
+    is_internal: data.is_internal === true,
     id: String(data.id),
     status: String(data.status),
     email: (data.email as string | null) ?? null,
@@ -180,7 +189,7 @@ export async function orgBySession(sessionId: string): Promise<OrgRow | null> {
 export async function orgByEmail(email: string): Promise<OrgRow | null> {
   const db = admin();
   if (!db) return null;
-  const { data, error } = await db.from("orgs").select(ORG_COLS).ilike("email", email).maybeSingle();
+  const { data, error } = await db.from("orgs").select(ORG_COLS).eq("email", normalizeEmail(email)).maybeSingle();
   if (error || !data) return null;
   return asRow(data as Record<string, unknown>);
 }
@@ -188,6 +197,7 @@ export async function orgByEmail(email: string): Promise<OrgRow | null> {
 export async function startTrialOrg(input: {
   email: string;
   ref?: string | null;
+  source?: string; campaign?: string; medium?: string;
 }): Promise<{ key: string; startToken: string; row: OrgRow } | { exists: true }> {
   const db = admin();
   if (!db) {
@@ -217,6 +227,7 @@ export async function startTrialOrg(input: {
       referral_code: code,
       referred_by_org_id: referredBy,
       start_token: startToken,
+      ...attribution({ source: input.source || (referredBy ? "referral" : undefined), campaign: input.campaign, medium: input.medium }),
     });
     if (!error) {
       const row = await orgByEmail(email);
@@ -246,7 +257,7 @@ export async function revealStartKey(token: string): Promise<string | null> {
 }
 
 export async function startTrialClock(org: OrgRow, now: Date = new Date()): Promise<OrgRow> {
-  if (org.id === "dev" || org.trial_started_at) return org;
+  if (org.id === "dev" || org.trial_started_at || org.beta_enrolled_at || org.founding_state === "founding" || org.comped || org.status === "active") return org;
   const db = admin();
   if (!db) return org;
   const days = org.trial_days || trialDaysFor(Boolean(org.referred_by_org_id));
@@ -257,8 +268,9 @@ export async function startTrialClock(org: OrgRow, now: Date = new Date()): Prom
     card_deadline_at: w.cardDeadline.toISOString(),
     status: "trial",
   };
-  await db.from("orgs").update(patch).eq("id", org.id);
-  return { ...org, ...patch };
+  const { error } = await db.from("orgs").update(patch).eq("id", org.id).is("trial_started_at", null);
+  if (error) throw new Error("Trial clock unavailable");
+  return (await orgById(org.id)) ?? { ...org, ...patch };
 }
 
 export async function setOrgStatus(
@@ -268,7 +280,8 @@ export async function setOrgStatus(
 ): Promise<void> {
   const db = admin();
   if (!db) return;
-  await db.from("orgs").update({ status, ...extra }).eq("id", id);
+  const { error } = await db.from("orgs").update({ status, ...extra }).eq("id", id);
+  if (error) throw error;
 }
 
 export async function attachStripe(input: {
@@ -300,6 +313,7 @@ export async function issueKey(input: {
   stripeCustomerId: string | null;
   stripeSessionId: string;
   email?: string | null;
+  stripeSubscriptionId?: string | null;
 }): Promise<string | null> {
   const db = admin();
   if (!db) {
@@ -323,7 +337,7 @@ export async function issueKey(input: {
         orgId: byMail.id,
         stripeCustomerId: input.stripeCustomerId,
         stripeSessionId: input.stripeSessionId,
-        stripeSubscriptionId: byMail.stripe_subscription_id,
+        stripeSubscriptionId: input.stripeSubscriptionId ?? byMail.stripe_subscription_id,
         status: "active",
       });
       return null;
@@ -338,6 +352,7 @@ export async function issueKey(input: {
       key_plain: plain,
       stripe_customer_id: input.stripeCustomerId,
       stripe_session_id: input.stripeSessionId,
+      stripe_subscription_id: input.stripeSubscriptionId ?? null,
       status: "active",
       email,
       trial_days: 14,
@@ -375,7 +390,8 @@ export async function revealKey(sessionId: string): Promise<string | null> {
 export async function revokeByCustomer(stripeCustomerId: string): Promise<void> {
   const db = admin();
   if (!db) return;
-  await db.from("orgs").update({ status: "canceled" }).eq("stripe_customer_id", stripeCustomerId);
+  const { error } = await db.from("orgs").update({ status: "canceled" }).eq("stripe_customer_id", stripeCustomerId);
+  if (error) throw error;
 }
 
 export async function updateOrgProfile(

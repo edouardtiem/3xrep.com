@@ -15,7 +15,7 @@ import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 export const metadata = pageMeta({
   title: "What is 3xrep",
   description:
-    "He lives in Claude or ChatGPT, next to HubSpot. He names what's missing, and the stage that isn't true. 14 days free, then $" +
+    "He lives in Claude or ChatGPT, next to HubSpot. He names what's missing, and the stage that isn't true. Standard price: $" +
     LIST_PRICE_USD +
     " a month for the whole company. We don't join your calls.",
   path: "/docs",

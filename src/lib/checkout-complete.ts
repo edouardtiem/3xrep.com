@@ -1,4 +1,5 @@
-import { attachStripe, issueKey, orgById } from "@/lib/orgs";
+import { syncBaseSubscription } from "@/lib/stripe-base-access";
+import { attachStripe, issueKey, orgByCustomer, orgById } from "@/lib/orgs";
 import { applyQueuedCredits } from "@/lib/referrals";
 import { stripeClient, stripeSecret } from "@/lib/stripe-env";
 import { statusAfterCheckout } from "@/lib/trial";
@@ -27,6 +28,7 @@ export async function ensureOrgFromCheckout(sessionId: string): Promise<void> {
       stripeSubscriptionId: sub,
       status: statusAfterCheckout(org, session.payment_status === "paid"),
     });
+    if(sub) await syncBaseSubscription(stripe,org,sub);
     await applyQueuedCredits(orgId);
     return;
   }
@@ -34,6 +36,10 @@ export async function ensureOrgFromCheckout(sessionId: string): Promise<void> {
   await issueKey({
     stripeCustomerId: customer,
     stripeSessionId: session.id,
+    stripeSubscriptionId: typeof session.subscription === "string" ? session.subscription : session.subscription?.id ?? null,
     email: session.customer_email ?? session.customer_details?.email ?? null,
   });
+  const org=customer ? await orgByCustomer(customer) : null;
+  const sub=typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
+  if(org && sub) await syncBaseSubscription(stripe,org,sub);
 }

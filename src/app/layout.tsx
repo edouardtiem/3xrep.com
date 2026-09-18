@@ -1,3 +1,4 @@
+import { AcquisitionTracker } from "@/components/AcquisitionTracker";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -37,6 +38,7 @@ export default function RootLayout({
       className={`${lpSans.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <AcquisitionTracker />
         {children}
         {gaId ? <Ga4 gaId={gaId} /> : null}
       </body>

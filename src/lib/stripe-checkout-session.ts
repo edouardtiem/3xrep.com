@@ -106,6 +106,7 @@ export function checkoutSessionParams(
   if (opts?.orgId) {
     params.client_reference_id = opts.orgId;
     params.metadata = { org_id: opts.orgId, mode };
+    params.subscription_data = { metadata: { org_id: opts.orgId } };
   }
   if (mode === "card") {
     params.payment_method_collection = "always";

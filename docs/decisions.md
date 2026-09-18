@@ -294,3 +294,16 @@ Jour 7 sans carte : autre phrase — poser la carte. Dès que la carte est là, 
 Nouvelle section si : on exige la carte au jour 0 ; on plafonne les avoirs parrain ; on affiche le 42 % ; on démarre l’horloge à l’inscription ; on rouvre les tools sans clé en prod. Kill switch : Édouard.
 
 Note : [sessions/2026-09-14.md](sessions/2026-09-14.md).
+
+
+## 2026-09-18 — Founding 20
+
+**Qui :** Édouard, cadrage validé puis « ok go » pour l’implémentation.
+
+Priorité pendant 30–45 jours : retours après usage et retour régulier dans le produit. Bêta sans carte. Jusqu’à 20 organisations reçoivent manuellement une offre de base gratuite à vie, après qualification par usage. Une inscription ne prend pas de place. Le prix standard de 129 dollars reste disponible hors bêta. Les anciens clients ne sont pas automatiquement convertis.
+
+Cette décision ouvre un recrutement ciblé par X et Gojiberry, contrairement à l’ancienne exclusion de la prospection dans le PRD. Pas de promesse de résultat commercial. Pas de nouvelle intégration au fichier client.
+
+Droits séparés de Stripe, places permanentes, règles configurables. Trois sessions sur trois jours et trois résultats utiles au départ. Les horizons 1 / 7 / 30 jours existants sont conservés. Les événements d’usage sans contenu commercial sont conservés au-delà des 14 jours du journal détaillé pour mesurer le retour à 30 jours. Les avis sont volontaires et reliés à l’organisation ; pas d’identité individuelle inventée.
+
+Implémentation et procédure de mise en service : [Founding 20](beta/founding-20.md). La validation du code n’est pas une publication sur `main`, ni une activation de campagne.

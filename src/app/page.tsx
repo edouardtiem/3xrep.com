@@ -1,10 +1,11 @@
+import { publicBetaOffer } from "@/lib/founding";
 import type { Metadata } from "next";
 import BuddyHome from "@/components/buddy/BuddyHome";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "3xrep — Your sales day, figured out.",
-  description: `Know what to do next on the deal, with your sales buddy inside your AI chat. 14 days free, then $${LIST_PRICE_USD}/month for the whole company.`,
+  description: "Know what to do next on the deal, with your sales buddy inside your AI chat. Start without a credit card.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -15,6 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
-  return <BuddyHome />;
+export default async function Page() {
+  return <BuddyHome offer={await publicBetaOffer()} />;
 }

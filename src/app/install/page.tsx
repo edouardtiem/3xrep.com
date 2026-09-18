@@ -1,20 +1,20 @@
+import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+import { publicBetaOffer } from "@/lib/founding";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { CheckoutButton } from "@/components/CheckoutButton";
+export const dynamic = "force-dynamic";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { TRUST_LINE } from "@/lib/copy";
 import { CRM_CONNECTORS, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+
 import { mcpUrl } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Install 3xrep",
   description:
-    "Add him in Claude or ChatGPT, next to HubSpot. 14 days free, then $" +
-    LIST_PRICE_USD +
-    " a month for the whole company. We don't join your calls.",
+    "Add 3xrep in Claude or ChatGPT, next to your CRM. Start without a credit card. We don't join your calls.",
   path: "/install",
 });
 
@@ -41,7 +41,9 @@ function Fold({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-export default function Install() {
+export default async function Install() {
+  const offer = await publicBetaOffer();
+  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
   const url = mcpUrl();
   const mcpJson = JSON.stringify(
     {
@@ -63,7 +65,7 @@ export default function Install() {
     step: [
       {
         "@type": "HowToStep",
-        name: "Start 14 days free",
+        name: cta,
         text: "Get your key. No card today.",
       },
       {
@@ -108,7 +110,7 @@ export default function Install() {
               href="/start"
               className="inline-block cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
             >
-              Start 14 days free
+              {cta}
             </Link>
           </p>
         </div>
@@ -220,16 +222,13 @@ export default function Install() {
 
         <section className="space-y-5 border-t border-line pt-16">
           <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            ${LIST_PRICE_USD} a month for the whole company.
+            {offer.enabled ? "Help shape 3xrep." : `$${LIST_PRICE_USD} a month for the whole company.`}
           </p>
           <p className="text-mute leading-[1.5]">
-            After the trial. Gong is about $1,250 a month for a team of ten.
+            {offer.enabled ? "Try it with your real sales work. Tell us what helped and what missed." : "After the trial. One price for the whole company."}
           </p>
           <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
-          <CheckoutButton
-            label={`Pay $${LIST_PRICE_USD} a month`}
-            className="cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-          />
+          <p className="text-mute leading-relaxed">{offer.enabled ? "Full beta access. No credit card required. Founding status is awarded separately after real usage, within the 20-place limit." : "Already connected? Ask 3xrep for your workspace status and use the payment link in your chat."}</p>
         </section>
       </main>
     </>

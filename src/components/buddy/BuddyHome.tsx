@@ -15,7 +15,8 @@ const day = [
   { time: "14:00", deal: "Dune", task: "Send proposal", note: "First, find out who can approve it.", pose: true },
 ];
 
-export default function BuddyHome() {
+export default function BuddyHome({ offer = {enabled:false,available:false} }: { offer?: {enabled:boolean;available:boolean} }) {
+  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
   return (
     <div className={styles.page}>
       <Header />
@@ -26,8 +27,8 @@ export default function BuddyHome() {
             <h1 id="buddy-title">Your sales day,<br />figured out.</h1>
             <p className={styles.lead}>The call ends. The buyer goes quiet. You still have a number to hit.</p>
             <p className={styles.support}>Your CRM, inbox and calendar tell your AI what happened. 3xrep helps you work out what to do next — on the deal in front of you.</p>
-            <Start />
-            <p className={styles.micro}>No card today. Then ${LIST_PRICE_USD}/month for the whole company.</p>
+            <Start>{cta}</Start>
+            <p className={styles.micro}>{offer.enabled ? "Full access during beta. No credit card required." : `No card today. Then $${LIST_PRICE_USD}/month for the whole company.`}</p>
             <p className={styles.micro}>Start in Claude. <Link href="#setup">See what you need ↗</Link></p>
           </div>
           <div className={styles.agenda}>
@@ -84,7 +85,15 @@ export default function BuddyHome() {
         </section>
 
         <section className={`${styles.section} ${styles.finish}`} aria-labelledby="price-title">
-          <div className={styles.price}><p className={styles.eyebrow}>One price. The whole company.</p><h2 id="price-title">${LIST_PRICE_USD}<span> / month</span></h2><p>Three people or thirty. No per-seat charge.<br />USD, plus applicable tax.</p><Start /><p className={styles.micro}>14 days free. No card today.</p></div>
+          <div className={styles.price}>
+            <h2 id="price-title">{offer.enabled ? "Founding 20" : <>{`$${LIST_PRICE_USD}`}<span> / month</span></>}</h2>
+            {offer.enabled ? <>
+              <p>Help shape 3xrep with your team’s real sales work. Full access during beta. No credit card.</p>
+              <p>{offer.available ? "Use it across several days. If your workspace qualifies and is selected for one of the 20 places, its base plan stays free forever. Signing up does not reserve a place." : "All 20 Founding places have been allocated. You can still try the beta for free; new signups are not eligible for a free-forever place."}</p>
+              <p className={styles.micro}>Future optional extras may be paid. Standard price after beta: ${LIST_PRICE_USD}/month per company. No automatic charge.</p>
+            </> : <p>Three people or thirty. No per-seat charge.<br />USD, plus applicable tax.</p>}
+            <Start>{cta}</Start><p className={styles.micro}>{offer.enabled ? "Your feedback helps decide what comes next." : "14 days free. No card today."}</p>
+          </div>
           <div className={styles.trust}><h3>Your sales context stays yours.</h3><p>3xrep doesn’t join your calls or fetch your inbox. Your AI brings the context from the tools you connect.</p><p>Call text sent to 3xrep is kept for 14 days, then deleted. A compact record of deal gaps remains, without transcripts. 3xrep doesn’t write to your CRM.</p><Link className={styles.textLink} href="/docs">Read the documentation ↗</Link></div>
         </section>
         <footer className={styles.close}><div><Hand className={styles.signoff}>See you in the morning.</Hand><p>A next move. A reason for it. A little less on your own.</p></div><Blob pose="cafe" className={styles.closeMascot} /></footer>

@@ -8,7 +8,11 @@ Décision du 16 septembre 2026 : la page sales buddy devient l’accueil `/`, en
 
 Titre : **Your sales day, figured out.** La page montre une journée, puis une affaire dont le prochain geste change avec les réponses du client. Chaque mise en garde explique pourquoi et propose une action. Les exemples sont explicitement illustratifs.
 
-## Parcours
+## Founding 20 — 18 septembre 2026
+
+Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du programme. Bêta ouverte : « Join the beta », sans carte, attribution manuelle parmi 20 organisations. Une fois les places allouées, le site annonce que la bêta reste ouverte mais sans nouvelle place gratuite à vie. Programme fermé : parcours standard ci-dessous. Style sales buddy conservé. Voir [Founding 20](beta/founding-20.md).
+
+## Parcours standard
 
 - Boutons « Start 14 days free » vers `/start`.
 - Guide de connexion vers `/install` ; documentation vers `/docs`.

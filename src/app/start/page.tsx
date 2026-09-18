@@ -1,3 +1,4 @@
+import { publicBetaOffer } from "@/lib/founding";
 import { referralStartUrl } from "@/lib/checkout-token";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
@@ -11,8 +12,8 @@ import { admin } from "@/lib/supabase-admin";
 export const dynamic = "force-dynamic";
 
 export const metadata = pageMeta({
-  title: "Start 14 days free",
-  description: `14 days free. Then $${LIST_PRICE_USD} a month for the whole company. No card today.`,
+  title: "Start with 3xrep",
+  description: "Get your workspace key and try 3xrep in your AI chat. No card to start.",
   path: "/start",
 });
 
@@ -117,9 +118,11 @@ function KeyPanel({
 export default async function Start({
   searchParams,
 }: {
-  searchParams: Promise<{ t?: string; ref?: string }>;
+  searchParams: Promise<{ t?: string; ref?: string; utm_source?:string; utm_medium?:string; utm_campaign?:string }>;
 }) {
-  const { t, ref } = await searchParams;
+  const { t, ref, utm_source, utm_medium, utm_campaign } = await searchParams;
+  const offer = await publicBetaOffer();
+  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
   const orgId = t ? await orgIdFromStartToken(t) : null;
   const key = t ? await revealStartKey(t) : null;
   const org = orgId ? await orgById(orgId) : null;
@@ -130,7 +133,7 @@ export default async function Start({
       <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-12 px-5 py-16 sm:px-10">
         <div>
           <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
-            Start 14 days free
+            {cta}
           </h1>
           {key ? null : (
             <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
@@ -139,18 +142,13 @@ export default async function Start({
           )}
         </div>
         {key ? (
-          <KeyPanel keyPlain={key} referralCode={org?.referral_code} />
+          <>
+            {org?.beta_access_until ? <p className="text-mute leading-relaxed">Your beta workspace is ready. Full access, no card required, through {new Date(org.beta_access_until).toLocaleDateString("en-US",{dateStyle:"long",timeZone:"UTC"})}. Ask your assistant for your workspace status whenever you need it.</p> : null}
+            <KeyPanel keyPlain={key} referralCode={offer.enabled ? null : org?.referral_code} />
+          </>
         ) : t ? (
           <p className="text-mute leading-[1.5]">
-            Key already shown. Add a card from a verdict, or pay $
-            {LIST_PRICE_USD} a month from{" "}
-            <a
-              href="/install"
-              className="underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-            >
-              install
-            </a>
-            .
+            Your key has already been shown. Use the key saved in your connector. If you lost it, contact the person who invited you. Paying again will not recover it.
           </p>
         ) : (
           <>
@@ -158,9 +156,12 @@ export default async function Start({
               <li>Add him in Claude or ChatGPT, next to the CRM.</li>
               <li>Connect Gmail and Calendar in Claude.</li>
               <li>In the morning, ask what today is.</li>
-              <li>The 14 days start when you review a deal.</li>
+              <li>{offer.enabled ? "Come back after a call. Then try the next 7 or 30 days." : "The 14 days start when you review a deal."}</li>
             </ol>
             <form action="/api/orgs/start" method="post" className="flex flex-col gap-6">
+              {utm_source ? <input type="hidden" name="utm_source" value={utm_source.slice(0,100)} /> : null}
+              {utm_medium ? <input type="hidden" name="utm_medium" value={utm_medium.slice(0,100)} /> : null}
+              {utm_campaign ? <input type="hidden" name="utm_campaign" value={utm_campaign.slice(0,100)} /> : null}
               {ref ? <input type="hidden" name="ref" value={ref} /> : null}
               <label className="flex flex-col gap-2 text-[0.9375rem]">
                 Work email
@@ -176,12 +177,11 @@ export default async function Start({
                 type="submit"
                 className="w-fit cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               >
-                Start 14 days free
+                {cta}
               </button>
             </form>
             <p className="text-dim max-w-[40ch] text-[0.8125rem] leading-[1.4]">
-              No card today. Day 7: add a card (still $0 until day 14). Then $
-              {LIST_PRICE_USD} a month for the whole company.
+              {offer.enabled ? (offer.available ? "No credit card during beta. Qualify through real usage, then be selected for one of 20 Founding Workspaces with a free-forever base plan. Signup does not reserve a place." : "No credit card during beta. All 20 Founding places have been allocated; this signup includes beta access only.") : `No card today. Day 7: add a card (still $0 until day 14). Then $${LIST_PRICE_USD} a month for the whole company.`}
             </p>
           </>
         )}

@@ -106,7 +106,7 @@ export async function applyQueuedCredits(parrainId: string): Promise<void> {
         amount: -Math.abs(c.amount_cents as number),
         currency: "usd",
         description: "3xrep referral credit",
-      });
+      }, { idempotencyKey: `referral-credit-${c.id}` });
       await db
         .from("referral_credits")
         .update({ status: "applied", stripe_balance_txn: txn.id })
@@ -137,7 +137,7 @@ export async function reverseCreditsForFilleul(filleulCustomerId: string): Promi
         amount: Math.abs(c.amount_cents as number),
         currency: "usd",
         description: "3xrep referral credit reversed",
-      });
+      }, { idempotencyKey: `referral-reverse-${c.id}` });
       await db.from("referral_credits").update({ status: "reversed" }).eq("id", c.id);
     } catch (err) {
       console.error("referral reverse", err instanceof Error ? err.message : err);

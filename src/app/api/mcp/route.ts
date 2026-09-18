@@ -1,3 +1,5 @@
+import { admin } from "@/lib/supabase-admin";
+import { trialExtras } from "@/lib/access";
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import {
@@ -134,6 +136,33 @@ const handler = createMcpHandler(
         }
       }),
     );
+
+    server.registerTool("workspace_status", {
+      title: "Workspace status",
+      description: "Show the organization's beta or Founding base-plan entitlement. No individual user tracking.",
+      inputSchema: z.object({}),
+    }, withGate("workspace_status", async (_args, org) => {
+      if (!org) return jsonTool({ refus: CUTOFF_NO_KEY });
+      const db = admin();
+      const { data, error } = db && org.id !== "dev" ? await db.from("founding_slots").select("slot").eq("org_id",org.id).maybeSingle() : {data:null,error:null};
+      if (error) throw new Error("Workspace status unavailable");
+      return jsonTool({ ...trialExtras(org), founding_status:org.founding_state, slot:data?.slot ?? null,
+        message:org.founding_state === "founding" ? `Founding Workspace #${String(data?.slot).padStart(2,"0")}. Base plan free forever.` : "Founding places are awarded manually after meaningful use. Signup does not reserve a place." });
+    }));
+    server.registerTool("beta_feedback", {
+      title: "Share feedback",
+      description: "Save the user's own feedback on a 3xrep result, only after they agree. Use output_id from that result. Do not include customer names or deal content. Never infer a rating.",
+      inputSchema:z.object({output_id:z.uuid(),useful:z.boolean(),comment:z.string().max(1000).optional()}),
+    }, withGate("beta_feedback",async (input,org) => {
+      if (!org || org.id === "dev") return jsonTool({refus:"A workspace key is required."});
+      const db=admin();
+      if (!db) throw new Error("Feedback unavailable");
+      const {data:event,error:readError}=await db.from("beta_events").select("id").eq("id",input.output_id).eq("org_id",org.id).eq("kind","meaningful_output").maybeSingle();
+      if(readError || !event) return jsonTool({refus:"This result does not belong to your workspace."});
+      const {error}=await db.from("beta_feedback").upsert({org_id:org.id,output_id:input.output_id,useful:input.useful,comment:input.comment ?? null},{onConflict:"org_id,output_id"});
+      if(error) throw new Error("Feedback could not be saved");
+      return jsonTool({ok:true,message:"Feedback saved. Thank you."});
+    }));
 
     server.registerPrompt(
       "morning",

@@ -5,7 +5,8 @@ import {
   CUTOFF_NO_PAYMENT,
 } from "@/lib/copy";
 import { orgRowFromRequest, startTrialClock, type OrgRow } from "@/lib/orgs";
-import { effectiveAccess, isJudgingTool, openTools } from "@/lib/trial";
+import { organizationEntitlements, includedBasePlan } from "@/lib/founding";
+import { isJudgingTool, openTools } from "@/lib/trial";
 
 export type Access =
   | { kind: "open" }
@@ -29,7 +30,7 @@ export async function resolveAccess(req: Request | undefined, now: Date = new Da
   if (!req) return { kind: "no_key" };
   const org = await orgRowFromRequest(req);
   if (!org) return { kind: "no_key" };
-  const gate = effectiveAccess(org, now);
+  const gate = organizationEntitlements(org, now);
   const checkoutUrl = org.id === "dev" ? null : cardCheckoutUrl(org.id);
   if (gate === "full") return { kind: "full", org };
   if (gate === "needs_card") return { kind: "needs_card", org, checkoutUrl };
@@ -47,13 +48,17 @@ export async function maybeStartTrial(org: OrgRow, tool: string): Promise<OrgRow
 }
 
 export function trialExtras(org: OrgRow | null): {
+  founding?: { status: string; message: string };
+  beta?: { access_until: string; message: string };
   paiement?: { kind: "add_card"; url: string; phrase: string };
   parrainage?: { url: string };
   demande_profil?: string;
 } {
   if (!org || org.id === "dev") return {};
   const out: ReturnType<typeof trialExtras> = {};
-  if (org.status !== "active" && !org.stripe_subscription_id && org.trial_started_at) {
+  if (org.founding_state === "founding") out.founding = { status: "founding", message: "Founding Workspace. Your base plan is free forever." };
+  else if (org.beta_access_until && includedBasePlan(org)) out.beta = { access_until: org.beta_access_until, message: "Full beta access. No card required. Founding status is awarded manually after real usage, subject to the 20-place limit." };
+  if (!includedBasePlan(org) && !org.base_billing_blocked && org.status !== "active" && !org.stripe_subscription_id && org.trial_started_at) {
     const url = cardCheckoutUrl(org.id);
     if (url) {
       out.paiement = {

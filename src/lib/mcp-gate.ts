@@ -1,3 +1,4 @@
+import { recordBetaUsage } from "@/lib/founding";
 import type { HorizonPlan, HorizonSlot } from "@/lib/brain/horizon";
 import type { Audit, DealInput } from "@/lib/brain/types";
 import type { PipeDeal, PipeReview } from "@/lib/brain/pipe";
@@ -24,7 +25,17 @@ export function withGate<Args extends Record<string, unknown>, R>(
     let org = access.kind === "full" ? access.org : null;
     if (org) org = await maybeStartTrial(org, tool);
     const contextual = withOrgContext(tool, args, org);
-    const result = await run(contextual, org);
+    let result: R = await run(contextual, org);
+    if (org) {
+      const data = parseJsonTool(result);
+      try {
+        const outputId = await recordBetaUsage(org.id, tool, contextual, data);
+        if (outputId && data) result = jsonTool({ ...data, output_id: outputId, feedback: "If the user says this helped or missed the mark, offer to save their feedback with beta_feedback. Never invent their rating.", next_use: tool === "plan_horizon" ? "Come back after the next call. Ask about the next 7 or 30 days when useful." : "Come back when the buyer replies or before your next call." }) as R;
+      } catch (err) {
+        console.error("beta_usage", err instanceof Error ? err.message : "error");
+        if (data) result = jsonTool({ ...data, usage_recorded: false }) as R;
+      }
+    }
     if (!org || !isJudgingTool(tool)) return result;
     try { return (await enrichTool(tool, contextual, result, org)) as R; }
     catch (err) {
