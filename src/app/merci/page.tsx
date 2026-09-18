@@ -85,7 +85,7 @@ export default async function Merci({
         )}
         {ref ? (
           <p className="text-dim text-[0.8125rem]">
-            Refer a team: {ref} — you get ${LIST_PRICE_USD} credit when they pay.
+            Refer a team: {ref} - you get ${LIST_PRICE_USD} credit when they pay.
           </p>
         ) : null}
       </main>

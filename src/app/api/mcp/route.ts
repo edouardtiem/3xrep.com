@@ -25,7 +25,7 @@ const handler = createMcpHandler(
       {
         title: "Method lookup",
         description:
-          "Use when they ask what a method, letter, or notion is (MEDDIC, Authority, CRAC…). Lexicon only — not a deal. If they have a CRM file, call audit_deal.",
+          "Use when they ask what a method, letter, or notion is (MEDDIC, Authority, CRAC…). Lexicon only - not a deal. If they have a CRM file, call audit_deal.",
         inputSchema: z.object({
           q: z.string().describe("Method or part name (MEDDIC, Authority, CRAC…)"),
         }),
@@ -51,7 +51,7 @@ const handler = createMcpHandler(
       {
         title: "Audit deal",
         description:
-          "Use when they talk about ONE deal, a call, or a CRM file. JSON out includes action (quoi, pourquoi, methods) plus pieces, death, climb-back, five-block contract, souvenir, CRM corrections. Speak action — don't invent a second verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals: pipe_review. Write in the user's language. Forbidden: close probability, write_to_crm, invented objection.",
+          "Use when they talk about ONE deal, a call, or a CRM file. JSON out includes action (quoi, pourquoi, methods) plus pieces, death, climb-back, five-block contract, souvenir, CRM corrections. Speak action - don't invent a second verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals: pipe_review. Write in the user's language. Forbidden: close probability, write_to_crm, invented objection.",
         inputSchema: dealSchema,
       },
       withGate("audit_deal", async (deal) => jsonTool(scoreDeal(deal))),
@@ -73,7 +73,7 @@ const handler = createMcpHandler(
       {
         title: "Plan horizon",
         description:
-          "Use in the morning, or for the next 7 / 30 days. The host assistant already read Gmail, Calendar, and the CRM — pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda — don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
+          "Use in the morning, or for the next 7 / 30 days. The host assistant already read Gmail, Calendar, and the CRM - pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda - don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
         inputSchema: horizonSchema,
       },
       withGate("plan_horizon", async (input) =>
@@ -97,7 +97,7 @@ const handler = createMcpHandler(
       {
         title: "Objection map",
         description:
-          "Use when they quote an objection (price, timing, competitor, 'I need to talk internally'). Objection → unheld piece → CRAC in the next meeting — not a punchline email. If they didn't paste the sentence, ask; don't invent. Write in the user's language.",
+          "Use when they quote an objection (price, timing, competitor, 'I need to talk internally'). Objection → unheld piece → CRAC in the next meeting - not a punchline email. If they didn't paste the sentence, ask; don't invent. Write in the user's language.",
         inputSchema: dealSchema.extend({
           objection: z.string().describe("The objection as heard, one sentence."),
         }),
@@ -112,7 +112,7 @@ const handler = createMcpHandler(
       {
         title: "Set org profile",
         description:
-          "Once, at first connection. Title, mission (rep / manager / VP sales / other), their company URL — not a prospect URL. Stores a short blurb of what they sell.",
+          "Once, at first connection. Title, mission (rep / manager / VP sales / other), their company URL - not a prospect URL. Stores a short blurb of what they sell.",
         inputSchema: z.object({
           contexte: salesContextSchema.optional(),
           company_blurb: z.string().max(500).optional().describe("User-corrected company description, when supplied."),

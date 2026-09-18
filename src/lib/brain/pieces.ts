@@ -82,7 +82,7 @@ export const PIECES: Piece[] = [
       faire: "convier le DAF séance tenante, tant qu’il est en confiance",
     },
     cout_du_retard: "une relance à motiver, et l’invitation se négocie maintenant",
-    verbe: "Faire nommer qui signe quand ça passe en budget — cette semaine.",
+    verbe: "Faire nommer qui signe quand ça passe en budget - cette semaine.",
     objectif: "Le DAF est dans la pièce au prochain rdv.",
   },
   {
@@ -167,7 +167,7 @@ export const PIECES: Piece[] = [
       },
       {
         cran: 2,
-        question: "sur un an ça fait tant — c’est un budget qui existe déjà quelque part ?",
+        question: "sur un an ça fait tant - c’est un budget qui existe déjà quelque part ?",
         donne: "ligne budgétaire, ou pas",
       },
       {
@@ -194,7 +194,7 @@ export const PIECES: Piece[] = [
     fausse_preuve: /persona|ils veulent le meilleur|they want the best/i,
     nie: /pas de (?:douleur|besoin|problème)|no (?:pain|need|problem)/i,
     vert: /(?:pain|douleur|besoin|need)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
-    test: "pourquoi maintenant — qu’est-ce qui a changé ?",
+    test: "pourquoi maintenant - qu’est-ce qui a changé ?",
     mort: {
       etage: "découverte",
       quand: "si le fil meurt",
@@ -279,7 +279,7 @@ export const PIECES: Piece[] = [
       faire: "ne pas envoyer de tarif dans le vide",
     },
     cout_du_retard: "le prix arrive trop tôt, ou trop tard",
-    verbe: "Budget : enveloppe, millésime, et qui la tient — pas « on verra ».",
+    verbe: "Budget : enveloppe, millésime, et qui la tient - pas « on verra ».",
     objectif: "Une enveloppe nommée, ou l’aveu qu’il faut la créer.",
   },
   {
@@ -343,7 +343,7 @@ export const PIECES: Piece[] = [
     fausse_preuve: /on est seuls|pas de concurrent|we('re| are) the only/i,
     nie: /pas d['’]alternative|no (?:competitor|alternative|status quo)/i,
     vert: /(?:competition|concurren(?:t|ce|ts)?)\s*[:：]\s*(?:ok|oui|yes|✓)/i,
-    test: "à part nous, vous regardez quoi — y compris ne rien faire ?",
+    test: "à part nous, vous regardez quoi - y compris ne rien faire ?",
     mort: {
       etage: "choix",
       quand: "quand une grille arrive",
@@ -360,7 +360,7 @@ export const PIECES: Piece[] = [
     echelle: [
       {
         cran: 1,
-        question: "à part nous, vous regardez quoi — y compris ne rien faire ?",
+        question: "à part nous, vous regardez quoi - y compris ne rien faire ?",
         donne: "une alternative nommée",
       },
       {
@@ -379,7 +379,7 @@ export const PIECES: Piece[] = [
       faire: "ne pas remplir une grille à l’aveugle",
     },
     cout_du_retard: "tu es la colonne d’un RFP que tu n’as pas vu venir",
-    verbe: "Nommer l’alternative réelle — y compris le statu quo.",
+    verbe: "Nommer l’alternative réelle - y compris le statu quo.",
     objectif: "L’alternative est dite, ou provoquée au prochain call.",
   },
   {

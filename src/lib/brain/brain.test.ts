@@ -51,7 +51,7 @@ test("citation ops ≠ preuve qui-tranche", () => {
   assert.equal(a.layer, 2);
 });
 
-test("Julien — 8 étages : vide, mort, fenêtre, un geste", () => {
+test("Julien - 8 étages : vide, mort, fenêtre, un geste", () => {
   const a = scoreDeal(JULIEN);
   assert.equal(a.geste_demande, "debrief-apres-call");
   assert.equal(a.grade, "A");
@@ -105,7 +105,7 @@ test("aucun artefact → refus, pas de verdict inventé", () => {
   assert.equal(scoreDeal(JULIEN).refus, null);
 });
 
-test("pipe_review — négo + EB vide : l’étape ment ; date de close = claim", () => {
+test("pipe_review - négo + EB vide : l’étape ment ; date de close = claim", () => {
   const r = pipeReview(
     [
       { ...JULIEN, nom: "Acme", etape: "Négociation", closeDate: "2026-09-30" },
@@ -125,7 +125,7 @@ test("pipe_review — négo + EB vide : l’étape ment ; date de close = claim"
   assert.ok(r.rendu.interdits.includes("coverage × win rate"));
 });
 
-test("pipe_review — découverte n’est pas illégale ; fiche figée ; trou systémique", () => {
+test("pipe_review - découverte n’est pas illégale ; fiche figée ; trou systémique", () => {
   const r = pipeReview(
     [
       { ...JULIEN, nom: "A", etape: "Découverte", derniereModif: "2026-07-01" },
@@ -147,7 +147,7 @@ test("pipe_review — découverte n’est pas illégale ; fiche figée ; trou sy
   assert.ok(!r.recommandations.some((x) => /%|conversion|win rate/i.test(`${x.quoi} ${x.pourquoi}`)));
 });
 
-test("pipe_review — reco gate-stage si la même étape ment sur ≥ 2 deals", () => {
+test("pipe_review - reco gate-stage si la même étape ment sur ≥ 2 deals", () => {
   const r = pipeReview(
     [
       { ...JULIEN, nom: "Acme", etape: "Négociation" },
@@ -287,7 +287,7 @@ test("legacy Julien garde ses résultats (fallback)", () => {
   assert.ok(a.pieces.find((c) => c.id === "qui-tranche")?.gap.claim?.toLowerCase().includes("economic buyer"));
 });
 
-test("pipe_review — somme des portes cassées, pas un forecast", () => {
+test("pipe_review - somme des portes cassées, pas un forecast", () => {
   const r = pipeReview(
     [
       { ...JULIEN, nom: "Acme", etape: "Négociation", montant: 120_000 },

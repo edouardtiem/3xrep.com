@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     return html(
       503,
       "Stripe",
-      `Checkout $129 non configuré. Secrets manquants : <code>${missing.join("</code>, <code>")}</code>. Les poser sur Vercel (Production) — noms exacts dans <code>docs/checkout.md</code> du git. Pas un faux vert.`,
+      `Checkout $129 non configuré. Secrets manquants : <code>${missing.join("</code>, <code>")}</code>. Les poser sur Vercel (Production) - noms exacts dans <code>docs/checkout.md</code> du git. Pas un faux vert.`,
     );
   }
 
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       return html(
         502,
         "Stripe",
-        `STRIPE_PRICE_ID n’est pas <code>$${LIST_PRICE_USD} USD / mois</code> (reçu ${price.unit_amount ?? "?"} ${price.currency}). Poser le Price 129,00 USD recurring monthly — pas 99 EUR.`,
+        `STRIPE_PRICE_ID n’est pas <code>$${LIST_PRICE_USD} USD / mois</code> (reçu ${price.unit_amount ?? "?"} ${price.currency}). Poser le Price 129,00 USD recurring monthly - pas 99 EUR.`,
       );
     }
     const db = admin();
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
     const {error: finishError}=await db.rpc("finish_base_checkout",{p_org:orgId,p_operation:operation,p_session:session.id});
     if (finishError) throw new Error("Checkout registration failed; retry this link before granting Founding status");
     if (!session.url) {
-      return html(502, "Stripe", "Checkout sans URL — la session Stripe n’a pas renvoyé de lien.");
+      return html(502, "Stripe", "Checkout sans URL - la session Stripe n’a pas renvoyé de lien.");
     }
     return Response.redirect(session.url, 303);
   } catch (err) {

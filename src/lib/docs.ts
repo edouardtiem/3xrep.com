@@ -149,7 +149,7 @@ export const METHOD_FAMILIES: readonly {
       },
       {
         name: "BEBEDC",
-        parts: "Besoin, Enjeu, Budget, Échéance, Décideurs, Concurrents",
+        parts: "Need, Stakes, Budget, Timeline, Decision-makers, Competition",
         forces:
           "Separate the business need from what is at stake, then clarify budget, timing, decision-makers and alternatives.",
       },
@@ -180,7 +180,7 @@ export const METHOD_FAMILIES: readonly {
       },
       {
         name: "Strategic Selling",
-        parts: "Buying influences — economic, user, technical, coach",
+        parts: "Buying influences - economic, user, technical, coach",
         forces:
           "Map the different people who influence a purchase and the role each plays.",
       },
@@ -209,7 +209,7 @@ export const METHOD_FAMILIES: readonly {
     methods: [
       {
         name: "Cost of inaction",
-        parts: "Time, risk, downtime, missed revenue — in a number they own",
+        parts: "Time, risk, downtime, missed revenue - in a number they own",
         forces:
           "Work with the buyer to quantify the time, cost or risk of leaving the problem unresolved.",
       },
@@ -300,7 +300,7 @@ export const METHOD_FAMILIES: readonly {
       },
       {
         name: "Sandler",
-        parts: "Pain, budget, decision — equal business stature",
+        parts: "Pain, budget, decision - equal business stature",
         forces:
           "Discuss the problem, budget and decision process openly, with a balanced working relationship.",
       },
@@ -326,7 +326,7 @@ export function pageMeta({
   description: string;
   path: string;
 }): Metadata {
-  const branded = /3xrep/i.test(title) ? title : `${title} — 3xrep`;
+  const branded = /3xrep/i.test(title) ? title : `${title} - 3xrep`;
   const url = `${siteUrl()}${path}`;
   return {
     title: branded,

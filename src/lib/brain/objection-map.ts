@@ -6,7 +6,7 @@ const MAP: { re: RegExp; piece: string; crac: string }[] = [
   {
     re: /\b(cher|prix|coûte|coute|expensive|price|cost)\b/i,
     piece: "enjeu-chiffre",
-    crac: "Creuser le « trop cher » — cher contre quoi. Reformuler le coût d’inaction. Argumenter seulement après le chiffre. Contrôler : le DAF entend-il le même nombre ?",
+    crac: "Creuser le « trop cher » - cher contre quoi. Reformuler le coût d’inaction. Argumenter seulement après le chiffre. Contrôler : le DAF entend-il le même nombre ?",
   },
   {
     re: /\b(budget|pas d[e’']argent|pas les moyens|money|afford)\b/i,
@@ -21,7 +21,7 @@ const MAP: { re: RegExp; piece: string; crac: string }[] = [
   {
     re: /\b(je dois en parler|internal|mon chef|my boss|en interne|on verra)\b/i,
     piece: "champion-vs-coach",
-    crac: "Ce n’est pas une objection prix — c’est décideurs / champion. Creuser s’il porte ou s’il recule. Contrôler : il amène celui qui signe, ou il nomme pourquoi pas.",
+    crac: "Ce n’est pas une objection prix - c’est décideurs / champion. Creuser s’il porte ou s’il recule. Contrôler : il amène celui qui signe, ou il nomme pourquoi pas.",
   },
 ];
 
@@ -80,7 +80,7 @@ export function objectionMap(input: DealInput & { objection: string }) {
     morts: audit.morts,
     rendu: audit.rendu,
     action: {
-      quoi: `Dans le prochain rendez-vous chez eux, creuser cette phrase — pas un mail de réplique.${question ? ` Poser : « ${question} »` : ""}`,
+      quoi: `Dans le prochain rendez-vous chez eux, creuser cette phrase - pas un mail de réplique.${question ? ` Poser : « ${question} »` : ""}`,
       pourquoi: base?.pourquoi ?? "",
       rattachements,
       objection: phrase,

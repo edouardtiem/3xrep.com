@@ -38,7 +38,7 @@ test("fenetre=1 : 14 h et 16 h ; Dune = trou, pas un script de propale", () => {
   assert.equal(p.agenda.some((s) => s.nom === "Helios"), false);
 });
 
-test("mail de chasse : n’écris pas — jamais un corps marketing", () => {
+test("mail de chasse : n’écris pas - jamais un corps marketing", () => {
   const p = planHorizon({ fenetre: 1, maintenant: HORIZON_NOW, items });
   const mail = p.agenda.find((s) => s.kind === "mail");
   assert.ok(mail);

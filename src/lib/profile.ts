@@ -44,7 +44,7 @@ export async function blurbFromUrl(url: URL): Promise<string | null> {
       html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i)?.[1] ||
       html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']description["']/i)?.[1];
     const bits = [title ? stripTags(title) : "", desc ? stripTags(desc) : ""].filter(Boolean);
-    return bits.join(" — ").slice(0, 500) || null;
+    return bits.join(" - ").slice(0, 500) || null;
   } catch {
     return null;
   }

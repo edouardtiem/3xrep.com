@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: "3xrep — Your AI believes your CRM. We don't.",
+  title: "3xrep - Your AI believes your CRM. We don't.",
   description: `He lives in Claude or ChatGPT, next to HubSpot. 14 days free, then $${LIST_PRICE_USD} a month for the whole company. We don't join your calls.`,
 };
 

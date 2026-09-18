@@ -13,7 +13,7 @@ const NORDIK = toPipeDeal({
   derniere_modif: "2026-09-08T10:00:00.000Z",
   notes: "Economic Buyer: ok. Champion: Julien. Stage = Negotiation.",
   mails: "Julien, merci pour ce matin.",
-  meetings: "2026-09-08 — Découverte ops — Julien Rault",
+  meetings: "2026-09-08 - Découverte ops - Julien Rault",
   transcript:
     "Julien: « de toute façon c'est moi qui fais tourner l'outil au quotidien ». Deux jours perdus par mois. On a l'habitude de signer en décembre.",
   next_step: "Send contract Friday",
@@ -83,7 +83,7 @@ test("Nordik seed: the brain returns a verdict, not a refusal", () => {
   assert.equal(a.pieces.find((p) => p.id === "qui-tranche")?.etat, "vide");
 });
 
-test("Dune seed: amount, no call — mapper keeps the empty artefacts", () => {
+test("Dune seed: amount, no call - mapper keeps the empty artefacts", () => {
   assert.equal(DUNE.montant, 45_000);
   assert.equal(DUNE.etape, "Négociation");
   assert.equal(DUNE.transcript, undefined);

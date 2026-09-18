@@ -69,12 +69,12 @@ export function actionPourDeal(input: {
   let quoi: string;
   if (input.refus && !aUnAppel(deal) && !deal.notes?.trim()) {
     quoi = tardive
-      ? `Le call manque. Poser un créneau avec celui qui peut signer — pas une négo avec l’ops. Ne pas inventer d’objection.`
+      ? `Le call manque. Poser un créneau avec celui qui peut signer - pas une négo avec l’ops. Ne pas inventer d’objection.`
       : `Le call manque. Ne pas inventer d’objection. Poser un rendez-vous daté dans l’agenda du prospect.`;
   } else if (papierChezNous && signerVide) {
     quoi = `Ne pas envoyer le contrat.${q || " Obtenir un nom ou un rendez-vous avec celui qui signe."}`;
   } else if (tardive && signerVide) {
-    quoi = `Poser un créneau avec celui qui peut signer — pas une négo avec la personne en face.${q}`;
+    quoi = `Poser un créneau avec celui qui peut signer - pas une négo avec la personne en face.${q}`;
   } else if (!tete) {
     quoi = "Aucun manque établi dans les pièces examinées. Confirmer la prochaine étape convenue, sans inventer un nouveau trou.";
   } else if (cote === "nous") {

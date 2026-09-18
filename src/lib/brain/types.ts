@@ -95,7 +95,7 @@ export type Geste = {
 
 export type NextStepCote = "eux" | "nous" | "absent";
 
-/** Sales move the user reads — not a flag. */
+/** Sales move the user reads - not a flag. */
 export type Action = {
   quoi: string;
   pourquoi: string;

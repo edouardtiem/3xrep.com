@@ -11,25 +11,25 @@ export const PARCOURS_JOUEUR = "Call avec l’ops";
 
 export const CAS = {
   id: "acme-julien",
-  titre_joueur: "Call Acme — Julien, ops",
+  titre_joueur: "Call Acme - Julien, ops",
   entreprise: "Acme",
   en_face: "Julien Morel, directeur ops",
 };
 
 export const CELLS: Cell[] = [
-  { id: "face", label: "En face", su: "Julien Morel, directeur ops — Lyon" },
+  { id: "face", label: "En face", su: "Julien Morel, directeur ops - Lyon" },
   { id: "decide", label: "Qui décide" },
   { id: "champion", label: "Champion", suppose: "Julien se propose" },
-  { id: "metrique", label: "Métrique", suppose: "« Deux jours perdus / semaine » — Julien" },
+  { id: "metrique", label: "Métrique", suppose: "« Deux jours perdus / semaine » - Julien" },
   { id: "douleur", label: "Douleur" },
   { id: "critere", label: "Critère" },
   { id: "process", label: "Process", suppose: "« On avance si le pilote passe »" },
 ];
 
 export const AUTRES_CAS = [
-  { id: "acme-julien", titre_joueur: "Call Acme — Julien, ops", playable: true },
-  { id: "bridor-samira", titre_joueur: "Call Bridor — Samira, ops", playable: false },
-  { id: "alstom-karim", titre_joueur: "Call Alstom — Karim, ops", playable: false },
+  { id: "acme-julien", titre_joueur: "Call Acme - Julien, ops", playable: true },
+  { id: "bridor-samira", titre_joueur: "Call Bridor - Samira, ops", playable: false },
+  { id: "alstom-karim", titre_joueur: "Call Alstom - Karim, ops", playable: false },
 ] as const;
 
 export const NEXT: Record<Etat, Etat> = {
@@ -50,8 +50,8 @@ export function initialEtats(): Record<string, Etat> {
 
 export function cellValue(c: Cell, e: Etat): string {
   if (e === "su") return c.su ?? c.suppose ?? "Posé";
-  if (e === "suppose") return c.suppose ?? "Supposé — pas de preuve";
-  return "—";
+  if (e === "suppose") return c.suppose ?? "Supposé - pas de preuve";
+  return " - ";
 }
 
 export const DECIDE_DECOUVERT = "Le DAF. Pas dans l’appel. C’est lui qui tranche.";
@@ -74,6 +74,6 @@ export function sortieCopy(cran: "voir" | "inclure" | "absent"): {
   }
   return {
     titre: "Le DAF a dit non. Je n’avais qu’un ops.",
-    trou: "Trou nommé : MEDDIC Economic Buyer vide — coach, pas champion. BANT Authority vide.",
+    trou: "Trou nommé : MEDDIC Economic Buyer vide - coach, pas champion. BANT Authority vide.",
   };
 }

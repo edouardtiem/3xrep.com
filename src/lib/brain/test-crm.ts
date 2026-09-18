@@ -171,7 +171,7 @@ export function horizonDayRows(): {
       derniere_modif: "2026-09-08T10:00:00.000Z",
       notes: "Economic Buyer: ok. Champion: Julien. Stage = Negotiation.",
       mails: "Julien, merci pour ce matin.",
-      meetings: "2026-09-08 — Découverte ops — Julien Rault",
+      meetings: "2026-09-08 - Découverte ops - Julien Rault",
       transcript:
         "Julien: « de toute façon c'est moi qui fais tourner l'outil au quotidien ». Deux jours perdus par mois. On a l'habitude de signer en décembre.",
       next_step: "Send contract Friday",
@@ -223,7 +223,7 @@ export function horizonDayRows(): {
       derniere_modif: "2026-09-10T14:30:00.000Z",
       notes: null,
       mails: "Marc, Léo, voici le fil du comité du 22.",
-      meetings: "2026-09-10 — Découverte usine — Marc Duhamel",
+      meetings: "2026-09-10 - Découverte usine - Marc Duhamel",
       transcript: "on perd trois heures par équipe à recoller les ordres de fabrication",
       next_step: "Relancer Marc pour le comité du 22",
       evidence: "transcript",
@@ -250,7 +250,7 @@ export function horizonDayRows(): {
       derniere_modif: "2026-09-09T09:15:00.000Z",
       notes: null,
       mails: null,
-      meetings: "2026-09-09 — Entrepôt — Inès Calvet",
+      meetings: "2026-09-09 - Entrepôt - Inès Calvet",
       transcript: "on rate encore des quais parce que le planning est dans trois tableurs",
       next_step: "Call avec Inès la semaine prochaine",
       evidence: "transcript",
@@ -292,7 +292,7 @@ export function horizonDayRows(): {
       derniere_modif: "2026-09-05T13:40:00.000Z",
       notes: null,
       mails: null,
-      meetings: "2026-09-05 — RH — Sophie Lang",
+      meetings: "2026-09-05 - RH - Sophie Lang",
       transcript: "on perd quatre jours par mois rien que sur le planning des équipes",
       next_step: "Envoyer un résumé des quatre jours perdus",
       evidence: "transcript",
@@ -319,25 +319,25 @@ export function horizonDayRows(): {
         id: "e1000000-0000-4000-8000-000000000401",
         opportunite_id: "2c11a1f1-b343-4cd0-92f1-4fc0b21c88df",
         starts_at: "2026-09-16T14:00:00+02:00",
-        titre: "Découverte — Julien Rault",
+        titre: "Découverte - Julien Rault",
       },
       {
         id: "e1000000-0000-4000-8000-000000000402",
         opportunite_id: "38caa5a3-0348-434b-9185-0035d635b021",
         starts_at: "2026-09-16T16:00:00+02:00",
-        titre: "Proposition commerciale — Dune",
+        titre: "Proposition commerciale - Dune",
       },
       {
         id: "e1000000-0000-4000-8000-000000000403",
         opportunite_id: "a1000000-0000-4000-8000-000000000003",
         starts_at: "2026-09-22T14:00:00+02:00",
-        titre: "Comité — Helios",
+        titre: "Comité - Helios",
       },
       {
         id: "e1000000-0000-4000-8000-000000000404",
         opportunite_id: "a1000000-0000-4000-8000-000000000007",
         starts_at: "2026-10-06T10:00:00+02:00",
-        titre: "Revue compte — Nacre",
+        titre: "Revue compte - Nacre",
       },
     ],
     taches: [
@@ -351,7 +351,7 @@ export function horizonDayRows(): {
         id: "f1000000-0000-4000-8000-000000000502",
         opportunite_id: "a1000000-0000-4000-8000-000000000004",
         due_at: "2026-09-10T18:00:00+02:00",
-        titre: "Call avec Inès — en retard",
+        titre: "Call avec Inès - en retard",
       },
     ],
     courriels: [
@@ -359,7 +359,7 @@ export function horizonDayRows(): {
         id: "c1000000-0000-4000-8000-000000000206",
         opportunite_id: "a1000000-0000-4000-8000-000000000005",
         occurred_at: "2026-09-16T07:30:00+02:00",
-        sujet: "Re: Besoin planning — Cèdre Courtage",
+        sujet: "Re: Besoin planning - Cèdre Courtage",
         corps: `De: Thomas Keller
 À: Léa Morel
 
@@ -368,7 +368,7 @@ Léa,
 Envoyez-nous votre plaquette, on verra après. Pas le temps d'un appel cette semaine.
 
 Thomas Keller
-Responsable développement — Cèdre Courtage`,
+Responsable développement - Cèdre Courtage`,
         sens: "entrant",
       },
     ],

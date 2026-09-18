@@ -15,7 +15,7 @@ import type {
   Rattachement,
 } from "./types";
 
-/** Un deal tel que le CRM le raconte : étape, date de close, dernière modif — plus les artefacts. */
+/** Un deal tel que le CRM le raconte : étape, date de close, dernière modif - plus les artefacts. */
 export type PipeDeal = DealInput & {
   nom?: string;
   closeDate?: string;
@@ -362,7 +362,7 @@ function recommandations(
         type: "train-reflex",
         piece: top.piece,
         deals: top.deals,
-        quoi: `former le réflexe ${reflexe} — pas un module, le geste dans le call`,
+        quoi: `former le réflexe ${reflexe} - pas un module, le geste dans le call`,
         pourquoi: `c’est la porte de ${top.piece}. L’info du deal suivant ne viendra pas d’un cours.`,
       });
     }
@@ -407,7 +407,7 @@ export const CONTRAT_PIPE: ContratRendu = {
     "MEDDIC score",
     "ranking reps",
     "you close Friday",
-    "rewriting CRM fields — say the correction, they write it in their CRM",
+    "rewriting CRM fields - say the correction, they write it in their CRM",
     "inventing a quote to sound tough",
   ],
 };

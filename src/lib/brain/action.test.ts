@@ -112,7 +112,7 @@ test("citation qui nie → objection ; relancer = chez nous", () => {
   assert.equal(a.next_step_cote, "nous");
 });
 
-test("pipe_review — quatre coupes écrites, pas un forecast", () => {
+test("pipe_review - quatre coupes écrites, pas un forecast", () => {
   const r = pipeReview(
     [
       {
@@ -159,7 +159,7 @@ test("pipe_review — quatre coupes écrites, pas un forecast", () => {
   assert.ok(!JSON.stringify(r.deals.map((d) => d.action)).includes("forte chance"));
 });
 
-test("next_question — contrat sans signataire : ne pas envoyer", () => {
+test("next_question - contrat sans signataire : ne pas envoyer", () => {
   const q = nextQuestion({
     etape: "Négociation",
     nextStep: "Send contract Friday",
@@ -168,7 +168,7 @@ test("next_question — contrat sans signataire : ne pas envoyer", () => {
   assert.match(q.action?.quoi ?? "", /ne pas envoyer/i);
 });
 
-test("objection_map — en interne n’est pas le prix ; phrase exigée", () => {
+test("objection_map - en interne n’est pas le prix ; phrase exigée", () => {
   const vide = objectionMap({ objection: "   " });
   assert.match(vide.refus ?? "", /phrase exacte/i);
   const o = objectionMap({

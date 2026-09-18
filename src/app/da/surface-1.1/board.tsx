@@ -119,7 +119,7 @@ function Liste({ onPlay }: { onPlay: () => void }) {
             onClick={() => cas.playable && onPlay()}
           >
             <span>{cas.titre_joueur}</span>
-            <span className={`${styles.mono} ${styles.vide}`}>{cas.playable ? "" : "—"}</span>
+            <span className={`${styles.mono} ${styles.vide}`}>{cas.playable ? "" : " - "}</span>
           </button>
         ))}
       </div>
@@ -242,7 +242,7 @@ function Sortie({
       <p className={`${styles.scale} mt-10`}>
         <span className={cran === "voir" ? styles.on : undefined}>Voir le DAF</span>
         <span className={cran === "inclure" ? styles.on : undefined}>Inclure sans voir</span>
-        <span className={cran === "absent" ? styles.on : undefined}>Pas inclus — il dit non</span>
+        <span className={cran === "absent" ? styles.on : undefined}>Pas inclus - il dit non</span>
       </p>
 
       <div className="mt-auto flex flex-wrap gap-2 pt-12">

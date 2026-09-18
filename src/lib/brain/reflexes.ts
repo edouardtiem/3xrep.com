@@ -39,7 +39,7 @@ export const REFLEXES: Reflexe[] = [
   {
     id: "case-verte-sans-source-est-vide",
     quand: "une case CRM cochée, un « ok » d’AE",
-    alors: "exiger la phrase, le mail, le nom — sinon vide",
+    alors: "exiger la phrase, le mail, le nom - sinon vide",
     piege: "auditer le vert comme s’il était tenu",
   },
   {

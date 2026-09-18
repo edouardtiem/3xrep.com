@@ -384,7 +384,7 @@ export async function pullGoogleVisibility(
   if (!gscSiteUrl) {
     gsc.error =
       found.error ??
-      "aucune propriété 3xrep.com sur ce compte Google — autre site, chiffres ignorés";
+      "aucune propriété 3xrep.com sur ce compte Google - autre site, chiffres ignorés";
   } else {
     try {
       gsc.current = await gscQuery(token, gscSiteUrl, window.current, fetchFn);
@@ -397,7 +397,7 @@ export async function pullGoogleVisibility(
   if (!ga4PropertyId) {
     ga4.error = found.error
       ? `propriété Analytics introuvable (${found.error})`
-      : "propriété Analytics introuvable — pose GA4_PROPERTY_ID";
+      : "propriété Analytics introuvable - pose GA4_PROPERTY_ID";
   } else {
     try {
       ga4.current = await ga4Report(
@@ -429,7 +429,7 @@ export function formatGoogleVisibilityMarkdown(
 ): string {
   const { current, previous } = pull.window;
   const lines = [
-    `# Search Console + Analytics — ${current.start} → ${current.end}`,
+    `# Search Console + Analytics - ${current.start} → ${current.end}`,
     "",
     `Fenêtre précédente : ${previous.start} → ${previous.end}.`,
     "",
@@ -450,7 +450,7 @@ export function formatGoogleVisibilityMarkdown(
     lines.push("");
   }
 
-  lines.push("## Analytics — recherche organique", "");
+  lines.push("## Analytics - recherche organique", "");
   if (pull.ga4.error) {
     lines.push(`Erreur : ${pull.ga4.error}`, "");
   } else if (pull.ga4.current.length === 0) {
@@ -473,6 +473,6 @@ export function notConnectedMessage(missing: string[]): string {
     "pas branché",
     `Manque : ${missing.join(" · ")}`,
     "Le tag public G-YWQX4MDHZP n’est pas un accès lecture.",
-    "Voir docs/visibility/seo-geo.md — Toi.",
+    "Voir docs/visibility/seo-geo.md - Toi.",
   ].join("\n");
 }

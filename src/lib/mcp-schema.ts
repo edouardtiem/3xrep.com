@@ -72,7 +72,7 @@ export const dealSchema = z.object({
   denouement: z
     .enum(["gagne", "perdu", "ouvert"])
     .optional()
-    .describe("Won / lost / still open — only if they know. Never invent."),
+    .describe("Won / lost / still open - only if they know. Never invent."),
   notes: z.string().optional(),
   mails: z.string().optional(),
   meetings: z.string().optional(),

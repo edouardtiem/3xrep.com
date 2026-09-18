@@ -10,7 +10,7 @@ export function Blob({
   pose: MascotPose;
   alt?: string;
   className?: string;
-  /** POSE À FAIRE — dashed stand-in, we do not warp the PNG. */
+  /** POSE À FAIRE - dashed stand-in, we do not warp the PNG. */
   todo?: string;
 }) {
   return (

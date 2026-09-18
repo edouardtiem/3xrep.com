@@ -135,7 +135,7 @@ export default async function Install() {
             This connection uses the key in the URL, not an OAuth sign-in.
           </p>
           <div className="mt-8 border-t border-line">
-            <Fold title="ChatGPT Work — test connection">
+            <Fold title="ChatGPT Work - test connection">
               <p>Enable developer mode in Settings → Security and login. Open Plugins,
                 choose +, then add a custom MCP server with your private connector address.
                 If the workspace does not offer this option, ask its administrator to enable it.</p>

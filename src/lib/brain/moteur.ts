@@ -100,7 +100,7 @@ function challenger(v: PieceVerdict, piece: Piece, text: string, faits: Fait[]):
 
   if (v.etat === "su" && preuveFausse) {
     if (piece.id === "qui-tranche") {
-      return { ...v, etat: "vide", raison: "fausse preuve — l’usage n’est pas le budget", preuve: null };
+      return { ...v, etat: "vide", raison: "fausse preuve - l’usage n’est pas le budget", preuve: null };
     }
   }
 
@@ -108,7 +108,7 @@ function challenger(v: PieceVerdict, piece: Piece, text: string, faits: Fait[]):
 
   if (fausse) {
     if (piece.id === "qui-tranche") {
-      return { ...v, etat: "vide", raison: "fausse preuve — l’usage n’est pas le budget" };
+      return { ...v, etat: "vide", raison: "fausse preuve - l’usage n’est pas le budget" };
     }
     if (piece.id === "champion-vs-coach") {
       return { ...v, etat: "suppose", raison: "un coach dit la même phrase" };
@@ -157,7 +157,7 @@ function remonter(piece: Piece, deal: DealInput, faits: Fait[]): Remontee {
     gain: piece.gain,
     cout_du_retard: fenetre
       ? piece.cout_du_retard
-      : "l’info n’était pas atteignable dans ce call — la provoquer, ne pas inventer un remords",
+      : "l’info n’était pas atteignable dans ce call - la provoquer, ne pas inventer un remords",
   };
 }
 
@@ -210,7 +210,7 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     ? { id: gesteDef.id, verbe: tetePiece.verbe, piece: tetePiece.id }
     : {
         id: "none" as const,
-        verbe: "Rien à ouvrir — toutes les pièces ont une preuve. Challenger quand même ce qui a l’air vrai.",
+        verbe: "Rien à ouvrir - toutes les pièces ont une preuve. Challenger quand même ce qui a l’air vrai.",
         piece: "none",
       };
 
@@ -225,7 +225,7 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
   const plan = stopAt >= 7 ? planChezEux(suivants, action) : [];
   const objectif = stopAt >= 7 ? action.quoi : "";
 
-  const strippe: string[] = ["7/10 du call — barème non défini"];
+  const strippe: string[] = ["7/10 du call - barème non défini"];
   if (stopAt >= 8) {
     if (grade !== "A") strippe.push("7/10 du call", "réplique");
   }

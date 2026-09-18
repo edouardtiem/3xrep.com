@@ -30,7 +30,7 @@ const SLIPS: Slip[] = [
     id: "metrique",
     label: "Métrique",
     guichet: "ops",
-    crayon: "2 j / sem. — dit l’ops",
+    crayon: "2 j / sem. - dit l’ops",
   },
   {
     id: "douleur",
@@ -115,7 +115,7 @@ export function Board() {
         <span className={`${styles.stamp} ${styles.stampLive}`}>Compensation</span>
         <span className={`${styles.stamp} ${styles.stampIdle}`}>Livraison</span>
         <p className={`${styles.label} ml-auto text-[11px] text-[rgb(42_33_24/0.45)]`}>
-          14:22 — call en cours
+          14:22 - call en cours
         </p>
       </div>
 
@@ -134,7 +134,7 @@ export function Board() {
             >
               <div className={`${styles.half} ${styles.yellow}`}>
                 <p className={`${styles.label} text-[10px] text-[rgb(42_33_24/0.5)]`}>
-                  Souche — {slip.label}
+                  Souche - {slip.label}
                 </p>
                 <p
                   className={`mt-3 text-[15px] leading-snug ${etat === "crayon" ? styles.pencil : styles.cleared}`}
@@ -156,7 +156,7 @@ export function Board() {
 
       <section className={`${styles.outTray} mt-8 px-4 py-5 sm:px-6`}>
         <p className={`${styles.label} text-[11px] text-[rgb(239_230_210/0.7)]`}>
-          Bac de sortie — non apparié
+          Bac de sortie - non apparié
         </p>
         {dafUnmatched ? (
           <div className="relative mx-auto mt-4 max-w-sm">

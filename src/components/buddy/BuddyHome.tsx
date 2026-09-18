@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { Blob } from "./Blob";
+import { AgendaClock } from "./AgendaClock";
 import { Hand } from "./Hand";
 import styles from "./buddy.module.css";
 
@@ -26,17 +27,17 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
             <p className={styles.eyebrow}>Your sales buddy</p>
             <h1 id="buddy-title">Your sales day,<br />figured out.</h1>
             <p className={styles.lead}>The call ends. The buyer goes quiet. You still have a number to hit.</p>
-            <p className={styles.support}>Your CRM, inbox and calendar tell your AI what happened. 3xrep helps you work out what to do next — on the deal in front of you.</p>
+            <p className={styles.support}>Your CRM, inbox and calendar tell your AI what happened. 3xrep helps you work out what to do next on the deal in front of you.</p>
             <Start>{cta}</Start>
-            <p className={styles.micro}>{offer.enabled ? "Full access during beta. No credit card required." : `No card today. Then $${LIST_PRICE_USD}/month for the whole company.`}</p>
-            <p className={styles.micro}>Start in Claude. <Link href="#setup">See what you need ↗</Link></p>
+            <p className={styles.micro}>{offer.enabled ? "Free during beta. If your workspace is selected for Founding 20, its base plan stays free forever." : `No card today. Then $${LIST_PRICE_USD}/month for the whole company.`}</p>
+            <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
           </div>
           <div className={styles.agenda}>
-            <div className={styles.agendaHead}><strong>Morning, Ed.</strong><span>YOUR DAY / 09:00</span></div>
+            <div className={styles.agendaHead}><strong>Morning, Ed.</strong><AgendaClock /></div>
             <ol>
               {day.map((row) => <li key={row.time}>
                 <time>{row.time}</time>
-                <div><p><strong>{row.deal}</strong><span> — </span>{row.pose ? <s>{row.task}</s> : row.task}</p>
+                <div><p><strong>{row.deal}</strong><span> - </span>{row.pose ? <s>{row.task}</s> : row.task}</p>
                   <Hand className={styles.annotation}>{row.note}</Hand>
                 </div>
               </li>)}
@@ -70,7 +71,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
 
         <section className={`${styles.section} ${styles.silence}`} aria-labelledby="silence-title">
           <div><p className={styles.eyebrow}>When they go quiet</p><h2 id="silence-title">More than<br />“just checking in”.</h2><p>Lisa asked for numbers last Thursday. The thread has gone quiet. Before chasing her, check what you still owe her.</p></div>
-          <div className={styles.reply}><p className={styles.step}>NORDIK / YOUR NEXT MOVE</p><h3>Send the numbers she asked for.</h3><p>Then ask whether they answer her question. If you already sent them, work from her last response — don’t invent a reason for the silence.</p><Hand className={styles.annotation}>Useful beats persistent.</Hand><p className={styles.caption}>Your AI can help draft the reply. You review it and decide what to send.</p></div>
+          <div className={styles.reply}><p className={styles.step}>NORDIK / YOUR NEXT MOVE</p><h3>Send the numbers she asked for.</h3><p>Then ask whether they answer her question. If you already sent them, work from her last response - don’t invent a reason for the silence.</p><Hand className={styles.annotation}>Useful beats persistent.</Hand><p className={styles.caption}>Your AI can help draft the reply. You review it and decide what to send.</p></div>
         </section>
 
         <section id="setup" className={styles.section} aria-labelledby="setup-title">

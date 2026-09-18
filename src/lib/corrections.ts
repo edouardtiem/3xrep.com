@@ -31,7 +31,7 @@ export function correctionsFromAudit(deal: DealInput, audit: Audit): CorrectionC
       crm: "case verte",
       piece: p.id,
       action: "corriger-apres-confirmation",
-      pourquoi: "case cochée sans source — ce n’est pas tenu.",
+      pourquoi: "case cochée sans source - ce n’est pas tenu.",
       ne_pas: "laisser la case verte sans preuve",
     });
   }

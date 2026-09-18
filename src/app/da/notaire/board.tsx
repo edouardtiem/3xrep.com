@@ -20,7 +20,7 @@ const ARTICLES: Article[] = [
     id: "face",
     n: "I",
     rubric: "Qui est en face",
-    su: "Julien Morel, directeur ops — usine Lyon.",
+    su: "Julien Morel, directeur ops - usine Lyon.",
   },
   {
     id: "tranche",
@@ -32,7 +32,7 @@ const ARTICLES: Article[] = [
     id: "metrique",
     n: "III",
     rubric: "Métrique",
-    suppose: "« On perd deux jours par semaine. » — l’ops.",
+    suppose: "« On perd deux jours par semaine. » - l’ops.",
   },
   {
     id: "douleur",
@@ -79,7 +79,7 @@ export function Board() {
 
   function body(article: Article, etat: Etat) {
     if (etat === "su") return article.su ?? article.suppose ?? "Posé.";
-    if (etat === "suppose") return article.suppose ?? "Supposé — pas de preuve.";
+    if (etat === "suppose") return article.suppose ?? "Supposé - pas de preuve.";
     return null;
   }
 
@@ -115,7 +115,7 @@ export function Board() {
 
         <section className={`${styles.deed} px-5 pb-6 pt-14 sm:px-10 sm:pt-16`}>
           <p className={`${styles.rubric} mb-8 text-center text-xs text-[rgb(28_25_23/0.55)]`}>
-            Acte — cas « DAF dit non »
+            Acte - cas « DAF dit non »
           </p>
 
           <div className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
@@ -131,7 +131,7 @@ export function Board() {
                   aria-label={`${article.rubric}, ${etat}`}
                 >
                   <p className={`${styles.rubric} text-[11px] text-[rgb(28_25_23/0.55)]`}>
-                    Art. {article.n} — {article.rubric}
+                    Art. {article.n} - {article.rubric}
                   </p>
                   <div className={`${styles.line} mt-2 flex items-end justify-between gap-3`}>
                     <p
@@ -153,7 +153,7 @@ export function Board() {
 
       <section className={`${styles.witness} mx-auto mt-6 grid w-full max-w-3xl grid-cols-2 gap-px`}>
         <div className="px-5 py-4 sm:px-8">
-          <p className={`${styles.rubric} text-[11px] text-[rgb(243_235_224/0.45)]`}>Témoin — ops</p>
+          <p className={`${styles.rubric} text-[11px] text-[rgb(243_235_224/0.45)]`}>Témoin - ops</p>
           <p className="mt-2 text-[15px] text-[rgb(243_235_224/0.92)]">Julien Morel</p>
           <span className={`${styles.parafe} mt-3 block border-b-[rgb(243_235_224/0.85)]`} />
         </div>
@@ -163,7 +163,7 @@ export function Board() {
           onClick={() => setConvie((v) => !v)}
           aria-label={convie ? "DAF convoqué" : "Convier le DAF"}
         >
-          <p className={`${styles.rubric} text-[11px] text-[rgb(243_235_224/0.45)]`}>Témoin — DAF</p>
+          <p className={`${styles.rubric} text-[11px] text-[rgb(243_235_224/0.45)]`}>Témoin - DAF</p>
           {convie ? (
             <>
               <p className="mt-2 text-[15px] text-[rgb(243_235_224/0.92)]">Dans la pièce</p>
@@ -182,7 +182,7 @@ export function Board() {
         <p className={`${styles.scaleMark} text-sm`}>
           {convie
             ? "Voir le DAF. Il est dans la pièce."
-            : "Pas inclus — s’il tranche sans toi, il dit non."}
+            : "Pas inclus - s’il tranche sans toi, il dit non."}
         </p>
         <p className="text-[11px] tracking-[0.12em] uppercase text-[rgb(243_235_224/0.38)]">
           Parafe ou trou. Pas de chance.

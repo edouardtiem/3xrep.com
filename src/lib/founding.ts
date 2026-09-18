@@ -32,6 +32,7 @@ export async function getBetaProgram(): Promise<BetaProgram | null> {
   const db = admin();
   if (!db) return null;
   const { data, error } = await db.from("founding_program").select("*").eq("id", true).single();
+  if (error?.code === "42P01") return null;
   if (error) throw new Error("Founding program unavailable. Apply the Founding 20 migration.");
   return data as BetaProgram;
 }

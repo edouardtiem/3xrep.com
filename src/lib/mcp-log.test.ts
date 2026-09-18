@@ -53,7 +53,7 @@ test("gesteOf / orgIdOf / clientOf", () => {
   assert.equal(clientOf(req), "Cursor/1.0");
 });
 
-test("logCall no-op sans Supabase — pas un throw", async () => {
+test("logCall no-op sans Supabase - pas un throw", async () => {
   for (const k of KEYS) delete process.env[k];
   await logCall({
     tool: "audit_deal",

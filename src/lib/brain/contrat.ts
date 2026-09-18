@@ -9,7 +9,7 @@ export const CONTRAT: ContratRendu = {
     },
     {
       id: "rate",
-      job: "The miss, glued to a line they said (they said Y, you skipped X). Quote the transcript. Otherwise stay quiet — that's a lecture.",
+      job: "The miss, glued to a line they said (they said Y, you skipped X). Quote the transcript. Otherwise stay quiet - that's a lecture.",
     },
     {
       id: "verrous",

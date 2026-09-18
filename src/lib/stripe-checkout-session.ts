@@ -7,7 +7,7 @@ import { stripePriceId } from "@/lib/stripe-env";
 export const LIST_PRICE_USD = 129;
 export const LIST_PRICE_CENTS = LIST_PRICE_USD * 100;
 
-/** The Price behind STRIPE_PRICE_ID must be this — never display $129 and charge 99 €. */
+/** The Price behind STRIPE_PRICE_ID must be this - never display $129 and charge 99 €. */
 export function isAnchorPrice(price: {
   currency: string | null;
   unit_amount: number | null;

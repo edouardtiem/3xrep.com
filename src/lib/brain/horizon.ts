@@ -239,7 +239,7 @@ export function planHorizon(input: {
         quand: item.quand?.trim() || null,
         nom: item.deal.nom?.trim() || "sans nom",
         titre: item.titre?.trim() || null,
-        raison: `À reporter — hors fenêtre ${input.fenetre} jour${input.fenetre > 1 ? "s" : ""}.`,
+        raison: `À reporter - hors fenêtre ${input.fenetre} jour${input.fenetre > 1 ? "s" : ""}.`,
       });
     }
   }

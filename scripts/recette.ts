@@ -140,6 +140,7 @@ const pipe = {
 
 async function main() {
   const open = process.env.MCP_OPEN_TOOLS === "1";
+  const beta = process.env.RECETTE_BETA === "1";
   const a = await rpc(init);
   console.log("INIT", a.status, a.text.slice(0, 400));
   const initBody = parse(a.text) as { result?: { instructions?: string } };
@@ -227,18 +228,19 @@ async function main() {
   const h = await fetch(`${BASE}/`);
   const home = await h.text();
   console.log("HOME", h.status, home.includes("VP Sales"));
-  console.log("HOME_TRIAL", home.includes("14 days free"));
+  console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("14 days free"));
   console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
-  if (h.status !== 200 || !home.includes("14 days free")) {
-    throw new Error("home doit dire 14 days free");
+  const offer = beta ? "Join the beta" : "14 days free";
+  if (h.status !== 200 || !home.includes(offer)) {
+    throw new Error(`home doit dire ${offer}`);
   }
 
   const start = await fetch(`${BASE}/start`);
   const startHtml = await start.text();
   console.log("START", start.status, startHtml.includes("Work email"));
   if (start.status !== 200) throw new Error("/start 200");
-  if (!startHtml.includes("Work email") || !startHtml.includes("14 days free")) {
-    throw new Error("/start doit proposer l’essai");
+  if (!startHtml.includes("Work email") || !startHtml.includes(offer)) {
+    throw new Error(`/start doit proposer ${offer}`);
   }
 
   const card = await fetch(`${BASE}/api/stripe/checkout?mode=card&org=00000000-0000-0000-0000-000000000000&sig=dead`, {
@@ -255,9 +257,12 @@ async function main() {
 
   const install = await fetch(`${BASE}/install`);
   const installHtml = await install.text();
-  console.log("INSTALL", install.status, installHtml.includes('action="/api/stripe/checkout"'));
-  if (install.status !== 200 || !installHtml.includes('action="/api/stripe/checkout"')) {
-    throw new Error("/install doit porter le form checkout $129");
+  const installOk = beta
+    ? installHtml.includes('href="/start"') && !installHtml.includes('action="/api/stripe/checkout"')
+    : installHtml.includes('action="/api/stripe/checkout"');
+  console.log("INSTALL", install.status, installOk);
+  if (install.status !== 200 || !installOk) {
+    throw new Error(beta ? "/install doit envoyer vers la bêta sans checkout" : "/install doit porter le form checkout $129");
   }
 }
 
