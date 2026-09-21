@@ -9,7 +9,7 @@ Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, un fait, on 
 
 Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque **post** : **Mode A** ou **Mode B** (l’idée). Pas de I forcé. Pas de « he ». Pas de triade maxime → jugement → produit.
 
-Réponses : skill `x-replies-that-hit`. Pas une phrase org sous chaque parent (~1 sur 5).
+Réponses : skill `x-replies-that-hit`. `parent_frame` d’abord. Pas une phrase org sous chaque parent (~1 sur 5). Skip CFP / joke-meme sans claim vente. Pas stage/owner/close date par défaut hors parent CRM.
 
 ## Règles partagées
 
