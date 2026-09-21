@@ -84,13 +84,15 @@ Répondre au parent avec un fait. Pas un slogan Mode A / Mode B.
 - Order status in chat closes the wait. The handoff to a human when stock lies is the hard part.  (mirror SAP/ops — no "stage on the opp")
 - Talking a Clay workflow into existence is easy. The first verified email that books is the proof.  (mirror Clay — owner/call only if you stay in their nouns)
 
+**Skip (`parent_frame` joke_meme / other, no sales claim):** ocean tidal CFP, animation BIP with no sales claim, pure joke-meme. No reply. Do not paste outbound, Claude+HubSpot, or Salesforce stages.
+
 **Case ~1 sur 5 (une phrase 3xrep / I built, pas la triade) :**
 
 Seulement si le parent est déjà vente / CRM / agent × fichier client, **et** la phrase ajoute un fait (où ça vit / org / pas un enregistreur). Pas un Reality-Check générique. Pas le même sticker Claude+CRM sous deux parents d’affilée.
 
 - *I built 3xrep. It says that on a Monday pipe review, in Claude.*
 - *3xrep lives in Claude, next to the CRM. Not another tab.*
-- Pas : *I built 3xrep so…*
+- Pas : *I built 3xrep so…* Auto-reject 「I built 3xrep so」 even when `parent_frame` is `crm_sales`. Prefer *I built 3xrep.* + fact. Never 「so」.
 
 Puis **stop**. Lien `https://www.3xrep.com/install` **seulement** si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Pas sous chaque inconnu.
 
@@ -120,7 +122,7 @@ Préférer les fils à **grande portée**. Pas le même texte collé sous plusie
 
 1. **Répondre du tout ?** Non → une ligne pourquoi, on passe. Préférer **grande portée**.
 2. **Beat.** Ironie légère **ou** éloge précis. L’éloge seulement si tu peux pointer un geste, une phrase, un mécanisme. Pas l’auteur.
-2b. **Lexique parent.** Écrire les 2–3 mots du parent que tu réutilises. Si tu allais écrire stage/owner/close date et qu'ils n'y sont pas: soit le parent est CRM (ok), soit tu changes de mots, soit skip.
+2b. **Parent-first.** Write `parent_frame:` (one of: `crm_sales` | `sales_adjacent` | `cold_email_ops` | `tech_agent` | `joke_meme` | `product_ops` | `other`) on the fiche. Then write the 2–3 parent nouns/verbs you will reuse. If you cannot name their claim in one line → skip. If you were about to write stage/owner/close date and they are not in the parent: allowed only if `parent_frame` is `crm_sales` (or the parent already uses those words in a deal/file sense); else change words or skip.
 3. **Une idée.** 1–2 phrases. Un avis concret sur **leur** claim. Compter la série : ~1 mention 3xrep / « I built » sur 5, et seulement si le parent est déjà deal/file. Défaut : zéro, pas de lien. Case ~1/5 : **une** phrase légère. Jamais la triade. Jamais « I built 3xrep so… ». I seulement si c’est Ed. qui construit / prix / avis. Produit nommé → **3xrep**. Pas de « he ».
 4. **Sarcasme.** Relire à voix haute. Si ça sonne cruel sans fait : couper. L’ironie vise **leur claim**, ou le fichier client qui ment si le parent est déjà CRM. Pas la personne.
 5. **Contrôle.** Plus de 2 phrases → couper. Punchline race / scarce / fiction / verdict / triad / vanity → jeter. Ça sonne comme une maxime d’affiche → réécrire comme la Session. Swap le parent URL : si la réponse tient inchangée → réécrire. Reality-Check (« X is fine. Still need owner/stage ») hors parent CRM → jeter.
@@ -141,10 +143,11 @@ API X : cheap / cher annoncé (oui/non)
 
 ## Parent
 URL ou citation exacte (une phrase)
+parent_frame: crm_sales | sales_adjacent | cold_email_ops | tech_agent | joke_meme | product_ops | other
 Portée : haute | moyenne | skip
 Beat : ironie | éloge | skip
 Lexique parent : mot1, mot2
-CRM nouns : gated | allowed (parent déjà CRM)
+CRM nouns : gated | allowed (parent_frame crm_sales, or parent already uses those words in a deal/file sense)
 Nomme 3xrep : non | oui (une phrase ; parent déjà deal/file)
 Triade : non
 Reality-Check : non
@@ -161,7 +164,7 @@ Lien install : non | oui (le parent a demandé un outil)
 
 - Méchanceté gratuite. Harcèlement. Ratio comme sport.
 - Tiret long (—), tiret moyen (–), ou `--` comme ponctuation.
-- La triade maxime → jugement → produit. « I built 3xrep so… ».
+- La triade maxime → jugement → produit. 「I built 3xrep so」 / 「I built 3xrep so…」 : auto-reject, even on CRM parents. Prefer 「I built 3xrep.」 + fact. Never 「so」.
 - Punchline : race, scarce, fiction, verdict, triad, vanity.
 - Coller stage / close date / owner / opp / pipe sous un parent hors vente–CRM–RevOps–MEDDIC.
 - Le template Reality-Check (“X is fine. Still need an owner on the stage/opp.”) en défaut.

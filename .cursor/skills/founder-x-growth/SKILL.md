@@ -33,7 +33,7 @@ Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la
 
 | Levier | Règle |
 | --- | --- |
-| **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. **3xrep / « I built » dans ~1 réponse sur 5.** Les autres : avis de terrain, sans nom produit. Préférer les fils à grande portée. Pas le même texte collé. |
+| **Répondre vs poster** | Petit compte : **plus de réponses que de posts**. Viser ~5 réponses utiles pour 1 post. Un post sans réponses autour = un tract. **3xrep / « I built » dans ~1 réponse sur 5.** Les autres : avis de terrain dans le lexique du parent, sans nom produit. Skip CFP / joke-meme sans claim vente. Pas stage/owner/close date par défaut hors parent CRM. Préférer les fils à grande portée. Pas le même texte collé. |
 | **Cadence** | Tenable. 1 post original / jour **max** une fois le go. Mieux : 3 to 5 / semaine + réponses le jour même. Silence 10 jours puis rafale : interdit. |
 | **Accroche** | Les 8 premiers mots = un fait (stage / close date / owner / call / pipe) **ou** Mode A (org, pas sièges) / Mode B (dans Claude, à côté du fichier client). Pas « Unpopular opinion ». Pas une maxime (vanity, verdict, race, scarce, fiction). |
 | **Preuve** | Un fait nommé. Mode A : org, pas sièges, pas un cours, pas un enregistreur. Mode B : une URL MCP à côté du connecteur, pas un onglet. « I built » seulement si ça sert, pas sous chaque post. Pas « we’re live », pas « building in public » vide. Pas « I built 3xrep so… ». |

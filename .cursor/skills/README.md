@@ -37,7 +37,7 @@ Brouillons seulement jusqu’à les trois (go explicite inclus) :
 2. Au moins une org payante via `/install`.
 3. **Go explicite** du fondateur.
 
-Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de message privé auto.**
+Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de message privé auto.** Wave drafts must paste Parent-first checklist; skills alone do not post.
 
 ### Voix, secret, prix
 
