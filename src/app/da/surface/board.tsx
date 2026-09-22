@@ -1,25 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSurfaceTheme } from "../use-surface-theme";
 import { CELLS, CAS, PARCOURS_JOUEUR, NEXT, cellValue, initialEtats, type Etat } from "../_content";
 import { EtudesNav } from "../_etudes";
 import styles from "./surface.module.css";
 
-type Theme = "light" | "dark";
 
 export function Board() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, persist] = useSurfaceTheme("dark");
   const [etats, setEtats] = useState<Record<string, Etat>>(initialEtats);
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("da-surface-theme");
-    if (saved === "light" || saved === "dark") setTheme(saved);
-  }, []);
 
-  function persist(next: Theme) {
-    setTheme(next);
-    window.localStorage.setItem("da-surface-theme", next);
-  }
 
   return (
     <main className={`${styles.shell} min-h-dvh`} data-theme={theme}>

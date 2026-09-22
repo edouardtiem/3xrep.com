@@ -2,19 +2,13 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { Blob } from "./Blob";
-import { AgendaClock } from "./AgendaClock";
+import { StrategyDemo } from "./StrategyDemo";
 import { Hand } from "./Hand";
 import styles from "./buddy.module.css";
 
 function Start({ children = "Start 14 days free" }: { children?: React.ReactNode }) {
   return <Link className={styles.cta} href="/start">{children}<span aria-hidden>↗</span></Link>;
 }
-
-const day = [
-  { time: "09:00", deal: "Acme", task: "Prep discovery", note: "Find out what the delay costs.", pose: false },
-  { time: "11:30", deal: "Nordik", task: "Follow up Lisa", note: "She asked for numbers. Start there.", pose: false },
-  { time: "14:00", deal: "Dune", task: "Send proposal", note: "First, find out who can approve it.", pose: true },
-];
 
 export default function BuddyHome({ offer = {enabled:false,available:false} }: { offer?: {enabled:boolean;available:boolean} }) {
   const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
@@ -24,62 +18,50 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
       <main id="main-content" className={styles.main}>
         <section className={styles.hero} aria-labelledby="buddy-title">
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>Your sales buddy</p>
-            <h1 id="buddy-title">Your sales day,<br />figured out.</h1>
-            <p className={styles.lead}>The call ends. The buyer goes quiet. You still have a number to hit.</p>
-            <p className={styles.support}>Your CRM, inbox and calendar tell your AI what happened. 3xrep helps you work out what to do next on the deal in front of you.</p>
+
+            <h1 id="buddy-title">Every deal needs<br />a strategy.</h1>
+            <p className={styles.lead}>Know your next move. And how to make it.</p>
+            <p className={styles.support}>3xrep builds a deal strategy from what your buyer has actually said. Get the approach, the words to use, and a way forward when the answer changes — inside your AI chat.</p>
             <Start>{cta}</Start>
             <p className={styles.micro}>{offer.enabled ? "Free during beta. If your workspace is selected for Founding 20, its base plan stays free forever." : `No card today. Then $${LIST_PRICE_USD}/month for the whole company.`}</p>
             <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
           </div>
-          <div className={styles.agenda}>
-            <div className={styles.agendaHead}><strong>Morning, Ed.</strong><AgendaClock /></div>
-            <ol>
-              {day.map((row) => <li key={row.time}>
-                <time>{row.time}</time>
-                <div><p><strong>{row.deal}</strong><span> - </span>{row.pose ? <s>{row.task}</s> : row.task}</p>
-                  <Hand className={styles.annotation}>{row.note}</Hand>
-                </div>
-              </li>)}
-            </ol>
-            <div className={styles.agendaFoot}><p>One priority at a time.<br /><span>You make the call.</span></p><Blob pose="note" className={styles.mascot} /></div>
-            <p className={styles.example}>Illustrative day · sample deals</p>
-          </div>
+          <StrategyDemo />
         </section>
 
         <section className={styles.section} aria-labelledby="thread-title">
           <div className={styles.sectionHead}>
-            <div><p className={styles.eyebrow}>One deal. A next move that changes.</p><h2 id="thread-title">The call is over.<br />You’re not on your own.</h2></div>
-            <p>Your notes shouldn’t become another thing to sort out tonight. Bring the call back to the same chat. Pick up where the deal left off.</p>
+            <h2 id="thread-title">“Who signs?” is only<br />the beginning.</h2>
+            <p>The useful part is working out how to reach them. 3xrep connects the evidence in your deal to the conversation you need next.</p>
           </div>
           <div className={styles.story}>
-            <article><p className={styles.step}>01 / BEFORE THE CALL</p><h3>Acme wants a demo.</h3><p>You know what they want to see. You don’t yet know what they need to change.</p><div className={styles.move}><span>YOUR NEXT MOVE</span><p>Ask where the delay hurts, and what it costs them today.</p></div><Hand className={styles.annotation}>Give the demo a reason.</Hand></article>
-            <article><p className={styles.step}>02 / AFTER THE CALL</p><h3>Now there’s something real.</h3><blockquote>“Our team loses six hours a week chasing approvals.”</blockquote><p>The problem is clearer. Who can approve a purchase is still unknown.</p><div className={styles.move}><span>YOUR NEXT MOVE</span><p>Ask how they would decide whether fixing this is worth paying for.</p></div></article>
-            <article><p className={styles.step}>03 / THE NEXT REPLY</p><h3>The next conversation changes.</h3><blockquote>“Maya owns the budget. She can join Friday.”</blockquote><p>You have a name and an opening. Confirm the meeting before treating it as booked.</p><div className={styles.move}><span>YOUR NEXT MOVE</span><p>Invite Maya. Agree how you’ll test the approval workflow together.</p></div><Hand className={styles.annotation}>That’s a useful demo.</Hand></article>
+            <article><p className={styles.step}>THE EVIDENCE</p><h3>A problem they recognize.</h3><blockquote>“Our team loses six hours a week chasing approvals.”</blockquote><p>Keep the buyer’s exact words. Check the source and their answer before using the problem as a reason to act.</p></article>
+            <article><p className={styles.step}>THE STRATEGY</p><h3>A reason to involve Maya.</h3><p>The cost of those delays gives Julien a business reason to request an investment conversation. Maya’s authority still needs checking.</p><div className={styles.move}><span>THE OBJECTIVE</span><p>Get the person who can authorize spend into a useful conversation before preparing the proposal.</p></div></article>
+            <article><p className={styles.step}>THE NEXT RESPONSE</p><h3>“She can join us.”</h3><p>Now prepare the decision: what the problem costs, what remains unknown, and what would justify investing.</p><div className={styles.move}><span>WHAT COUNTS AS PROGRESS</span><p>Authority confirmed. A shared purpose. A time accepted by the buyer.</p></div></article>
           </div>
-          <p className={styles.caption}>Illustrative conversation. New evidence changes the advice. A name alone is not proof of buying authority.</p>
+          <p className={styles.caption}>Illustrative conversation. When context is missing, 3xrep says what to establish first. It never fills in a buyer quote, a name or a budget.</p>
         </section>
 
         <section className={`${styles.section} ${styles.judgment}`} aria-labelledby="judgment-title">
-          <div><p className={styles.eyebrow}>On your side. Honest about the deal.</p><h2 id="judgment-title">Your CRM says “proposal”.<br />The buyer hasn’t said yes.</h2><p className={styles.support}>Another document won’t answer a question nobody has asked. 3xrep points to what’s missing, explains why it matters, and gives you a way forward.</p><p className={styles.support}>Sales methods guide the advice. The deal decides the next move. A short buying cycle and a six-person committee don’t need the same conversation.</p><Link className={styles.textLink} href="/docs">Explore the sales brain ↗</Link></div>
+          <div><h2 id="judgment-title">Walk into the call<br />with a way forward.</h2><p className={styles.support}>An objective, questions with a reason, and possible paths through the conversation. Use the same strategy before the call and update it when new evidence arrives.</p><p className={styles.support}>Budget missing? Start with the impact the buyer confirmed. If the impact is still unknown, establish that first.</p><Link className={styles.textLink} href="/docs">Explore the sales brain ↗</Link></div>
           <div className={styles.reasonCard}>
-            <div className={styles.cardLabel}><span>DUNE / DEAL CHECK</span><span className={styles.badge}>Proposal stage</span></div>
-            <dl><div><dt>What you have</dt><dd>“Send me something and I’ll pass it on.”</dd></div><div><dt>What’s missing</dt><dd>Who approves it, and how they’ll decide.</dd></div><div><dt>Why it matters</dt><dd>A proposal can circulate without a buying conversation ever happening.</dd></div></dl>
-            <div className={styles.nextMove}><span>TRY THIS NEXT</span><p>Ask your contact to bring the approver into a short conversation about the decision.</p><Hand className={styles.annotation}>A way in. Not another attachment.</Hand></div>
+            <div className={styles.cardLabel}><span>ILLUSTRATIVE CALL PLAN</span><span className={styles.badge}>Budget</span></div>
+            <dl><div><dt>Objective</dt><dd>Find the route to funding.</dd></div><div><dt>Confirmed impact</dt><dd>“The delay costs us 30 hours a month.”</dd></div><div><dt>Suggested opener</dt><dd>“For a problem of this size, would funding come from an existing budget or would someone need to create one?”</dd></div></dl>
+            <div className={styles.nextMove}><span>FOLLOW THE ANSWER</span><p>Existing budget → ask who owns it.<br />New spend → ask who arbitrates it.<br />Too early → ask what evidence is needed first.</p></div>
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.silence}`} aria-labelledby="silence-title">
-          <div><p className={styles.eyebrow}>When they go quiet</p><h2 id="silence-title">More than<br />“just checking in”.</h2><p>Lisa asked for numbers last Thursday. The thread has gone quiet. Before chasing her, check what you still owe her.</p></div>
-          <div className={styles.reply}><p className={styles.step}>NORDIK / YOUR NEXT MOVE</p><h3>Send the numbers she asked for.</h3><p>Then ask whether they answer her question. If you already sent them, work from her last response - don’t invent a reason for the silence.</p><Hand className={styles.annotation}>Useful beats persistent.</Hand><p className={styles.caption}>Your AI can help draft the reply. You review it and decide what to send.</p></div>
+          <div><h2 id="silence-title">Put your attention<br />where it can help.</h2><p>The morning brief puts actionable deal gaps ahead of the chronological agenda. A proposal with no confirmed approver deserves attention before it goes out.</p></div>
+          <div className={styles.reply}><h3>Today, next week, next month.</h3><p>Today: make the next move. This week: prepare the people and proof you need. This month: start the approvals and contract work that may take time.</p><p>Managing a team? See recurring gaps and the questions that help a rep build a route forward on each deal.</p><Hand className={styles.annotation}>A reason for every move.</Hand></div>
         </section>
 
         <section id="setup" className={styles.section} aria-labelledby="setup-title">
-          <div className={styles.sectionHead}><div><p className={styles.eyebrow}>No new sales app</p><h2 id="setup-title">Open the chat.<br />Bring your day.</h2></div><p>No new dashboard to maintain. Your AI reads the tools you connect. 3xrep adds the sales judgment.</p></div>
+          <div className={styles.sectionHead}><div><h2 id="setup-title">Open the chat.<br />Bring a real deal.</h2></div><p>No new dashboard to maintain. Your AI reads the tools you connect. 3xrep builds the deal strategy.</p></div>
           <ol className={styles.setup}>
             <li><span>01</span><h3>Connect your context.</h3><p>Connect your CRM to Claude, then your inbox and calendar. Notes and call transcripts help it work from what the buyer actually said.</p></li>
-            <li><span>02</span><h3>Add your sales buddy.</h3><p>Add 3xrep using your trial key. Your workspace may need an admin to allow the connection.</p></li>
-            <li><span>03</span><h3>Ask one question.</h3><p className={styles.prompt}>“Morning. What’s today?”</p><p>Come back after a call, before a proposal, or when a deal goes quiet.</p></li>
+            <li><span>02</span><h3>Add 3xrep.</h3><p>Add 3xrep using your trial key. Your workspace may need an admin to allow the connection.</p></li>
+            <li><span>03</span><h3>Ask one question.</h3><p className={styles.prompt}>“How do I move this deal forward — and what should I say?”</p><p>Come back after a call, before a proposal, or when a deal goes quiet.</p></li>
           </ol>
           <div className={styles.setupFoot}><p>Start with Claude and a connected CRM. Without inbox or calendar access, start with the deal context you have.</p><Link className={styles.textLink} href="/install">Connection guide ↗</Link></div>
           <p className={styles.caption}>ChatGPT Work: setup is documented; end-to-end validation is still in progress. Availability depends on your workspace and connectors.</p>
@@ -97,7 +79,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
           </div>
           <div className={styles.trust}><h3>Your sales context stays yours.</h3><p>3xrep doesn’t join your calls or fetch your inbox. Your AI brings the context from the tools you connect.</p><p>Call text sent to 3xrep is kept for 14 days, then deleted. A compact record of deal gaps remains, without transcripts. 3xrep doesn’t write to your CRM.</p><Link className={styles.textLink} href="/docs">Read the documentation ↗</Link></div>
         </section>
-        <footer className={styles.close}><div><Hand className={styles.signoff}>See you in the morning.</Hand><p>A next move. A reason for it. A little less on your own.</p></div><Blob pose="cafe" className={styles.closeMascot} /></footer>
+        <footer className={styles.close}><div><Hand className={styles.signoff}>See you in the morning.</Hand><p>The next move, the words, and a plan for the answer.</p></div><Blob pose="cafe" className={styles.closeMascot} /></footer>
       </main>
     </div>
   );

@@ -1,5 +1,12 @@
 # Différenciateur MCP — proposition
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+La différence recherchée est le passage du manque à la manière de l’obtenir, à partir de ce que le client a déjà confirmé. La formulation sert à exécuter cette stratégie. Les comparaisons historiques qui résumaient la rédaction à « bouche + cours » ne définissent plus cette frontière. Le moteur déterministe et les preuves restent au centre.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 **Figé comme analyse.** 2 septembre 2026. Réponse à : un skill MEDDIC + 5 pourquoi, demain tout le monde le copie. Qu’est-ce qui n’est pas un skill ?
 
 > **La mécanique est dans [cerveau.md](cerveau.md)**, qui gagne sur ce fichier. Ici : le paysage concurrentiel, ce qui n’est pas le différenciateur, et le test à deux agents. Écarts corrigés listés en §10 de `cerveau.md` — la bibliothèque n’est pas remplacée par un kernel (elle est l’actif), et les gestes vides sont autorisés.

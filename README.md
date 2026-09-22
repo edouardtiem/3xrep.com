@@ -4,11 +4,13 @@ Ils créent leur agent commercial. On est le cerveau : méthode versionnée, sur
 
 Domaine : [3xrep.com](https://3xrep.com).
 
-Accueil : sales buddy, « Your sales day, figured out. ». Journée priorisée, prochain geste sur le dossier et aide après l’appel. `/da/buddy` redirige vers `/`. Décision du 16 septembre 2026.
+Produit : stratégie commerciale pour chaque affaire. Des preuves au diagnostic, puis à la démarche, aux mots à employer et aux suites selon la réponse. Le diagnostic est nécessaire mais ne suffit plus. Accueil : « Every deal needs a strategy. ». Résumé stratégique du matin, préparation des rendez-vous et aide après l’appel. `/da/buddy` redirige vers `/`. Décision du 22 septembre 2026, remplaçant le positionnement du 16 septembre.
 
 ## Docs
 
 Lire dans cet ordre.
+
+- [docs/deal-strategy.md](docs/deal-strategy.md) — décision du 22 septembre, architecture, limites et scénarios.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
 - [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first

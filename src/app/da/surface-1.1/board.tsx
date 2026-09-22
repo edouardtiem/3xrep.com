@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSurfaceTheme } from "../use-surface-theme";
 import {
   AUTRES_CAS,
   CAS,
@@ -17,30 +18,17 @@ import { EtudesNav } from "../_etudes";
 import styles from "./surface.module.css";
 
 type View = "liste" | "terrain" | "sortie";
-type Theme = "light" | "dark";
 type Cran = "voir" | "inclure" | "absent";
 
 export function Board() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, persist] = useSurfaceTheme("light", true);
   const [view, setView] = useState<View>("liste");
   const [etats, setEtats] = useState<Record<string, Etat>>(initialEtats);
   const [questions, setQuestions] = useState(2);
   const [discovered, setDiscovered] = useState(false);
   const [cran, setCran] = useState<Cran>("absent");
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("da-surface-theme");
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved);
-      return;
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) setTheme("dark");
-  }, []);
 
-  function persist(next: Theme) {
-    setTheme(next);
-    window.localStorage.setItem("da-surface-theme", next);
-  }
 
   function openTerrain() {
     setEtats(initialEtats());

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "test": "node --import tsx --test src/lib/brain/*.test.ts src/lib/*.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts",

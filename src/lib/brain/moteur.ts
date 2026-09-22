@@ -1,3 +1,4 @@
+import { buildStrategy } from "./strategy";
 import { CONTRAT } from "./contrat";
 import { artefacts } from "./corpus";
 import { selectMethod } from "./method-selection";
@@ -251,6 +252,7 @@ export function runMoteur(deal: DealInput, opts: RunOpts = {}): Audit {
     rendu: { ...CONTRAT, blocs: refus ? [{ id: "refus", job: REFUS }]
       : CONTRAT.blocs.filter(b => grade === "A" || !["call", "rate"].includes(b.id)) },
     action,
+    strategy: buildStrategy(deal, pieces, remontees),
   };
   if (stopAt >= 8) audit.corrections_crm = correctionsFromAudit(deal, audit);
   return audit;

@@ -1,5 +1,12 @@
 # ICP & posture
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+Le commercial cherche une démarche praticable pour faire avancer une vraie affaire. Le manager utilise le même jugement pour préparer le coaching : preuve disponible, accès ou validation à obtenir, question à travailler. Aucun produit manager séparé.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 Figé. 1er septembre 2026, soir. Gagne sur le PRD §6 (cible). V0 : [v0.md](v0.md).
 
 ## Qui

@@ -1,5 +1,12 @@
 # Gestes — le cycle, en VP
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+Chaque geste important doit maintenant préciser l’objectif, la raison liée à cette affaire, la démarche, les mots proposés et la suite selon la réponse. La préparation utilise le même objet `Strategy`. Les passages historiques qui excluent les mails ou scripts ne s’appliquent plus à la formulation d’un geste fondé sur des preuves. Les séquences de prospection restent hors périmètre.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 **Figé (la règle).** 2 septembre 2026. Édouard : s’aligner là où les packs markdown sont présents et nous non ; **garder l’aspect VP qui refuse**. Gagne sur [benchmark-skills.md](benchmark-skills.md) §4 (« on ne cherche pas à battre le cold »). Ne casse pas [cerveau.md](cerveau.md) (moteur, hiérarchie, admission). Complète [prd.md](prd.md) §7–8 (layers) : un cycle, pas un deuxième produit.
 
 **Le décompte de dix est mort.** C’était trop gros : des étapes du terrain avaient disparu, des moments VP n’étaient pas des étapes. Catalogue réel ci-dessous. On n’ajoute pas un geste parce que Craig en a un.

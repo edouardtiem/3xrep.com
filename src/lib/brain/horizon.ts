@@ -1,3 +1,4 @@
+import type { Strategy } from "./strategy";
 import { artefacts } from "./corpus";
 import { extraireFaits } from "./faits";
 import { actionPourDeal } from "./action";
@@ -41,6 +42,7 @@ export type HorizonSlot = {
   montant?: number;
   titre: string | null;
   action: Action | null;
+  strategy: Strategy | null;
   trou: Trou | null;
   rattachements: Action["rattachements"];
   draft: HorizonDraft;
@@ -64,6 +66,7 @@ export type HorizonHors = {
 export type HorizonPlan = {
   fenetre: Fenetre;
   maintenant: string;
+  brief?: { headline: string; priorities: { deal: string; crm_id: string | null; why_today: string[]; move: string; strategy: Strategy }[] };
   agenda: HorizonSlot[];
   hors_fenetre: HorizonHors[];
   refus: string | null;
@@ -191,9 +194,10 @@ function slotOf(item: HorizonItem, quand: Date, offsetMs: number, fuseau?: strin
     montant: item.deal.montant,
     titre: item.titre?.trim() || null,
     action,
+    strategy: audit.strategy ?? null,
     trou,
     rattachements: action?.rattachements ?? [],
-    draft: draftPour(item, action, refus),
+    draft: audit.strategy && !refus && !(item.kind === "mail" && item.mail?.sens === "entrant" && PLAQUETTE.test(`${item.titre ?? ""} ${item.mail.extrait ?? ""}`)) ? { ecrire: true, contrainte: `Formulation proposée pour exécuter la stratégie. Reprendre ses preuves exactes et ses limites. Brouillon seulement, jamais envoi automatique. ${audit.strategy.do_not.join(" ")}` } : draftPour(item, action, refus),
     corrections_crm: audit.corrections_crm ?? [],
     refus,
     demande: audit.demande,
@@ -253,6 +257,7 @@ export function planHorizon(input: {
     fenetre: input.fenetre,
     maintenant: input.maintenant,
     agenda,
+    brief: strategicBrief(agenda, input.items, now, input.fenetre),
     hors_fenetre,
     refus: null,
     demande,
@@ -272,4 +277,30 @@ function zonedMidnight(now: Date, zone: string, addDays: number): Date {
     guess += target - wall;
   }
   return new Date(guess);
+}
+
+/** Rule order is explicit; no probability and no revenue weighting. Agenda stays chronological. */
+function strategicBrief(agenda: HorizonSlot[], items: HorizonItem[], now: Date, window: Fenetre): NonNullable<HorizonPlan["brief"]> {
+  const ranked = agenda.flatMap((slot, index) => {
+    if (!slot.strategy || slot.refus || (slot.denouement && slot.denouement !== "ouvert")) return [];
+    const item = items.find(i => slot.crm_id ? i.deal.crm_id === slot.crm_id : i.deal.nom === slot.nom);
+    const reasons: string[] = [];
+    let rank = 0;
+    if (slot.kind === "mail" && slot.mail?.sens === "entrant") { reasons.push("Une réponse au message entrant est à vérifier."); rank += 4; }
+    if (/propos|contract|contrat|n[ée]go|signature|legal/i.test(slot.etape ?? "") && slot.etats.some(p => ["qui-tranche", "budget", "enjeu-chiffre"].includes(p.id) && p.etat !== "su")) { reasons.push("Une preuve fondamentale manque avant la proposition ou la signature."); rank += 6; }
+    if (slot.kind === "rdv") { reasons.push(window === 1 ? "Rendez-vous dans la journée : préparer la validation utile." : "Rendez-vous à préparer dans cette période."); rank += 3; }
+    if (slot.action?.next_step_cote === "nous") { reasons.push("La prochaine action est de notre côté."); rank += 2; }
+    if (slot.kind === "tache" && slot.quand && Date.parse(slot.quand) < now.getTime()) { reasons.push("La tâche prévue est en retard."); rank += 3; }
+    if (item?.deal.derniereModif && now.getTime() - Date.parse(item.deal.derniereModif) > 30 * 86400000) { reasons.push("Le dossier n’a pas été actualisé depuis plus de trente jours."); rank += 2; }
+    const close = Date.parse(item?.deal.closeDate ?? "");
+    if (Number.isFinite(close) && close <= now.getTime() + window * 86400000) {
+      reasons.push("La date annoncée dans le fichier approche ou est dépassée ; elle reste à confirmer."); rank += 3;
+      if (slot.etats.some(p => p.id === "process-papier" && p.etat !== "su")) { reasons.push("Faire confirmer les achats et le juridique dès maintenant : leurs délais ne sont pas établis."); rank += 3; }
+    }
+    if (!reasons.length) reasons.push(window === 30 ? "Établir les validations et délais qui nécessitent de l’anticipation." : "Préparer la prochaine preuve à obtenir.");
+    return [{ deal: slot.nom, crm_id: slot.crm_id, why_today: reasons, move: slot.strategy.next_move.action, strategy: slot.strategy, rank, index }];
+  }).sort((a, b) => b.rank - a.rank || a.index - b.index);
+  const seen = new Set<string>();
+  const priorities = ranked.filter(p => { const key = p.crm_id ?? (p.deal === "sans nom" ? `row:${p.index}` : p.deal); if (seen.has(key)) return false; seen.add(key); return true; }).slice(0, 5).map(({ rank: _rank, index: _index, ...p }) => { void _rank; void _index; return p; });
+  return { headline: window === 1 ? "Les actions qui peuvent faire avancer les affaires aujourd’hui" : window === 7 ? "Préparer les prochaines validations cette semaine" : "Anticiper les décisions et les délais du mois", priorities };
 }

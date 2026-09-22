@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
+import { LIST_PRICE_USD } from "@/lib/pricing";
 import { siteUrl } from "@/lib/site";
 
 export const DOC_NAV = [
@@ -13,10 +13,10 @@ export const DOC_NAV = [
 ] as const;
 
 export const TOOLS = [
-  ["plan_horizon", "Plan today, the next 7 days or the next 30 days using the context your assistant brings."],
+  ["plan_horizon", "Prioritize today’s deal strategies, prepare the week and anticipate approvals over the next 30 days."],
   ["pipe_review", "Review several deals, identify open questions and suggest a next move for each."],
-  ["audit_deal", "Examine one deal, explain what is supported and what still needs clarifying."],
-  ["next_question", "Suggest the question or action that would help move a deal forward."],
+  ["audit_deal", "Build a strategy from verified deal evidence: the approach, wording, possible replies and next move."],
+  ["next_question", "Prepare a conversation: objective, questions and reasons, conditional branches and a useful next step."],
   ["objection_map", "Work from the buyer’s actual objection to identify what to explore next."],
   ["methode_lookup", "Explain a sales method or one of its concepts."],
   ["rattacher", "Connect a short statement to the relevant sales-method concepts."],

@@ -3,6 +3,7 @@ import type { ContratRendu } from "./types";
 export const CONTRAT: ContratRendu = {
   langue: "user, else prompt",
   blocs: [
+    { id: "strategy", job: "When strategy is present, render objective, gap, evidence leverage, approach, next move, suggested wording, conditional branches and success condition. Strategy is authoritative over legacy action. Preserve quotes exactly; translate surrounding coaching into the user language. Names only from strategy.contact or exact evidence; never invent a target name or date. Missing context stays explicit. Branches are hypotheses, not predicted buyer replies. No autonomous sending." },
     {
       id: "call",
       job: "The call, not the person. Describe what the supplied call establishes. No /10: the server has no validated rating rubric. Never invent a score.",

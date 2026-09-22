@@ -1,5 +1,12 @@
 # Sortie — après le call
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+La stratégie est le premier bloc utile : objectif, manque, preuves, démarche, prochain geste, formulation, questions, branches conditionnelles et condition de progrès. Les blocs historiques restent disponibles. Ne pas réciter la structure entière si une question ciblée suffit. Ne jamais remplacer la stratégie par l’ancien résumé `action`. Les citations restent exactes ; les branches sont des hypothèses.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 Figé. 1er septembre 2026, soir. C’est **le produit**. [loop.md](loop.md) dit où ça s’affiche. Ici : ce que l’AE lit. Sans verbatim : [contournement.md](contournement.md).
 
 Le lien `3xrep.com/deal/{id}` n’est **pas** le geste. V0 : le debrief est dans Cowork / ChatGPT / Notion. V2 : un bouton sur la fiche. Voir [v0.md](v0.md).

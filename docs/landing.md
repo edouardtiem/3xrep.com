@@ -1,5 +1,12 @@
 # Landing — 3xrep.com
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+L’accueil montre désormais « Every deal needs a strategy. ». Même identité visuelle : papier gris, cuivre, mascotte et typographie. La démonstration part d’un problème confirmé, construit l’accès à la personne qui peut investir, propose une phrase et laisse choisir trois réponses possibles. Les exemples sont illustratifs. Le budget, les horizons et le coaching sont expliqués sans promesse de gain. Founding 20 et le parcours standard suivent toujours la configuration serveur.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 Décision du 16 septembre 2026 : la page sales buddy devient l’accueil `/`, en remplacement de la fenêtre Cowork. Publication sur `main` autorisée par Édouard.
 
 ## Page

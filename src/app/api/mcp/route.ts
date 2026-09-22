@@ -51,7 +51,7 @@ const handler = createMcpHandler(
       {
         title: "Audit deal",
         description:
-          "Use when they talk about ONE deal, a call, or a CRM file. JSON out includes action (quoi, pourquoi, methods) plus pieces, death, climb-back, five-block contract, souvenir, CRM corrections. Speak action - don't invent a second verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals: pipe_review. Write in the user's language. Forbidden: close probability, write_to_crm, invented objection.",
+          "Use when they talk about ONE deal, a call, or a CRM file. JSON out includes action (quoi, pourquoi, methods) plus pieces, death, climb-back, five-block contract, souvenir, CRM corrections. Render strategy first: evidence, approach, next move, wording, branches, success condition and missing_context. Legacy action must not override it. Do not invent a name, date, quote or second verdict. geste=debrief-apres-call (default) or passe-trous. If refus is set: say it, don't fill the gap. Several deals: pipe_review. Write in the user's language. Forbidden: close probability, write_to_crm, invented objection.",
         inputSchema: dealSchema,
       },
       withGate("audit_deal", async (deal) => jsonTool(scoreDeal(deal))),
@@ -62,7 +62,7 @@ const handler = createMcpHandler(
       {
         title: "Pipe review",
         description:
-          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, what's blocked, or a monthly cycle / process audit. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif, crm_id) with the artefacts. JSON out: lundi (four written sums, this month, the rest, solid/fragile, one rule) plus per-deal action. Speak lundi, don't dump a lab report. Forbidden: probability, coverage × win rate, conversion rate, forecast in euros, signature théorique, ranking reps, write_to_crm.",
+          "Use when they talk about the pipeline, several deals, Monday, the forecast, a stage, a close date, what's blocked, or a monthly cycle / process audit. Read the deals through their CRM MCP and pass what the CRM claims (etape, closeDate, derniereModif, crm_id) with the artefacts. JSON out: lundi (four written sums, this month, the rest, solid/fragile, one rule) plus per-deal strategy and coaching questions. Render the evidence-grounded strategy and conditional branches, not only legacy action. Speak lundi, don't dump a lab report. Forbidden: probability, coverage × win rate, conversion rate, forecast in euros, signature théorique, ranking reps, write_to_crm.",
         inputSchema: pipeSchema,
       },
       withGate("pipe_review", async ({ deals }) => jsonTool(pipeReview(deals))),
@@ -73,7 +73,7 @@ const handler = createMcpHandler(
       {
         title: "Plan horizon",
         description:
-          "Use in the morning, or for the next 7 / 30 days. The host assistant already read Gmail, Calendar, and the CRM - pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak agenda - don't invent a second verdict. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
+          "Use in the morning, or for the next 7 / 30 days. The host assistant already read Gmail, Calendar, and the CRM - pass those items. fenetre=1 today, 7 this week, 30 this month. JSON out: agenda (heure, action, trou, draft constraints, CRM corrections), hors_fenetre to defer. Speak brief.priorities and their strategies first, then the agenda. Branches are conditional, not predictions. If draft.ecrire is false, don't write the mail. Forbidden: close probability, write_to_crm, invented quotes, a marketing body. Without Gmail/Calendar: still pass CRM deals; speak demande. pipe_review stays for Monday / the cycle.",
         inputSchema: horizonSchema,
       },
       withGate("plan_horizon", async (input) =>
@@ -86,7 +86,7 @@ const handler = createMcpHandler(
       {
         title: "Next question",
         description:
-          "Use when they ask what to ask next on a deal. Returns action: the question, why (methods), who must be in the room. If the file says send the contract and the signer isn't held: don't send. Same input as audit_deal. Write in the user's language.",
+          "Use when they ask what to ask next on a deal. Returns strategy: objective, evidence, approach, questions and why, wording, conditional branches, do_not and success condition. Use it for pre-call preparation. Names and dates must be sourced; do not invent them. If the file says send the contract and the signer isn't held: don't send. Same input as audit_deal. Write in the user's language.",
         inputSchema: dealSchema,
       },
       withGate("next_question", async (deal) => jsonTool(nextQuestion(deal))),
@@ -97,7 +97,7 @@ const handler = createMcpHandler(
       {
         title: "Objection map",
         description:
-          "Use when they quote an objection (price, timing, competitor, 'I need to talk internally'). Objection → unheld piece → CRAC in the next meeting - not a punchline email. If they didn't paste the sentence, ask; don't invent. Write in the user's language.",
+          "Use when they quote an objection (price, timing, competitor, 'I need to talk internally'). Objection → unheld piece → CRAC in the next meeting - suggested wording is allowed to execute strategy, never automatically send. If they didn't paste the sentence, ask; don't invent. Write in the user's language.",
         inputSchema: dealSchema.extend({
           objection: z.string().describe("The objection as heard, one sentence."),
         }),
@@ -169,7 +169,7 @@ const handler = createMcpHandler(
       {
         title: "This morning",
         description:
-          "Today: read Gmail, Calendar, and the CRM through the user's available connectors, call plan_horizon fenetre=1, speak the agenda. day.md is theirs. No write_to_crm.",
+          "Today: read Gmail, Calendar, and the CRM through the user's available connectors, call plan_horizon fenetre=1, speak the strategic brief then the agenda. day.md is theirs. No write_to_crm.",
       },
       () => ({
         messages: [

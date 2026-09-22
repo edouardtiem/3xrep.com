@@ -227,7 +227,8 @@ async function main() {
 
   const h = await fetch(`${BASE}/`);
   const home = await h.text();
-  console.log("HOME", h.status, home.includes("VP Sales"));
+  console.log("HOME", h.status, home.includes("Every deal needs"));
+  if (!home.includes("Every deal needs")) throw new Error("home doit présenter la stratégie par affaire");
   console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("14 days free"));
   console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
   const offer = beta ? "Join the beta" : "14 days free";
@@ -259,10 +260,10 @@ async function main() {
   const installHtml = await install.text();
   const installOk = beta
     ? installHtml.includes('href="/start"') && !installHtml.includes('action="/api/stripe/checkout"')
-    : installHtml.includes('action="/api/stripe/checkout"');
+    : installHtml.includes("payment link in your chat") && !installHtml.includes('action="/api/stripe/checkout"');
   console.log("INSTALL", install.status, installOk);
   if (install.status !== 200 || !installOk) {
-    throw new Error(beta ? "/install doit envoyer vers la bêta sans checkout" : "/install doit porter le form checkout $129");
+    throw new Error(beta ? "/install doit envoyer vers la bêta sans checkout" : "/install doit orienter vers le lien de paiement signé dans le chat");
   }
 }
 

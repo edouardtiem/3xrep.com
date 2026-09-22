@@ -4,6 +4,7 @@ import type { DealInput } from "./types";
 export function nextQuestion(deal: DealInput) {
   const audit = runMoteur(deal);
   return {
+    strategy: audit.strategy,
     geste: audit.geste,
     pieces: audit.pieces,
     methode: audit.methode,

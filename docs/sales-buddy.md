@@ -1,5 +1,12 @@
 # Sales buddy — contrat
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+Le compagnon commercial reste une personnalité. La définition du produit est désormais la stratégie par affaire : comment obtenir la prochaine validation, quoi dire et comment poursuivre selon la réponse. Le résumé stratégique passe avant l’agenda chronologique. Une formulation ou un brouillon est permis pour exécuter la stratégie, sans envoi autonome.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 Branche `sales-buddy`. Pas le README. Pas la prod tant qu’Édouard n’a pas dit que c’est le live.
 
 Claude = coquille (Gmail, Calendar, Slack, HubSpot MCP). 3xrep = cerveau. Pas d’OAuth Gmail chez nous. Pas de `write_to_crm`. Pas de table `day.md`.

@@ -307,3 +307,17 @@ Cette décision ouvre un recrutement ciblé par X et Gojiberry, contrairement à
 Droits séparés de Stripe, places permanentes, règles configurables. Trois sessions sur trois jours et trois résultats utiles au départ. Les horizons 1 / 7 / 30 jours existants sont conservés. Les événements d’usage sans contenu commercial sont conservés au-delà des 14 jours du journal détaillé pour mesurer le retour à 30 jours. Les avis sont volontaires et reliés à l’organisation ; pas d’identité individuelle inventée.
 
 Implémentation et procédure de mise en service : [Founding 20](beta/founding-20.md). La validation du code n’est pas une publication sur `main`, ni une activation de campagne.
+
+## 2026-09-22 — Du diagnostic à la stratégie par affaire
+
+**Qui :** Édouard, document « prompt codex 26_09_22 », puis demande d’application complète sur une nouvelle branche avec tests et audit.
+
+Ce qui était vrai : le cerveau repérait le manque et proposait généralement une première question. « Sales buddy » et la journée formaient le centre du positionnement. Certains textes figés excluaient la rédaction d’un courriel ou d’un script.
+
+Ce qui est vrai maintenant : le diagnostic est nécessaire mais ne suffit plus. Le cerveau construit une stratégie à partir des preuves tenues : objectif, manque, démarche, mots proposés, réponses possibles et condition de progrès. La personnalité de compagnon reste ; la catégorie devient la stratégie commerciale par affaire. L’accueil montre le passage des preuves à la conversation.
+
+Cette décision remplace les exclusions de formulation de `cerveau.md`, `gestes.md`, `differentiel.md`, `sortie.md`, `spec-agent.md`, `sales-buddy.md` et du PRD. « Pas la bouche » interdit le contact autonome ; proposer exactement quoi dire est autorisé. Le serveur juge, l’assistant peut mettre en forme sans inventer. Le résumé stratégique précède l’agenda. Un même moteur sert le commercial et le manager.
+
+Les sections historiques restent datées. Les preuves, la confidentialité, les droits et Founding 20 restent régis par leurs contrats. Aucune probabilité de signature, aucun envoi autonome, aucune intégration Smartlead. La planification future de revenu collectif reste hors périmètre.
+
+Architecture, règles de rendu et écarts motivés : [deal-strategy.md](deal-strategy.md). La branche de travail n’est pas une publication en production. Rouvrir par une nouvelle décision si l’on change la preuve requise, la conservation, le contact autonome ou la prévision commerciale.

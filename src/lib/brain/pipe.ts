@@ -52,6 +52,7 @@ export type PipeDealVerdict = {
   contradictions: Contradiction[];
   etats: { id: string; etat: Etat }[];
   action: Action | null;
+  strategy?: import("./strategy").Strategy | null;
 };
 
 export type TrouSystemique = {
@@ -97,6 +98,7 @@ export type PipeReview = {
   contradictions: Contradiction[];
   trous_systemiques: TrouSystemique[];
   recommandations: Recommandation[];
+  coaching: { deal: string; gap: string; question: string; approach: string; missing_context: string[] }[];
   rendu: ContratRendu;
   somme_portes_cassees: number | null;
   corrections_crm: CorrectionCrm[];
@@ -150,6 +152,7 @@ function verdictDeal(
         geste: null,
         contradictions: [],
         etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
+        strategy: audit.strategy,
         action: actionOf(deal, audit.pieces, etape, REFUS, []),
       },
       pieces: audit.pieces,
@@ -223,6 +226,7 @@ function verdictDeal(
       geste: audit.geste,
       contradictions,
       etats: audit.pieces.map((p) => ({ id: p.id, etat: p.etat })),
+      strategy: audit.strategy,
       action: actionOf(deal, audit.pieces, etape, null, contradictions),
     },
     pieces: audit.pieces,
@@ -374,6 +378,7 @@ function recommandations(
 export const CONTRAT_PIPE: ContratRendu = {
   langue: "user, else prompt",
   blocs: [
+    { id: "strategy", job: "For each deal, render strategy before legacy action: objective, evidence, approach, wording, branches and success condition. Use coaching for manager questions and recurring gaps. No rep ranking. Missing context stays explicit." },
     {
       id: "totaux",
       job: "Four written sums, not a forecast: total list, at risk (late stage that is not market practice), what the file says this month, this month at risk. Speak lundi.a_risque_mot. No percentage.",
@@ -426,6 +431,7 @@ export function pipeReview(deals: PipeDeal[], now: Date = new Date()): PipeRevie
     contradictions,
     trous_systemiques: trous,
     recommandations: recommandations(trous, contradictions),
+    coaching: verdicts.flatMap(v => v.strategy && !v.refus ? [{ deal: v.nom, gap: v.strategy.gap.piece, question: `Quelle preuve de ce dossier utiliser pour obtenir la prochaine validation, et que faire si le contact refuse ?`, approach: v.strategy.approach, missing_context: v.strategy.missing_context }] : []),
     rendu: CONTRAT_PIPE,
     somme_portes_cassees: somme,
     corrections_crm: correctionsFromPipe(contradictions),

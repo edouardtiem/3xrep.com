@@ -171,4 +171,5 @@ export type Audit = {
   rendu: ContratRendu;
   corrections_crm?: CorrectionCrm[];
   action?: Action;
+  strategy?: import("./strategy").Strategy | null;
 };

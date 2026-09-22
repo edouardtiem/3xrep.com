@@ -4,13 +4,13 @@ import BuddyHome from "@/components/buddy/BuddyHome";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "3xrep - Your sales day, figured out.",
-  description: "Know what to do next on the deal, with your sales buddy inside your AI chat. Start without a credit card.",
+  title: "3xrep - Every deal needs a strategy.",
+  description: "Build your next deal move from buyer evidence: the approach, the words to use, and what to do depending on the answer. Inside your AI chat.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "3xrep - Your sales day, figured out.",
-    description: "A next move. A reason for it. A little less on your own.",
+    title: "3xrep - Every deal needs a strategy.",
+    description: "Deal strategy, down to the next conversation.",
     url: "/",
     type: "website",
   },

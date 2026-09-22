@@ -60,10 +60,11 @@ export function objectionMap(input: DealInput & { objection: string }) {
       : null;
   const crac =
     hit?.crac ??
-    "Creuser dans le prochain rendez-vous. Ne pas répondre par mail. Ne pas inventer une punchline.";
+    "Creuser dans le prochain rendez-vous. Proposer une formulation ancrée dans les preuves, sans envoi automatique.";
   const base = audit.action;
   const question = cible?.etat === "su" ? "Ce point est documenté : qu’est-ce qui a changé, ou qu’est-ce qui bloque encore ?" : base?.question ?? null;
   return {
+    strategy: audit.strategy,
     objection: phrase,
     pieces: audit.pieces,
     methode: audit.methode,

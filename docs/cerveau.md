@@ -1,5 +1,12 @@
 # Le cerveau — comment il fonctionne
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+Le diagnostic est nécessaire mais ne suffit plus. Après priorité et remontée, `buildStrategy` construit le chemin à partir des preuves tenues. Il renvoie une stratégie structurée et des formulations sûres, puis des branches conditionnelles. Le serveur garde le jugement. Les anciens interdits de script ou de courriel ci-dessous sont remplacés pour les formulations qui exécutent cette stratégie.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 **Figé.** 2 septembre 2026. Validé par Édouard : les six décisions du §12 sont prises. Gagne sur [prd.md](prd.md) §9 pour la **mécanique** du cerveau. Ne casse pas [sortie.md](sortie.md) / [icp.md](icp.md) / [contournement.md](contournement.md) / [v0.md](v0.md).
 
 Ne pas « améliorer » sans casser ce fichier. On y ajoute du knowledge (§9), on ne rouvre pas la structure.

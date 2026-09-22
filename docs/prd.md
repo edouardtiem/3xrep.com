@@ -1,5 +1,12 @@
 PRD — 3xrep (pivot 1er septembre 2026)
 
+## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
+
+Le diagnostic est nécessaire mais ne suffit plus. Le produit construit une stratégie fondée sur les preuves et peut proposer exactement quoi dire. Les anciennes exclusions de rédaction sont remplacées dans ce cadre ; aucun envoi autonome. Voir le contrat de stratégie et la décision datée, prioritaires sur les descriptions historiques ci-dessous.
+
+Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
+
+
 
 
 Collé dans ce repo : `docs/prd.md`. Copie holding (venture-os). ADR 001.

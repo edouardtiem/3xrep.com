@@ -45,3 +45,17 @@ test("organisation context reaches every nested deal", () => {
 test("same-name opportunities keep separate correction amounts", () => {
   assert.equal(sommePortesCassees([{ crm_id: "a", nom: "Acme", montant: 10 }, { crm_id: "b", nom: "Acme", montant: 20 }], [{ type: "etape_illegale", crm_id: "a", deal: "Acme" }]), 10);
 });
+
+test("strategy evidence and wording never enter permanent deal memory", async () => {
+  const { strategyDeal } = await import("./brain/fixtures/strategy-deals");
+  const { runMoteur } = await import("./brain/moteur");
+  const deal = strategyDeal(["besoin"]);
+  const calls: Parameters<typeof recordPieces>[0][] = [];
+  const record: typeof recordPieces = async input => { calls.push(input); return []; };
+  const result = unpack(await enrichTool("audit_deal", deal, jsonTool(runMoteur(deal)), org, record));
+  assert.equal(result.strategy.primitive, "pain-to-access");
+  assert.equal(calls.length, 1);
+  const persisted = JSON.stringify(calls);
+  assert.doesNotMatch(persisted, /Julien|Acme|approval delays|wording|leverage|strategy/);
+  assert.ok(calls[0].pieces.some(p => p.id === "besoin" && p.etat === "su"));
+});

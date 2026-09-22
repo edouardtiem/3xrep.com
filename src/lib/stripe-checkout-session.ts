@@ -4,8 +4,8 @@ import { siteUrl } from "@/lib/site";
 import { stripePriceId } from "@/lib/stripe-env";
 
 /** Anchor price (USD). Checkout may show local currency via Adaptive Pricing. */
-export const LIST_PRICE_USD = 129;
-export const LIST_PRICE_CENTS = LIST_PRICE_USD * 100;
+import { LIST_PRICE_CENTS } from "./pricing";
+export { LIST_PRICE_USD, LIST_PRICE_CENTS } from "./pricing";
 
 /** The Price behind STRIPE_PRICE_ID must be this - never display $129 and charge 99 €. */
 export function isAnchorPrice(price: {
