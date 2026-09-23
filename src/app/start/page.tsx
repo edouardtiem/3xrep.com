@@ -181,7 +181,7 @@ export default async function Start({
               </button>
             </form>
             <p className="text-dim max-w-[40ch] text-[0.8125rem] leading-[1.4]">
-              {offer.enabled ? (offer.available ? "No credit card during beta. Qualify through real usage, then be selected for one of 20 Founding Workspaces with a free-forever base plan. Signup does not reserve a place." : "No credit card during beta. All 20 Founding places have been allocated; this signup includes beta access only.") : `No card today. Day 7: add a card (still $0 until day 14). Then $${LIST_PRICE_USD} a month for the whole company.`}
+              {offer.enabled ? (offer.available ? "No credit card during beta. Use 3xrep on real deals across several days. We select 20 teams for a free-forever base plan. Signing up does not reserve a place." : "No credit card during beta. All 20 free-forever places have been allocated; this signup includes beta access only.") : `We are looking for 20 teams to help shape 3xrep. Beta enrollment is not open yet, and this trial does not reserve a place. No card today. Day 7: add a card (still $0 until day 14). Then $${LIST_PRICE_USD} a month for the whole company.`}
             </p>
           </>
         )}

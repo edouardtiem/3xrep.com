@@ -28,8 +28,8 @@ Le terrain d’entraînement (30 août) est arrêté comme produit. Archive : [d
 
 Sales Game est mort. jesaisfaire est un autre git. Ce git est le git 3xrep.
 
-## Founding 20 et paiement
+## Beta, 20 équipes et paiement
 
-Décision du 18 septembre : priorité à l’usage pendant 30–45 jours. Attribution manuelle des places. Programme désactivé tant que sa configuration n’est pas ouverte. Mise en service, administration et mesures : [docs/beta/founding-20.md](docs/beta/founding-20.md). Recrutement ciblé : [séquence Gojiberry](docs/gtm/gojiberry-sequence.md).
+Décision du 18 septembre : priorité à l’usage pendant 30–45 jours. Attribution manuelle des places. Décision du 23 septembre : l’offre publique s’appelle « Beta » et l’accueil annonce la recherche de 20 équipes même quand les inscriptions bêta ne sont pas ouvertes. L’essai standard ne réserve pas de place. Le programme reste désactivé tant que sa configuration n’est pas ouverte. Mise en service, administration et mesures : [docs/beta/founding-20.md](docs/beta/founding-20.md). Recrutement ciblé : [séquence Gojiberry](docs/gtm/gojiberry-sequence.md).
 
 Chemin commercial hors bêta : [`/install`](https://3xrep.com/install) — brancher l’agent MCP, puis checkout Stripe. Secrets Vercel / Price Stripe : [docs/checkout.md](docs/checkout.md). Aucune clé dans ce repo.

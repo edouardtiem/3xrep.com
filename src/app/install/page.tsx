@@ -228,7 +228,7 @@ export default async function Install() {
             {offer.enabled ? "Try it with your real sales work. Tell us what helped and what missed." : "After the trial. One price for the whole company."}
           </p>
           <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
-          <p className="text-mute leading-relaxed">{offer.enabled ? "Full beta access. No credit card required. Founding status is awarded separately after real usage, within the 20-place limit." : "Already connected? Ask 3xrep for your workspace status and use the payment link in your chat."}</p>
+          <p className="text-mute leading-relaxed">{offer.enabled ? "Full beta access. No credit card required. We select up to 20 teams for a free-forever base plan after real usage." : "Already connected? Ask 3xrep for your workspace status and use the payment link in your chat."}</p>
         </section>
       </main>
     </>

@@ -22,8 +22,9 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
             <h1 id="buddy-title">Every deal needs<br />a strategy.</h1>
             <p className={styles.lead}>Know your next move. And how to make it.</p>
             <p className={styles.support}>3xrep builds a deal strategy from what your buyer has actually said. Get the approach, the words to use, and a way forward when the answer changes — inside your AI chat.</p>
+            <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 places have been allocated." : "I’m looking for 20 teams using 3xrep on real deals. Teams I select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
             <Start>{cta}</Start>
-            <p className={styles.micro}>{offer.enabled ? "Free during beta. If your workspace is selected for Founding 20, its base plan stays free forever." : `No card today. Then $${LIST_PRICE_USD}/month for the whole company.`}</p>
+            <p className={styles.micro}>{offer.enabled ? "Full beta access. No credit card." : `14-day trial. No card today. Standard price: $${LIST_PRICE_USD}/month per company.`}</p>
             <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
           </div>
           <StrategyDemo />
@@ -69,12 +70,16 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
 
         <section className={`${styles.section} ${styles.finish}`} aria-labelledby="price-title">
           <div className={styles.price}>
-            <h2 id="price-title">{offer.enabled ? "Founding 20" : <>{`$${LIST_PRICE_USD}`}<span> / month</span></>}</h2>
+            <h2 id="price-title">Beta</h2>
             {offer.enabled ? <>
-              <p>Help shape 3xrep with your team’s real sales work. Full access during beta. No credit card.</p>
-              <p>{offer.available ? "Use it across several days. If your workspace qualifies and is selected for one of the 20 places, its base plan stays free forever. Signing up does not reserve a place." : "All 20 Founding places have been allocated. You can still try the beta for free; new signups are not eligible for a free-forever place."}</p>
+              <p>I’m looking for 20 teams to shape 3xrep through real sales work. Full access during beta. No credit card.</p>
+              <p>{offer.available ? "Use it on real deals across several days. I’ll select 20 teams from those who do. Selected teams keep the base plan free forever. Signing up does not reserve a place." : "All 20 free-forever places have been allocated. You can still try the beta for free."}</p>
               <p className={styles.micro}>Future optional extras may be paid. Standard price after beta: ${LIST_PRICE_USD}/month per company. No automatic charge.</p>
-            </> : <p>Three people or thirty. No per-seat charge.<br />USD, plus applicable tax.</p>}
+            </> : <>
+              <p>I’m looking for 20 teams to help shape 3xrep through real sales work. Teams selected after using it keep the base plan free forever.</p>
+              <p>Beta enrollment is not open yet. You can start a 14-day trial now. A trial does not reserve one of the 20 places.</p>
+              <p className={styles.micro}>Standard price after the trial: ${LIST_PRICE_USD}/month per company, plus tax. No per-seat charge.</p>
+            </>}
             <Start>{cta}</Start><p className={styles.micro}>{offer.enabled ? "Your feedback helps decide what comes next." : "14 days free. No card today."}</p>
           </div>
           <div className={styles.trust}><h3>Your sales context stays yours.</h3><p>3xrep doesn’t join your calls or fetch your inbox. Your AI brings the context from the tools you connect.</p><p>Call text sent to 3xrep is kept for 14 days, then deleted. A compact record of deal gaps remains, without transcripts. 3xrep doesn’t write to your CRM.</p><Link className={styles.textLink} href="/docs">Read the documentation ↗</Link></div>

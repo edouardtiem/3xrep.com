@@ -14,7 +14,7 @@ const guides=[
   {href:"/docs/pipeline-review",title:"Look beyond today",description:"Review your deals and prepare for the next 7 or 30 days."},
   {href:"/docs/methods",title:"Understand the advice",description:"The sales methods behind a question or recommendation."},
   {href:"/docs/gong-alternative",title:"Know what happens to your context",description:"Call notes, recordings, memory and privacy."},
-  {href:"/docs/pricing",title:"Beta, Founding 20 & pricing",description:"What is included, how places are awarded, and what comes next."},
+  {href:"/docs/pricing",title:"Beta & pricing",description:"What is included, how 20 teams are selected, and what comes next."},
 ];
 export default function DocsPage() {
   return <>

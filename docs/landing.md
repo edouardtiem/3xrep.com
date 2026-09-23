@@ -2,7 +2,9 @@
 
 ## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
 
-L’accueil montre désormais « Every deal needs a strategy. ». Même identité visuelle : papier gris, cuivre, mascotte et typographie. La démonstration part d’un problème confirmé, construit l’accès à la personne qui peut investir, propose une phrase et laisse choisir trois réponses possibles. Les exemples sont illustratifs. Le budget, les horizons et le coaching sont expliqués sans promesse de gain. Founding 20 et le parcours standard suivent toujours la configuration serveur.
+L’accueil montre désormais « Every deal needs a strategy. ». Même identité visuelle : papier gris, cuivre, mascotte et typographie. La démonstration part d’un problème confirmé, construit l’accès à la personne qui peut investir, propose une phrase et laisse choisir trois réponses possibles. Les exemples sont illustratifs. Le budget, les horizons et le coaching sont expliqués sans promesse de gain. L’inscription suit la configuration serveur.
+
+Décision du 23 septembre : l’offre visible s’appelle « Beta ». L’accueil annonce la recherche de 20 équipes qui utilisent réellement 3xrep, même quand les inscriptions bêta sont fermées. Parmi ces équipes, celles retenues gardent l’offre de base gratuite à vie. Quand la bêta est fermée, l’essai de 14 jours reste accessible mais ne réserve pas de place.
 
 Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
 
@@ -17,7 +19,7 @@ Titre : **Your sales day, figured out.** La page montre une journée, puis une a
 
 ## Founding 20 — 18 septembre 2026
 
-Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du programme. Bêta ouverte : « Join the beta », sans carte, attribution manuelle parmi 20 organisations. Une fois les places allouées, le site annonce que la bêta reste ouverte mais sans nouvelle place gratuite à vie. Programme fermé : parcours standard ci-dessous. Style sales buddy conservé. Voir [Founding 20](beta/founding-20.md).
+Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du programme pour l’inscription et les droits. Bêta ouverte : « Join the beta », sans carte, attribution manuelle parmi 20 organisations. Une fois les places allouées, le site annonce que la bêta reste ouverte mais sans nouvelle place gratuite à vie. Programme fermé : parcours standard ci-dessous, avec annonce de la recherche des 20 équipes. Style sales buddy conservé. Voir [Founding 20](beta/founding-20.md).
 
 ## Parcours standard
 
