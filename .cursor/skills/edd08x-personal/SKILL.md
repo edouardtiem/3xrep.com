@@ -130,7 +130,7 @@ Ne pas encoder « viser 50 ou 100 réponses ».
 
 Encoder : n’envoyer **que** les réponses qui passent la liste. **Skip = succès.**
 
-Les chiffres dans `founder-x-growth` sont des **plafonds**, pas des objectifs. Un jour à trois skips et une bonne réponse bat une vague de vingt maximes.
+Aucun chiffre n’est un objectif. Le choix d’un fil part d’une **raison précise** de répondre, jamais d’un nombre à atteindre ni d’un créneau à remplir. Un jour à zéro réponse est un bon jour si rien ne passe. Les plafonds d’urgence des routines (s’il y en a) sont des freins, pas des cibles.
 
 ## Avant chaque vague (routines)
 
@@ -148,27 +148,27 @@ Sans URL live. Le parent est résumé.
 
 ### 1. Histoire de carrière (cas Michael)
 
-**Parent :** quelqu’un raconte son parcours. Titre, automations, comment il est devenu premier commercial.
+**Parent :** quelqu’un raconte son parcours (automations, premier commercial, titre plus tard). Tu n’as pas d’autre détail que ce qu’il a écrit.
 
 **Mauvais :** `Sales automation that made you #1 rep. Meetings first, title later.`
 
-Ça se colle sous vingt bios. C’est une maxime, pas une réponse.
+Ça se colle sous vingt bios. C’est une maxime. Ça n’ajoute rien.
 
-**Bon (seulement si le parent a vraiment ce détail) :** `The bit I kept: you were still taking the meetings after the title already looked finished.`
+**Bon :** **Skip.** Tu n’as qu’une reformulation de sa bio. Aucun fait nouveau à apporter → silence.
 
-**Skip :** tu n’as qu’une leçon générale. Le silence est mieux.
+Interdit dans un « bon » : inventer qu’il « continuait les meetings après le titre », inventer une année, inventer un détail absent du parent.
 
 ### 2. « What do you mean? » (suite Michael)
 
-**Parent :** il demande ce que tu voulais dire. Après une maxime floue.
+**Contexte :** tu as déjà envoyé la maxime floue ci-dessus. Il demande ce que tu voulais dire.
 
 **Mauvais :** `The origin story that still holds. Title is noise. Meetings are the whole game.`
 
-Tu empiles une leçon. Tu n’expliques pas ta phrase.
+Tu empiles une leçon. Tu n’expliques pas ta phrase. Tu inventes encore.
 
-**Bon :** `I meant the meetings you kept taking after the title, not a general sales rule.`
+**Bon (expliquer UNIQUEMENT ta réponse initiale, sans fait nouveau sur sa vie) :** `I was only restating your post in abstract words: automation first, title later. That wasn’t useful.`
 
-**Skip :** tu ne peux pas dire ça en mots simples. Main à l’humain. Pas de troisième essai slogan.
+**Sinon : Skip + main à Édouard.** Si tu ne peux pas clarifier ta propre phrase en mots simples sans ajouter un détail sur lui → ne réponds pas, passe la main. Pas de troisième essai slogan.
 
 ### 3. Blague sur les mauvais mails de prospection (cas Elena)
 
