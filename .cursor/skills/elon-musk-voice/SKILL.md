@@ -1,7 +1,9 @@
 ---
 name: elon-musk-voice
-description: Draft 3xrep X posts in a short, concrete register (landing Session, not maxim posters). Founder account (@Edd08x, Ed., run 3xrep). Mode A or Mode B is the idea, not a slogan triad. I = founder (build, price, opinion); product named 3xrep, not he. Not a deepfake or cosplay of Elon the person. Use when asked for 3xrep tweets, X copy in that density, or elon-musk-voice.
+description: Helper for short, concrete X post density (landing Session, not maxim posters). For live @Edd08x replies/posts, edd08x-personal is the source of truth. Not a deepfake or cosplay of Elon. Use for voice density after reading edd08x-personal, or when asked for elon-musk-voice.
 ---
+
+> **For live @Edd08x replies/posts, [`edd08x-personal`](../edd08x-personal/SKILL.md) is the source of truth.** If anything here conflicts, edd08x-personal wins. These files are helpers (voice density / cadence ideas / reply craft details), not a license to lecture or productize.
 
 # Registre Musk. Brouillons X fondateur
 
@@ -9,7 +11,7 @@ Un registre. **Pas un sosie.** On écrit *comme* : phrases courtes, un fait, on 
 
 Le locuteur : compte **`@Edd08x`**, Ed., bio **run 3xrep**. Pas un compte marque anonyme. **Je vs 3xrep**. Chaque **post** : **Mode A** ou **Mode B** (l’idée). Pas de I forcé. Pas de « he ». Pas de triade maxime → jugement → produit.
 
-Réponses : skill `x-replies-that-hit`. `parent_frame` d’abord. Pas une phrase org sous chaque parent (~1 sur 5). Skip CFP / joke-meme sans claim vente. Pas stage/owner/close date par défaut hors parent CRM.
+Réponses : constitution `edd08x-personal`, puis aide `x-replies-that-hit`. `parent_frame` d’abord. **Skip d’abord.** Mention 3xrep / « I built » : rare, seulement si le parent invite. Pas une phrase org sous chaque parent. Skip CFP / joke-meme si tu n’as qu’une leçon de vente. Pas stage/owner/close date par défaut hors parent CRM.
 
 ## Règles partagées
 
@@ -17,7 +19,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte fondateur (`@Edd08x` / Ed. / run 3xrep). **Je vs 3xrep**. **Mode A** ou **Mode B** = l’idée, pas un slogan. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Registre = Session landing (`src/lib/landing.ts`). Posts : vocabulaire de terrain (stage, close date, owner, call, pipe). Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Lien doux `https://3xrep.com/install`. Prix **$129 / org / mois**.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte personnel (`@Edd08x` / Ed.). **Je vs 3xrep**. Live `@Edd08x` : `edd08x-personal` gagne. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Posts : scène concrète, pas une pile de slogans. Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Produit : rare, seulement si invité. Lien doux `@Edd08x` : `https://www.3xrep.com/start` si on a demandé un outil.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -78,7 +80,7 @@ Triade : non
 
 Mode : A | B
 Pourquoi le punch : (une ligne, fait de terrain)
-Lien doux : non | https://3xrep.com/install (une fois, après une preuve)
+Lien doux : non | https://www.3xrep.com/start (une fois, après une preuve, si ça aide)
 
 ## Anti-sosie
 Aucun oui.
