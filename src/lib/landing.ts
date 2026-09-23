@@ -27,19 +27,20 @@ export function agentSetupPrompt(url: string, key?: string) {
 }`;
   return `Add 3xrep as a remote MCP connector next to my CRM (HubSpot, Salesforce, Pipedrive, Attio, or Close) - not instead of it. Nothing to install in the CRM.
 
-At minimum also connect Gmail and Google Calendar in Claude. Then Slack, Notion, a notetaker if you can.
+Use Claude Cowork or ChatGPT Work on a computer with access to a folder I authorize. After connecting 3xrep, send the first message shown at https://3xrep.com/install so the assistant asks about me and my company, confirms my local folder, and creates the working Markdown files. Then connect my CRM, email and calendar. Do not claim local memory exists until the files are written successfully.
 
 URL: ${url}${auth}
 
 Claude Code:
-claude mcp add --transport http 3xrep ${url}
+claude mcp add --transport http 3xrep ${url}${key ? ` --header "Authorization: Bearer ${key}"` : ""}
 
-Cursor / Codex - merge this into .cursor/mcp.json:
+Cursor - merge this into .cursor/mcp.json:
 ${json}
 
-Claude or ChatGPT: Settings → Connectors → Add custom connector → paste the URL${key ? " and the key" : ""}.
+Claude Desktop: Connectors → Add custom connector → paste the private URL.
+ChatGPT Work desktop: enable developer mode, then Plugins → + → add the MCP server. Select the 3xrep plugin for the first message.
 
-When 3xrep, the CRM, Gmail, and Calendar are on, say: Morning. What's today?`;
+After local setup and source connections, say: Morning. What's today?`;
 }
 
 /** Density reference for founder X posts. Not the live home. Do not restore SessionTerminal. */

@@ -72,9 +72,9 @@ export function trialExtras(org: OrgRow | null): {
   if (org.referral_code) {
     out.parrainage = { url: referralStartUrl(org.referral_code) };
   }
-  if (!org.title || !org.mission || !org.company_url) {
+  if (!org.company_url) {
     out.demande_profil =
-      "Ask title, mission (rep / manager / VP sales / other), and their company URL, then call set_org_profile. Do not block the first plan_horizon or pipe_review on this.";
+      "Ask for the company's website and a user-confirmed short description, then call set_org_profile. Keep the person's name and role in their local person.md, not the shared organization profile. Do not block a first deal analysis on this.";
   }
   return out;
 }

@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/docs";
 export const metadata = pageMeta({
   title: "Agent spec",
   description:
-    "The text that travels with them. Paste it in a Claude Project, a GPT, or a Notion agent. Deal coach, not the mouth.",
+    "Optional agent instructions for a local desktop setup with 3xrep. The guided introduction starts with the start_onboarding tool.",
   path: "/spec",
 });
 
@@ -22,8 +22,9 @@ export default function SpecPage() {
           <CopyButton text={AGENT_SPEC} />
         </div>
         <p className="text-mute max-w-[40ch] text-[1.125rem] leading-[1.5]">
-          One text, theirs. They paste it in a Claude Project, a GPT, a Notion
-          agent. It holds our address. It travels when they change jobs.
+          Optional instructions for a local desktop assistant. Start with the
+          guided introduction on the connection page; your assistant can keep
+          these instructions in the folder you authorize.
         </p>
         <pre className="overflow-x-auto whitespace-pre-wrap rounded-lg border border-line bg-raise p-6 font-mono text-xs leading-relaxed">
           {AGENT_SPEC}

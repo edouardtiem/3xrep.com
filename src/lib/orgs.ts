@@ -397,8 +397,6 @@ export async function revokeByCustomer(stripeCustomerId: string): Promise<void> 
 export async function updateOrgProfile(
   orgId: string,
   profile: {
-    title: string;
-    mission: string;
     company_url: string;
     company_blurb: string | null;
     sales_context?: SalesContext;

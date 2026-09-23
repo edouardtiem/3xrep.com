@@ -25,7 +25,7 @@ export default function DocsPage() {
         <p>3xrep works from the context your assistant can access. If a detail is missing, it should tell you what to find out first.</p>
       </DocSection>
       <DocSection title="New to 3xrep?">
-        <p><Link href="/start">Check Beta enrollment</Link> to get a private key. Then add 3xrep to Claude and start with your deal notes. <Link href="/install">See the connection steps</Link>.</p>
+        <p><Link href="/start">Check Beta enrollment</Link> to get a private key. Then add 3xrep on your computer, introduce yourself and choose a local folder for working notes. <Link href="/install">See the connection steps</Link>.</p>
       </DocSection>
       <div className={styles.welcome}><Blob pose="note" /><Hand className={styles.hand}>One useful next move. Then the next.</Hand></div>
       <nav aria-label="Explore the guide" className={styles.guides}>{guides.map(item=><Link className={styles.guide} key={item.href} href={item.href}><strong>{item.title}</strong><span>{item.description}</span><span aria-hidden="true">↗</span></Link>)}</nav>

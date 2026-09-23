@@ -19,7 +19,8 @@ export const TOOLS = [
   ["objection_map", "Work from the buyer’s actual objection to identify what to explore next."],
   ["methode_lookup", "Explain a sales method or one of its concepts."],
   ["rattacher", "Connect a short statement to the relevant sales-method concepts."],
-  ["set_org_profile", "Save your role and company context to make the advice more relevant."],
+  ["start_onboarding", "Set up your local 3xrep folder and connect your sales context."],
+  ["set_org_profile", "Save confirmed company context to make the advice more relevant."],
   ["workspace_status", "Check your workspace’s access, beta status or selected place."],
   ["beta_feedback", "Save feedback on a result when you choose to share it."],
 ] as const;

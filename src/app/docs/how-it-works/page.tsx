@@ -10,7 +10,7 @@ export default function HowItWorksPage(){return <>
   <DocPage title="Your context. A clearer next move." lead="Your CRM, inbox and calendar tell your AI what happened. 3xrep adds sales judgment so you can decide what deserves attention next.">
     <DocSection title="It starts in your usual chat.">
       <p>Add 3xrep as a connector in your AI assistant, alongside the tools you use for work. Your assistant brings the relevant notes, messages and deal details to 3xrep. You keep talking in the same chat.</p>
-      <p>Start with Claude and notes from one deal. Connect your CRM, inbox or calendar in your assistant when you want more context. <Link href="/install">See the connection steps</Link>.</p>
+      <p>Start in Claude Cowork or ChatGPT Work on your computer. Your assistant first asks about you and your company, then helps you choose a local folder for working notes. Add your CRM, inbox and calendar next. <Link href="/install">See the connection steps</Link>.</p>
       <p className={styles.note}>ChatGPT Work setup is documented; end-to-end validation is still in progress. Availability depends on your workspace and connectors.</p>
     </DocSection>
     <DocSection title="Ask about a real moment.">

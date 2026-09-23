@@ -9,11 +9,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { CRM_CONNECTORS, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
 
 import { mcpUrl } from "@/lib/site";
+import { LOCAL_ONBOARDING_PROMPT } from "@/lib/onboarding";
 
 export const metadata = pageMeta({
   title: "Install 3xrep",
   description:
-    "Add 3xrep in Claude or ChatGPT, next to your CRM. Start without a credit card. We don't join your calls.",
+    "Connect 3xrep on your computer, choose a local folder for your working memory, then add your CRM. No credit card required.",
   path: "/install",
 });
 
@@ -59,8 +60,8 @@ export default async function Install() {
   const howTo = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Connect 3xrep in Claude",
-    description: "Get a private key, add the connector in Claude, and ask about one deal.",
+    name: "Set up 3xrep on your computer",
+    description: "Get a private key, add the connector, and start a guided introduction with local working memory.",
     step: [
       {
         "@type": "HowToStep",
@@ -74,8 +75,8 @@ export default async function Install() {
       },
       {
         "@type": "HowToStep",
-        name: "Ask about one deal",
-        text: "Bring deal notes into your chat or connect your CRM alongside 3xrep. Ask how to move the deal forward.",
+        name: "Set up local working memory",
+        text: "Open a local desktop task, ask 3xrep to start onboarding, answer its questions, and authorize a local folder for Markdown notes.",
       },
     ],
   };
@@ -91,7 +92,7 @@ export default async function Install() {
             Connect 3xrep in your chat.
           </h1>
           <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
-            Start with Claude and one deal. You can bring notes into the chat now and connect your CRM when you are ready.
+            Start in Claude Cowork or ChatGPT Work on your computer. A short introduction sets up your local working notes before your first deal.
           </p>
           <p className="mt-8">
             <Link
@@ -114,32 +115,37 @@ export default async function Install() {
 
         <section className="space-y-5">
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            2. Add 3xrep in Claude.
+            2. Add 3xrep to your assistant.
           </h2>
           <p className="text-mute leading-[1.5]">
-            Open Settings → Connectors → Add custom connector. Replace YOUR_KEY below with your key and paste the complete address. Keep it private.
+            In Claude Desktop, open Connectors → Add custom connector. Replace YOUR_KEY below with your key and paste the complete address. Keep it private. For ChatGPT Work desktop, see the connection steps below.
           </p>
           <Snippet label="Your private connector address" text={`${url}?key=YOUR_KEY`} />
         </section>
 
         <section className="space-y-5">
-          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">3. Ask about one deal.</h2>
-          <p className="text-mute leading-[1.5]">Share the relevant notes in your chat. If your CRM is already connected to Claude, it can provide the context instead.</p>
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">3. Introduce yourself and choose a folder.</h2>
+          <p className="text-mute leading-[1.5]">Open a local task in Claude Cowork or ChatGPT Work desktop. If the app asks for a folder when you start, choose one on this computer. Enable 3xrep for the first message below. The assistant will ask about your role, company and customers, then confirm that folder with you before creating <code>person.md</code>, <code>company.md</code> and <code>day.md</code>.</p>
+          <Snippet label="First message to your assistant" text={LOCAL_ONBOARDING_PROMPT} />
+          <p className="text-mute leading-[1.5]">A connector cannot start a conversation by itself or open a folder on your behalf. If the assistant cannot access a local folder, it must tell you and stop the file setup.</p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">4. Connect your sources and start.</h2>
+          <p className="text-mute leading-[1.5]">Add your CRM, email and calendar in the same assistant. Check that each connection can actually read your data. You can start with deal notes if your CRM is not ready yet.</p>
           <p className="rounded-lg bg-raise px-5 py-4 leading-[1.5]">“How should I move this deal forward, and what should I say?”</p>
-          <p className="text-mute leading-[1.5]">Need more context later? Add your CRM, Gmail or calendar in Claude. You choose which tools your assistant can use.</p>
+          <p className="text-mute leading-[1.5]">Your assistant should read and update the local notes after useful exchanges. 3xrep itself does not get access to files on your computer.</p>
         </section>
 
         <section className="border-t border-line pt-5">
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">Other ways to connect</h2>
           <p className="text-mute mt-3 leading-[1.5]">Open these only if you use another assistant or want to connect a source of deal context.</p>
           <div className="mt-5 border-t border-line">
-            <Fold title="ChatGPT Work - test connection">
+            <Fold title="ChatGPT Work desktop - test connection">
               <p>Enable developer mode in Settings → Security and login. Open Plugins,
                 choose +, then add a custom MCP server with your private connector address.
                 If the workspace does not offer this option, ask its administrator to enable it.</p>
-              <p className="mt-3">This setup still needs validation in a real Work workspace.
-                It is not a published OAuth plugin. Before using customer data, check that
-                3xrep tools appear and run a fictional deal through audit_deal.</p>
+              <p className="mt-3">Open a local folder in the desktop app before the first task. This setup still needs validation in a real Work workspace. It is not a published OAuth plugin. Before using customer data, check that start_onboarding appears and run a fictional deal through audit_deal.</p>
               <a className="mt-3 inline-block underline" href="https://developers.openai.com/plugins/deploy/connect-chatgpt">Official ChatGPT connection guide</a>
             </Fold>
             <Fold title="Cursor">

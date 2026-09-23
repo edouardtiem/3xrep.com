@@ -52,16 +52,14 @@ export async function blurbFromUrl(url: URL): Promise<string | null> {
 
 export async function setProfile(
   org: OrgRow,
-  input: { title: string; mission: string; company_url: string; contexte?: SalesContext; company_blurb?: string },
-): Promise<{ title: string; mission: Mission; company_url: string; company_blurb: string | null }> {
+  input: { title?: string; mission?: string; company_url: string; contexte?: SalesContext; company_blurb?: string },
+): Promise<{ company_url: string; company_blurb: string | null }> {
   const url = safeCompanyUrl(input.company_url);
   if (!url) throw new Error("company_url invalide");
-  const blurb = await blurbFromUrl(url);
+  const blurb = input.company_blurb?.trim().slice(0, 500) || await blurbFromUrl(url);
   const profile = {
-    title: input.title.trim().slice(0, 80),
-    mission: parseMission(input.mission),
     company_url: url.toString(),
-    company_blurb: input.company_blurb?.trim().slice(0, 500) || blurb,
+    company_blurb: blurb,
     ...(input.contexte ? { sales_context: input.contexte } : {}),
   };
   if (org.id !== "dev") await updateOrgProfile(org.id, profile);

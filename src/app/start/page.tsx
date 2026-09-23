@@ -5,6 +5,7 @@ import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { pageMeta } from "@/lib/docs";
 import { agentSetupPrompt } from "@/lib/landing";
+import { LOCAL_ONBOARDING_PROMPT } from "@/lib/onboarding";
 import { orgById, revealStartKey } from "@/lib/orgs";
 import { mcpClientJson, mcpUrl, mcpUrlWithKey } from "@/lib/site";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
@@ -49,25 +50,27 @@ function KeyPanel({
       </section>
 
       <section aria-labelledby="connect-title">
-        <h2 id="connect-title" className="text-[1.5rem] leading-tight font-medium tracking-[-0.02em]">Connect in Claude.</h2>
-        <p className="text-mute mt-3 leading-[1.5]">Open Settings → Connectors → Add custom connector. Paste the address below.</p>
+        <h2 id="connect-title" className="text-[1.5rem] leading-tight font-medium tracking-[-0.02em]">Connect 3xrep on your computer.</h2>
+        <p className="text-mute mt-3 leading-[1.5]">In Claude Desktop, open Connectors → Add custom connector. Paste the private address you copy below. ChatGPT Work desktop setup is in the <Link className="underline underline-offset-4" href="/install">connection guide</Link>.</p>
         <div className="mt-5 flex items-center justify-between gap-4 rounded-lg border border-line bg-raise px-4 py-3 text-sm">
           <code className="truncate">{url}</code>
           <CopyButton text={withKey} label="Copy private address" />
         </div>
         <p className="text-dim mt-2 text-[0.8125rem] leading-[1.5]">The copied address includes your key. Keep it private.</p>
-        <p className="text-mute mt-5 leading-[1.5]">Connect your CRM alongside 3xrep when available. You can begin with deal notes in your chat. <Link className="underline underline-offset-4" href="/install">See the connection guide</Link>.</p>
+        <p className="text-mute mt-5 leading-[1.5]">You will add your CRM, email and calendar after the short introduction.</p>
       </section>
 
       <section aria-labelledby="first-question-title">
-        <h2 id="first-question-title" className="text-[1.5rem] leading-tight font-medium tracking-[-0.02em]">Ask about one deal.</h2>
-        <p className="mt-4 rounded-lg bg-raise px-5 py-4 leading-[1.5]">“How should I move this deal forward, and what should I say?”</p>
+        <h2 id="first-question-title" className="text-[1.5rem] leading-tight font-medium tracking-[-0.02em]">Start the introduction.</h2>
+        <p className="text-mute mt-3 leading-[1.5]">Open a local task in Claude Cowork or ChatGPT Work desktop. Choose a folder on this computer if the app asks for one. Enable 3xrep and send the text below. Your assistant will ask who you are, what you sell, and confirm where to keep your notes before you begin with a deal.</p>
+        <p className="mt-4 rounded-lg bg-raise px-5 py-4 leading-[1.5]">“{LOCAL_ONBOARDING_PROMPT}”</p>
+        <div className="mt-3"><CopyButton text={LOCAL_ONBOARDING_PROMPT} label="Copy first message" /></div>
       </section>
 
       <details className="border-t border-line pt-6">
         <summary className="cursor-pointer text-[1rem] leading-[1.5]">Using ChatGPT Work or Cursor?</summary>
         <div className="text-mute mt-5 space-y-5 leading-[1.5]">
-          <p><strong className="text-fg font-medium">ChatGPT Work:</strong> your workspace may allow a personal MCP connection through Plugins in developer mode. This 3xrep path still needs an end-to-end test. <Link className="underline underline-offset-4" href="/install">Read the current setup notes</Link>.</p>
+          <p><strong className="text-fg font-medium">ChatGPT Work desktop:</strong> your workspace may allow a personal MCP connection through Plugins in developer mode. The full 3xrep setup still needs a real platform test. <Link className="underline underline-offset-4" href="/install">Read the current setup notes</Link>.</p>
           <div><p><strong className="text-fg font-medium">Cursor:</strong> copy this configuration into your MCP settings.</p><pre className="mt-3 overflow-x-auto rounded-lg border border-line bg-raise p-4 font-mono text-xs">{mcpJson}</pre><div className="mt-3"><CopyButton text={mcpJson} label="Copy configuration" /></div></div>
           <CopyButton label="Copy the setup text" text={spec} />
         </div>
@@ -136,7 +139,7 @@ export default async function Start({
             </form>
             <section className="border-t border-line pt-7">
               <h2 className="text-[1.125rem] font-medium">What happens next?</h2>
-              <p className="text-mute mt-3 leading-[1.6]">Copy your key, add 3xrep in Claude, then ask about a deal. Your CRM can provide the context, or you can start with notes you bring to the chat. <Link className="underline underline-offset-4" href="/install">Connection guide</Link>.</p>
+            <p className="text-mute mt-3 leading-[1.6]">Copy your key and add 3xrep on your computer. Start the guided introduction, choose a local folder for your working notes, then connect your CRM, email and calendar. <Link className="underline underline-offset-4" href="/install">Connection guide</Link>.</p>
             </section>
             <p className="text-dim text-[0.8125rem] leading-[1.5]">We’ll show your Beta access deadline when you join. <Link className="underline underline-offset-4" href="/docs/pricing">Read the Beta terms</Link>.</p>
           </>

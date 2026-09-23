@@ -16,7 +16,8 @@ import {
 import { amountBucket, dealHash, mapEtat, souvenirFromRows } from "./skeleton";
 import { CUTOFF_NO_PAYMENT } from "./copy";
 import { cutoffPhrase } from "./access";
-import { parseMission, safeCompanyUrl } from "./profile";
+import { parseMission, safeCompanyUrl, setProfile } from "./profile";
+import { devOrg } from "./orgs";
 import { verifyOrgSig } from "./checkout-token";
 import { referralBlocked } from "./referrals";
 
@@ -172,6 +173,25 @@ test("profile mission + url", () => {
   assert.equal(safeCompanyUrl("https://example.com")?.hostname, "example.com");
   assert.equal(safeCompanyUrl("http://localhost"), null);
   assert.equal(verifyOrgSig("not-a-uuid", "deadbeef"), false);
+});
+
+test("confirmed company profile does not fetch the site or store a person's role", async () => {
+  const previousFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error("unexpected fetch"); };
+  try {
+    const profile = await setProfile(devOrg(), {
+      company_url: "https://example.com",
+      company_blurb: "We sell sales software to small teams.",
+      title: "VP Sales",
+      mission: "manager",
+    });
+    assert.deepEqual(profile, {
+      company_url: "https://example.com/",
+      company_blurb: "We sell sales software to small teams.",
+    });
+  } finally {
+    globalThis.fetch = previousFetch;
+  }
 });
 
 test("openTools reads MCP_OPEN_TOOLS", () => {

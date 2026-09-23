@@ -16,10 +16,22 @@ import { withGate } from "@/lib/mcp-gate";
 import { runWithMcpRequest } from "@/lib/mcp-log";
 import { dealSchema, horizonSchema, jsonTool, pipeSchema, salesContextSchema } from "@/lib/mcp-schema";
 import { setProfile } from "@/lib/profile";
+import { LOCAL_ONBOARDING_GUIDE } from "@/lib/onboarding";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 const handler = createMcpHandler(
   (server) => {
+    server.registerTool(
+      "start_onboarding",
+      {
+        title: "Set up 3xrep locally",
+        description:
+          "Call first when the user asks to set up 3xrep. Returns the desktop onboarding steps: learn their role and company, ask them to authorize a local folder, create Markdown memory there, then connect CRM, email, and calendar. No file access is granted to this MCP server.",
+        inputSchema: z.object({}),
+      },
+      withGate("start_onboarding", async () => jsonTool({ guide: LOCAL_ONBOARDING_GUIDE })),
+    );
+
     server.registerTool(
       "methode_lookup",
       {
@@ -112,14 +124,12 @@ const handler = createMcpHandler(
       {
         title: "Set org profile",
         description:
-          "Once, at first connection. Title, mission (rep / manager / VP sales / other), their company URL - not a prospect URL. Stores a short blurb of what they sell.",
+          "After the user confirms their company context, save the company's website and a short description of what it sells. This is shared by the organization. Keep the person's name and role only in their local person.md file.",
         inputSchema: z.object({
           contexte: salesContextSchema.optional(),
           company_blurb: z.string().max(500).optional().describe("User-corrected company description, when supplied."),
-          title: z.string().describe("Job title"),
-          mission: z
-            .string()
-            .describe("rep / manager / VP sales / other (commercial / manager / directeur commercial / autre)"),
+          title: z.string().optional().describe("Deprecated; ignored. Keep personal details in local person.md."),
+          mission: z.string().optional().describe("Deprecated; ignored. Keep personal details in local person.md."),
           company_url: z.string().describe("URL of THEIR company site"),
         }),
       },
