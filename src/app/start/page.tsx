@@ -122,7 +122,7 @@ export default async function Start({
 }) {
   const { t, ref, utm_source, utm_medium, utm_campaign } = await searchParams;
   const offer = await publicBetaOffer();
-  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
+  const cta = offer.enabled ? "Join the beta" : "Try 3xrep now";
   const orgId = t ? await orgIdFromStartToken(t) : null;
   const key = t ? await revealStartKey(t) : null;
   const org = orgId ? await orgById(orgId) : null;

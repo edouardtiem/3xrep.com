@@ -6,12 +6,12 @@ import { StrategyDemo } from "./StrategyDemo";
 import { Hand } from "./Hand";
 import styles from "./buddy.module.css";
 
-function Start({ children = "Start 14 days free" }: { children?: React.ReactNode }) {
+function Start({ children = "Try 3xrep now" }: { children?: React.ReactNode }) {
   return <Link className={styles.cta} href="/start">{children}<span aria-hidden>↗</span></Link>;
 }
 
 export default function BuddyHome({ offer = {enabled:false,available:false} }: { offer?: {enabled:boolean;available:boolean} }) {
-  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
+  const cta = offer.enabled ? "Join the beta" : "Try 3xrep now";
   return (
     <div className={styles.page}>
       <Header />
@@ -24,7 +24,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
             <p className={styles.support}>3xrep builds a deal strategy from what your buyer has actually said. Get the approach, the words to use, and a way forward when the answer changes — inside your AI chat.</p>
             <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 places have been allocated." : "I’m looking for 20 teams using 3xrep on real deals. Teams I select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
             <Start>{cta}</Start>
-            <p className={styles.micro}>{offer.enabled ? "Full beta access. No credit card." : `14-day trial. No card today. Standard price: $${LIST_PRICE_USD}/month per company.`}</p>
+            <p className={styles.micro}>{offer.enabled ? "Full beta access. No credit card." : "14 days free now. Beta enrollment is not open yet; this trial does not reserve a free-forever place."}</p>
             <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
           </div>
           <StrategyDemo />

@@ -25,7 +25,7 @@ Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du prog
 
 ## Parcours standard
 
-- Boutons « Start 14 days free » vers `/start`.
+- Boutons « Try 3xrep now » vers `/start` quand l’inscription Beta est fermée ; essai de 14 jours sans carte au départ. Le texte voisin dit que l’essai ne réserve pas de place gratuite à vie.
 - Guide de connexion vers `/install` ; documentation vers `/docs`.
 - Prix de la constante produit : 129 dollars par mois pour toute l’entreprise, taxes applicables en plus. Essai de 14 jours sans carte.
 - Prérequis de connexion expliqués. Validation de bout en bout ChatGPT Work encore en cours ; pas de promesse d’intégrations universelles.

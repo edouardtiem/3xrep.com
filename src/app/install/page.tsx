@@ -43,7 +43,7 @@ function Fold({ title, children }: { title: string; children: ReactNode }) {
 
 export default async function Install() {
   const offer = await publicBetaOffer();
-  const cta = offer.enabled ? "Join the beta" : "Start 14 days free";
+  const cta = offer.enabled ? "Join the beta" : "Try 3xrep now";
   const url = mcpUrl();
   const mcpJson = JSON.stringify(
     {
