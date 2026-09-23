@@ -125,6 +125,9 @@
 /* Existing paper, copper annotations and mascot; the deal conversation is now the demonstration. */
 .hero { align-items: start; padding-top: 36px; }
 .intro { padding-top: 42px; }
+@media (min-width: 851px) and (min-height: 820px) {
+  .intro { position: sticky; top: 20px; }
+}
 .strategyDemo { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
 .demoContext > span, .demoWording > span { font-size: .7rem; color: var(--buddy-ink); letter-spacing: .05em; }
 .demoContext p { color: var(--mute); font-size: .8rem; line-height: 1.6; margin-top: 9px; }

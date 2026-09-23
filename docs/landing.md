@@ -6,6 +6,8 @@ L’accueil montre désormais « Every deal needs a strategy. ». Même identit�
 
 Décision du 23 septembre : l’offre visible s’appelle « Beta ». L’accueil annonce la recherche de 20 équipes qui utilisent réellement 3xrep, même quand les inscriptions bêta sont fermées. Parmi ces équipes, celles retenues gardent l’offre de base gratuite à vie. Quand la bêta est fermée, l’essai de 14 jours reste accessible mais ne réserve pas de place.
 
+Sur écran large et assez haut, le texte d’ouverture suit le défilement de la démonstration puis s’arrête avec sa section, avant le séparateur. Sur petit écran, les deux blocs défilent normalement.
+
 Contrat : [deal-strategy.md](deal-strategy.md). Cette décision remplace les passages historiques incompatibles ci-dessous ; leur date reste conservée.
 
 
