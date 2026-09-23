@@ -240,8 +240,11 @@ async function main() {
   const startHtml = await start.text();
   console.log("START", start.status, startHtml.includes("Work email"));
   if (start.status !== 200) throw new Error("/start 200");
-  if (!startHtml.includes("Work email") || !startHtml.includes(offer)) {
-    throw new Error(`/start doit proposer ${offer}`);
+  if (!startHtml.includes("Work email") || !startHtml.includes("Get my key") || !startHtml.includes('action="/api/orgs/start"')) {
+    throw new Error("/start doit proposer un champ e-mail et créer une clé");
+  }
+  if (!beta && (!startHtml.includes("a card is needed") || !startHtml.includes("there is no charge") || !startHtml.includes("last 48 hours"))) {
+    throw new Error("/start doit afficher les conditions de l'essai avant l'inscription");
   }
 
   const card = await fetch(`${BASE}/api/stripe/checkout?mode=card&org=00000000-0000-0000-0000-000000000000&sig=dead`, {

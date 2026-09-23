@@ -60,11 +60,11 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
         <section id="setup" className={styles.section} aria-labelledby="setup-title">
           <div className={styles.sectionHead}><div><h2 id="setup-title">Open the chat.<br />Bring a real deal.</h2></div><p>No new dashboard to maintain. Your AI reads the tools you connect. 3xrep builds the deal strategy.</p></div>
           <ol className={styles.setup}>
-            <li><span>01</span><h3>Connect your context.</h3><p>Connect your CRM to Claude, then your inbox and calendar. Notes and call transcripts help it work from what the buyer actually said.</p></li>
+            <li><span>01</span><h3>Bring your context.</h3><p>Start with notes from one deal. Connect your CRM to Claude when you want it to bring more context; inbox and calendar can come later.</p></li>
             <li><span>02</span><h3>Add 3xrep.</h3><p>Add 3xrep using your trial key. Your workspace may need an admin to allow the connection.</p></li>
             <li><span>03</span><h3>Ask one question.</h3><p className={styles.prompt}>“How do I move this deal forward — and what should I say?”</p><p>Come back after a call, before a proposal, or when a deal goes quiet.</p></li>
           </ol>
-          <div className={styles.setupFoot}><p>Start with Claude and a connected CRM. Without inbox or calendar access, start with the deal context you have.</p><Link className={styles.textLink} href="/install">Connection guide ↗</Link></div>
+          <div className={styles.setupFoot}><p>Start with Claude and one deal. Add the tools you use as you need them.</p><Link className={styles.textLink} href="/install">Connection guide ↗</Link></div>
           <p className={styles.caption}>ChatGPT Work: setup is documented; end-to-end validation is still in progress. Availability depends on your workspace and connectors.</p>
         </section>
 

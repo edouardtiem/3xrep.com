@@ -6,7 +6,6 @@ export const dynamic = "force-dynamic";
 import { CopyButton } from "@/components/CopyButton";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
-import { TRUST_LINE } from "@/lib/copy";
 import { CRM_CONNECTORS, breadcrumbJsonLd, pageMeta } from "@/lib/docs";
 
 import { mcpUrl } from "@/lib/site";
@@ -43,7 +42,7 @@ function Fold({ title, children }: { title: string; children: ReactNode }) {
 
 export default async function Install() {
   const offer = await publicBetaOffer();
-  const cta = offer.enabled ? "Join the beta" : "Try 3xrep now";
+  const cta = "Get my key";
   const url = mcpUrl();
   const mcpJson = JSON.stringify(
     {
@@ -59,34 +58,23 @@ export default async function Install() {
   const howTo = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Add 3xrep next to HubSpot",
-    description:
-      "Add 3xrep in Claude or ChatGPT, connect HubSpot, Gmail, and Calendar beside it, then ask what today is.",
+    name: "Connect 3xrep in Claude",
+    description: "Get a private key, add the connector in Claude, and ask about one deal.",
     step: [
       {
         "@type": "HowToStep",
         name: cta,
-        text: "Get your key. No card today.",
+        text: "Enter your work email and copy the private key shown once. No card is needed to start.",
       },
       {
         "@type": "HowToStep",
-        name: "Add him in Claude",
+        name: "Connect 3xrep in Claude",
         text: `Settings → Connectors → Add custom connector. Use ${url}?key=YOUR_KEY as the URL.`,
       },
       {
         "@type": "HowToStep",
-        name: "Connect HubSpot beside it",
-        text: "Add HubSpot or Salesforce next to 3xrep. He needs the CRM.",
-      },
-      {
-        "@type": "HowToStep",
-        name: "Gmail and Calendar",
-        text: "In Claude, connect Gmail and Google Calendar. Then Slack, Notion, a notetaker if you can.",
-      },
-      {
-        "@type": "HowToStep",
-        name: "Morning",
-        text: "Say: Morning. What's today?",
+        name: "Ask about one deal",
+        text: "Bring deal notes into your chat or connect your CRM alongside 3xrep. Ask how to move the deal forward.",
       },
     ],
   };
@@ -96,14 +84,13 @@ export default async function Install() {
       <Header />
       <JsonLd data={breadcrumbJsonLd([{ name: "Install", path: "/install" }])} />
       <JsonLd data={howTo} />
-      <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-16 px-5 py-16 sm:px-10">
+      <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-12 px-5 py-16 sm:px-10">
         <div>
           <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
-            Add him next to HubSpot.
+            Connect 3xrep in your chat.
           </h1>
           <p className="text-mute mt-6 max-w-[40ch] text-[1.125rem] leading-[1.5]">
-            Use the key from start. Choose your assistant below, then connect
-            your CRM, Gmail and Calendar there. Nothing to install inside HubSpot.
+            Start with Claude and one deal. You can bring notes into the chat now and connect your CRM when you are ready.
           </p>
           <p className="mt-8">
             <Link
@@ -117,24 +104,34 @@ export default async function Install() {
 
         <section className="space-y-5">
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            The address
+            1. Get your key.
           </h2>
           <p className="text-mute leading-[1.5]">
-            Use your private key from start. Keep the complete address private.
+            Enter your work email on the start page. Copy the private key when it appears: we show it only once.
           </p>
-          <Snippet label="Private connector address" text={`${url}?key=YOUR_KEY`} />
         </section>
 
-        <section>
+        <section className="space-y-5">
           <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            Claude
+            2. Add 3xrep in Claude.
           </h2>
-          <p className="text-mute mt-5 leading-[1.5]">
-            Settings → Connectors → Add custom connector. Replace YOUR_KEY
-            in the address above with your key. Paste that complete address.
-            This connection uses the key in the URL, not an OAuth sign-in.
+          <p className="text-mute leading-[1.5]">
+            Open Settings → Connectors → Add custom connector. Replace YOUR_KEY below with your key and paste the complete address. Keep it private.
           </p>
-          <div className="mt-8 border-t border-line">
+          <Snippet label="Your private connector address" text={`${url}?key=YOUR_KEY`} />
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">3. Ask about one deal.</h2>
+          <p className="text-mute leading-[1.5]">Share the relevant notes in your chat. If your CRM is already connected to Claude, it can provide the context instead.</p>
+          <p className="rounded-lg bg-raise px-5 py-4 leading-[1.5]">“How should I move this deal forward, and what should I say?”</p>
+          <p className="text-mute leading-[1.5]">Need more context later? Add your CRM, Gmail or calendar in Claude. You choose which tools your assistant can use.</p>
+        </section>
+
+        <section className="border-t border-line pt-5">
+          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">Other ways to connect</h2>
+          <p className="text-mute mt-3 leading-[1.5]">Open these only if you use another assistant or want to connect a source of deal context.</p>
+          <div className="mt-5 border-t border-line">
             <Fold title="ChatGPT Work - test connection">
               <p>Enable developer mode in Settings → Security and login. Open Plugins,
                 choose +, then add a custom MCP server with your private connector address.
@@ -160,64 +157,13 @@ export default async function Install() {
                 <Snippet label="Claude Code" text={claudeAdd} />
               </div>
             </Fold>
+            <Fold title="CRM connectors">
+              <p>Connect your CRM in your AI assistant alongside 3xrep. Each person signs in as themselves. Nothing needs to be installed inside your CRM to try 3xrep with notes.</p>
+              <ul className="mt-4 divide-y divide-line border-y border-line">
+                {CRM_CONNECTORS.map((crm) => <li key={crm.name} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-3"><span>{crm.name}</span><span className="text-dim text-[0.8125rem]">{crm.docs.map((doc, i) => <span key={doc.href}>{i > 0 ? " · " : null}<a href={doc.href} target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">{doc.label}</a></span>)}</span></li>)}
+              </ul>
+            </Fold>
           </div>
-        </section>
-
-        <section className="space-y-5">
-          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            HubSpot beside it
-          </h2>
-          <p className="text-mute leading-[1.5]">
-            They ship the connector. You add it beside 3xrep. Each person
-            signs in as themselves.
-          </p>
-          <ul className="divide-y divide-line border-y border-line">
-            {CRM_CONNECTORS.map((crm) => (
-              <li
-                key={crm.name}
-                className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-4"
-              >
-                <span>{crm.name}</span>
-                <span className="text-dim text-[0.8125rem]">
-                  {crm.docs.map((doc, i) => (
-                    <span key={doc.href}>
-                      {i > 0 ? " · " : null}
-                      <a
-                        href={doc.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:underline"
-                      >
-                        {doc.label}
-                      </a>
-                    </span>
-                  ))}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="space-y-5">
-          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            Gmail and Calendar
-          </h2>
-          <p className="text-mute leading-[1.5]">
-            In Claude, connect Gmail and Google Calendar. Then Slack, Notion,
-            a notetaker if you can. If a connector is unavailable, we can still examine the CRM sources you provide. An empty inbox is not a connection error.
-          </p>
-        </section>
-
-        <section className="space-y-5">
-          <h2 className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            Then say
-          </h2>
-          <p className="text-[1.125rem] leading-[1.5]">
-            Morning. What&apos;s today?
-          </p>
-          <p className="text-dim text-[0.8125rem] leading-[1.4]">
-            Monday still reviews the list: What&apos;s stuck this week?
-          </p>
         </section>
 
         <section className="space-y-5 border-t border-line pt-16">
@@ -227,7 +173,7 @@ export default async function Install() {
           <p className="text-mute leading-[1.5]">
             {offer.enabled ? "Try it with your real sales work. Tell us what helped and what missed." : "After the trial. One price for the whole company."}
           </p>
-          <p className="text-dim text-[0.8125rem] leading-relaxed">{TRUST_LINE}</p>
+          <p className="text-dim text-[0.8125rem] leading-relaxed">3xrep does not join your calls or write to your CRM. Context sent to its tools is kept for 14 days, then deleted. A short record of unanswered deal questions may remain, without transcripts.</p>
           <p className="text-mute leading-relaxed">{offer.enabled ? "Full beta access. No credit card required. We select up to 20 teams for a free-forever base plan after real usage." : "Already connected? Ask 3xrep for your workspace status and use the payment link in your chat."}</p>
         </section>
       </main>

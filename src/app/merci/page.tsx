@@ -79,8 +79,7 @@ export default async function Merci({
           </>
         ) : (
           <p className="text-mute max-w-[40ch] text-[1.125rem] leading-[1.5]">
-            Card saved, or the key was already shown. He keeps judging until
-            the trial ends, then the card is charged.
+            Your card was saved, or your key was already shown. Check your payment confirmation for the billing start date. If you need your key, use the one saved in your connector.
           </p>
         )}
         {ref ? (

@@ -6,10 +6,10 @@ export const DOC_NAV = [
   { href: "/docs", label: "Start here" },
   { href: "/docs/how-it-works", label: "How it works" },
   { href: "/docs/use-cases", label: "Questions to try" },
-  { href: "/docs/pipeline-review", label: "Your pipeline" },
-  { href: "/docs/methods", label: "Sales methods" },
-  { href: "/docs/gong-alternative", label: "Context & privacy" },
+  { href: "/docs/pipeline-review", label: "Across your deals" },
+  { href: "/docs/gong-alternative", label: "Privacy & memory" },
   { href: "/docs/pricing", label: "Beta & pricing" },
+  { href: "/docs/methods", label: "Sales methods" },
 ] as const;
 
 export const TOOLS = [
@@ -21,7 +21,7 @@ export const TOOLS = [
   ["methode_lookup", "Explain a sales method or one of its concepts."],
   ["rattacher", "Connect a short statement to the relevant sales-method concepts."],
   ["set_org_profile", "Save your role and company context to make the advice more relevant."],
-  ["workspace_status", "Check your workspace’s access, beta or Founding status."],
+  ["workspace_status", "Check your workspace’s access, beta status or selected place."],
   ["beta_feedback", "Save feedback on a result when you choose to share it."],
 ] as const;
 
@@ -309,11 +309,11 @@ export const METHOD_FAMILIES: readonly {
 ];
 
 export const DOC_FAQ = [
-  { q: "Where do I use 3xrep?", a: "In your AI chat. Start with Claude and your connected CRM, then add your inbox and calendar when available. The connection guide covers setup requirements. ChatGPT Work validation is still in progress." },
+  { q: "Where do I use 3xrep?", a: "In your AI chat. Start with Claude and notes from one deal. You can connect your CRM, inbox and calendar in your assistant when you need more context. ChatGPT Work validation is still in progress." },
   { q: "What does 3xrep add to my assistant?", a: "Sales judgment grounded in the context of your deal: what needs attention, what is still uncertain, and a useful next move with a reason behind it. Sales methods guide the advice; the situation determines how they apply." },
   { q: "Do I need a transcript?", a: "A transcript can help, but you can also work from notes and messages. Bring what you have into your chat. 3xrep should make uncertainty clear instead of inventing something the buyer never said." },
   { q: "Does 3xrep record calls or change my CRM?", a: "3xrep does not join calls or write to your CRM. Tool inputs and results, including any call text sent to 3xrep, are kept for 14 days and then deleted. A compact record of deal gaps remains without transcripts. Usage metadata and voluntary feedback are stored separately." },
-  { q: "Is my workspace free forever when I sign up?", a: "No. During an open beta, you can try 3xrep without a credit card. Founding status is awarded manually after meaningful use, within a limit of 20 organizations. Only an awarded Founding workspace keeps its base plan free forever. See Beta & pricing for the current offer." },
+  { q: "Is my workspace free forever when I sign up?", a: "No. We select up to 20 teams after real use. Only a selected team keeps the base plan free forever. When beta enrollment is closed, the standard trial does not reserve a place. See Beta & pricing for the current offer." },
   { q: "Can my whole team use it?", a: "Access belongs to the organization. Your workspace administrator may need to allow the connector, and each person’s access to the CRM still depends on the permissions in your own tools. The standard plan is priced per company, not per seat." },
 ] as const;
 
