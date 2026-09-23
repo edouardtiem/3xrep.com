@@ -6,12 +6,12 @@ import { StrategyDemo } from "./StrategyDemo";
 import { Hand } from "./Hand";
 import styles from "./buddy.module.css";
 
-function Start({ children = "Try 3xrep now" }: { children?: React.ReactNode }) {
+function Start({ children }: { children: React.ReactNode }) {
   return <Link className={styles.cta} href="/start">{children}<span aria-hidden>↗</span></Link>;
 }
 
 export default function BuddyHome({ offer = {enabled:false,available:false} }: { offer?: {enabled:boolean;available:boolean} }) {
-  const cta = offer.enabled ? "Join the beta" : "Try 3xrep now";
+  const enrollmentOpen = offer.enabled && offer.available;
   return (
     <div className={styles.page}>
       <Header />
@@ -22,9 +22,9 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
             <h1 id="buddy-title">Every deal needs<br />a strategy.</h1>
             <p className={styles.lead}>Know your next move. And how to make it.</p>
             <p className={styles.support}>3xrep builds a deal strategy from what your buyer has actually said. Get the approach, the words to use, and a way forward when the answer changes — inside your AI chat.</p>
-            <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 places have been allocated." : "We’re looking for 20 teams using 3xrep on real deals. Teams we select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
-            <Start>{cta}</Start>
-            <p className={styles.micro}>{offer.enabled ? "Full beta access. No credit card." : "14 days free now. Beta enrollment is not open yet; this trial does not reserve a free-forever place."}</p>
+            <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 free-forever places have been allocated. Beta enrollment is closed." : "We’re looking for 20 teams using 3xrep on real deals. Teams we select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
+            {enrollmentOpen ? <Start>Join the beta</Start> : <Link className={styles.cta} href="#price-title">See the beta <span aria-hidden>↗</span></Link>}
+            <p className={styles.micro}>{enrollmentOpen ? "Free access during beta. No credit card." : "Beta enrollment is closed for now."}</p>
             <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
           </div>
           <StrategyDemo />
@@ -61,7 +61,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
           <div className={styles.sectionHead}><div><h2 id="setup-title">Open the chat.<br />Bring a real deal.</h2></div><p>No new dashboard to maintain. Your AI reads the tools you connect. 3xrep builds the deal strategy.</p></div>
           <ol className={styles.setup}>
             <li><span>01</span><h3>Bring your context.</h3><p>Start with notes from one deal. Connect your CRM to Claude when you want it to bring more context; inbox and calendar can come later.</p></li>
-            <li><span>02</span><h3>Add 3xrep.</h3><p>Add 3xrep using your trial key. Your workspace may need an admin to allow the connection.</p></li>
+            <li><span>02</span><h3>Add 3xrep.</h3><p>Add 3xrep using your beta key. Your workspace may need an admin to allow the connection.</p></li>
             <li><span>03</span><h3>Ask one question.</h3><p className={styles.prompt}>“How do I move this deal forward — and what should I say?”</p><p>Come back after a call, before a proposal, or when a deal goes quiet.</p></li>
           </ol>
           <div className={styles.setupFoot}><p>Start with Claude and one deal. Add the tools you use as you need them.</p><Link className={styles.textLink} href="/install">Connection guide ↗</Link></div>
@@ -71,16 +71,16 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
         <section className={`${styles.section} ${styles.finish}`} aria-labelledby="price-title">
           <div className={styles.price}>
             <h2 id="price-title">Beta</h2>
-            {offer.enabled ? <>
+            {enrollmentOpen ? <>
               <p>We’re looking for 20 teams to shape 3xrep through real sales work. Full access during beta. No credit card.</p>
-              <p>{offer.available ? "Use it on real deals across several days. We’ll select 20 teams from those who do. Selected teams keep the base plan free forever. Signing up does not reserve a place." : "All 20 free-forever places have been allocated. You can still try the beta for free."}</p>
+              <p>Use it on real deals across several days. We’ll select up to 20 teams after real use. Selected teams keep the base plan free forever. Signing up does not reserve a place.</p>
               <p className={styles.micro}>Future optional extras may be paid. Standard price after beta: ${LIST_PRICE_USD}/month per company. No automatic charge.</p>
             </> : <>
-              <p>We’re looking for 20 teams to help shape 3xrep through real sales work. Teams selected after using it keep the base plan free forever.</p>
-              <p>Beta enrollment is not open yet. You can start a 14-day trial now. A trial does not reserve one of the 20 places.</p>
-              <p className={styles.micro}>Standard price after the trial: ${LIST_PRICE_USD}/month per company, plus tax. No per-seat charge.</p>
+              <p>{offer.enabled ? "All 20 free-forever places have been allocated." : "We’re looking for 20 teams to help shape 3xrep through real sales work."}</p>
+              <p>Beta enrollment is closed for now. We’ll open this page when new teams can join.</p>
+              <p className={styles.micro}>The standard price after beta is ${LIST_PRICE_USD}/month per company, plus tax. No automatic charge.</p>
             </>}
-            <Start>{cta}</Start><p className={styles.micro}>{offer.enabled ? "Your feedback helps decide what comes next." : "14 days free. No card today."}</p>
+            {enrollmentOpen ? <><Start>Join the beta</Start><p className={styles.micro}>Your feedback helps decide what comes next.</p></> : null}
           </div>
           <div className={styles.trust}><h3>Your sales context stays yours.</h3><p>3xrep doesn’t join your calls or fetch your inbox. Your AI brings the context from the tools you connect.</p><p>Call text sent to 3xrep is kept for 14 days, then deleted. A compact record of deal gaps remains, without transcripts. 3xrep doesn’t write to your CRM.</p><Link className={styles.textLink} href="/docs">Read the documentation ↗</Link></div>
         </section>

@@ -13,7 +13,7 @@ const guides=[
   {href:"/docs/use-cases",title:"Questions to try",description:"A few ways to start with a real deal."},
   {href:"/docs/pipeline-review",title:"Across your deals",description:"Find where to focus today or prepare ahead."},
   {href:"/docs/gong-alternative",title:"Privacy and memory",description:"What is stored, for how long, and what stays in your hands."},
-  {href:"/docs/pricing",title:"Beta and pricing",description:"The current trial, the 20 teams, and the standard price."},
+  {href:"/docs/pricing",title:"Beta and pricing",description:"How the 20 teams are selected and what follows Beta."},
   {href:"/docs/methods",title:"Sales methods",description:"Optional background on how 3xrep reasons."},
 ];
 export default function DocsPage() {
@@ -25,7 +25,7 @@ export default function DocsPage() {
         <p>3xrep works from the context your assistant can access. If a detail is missing, it should tell you what to find out first.</p>
       </DocSection>
       <DocSection title="New to 3xrep?">
-        <p><Link href="/start">Get your private key</Link>, then add 3xrep to Claude. Start with your deal notes; connect your CRM when you can. <Link href="/install">See the connection steps</Link>.</p>
+        <p><Link href="/start">Check Beta enrollment</Link> to get a private key. Then add 3xrep to Claude and start with your deal notes. <Link href="/install">See the connection steps</Link>.</p>
       </DocSection>
       <div className={styles.welcome}><Blob pose="note" /><Hand className={styles.hand}>One useful next move. Then the next.</Hand></div>
       <nav aria-label="Explore the guide" className={styles.guides}>{guides.map(item=><Link className={styles.guide} key={item.href} href={item.href}><strong>{item.title}</strong><span>{item.description}</span><span aria-hidden="true">↗</span></Link>)}</nav>

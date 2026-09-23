@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { LIST_PRICE_USD } from "@/lib/pricing";
 import { siteUrl } from "@/lib/site";
 
 export const DOC_NAV = [
@@ -313,7 +312,7 @@ export const DOC_FAQ = [
   { q: "What does 3xrep add to my assistant?", a: "Sales judgment grounded in the context of your deal: what needs attention, what is still uncertain, and a useful next move with a reason behind it. Sales methods guide the advice; the situation determines how they apply." },
   { q: "Do I need a transcript?", a: "A transcript can help, but you can also work from notes and messages. Bring what you have into your chat. 3xrep should make uncertainty clear instead of inventing something the buyer never said." },
   { q: "Does 3xrep record calls or change my CRM?", a: "3xrep does not join calls or write to your CRM. Tool inputs and results, including any call text sent to 3xrep, are kept for 14 days and then deleted. A compact record of deal gaps remains without transcripts. Usage metadata and voluntary feedback are stored separately." },
-  { q: "Is my workspace free forever when I sign up?", a: "No. We select up to 20 teams after real use. Only a selected team keeps the base plan free forever. When beta enrollment is closed, the standard trial does not reserve a place. See Beta & pricing for the current offer." },
+  { q: "Is my workspace free forever when I sign up?", a: "No. We select up to 20 teams after real use. Only a selected team keeps the base plan free forever. When Beta enrollment is closed, new workspaces cannot sign up. See Beta & pricing for the current offer." },
   { q: "Can my whole team use it?", a: "Access belongs to the organization. Your workspace administrator may need to allow the connector, and each person’s access to the CRM still depends on the permissions in your own tools. The standard plan is priced per company, not per seat." },
 ] as const;
 
@@ -386,13 +385,6 @@ export function softwareJsonLd() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "A sales buddy in your AI chat. Helps prioritize your day, prepare conversations and choose the next move using the context you bring.",
-    offers: {
-      "@type": "Offer",
-      name: "Standard monthly plan per organization",
-      url: `${siteUrl()}/docs/pricing`,
-      price: String(LIST_PRICE_USD),
-      priceCurrency: "USD",
-    },
+      "Deal strategy in your AI chat. Bring a real deal, see the next move and the words to use, then adapt when the buyer replies.",
   };
 }

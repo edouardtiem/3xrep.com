@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 function html(status: number, title: string, body: string) {
   return new Response(
-    `<!doctype html><meta charset="utf-8"><title>${title}</title><p>${body}</p><p><a href="/start">Start 14 days free</a> · <a href="/install">Install</a></p>`,
+    `<!doctype html><meta charset="utf-8"><title>${title}</title><p>${body}</p><p><a href="/start">Beta status</a> · <a href="/install">Connect 3xrep</a></p>`,
     { status, headers: { "content-type": "text/html; charset=utf-8" } },
   );
 }

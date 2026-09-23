@@ -13,8 +13,8 @@ import { admin } from "@/lib/supabase-admin";
 export const dynamic = "force-dynamic";
 
 export const metadata = pageMeta({
-  title: "Start with 3xrep",
-  description: "Get your workspace key and try 3xrep in your AI chat. No card to start.",
+  title: "Join the 3xrep Beta",
+  description: "Use 3xrep on real deals during the Beta. We select up to 20 teams for a free-forever base plan after real use.",
   path: "/start",
 });
 
@@ -87,6 +87,7 @@ export default async function Start({
 }) {
   const { t, ref, utm_source, utm_medium, utm_campaign } = await searchParams;
   const offer = await publicBetaOffer();
+  const enrollmentOpen = offer.enabled && offer.available;
   const orgId = t ? await orgIdFromStartToken(t) : null;
   const key = t ? await revealStartKey(t) : null;
   const org = orgId ? await orgById(orgId) : null;
@@ -97,18 +98,18 @@ export default async function Start({
       <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-10 px-5 py-14 sm:px-10">
         <div>
           <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
-            {key ? "Your workspace is ready." : t ? "Your key was already shown." : offer.enabled ? "Start with one real deal." : "Try 3xrep on one deal."}
+            {key ? "Your workspace is ready." : t ? "Your key was already shown." : enrollmentOpen ? "Join the Beta. Start with one deal." : "Beta enrollment is closed."}
           </h1>
-          {!key && !t ? <p className="text-mute mt-5 max-w-[48ch] text-[1.125rem] leading-[1.5]">Enter your work email. We’ll create a workspace and show your private connection key on the next page. No card needed now.</p> : null}
+          {!key && !t ? <p className="text-mute mt-5 max-w-[48ch] text-[1.125rem] leading-[1.5]">{enrollmentOpen ? "Enter your work email. We’ll show your private connection key on the next page. Beta access is free, with no card." : "We’re not creating new workspaces right now. You can still read how the Beta works."}</p> : null}
         </div>
         {key ? (
           <>
             {org?.beta_access_until ? <p className="text-mute leading-relaxed">Your beta workspace is ready. Full access, no card required, through {new Date(org.beta_access_until).toLocaleDateString("en-US",{dateStyle:"long",timeZone:"UTC"})}. Ask your assistant for your workspace status whenever you need it.</p> : null}
-            <KeyPanel keyPlain={key} referralCode={offer.enabled ? null : org?.referral_code} />
+            <KeyPanel keyPlain={key} referralCode={org?.beta_enrolled_at ? null : org?.referral_code} />
           </>
         ) : t ? (
           <p className="text-mute leading-[1.5]">This link cannot show your key again. Use the key saved in your connector. If you lost it, contact the person who invited you. <Link className="underline underline-offset-4" href="/install">See the connection guide</Link>.</p>
-        ) : (
+        ) : enrollmentOpen ? (
           <>
             <form action="/api/orgs/start" method="post" className="flex flex-col gap-5">
               {utm_source ? <input type="hidden" name="utm_source" value={utm_source.slice(0,100)} /> : null}
@@ -125,20 +126,22 @@ export default async function Start({
                   autoComplete="email"
                 />
               </label>
-              <p className="text-mute max-w-[52ch] text-[0.875rem] leading-[1.6]">{offer.enabled ? (offer.available ? "Full access during beta. No card required. If selected after real use, your team keeps the base plan free forever. A signup does not reserve a place." : "Full access during beta. No card required. All 20 free-forever places have been allocated.") : `Your 14 days start with your first deal review. After day 7, a card is needed to continue. The standard plan is $${LIST_PRICE_USD}/month. The payment page shows when billing begins; adding a card in the last 48 hours may start billing immediately. Without a card, access pauses and there is no charge.`}</p>
+              <p className="text-mute max-w-[52ch] text-[0.875rem] leading-[1.6]">Full access during Beta, with no card. We select up to 20 teams after real use. Selected teams keep the base plan free forever; signing up does not reserve a place. If you are not selected, you choose whether to continue at ${LIST_PRICE_USD}/month per company, plus tax. No automatic charge.</p>
               <button
                 type="submit"
                 className="w-fit cursor-pointer rounded-lg bg-fg px-5 py-3 text-[0.9375rem] font-medium text-bg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
               >
-                Get my key
+                Get my beta key
               </button>
             </form>
             <section className="border-t border-line pt-7">
               <h2 className="text-[1.125rem] font-medium">What happens next?</h2>
               <p className="text-mute mt-3 leading-[1.6]">Copy your key, add 3xrep in Claude, then ask about a deal. Your CRM can provide the context, or you can start with notes you bring to the chat. <Link className="underline underline-offset-4" href="/install">Connection guide</Link>.</p>
             </section>
-            <p className="text-dim text-[0.8125rem] leading-[1.5]">{offer.enabled ? (offer.available ? "We select up to 20 teams after meaningful use. Signing up does not reserve a place." : "All 20 free-forever places have been allocated. You can still join the beta.") : "We are still looking for 20 beta teams, but beta enrollment is not open yet. This standard trial does not reserve a place."}</p>
+            <p className="text-dim text-[0.8125rem] leading-[1.5]">We’ll show your Beta access deadline when you join. <Link className="underline underline-offset-4" href="/docs/pricing">Read the Beta terms</Link>.</p>
           </>
+        ) : (
+          <p className="text-mute leading-[1.6]"><Link className="underline underline-offset-4" href="/docs/pricing">Read the Beta terms</Link>.</p>
         )}
       </main>
     </>

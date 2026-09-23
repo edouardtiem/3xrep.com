@@ -4,11 +4,11 @@
 
 L’accueil montre désormais « Every deal needs a strategy. ». Même identité visuelle : papier gris, cuivre, mascotte et typographie. La démonstration part d’un problème confirmé, construit l’accès à la personne qui peut investir, propose une phrase et laisse choisir trois réponses possibles. Les exemples sont illustratifs. Le budget, les horizons et le coaching sont expliqués sans promesse de gain. L’inscription suit la configuration serveur.
 
-Décision du 23 septembre : l’offre visible s’appelle « Beta ». L’accueil annonce la recherche de 20 équipes qui utilisent réellement 3xrep, même quand les inscriptions bêta sont fermées. Parmi ces équipes, celles retenues gardent l’offre de base gratuite à vie. Quand la bêta est fermée, l’essai de 14 jours reste accessible mais ne réserve pas de place.
+Décision du 23 septembre : l’offre visible s’appelle « Beta ». L’accueil annonce la recherche de 20 équipes qui utilisent réellement 3xrep. Parmi ces équipes, celles retenues gardent l’offre de base gratuite à vie. C’est le seul parcours de nouvelle inscription pendant le recrutement : si la bêta est fermée ou que les 20 places sont attribuées, le formulaire est fermé. L’essai standard de 14 jours n’est plus proposé aux nouveaux visiteurs.
 
 La voix de 3xrep sur le site parle au nom de l’équipe : « we », jamais « I ». Les citations illustratives des clients et les questions que le visiteur peut poser dans son chat gardent leur propre point de vue.
 
-Le parcours `/start` commence par l’adresse professionnelle, les conditions de l’offre et la création de la clé. La page suivante montre la clé une seule fois, puis trois actions : la copier, connecter Claude, poser une question sur une affaire. `/install` suit le même chemin. Les autres assistants et les connecteurs CRM restent accessibles dans des rubriques facultatives. Les guides `/docs` commencent par une affaire et une question concrète ; les pages de confidentialité, de prix et de méthodes restent consultables. Les notes apportées dans le chat suffisent pour commencer ; le CRM enrichit ensuite le contexte. Le prix et la possibilité d’un paiement immédiat quand la carte est ajoutée dans les dernières 48 heures sont visibles avant l’inscription standard.
+Le parcours `/start` commence par l’adresse professionnelle, les conditions de la Beta et la création de la clé. La page suivante montre la clé une seule fois, puis trois actions : la copier, connecter Claude, poser une question sur une affaire. `/install` suit le même chemin. Les autres assistants et les connecteurs CRM restent accessibles dans des rubriques facultatives. Les guides `/docs` commencent par une affaire et une question concrète ; les pages de confidentialité, de prix et de méthodes restent consultables. Les notes apportées dans le chat suffisent pour commencer ; le CRM enrichit ensuite le contexte. Le tarif après la Beta est visible avant l’inscription, sans carte ni prélèvement automatique.
 
 Sur écran large et assez haut, le texte d’ouverture suit le défilement de la démonstration puis s’arrête avec sa section, avant le séparateur. Sur petit écran, les deux blocs défilent normalement.
 
@@ -25,11 +25,11 @@ Titre : **Your sales day, figured out.** La page montre une journée, puis une a
 
 ## Founding 20 — 18 septembre 2026
 
-Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du programme pour l’inscription et les droits. Bêta ouverte : « Join the beta », sans carte, attribution manuelle parmi 20 organisations. Une fois les places allouées, le site annonce que la bêta reste ouverte mais sans nouvelle place gratuite à vie. Programme fermé : parcours standard ci-dessous, avec annonce de la recherche des 20 équipes. Style sales buddy conservé. Voir [Founding 20](beta/founding-20.md).
+Accueil, `/start`, `/install` et tarifs suivent la configuration serveur du programme pour l’inscription et les droits. Bêta ouverte et places restantes : « Join the beta », sans carte, attribution manuelle parmi 20 organisations. Programme fermé ou places toutes allouées : plus de nouvelles inscriptions. Style sales buddy conservé. Voir [Founding 20](beta/founding-20.md).
 
-## Parcours standard
+## Parcours standard historique
 
-- Boutons « Try 3xrep now » vers `/start` quand l’inscription Beta est fermée ; essai de 14 jours sans carte au départ. Le texte voisin dit que l’essai ne réserve pas de place gratuite à vie.
+- Avant la décision du 23 septembre, « Try 3xrep now » ouvrait un essai standard de 14 jours quand la Beta était fermée. Cette voie est suspendue pour les nouvelles inscriptions pendant le recrutement.
 - Guide de connexion vers `/install` ; documentation vers `/docs`.
 - Prix de la constante produit : 129 dollars par mois pour toute l’entreprise, taxes applicables en plus. Essai de 14 jours sans carte.
 - Prérequis de connexion expliqués. Validation de bout en bout ChatGPT Work encore en cours ; pas de promesse d’intégrations universelles.

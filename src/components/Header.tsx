@@ -18,7 +18,7 @@ export function Header() {
           href="/start"
           className="hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
         >
-          start
+          beta
         </Link>
       </nav>
     </header>

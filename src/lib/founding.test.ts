@@ -45,6 +45,20 @@ test("admin routes enforce authorization before reading configuration or data",a
   assert.equal((await POST(new Request("https://example.com",{method:"POST",body:'{"action":"end_beta"}'}))).status,401);
 });
 
+test("public signup does not create a standard trial while Beta is closed",async()=>{
+  const names=["SUPABASE_URL","NEXT_PUBLIC_SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY","SUPABASE_SECRET_KEY"];
+  const saved=Object.fromEntries(names.map(name=>[name,process.env[name]]));
+  try{
+    for(const name of names) delete process.env[name];
+    const {POST}=await import("../app/api/orgs/start/route");
+    const res=await POST(new Request("https://example.com/api/orgs/start",{method:"POST",body:new URLSearchParams({email:"new@example.com"})}));
+    assert.equal(res.status,409);
+    assert.match(await res.text(),/No workspace or standard trial was created/);
+  }finally{
+    for(const name of names){if(saved[name]===undefined)delete process.env[name];else process.env[name]=saved[name];}
+  }
+});
+
 test("real access resolver honors beta and Founding while rejecting an unknown key",async()=>{
   const {resolveAccess,trialExtras,maybeStartTrial}=await import("./access");
   const {devOrg}=await import("./orgs");

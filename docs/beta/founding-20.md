@@ -1,5 +1,9 @@
 # Founding 20
 
+## Décision en vigueur — 23 septembre 2026
+
+Pendant le recrutement des 20 équipes, la Beta est le seul parcours de nouvelle inscription. La migration `20260923120000_beta_only_signup.sql` bloque en base toute nouvelle organisation d’essai si la Beta est fermée ou si les 20 places ont été attribuées. Le formulaire et sa route appliquent la même règle. Les essais standard et abonnements déjà existants gardent leurs droits. À la sortie de la Beta, une équipe non retenue choisit librement le tarif standard ; aucune carte n’est prise pendant la Beta. Les mentions contraires ci-dessous décrivent la version initiale du programme et ne définissent plus les nouvelles inscriptions.
+
 ## Plan d’implémentation — 18 septembre 2026
 
 Branche : `feat/founding-20`, depuis `origin/pre_main`. Aucun changement de production dans cette mission.

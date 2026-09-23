@@ -1,4 +1,5 @@
 import { clientIp, rateLimit } from "@/lib/rate-limit";
+import { publicBetaOffer } from "@/lib/founding";
 import { startTrialOrg } from "@/lib/orgs";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,10 @@ export async function POST(req: Request) {
     return html(400, "Start", "Work email required.");
   }
   try {
+    const offer = await publicBetaOffer();
+    if (!offer.enabled || !offer.available) {
+      return html(409, "Beta closed", "Beta enrollment is closed. No workspace or standard trial was created.");
+    }
     const out = await startTrialOrg({ email, ref, source: String(form.get("utm_source") ?? ""), campaign: String(form.get("utm_campaign") ?? ""), medium: String(form.get("utm_medium") ?? "") });
     if ("exists" in out) {
       return html(
@@ -31,6 +36,9 @@ export async function POST(req: Request) {
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error("orgs/start", message);
+    if (message.includes("beta enrollment closed")) {
+      return html(409, "Beta closed", "Beta enrollment is closed. No workspace was created.");
+    }
     return html(503, "Start", "We could not create your workspace. Please try again shortly.");
   }
 }

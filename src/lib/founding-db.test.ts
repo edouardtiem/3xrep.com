@@ -10,6 +10,10 @@ test("PostgreSQL: qualification, grants, concurrency cap, revocation, RLS, beta 
     for(const file of ["20260902170000_orgs.sql","20260914180000_item6_trial.sql","20260918120000_founding_20.sql"]){
       await db.exec(await readFile(`supabase/migrations/${file}`,"utf8"));
     }
+    const legacy=(await db.query<{id:string;founding_state:string}>("insert into orgs(key_hash,referral_code,status,email) values('legacy-key','legacy-ref','trial','legacy@example.com') returning id,founding_state")).rows[0];
+    assert.equal(legacy.founding_state,"none");
+    await db.exec(await readFile("supabase/migrations/20260923120000_beta_only_signup.sql","utf8"));
+    await assert.rejects(db.query("insert into orgs(key_hash,referral_code,status,email) values('closed-key','closed-ref','trial','closed@example.com')"),/beta enrollment closed/);
     await db.exec("update founding_program set enabled=true,ends_at=now()+interval '30 days';");
     const create=async(n:number,status="trial")=>{
       const r=await db.query<{id:string;founding_state:string;beta_access_until:string}>("insert into orgs(key_hash,referral_code,status,email) values($1,$2,$3,$4) returning *",[`key${n}`,`ref${n}`,status,`org${n}@example.com`]);return r.rows[0];
@@ -41,18 +45,20 @@ test("PostgreSQL: qualification, grants, concurrency cap, revocation, RLS, beta 
     assert.equal(grants.filter(r=>r.status==='fulfilled').length,19);
     assert.equal(grants.filter(r=>r.status==='rejected').length,1);
     assert.equal((await db.query("select * from founding_slots")).rows.length,20);
+    await assert.rejects(create(101),/beta enrollment closed/);
     await db.query("select manage_founding($1,'revoke','abuse confirmed')",[first.id]);
     await assert.rejects(db.query("select prepare_founding_grant($1,'company-extra','real activity')",[others[19].id]),/20 places/);
     await db.query("select prepare_founding_grant($1,'company-0','restore same workspace')",[first.id]);
     await db.query("select finish_founding_grant($1)",[first.id]);
-    const internal=await create(100);
+    const internal=await create(100,"active");
     await db.query("update orgs set is_internal=true,founding_state='qualified' where id=$1",[internal.id]);
     await assert.rejects(db.query("select prepare_founding_grant($1,'internal-company','internal activity')",[internal.id]),/internal workspace/);
     await db.query("select record_beta_usage($1,'audit_deal',null,true)",[internal.id]);
     assert.equal((await db.query("select * from beta_events where org_id=$1 and kind='meaningful_output'",[internal.id])).rows.length,0);
     const paid=await create(22,"active");assert.equal(paid.founding_state,"none");
     await db.exec("select end_public_beta();");
-    const after=await create(23);assert.equal(after.founding_state,"none");assert.equal(after.beta_access_until,null);
+    await assert.rejects(create(23),/beta enrollment closed/);
+    const after=legacy;
     const grace=(await db.query<{days:number}>("select extract(epoch from (beta_access_until-now()))/86400 as days from orgs where id=$1",[first.id])).rows[0];
     assert.ok(Number(grace.days)>13 && Number(grace.days)<=14);
     // Checkout reservation survives a crash and prevents a simultaneous award.

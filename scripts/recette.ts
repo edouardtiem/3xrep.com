@@ -229,22 +229,28 @@ async function main() {
   const home = await h.text();
   console.log("HOME", h.status, home.includes("Every deal needs"));
   if (!home.includes("Every deal needs")) throw new Error("home doit présenter la stratégie par affaire");
-  console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("Try 3xrep now"));
+  console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("Beta enrollment is closed for now"));
   console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
-  const offer = beta ? "Join the beta" : "Try 3xrep now";
+  const offer = beta ? "Join the beta" : "Beta enrollment is closed for now";
   if (h.status !== 200 || !home.includes(offer)) {
     throw new Error(`home doit dire ${offer}`);
   }
 
   const start = await fetch(`${BASE}/start`);
   const startHtml = await start.text();
-  console.log("START", start.status, startHtml.includes("Work email"));
+  console.log("START", start.status, beta ? startHtml.includes("Work email") : startHtml.includes("Beta enrollment is closed"));
   if (start.status !== 200) throw new Error("/start 200");
-  if (!startHtml.includes("Work email") || !startHtml.includes("Get my key") || !startHtml.includes('action="/api/orgs/start"')) {
-    throw new Error("/start doit proposer un champ e-mail et créer une clé");
+  if (beta && (!startHtml.includes("Work email") || !startHtml.includes("Get my beta key") || !startHtml.includes('action="/api/orgs/start"'))) {
+    throw new Error("/start doit proposer une inscription Beta avec une clé");
   }
-  if (!beta && (!startHtml.includes("a card is needed") || !startHtml.includes("there is no charge") || !startHtml.includes("last 48 hours"))) {
-    throw new Error("/start doit afficher les conditions de l'essai avant l'inscription");
+  if (!beta && (!startHtml.includes("Beta enrollment is closed") || startHtml.includes('action="/api/orgs/start"'))) {
+    throw new Error("/start fermé ne doit pas proposer l'essai standard");
+  }
+  if (!beta) {
+    const closedSignup = await fetch(`${BASE}/api/orgs/start`, { method: "POST", body: new URLSearchParams({ email: "closed@example.invalid" }) });
+    if (closedSignup.status !== 409 || !(await closedSignup.text()).includes("No workspace or standard trial was created")) {
+      throw new Error("inscription fermée doit refuser toute création d'organisation");
+    }
   }
 
   const card = await fetch(`${BASE}/api/stripe/checkout?mode=card&org=00000000-0000-0000-0000-000000000000&sig=dead`, {
@@ -261,12 +267,10 @@ async function main() {
 
   const install = await fetch(`${BASE}/install`);
   const installHtml = await install.text();
-  const installOk = beta
-    ? installHtml.includes('href="/start"') && !installHtml.includes('action="/api/stripe/checkout"')
-    : installHtml.includes("payment link in your chat") && !installHtml.includes('action="/api/stripe/checkout"');
+  const installOk = installHtml.includes('href="/start"') && !installHtml.includes('action="/api/stripe/checkout"') && (beta ? installHtml.includes("Get my beta key") : installHtml.includes("Beta enrollment is closed for now"));
   console.log("INSTALL", install.status, installOk);
   if (install.status !== 200 || !installOk) {
-    throw new Error(beta ? "/install doit envoyer vers la bêta sans checkout" : "/install doit orienter vers le lien de paiement signé dans le chat");
+    throw new Error("/install doit suivre l'état des inscriptions Beta sans checkout");
   }
 }
 

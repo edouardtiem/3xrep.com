@@ -42,7 +42,8 @@ function Fold({ title, children }: { title: string; children: ReactNode }) {
 
 export default async function Install() {
   const offer = await publicBetaOffer();
-  const cta = "Get my key";
+  const enrollmentOpen = offer.enabled && offer.available;
+  const cta = enrollmentOpen ? "Get my beta key" : "See Beta status";
   const url = mcpUrl();
   const mcpJson = JSON.stringify(
     {
@@ -64,7 +65,7 @@ export default async function Install() {
       {
         "@type": "HowToStep",
         name: cta,
-        text: "Enter your work email and copy the private key shown once. No card is needed to start.",
+        text: "When Beta enrollment is open, enter your work email and copy the private key shown once. No card is required.",
       },
       {
         "@type": "HowToStep",
@@ -83,7 +84,7 @@ export default async function Install() {
     <>
       <Header />
       <JsonLd data={breadcrumbJsonLd([{ name: "Install", path: "/install" }])} />
-      <JsonLd data={howTo} />
+      {enrollmentOpen ? <JsonLd data={howTo} /> : null}
       <main className="mx-auto flex w-full max-w-[40rem] flex-1 flex-col gap-12 px-5 py-16 sm:px-10">
         <div>
           <h1 className="text-[2rem] leading-[1.1] font-medium tracking-[-0.03em] sm:text-[2.5rem]">
@@ -107,7 +108,7 @@ export default async function Install() {
             1. Get your key.
           </h2>
           <p className="text-mute leading-[1.5]">
-            Enter your work email on the start page. Copy the private key when it appears: we show it only once.
+            {enrollmentOpen ? "Enter your work email on the start page. Copy the private key when it appears: we show it only once." : "When Beta enrollment reopens, this page will lead you to a private key. Existing members can use the key saved in their connector."}
           </p>
         </section>
 
@@ -168,13 +169,13 @@ export default async function Install() {
 
         <section className="space-y-5 border-t border-line pt-16">
           <p className="text-[1.35rem] leading-[1.25] tracking-[-0.02em] sm:text-[1.75rem]">
-            {offer.enabled ? "Help shape 3xrep." : `$${LIST_PRICE_USD} a month for the whole company.`}
+            {enrollmentOpen ? "Help shape 3xrep." : "Beta enrollment is closed for now."}
           </p>
           <p className="text-mute leading-[1.5]">
-            {offer.enabled ? "Try it with your real sales work. Tell us what helped and what missed." : "After the trial. One price for the whole company."}
+            {enrollmentOpen ? "Try it with your real sales work. Tell us what helped and what missed." : "Existing Beta workspaces can keep using 3xrep through their access deadline."}
           </p>
           <p className="text-dim text-[0.8125rem] leading-relaxed">3xrep does not join your calls or write to your CRM. Context sent to its tools is kept for 14 days, then deleted. A short record of unanswered deal questions may remain, without transcripts.</p>
-          <p className="text-mute leading-relaxed">{offer.enabled ? "Full beta access. No credit card required. We select up to 20 teams for a free-forever base plan after real usage." : "Already connected? Ask 3xrep for your workspace status and use the payment link in your chat."}</p>
+          <p className="text-mute leading-relaxed">{enrollmentOpen ? "Full beta access. No credit card required. We select up to 20 teams for a free-forever base plan after real usage." : `If you are not selected, you can choose the $${LIST_PRICE_USD}/month company plan after Beta. We do not charge you automatically.`}</p>
         </section>
       </main>
     </>

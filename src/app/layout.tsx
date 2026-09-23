@@ -6,7 +6,6 @@ import { Ga4 } from "@/components/Ga4";
 import { getGaMeasurementId } from "@/lib/ga";
 import { lpSans } from "@/lib/lp-font";
 import { siteUrl } from "@/lib/site";
-import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: "3xrep - Your AI believes your CRM. We don't.",
-  description: `He lives in Claude or ChatGPT, next to HubSpot. 14 days free, then $${LIST_PRICE_USD} a month for the whole company. We don't join your calls.`,
+  description: "Build a deal strategy in your AI chat. Join the Beta to try 3xrep on real deals, with no card. We select up to 20 teams for a free-forever base plan after real use.",
 };
 
 export default function RootLayout({
