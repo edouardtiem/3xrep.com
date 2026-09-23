@@ -6,6 +6,8 @@ L’accueil montre désormais « Every deal needs a strategy. ». Même identit�
 
 Décision du 23 septembre : l’offre visible s’appelle « Beta ». L’accueil annonce la recherche de 20 équipes qui utilisent réellement 3xrep, même quand les inscriptions bêta sont fermées. Parmi ces équipes, celles retenues gardent l’offre de base gratuite à vie. Quand la bêta est fermée, l’essai de 14 jours reste accessible mais ne réserve pas de place.
 
+La voix de 3xrep sur le site parle au nom de l’équipe : « we », jamais « I ». Les citations illustratives des clients et les questions que le visiteur peut poser dans son chat gardent leur propre point de vue.
+
 Le parcours `/start` commence par l’adresse professionnelle, les conditions de l’offre et la création de la clé. La page suivante montre la clé une seule fois, puis trois actions : la copier, connecter Claude, poser une question sur une affaire. `/install` suit le même chemin. Les autres assistants et les connecteurs CRM restent accessibles dans des rubriques facultatives. Les guides `/docs` commencent par une affaire et une question concrète ; les pages de confidentialité, de prix et de méthodes restent consultables. Les notes apportées dans le chat suffisent pour commencer ; le CRM enrichit ensuite le contexte. Le prix et la possibilité d’un paiement immédiat quand la carte est ajoutée dans les dernières 48 heures sont visibles avant l’inscription standard.
 
 Sur écran large et assez haut, le texte d’ouverture suit le défilement de la démonstration puis s’arrête avec sa section, avant le séparateur. Sur petit écran, les deux blocs défilent normalement.

@@ -22,7 +22,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
             <h1 id="buddy-title">Every deal needs<br />a strategy.</h1>
             <p className={styles.lead}>Know your next move. And how to make it.</p>
             <p className={styles.support}>3xrep builds a deal strategy from what your buyer has actually said. Get the approach, the words to use, and a way forward when the answer changes — inside your AI chat.</p>
-            <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 places have been allocated." : "I’m looking for 20 teams using 3xrep on real deals. Teams I select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
+            <p className={styles.betaInvite}><strong>Beta: 20 teams, free forever.</strong><span>{offer.enabled && !offer.available ? "All 20 places have been allocated." : "We’re looking for 20 teams using 3xrep on real deals. Teams we select after real use keep the base plan free forever."} <Link href="#price-title">See how it works ↗</Link></span></p>
             <Start>{cta}</Start>
             <p className={styles.micro}>{offer.enabled ? "Full beta access. No credit card." : "14 days free now. Beta enrollment is not open yet; this trial does not reserve a free-forever place."}</p>
             <p className={styles.micro}>Start in Claude or ChatGPT. <Link href="#setup">See what you need ↗</Link></p>
@@ -72,11 +72,11 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
           <div className={styles.price}>
             <h2 id="price-title">Beta</h2>
             {offer.enabled ? <>
-              <p>I’m looking for 20 teams to shape 3xrep through real sales work. Full access during beta. No credit card.</p>
-              <p>{offer.available ? "Use it on real deals across several days. I’ll select 20 teams from those who do. Selected teams keep the base plan free forever. Signing up does not reserve a place." : "All 20 free-forever places have been allocated. You can still try the beta for free."}</p>
+              <p>We’re looking for 20 teams to shape 3xrep through real sales work. Full access during beta. No credit card.</p>
+              <p>{offer.available ? "Use it on real deals across several days. We’ll select 20 teams from those who do. Selected teams keep the base plan free forever. Signing up does not reserve a place." : "All 20 free-forever places have been allocated. You can still try the beta for free."}</p>
               <p className={styles.micro}>Future optional extras may be paid. Standard price after beta: ${LIST_PRICE_USD}/month per company. No automatic charge.</p>
             </> : <>
-              <p>I’m looking for 20 teams to help shape 3xrep through real sales work. Teams selected after using it keep the base plan free forever.</p>
+              <p>We’re looking for 20 teams to help shape 3xrep through real sales work. Teams selected after using it keep the base plan free forever.</p>
               <p>Beta enrollment is not open yet. You can start a 14-day trial now. A trial does not reserve one of the 20 places.</p>
               <p className={styles.micro}>Standard price after the trial: ${LIST_PRICE_USD}/month per company, plus tax. No per-seat charge.</p>
             </>}
