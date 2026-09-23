@@ -1,13 +1,13 @@
 ---
 name: founder-x-growth
-description: Helper for founder X cadence ideas. Upper bounds, not goals. Quality gate first. Skip is success. For live @Edd08x replies/posts, edd08x-personal is the source of truth. Use for cadence ceilings after reading edd08x-personal, or when asked for founder-x-growth.
+description: Helper for founder X rhythm ideas. No volume target. Pick from a reason to reply or post. 0 replies is a good day. For live @Edd08x replies/posts, edd08x-personal is the source of truth. Use after reading edd08x-personal, or when asked for founder-x-growth.
 ---
 
 > **For live @Edd08x replies/posts, [`edd08x-personal`](../edd08x-personal/SKILL.md) is the source of truth.** If anything here conflicts, edd08x-personal wins. These files are helpers (voice density / cadence ideas / reply craft details), not a license to lecture or productize.
 
 # Croissance X. Patterns fondateur, compte fondateur
 
-Comment le compte **personnel** grandit sans devenir un tract : rythme en **plafonds**, accroche, répondre seulement si ça passe la liste, preuve, lien doux. `@Edd08x`, Ed. Pas un compte marque. Pas un ghostwriter qui « fait l’Elon ». **Je vs 3xrep**. Chaque post : une idée (Mode A ou Mode B si ça sert), pas une maxime. Pas de I forcé. Pas de « he ».
+Comment le compte **personnel** grandit sans devenir un tract : une raison précise pour poster ou répondre, accroche, preuve, lien doux. Jamais un chiffre à atteindre. `@Edd08x`, Ed. Pas un compte marque. Pas un ghostwriter qui « fait l’Elon ». **Je vs 3xrep**. Chaque post : une idée (Mode A ou Mode B si ça sert), pas une maxime. Pas de I forcé. Pas de « he ».
 
 Constitution : `edd08x-personal`. Densité des posts : `elon-musk-voice`. Forme des réponses : `x-replies-that-hit`.
 
@@ -17,7 +17,7 @@ Détail : [README](../README.md). Tiennent ici :
 
 - Contexte : README + home + `/install`. Plus profond seulement si une claim est douteuse.
 - Web seulement si le sujet est vivant. Sinon skip.
-- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte personnel (`@Edd08x` / Ed.). Live `@Edd08x` : `edd08x-personal` gagne. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Produit : rare, seulement si invité. Lien doux `@Edd08x` : `https://www.3xrep.com/start` si on a demandé un outil. Cadence = plafonds, pas des objectifs. Skip = succès.
+- Brouillons jusqu’à compte X utilisable + org payante `/install` + go explicite. Pas de message privé auto. Compte personnel (`@Edd08x` / Ed.). Live `@Edd08x` : `edd08x-personal` gagne. Copy X : point, virgule, phrases séparées. Pas —, pas –, pas `--`. Réponses : lexique du parent d’abord ; stage / close date / owner / opp / pipe seulement si le parent est déjà vente/CRM/RevOps/MEDDIC. Produit : rare, seulement si invité. Lien doux `@Edd08x` : `https://www.3xrep.com/start` si on a demandé un outil. Pas de chiffre à viser. Zéro réponse = bon jour si rien ne passe. Skip = succès.
 - Secret : cold / online. Jamais Uptoo, OC, amis comme builder ou réseau. Pas le nom légal complet dans chaque post.
 - API X : annoncer le coût avant un appel cher. Web public + lectures cheap d’abord.
 
@@ -35,8 +35,8 @@ Dire lesquels manquent. Ne pas ouvrir un second compte marque anonyme « pour la
 
 | Levier | Règle |
 | --- | --- |
-| **Répondre vs poster** | Petit compte : plus de réponses que de posts **si** elles passent la liste `edd08x-personal`. **~5 réponses pour 1 post = plafond, pas un objectif.** Un post sans réponses autour peut rester un post. 3xrep / « I built » : rare, seulement si le parent invite. Défaut : zéro produit. Skip CFP / joke-meme si tu n’as qu’une leçon de vente. Humour permis s’il reste dans leur ton. Pas stage/owner/close date hors parent CRM. Grande portée ne justifie pas une maxime. Pas le même texte collé. |
-| **Cadence** | **Plafonds, pas des buts.** Qualité d’abord. 1 post original / jour **maximum** une fois le go. 3 à 5 posts / semaine = plafond. Réponses le jour même seulement si elles passent la liste. Un jour de skips = succès. Silence 10 jours puis rafale : interdit. Pas « viser 50 ou 100 réponses ». |
+| **Répondre vs poster** | Répondre seulement s’il y a une **raison précise** (liste `edd08x-personal`). Un post sans réponses autour peut rester un post. 3xrep / « I built » : rare, seulement si le parent invite. Défaut : zéro produit. Skip CFP / joke-meme si tu n’as qu’une leçon de vente. Humour permis s’il reste dans leur ton. Pas stage/owner/close date hors parent CRM. Grande portée ne justifie pas une maxime. Pas le même texte collé. |
+| **Cadence** | On part d’une raison de poster ou de répondre. Jamais d’un chiffre à atteindre. Jamais d’une case à remplir. Zéro réponse est un bon jour si rien ne passe. Un chiffre n’est qu’un arrêt d’urgence (couper une rafale), pas un rythme. Silence long puis rafale : interdit. |
 | **Accroche** | Les 8 premiers mots = un fait concret **de cette scène**. Terrain (stage / close date / owner / call / pipe) seulement si le post *est* cette scène. Pas « Unpopular opinion ». Pas une maxime (vanity, verdict, race, scarce, fiction). |
 | **Preuve** | Un fait nommé. « I built » seulement si le parent ou le brief invite un build, pas sous chaque post. Pas « we’re live », pas « building in public » vide. Pas « I built 3xrep so… ». |
 | **Lien doux** | `@Edd08x` : `https://www.3xrep.com/start` **une** fois, **après** une preuve, et seulement si ça aide. Pas chaque post. Pas en première ligne. Réponses : seulement si le parent a demandé un outil. |
@@ -65,7 +65,7 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 ## Étapes
 
 1. **État.** Zéro post / quelques posts / déjà une voix. Une ligne.
-2. **Mix de la semaine.** Plafond de posts originaux + plafond de réponses. Qualité d’abord. Noms de fils où répondre **si** tu as une observation. Pas un objectif de volume.
+2. **Mix de la semaine.** Noms de fils où répondre **si** tu as une raison précise. Pas un chiffre. Pas une case. Zéro réponse = bon jour si rien ne passe.
 3. **Chaque post prévu :** idée · accroche (8 mots, un fait) · preuve (oui/non, laquelle) · lien doux (oui/non). Si triade maxime → jugement → produit : tuer. Si ça sonne tract : tuer.
 4. **Rédiger** via `edd08x-personal` d’abord, puis `elon-musk-voice` (densité posts) et `x-replies-that-hit` (forme réponses). Produit : rare, seulement si invité. Skip = succès.
 5. **Calendrier** en anglais, dates, **statut draft** tant que les gates ne sont pas verts.
@@ -77,8 +77,9 @@ Wedge : founder déjà dans l’agent (Claude, Cursor, ChatGPT) + un fichier cli
 
 Compte : @Edd08x · Ed. · personnel
 Gates : compte X · org payante · go → draft seulement | prêt
-Plafonds (pas des objectifs) : N posts / semaine max · N réponses / jour max
-Qualité : skip = succès
+Choix : une raison par ligne, ou skip
+Zéro réponse = bon jour si rien ne passe
+Qualité : skip = succès. Chiffre = arrêt d’urgence seulement.
 API X : pas d’appel / lectures cheap / appel cher annoncé (oui/non)
 
 ## Semaine
@@ -104,6 +105,6 @@ Pas de compte / pas de go / sujet hors produit / appel cher sans oui.
 - Compte marque anonyme à la place du visage fondateur.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Calendly, démo, per-seat, 99 €, pourcentage de signatures, « on remplace Gong ».
-- Usine de 30 posts « pour remplir ». Viser 50 / 100 réponses. Traiter un plafond comme un objectif.
-- Phrase org 3xrep sous chaque réponse. Quota ~1/5. Coller le même texte partout.
+- Usine de posts « pour remplir ». Chiffre de réponses à atteindre. Case à remplir.
+- Phrase org 3xrep sous chaque réponse. Quota de mentions produit. Coller le même texte partout.
 - Éditer le site. Mots du marché → `x-language-radar`.

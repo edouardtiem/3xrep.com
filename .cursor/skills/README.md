@@ -12,7 +12,7 @@ Oui CoS 8 septembre 2026. Oui fondateur 14 septembre 2026 : réponses humaines, 
 | --- | --- |
 | [`edd08x-personal`](edd08x-personal/SKILL.md) | Constitution `@Edd08x`. Identité perso, skip d’abord, refus = stop, zéro produit par défaut, liste avant envoi. |
 | [`elon-musk-voice`](elon-musk-voice/SKILL.md) | Aide : densité courte, fait concret, pas une maxime. Pas un sosie d’Elon. |
-| [`founder-x-growth`](founder-x-growth/SKILL.md) | Aide : plafonds de rythme (pas des objectifs), accroches, preuve, lien doux. |
+| [`founder-x-growth`](founder-x-growth/SKILL.md) | Aide : idées de rythme sans chiffre à viser, accroches, preuve, lien doux. |
 | [`x-replies-that-hit`](x-replies-that-hit/SKILL.md) | Aide : forme des réponses. 1 idée, 1 ou 2 phrases. Lexique du parent. CRM gated. Skip = succès. |
 | [`brand-3xrep-x`](brand-3xrep-x/SKILL.md) | Stub marque. Hors scope `@Edd08x`. Quotas pitch seulement ici, plus tard. |
 | [`x-language-radar`](x-language-radar/SKILL.md) | Langue du web / X autour de nos sujets → reco à Jon / CoS. **Pas** d’edit live. |
@@ -65,8 +65,8 @@ Sans ça : drafts dans le chat / la PR. Pas de post. Pas de fil auto. **Pas de m
 - **Mode A ou Mode B.** Chaque post original = **un** des deux (**l’idée**, pas un slogan à coller). Pas un catalogue.
   - **Mode A (affirmation).** Agent pour l’organisation, pas par siège, pas un cours, pas un enregistreur. Post : *Not seats. Not a course. Not a recorder.* Pas *The VP Sales agent is the future* en ouverture de chaque post.
   - **Mode B (où ça vit).** Une couche d’intelligence **sur tout le fichier client**, **dans l’agent Claude** qu’ils ont déjà (ChatGPT / Cursor / Notion via MCP si le fil le demande). Une URL MCP à côté du connecteur du fichier client. Pas un nouvel onglet. Post : *3xrep runs inside the Claude agent you already use. One MCP URL next to the CRM connector.*
-- **Réponses.** Défaut : **zéro** 3xrep, **zéro** « I built », **zéro** lien. Skip d’abord. Qualité avant volume. Skip = succès. Nommer 3xrep seulement si le parent invite un outil / process **et** qu’un fait concret s’ajoute. Jamais un quota (~1/5 interdit comme cible). Jamais la triade. Lien `https://www.3xrep.com/start` seulement si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Grande portée ne sauve pas une maxime. Pas le même texte collé sous plusieurs parents. Refus (« Please stop ») : stop pour toujours, append `/workspace/x-negative-feedback/log.jsonl`.
-  - Anti-usine: not the same Claude+CRM sticker under adjacent parents. Not a 15-minute paste of 30 near-clones.
+- **Réponses.** Défaut : **zéro** 3xrep, **zéro** « I built », **zéro** lien. On part d’une raison précise. Skip d’abord. Zéro réponse est un bon jour si rien ne passe. Nommer 3xrep seulement si le parent invite un outil / process **et** qu’un fait concret s’ajoute. Jamais un quota de mentions. Jamais un chiffre à atteindre. Jamais la triade. Lien `https://www.3xrep.com/start` seulement si le parent a **demandé** un outil. Pas Calendly. Pas de message privé. Grande portée ne sauve pas une maxime. Pas le même texte collé sous plusieurs parents. Refus (« Please stop ») : stop pour toujours, append `/workspace/x-negative-feedback/log.jsonl`.
+  - Anti-usine: not the same Claude+CRM sticker under adjacent parents. Pas un collage en série de clones.
   - Ban-list expansion (replies): overused glue — « owner on the stage/opp », « 3xrep lives/sits in Claude next to the CRM », « table stakes » + CRM pivot, « I built 3xrep so… ».
 - **Ponctuation X.** Point, virgule, ou phrases séparées. Pas de tiret long (—). Pas de tiret moyen (–). Pas de `--` comme ponctuation.
 - Jamais Uptoo, OC, amis, comme builder, preuve, ou réseau. Cold / online.
@@ -91,7 +91,7 @@ Lire `get_usage_credits` avant une série d’appels. Crédits = argent.
 - La triade maxime → jugement → produit. « I built 3xrep so… ». Punchline : race, scarce, fiction, verdict, triad, vanity.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - Auto-DM. Calendly. Démo.
-- Continuer un fil après un refus. Viser 50 / 100 réponses. Quota ~1/5 de mentions produit sur `@Edd08x`.
+- Continuer un fil après un refus. Chiffre de réponses à atteindre. Case à remplir. Quota de mentions produit sur `@Edd08x`.
 - « On remplace Gong ». Promettre un pourcentage de signatures.
 - Éditer le site live (home, `/install`, README) **sans** oui fondateur. Le radar **propose**. `seo-geo` pose, pas ces skills.
 - Éditer un post X live.

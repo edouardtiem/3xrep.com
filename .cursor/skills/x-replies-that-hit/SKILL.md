@@ -147,7 +147,7 @@ Anglais. Une fiche par parent.
 
 Gates : draft seulement | prêt
 Voix : @Edd08x · Ed.
-Série : N réponses · N skips (skip = succès)
+Choix : une raison précise, ou skip. Zéro = bon jour si rien ne passe.
 3xrep : non | oui (parent a invité + un fait)
 Refuse log : lu | match → skip
 API X : cheap / cher annoncé (oui/non)
@@ -184,7 +184,7 @@ Refuse : non | déjà au journal → skip
 - « table stakes » + pivot CRM. « Capability without a named next step » hors fil agents/outils.
 - Pitch lourd, Calendly, DM, « happy to hop on a call ».
 - Nommer 3xrep / « I built » / lien start sous (presque) chaque parent. Coller le même texte partout.
-- Continuer un fil après « Please stop » / refus. Viser un volume (50 / 100).
+- Continuer un fil après « Please stop » / refus. Chiffre de réponses à atteindre. Case à remplir.
 - Nommer Uptoo, OC, amis. Coller le nom légal complet dans chaque post.
 - « We replace Gong ». Pourcentage de signatures. Prix en première ligne sous un inconnu.
 - Poster sans go. Réponses auto. Follow/like auto.

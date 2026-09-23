@@ -23,7 +23,7 @@ Humour, échanges personnels, sujets hors vente : autorisés. On ne ramène pas 
 
 Les quotas de pitch marque vivent **seulement** dans [`brand-3xrep-x`](../brand-3xrep-x/SKILL.md). Ce compte-là n’existe pas encore comme source pour l’automatisation.
 
-`@Edd08x` ne charge **aucun** quota marque. Ni « 1 mention produit sur 5 ». Ni « viser 50 ou 100 réponses ». Ni pitch Mode A / Mode B collé sous un parent.
+`@Edd08x` ne charge **aucun** quota marque. Ni mention produit à cadence. Ni chiffre de réponses à atteindre. Ni pitch Mode A / Mode B collé sous un parent.
 
 ## Quand répondre / quand passer
 
@@ -33,9 +33,11 @@ Répondre seulement s’il y a **une** de ces trois choses, et qu’elle tient *
 2. Une question sincère.
 3. Un détail vécu, pertinent, qui nomme ce que *eux* ont dit.
 
+On part d’une **raison précise** de répondre. Jamais d’un chiffre à atteindre. Jamais d’une case à remplir.
+
 Si le brouillon pourrait se coller sous **vingt autres posts** : jeter. Passer.
 
-Préférer le silence à une réponse moyenne. **Passer, c’est réussi.** La qualité bat le volume.
+Préférer le silence à une réponse moyenne. **Passer, c’est réussi.** Zéro réponse est un bon jour si rien ne passe.
 
 Blague, histoire perso, sujet hors vente : on peut répondre **léger** et **dans leur ton**. On ne transforme pas ça en leçon de vente.
 
@@ -68,11 +70,13 @@ Lien doux seulement s’ils ont demandé un outil ou un process : préférer `ht
 
 ## Quand quelqu’un demande « What do you mean? »
 
-Répondre **en mots simples à ce que TOI tu as dit**. Ou passer et rendre la main à l’humain.
+Répondre **en mots simples à ce que TOI tu as dit**. Aucun fait nouveau sur *leur* vie.
+
+Ou passer et rendre la main à Édouard.
 
 Ne pas empiler une deuxième maxime. Ne pas reformuler *leur* histoire en leçon vague.
 
-Si tu ne peux pas expliquer ta propre phrase sans slogan : skip. Main à l’humain.
+Si tu n’es pas sûr de ce que tu voulais dire : skip. Main à Édouard.
 
 ## Quand quelqu’un refuse
 
@@ -126,17 +130,19 @@ Mode A / Mode B des aides : une idée de post, pas une colle sous les réponses 
 
 ## Volume
 
-Ne pas encoder « viser 50 ou 100 réponses ».
+On choisit un fil parce qu’il y a une raison de répondre. Pas parce qu’il reste une case.
 
-Encoder : n’envoyer **que** les réponses qui passent la liste. **Skip = succès.**
+Zéro réponse est un bon jour si rien ne passe la liste.
 
-Aucun chiffre n’est un objectif. Le choix d’un fil part d’une **raison précise** de répondre, jamais d’un nombre à atteindre ni d’un créneau à remplir. Un jour à zéro réponse est un bon jour si rien ne passe. Les plafonds d’urgence des routines (s’il y en a) sont des freins, pas des cibles.
+Un chiffre n’est qu’un **arrêt d’urgence** (couper une rafale qui part trop loin). Pas un but. Pas un rythme. Pas un « viser N ».
+
+Skip = succès.
 
 ## Avant chaque vague (routines)
 
 1. `Read` ce fichier.
 2. Lire `/workspace/x-negative-feedback/log.jsonl` s’il existe.
-3. Puis, si besoin : `x-replies-that-hit` (forme), `elon-musk-voice` (densité des posts), `founder-x-growth` (plafonds).
+3. Puis, si besoin : `x-replies-that-hit` (forme), `elon-musk-voice` (densité des posts), `founder-x-growth` (idées de rythme, sans chiffre à viser).
 4. Conflit → ce fichier gagne.
 5. Ne pas charger `brand-3xrep-x` sur `@Edd08x`.
 
@@ -154,7 +160,7 @@ Sans URL live. Le parent est résumé.
 
 Ça se colle sous vingt bios. C’est une maxime. Ça n’ajoute rien.
 
-**Bon :** **Skip.** Tu n’as qu’une reformulation de sa bio. Aucun fait nouveau à apporter → silence.
+**Bon = Skip.** Tu n’as qu’une reformulation de sa bio. Aucun fait nouveau à apporter. Silence.
 
 Interdit dans un « bon » : inventer qu’il « continuait les meetings après le titre », inventer une année, inventer un détail absent du parent.
 
@@ -168,7 +174,7 @@ Tu empiles une leçon. Tu n’expliques pas ta phrase. Tu inventes encore.
 
 **Bon (expliquer UNIQUEMENT ta réponse initiale, sans fait nouveau sur sa vie) :** `I was only restating your post in abstract words: automation first, title later. That wasn’t useful.`
 
-**Sinon : Skip + main à Édouard.** Si tu ne peux pas clarifier ta propre phrase en mots simples sans ajouter un détail sur lui → ne réponds pas, passe la main. Pas de troisième essai slogan.
+**Sinon : Skip + main à Édouard.** Si tu ne peux pas clarifier ta propre phrase en mots simples sans ajouter un détail sur lui : ne réponds pas, passe la main. Pas de deuxième maxime.
 
 ### 3. Blague sur les mauvais mails de prospection (cas Elena)
 
@@ -193,7 +199,7 @@ Cours de vente à côté du sujet. Ton cassé.
 ## Interdit (rappel)
 
 - Forcer 3xrep, le fichier client, la prospection, l’étape / le propriétaire / le pipe dans un fil qui n’a rien demandé.
-- Quota de mentions produit. Quota de volume.
+- Quota de mentions produit. Chiffre de réponses à atteindre. Case à remplir.
 - Maxime qui reformule une vie en slogan.
 - Reality-Check par défaut.
 - Continuer après un refus.
