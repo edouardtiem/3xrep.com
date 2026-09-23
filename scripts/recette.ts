@@ -229,9 +229,9 @@ async function main() {
   const home = await h.text();
   console.log("HOME", h.status, home.includes("Every deal needs"));
   if (!home.includes("Every deal needs")) throw new Error("home doit présenter la stratégie par affaire");
-  console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("14 days free"));
+  console.log("HOME_OFFER", beta ? home.includes("Join the beta") : home.includes("Try 3xrep now"));
   console.log("HOME_NO_SPEC", !home.includes("You are the deal coach"));
-  const offer = beta ? "Join the beta" : "14 days free";
+  const offer = beta ? "Join the beta" : "Try 3xrep now";
   if (h.status !== 200 || !home.includes(offer)) {
     throw new Error(`home doit dire ${offer}`);
   }
