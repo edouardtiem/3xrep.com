@@ -36,7 +36,7 @@ Aucun secret n’est dans le git. Ne pas inventer de clés. Ne pas coller une cl
 | `SUPABASE_SERVICE_ROLE_KEY` | Même projet → service_role (secret). Jamais `NEXT_PUBLIC_`. | `eyJ…` ou `sb_secret_…` |
 | `NEXT_PUBLIC_SITE_URL` | URL publique du site. Tant que `3xrep.com` n’est pas accroché au projet Vercel : l’URL `*.vercel.app` de prod. | `https://…` sans slash final |
 
-Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). Kill switch Édouard : `MCP_OPEN_TOOLS=1` (absente en prod). L’URL connector collée sur home / docs / install / spec est toujours `https://3xrep.com/api/mcp`. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirects Stripe, sitemap, recette locale.
+Optionnel : `DEV_ORG_KEY` (local seulement, déjà dans [`.env.example`](../.env.example)). Kill switch Édouard : `MCP_OPEN_TOOLS=1` (absente en prod). L’URL du connecteur copiée depuis le site est `https://www.3xrep.com/api/mcp` : le domaine nu redirige vers `www`, ce qu’un client MCP peut refuser. `NEXT_PUBLIC_SITE_URL` ne sert qu’aux redirections Stripe, sitemap et recette locale.
 
 Le code **ne** lit **pas** `STRIPE_SECRET_KEY_LIVE`. Si le secret Stripe est sous un autre nom : 503. Ce n’est pas un faux vert.
 

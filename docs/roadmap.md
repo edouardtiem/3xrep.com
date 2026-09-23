@@ -15,7 +15,7 @@ Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, es
 Rentrer dans le détail :
 
 - L’agent (Claude Code, Cursor, Codex, Claude, ChatGPT, Notion) a **deux** connectors : le CRM (HubSpot / Salesforce / Notion) et 3xrep. 3xrep ne lit pas le CRM. Il reçoit les artefacts et rend un JSON. Leur LLM habille.
-- Une URL : `https://3xrep.com/api/mcp`. Rien dans HubSpot. Pas d’onglet. Pas de store chez nous.
+- Une URL : `https://www.3xrep.com/api/mcp` (sans la redirection du domaine nu). Rien dans HubSpot. Pas d’onglet. Pas de store chez nous.
 - Chaque tool : quand l’appeler, quoi lui passer, ce qu’il refuse. `pipe_review` vs `audit_deal` — le pipe, pas le call.
 - Config réelle : Cursor (`mcp.json` / Settings → MCP) et Claude Code (`.mcp.json` / `claude mcp add`). JSON à coller, déjà sur `/install`. Pas un schéma d’archi.
 
