@@ -1,6 +1,6 @@
 # Acquisition outbound — stratégie actuelle
 
-> Statut : stratégie de test retenue, deux campagnes préparées en brouillon dans Smartlead. Aucun envoi n’est autorisé par cette documentation seule. La séquence Gojiberry est obsolète et ne doit pas être reprise.
+> Statut : test lancé dans Smartlead. Au 25 septembre 2026, les deux campagnes sont actives et deux premiers courriels sont partis; un a rebondi avec une adresse inexistante. Plafond actuel : deux courriels par jour au total. Cette documentation seule n’autorise aucun changement d’envoi. La séquence Gojiberry est obsolète et ne doit pas être reprise.
 
 ## Décision
 
@@ -21,7 +21,7 @@ Deux campagnes distinctes :
 | Représentants | 70 % | Account Executive / Senior AE | Je vois que l’affaire bloque, mais je ne sais pas comment obtenir concrètement ce qui manque. |
 | Managers | 30 % | Head of Sales / VP Sales / Sales Director | Je ne peux pas construire la stratégie de chaque affaire avec chaque représentant chaque jour. |
 
-Contacter une seule personne par entreprise dans le premier passage. N’activer le multithreading qu’après évaluation des réponses et activation de l’arrêt entreprise dans Smartlead.
+Contacter une seule personne par entreprise dans le premier passage. Ajouter d’autres personnes de la même entreprise dans une cohorte suivante seulement si les résultats le justifient. Avant cela, activer l’arrêt pour toute l’entreprise dès qu’une personne répond ou se désinscrit. Une adresse différente ne contourne pas un arrêt.
 
 ## Approche signal-based
 
@@ -33,7 +33,7 @@ Une source dédiée fournit les contacts et vérifie les adresses. ChatGPT ou un
 
 ## Séquences de départ
 
-Version revue le 25 septembre après lecture du produit et du moteur de stratégie, des recherches de Gong et de la documentation Smartlead. Aucun résultat de conversion n’est encore mesuré : les deux campagnes sont en brouillon, sans prospect ni envoi lors de la revue.
+Version revue le 25 septembre après lecture du produit et du moteur de stratégie, des recherches de Gong et de la documentation Smartlead. Le test a commencé : deux courriels ont été envoyés le 25 septembre, un a rebondi, aucun n’a encore obtenu de réponse humaine. Il est trop tôt pour juger la conversion.
 
 Le premier courriel présente une situation possible, sans prétendre que le destinataire l’a vécue. Il explique la démarche concrète, précise que l’accès au décideur est un exemple parmi d’autres et invite à contribuer par un essai réel. Le deuxième approfondit la démarche pour les commerciaux et la préparation du coaching pour les managers. Le troisième ouvre sur une proposition bloquée ou la revue de plusieurs affaires.
 
@@ -259,6 +259,7 @@ Edouard
 
 - Séparer les campagnes par persona; séparer aussi les familles de signaux quand l’échantillon le permet.
 - Importer des contacts dédupliqués par adresse et domaine d’entreprise, avec adresse vérifiée.
+- Pour le premier passage, garder une personne par entreprise. Ajouter ensuite d’autres personnes seulement si les résultats le justifient et si l’arrêt au niveau de l’entreprise est actif.
 - Utiliser des boîtes dédiées à l’outbound sur des domaines secondaires détenus par 3xrep. Garder 3xrep.com hors du cold outbound.
 - Texte brut et signature humaine. Augmenter le volume selon l’âge de la boîte, les réponses et la santé du domaine, jamais selon le plafond maximal affiché.
 - Activer l’arrêt sur réponse, désinscription et rebond. Avant le multithreading, activer aussi l’arrêt au niveau entreprise. Exclure réponses automatiques et rebonds des réponses humaines.
@@ -270,13 +271,17 @@ Edouard
 
 Prospect vérifié + signal sourcé → Smartlead (envoi, étape, réponse, catégorie, arrêt) → événements minimisés → Supabase (cohorte et métriques d’acquisition) → agrégation persona × signal × copy → décision humaine → signup → activation sur un vrai deal → retour d’usage → paid → prochaine itération.
 
-Supabase est une couche d’analyse d’acquisition séparée des données commerciales des organisations clientes. Le flux cible utilise les webhooks Smartlead ou un export/API planifié. Stocker seulement les événements nécessaires : campagne, segment, variante, date, étape, catégorie de réponse, rebond, désinscription, signup et étapes d’activation/paiement attribuées. Limiter l’accès et la conservation. Ne pas copier le texte des deals ni les données CRM des clients. Le texte des réponses et les détails de personnalisation restent dans la source ou un espace restreint; les agrégats alimentent l’apprentissage.
+Supabase est la source portable du dossier d’acquisition; Smartlead reste le système d’envoi et le registre opérationnel. La migration `20260925190000_outbound_smartlead_portability.sql` conserve les anciennes lignes Gojiberry et ajoute `source_contact_id`, `company_domain` et l’état de vérification de l’adresse. `outbound_campaign_leads` relie une personne à chaque campagne, avec les identifiants et statuts Smartlead. La migration `20260925193000_outbound_delivery_outcomes.sql` y ajoute les rebonds, désinscriptions et dates de réponse. `outbound_send_events` garde un enregistrement par courriel envoyé, sans texte de message. Le nom `outbound_prospects` reste valable; la colonne historique `gojiberry_contact_id` est conservée pour les 200 anciennes lignes. Le statut général de cette table reste historique; le statut de campagne est dans `outbound_campaign_leads`.
+
+Le 25 septembre, `node --env-file=.env.local scripts/sync-smartlead-outbound.mjs 4023139 4023140` a copié les deux campagnes : 40 contacts, 40 appartenances à une campagne, deux envois et un rebond. Les 200 lignes Gojiberry sont intactes. La commande peut être relancée sans doublon; `--dry-run` lit Smartlead sans écrire. Elle doit être relancée pour intégrer les futurs imports et envois, tant qu’aucun déclenchement planifié n’est en place. Le flux cible peut ensuite utiliser les webhooks Smartlead ou un export/API planifié pour garder cette copie à jour. Stocker seulement les événements nécessaires : campagne, segment, variante, date, étape, catégorie de réponse, rebond, désinscription, signup et étapes d’activation/paiement attribuées. Limiter l’accès et la conservation. Ne pas copier le texte des deals ni les données CRM des clients. Le texte des réponses et les détails de personnalisation restent dans la source ou un espace restreint; les agrégats alimentent l’apprentissage.
 
 Le modèle ne réécrit pas et ne lance pas une campagne seul. À chaque revue, comparer des cohortes assez grandes, repérer où le funnel casse, proposer une hypothèse, puis faire approuver la variante avant envoi. Optimiser les essais activés et les organisations payantes, pas les ouvertures.
 
 ## Métriques et objectifs
 
 Distinguer prospects uniques et envois (les relances sont des envois supplémentaires). Rapporter par cohorte : délivrés, rebonds, désinscriptions, réponses humaines, positives, signups attribués, activation sur vrai deal, retours d’usage, organisations qualifiées Founding, puis paid après la bêta, et coût par signup/activation/organisation payante.
+
+**Objectif de la Beta fixé le 25 septembre :** pour 1 000 courriels envoyés au total, obtenir 5 à 15 organisations inscrites, avec au moins une personne inscrite dans chacune. Le dénominateur compte aussi les relances, pas seulement les adresses contactées. À ce seuil, examiner l’usage réel. Si l’usage est déjà bon avant, une organisation peut être retenue plus tôt. Accorder l’offre de base gratuite à vie aux organisations retenues, dans la limite des 20 places Founding; lancer ensuite l’offre payante pour les nouvelles organisations. C’est un but de recrutement et d’apprentissage, pas une prévision de résultat.
 
 Plages hypothétiques du scénario discuté, à viser après optimisation et non à présenter comme une prévision :
 

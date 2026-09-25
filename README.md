@@ -30,7 +30,7 @@ Sales Game est mort. jesaisfaire est un autre git. Ce git est le git 3xrep.
 
 ## Beta, 20 équipes et paiement
 
-Décision du 18 septembre : priorité à l’usage pendant 30–45 jours. Attribution manuelle des places. Décision du 23 septembre : l’offre publique s’appelle « Beta ». Pendant le recrutement, c’est le seul parcours de nouvelle inscription. Sans ouverture en base, ou une fois les 20 places attribuées, aucune nouvelle organisation n’est créée ; l’essai standard n’est plus proposé. Les équipes déjà inscrites gardent leurs droits. Après la bêta, les équipes non retenues choisissent si elles veulent payer le tarif standard, sans prélèvement automatique. Mise en service, administration et mesures : [docs/beta/founding-20.md](docs/beta/founding-20.md). Recrutement ciblé : [séquence Gojiberry](docs/gtm/gojiberry-sequence.md).
+Décision du 18 septembre : priorité à l’usage pendant 30–45 jours. Attribution manuelle des places. Décision du 23 septembre : l’offre publique s’appelle « Beta ». Pendant le recrutement, c’est le seul parcours de nouvelle inscription. Sans ouverture en base, ou une fois les 20 places attribuées, aucune nouvelle organisation n’est créée ; l’essai standard n’est plus proposé. Les équipes déjà inscrites gardent leurs droits. Après la bêta, les équipes non retenues choisissent si elles veulent payer le tarif standard, sans prélèvement automatique. Mise en service, administration et mesures : [docs/beta/founding-20.md](docs/beta/founding-20.md). Recrutement ciblé : [stratégie Smartlead](docs/gtm/cold-email-strategy.md).
 
 ## Accueil local
 
