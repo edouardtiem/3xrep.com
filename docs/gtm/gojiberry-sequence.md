@@ -1,3 +1,5 @@
+> ARCHIVE — OBSOLÈTE (18 septembre 2026). Cette séquence Gojiberry a été arrêtée. Ne pas la lancer ni la reprendre comme copy actuelle. La stratégie retenue repart de zéro avec Smartlead et est documentée dans [cold-email-strategy.md](cold-email-strategy.md). Le contenu ci-dessous est conservé uniquement comme historique.
+
 # Gojiberry — Founding 20
 
 18 septembre 2026. Remplace le brouillon du 15 septembre. Livrable prêt à saisir dans Gojiberry ; aucun message envoyé, aucune campagne activée par cette implémentation.

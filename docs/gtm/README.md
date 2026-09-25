@@ -1,7 +1,5 @@
-# Chasse
+# Acquisition outbound
 
-Brouillons d’acquisition. Ce n’est **pas** le produit. Rien n’est allumé tant qu’Édouard n’a pas dit go.
+La stratégie actuelle est dans [cold-email-strategy.md](cold-email-strategy.md) : ciblage par signal, séquence Smartlead, règles d’arrêt, mesures, boucle d’apprentissage et montée en charge. Elle prépare un test; elle n’active aucune campagne.
 
-| Fichier | Rôle |
-| --- | --- |
-| [gojiberry-sequence.md](gojiberry-sequence.md) | 15 sept 2026 — trois mails, bas vers le haut, essai gratuit |
+[gojiberry-sequence.md](gojiberry-sequence.md) est conservé pour l’historique seulement. Il est obsolète et ne doit pas être utilisé comme stratégie ou copy actuelle.

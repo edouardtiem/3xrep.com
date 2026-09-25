@@ -31,7 +31,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures, langues, $129 / org. **À venir** : item 5 pan croissance (leurs commerciaux). **Item 6** squelette / essai / parrainage — **shippé** 14 sept. |
 | [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
 | [market/](market/README.md) | Recherche marché. 15 sept : [douleur du commercial](market/recherche-commerciale.md). Pas le produit. |
-| [gtm/](gtm/README.md) | Brouillons de chasse. 15 sept : [séquence Gojiberry](gtm/gojiberry-sequence.md). Pas allumé. |
+| [gtm/](gtm/README.md) | Stratégie cold email actuelle, séquence Smartlead, règles et boucle d’apprentissage; ancien brouillon Gojiberry explicitement archivé. |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique
