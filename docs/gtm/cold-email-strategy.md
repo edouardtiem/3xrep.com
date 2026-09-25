@@ -1,6 +1,6 @@
 # Acquisition outbound — stratégie actuelle
 
-> Statut : stratégie de test retenue, campagne à préparer dans Smartlead. Aucun envoi n’est autorisé par cette documentation seule. La séquence Gojiberry est obsolète et ne doit pas être reprise.
+> Statut : stratégie de test retenue, deux campagnes préparées en brouillon dans Smartlead. Aucun envoi n’est autorisé par cette documentation seule. La séquence Gojiberry est obsolète et ne doit pas être reprise.
 
 ## Décision
 
@@ -33,11 +33,17 @@ Une source dédiée fournit les contacts et vérifie les adresses. ChatGPT ou un
 
 ## Séquences de départ
 
-Texte anglais pour la première cohorte américaine. Les deux campagnes gardent le même angle central, avec des exemples formulés pour le rôle ciblé. La séquence part d’un blocage précis : le manager demande à l’AE d’impliquer le décideur, mais le contact côté acheteur n’arrive pas à obtenir un rendez-vous. Elle explique ensuite comment 3xrep aide à préparer la suite, puis élargit à d’autres étapes de la vente.
+Version revue le 25 septembre après lecture du produit et du moteur de stratégie, des recherches de Gong et de la documentation Smartlead. Aucun résultat de conversion n’est encore mesuré : les deux campagnes sont en brouillon, sans prospect ni envoi lors de la revue.
 
-Règles de voix : employer « we » pour parler de 3xrep, jamais « I ». Aucun tiret cadratin dans les courriels. Écrire comme une personne, sans slogans ni promesses de résultat. Ne pas écrire « free forever ». La Beta est gratuite pour les équipes qui y participent; cela ne promet pas une place ni un accès gratuit à vie.
+Le premier courriel présente une situation possible, sans prétendre que le destinataire l’a vécue. Il explique la démarche concrète, précise que l’accès au décideur est un exemple parmi d’autres et invite à contribuer par un essai réel. Le deuxième approfondit la démarche pour les commerciaux et la préparation du coaching pour les managers. Le troisième ouvre sur une proposition bloquée ou la revue de plusieurs affaires.
 
-### Campagne AE — trois courriels
+Voix : « we », jamais « I »; aucun tiret cadratin dans les courriels. La phrase sur l’expérience est conservée et suivie d’une question claire. La Beta est gratuite. L’accès à vie au plan de base concerne jusqu’à 20 organisations sélectionnées après usage réel, pas automatiquement toutes les inscriptions.
+
+Décision : six courriels par campagne. Les trois suivants abordent une affaire sans réponse, la négociation d’une remise, puis une dernière invitation courte. Examiner les réponses humaines positives et les essais activés apportés par les dernières étapes avant de décider de les conserver dans les futures cohortes.
+
+Les relances restent dans le même fil : leur objet est vide dans Smartlead. Les délais entre étapes sont 0, 4, 5, 6, 7 et 6 jours pour viser J0, J4, J9, J15, J22 et J28, sous réserve des jours et plages d’envoi. Arrêter la séquence dès une réponse ou une désinscription. Aucun nouveau message automatique après le sixième.
+
+### Campagne AE
 
 #### Email 1 — jour 0
 
@@ -45,45 +51,99 @@ Règles de voix : employer « we » pour parler de 3xrep, jamais « I ». Aucun 
 
 Hi {{first_name}},
 
-If you're a {{job_title}} in {{industry}} and your team already uses AI in sales, this may sound familiar. Your manager asks you to bring the decision maker into a deal, but your contact on the buyer's side can't get a meeting.
+We're inviting sales teams in {{industry}} that already use AI to help shape 3xrep.
 
-We're building 3xrep to help reps work out what to do next, including how to help their contact make the case internally.
+One problem we're working on: a manager asks a rep to bring in the decision maker, but the buyer's contact can't arrange the meeting.
 
-The beta is free to try on a real deal. Would you be open to trying it?
+Using the deal context, 3xrep helps work out how to turn the problem the contact has described into a reason for the decision maker to join, what to ask, and how to respond.
+
+This is one example of how it helps plan next steps from prospecting to close.
+
+Given your experience with complex deals, we'd value your feedback as you try it on one live opportunity.
+
+The beta is free. We'll select up to 20 founding organizations after real use, with lifetime access to the base plan for their whole organization.
+
+Would you be interested in taking part?
 
 Edouard
 
 #### Email 2 — jour 4
 
-**Objet :** helping your contact make the case
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
 
 Hi {{first_name}},
 
-If your contact can't get the decision maker to meet, it may help to understand what would make that conversation worth their time.
+For the decision maker example, a starting point could be the problem your contact has already described and why solving it matters to their team.
 
-3xrep helps reps plan what to ask, how their contact can make the case internally, and what to do next using the context they already have.
+3xrep helps you use that context to prepare the request for an introduction, suggest the words to use, and work out the next step if the answer is no.
 
-The beta is free to try on a live deal. Would you be open to testing it on one?
+Would you be interested in trying this on one live deal?
 
 Edouard
 
 #### Email 3 — jour 9
 
-**Objet :** after the proposal
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
 
 Hi {{first_name}},
 
-Getting the decision maker involved is one example. 3xrep helps reps work out next steps across the sales cycle, from prospecting to close, on one deal or several.
+Another moment we're working on is when a proposal has gone out and the deal stops moving.
 
-After a proposal goes out, for example, it can help you see who still needs to weigh in and what to ask next.
+3xrep helps you work out what is still unclear, who needs to weigh in, and what to ask in the next conversation.
 
-The beta is free to try on a live deal. Would you be open to trying it?
+You can use it on one deal or work through several, from preparing a first conversation to negotiating the terms.
+
+If you'd like to try the free beta on a live deal, you can start here:
 
 https://3xrep.com/start?utm_source=smartlead&utm_medium=cold_email&utm_campaign=us_ae_decision_maker_test&utm_content=email_3
 
 Edouard
 
-### Campagne managers — trois courriels
+#### Email 4 — jour 15
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+A buyer says they're interested, agrees to a next step, then stops replying. What do you send after that?
+
+3xrep helps you go back through the conversation, find what was left unresolved, and write a follow-up with a reason to answer. It also helps you decide when to leave the deal alone.
+
+Is there a deal you'd want to try that on?
+
+Edouard
+
+#### Email 5 — jour 22
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+Another example: a buyer asks for a discount, but you don't know whether agreeing would actually get the deal signed.
+
+3xrep helps you prepare what to ask before changing the price, what you could ask for in return, and how to check who still needs to approve.
+
+We'd value your feedback on whether that advice holds up in a real negotiation.
+
+Would you be open to trying it?
+
+Edouard
+
+#### Email 6 — jour 28
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+We'll leave it here after this.
+
+If there's a deal where you'd value another view on what to do next, we'd be happy to help you try 3xrep on it during the free beta.
+
+Would that be useful?
+
+Edouard
+
+### Campagne managers
 
 #### Email 1 — jour 0
 
@@ -91,54 +151,109 @@ Edouard
 
 Hi {{first_name}},
 
-If you're a {{job_title}} in {{industry}} and your team already uses AI in sales, does this sound familiar? You ask a rep to bring the decision maker into a deal, but their contact on the buyer's side can't get a meeting.
+We're inviting sales teams in {{industry}} that already use AI to help shape 3xrep.
 
-We're building 3xrep to help reps plan the next move, including what to ask, how their contact can make the case internally, and who else may need to be involved.
+One problem we're working on: a rep knows the decision maker needs to be involved, but doesn't know how to get access. Their manager knows the goal, but still has to help them work out the approach.
 
-The beta is free to try on a real deal. Would you be open to trying it with a rep?
+Using the deal context, 3xrep helps the rep turn the problem their contact has described into a reason for the decision maker to join, with suggested wording and next steps depending on the answer.
+
+This is one example of how it helps plan next steps from prospecting to close.
+
+Given your experience with complex deals, we'd value your feedback as you try it on one live opportunity.
+
+The beta is free. We'll select up to 20 founding organizations after real use, with lifetime access to the base plan for their whole organization.
+
+Would you be interested in taking part?
 
 Edouard
 
 #### Email 2 — jour 4
 
-**Objet :** coaching a rep through a stuck deal
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
 
 Hi {{first_name}},
 
-When a rep gets stuck, coaching often starts with what the decision maker still needs to know.
+When several reps need help with different deals, each coaching conversation takes preparation.
 
-3xrep helps reps use the context they already have to plan what to ask their contact and how to make the case internally.
+3xrep helps each rep use their deal notes to work out what is missing, what to ask next, and how to approach the conversation. You can review that plan together and use your coaching time on the parts that need your judgment.
 
-The beta is free to try on a live deal. Would you be open to testing it with a rep?
+Would you be interested in trying this with one rep during the free beta?
 
 Edouard
 
 #### Email 3 — jour 9
 
-**Objet :** one deal or the pipeline
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
 
 Hi {{first_name}},
 
-Getting a decision maker into the conversation is one example. 3xrep helps reps plan next steps from prospecting to close. Managers can use it with one deal or to review several across the pipeline.
+A rep may be waiting on a proposal while another is negotiating without knowing who can approve the purchase.
 
-After a proposal goes out, for example, it can help a rep see who still needs to weigh in and what to ask next.
+3xrep helps you review several deals, identify what needs attention, and prepare a specific coaching question and next step for each rep.
 
-The beta is free to try on a live deal. Would you be open to trying it with a rep?
+You can start with one deal and then use it across the pipeline, from preparing first conversations to working through negotiations.
+
+If you'd like to try the free beta with your team, you can start here:
 
 https://3xrep.com/start?utm_source=smartlead&utm_medium=cold_email&utm_campaign=us_sales_manager_decision_maker_test&utm_content=email_3
 
 Edouard
 
+#### Email 4 — jour 15
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+A rep says they're still following up, but the buyer hasn't replied in weeks. Do you help them try another approach or ask them to move on?
+
+3xrep helps you review what the buyer actually committed to, what's still unknown, and whether there's a useful next step worth trying.
+
+Is there a deal on your team you'd want to look at that way?
+
+Edouard
+
+#### Email 5 — jour 22
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+A rep asks you to approve a discount so they can close this month. Before saying yes, you need to know what that discount would actually change.
+
+3xrep helps prepare the questions to ask the buyer, possible terms to discuss, and what still needs to happen before signature.
+
+We'd value your judgment on whether that preparation helps the rep have a better conversation.
+
+Would you be open to testing it on one negotiation?
+
+Edouard
+
+#### Email 6 — jour 28
+
+**Objet :** (vide dans Smartlead, réponse dans le même fil)
+
+Hi {{first_name}},
+
+We'll leave it here after this.
+
+If you'd like to see whether 3xrep helps your team, we could start with one rep and one live deal during the free beta. We'd value your feedback on what helps and what's missing.
+
+Would you be interested?
+
+Edouard
+
 ### Règles de personnalisation et révision
 
-- L’ouverture utilise `{{job_title}}` et `{{industry}}`. Elle présente l’usage de l’IA comme une condition, pas comme un fait connu sur le prospect.
-- Ne pas utiliser le slot IA de Smartlead. La phrase de qualification suffit pour ce premier test; les signaux IA n’ont pas montré qu’ils étaient déterminants.
-- Avant l’import, mapper `job_title` et `industry`, contrôler leur grammaire dans l’aperçu et écarter les lignes où un champ manque ou sonne faux.
-- Ne pas inventer de citation, d’usage d’outils, de résultat, de relation ou d’urgence.
-- Garder le cœur stable pendant le test. Les deux personas ont un exemple d’ouverture et une relance adaptés; ne changer qu’une variable à la fois lors d’un futur test.
-- Pas de pièce jointe, pixel ou lien dans le premier courriel du premier lot. Le lien d’inscription est réservé au troisième courriel et aux demandes explicites d’information. Les UTM identifient le segment et l’angle, sans donnée personnelle.
-- Arrêter après toute réponse, désinscription ou rebond. Exclure les désinscriptions des prochains lots. Les réponses négatives ne sont pas réenrôlées.
-- Avant tout lancement, vérifier que la Beta est ouverte et qu’il reste des places. La phrase « The beta is free » concerne la période Beta, pas une gratuité à vie. Un essai ne garantit pas une place Founding; voir [Founding 20](../beta/founding-20.md).
+- L’ouverture utilise `{{industry}}` et `{{first_name}}`. Le poste sert au ciblage des campagnes, sans insertion de `a {{job_title}}` dans le texte. L’usage de l’IA décrit le public recherché, pas une information prétendument vérifiée sur chaque destinataire.
+- Vérifier l’expérience de vente complexe dans le ciblage avant d’utiliser la phrase qui la valorise. Un intitulé seul n’établit pas cette expérience.
+- Ne pas utiliser de slot IA ni de variations automatiques de mots. Ce choix simplifie le premier test; il ne prouve pas que la personnalisation IA est inefficace.
+- Avant import, mapper le prénom et le secteur, vérifier la grammaire de chaque aperçu et traiter les champs manquants. Conserver le poste dans les données de qualification.
+- Ne pas inventer de citation, d’usage d’outils, de résultat, de relation ou d’urgence. Un contact n’est pas automatiquement un champion; la démarche dépend du contexte et des preuves disponibles.
+- Garder une seule version par campagne au départ. Pour un futur test, répartir deux variantes à parts égales dans un même public et ne changer qu’un élément. Comparer les réponses humaines positives et les essais utilisés sur une vraie affaire. Ne pas sélectionner automatiquement une version sur les ouvertures ou les clics, ni traiter les deux publics comme un test de texte contrôlé.
+- Pas de pièce jointe, pixel ou lien dans les deux premiers courriels. Le lien d’inscription est réservé au troisième et aux demandes explicites d’information. Les UTM identifient le segment et l’angle, sans donnée personnelle.
+- Arrêter après toute réponse, désinscription ou rebond. Les réponses négatives ne sont pas réenrôlées.
+- Avant lancement, vérifier que la Beta est ouverte et qu’il reste des places Founding. L’attribution suit les règles de [Founding 20](../beta/founding-20.md).
 
 ## Smartlead — règles de campagne
 
