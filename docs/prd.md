@@ -1003,7 +1003,9 @@ Explee (5–10 $/j, signup, pas de calendrier) : test de message seulement, si o
 
 
 
-14. Acquisition — hypothèse
+14. Acquisition — hypothèse historique remplacée le 30 septembre 2026
+
+**En vigueur :** [gtm/acquisition-strategy.md](gtm/acquisition-strategy.md). Trois canaux : cold email (court terme et apprentissage), SEO (Sales Strategy Library liée à la logique versionnée du produit), referral (à instrumenter après assez d’usage actif). Le moteur SEO et les boucles futures ne sont pas ouverts. Les annuaires restent des supports d’installation, pas un quatrième moteur. Le paragraphe ci-dessous conserve l’hypothèse du 1er septembre ; ni son canal principal ni son prix ne font autorité aujourd’hui.
 
 Les Sales Ops et founders qui ont déjà Claude + un CRM cherchent « créer un agent commercial HubSpot / Claude » et « alternative Modjo ». Ils nous trouvent via le listing Claude/Cursor, puis une page tutoriel. Ils paient 99 € parce qu’un siège Modjo coûte ça, pour toute l’équipe, sans démo.
 

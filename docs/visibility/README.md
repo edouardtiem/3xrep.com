@@ -1,5 +1,7 @@
 # Visibility — 3xrep dans les réponses AI et sur Google
 
+**Cadre du 30 septembre :** [stratégie d’acquisition](../gtm/acquisition-strategy.md). Ces routines restent dédiées à la visibilité et aux pages existantes. Leur autorisation historique d’ajouter une page ne permet pas de construire ou publier la Sales Strategy Library maintenant. GEO n’ajoute pas un canal ; Google Ads reste une source de mots, sans campagne.
+
 Deux gestes, même dossier.
 
 | Geste | Skill | Droit |

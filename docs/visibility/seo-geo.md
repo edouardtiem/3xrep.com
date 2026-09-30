@@ -1,5 +1,7 @@
 # Boucle SEO + GEO
 
+**Cadre du 30 septembre :** [stratégie d’acquisition](../gtm/acquisition-strategy.md). Ces routines restent dédiées à la visibilité et aux pages existantes. Leur autorisation historique d’ajouter une page ne permet pas de construire ou publier la Sales Strategy Library maintenant. GEO n’ajoute pas un canal ; Google Ads reste une source de mots, sans campagne.
+
 **Live.** 7 septembre 2026. Une boucle. Anglais sur le site. On pose, puis `/end`.
 
 Pas le système de loops MonParentAgé. Pas `docs/loops/`. Skill : [`.agents/skills/seo-geo/SKILL.md`](../../.agents/skills/seo-geo/SKILL.md).

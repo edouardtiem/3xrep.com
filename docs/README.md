@@ -4,12 +4,13 @@ Tout ce qui est décidé est dans ce dossier. Le fil d’avant n’existe plus. 
 
 Pivot 1er septembre 2026. Ils créent l’agent. On est le cerveau.
 
-Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il reste dans [terrain/](terrain/) pour l’historique et les méthodes de fond. **Ici, le PRD gagne** — sauf [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (figés le soir du 1er sept), [landing.md](landing.md) (home Cowork, **15 sept** — l’ancienne page terminal est morte), et [cerveau.md](cerveau.md) (mécanique du cerveau), figé le 2 sept.
+Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il reste dans [terrain/](terrain/) pour l’historique et les méthodes de fond. Pour l’acquisition, la [décision du 30 septembre](gtm/acquisition-strategy.md) gagne sur les hypothèses anciennes. **Pour le produit, le PRD gagne** — sauf [v0.md](v0.md), [icp.md](icp.md), [sortie.md](sortie.md), [contournement.md](contournement.md) (figés le soir du 1er sept), [landing.md](landing.md) (home Cowork, **15 sept** — l’ancienne page terminal est morte), et [cerveau.md](cerveau.md) (mécanique du cerveau), figé le 2 sept.
 
 ## Lire dans cet ordre
 
 | Doc | Rôle |
 | --- | --- |
+| [gtm/acquisition-strategy.md](gtm/acquisition-strategy.md) | **Décision 30 septembre** : trois canaux, bibliothèque SEO, referral après usage ; pas d’implémentation SEO ni de boucles ouvertes. |
 | [prd.md](prd.md) | Produit, prix, tools, kill-list, test |
 | [v0.md](v0.md) | Slice : MCP sur Claude / ChatGPT / Notion. Pas d’UI CRM |
 | [checkout.md](checkout.md) | 129 $ / org USD : secrets Vercel / Stripe, webhook, recette |
@@ -31,7 +32,7 @@ Le terrain d’entraînement (30–31 août) est arrêté comme produit. Il rest
 | [roadmap.md](roadmap.md) | **Live** (6 sept) : docs MCP + captures, langues, $129 / org. **À venir** : item 5 pan croissance (leurs commerciaux). **Item 6** squelette / essai / parrainage — **shippé** 14 sept. |
 | [visibility/](visibility/README.md) | Check assistants + boucle SEO/GEO (anglais, on pose). Liste : [prompt-list.md](visibility/prompt-list.md). Ship : [seo-geo.md](visibility/seo-geo.md) |
 | [market/](market/README.md) | Recherche marché. 15 sept : [douleur du commercial](market/recherche-commerciale.md). Pas le produit. |
-| [gtm/](gtm/README.md) | Stratégie cold email actuelle, séquence Smartlead, règles et boucle d’apprentissage; ancien brouillon Gojiberry explicitement archivé. |
+| [gtm/](gtm/README.md) | Stratégie des trois canaux ; détails Smartlead et recherche SEO. Gojiberry est archivé. |
 | [loop.md](loop.md) / [chemin.md](chemin.md) | V2 seulement (carte HubSpot) |
 
 ## Historique

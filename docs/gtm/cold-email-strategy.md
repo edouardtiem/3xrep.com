@@ -2,6 +2,8 @@
 
 > Statut : test lancé dans Smartlead. Au 25 septembre 2026, les deux campagnes sont actives et deux premiers courriels sont partis; un a rebondi avec une adresse inexistante. Plafond actuel : deux courriels par jour au total. Cette documentation seule n’autorise aucun changement d’envoi. La séquence Gojiberry est obsolète et ne doit pas être reprise.
 
+Cadre général : [acquisition-strategy.md](acquisition-strategy.md), décision du 30 septembre. Ce fichier reste la référence opérationnelle du cold email, moteur court terme et apprentissage. Sa boucle d’itération de campagnes existe indépendamment des futures boucles entre SEO, usage et referral, qui ne sont pas ouvertes.
+
 ## Décision
 
 Tester le cold email américain avec Smartlead comme moteur d’envoi et d’orchestration. La campagne vend la stratégie par affaire de 3xrep : à partir du contexte réel d’un deal, construire comment obtenir la prochaine preuve et faire avancer la décision — qui impliquer, comment y accéder, quoi demander ou écrire et comment réagir.

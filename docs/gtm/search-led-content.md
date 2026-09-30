@@ -1,6 +1,6 @@
 # Contenu d’acquisition fondé sur les recherches
 
-**Direction future — discussion du 25 septembre 2026. Pas un chantier ouvert.**
+**Recherche éditoriale — 25 septembre, réconciliée le 30 septembre 2026.** Le SEO est désormais un canal retenu sous la forme de la Sales Strategy Library : [contrat et contenu obligatoire](acquisition-strategy.md#2-seo--sales-strategy-library). Ce fichier garde la recherche et le choix des sujets, pas une seconde stratégie. Le moteur et les pages ne sont pas un chantier ouvert. Les outils, comparaisons et variations régionales ci-dessous sont des pistes, seulement s’ils servent une réponse spécifique cohérente avec ce contrat.
 
 ## Idée
 

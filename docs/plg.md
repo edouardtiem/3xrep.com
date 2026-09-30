@@ -4,6 +4,10 @@
 
 Le **$129 / month / organization** (USD) tient. Jamais de siège. Palier sept : 1 org payante — inchangé.
 
+## Acquisition — clarification du 30 septembre 2026
+
+[Stratégie des trois canaux](gtm/acquisition-strategy.md) : le referral sera instrumenté comme moteur d’acquisition après assez d’usage actif. Les liens, essais et avoirs existants restent des règles de droits et de facturation ; ils ne valident pas ce canal. Pour les nouvelles inscriptions pendant Beta, [Founding 20](beta/founding-20.md) et le README gagnent sur le parcours d’essai standard décrit ci-dessous. Aucun droit ni montant n’est changé ici.
+
 ## Ce qu’ils achètent
 
 Pas un tool de plus. Le juge sur **leur liste**, dans **le temps**, plus le souvenir, plus — assez tard — la confirmation chez les autres maisons.

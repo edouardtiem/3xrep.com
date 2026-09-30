@@ -74,7 +74,11 @@ Pour chaque outil, **un geste** (pas un prompt novel) :
 
 Si l’outil parle au client à ta place, on a cassé le cadrage.
 
-## 8. pSEO (mémoire jusqu’aux pages)
+## 8. SEO — contrat actuel
+
+La [Sales Strategy Library](../gtm/acquisition-strategy.md#2-seo--sales-strategy-library), décision du 30 septembre, remplace le modèle de publication ci-dessous : scénario, représentation interactive, preuves, gaps et prochaine action, liés autant que possible au cerveau versionné. Pas de page automatique par slug. Le moteur et les pages restent différés.
+
+### Ancienne intention terrain — archive, ne pas appliquer
 
 Queries. Titre de page = la query, pas « 3xrep — formation MEDDIC ». CTA = **jouer le cas**, pas booker 15 min. Une page par `slug` (et par partie si la partie se cherche).
 

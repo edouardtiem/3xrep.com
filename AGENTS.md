@@ -12,6 +12,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Lis [README.md](README.md). C’est le produit. Ne te fie pas à un autre fil.
 
+Pour notre acquisition, lire [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md), puis ses documents liés. Trois canaux uniquement. Le choix SEO ne vaut pas autorisation de construire le moteur ou publier les pages.
+
 Si on décide le contraire du README : corrige le README, ou propose si c’est gros.
 
 Si la façon de travailler (ce fichier) ne colle plus : mets à jour `AGENTS.md`.

@@ -4,6 +4,8 @@
 
 Pendant le recrutement des 20 équipes, la Beta est le seul parcours de nouvelle inscription. La migration `20260923120000_beta_only_signup.sql` bloque en base toute nouvelle organisation d’essai si la Beta est fermée ou si les 20 places ont été attribuées. Le formulaire et sa route appliquent la même règle. Les essais standard et abonnements déjà existants gardent leurs droits. À la sortie de la Beta, une équipe non retenue choisit librement le tarif standard ; aucune carte n’est prise pendant la Beta. Les mentions contraires ci-dessous décrivent la version initiale du programme et ne définissent plus les nouvelles inscriptions.
 
+Acquisition actuelle : [stratégie des trois canaux](../gtm/acquisition-strategy.md) et [cold email Smartlead](../gtm/cold-email-strategy.md). Les mentions Gojiberry du plan initial sont historiques. Elles n’autorisent pas à relancer cette campagne.
+
 ## Plan d’implémentation — 18 septembre 2026
 
 Branche : `feat/founding-20`, depuis `origin/pre_main`. Aucun changement de production dans cette mission.
@@ -136,7 +138,7 @@ from public.beta_events where kind='meaningful_output'
 group by org_id,tool,horizon;
 ```
 
-Courriels comportementaux : [segments et textes](lifecycle.md). Prospection : [séquence Gojiberry](../gtm/gojiberry-sequence.md). Aucun message envoyé par le code livré.
+Courriels comportementaux : [segments et textes](lifecycle.md). Prospection actuelle : [stratégie Smartlead](../gtm/cold-email-strategy.md). Gojiberry reste une archive. Aucun message envoyé par le code livré.
 
 ## Vérification
 

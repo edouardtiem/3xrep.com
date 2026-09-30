@@ -6,6 +6,10 @@ Gagne sur [terrain/roadmap.md](terrain/roadmap.md) (archive jeu, 30–31 août).
 
 Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, essai 14 jours derrière une clé. Item 3 (prix) **shippé** le 11 sept 2026. Item 6 (essai / souvenir / parrainage) **shippé** le 14 sept 2026. Items 1–2 encore ouverts.
 
+## Acquisition — décision du 30 septembre 2026
+
+[Stratégie des trois canaux](gtm/acquisition-strategy.md) : cold email court terme et apprentissage ; SEO en Sales Strategy Library ; referral après assez d’usage actif. Le détail Smartlead reste dans [cold-email-strategy.md](gtm/cold-email-strategy.md). La bibliothèque, son moteur, l’instrumentation referral et les boucles entre canaux ne sont pas des chantiers ouverts. Le choix des canaux remplace l’ancien ordre d’acquisition listing → tutoriel → pSEO ; il ne change pas l’ordre des travaux produit ci-dessous. Beta reste le seul parcours de nouvelle inscription pendant le recrutement ([contrat](beta/founding-20.md)).
+
 ## Ouvert — dans cet ordre
 
 ### 1. Docs MCP — le détail, pas la liste
@@ -75,13 +79,13 @@ Français et pages ville : item 2 + plus tard. Pas cette tâche.
 
 ## Ensuite — pas ouvert
 
-Ordre PRD, inchangé : listings (Claude Connectors, Cursor Marketplace, PulseMCP) → page tutoriel « agent + HubSpot » → pSEO. Carte HubSpot = V2 ([chemin.md](chemin.md)).
+Ancien ordre d’acquisition du PRD remplacé le 30 septembre par la [stratégie des trois canaux](gtm/acquisition-strategy.md). Listings et tutoriels restent des supports d’installation ; la réalisation de la Sales Strategy Library est différée. Carte HubSpot = V2 ([chemin.md](chemin.md)).
 
-**Contenu d’acquisition fondé sur les recherches — direction future, pas ouvert.** Explorer les questions réellement cherchées par les commerciaux B2B, puis créer des pages qui y répondent et montrent comment appliquer la démarche à une vraie affaire avec 3xrep. Évaluer les variations par étape de vente, industrie et marché régional. Une combinaison ne mérite une page que si la recherche existe et si la réponse change vraiment. Comparaisons d’outils et explications de leur usage avec 3xrep sont à explorer, en particulier quand un connecteur MCP existe. Utiliser Treg pour la recherche de mots-clés, les résultats et concurrents Google, et un relevé répété de questions aux assistants ; confronter ces estimations aux données Search Console, GA4 et aux retours d’usage de 3xrep. Voir [la note de stratégie](gtm/search-led-content.md). Cela ne lance pas une usine de pages ni ne remplace l’ordre d’acquisition actuel.
+**Recherche SEO — réalisation différée.** Sélection des intentions, preuves de demande et variations utiles : [search-led-content.md](gtm/search-led-content.md). Le contrat de page est celui de la Sales Strategy Library ; aucun moteur ni page à construire maintenant.
 
 **Portes** ([portes.md](portes.md)) — direction 6 sept, pas ouvert : nommer les visages (avant d’écrire, avant le rdv, lundi), dire Slack, ne pas construire Slack. Pas un item live.
 
-**Notre chasse (Gojiberry)** — brouillon 15 sept. Pas allumé. Pas un item live. **Ce n’est pas le pan 5** : ici on cherche **nos** inscriptions, pas les rendez-vous de **leurs** utilisateurs. Séquence : [gtm/gojiberry-sequence.md](gtm/gojiberry-sequence.md). Recherche : [market/recherche-commerciale.md](market/recherche-commerciale.md). Coller une boîte mail, caler la campagne éteinte, go d’Édouard. Ne pas coder. Ne pas confondre avec le pan 5.
+**Notre cold email (Smartlead)** — moteur court terme et apprentissage. Référence : [gtm/cold-email-strategy.md](gtm/cold-email-strategy.md), état documenté au 25 septembre. Gojiberry est archivé. Cela ne change aucun envoi et reste distinct du pan 5, destiné aux utilisateurs.
 
 ### 5. Pan croissance — leurs utilisateurs (pas nous)
 

@@ -12,6 +12,8 @@ Lire dans cet ordre.
 
 - [docs/deal-strategy.md](docs/deal-strategy.md) — décision du 22 septembre, architecture, limites et scénarios.
 
+- [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md) — décision du 30 septembre : cold email, Sales Strategy Library SEO, referral ; réalisation SEO et boucles différées.
+
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
 - [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first
 - [docs/audits/2026-09-16-corrections-cerveau.md](docs/audits/2026-09-16-corrections-cerveau.md) — corrections sur sales-buddy, règles de preuve et limites des essais
