@@ -25,6 +25,12 @@ test("MCP transport: initialize, schemas, keys and real tool calls", async () =>
     assert.match(init.result.instructions, /start_onboarding/);
     const list = await call("tools/list", {});
     assert.ok(list.result.tools.some((t: { name: string }) => t.name === "plan_horizon"));
+    const feedbackTool = list.result.tools.find((t: { name: string }) => t.name === "share_feedback");
+    assert.ok(feedbackTool);
+    assert.deepEqual(feedbackTool.inputSchema.required, ["kind", "answer"]);
+    assert.match(init.result.instructions, /180 days/);
+    const unsolicited = output(await call("tools/call", { name: "share_feedback", arguments: { kind: "spontaneous", answer: "Please simplify." } }, "local-test-key"));
+    assert.match(unsolicited.refus, /workspace key/);
     const onboardingTool = list.result.tools.find((t: { name: string }) => t.name === "start_onboarding");
     assert.ok(onboardingTool);
     const companyTool = list.result.tools.find((t: { name: string }) => t.name === "set_org_profile");

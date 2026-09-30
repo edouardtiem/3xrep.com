@@ -1,3 +1,4 @@
+import { feedbackSchema, saveFeedback } from "@/lib/feedback";
 import { admin } from "@/lib/supabase-admin";
 import { trialExtras } from "@/lib/access";
 import { createMcpHandler } from "mcp-handler";
@@ -159,20 +160,19 @@ const handler = createMcpHandler(
       return jsonTool({ ...trialExtras(org), founding_status:org.founding_state, slot:data?.slot ?? null,
         message:org.founding_state === "founding" ? `Founding Workspace #${String(data?.slot).padStart(2,"0")}. Base plan free forever.` : "Founding places are awarded manually after meaningful use. Signup does not reserve a place." });
     }));
+    server.registerTool("share_feedback", {
+      title: "Share feedback with 3xrep",
+      description: "Send the user's own words to 3xrep, during beta or a paid subscription. Supports opinion, action taken, outcome and unsolicited product feedback. Show the exact text and explain 180-day retention before permission; an explicit request to send that text already authorizes it. Do not include customer names, emails or transcripts. Never infer a rating or outcome. Use the original output_id when available; unsolicited feedback needs none. Keep the user's words separate from category and optional approved context.",
+      inputSchema: feedbackSchema,
+    }, withGate("share_feedback", async (input, org) => saveFeedback(input, org?.id)));
     server.registerTool("beta_feedback", {
-      title: "Share feedback",
-      description: "Save the user's own feedback on a 3xrep result, only after they agree. Use output_id from that result. Do not include customer names or deal content. Never infer a rating.",
-      inputSchema:z.object({output_id:z.uuid(),useful:z.boolean(),comment:z.string().max(1000).optional()}),
-    }, withGate("beta_feedback",async (input,org) => {
-      if (!org || org.id === "dev") return jsonTool({refus:"A workspace key is required."});
-      const db=admin();
-      if (!db) throw new Error("Feedback unavailable");
-      const {data:event,error:readError}=await db.from("beta_events").select("id").eq("id",input.output_id).eq("org_id",org.id).eq("kind","meaningful_output").maybeSingle();
-      if(readError || !event) return jsonTool({refus:"This result does not belong to your workspace."});
-      const {error}=await db.from("beta_feedback").upsert({org_id:org.id,output_id:input.output_id,useful:input.useful,comment:input.comment ?? null},{onConflict:"org_id,output_id"});
-      if(error) throw new Error("Feedback could not be saved");
-      return jsonTool({ok:true,message:"Feedback saved. Thank you."});
-    }));
+      title: "Share feedback (legacy)",
+      description: "Compatibility alias for an explicitly approved opinion. Prefer share_feedback. Retention: 180 days. Never infer a rating or include deal content.",
+      inputSchema: z.object({ output_id: z.uuid(), useful: z.boolean(), comment: z.string().max(1000).optional() }),
+    }, withGate("beta_feedback", async (input, org) => saveFeedback({
+      output_id: input.output_id, kind: "opinion", useful: input.useful,
+      answer: input.comment?.trim() ? input.comment : (input.useful ? "Useful" : "Not useful"),
+    }, org?.id)));
 
     server.registerPrompt(
       "morning",

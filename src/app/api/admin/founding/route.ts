@@ -21,9 +21,10 @@ export async function GET(req: Request) {
       db.from("beta_feedback").select("*").order("created_at",{ascending:false}).limit(100),
       db.from("founding_audit").select("*").order("created_at",{ascending:false}).limit(100),
       db.from("beta_lifecycle").select("*").limit(1000),
+      db.from("user_feedback").select("*,feedback_outputs(tool,engine_version,created_at)").gt("expires_at",new Date().toISOString()).order("created_at",{ascending:false}).limit(100),
     ]);
     for (const result of results) if(result.error) throw new Error(result.error.message);
-    return Response.json({program,workspaces:results[0].data,retention:results[1].data,feedback:results[2].data,audit:results[3].data,lifecycle:results[4].data,activeUsers:null,activeUsersReason:"Shared organization keys cannot identify individual users."},{headers});
+    return Response.json({program,workspaces:results[0].data,retention:results[1].data,feedback:results[2].data,productFeedback:results[5].data,audit:results[3].data,lifecycle:results[4].data,activeUsers:null,activeUsersReason:"Shared organization keys cannot identify individual users."},{headers});
   } catch(err) { return Response.json({error:err instanceof Error ? err.message : "Unavailable"},{status:503,headers}); }
 }
 export async function POST(req: Request) {

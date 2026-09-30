@@ -22,7 +22,8 @@ export const TOOLS = [
   ["start_onboarding", "Set up your local 3xrep folder and connect your sales context."],
   ["set_org_profile", "Save confirmed company context to make the advice more relevant."],
   ["workspace_status", "Check your workspace’s access, beta status or selected place."],
-  ["beta_feedback", "Save feedback on a result when you choose to share it."],
+  ["share_feedback", "Share your own words about the advice, what you tried or what happened. Optional; kept for up to 180 days."],
+  ["beta_feedback", "Compatibility alias for sharing an opinion."],
 ] as const;
 
 export type CrmDocLink = { label: string; href: string };
@@ -312,7 +313,7 @@ export const DOC_FAQ = [
   { q: "Where do I use 3xrep?", a: "In your AI chat. Start with Claude and notes from one deal. You can connect your CRM, inbox and calendar in your assistant when you need more context. ChatGPT Work validation is still in progress." },
   { q: "What does 3xrep add to my assistant?", a: "Sales judgment grounded in the context of your deal: what needs attention, what is still uncertain, and a useful next move with a reason behind it. Sales methods guide the advice; the situation determines how they apply." },
   { q: "Do I need a transcript?", a: "A transcript can help, but you can also work from notes and messages. Bring what you have into your chat. 3xrep should make uncertainty clear instead of inventing something the buyer never said." },
-  { q: "Does 3xrep record calls or change my CRM?", a: "3xrep does not join calls or write to your CRM. Tool inputs and results, including any call text sent to 3xrep, are kept for 14 days and then deleted. A compact record of deal gaps remains without transcripts. Usage metadata and voluntary feedback are stored separately." },
+  { q: "Does 3xrep record calls or change my CRM?", a: "3xrep does not join calls or write to your CRM. Tool inputs and results, including any call text sent to 3xrep, are kept for 14 days and then deleted. A compact record of deal gaps remains without transcripts. Usage metadata is stored separately. Feedback you explicitly choose to send to 3xrep is kept for up to 180 days, with optional short context you approve." },
   { q: "Is my workspace free forever when I sign up?", a: "No. We select up to 20 teams after real use. Only a selected team keeps the base plan free forever. When Beta enrollment is closed, new workspaces cannot sign up. See Beta & pricing for the current offer." },
   { q: "Can my whole team use it?", a: "Access belongs to the organization. Your workspace administrator may need to allow the connector, and each person’s access to the CRM still depends on the permissions in your own tools. The standard plan is priced per company, not per seat." },
 ] as const;

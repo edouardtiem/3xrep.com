@@ -108,7 +108,7 @@ Une fin naturelle à `ends_at` arrête aussi l’admission. À la date individue
 
 Sources : `utm_source`, `utm_medium`, `utm_campaign`, conservés à l’inscription ; la navigation depuis l’accueil garde l’attribution dans l’onglet. Sans balisage : Google / X / autre référent quand identifiable, sinon direct. Les métadonnées de campagne sont déclaratives, jamais une preuve d’éligibilité.
 
-`workspace_status` affiche les droits et le numéro Founding dans le dialogue. `beta_feedback` enregistre un avis volontaire, positif ou négatif, avec texte optionnel et identifiant du résultat. Le serveur vérifie que ce résultat appartient à l’organisation. Une seconde réponse modifie l’avis, sans le multiplier. Il n’existe pas d’identité individuelle fiable avec une clé partagée : `activeUsers` vaut donc `null` et les avis sont rattachés à l’organisation.
+`workspace_status` affiche les droits et le numéro Founding dans le dialogue. `share_feedback` enregistre les avis volontaires, les actions essayées, les résultats rapportés et les messages spontanés. `beta_feedback` reste un alias pour les avis. Voir [retours utilisateurs](../user-feedback.md). Le serveur vérifie que ce résultat appartient à l’organisation. Une seconde réponse modifie l’avis, sans le multiplier. Il n’existe pas d’identité individuelle fiable avec une clé partagée : `activeUsers` vaut donc `null` et les avis sont rattachés à l’organisation.
 
 ### Tableau à suivre pendant 30 jours
 

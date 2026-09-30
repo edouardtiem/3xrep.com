@@ -1740,3 +1740,6 @@ jesaisfaire mis de côté pour 3xrep. Pivot 3xrep sur ce projet. On garde le nom
 
 
 Fin du PRD. Coller dans edouardtiem/3xrep.com → docs/PRD.md.
+## Retours volontaires
+
+Avis sur une aide, action essayée, résultat rapporté et retour spontané sont recueillis dans l’assistant, via `share_feedback`, pendant la bêta et après paiement. Invitation limitée à une par sept jours pour l’organisation ; partage explicite des mots approuvés ; conservation de 180 jours. Voir [contrat des retours](user-feedback.md).

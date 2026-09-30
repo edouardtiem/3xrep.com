@@ -17,7 +17,7 @@ export default function UseCasesPage(){return <>
   <DocPage title="A question for the moment you’re in." lead="You do not need a special script. Start with what happened, what is coming up, or the part of a deal you are unsure about.">
     <p className={styles.note}>These are starting prompts, not sample results. The answer depends on the context your assistant can access.</p>
     {cases.map(item=><DocSection key={item.title} title={item.title}><p>{item.body}</p><DocPrompt>{item.prompt}</DocPrompt></DocSection>)}
-    <DocSection title="Come back with what happened."><p>The buyer replied. Someone new joined the conversation. The meeting moved. Bring that change back to your chat so the next recommendation can account for it.</p><p>If advice helped or missed the mark, say so. Your assistant can offer to save your feedback. You choose whether to share it.</p></DocSection>
+    <DocSection title="Come back with what happened."><p>The buyer replied. Someone new joined the conversation. The meeting moved. Bring that change back to your chat so the next recommendation can account for it.</p><p>Your assistant may occasionally ask whether the advice fits your situation. When you return to a deal, it can ask what you tried and what happened. You can also ask it to send feedback to 3xrep at any time. It shows what will be shared; you choose whether to send it. Shared feedback is kept for up to 180 days.</p></DocSection>
     <DocsEnd />
   </DocPage>
 </>;}
