@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --import tsx --test src/lib/brain/*.test.ts src/lib/*.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts src/lib/playbooks/*.test.ts",
+    "test": "node --import tsx --test src/lib/brain/*.test.ts src/lib/*.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts src/lib/playbooks/*.test.ts supabase/functions/_shared/*.test.mjs",
     "recette": "tsx scripts/recette.ts",
     "visibility-google": "tsx scripts/visibility-google.ts",
     "predev": "node scripts/playbook-revision.mjs",

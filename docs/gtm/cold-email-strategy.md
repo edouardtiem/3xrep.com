@@ -2,6 +2,8 @@
 
 > Statut : test lancé dans Smartlead. Au 25 septembre 2026, les deux campagnes sont actives et deux premiers courriels sont partis; un a rebondi avec une adresse inexistante. Plafond actuel : deux courriels par jour au total. Cette documentation seule n’autorise aucun changement d’envoi. La séquence Gojiberry est obsolète et ne doit pas être reprise.
 
+Mise à jour du 30 septembre : 40 contacts et huit envois synchronisés, un rebond. Les quatre boîtes ont un plafond réel de 2 chacune ; seule la première est actuellement rattachée aux campagnes. Édouard a autorisé une montée automatique par adresse : sept jours sans prospection, sept jours à 2 par jour ouvré, puis paliers de 5, 15 et 25 sous contrôle, avec marge de 20 %. Le [contrôle hébergé](smartlead-cloud-control.md) tourne sur Supabase à 1 h, heure de Paris, et remplace les deux tâches Codex locales. Le préchauffage continue. Une alerte non résolue reporte les hausses.
+
 Cadre général : [acquisition-strategy.md](acquisition-strategy.md), décision du 30 septembre. Ce fichier reste la référence opérationnelle du cold email, moteur court terme et apprentissage. Sa boucle d’itération de campagnes existe indépendamment des futures boucles entre SEO, usage et referral, qui ne sont pas ouvertes.
 
 ## Décision
@@ -327,4 +329,4 @@ Ne pas augmenter les envois pour remplir une capacité théorique comme 500/jour
 
 ## Historique obsolète
 
-La séquence Gojiberry Founding 20 est archivée dans [gojiberry-sequence.md](gojiberry-sequence.md). Elle n’est plus la stratégie ni la copy actuelles. La boucle Smartlead → Supabase et le provisioning automatisé sont des architectures cibles, pas des fonctionnalités déjà livrées. Les taux et volumes sont des hypothèses à valider par cohortes.
+La séquence Gojiberry Founding 20 est archivée dans [gojiberry-sequence.md](gojiberry-sequence.md). Elle n’est plus la stratégie ni la copy actuelles. La synchronisation Smartlead → Supabase et le contrôle des plafonds sont désormais hébergés. L'achat et la configuration automatique de nouvelles boîtes restent une architecture cible. Les taux et volumes sont des hypothèses à valider par cohortes.
