@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { libraryLandingCampaign } from "@/lib/playbooks/acquisition";
 
 /** First-touch campaign metadata for this tab only. Never stores keys or URLs. */
 export function AcquisitionTracker() {
@@ -18,6 +19,12 @@ export function AcquisitionTracker() {
             fields.utm_source=/^(www\.)?(x\.com|twitter\.com)$/.test(host) ? "x" : /(^|\.)google\.[a-z.]+$/.test(host) ? "google" : "referral";
             fields.utm_medium=fields.utm_source === "google" ? "organic" : "referral";
           }
+        }
+        const landing = libraryLandingCampaign(window.location.pathname);
+        if (landing && !fields.utm_campaign) {
+          fields.utm_campaign = landing;
+          fields.utm_source ||= "direct";
+          fields.utm_medium ||= "none";
         }
         if(fields.utm_source) sessionStorage.setItem(key,JSON.stringify(fields));
       }

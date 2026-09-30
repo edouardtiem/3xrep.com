@@ -2,7 +2,11 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { LIST_PRICE_USD } from "@/lib/stripe-checkout-session";
 import { Blob } from "./Blob";
+import { HomeDemoProvider } from "./HomeDemoContext";
 import { StrategyDemo } from "./StrategyDemo";
+import { HomeCircuit } from "@/components/circuit/DealCircuit";
+import { calculatePlaybook } from "@/lib/playbooks/calculate";
+import { PLAYBOOKS } from "@/lib/playbooks/scenarios";
 import { Hand } from "./Hand";
 import styles from "./buddy.module.css";
 
@@ -16,6 +20,7 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
     <div className={styles.page}>
       <Header />
       <main id="main-content" className={styles.main}>
+        <HomeDemoProvider>
         <section className={styles.hero} aria-labelledby="buddy-title">
           <div className={styles.intro}>
 
@@ -30,18 +35,17 @@ export default function BuddyHome({ offer = {enabled:false,available:false} }: {
           <StrategyDemo />
         </section>
 
-        <section className={styles.section} aria-labelledby="thread-title">
-          <div className={styles.sectionHead}>
-            <h2 id="thread-title">“Who signs?” is only<br />the beginning.</h2>
-            <p>The useful part is working out how to reach them. 3xrep connects the evidence in your deal to the conversation you need next.</p>
+        <section className={`${styles.section} ${styles.circuitSection}`} aria-labelledby="thread-title">
+          <div className={styles.circuitIntro}>
+            <h2 id="thread-title">The same deal.<br />A strategy that follows the evidence.</h2>
+            <p>Julien has confirmed the approval delays. Your assistant brings that context; 3xrep checks what it supports and prepares the next move.</p>
+            <p>The fictional reply you explore above changes the suggested follow-up below. An introduction still needs preparing, and Maya’s buying authority still needs checking.</p>
+            <Link className={styles.textLink} href="/playbooks">Explore more sales strategies ↗</Link>
           </div>
-          <div className={styles.story}>
-            <article><p className={styles.step}>THE EVIDENCE</p><h3>A problem they recognize.</h3><blockquote>“Our team loses six hours a week chasing approvals.”</blockquote><p>Keep the buyer’s exact words. Check the source and their answer before using the problem as a reason to act.</p></article>
-            <article><p className={styles.step}>THE STRATEGY</p><h3>A reason to involve Maya.</h3><p>The cost of those delays gives Julien a business reason to request an investment conversation. Maya’s authority still needs checking.</p><div className={styles.move}><span>THE OBJECTIVE</span><p>Get the person who can authorize spend into a useful conversation before preparing the proposal.</p></div></article>
-            <article><p className={styles.step}>THE NEXT RESPONSE</p><h3>“She can join us.”</h3><p>Now prepare the decision: what the problem costs, what remains unknown, and what would justify investing.</p><div className={styles.move}><span>WHAT COUNTS AS PROGRESS</span><p>Authority confirmed. A shared purpose. A time accepted by the buyer.</p></div></article>
-          </div>
-          <p className={styles.caption}>Illustrative conversation. When context is missing, 3xrep says what to establish first. It never fills in a buyer quote, a name or a budget.</p>
+          <HomeCircuit states={calculatePlaybook(PLAYBOOKS[0])} />
         </section>
+
+        </HomeDemoProvider>
 
         <section className={`${styles.section} ${styles.judgment}`} aria-labelledby="judgment-title">
           <div><h2 id="judgment-title">Walk into the call<br />with a way forward.</h2><p className={styles.support}>An objective, questions with a reason, and possible paths through the conversation. Use the same strategy before the call and update it when new evidence arrives.</p><p className={styles.support}>Budget missing? Start with the impact the buyer confirmed. If the impact is still unknown, establish that first.</p><Link className={styles.textLink} href="/docs">Explore the sales brain ↗</Link></div>

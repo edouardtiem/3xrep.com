@@ -153,3 +153,12 @@
   .demoMove { gap: 10px; }
   .demoMascot { width: 44px; flex-basis: 44px; }
 }
+
+.circuitSection { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+.circuitIntro p { color: var(--mute); font-size: .94rem; line-height: 1.65; margin: 22px 0; max-width: 46ch; }
+@media (max-width: 1000px) { .circuitSection { gap: 30px; } }
+@media (max-width: 700px) { .circuitSection { grid-template-columns: 1fr; } }
+
+@media (min-width: 851px) and (min-height: 820px) {
+  .circuitIntro { position: sticky; top: 20px; }
+}

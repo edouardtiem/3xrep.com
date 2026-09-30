@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { PLAYBOOKS } from "@/lib/playbooks/scenarios";
 import { DOC_NAV } from "@/lib/docs";
 import { siteUrl } from "@/lib/site";
 
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...docs,
+    ...["/playbooks", ...PLAYBOOKS.map(page => `/playbooks/${page.slug}`)].map(path => ({ url: `${base}${path}`, changeFrequency: "monthly" as const, priority: 0.7 })),
     ...EXTRA.filter((path) => !DOC_NAV.some((item) => item.href === path)).map((path) => ({
       url: `${base}${path}`,
       changeFrequency: "monthly" as const,

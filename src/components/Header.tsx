@@ -7,7 +7,8 @@ export function Header() {
       <Link href="/" aria-label="3xrep" className="text-[0.95rem]">
         <Wordmark />
       </Link>
-      <nav className="flex gap-5 text-[0.8125rem] leading-[1.4] text-mute">
+      <nav className="flex flex-wrap gap-5 text-[0.8125rem] leading-[1.4] text-mute">
+        <Link href="/playbooks" className="hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground">strategies</Link>
         <Link
           href="/docs"
           className="hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"

@@ -1,6 +1,6 @@
 # Contenu d’acquisition fondé sur les recherches
 
-**Recherche éditoriale — 25 septembre, réconciliée le 30 septembre 2026.** Le SEO est désormais un canal retenu sous la forme de la Sales Strategy Library : [contrat et contenu obligatoire](acquisition-strategy.md#2-seo--sales-strategy-library). Ce fichier garde la recherche et le choix des sujets, pas une seconde stratégie. Le moteur et les pages ne sont pas un chantier ouvert. Les outils, comparaisons et variations régionales ci-dessous sont des pistes, seulement s’ils servent une réponse spécifique cohérente avec ce contrat.
+**Recherche éditoriale — 25 septembre, réconciliée le 30 septembre 2026.** Le SEO est désormais un canal retenu sous la forme de la Sales Strategy Library : [contrat et contenu obligatoire](acquisition-strategy.md#2-seo--sales-strategy-library). Ce fichier garde la recherche et le choix des sujets, pas une seconde stratégie. La réalisation initialement différée est désormais ouverte pour la première version approuvée : [périmètre et limites](sales-strategy-library-v1.md). La publication reste distincte. Les outils, comparaisons et variations régionales ci-dessous sont des pistes, seulement s’ils servent une réponse spécifique cohérente avec ce contrat.
 
 ## Idée
 
@@ -81,3 +81,40 @@ Suivre le chemin complet sans confondre visibilité et acquisition :
 - présence et citations dans les réponses d’assistants, mesurées séparément.
 
 Le but n’est pas seulement de faire entrer du trafic. Vérifier que les pages attirent les bonnes équipes, qu’elles comprennent l’offre, commencent une vraie affaire et reviennent utiliser 3xrep.
+
+
+## Plan SEO retenu — 30 septembre 2026
+
+La recherche utilisateur autorise l'extension locale et une stratégie. Le [relevé Google Ads et Search Console](keyword-research-2026-09-30.md) est la preuve de demande. On choisit avec trois critères : demande observée, affaire que 3xrep aide réellement à faire avancer, réponse différente de la page la plus proche. Les volumes seuls ne fixent pas l'ordre.
+
+### Première publication : six guides cohérents
+
+| Besoin | Page locale | Requête principale / variantes | Ordre |
+| --- | --- | --- | --- |
+| Relancer | /playbooks/sales-follow-up-email | sales follow up email ; after no response ; after meeting ; after proposal | Priorité 1 |
+| Découvrir | /playbooks/sales-discovery-questions | sales discovery questions ; discovery call questions ; qualification questions | Priorité 2 |
+| Comprendre le prix | /playbooks/too-expensive-objection | price objection ; too expensive objection | Priorité 3 |
+| Accéder à la décision | /playbooks/economic-buyer-access | economic buyer ; access to economic buyer | Déjà réalisé |
+| Tester le soutien | /playbooks/test-sales-champion | sales champion ; test a champion | Déjà réalisé |
+| Valider une évaluation sectorielle | /playbooks/cybersecurity-pilot-decision | cybersecurity sales ; pilot buying decision | Déjà réalisé ; volume de la longue traîne non établi |
+
+Les deux nouvelles pages répondent d'abord avec une démarche et des exemples utilisables. Elles montrent ensuite le circuit animé et les résultats du moteur commun. L'index organise les six guides en quatre besoins. Les variantes d'une intention restent dans la même page. Les adresses existantes sont conservées. Titres et descriptions sont naturels, sans répétition forcée.
+
+### Vague suivante : deux portes d'entrée
+
+1. **MEDDIC / MEDDPICC appliqué à une affaire.** Demande la plus élevée observée. Préparer une page commune qui explique les différences, puis montre un audit à partir des preuves et liens vers décideur, soutien, critères et découverte. /docs/methods reste l'explication du fonctionnement produit ; ne pas en faire une seconde page visant la même question. Vérifier le plan détaillé et l'exemple avant réalisation.
+2. **Comprendre les objections commerciales.** Demande plus large que le cas prix. Une page doit aider à distinguer valeur, financement, timing, soutien et processus. Elle oriente vers le cas prix sans le recopier. Préparer les autres cas seulement si le moteur et les sources apportent une réponse réelle.
+
+Ensuite seulement : autres secteurs. Rechercher la demande propre à chaque cas, identifier les acteurs et validations spécifiques, puis construire un scénario distinct. La demande générique « cybersecurity sales » ne prouve pas celle d'un guide pilote. Aucun plan de multiplication automatique par secteur, pays ou synonyme.
+
+### Publication et contrôle
+
+La bibliothèque publique était encore en 404 au relevé. La priorité opérationnelle est sa publication après décision de mise en production, puis son exploration, avant d'ajouter des dizaines de pages.
+
+- Avant publication : compilation, contenu visible dans le HTML, six routes, titres, canonique, sitemap, liens et navigation mobile ; pas de blocage robots ou noindex.
+- Après publication : vérifier les réponses 200 et la canonique réellement servie, le sitemap public et l'inspection des six adresses dans Search Console. Demander l'indexation des guides prioritaires. Examiner l'ancienne erreur de redirection sur l'accueil si elle reste active.
+- Chaque semaine après lancement : lire les impressions et requêtes par page, distinguer marque et hors marque quand les requêtes sont disponibles, voir quelles formulations correspondent à une vraie situation.
+- À quatre semaines : corriger une page détectée mais non indexée selon l'inspection. Pour une page avec impressions mais peu de clics, comparer intention, titre et réponse affichée avant de changer la copie.
+- À huit à douze semaines : comparer clics, inscriptions attribuées et premiers usages utiles. Améliorer ou fusionner les pages proches. Lancer la vague suivante à partir des sujets qui attirent les bonnes équipes. Ces délais sont des rendez-vous de revue, pas des délais garantis d'indexation.
+
+Ne pas fixer d'objectif de position ou trafic sans historique exploitable. Objectif initial vérifiable : six pages publiques accessibles, correctement déclarées, suivies dans Search Console ; ensuite des clics pertinents et des organisations activées. Aucune publicité payante nécessaire. L'[indexation n'est jamais garantie](https://developers.google.com/search/docs/essentials/technical), même avec un sitemap.

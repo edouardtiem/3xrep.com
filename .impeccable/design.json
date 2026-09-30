@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T10:13:25.872446+00:00",
+  "title": "Design System: 3xrep public reading surfaces",
+  "extensions": {
+    "colorMeta": {
+      "reading-copper": {
+        "role": "primary",
+        "displayName": "Reading Copper",
+        "tonalRamp": [
+          "oklch(15% 0.1 55)",
+          "oklch(26% 0.1 55)",
+          "oklch(38% 0.1 55)",
+          "oklch(50% 0.1 55)",
+          "oklch(62% 0.1 55)",
+          "oklch(74% 0.1 55)",
+          "oklch(86% 0.1 55)",
+          "oklch(95% 0.1 55)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "tonalRamp": [
+          "oklch(15% 0.006 250)",
+          "oklch(26% 0.006 250)",
+          "oklch(38% 0.006 250)",
+          "oklch(50% 0.006 250)",
+          "oklch(62% 0.006 250)",
+          "oklch(74% 0.006 250)",
+          "oklch(86% 0.006 250)",
+          "oklch(95% 0.006 250)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Foreground Ink",
+        "tonalRamp": [
+          "oklch(15% 0.008 265)",
+          "oklch(26% 0.008 265)",
+          "oklch(38% 0.008 265)",
+          "oklch(50% 0.008 265)",
+          "oklch(62% 0.008 265)",
+          "oklch(74% 0.008 265)",
+          "oklch(86% 0.008 265)",
+          "oklch(95% 0.008 265)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Gray",
+        "tonalRamp": [
+          "oklch(15% 0.014 255)",
+          "oklch(26% 0.014 255)",
+          "oklch(38% 0.014 255)",
+          "oklch(50% 0.014 255)",
+          "oklch(62% 0.014 255)",
+          "oklch(74% 0.014 255)",
+          "oklch(86% 0.014 255)",
+          "oklch(95% 0.014 255)"
+        ]
+      },
+      "divider": {
+        "role": "neutral",
+        "displayName": "Divider Gray",
+        "tonalRamp": [
+          "oklch(15% 0.006 250)",
+          "oklch(26% 0.006 250)",
+          "oklch(38% 0.006 250)",
+          "oklch(50% 0.006 250)",
+          "oklch(62% 0.006 250)",
+          "oklch(74% 0.006 250)",
+          "oklch(86% 0.006 250)",
+          "oklch(95% 0.006 250)"
+        ]
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised White",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(86% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "supported": {
+        "role": "semantic",
+        "displayName": "Supported Green",
+        "tonalRamp": [
+          "oklch(15% 0.07 150)",
+          "oklch(26% 0.07 150)",
+          "oklch(38% 0.07 150)",
+          "oklch(50% 0.07 150)",
+          "oklch(62% 0.07 150)",
+          "oklch(74% 0.07 150)",
+          "oklch(86% 0.07 150)",
+          "oklch(95% 0.07 150)"
+        ]
+      },
+      "assumed": {
+        "role": "semantic",
+        "displayName": "Assumed Brown",
+        "tonalRamp": [
+          "oklch(15% 0.09 65)",
+          "oklch(26% 0.09 65)",
+          "oklch(38% 0.09 65)",
+          "oklch(50% 0.09 65)",
+          "oklch(62% 0.09 65)",
+          "oklch(74% 0.09 65)",
+          "oklch(86% 0.09 65)",
+          "oklch(95% 0.09 65)"
+        ]
+      },
+      "contradicted": {
+        "role": "semantic",
+        "displayName": "Contradicted Red",
+        "tonalRamp": [
+          "oklch(15% 0.11 25)",
+          "oklch(26% 0.11 25)",
+          "oklch(38% 0.11 25)",
+          "oklch(50% 0.11 25)",
+          "oklch(62% 0.11 25)",
+          "oklch(74% 0.11 25)",
+          "oklch(86% 0.11 25)",
+          "oklch(95% 0.11 25)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Reading display",
+        "purpose": "Documentation and library page introductions."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Medium-weight section hierarchy."
+      },
+      "body": {
+        "displayName": "Reading body",
+        "purpose": "Long-form reading prose."
+      },
+      "note": {
+        "displayName": "Supporting note",
+        "purpose": "Explanations, limits and compact captions."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "circuit-packet",
+        "value": "1.05s cubic-bezier(.16,1,.3,1) both",
+        "purpose": "Finite packet travel along each persistent arrow; staggered starts explain the circuit. Reduced motion suppresses the packet."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "documentation-narrow",
+        "value": "950px"
+      },
+      {
+        "name": "library-stack",
+        "value": "760px"
+      },
+      {
+        "name": "documentation-stack",
+        "value": "700px"
+      },
+      {
+        "name": "circuit-compact",
+        "value": "500px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Primary action from the documented public reading surfaces.",
+      "html": "<a class=\"ds-action\" href=\"#start\">Try this on your deal</a>",
+      "css": ".ds-action{display:inline-flex;padding:13px 18px;background:var(--foreground);color:white;border-radius:7px;font-size:.85rem;text-decoration:none;font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;}.ds-action:hover{background:#393b3e;color:white}.ds-action:focus-visible{outline:2px solid #945421;outline-offset:4px;}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Scenario choice",
+      "kind": "button",
+      "description": "Scenario choice from the documented public reading surfaces.",
+      "html": "<button class=\"ds-choice\" aria-pressed=\"false\">An introduction is accepted</button>",
+      "css": ".ds-choice{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;font-size:.8rem;line-height:1.5;text-align:left;padding:11px 15px;border:1px solid var(--line);border-radius:7px;cursor:pointer;background:var(--raise);color:var(--foreground)}.ds-choice:hover{border-color:#945421}.ds-choice:focus-visible{outline:2px solid #945421;outline-offset:4px;}.ds-choice[aria-pressed=true]{color:white;background:var(--foreground);border-color:var(--foreground)}",
+      "refersTo": "scenario-choice"
+    },
+    {
+      "name": "Selected scenario choice",
+      "kind": "button",
+      "description": "Selected scenario choice from the documented public reading surfaces.",
+      "html": "<button class=\"ds-selected\" aria-pressed=\"true\">Starting deal</button>",
+      "css": ".ds-selected{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;font-size:.8rem;line-height:1.5;text-align:left;padding:11px 15px;border:1px solid var(--foreground);border-radius:7px;cursor:pointer;background:var(--foreground);color:white}.ds-selected:hover{border-color:#945421}.ds-selected:focus-visible{outline:2px solid #945421;outline-offset:4px;}",
+      "refersTo": "scenario-choice-selected"
+    },
+    {
+      "name": "Strategy panel",
+      "kind": "card",
+      "description": "Strategy panel from the documented public reading surfaces.",
+      "html": "<section class=\"ds-strategy\"><h3>Your next move</h3><p>Ask your contact for a meeting with the decision maker.</p></section>",
+      "css": ".ds-strategy{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;background:var(--raise);border-radius:14px;padding:28px;color:var(--foreground);font-size:1.12rem;line-height:1.65}.ds-strategy h3{font-size:1.18rem;font-weight:500;line-height:1.4;margin:0 0 14px}",
+      "refersTo": "strategy-panel"
+    },
+    {
+      "name": "Documentation navigation",
+      "kind": "nav",
+      "description": "Documentation navigation from the documented public reading surfaces.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#guide\">Getting started</a><a href=\"#methods\" aria-current=\"page\">Methods</a></nav>",
+      "css": ".ds-nav{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;font-size:.82rem}.ds-nav a{display:block;padding:10px 12px;color:var(--mute);border-radius:6px;line-height:1.4;text-decoration:none}.ds-nav a:hover{color:var(--foreground);background:#e6e8ea}.ds-nav a[aria-current=page]{color:#945421;background:#e8dfd5;font-weight:500}.ds-nav a:focus-visible{outline:2px solid #945421;outline-offset:4px;}"
+    },
+    {
+      "name": "Evidence row",
+      "kind": "custom",
+      "description": "Evidence row from the documented public reading surfaces.",
+      "html": "<dl class=\"ds-evidence\"><dt>Authority <span>Supported</span></dt><dd>\u201cI approve the purchase.\u201d</dd></dl>",
+      "css": ".ds-evidence{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;padding:18px 0;border-bottom:1px solid var(--line);color:var(--foreground)}.ds-evidence dt{display:flex;justify-content:space-between;gap:16px;font-size:.85rem;font-weight:500}.ds-evidence dt span{color:#276341;font-size:.74rem;font-weight:400}.ds-evidence dd{margin:10px 0 0;font-size:.83rem;line-height:1.7}"
+    },
+    {
+      "name": "Shared deal circuit",
+      "kind": "custom",
+      "description": "Persistent context-to-strategy flow used on the homepage and in the library. The preview preserves the static reduced-motion form; live playback belongs to the implemented component.",
+      "html": "<div class=\"ds-circuit\"><div class=\"ds-inputs\"><div><div class=\"ds-source\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" aria-hidden=\"true\"><path d=\"M5 3h9l5 5v13H5z M14 3v6h5 M8 13h8 M8 17h6\"/></svg><span>Meeting notes</span></div><i class=\"ds-arrow\"></i></div><div><div class=\"ds-source\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" aria-hidden=\"true\"><path d=\"M20 5c0 2-16 2-16 0s16-2 16 0v14c0 3-16 3-16 0V5 M4 12c0 3 16 3 16 0\"/></svg><span>Connected CRM</span></div><i class=\"ds-arrow\"></i></div><div><div class=\"ds-source\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" aria-hidden=\"true\"><path d=\"M3 5h18v14H3z M3 5l9 7 9-7\"/></svg><span>Buyer email</span></div><i class=\"ds-arrow\"></i></div></div><div class=\"ds-assistant\">Your AI assistant<details class=\"ds-context\"><summary>View this fictional deal\u2019s context</summary><p>Acme \u00b7 seller-declared stage</p><blockquote>\u201cI approve the purchase.\u201d</blockquote></details></div><i class=\"ds-arrow\"></i><div class=\"ds-brain\"><strong>3xrep</strong><div class=\"ds-proof\">What the evidence supports<br>Priority gap: Authority</div></div><i class=\"ds-arrow\"></i><div class=\"ds-move\">Next move<br>Ask for an introduction.</div><i class=\"ds-arrow\"></i><div class=\"ds-return\">Back in your assistant<br>You review the wording and decide what to send.</div></div>",
+      "css": ".ds-circuit{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;max-width:700px;font-size:.85rem;line-height:1.6;color:var(--foreground)}.ds-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.ds-source{text-align:center;background:var(--raise);border-radius:10px;padding:12px 8px}.ds-source svg{width:22px;height:22px;display:block;margin:0 auto 8px;color:#945421}.ds-source span{font-size:.72rem;color:var(--mute)}.ds-arrow{display:block;position:relative;width:1px;height:24px;margin-inline:auto;background:#9ca0a6}.ds-arrow:after{content:\"\";position:absolute;width:7px;height:7px;border-right:1px solid #6b7077;border-bottom:1px solid #6b7077;transform:rotate(45deg);bottom:1px;left:-3px}.ds-assistant{padding:13px 18px;text-align:center;background:#e3e6e9;border-radius:8px}.ds-brain{border-radius:12px;padding:14px 18px;text-align:center;background:#ece1d5;color:#945421;font-size:1.75rem;font-weight:500;letter-spacing:-.035em}.ds-proof{padding:12px 0 0;margin-top:12px;border-top:1px solid #d5c8b9;text-align:left;font-size:.78rem;color:var(--foreground)}.ds-move{background:var(--raise);padding:18px;border-radius:12px}.ds-return{padding:16px 18px;border:1px solid var(--line);border-radius:12px}@media(max-width:500px){.ds-inputs{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.ds-source{padding:12px}}.ds-context{font-size:.72rem;color:var(--mute);margin-top:8px}.ds-context summary{cursor:pointer;min-height:24px}.ds-context summary:focus-visible{outline:2px solid #945421;outline-offset:4px}.ds-context blockquote{color:var(--foreground);text-align:left;margin:8px 0 0}"
+    },
+    {
+      "name": "Circuit playback control",
+      "kind": "button",
+      "description": "Replay control with a copper keyboard focus outline; disabled when reduced motion is requested.",
+      "html": "<button class=\"ds-play\" type=\"button\">Play the flow <span aria-hidden=\"true\">\u21bb</span></button>",
+      "css": ".ds-play{font-family:var(--font-lp),ui-sans-serif,system-ui,sans-serif;cursor:pointer;min-height:44px;font-size:.75rem;padding:10px 14px;border:1px solid #aaa49b;border-radius:7px;background:var(--raise);color:var(--foreground)}.ds-play:hover:not(:disabled){border-color:#945421}.ds-play:focus-visible{outline:2px solid #945421;outline-offset:4px}.ds-play:disabled{cursor:default;opacity:.55}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Evidence Reading Room",
+    "overview": "The documentation and Sales Strategy Library share a quiet reading surface: cool gray paper, dark text, copper links, thin dividers and white working panels. The existing IBM Plex Sans family carries both explanatory prose and compact evidence labels.\n\nThis record covers those public reading surfaces, the completed library extension and the shared deal circuit embedded in the library and homepage. It does not define the complete homepage, other assistant demonstrations, dashboard or a new brand. The library adds evidence states and selectable scenarios within the incumbent documentation language. The circuit keeps the same paper, copper and IBM Plex Sans identity while showing how context becomes a next move.",
+    "keyCharacteristics": [
+      "Reading first, interaction second.",
+      "Flat sections divided by fine rules.",
+      "Copper links and visible keyboard focus.",
+      "Evidence labels retain their words as well as color.",
+      "Persistent arrows and finite, replayable circuit motion."
+    ],
+    "rules": [
+      {
+        "name": "The Reading Surface Rule",
+        "body": "Use the cool paper background for reading and white for contained working material.",
+        "section": "colors"
+      },
+      {
+        "name": "The Named State Rule",
+        "body": "Evidence colors always accompany a written state; color alone does not carry the meaning.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Hierarchy Rule",
+        "body": "Use medium-weight headings, close tracking and generous prose line height rather than heavy display type.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stacked Evidence Rule",
+        "body": "The library evidence and strategy columns become a single reading sequence on small screens.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Reading Rule",
+        "body": "Documentation and library sections use dividers and surface color rather than shadows.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Persistent Circuit Rule",
+        "body": "Keep every stage, its core text and all six arrows visible independently of playback; source context expands separately.",
+        "section": "components"
+      },
+      {
+        "name": "The Finite Signal Rule",
+        "body": "Circuit motion is a finite, replayable explanation; reduced motion presents the complete static circuit.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do reuse the existing font, reading colors and copper focus treatment.",
+      "Do keep evidence labels visible beside their state colors.",
+      "Do preserve a single reading sequence when columns stack.",
+      "Do use white panels for prompts and the next move.",
+      "Do retain the complete circuit when playback stops or reduced motion is requested."
+    ],
+    "donts": [
+      "Don't apply this scoped record as a complete homepage design system.",
+      "Don't replace textual evidence states with color alone.",
+      "Don't hide circuit content behind playback or treat animation as a new proof.",
+      "Don't introduce shadow elevation into these reading surfaces without a new design decision."
+    ]
+  }
+}

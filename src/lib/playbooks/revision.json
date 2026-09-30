@@ -1,0 +1,33 @@
+{
+  "engine": "6d8b03a442f1bdb351c4ddfffe95c54954dab77033ee313492d6aaaf7761e40f",
+  "files": [
+    "src/lib/brain/action.ts",
+    "src/lib/brain/angle.ts",
+    "src/lib/brain/audit.ts",
+    "src/lib/brain/context.ts",
+    "src/lib/brain/contrat.ts",
+    "src/lib/brain/corpus.ts",
+    "src/lib/brain/etat.ts",
+    "src/lib/brain/faits.ts",
+    "src/lib/brain/gestes.ts",
+    "src/lib/brain/horizon.ts",
+    "src/lib/brain/index.ts",
+    "src/lib/brain/layer.ts",
+    "src/lib/brain/lexique.ts",
+    "src/lib/brain/lookup.ts",
+    "src/lib/brain/method-guidance.ts",
+    "src/lib/brain/method-selection.ts",
+    "src/lib/brain/moteur.ts",
+    "src/lib/brain/next-question.ts",
+    "src/lib/brain/objection-map.ts",
+    "src/lib/brain/pieces.ts",
+    "src/lib/brain/pipe.ts",
+    "src/lib/brain/priorite.ts",
+    "src/lib/brain/rattacher.ts",
+    "src/lib/brain/reflexes.ts",
+    "src/lib/brain/strategy.ts",
+    "src/lib/brain/test-crm.ts",
+    "src/lib/brain/types.ts",
+    "src/lib/corrections.ts"
+  ]
+}

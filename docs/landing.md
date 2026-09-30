@@ -1,5 +1,11 @@
 # Landing — 3xrep.com
 
+## Décision du 30 septembre 2026 — circuit partagé, en local
+
+Le titre d’accueil reste « Every deal needs a strategy. ». La démonstration précédente avec Julien, Maya et la mascotte est conservée en ouverture. Le circuit animé arrive juste après, dans la même affaire fictive Acme. Il montre les sources → assistant → 3xrep → prochain geste → formulation dans l’assistant. Sur grand écran assez haut, le texte de la section du circuit suit aussi le défilement, puis s’arrête à la fin de la section. Sur petit écran, il défile normalement. Le détail des preuves est dépliable sur l’accueil et reste visible dans la bibliothèque. Les six flèches restent visibles. La lecture est finie et rejouable ; la préférence de réduction des animations garde le circuit fixe.
+
+Les deux démonstrations partagent un seul choix de réponse fictive. La sélection dans l’illustration du haut met à jour le circuit plus bas. Celui-ci reprend la branche correspondante calculée par le moteur ; la formulation reste explicitement illustrative. Le dossier de preuves reste inchangé. Un lien ramène au choix de réponse, sans second sélecteur indépendant. Le circuit utilise les résultats calculés par le cerveau. Le changement de preuve met à jour le geste et la formulation. L’offre Beta reste inchangée. Aucune publication n’est effectuée par ce changement.
+
 ## Décision du 22 septembre 2026 — en vigueur sur la branche stratégie
 
 L’accueil montre désormais « Every deal needs a strategy. ». Même identité visuelle : papier gris, cuivre, mascotte et typographie. La démonstration part d’un problème confirmé, construit l’accès à la personne qui peut investir, propose une phrase et laisse choisir trois réponses possibles. Les exemples sont illustratifs. Le budget, les horizons et le coaching sont expliqués sans promesse de gain. L’inscription suit la configuration serveur.

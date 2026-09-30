@@ -20,7 +20,7 @@ Automatiser progressivement l’infrastructure quand les résultats le justifien
 
 ## 2. SEO — Sales Strategy Library
 
-Construire une bibliothèque publique de stratégies commerciales, pas un blog traditionnel ni une usine de variantes. Le cerveau commercial de 3xrep fournit autant que possible la matière et la logique du contenu. La direction est décidée ; le moteur, les pages et leur publication ne sont pas à implémenter dans cette mission.
+Construire une bibliothèque publique de stratégies commerciales, pas un blog traditionnel ni une usine de variantes. Le cerveau commercial de 3xrep fournit autant que possible la matière et la logique du contenu. La direction est décidée. La mission documentaire initiale ne construisait ni moteur ni pages. Suite autorisée le 30 septembre dans le chat : première version de la bibliothèque, décrite dans [sales-strategy-library-v1.md](sales-strategy-library-v1.md). La publication reste distincte.
 
 ### Dimensions de la bibliothèque
 

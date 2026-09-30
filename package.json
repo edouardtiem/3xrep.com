@@ -7,9 +7,12 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --import tsx --test src/lib/brain/*.test.ts src/lib/*.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts",
+    "test": "node --import tsx --test src/lib/brain/*.test.ts src/lib/*.test.ts src/app/api/stripe/checkout/checkout.test.ts src/app/api/stripe/webhook/webhook.test.ts src/lib/playbooks/*.test.ts",
     "recette": "tsx scripts/recette.ts",
-    "visibility-google": "tsx scripts/visibility-google.ts"
+    "visibility-google": "tsx scripts/visibility-google.ts",
+    "predev": "node scripts/playbook-revision.mjs",
+    "prebuild": "node scripts/playbook-revision.mjs",
+    "pretest": "node scripts/playbook-revision.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",

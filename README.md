@@ -12,7 +12,7 @@ Lire dans cet ordre.
 
 - [docs/deal-strategy.md](docs/deal-strategy.md) — décision du 22 septembre, architecture, limites et scénarios.
 
-- [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md) — décision du 30 septembre : cold email, Sales Strategy Library SEO, referral ; réalisation SEO et boucles différées.
+- [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md) — décision du 30 septembre : cold email, Sales Strategy Library SEO, referral ; bibliothèque publique en première version sur la branche, publication et boucles différées.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
 - [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first
@@ -29,6 +29,10 @@ Lire dans cet ordre.
 Le terrain d’entraînement (30 août) est arrêté comme produit. Archive : [docs/terrain/](docs/terrain/).
 
 Sales Game est mort. jesaisfaire est un autre git. Ce git est le git 3xrep.
+
+## Sales Strategy Library
+
+Première version autorisée le 30 septembre : `/playbooks`, trois situations initiales en anglais, puis une première page cybersécurité sur la décision après un pilote, un guide de relance sans réponse et un guide de questions de découverte (six guides regroupés par besoin), affaires fictives et résultats calculés par le même moteur commercial. Détails, recherche et limites : [sales-strategy-library-v1.md](docs/gtm/sales-strategy-library-v1.md). Circuit animé partagé avec l’accueil : contexte → assistant → 3xrep → preuves → stratégie → retour dans l’assistant. Sur l’accueil, la démonstration précédente est conservée en ouverture ; le circuit vient juste après, dans la même affaire fictive, avec les preuves dépliables. Le choix de réponse fictive en haut pilote aussi la suite dans le circuit, sans ajouter de preuve. Dans la bibliothèque, il suit la preuve sélectionnée et conserve le diagnostic visible. Publication autorisée le 30 septembre après les vérifications, via `pre_main` puis `main`. Dans chaque guide, le circuit vient au milieu du parcours, après le contexte et avant le détail des preuves. Le passage vers le produit suit directement le circuit.
 
 ## Beta, 20 équipes et paiement
 
