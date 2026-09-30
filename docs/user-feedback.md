@@ -24,6 +24,6 @@ Liste privée : `GET /api/admin/feedback`, protégée par la même authentificat
 
 ## Mise en service et recette
 
-Appliquer les migrations `20260930190000_user_feedback.sql` et `20260930190100_feedback_retention_job.sql`, puis déployer le serveur. Ce document ne confirme pas leur application en production.
+Appliquer les migrations `20260930190000_user_feedback.sql` et `20260930190100_feedback_retention_job.sql`, puis déployer le serveur. Les deux migrations ont été appliquées le 30 septembre au projet Supabase 3xrep lié (`lulnuqhgyqfkhjnuvpsd`) ; tables protégées et tâche horaire vérifiées. Le serveur doit encore être déployé.
 
 Dans chaque application cible, vérifier : première aide puis question courte, seconde aide sans nouvelle invitation, question ignorée sans relance, partage refusé sans appel, message explicitement envoyé sans confirmation répétée, mots exacts conservés, suivi sur la bonne affaire depuis la note locale, action et résultat distincts, aucune affirmation de sauvegarde après une erreur. Les instructions MCP ne garantissent pas l’obéissance de l’assistant ; cette recette reste nécessaire.
