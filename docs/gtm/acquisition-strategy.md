@@ -2,13 +2,15 @@
 
 **Décision du 30 septembre 2026.** Trois canaux retenus : cold email, SEO et referral (parrainage). Aucun autre canal, notamment X, n’est ajouté sans nouvelle décision explicite. Cette décision formalise la stratégie ; elle n’ouvre ni le chantier du moteur SEO, ni une campagne, ni une nouvelle collecte de données.
 
+**Ajout du 1er octobre 2026.** ChatGPT Marketplace devient un quatrième canal expérimental à préparer rapidement, en parallèle de la bêta et du cold email. Le parcours, les conditions de soumission et les mesures sont définis dans [la roadmap](../roadmap.md#chatgpt-marketplace--priorité-du-1er-octobre-2026). Ne pas attendre davantage d’utilisateurs pour préparer le plugin ; valider installation et première valeur avant de le publier. Cette demande porte sur la roadmap, sans lancement de développement ou de publication.
+
 ## Sources de vérité et périmètre
 
-Ce fichier définit les canaux, leurs rôles et leurs liens futurs. [cold-email-strategy.md](cold-email-strategy.md) garde les détails opérationnels Smartlead, les séquences, arrêts, cohortes et montée en charge. [search-led-content.md](search-led-content.md) garde la recherche et la sélection des sujets SEO, sous le contrat de bibliothèque ci-dessous. [../visibility/](../visibility/README.md) garde la mesure et l’entretien des pages existantes ; GEO est une mesure de visibilité, pas un quatrième canal.
+Ce fichier définit les canaux, leurs rôles et leurs liens futurs. [cold-email-strategy.md](cold-email-strategy.md) garde les détails opérationnels Smartlead, les séquences, arrêts, cohortes et montée en charge. [search-led-content.md](search-led-content.md) garde la recherche et la sélection des sujets SEO, sous le contrat de bibliothèque ci-dessous. [../visibility/](../visibility/README.md) garde la mesure et l’entretien des pages existantes ; GEO est une mesure de visibilité, pas un canal distinct.
 
 Le produit reste défini par [../../README.md](../../README.md), [../deal-strategy.md](../deal-strategy.md), [../cerveau.md](../cerveau.md) et [../methodes.md](../methodes.md). Les droits Beta et Founding restent dans [../beta/founding-20.md](../beta/founding-20.md). Les règles de parrainage et de facturation restent dans [../plg.md](../plg.md), [../decisions.md](../decisions.md) et [../checkout.md](../checkout.md). Cette stratégie ne modifie ni prix, ni droits, ni conditions d’attribution.
 
-Elle remplace l’hypothèse du PRD §14 (« annuaires MCP + page » comme canal principal), l’ordre d’acquisition « listing → tutoriel → pSEO » de la roadmap et le statut de simple idée future du contenu SEO du 25 septembre. Les annuaires et guides de connexion restent utiles à l’installation ; ils ne sont plus un moteur d’acquisition distinct. Les archives terrain et notes de session restent historiques.
+Elle remplace l’hypothèse du PRD §14 (« annuaires MCP + page » comme canal principal), l’ordre d’acquisition « listing → tutoriel → pSEO » de la roadmap et le statut de simple idée future du contenu SEO du 25 septembre. Les autres annuaires et guides de connexion restent des supports d’installation. Le test ChatGPT Marketplace ajouté le 1er octobre fait exception : son acquisition reste à valider. Les archives terrain et notes de session restent historiques.
 
 ## 1. Cold email — court terme et apprentissage
 

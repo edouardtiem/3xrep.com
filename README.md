@@ -15,7 +15,7 @@ Lire dans cet ordre.
 - [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md) — décision du 30 septembre : cold email, Sales Strategy Library SEO, referral ; bibliothèque publique en première version sur la branche, publication et boucles différées.
 
 - [docs/prd.md](docs/prd.md) — produit, prix, tools, test
-- [docs/roadmap.md](docs/roadmap.md) — ouvert : docs MCP + captures, langues, $129 US first
+- [docs/roadmap.md](docs/roadmap.md) — priorité du 1er octobre : préparer le plugin ChatGPT Marketplace en parallèle de la bêta ; puis docs MCP + captures et langues, $129 US first
 - [docs/audits/2026-09-16-corrections-cerveau.md](docs/audits/2026-09-16-corrections-cerveau.md) — corrections sur sales-buddy, règles de preuve et limites des essais
 - [docs/cerveau.md](docs/cerveau.md) — le cerveau : bibliothèque, angle, gestes, moteur
 - [docs/gestes.md](docs/gestes.md) — 21 moments du cycle, VP qui refuse

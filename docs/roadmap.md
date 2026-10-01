@@ -8,9 +8,38 @@ Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, es
 
 ## Acquisition — décision du 30 septembre 2026
 
-[Stratégie des trois canaux](gtm/acquisition-strategy.md) : cold email court terme et apprentissage ; SEO en Sales Strategy Library ; referral après assez d’usage actif. Le détail Smartlead reste dans [cold-email-strategy.md](gtm/cold-email-strategy.md). La bibliothèque, son moteur, l’instrumentation referral et les boucles entre canaux ne sont pas des chantiers ouverts. Le choix des canaux remplace l’ancien ordre d’acquisition listing → tutoriel → pSEO ; il ne change pas l’ordre des travaux produit ci-dessous. Beta reste le seul parcours de nouvelle inscription pendant le recrutement ([contrat](beta/founding-20.md)).
+[Stratégie d’acquisition](gtm/acquisition-strategy.md) : cold email court terme et apprentissage ; SEO en Sales Strategy Library ; referral après assez d’usage actif. Le détail Smartlead reste dans [cold-email-strategy.md](gtm/cold-email-strategy.md). La bibliothèque, son moteur, l’instrumentation referral et les boucles entre canaux ne sont pas des chantiers ouverts. Le choix des canaux remplace l’ancien ordre d’acquisition listing → tutoriel → pSEO. La décision du 1er octobre ci-dessous ajoute le test ChatGPT Marketplace et le place avant les traductions générales. Beta reste le seul parcours de nouvelle inscription pendant le recrutement ([contrat](beta/founding-20.md)).
 
-## Ouvert — dans cet ordre
+## ChatGPT Marketplace — priorité du 1er octobre 2026
+
+**À préparer rapidement, en parallèle de la bêta et du cold email, avant le chantier de traduction générale.** Édouard ajoute l’annuaire public de plugins ChatGPT / Codex à la roadmap comme test d’acquisition. Ne pas attendre un nombre arbitraire d’utilisateurs pour préparer ce canal. Les réussites d’autres produits sont un signal à tester, pas une preuve de demande pour 3xrep.
+
+Cette décision autorise la planification documentaire. Elle ne lance ni développement, ni soumission, ni publication. Le moteur commercial, le prix par organisation et les droits Beta / Founding restent ceux du README. La distribution est un quatrième canal expérimental, distinct des trois canaux retenus le 30 septembre ; le cold email continue d’alimenter les premiers usages.
+
+### Première version à préparer
+
+1. Réutiliser le serveur `/api/mcp` et le cerveau actuel. Préparer un paquet de plugin avec manifeste, connexion MCP, identité visuelle, exemples et procédures réutilisables : démarrage, stratégie d’une affaire, préparation avant rendez-vous et bilan après appel. Les procédures guident l’assistant ; elles ne remplacent pas les règles commerciales du serveur.
+2. Prévoir une connexion OAuth conforme aux exigences MCP / OpenAI, avec personne identifiée, rattachement explicite à son organisation, droits et révocation. Aujourd’hui, la clé partagée et les métadonnées de ressource protégée ne constituent pas un parcours OAuth complet. Garder les connexions existantes compatibles.
+3. Vérifier les descriptions, schémas, permissions et annotations de chaque outil selon ses effets réels, y compris les écritures du profil, de la mémoire et des retours. Préparer la fiche publique, la confidentialité, les conditions, le domaine vérifié et les cas de test nécessaires à la soumission.
+4. Valider dans un vrai environnement ChatGPT l’installation, la connexion, la découverte des outils et une première stratégie utile. Tester aussi contexte absent, accès refusé, droits Beta fermés ou expirés, déconnexion puis retour dans une nouvelle conversation.
+
+Le démarrage actuel exige un dossier local sur ordinateur ([contrat](local-onboarding.md)). Vérifier cette contrainte avant de promettre un usage web ou mobile. Un premier diagnostic avec les notes fournies dans la conversation est une option à décider pour réduire la friction ; aucune modification de la mémoire ou du contrat local n’est décidée ici.
+
+### Quand soumettre et publier
+
+Le critère est la qualité du parcours, pas le nombre total d’inscrits. Avant soumission : connexion fonctionnelle, première valeur vérifiée, permissions exactes, cas de test reproductibles et comportement d’accès conforme à l’offre réellement ouverte. Avant publication : quelques utilisateurs de la cible doivent pouvoir installer et obtenir une aide sur une affaire réelle sans accompagnement du fondateur ; consigner les obstacles et les corriger. Aucun seuil de revenu ou nombre arbitraire d’organisations n’est imposé.
+
+Une fiche approuvée ne vaut pas preuve d’acquisition. Mesurer les visites attribuables quand elles sont observables, connexions, organisations activées sur une vraie affaire, retours d’usage et paiements après Beta. Une connexion OAuth ne prouve pas que l’utilisateur vient de l’annuaire : distinguer source marketplace observée, autre source et source inconnue. Mesurer les abandons entre connexion et première valeur. Avec une clé partagée, ne pas inventer un nombre fiable d’utilisateurs individuels.
+
+### Dépendances et suites
+
+- **Sign in with ChatGPT** : demande d’accès possible en parallèle ; la documentation consultée le 1er octobre réserve l’intégration commerciale à des partenaires sélectionnés. Ce n’est pas une dépendance du plugin : une connexion OAuth propre à 3xrep doit suffire au premier parcours.
+- **Interface visuelle dans ChatGPT** : suite possible après validation de l’installation ; une carte de stratégie réutilisant les résultats du moteur, sans second cerveau.
+- **Événements MCP et dots** : suite à évaluer. Aucun suivi automatique des réponses prospects n’est promis tant que 3xrep ne reçoit pas ces événements et que le parcours n’est pas validé.
+
+Références officielles consultées le 1er octobre 2026 ; vérifier leurs exigences lors de la réalisation : [paquet de plugin](https://developers.openai.com/plugins/build/plugins), [authentification](https://developers.openai.com/plugins/build/auth), [soumission et publication](https://developers.openai.com/plugins/deploy/submission), [accès Sign in with ChatGPT](https://developers.openai.com/siwc/request-client-id).
+
+## Autres travaux ouverts — ordre existant
 
 ### 1. Docs MCP — le détail, pas la liste
 
@@ -79,7 +108,7 @@ Français et pages ville : item 2 + plus tard. Pas cette tâche.
 
 ## Ensuite — pas ouvert
 
-Ancien ordre d’acquisition du PRD remplacé le 30 septembre par la [stratégie des trois canaux](gtm/acquisition-strategy.md). Listings et tutoriels restent des supports d’installation ; la réalisation de la Sales Strategy Library est différée. Carte HubSpot = V2 ([chemin.md](chemin.md)).
+Ancien ordre d’acquisition du PRD remplacé le 30 septembre par la [stratégie d’acquisition](gtm/acquisition-strategy.md). Les autres listings et tutoriels restent des supports d’installation ; le test ChatGPT Marketplace est priorisé ci-dessus ; la réalisation de la Sales Strategy Library est différée. Carte HubSpot = V2 ([chemin.md](chemin.md)).
 
 **Recherche SEO — réalisation différée.** Sélection des intentions, preuves de demande et variations utiles : [search-led-content.md](gtm/search-led-content.md). Le contrat de page est celui de la Sales Strategy Library ; aucun moteur ni page à construire maintenant.
 

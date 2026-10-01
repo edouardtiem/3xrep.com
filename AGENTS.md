@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Lis [README.md](README.md). C’est le produit. Ne te fie pas à un autre fil.
 
-Pour notre acquisition, lire [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md), puis ses documents liés. Trois canaux uniquement. Le choix SEO seul ne vaut pas autorisation de construire ou publier. La première version de la bibliothèque est autorisée dans [docs/gtm/sales-strategy-library-v1.md](docs/gtm/sales-strategy-library-v1.md) ; la publication reste distincte.
+Pour notre acquisition, lire [docs/gtm/acquisition-strategy.md](docs/gtm/acquisition-strategy.md), puis ses documents liés. Trois canaux retenus le 30 septembre, plus le test ChatGPT Marketplace ajouté à la roadmap le 1er octobre. La préparation est priorisée ; cette décision documentaire ne lance ni développement, ni soumission, ni publication. Le choix SEO seul ne vaut pas autorisation de construire ou publier. La première version de la bibliothèque est autorisée dans [docs/gtm/sales-strategy-library-v1.md](docs/gtm/sales-strategy-library-v1.md) ; la publication reste distincte.
 
 Si on décide le contraire du README : corrige le README, ou propose si c’est gros.
 
