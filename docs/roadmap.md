@@ -213,6 +213,25 @@ Kill switch : `MCP_OPEN_TOOLS=1`. Édouard. Pas l’agent. Absente en prod.
 
 Hors ce ship : confirmation 42 %, dénouement automatique, OAuth directory, pan croissance, Slack, carte HubSpot, Resend, plafond sur les avoirs.
 
+## Horizon très lointain — Smartlead en marque blanche pour les utilisateurs
+
+**Idée ajoutée le 1er octobre 2026. Aucun développement ouvert, aucune date engagée.** Après validation du cœur produit, de l’activation, de l’usage répété et de l’acquisition de 3xrep, envisager Smartlead en marque blanche pour aider les équipes clientes à générer davantage de rendez-vous.
+
+### Déclencheur et parcours envisagés
+
+Quand les objectifs déclarés de rendez-vous et l’activité réellement disponible suggèrent que le volume sera difficile à atteindre, l’assistant signale le manque et demande de confirmer le diagnostic. Il utilise des données observées et distingue ce qui est mesuré, supposé et inconnu. Sans ces données, poser la question plutôt qu’inventer un taux de conversion ou promettre un nombre de rendez-vous.
+
+Depuis l’environnement habituel de l’utilisateur (son assistant / harness, par exemple ChatGPT ou Claude), 3xrep pourrait alors l’aider à choisir la cible, préparer une séquence et ses relances, puis planifier la campagne dans Smartlead via des outils MCP / API. Garder un parcours 3xrep cohérent, sans obliger l’utilisateur à gérer un second produit pour les opérations courantes. L’assistant explique le plan ; l’utilisateur valide les destinataires, le contenu, le calendrier et les volumes avant le lancement.
+
+### Conditions à examiner à cette échéance
+
+- Vérifier les possibilités et conditions de marque blanche, d’accès API et de revente de Smartlead à ce moment-là. Ne pas présenter l’intégration comme acquise.
+- Prévoir les comptes, domaines et boîtes d’envoi des équipes clientes, leur réputation, les plafonds, horaires, exclusions, désinscriptions, arrêts et coûts. Aucune création ou dépense implicite.
+- Séparer les espaces, campagnes et droits de chaque organisation. Ne pas réutiliser les données, boîtes ou campagnes de notre propre acquisition.
+- Observer les réponses, rendez-vous réellement obtenus et retours d’usage pour adapter les campagnes. Aucun résultat garanti ni envoi automatique simplement parce qu’un objectif paraît difficile.
+
+Cette piste appartient au **produit des utilisateurs**, pas au chantier Smartlead qui acquiert des clients pour 3xrep. Elle rouvrirait à terme la limite actuelle « guider sans exécuter les séquences » du pan croissance. L’ajout à la roadmap documente cette direction future ; il ne modifie aujourd’hui aucun outil, droit, contrat, campagne ou interdiction d’exécution.
+
 ## Interdit ici
 
 Per-seat. Démo / Calendly. « On remplace Gong ». Traduire VP Sales. Captures fake. Revenir au 99 €. Rouvrir le jeu / l’usine de cas. Coder le pan croissance. Brancher Aircall maintenant. Confondre le pan 5 avec notre acquisition. Imposer un canal (téléphone, courriel, Aircall). Prendre une note collée par l’utilisateur pour une citation du client. Calculette montant × % = perdu. Classement d’équipes. Carte obligatoire au jour 0 (pas le premier pas de l’essai). Afficher le 42 % avant X.
