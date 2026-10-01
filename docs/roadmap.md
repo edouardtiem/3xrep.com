@@ -8,20 +8,52 @@ Live aujourd’hui : **$129 / org / mois** (USD, Stripe), `/docs` en anglais, es
 
 ## Acquisition — décision du 30 septembre 2026
 
-[Stratégie d’acquisition](gtm/acquisition-strategy.md) : cold email court terme et apprentissage ; SEO en Sales Strategy Library ; referral après assez d’usage actif. Le détail Smartlead reste dans [cold-email-strategy.md](gtm/cold-email-strategy.md). La bibliothèque, son moteur, l’instrumentation referral et les boucles entre canaux ne sont pas des chantiers ouverts. Le choix des canaux remplace l’ancien ordre d’acquisition listing → tutoriel → pSEO. La décision du 1er octobre ci-dessous ajoute le test ChatGPT Marketplace et le place avant les traductions générales. Beta reste le seul parcours de nouvelle inscription pendant le recrutement ([contrat](beta/founding-20.md)).
+[Stratégie d’acquisition](gtm/acquisition-strategy.md) : cold email court terme et apprentissage ; SEO en Sales Strategy Library ; referral après assez d’usage actif. Le détail Smartlead reste dans [cold-email-strategy.md](gtm/cold-email-strategy.md). La bibliothèque, son moteur, l’instrumentation referral et les boucles entre canaux ne sont pas des chantiers ouverts. Le choix des canaux remplace l’ancien ordre d’acquisition listing → tutoriel → pSEO. La décision du 1er octobre ci-dessous ajoute le test ChatGPT Marketplace et le place avant les traductions générales. Le parcours Beta reste actuellement en place ([contrat](beta/founding-20.md)) ; la décision transversale du 1er octobre ci-dessous prévoit son remplacement public par un essai standard de 15 jours.
+
+## Parcours public et équipes partenaires — décision du 1er octobre 2026
+
+**Chantier transversal prioritaire, lié à la marketplace mais applicable à tous les canaux.** Revenir à une offre publique classique : essai gratuit de **15 jours sans carte**, puis **129 $ / mois / organisation**, avec décision explicite de payer. Supprimer des pages publiques et de la fiche marketplace la promesse « 20 équipes en bêta gratuite ». L’objectif est de mesurer l’intérêt pour la valeur du produit et sa conversion, tout en poursuivant l’apprentissage avec des équipes choisies.
+
+**Décision de roadmap, pas encore mise en service.** Le parcours Beta actuellement décrit dans le README et ses contrôles restent le comportement en place jusqu’à réalisation et publication de ce chantier. La présente décision fixe la cible et remplace ces règles pour les nouvelles inscriptions une fois le changement déployé. Elle ne modifie aujourd’hui ni site, ni base, ni campagne, ni facturation.
+
+### Offre cible et sélection
+
+- Ouvrir l’essai standard à tous les canaux : cold email, SEO, parrainage et marketplace. L’inscription standard ne dépend plus de l’ouverture du recrutement Beta ou des places gratuites disponibles.
+- Proposer individuellement le **forfait de base gratuit à vie** à certaines des premières équipes, après observation de leur usage réel : affaires réelles, utilisations répétées, adéquation avec la cible et retours précis sur les conseils essayés et les résultats constatés. L’inscription seule ne garantit pas cette offre.
+- Observer l’usage dès les premiers jours. Éviter une attribution automatique immédiate ; privilégier une proposition ciblée vers la fin de l’essai pour préserver l’observation de la disposition à payer.
+- Définir et afficher aux équipes sélectionnées le périmètre du forfait de base et ses limites. Les nouvelles fonctionnalités ou options payantes futures ne sont pas automatiquement incluses dans « gratuit à vie ».
+- Respecter les engagements déjà pris et les droits des équipes déjà retenues. Distinguer les équipes partenaires gratuites des organisations en essai ou payantes dans les mesures.
+
+### Email : tester d’abord la promesse produit
+
+Le parcours de référence à préparer présente la valeur de 3xrep et l’essai de 15 jours, puis propose éventuellement le forfait gratuit à vie pendant l’usage. Cela permet d’observer inscription, activation et conversion sans rendre la gratuité permanente nécessaire à l’acquisition.
+
+Conserver la possibilité d’une séquence distincte et identifiée avec l’angle « équipes fondatrices / gratuit à vie », notamment pour comparer avec l’approche existante. La mention des 20 équipes reste possible dans ces emails ciblés ; elle n’est plus une promesse publique généralisée. Ne pas réécrire ni lancer une campagne dans cette tâche documentaire. Honorer la promesse exacte reçue par chaque cohorte.
+
+### Travaux à réaliser ensemble
+
+1. Aligner accueil, pages de démarrage et d’installation, documentation publique, messages MCP et fiche marketplace : essai de 15 jours, offre standard, sans langage Beta public ni promesse de place gratuite.
+2. Modifier l’inscription et le contrôle d’accès : retirer le verrou Beta / places gratuites du parcours standard, garder l’attribution du forfait gratuit séparée et choisie. Ne pas simplement changer le texte.
+3. Aligner durée, début et fin de l’essai, messages de rappel et passage au paiement. Aucune carte obligatoire pendant les 15 jours et aucun prélèvement automatique à la fin. Préserver les droits existants ; préciser la règle des nouveaux essais parrainés lors de la réalisation, sans supprimer les avantages déjà promis.
+4. Mettre à jour README, contrats d’accès et de facturation, documents Beta / Founding, séquences concernées et tests avant publication. Vérifier nouvelles inscriptions, fin d’essai, paiement volontaire, attribution gratuite, droits existants et offre fermée ou expirée.
+5. Mesurer par canal et par promesse : inscription, première stratégie sur une affaire réelle, retour d’usage, conversion payante, proposition gratuite et attribution acceptée. Une équipe choisie pour la gratuité n’est ni une conversion payante ni une preuve qu’elle aurait payé.
+
+### Lien avec ChatGPT Marketplace
+
+Préparer le plugin en parallèle. Aligner le parcours public et l’offre avant publication dans l’annuaire, afin que la fiche et l’accès réel concordent. Le chantier d’offre concerne aussi les visiteurs SEO, recommandations et emails ; il ne dépend pas de l’approbation OpenAI ni de Sign in with ChatGPT.
 
 ## ChatGPT Marketplace — priorité du 1er octobre 2026
 
 **À préparer rapidement, en parallèle de la bêta et du cold email, avant le chantier de traduction générale.** Édouard ajoute l’annuaire public de plugins ChatGPT / Codex à la roadmap comme test d’acquisition. Ne pas attendre un nombre arbitraire d’utilisateurs pour préparer ce canal. Les réussites d’autres produits sont un signal à tester, pas une preuve de demande pour 3xrep.
 
-Cette décision autorise la planification documentaire. Elle ne lance ni développement, ni soumission, ni publication. Le moteur commercial, le prix par organisation et les droits Beta / Founding restent ceux du README. La distribution est un quatrième canal expérimental, distinct des trois canaux retenus le 30 septembre ; le cold email continue d’alimenter les premiers usages.
+Cette décision autorise la planification documentaire. Elle ne lance ni développement, ni soumission, ni publication. Le moteur commercial et le prix par organisation restent ceux du README. Les droits existants sont préservés ; l’offre publique cible est celle du chantier transversal ci-dessus. La distribution est un quatrième canal expérimental, distinct des trois canaux retenus le 30 septembre ; le cold email continue d’alimenter les premiers usages.
 
 ### Première version à préparer
 
 1. Réutiliser le serveur `/api/mcp` et le cerveau actuel. Préparer un paquet de plugin avec manifeste, connexion MCP, identité visuelle, exemples et procédures réutilisables : démarrage, stratégie d’une affaire, préparation avant rendez-vous et bilan après appel. Les procédures guident l’assistant ; elles ne remplacent pas les règles commerciales du serveur.
 2. Prévoir une connexion OAuth conforme aux exigences MCP / OpenAI, avec personne identifiée, rattachement explicite à son organisation, droits et révocation. Aujourd’hui, la clé partagée et les métadonnées de ressource protégée ne constituent pas un parcours OAuth complet. Garder les connexions existantes compatibles.
 3. Vérifier les descriptions, schémas, permissions et annotations de chaque outil selon ses effets réels, y compris les écritures du profil, de la mémoire et des retours. Préparer la fiche publique, la confidentialité, les conditions, le domaine vérifié et les cas de test nécessaires à la soumission.
-4. Valider dans un vrai environnement ChatGPT l’installation, la connexion, la découverte des outils et une première stratégie utile. Tester aussi contexte absent, accès refusé, droits Beta fermés ou expirés, déconnexion puis retour dans une nouvelle conversation.
+4. Valider dans un vrai environnement ChatGPT l’installation, la connexion, la découverte des outils et une première stratégie utile. Tester aussi contexte absent, accès refusé, essai expiré, attribution gratuite et droits existants, déconnexion puis retour dans une nouvelle conversation.
 
 Le démarrage actuel exige un dossier local sur ordinateur ([contrat](local-onboarding.md)). Vérifier cette contrainte avant de promettre un usage web ou mobile. Un premier diagnostic avec les notes fournies dans la conversation est une option à décider pour réduire la friction ; aucune modification de la mémoire ou du contrat local n’est décidée ici.
 
@@ -29,7 +61,7 @@ Le démarrage actuel exige un dossier local sur ordinateur ([contrat](local-onbo
 
 Le critère est la qualité du parcours, pas le nombre total d’inscrits. Avant soumission : connexion fonctionnelle, première valeur vérifiée, permissions exactes, cas de test reproductibles et comportement d’accès conforme à l’offre réellement ouverte. Avant publication : quelques utilisateurs de la cible doivent pouvoir installer et obtenir une aide sur une affaire réelle sans accompagnement du fondateur ; consigner les obstacles et les corriger. Aucun seuil de revenu ou nombre arbitraire d’organisations n’est imposé.
 
-Une fiche approuvée ne vaut pas preuve d’acquisition. Mesurer les visites attribuables quand elles sont observables, connexions, organisations activées sur une vraie affaire, retours d’usage et paiements après Beta. Une connexion OAuth ne prouve pas que l’utilisateur vient de l’annuaire : distinguer source marketplace observée, autre source et source inconnue. Mesurer les abandons entre connexion et première valeur. Avec une clé partagée, ne pas inventer un nombre fiable d’utilisateurs individuels.
+Une fiche approuvée ne vaut pas preuve d’acquisition. Mesurer les visites attribuables quand elles sont observables, connexions, organisations activées sur une vraie affaire, retours d’usage et paiements après l’essai standard, séparés des attributions gratuites. Une connexion OAuth ne prouve pas que l’utilisateur vient de l’annuaire : distinguer source marketplace observée, autre source et source inconnue. Mesurer les abandons entre connexion et première valeur. Avec une clé partagée, ne pas inventer un nombre fiable d’utilisateurs individuels.
 
 ### Dépendances et suites
 
