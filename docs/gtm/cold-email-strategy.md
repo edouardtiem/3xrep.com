@@ -6,6 +6,10 @@ Mise à jour du 30 septembre : 40 contacts et huit envois synchronisés, un rebo
 
 Cadre général : [acquisition-strategy.md](acquisition-strategy.md), décision du 30 septembre. Ce fichier reste la référence opérationnelle du cold email, moteur court terme et apprentissage. Sa boucle d’itération de campagnes existe indépendamment des futures boucles entre SEO, usage et referral, qui ne sont pas ouvertes.
 
+## Prochain test envisagé — commercial puis adoption interne
+
+Note du 1er octobre 2026 : [approche détaillée](ae-internal-champion-test.md). Cibler un commercial, lui faire constater la valeur de 3xrep sur ses affaires, puis l’aider à préparer les arguments pour son manager et un essai en équipe. Hypothèses, parcours, comparaison avec l’angle actuel et mesures sont documentés ; les courriels restent à rédiger. Ce test n’est pas lancé. Les campagnes actives et leur répartition restent inchangées.
+
 ## Décision
 
 Tester le cold email américain avec Smartlead comme moteur d’envoi et d’orchestration. La campagne vend la stratégie par affaire de 3xrep : à partir du contexte réel d’un deal, construire comment obtenir la prochaine preuve et faire avancer la décision — qui impliquer, comment y accéder, quoi demander ou écrire et comment réagir.
