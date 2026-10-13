@@ -46,6 +46,10 @@ Décision du 23 septembre : le premier parcours vise Claude Cowork ou ChatGPT Wo
 
 Chemin commercial hors bêta : [`/start`](https://3xrep.com/start) — obtenir une clé sans carte, puis [`/install`](https://3xrep.com/install) — connecter 3xrep à Claude et commencer avec une affaire. Le lien de paiement arrive ensuite dans le chat. Secrets Vercel / Price Stripe : [docs/checkout.md](docs/checkout.md). Aucune clé dans ce repo.
 
+## Suivi privé
+
+Tableau interne des inscriptions et de l’usage, pensé pour le navigateur mobile : `/monitoring`, sous-domaine `monitoring.3xrep.com`. Code privé distinct des clés clients, accès en lecture seulement, aucune visite envoyée à Google Analytics. Mise en production autorisée le 13 octobre 2026. Mesures, limites et mise en service : [docs/monitoring.md](docs/monitoring.md).
+
 ## Retours utilisateurs
 
 Décision du 30 septembre : retours dans la conversation, pendant la bêta et après paiement. Une invitation après une aide complète, puis au maximum une par sept jours et par organisation. Lors d’un retour naturel sur une affaire, demander ce qui a été essayé et ce qui s’est passé. Retours spontanés possibles sans résultat lié. `share_feedback` garde les mots approuvés de la personne, séparés de la catégorie ; `beta_feedback` reste un alias. Partage volontaire, conservation de 180 jours, aucun archivage supplémentaire des appels. Détails et recette dans [docs/user-feedback.md](docs/user-feedback.md).

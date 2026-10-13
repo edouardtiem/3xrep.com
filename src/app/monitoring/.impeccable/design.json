@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T21:15:39.314486+00:00",
+  "title": "Design System: 3xrep private monitoring",
+  "extensions": {
+    "colorMeta": {
+      "reading-copper": {
+        "role": "primary",
+        "displayName": "Reading copper"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool paper"
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Foreground ink"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted gray"
+      },
+      "divider": {
+        "role": "neutral",
+        "displayName": "Divider gray"
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised white"
+      },
+      "used-ink": {
+        "role": "state",
+        "displayName": "Used green"
+      },
+      "used-surface": {
+        "role": "state",
+        "displayName": "Used tonal background"
+      },
+      "unused-ink": {
+        "role": "state",
+        "displayName": "Unused brown"
+      },
+      "unused-surface": {
+        "role": "state",
+        "displayName": "Unused tonal background"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Page title",
+        "purpose": "Fluid compact title in medium weight."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Section and login headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Compact prose and button text."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Dates, explanatory notes and metadata."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "monitoring-small",
+        "value": "680px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Login action",
+      "kind": "button",
+      "description": "Private login action with visible focus and a disabled state.",
+      "html": "<button class=\"ds-primary\">Ouvrir le suivi</button>",
+      "css": ".ds-primary{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:16px;line-height:1.5;min-height:44px;padding:12px 16px;background:var(--foreground);color:var(--raise);border:0;border-radius:7px;cursor:pointer}.ds-primary:hover:not(:disabled){background:#34373c}.ds-primary:focus-visible{outline:2px solid #945421;outline-offset:4px;}.ds-primary:disabled{opacity:.55;cursor:not-allowed}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Refresh action",
+      "kind": "button",
+      "description": "White outlined refresh control.",
+      "html": "<button class=\"ds-refresh\">Actualiser</button>",
+      "css": ".ds-refresh{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:16px;line-height:1.5;min-height:44px;padding:9px 16px;background:var(--raise);color:var(--foreground);border:1px solid var(--line);border-radius:7px;cursor:pointer}.ds-refresh:hover{border-color:var(--foreground)}.ds-refresh:focus-visible{outline:2px solid #945421;outline-offset:4px;}",
+      "refersTo": "button-refresh"
+    },
+    {
+      "name": "Logout action",
+      "kind": "button",
+      "description": "Muted text action.",
+      "html": "<button class=\"ds-logout\">Se déconnecter</button>",
+      "css": ".ds-logout{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.5;min-height:44px;padding:9px 0;color:var(--dim);background:none;border:0;cursor:pointer}.ds-logout:hover{color:var(--foreground);text-decoration:underline}.ds-logout:focus-visible{outline:2px solid #945421;outline-offset:4px;}",
+      "refersTo": "button-logout"
+    },
+    {
+      "name": "Private-code field",
+      "kind": "input",
+      "description": "Explicitly labeled password field.",
+      "html": "<label class=\"ds-field\">Code privé<input type=\"password\" autocomplete=\"current-password\" aria-label=\"Code privé\" /></label>",
+      "css": ".ds-field{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:14px;font-weight:500;color:var(--foreground);display:grid;gap:10px}.ds-field input{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:16px;border:1px solid #9b9fa5;min-height:48px;padding:10px 12px;border-radius:7px}.ds-field input:focus-visible{outline:2px solid #945421;outline-offset:4px;}",
+      "refersTo": "private-code"
+    },
+    {
+      "name": "Usage state: used",
+      "kind": "chip",
+      "description": "Written usage state on its local tonal background.",
+      "html": "<span class=\"ds-state-used\">Premier résultat reçu</span>",
+      "css": ".ds-state-used{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:13px;line-height:1.5;padding:5px 9px;border-radius:5px;color:#276341;background:#e0ece3;display:inline-block}",
+      "refersTo": "state-used"
+    },
+    {
+      "name": "Usage state: unused",
+      "kind": "chip",
+      "description": "Written usage state on its local tonal background.",
+      "html": "<span class=\"ds-state-unused\">Aucun usage enregistré</span>",
+      "css": ".ds-state-unused{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;font-size:13px;line-height:1.5;padding:5px 9px;border-radius:5px;color:#69441f;background:#eee4d8;display:inline-block}",
+      "refersTo": "state-unused"
+    },
+    {
+      "name": "Working panel",
+      "kind": "card",
+      "description": "Shared white container for login and journey counts.",
+      "html": "<section class=\"ds-panel\"><h2>De l’inscription à l’usage</h2></section>",
+      "css": ".ds-panel{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;color:var(--foreground);background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:24px}.ds-panel h2{font-size:20px;font-weight:500;letter-spacing:-.02em;line-height:1.5;margin:0}@media(max-width:680px){.ds-panel{padding:20px}}",
+      "refersTo": "panel"
+    },
+    {
+      "name": "Origin disclosure",
+      "kind": "custom",
+      "description": "Native details retain their disclosure marker and keyboard interaction.",
+      "html": "<details class=\"ds-details\"><summary>Origine et premier usage</summary><dl><div><dt>Source</dt><dd>Non renseignée</dd></div><div><dt>Premier appel</dt><dd>Aucun enregistré</dd></div></dl></details>",
+      "css": ".ds-details{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;color:var(--foreground);line-height:1.5}.ds-details summary{color:#945421;cursor:pointer;min-height:44px;align-content:center;font-size:14px;width:fit-content}.ds-details summary:hover{text-decoration:underline}.ds-details summary:focus-visible{outline:2px solid #945421;outline-offset:4px;}.ds-details dl{background:var(--raise);padding:16px 20px;border-radius:12px;font-size:14px;margin:0}.ds-details dl>div{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:8px 0}.ds-details dt{color:var(--dim)}.ds-details dd{margin:0;overflow-wrap:anywhere}@media(max-width:680px){.ds-details dl>div{grid-template-columns:1fr;gap:3px}}"
+    },
+    {
+      "name": "Journey counts",
+      "kind": "custom",
+      "description": "Labeled tabular counts remain in two columns on small screens.",
+      "html": "<dl class=\"ds-counts\"><div><dt>Inscrits</dt><dd>12</dd><p>Organisations, hors comptes internes</p></div><div><dt>Connecteur essayé</dt><dd>8</dd><p>Au moins un appel avec leur clé</p></div><div><dt>Premier résultat utile</dt><dd>5</dd><p>Une aide contenant une action proposée</p></div><div><dt>Actifs sur 7 jours</dt><dd>3</dd><p>Au moins un résultat utile sur la période</p></div></dl>",
+      "css": ".ds-counts{font-family:var(--font-lp, \"IBM Plex Sans\"),ui-sans-serif,system-ui,sans-serif;color:var(--foreground);line-height:1.5;display:grid;grid-template-columns:repeat(4,1fr);margin:0}.ds-counts>div{padding:0 20px;border-left:1px solid var(--line)}.ds-counts>div:first-child{padding-left:0;border-left:0}.ds-counts>div:last-child{padding-right:0}.ds-counts dt{font-size:14px;min-height:42px}.ds-counts dd{font-size:36px;line-height:1.2;font-weight:500;font-variant-numeric:tabular-nums;margin:8px 0}.ds-counts p{font-size:13px;color:var(--dim);max-width:25ch;margin:0}@media(max-width:680px){.ds-counts{grid-template-columns:1fr 1fr;gap:20px 16px}.ds-counts>div{padding:0;border:0}.ds-counts>div:nth-child(n+3){padding-top:18px;border-top:1px solid var(--line)}.ds-counts dd{font-size:30px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Evidence Reading Room",
+    "overview": "This local record extends the existing 3xrep reading identity into the private monitoring surface. Cool gray paper, white working panels, copper disclosure controls and IBM Plex Sans retain the incumbent material language. Dark ink, fine rules and concise labels make a compact register readable.\n\nThe scope is src/app/monitoring/page.tsx and monitoring.module.css, with inherited typography and page colors from the root layout and stylesheet. The root DESIGN.md remains the public reading record. These local decisions do not redefine the homepage, the brand or the public library.",
+    "keyCharacteristics": [
+      "Flat surfaces and thin row separators.",
+      "Regular and medium IBM Plex Sans weights.",
+      "Numbers aligned with tabular figures.",
+      "Written usage states beside color.",
+      "Native disclosures and visible keyboard focus."
+    ],
+    "rules": [
+      {
+        "name": "The Named State Rule",
+        "body": "Keep the written usage state beside its color; green and brown never carry the meaning alone.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Hierarchy Rule",
+        "body": "Use regular body text and medium headings within the incumbent family; compact labels keep their natural sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Register Rule",
+        "body": "Separate organisations with fine rules; reserve white contained surfaces for grouped counts, login and expanded facts.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do reuse the inherited paper, ink and IBM Plex Sans family.",
+      "Do keep native disclosure markers and copper keyboard focus.",
+      "Do preserve written labels beside every usage state and count.",
+      "Do keep count groups in two columns on small screens and allow long addresses to wrap."
+    ],
+    "donts": [
+      "Don't apply this local record as a replacement for the root design system.",
+      "Don't remove textual state labels in favor of color alone.",
+      "Don't turn flat organisation rows into elevated cards without a new local design decision."
+    ]
+  }
+}

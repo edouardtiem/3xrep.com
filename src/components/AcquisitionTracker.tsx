@@ -1,10 +1,14 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { isPrivateSurface } from "@/lib/private-surface";
 import { libraryLandingCampaign } from "@/lib/playbooks/acquisition";
 
 /** First-touch campaign metadata for this tab only. Never stores keys or URLs. */
 export function AcquisitionTracker() {
+  const pathname = usePathname();
   useEffect(()=>{
+    if (isPrivateSurface(pathname, window.location.hostname)) return;
     const names=["utm_source","utm_campaign","utm_medium"];
     const key="3xrep-acquisition";
     let fields:Record<string,string>={};
@@ -37,6 +41,6 @@ export function AcquisitionTracker() {
     };
     document.addEventListener("formdata",attach,true);
     return ()=>document.removeEventListener("formdata",attach,true);
-  },[]);
+  },[pathname]);
   return null;
 }
