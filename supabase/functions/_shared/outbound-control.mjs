@@ -1,6 +1,6 @@
 import { CAMPAIGNS, DOMAINS, realEvents, metricsFor, decideRamp } from './ramp-up.mjs';
 import { syncOutbound } from './outbound-sync.mjs';
-import { decideDailyRamp, sendingDate } from './daily-ramp.mjs';
+import { decideDailyRamp, sendingDate, confirmedRefusals } from './daily-ramp.mjs';
 import { firstSendBudget } from './outbound-stock.mjs';
 
 async function checked(query) {
@@ -83,7 +83,7 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
         decision = { ...decision, action: 'hold', reason: 'manual_stop_other_campaign_required' };
       }
       const summary = { mailboxId: account.id, ...decision, metrics: { attempted: metrics.attempted, bounced: metrics.bounced,
-        cumulative: metrics.cumulative, effectiveDays: metrics.effectiveDays } };
+        cumulative: metrics.cumulative, effectiveDays: metrics.effectiveDays, healthyDays: metrics.healthyDays } };
       decisions.push(summary);
       if (!dryRun && daily) await checked(db.from('outbound_mailbox_daily').upsert({ mailbox_id: account.id,
         sending_date: sendingDate(now), run_id: runId, observed_cap: Number(account.message_per_day), planned_cap: decision.cap,
@@ -110,12 +110,15 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
           if (Number(after.message_per_day) !== decision.cap) throw new Error('Cap verification failed');
           account.message_per_day = decision.cap;
           state.observed_cap = decision.cap;
-          const deliveryReduction = decision.action === 'reduce' && decision.reason === 'bounce_rate';
+          const deliveryReduction = decision.action === 'reduce' && ['bounce_rate', 'temporary_refusal'].includes(decision.reason);
           if (state.stage !== decision.stage || (daily ? deliveryReduction : decision.action === 'reduce')) state.stage_changed_at = now.toISOString();
           state.stage = decision.stage;
-          state.cooldown = daily ? Boolean(deliveryReduction || (state.cooldown && metrics.effectiveDays < 5)) : decision.action === 'reduce';
+          state.cooldown = daily ? deliveryReduction : decision.action === 'reduce';
           if (deliveryReduction) state.handled_bounce_ids = [...new Set([...(state.handled_bounce_ids || []), ...metrics.bounceIds])];
-          if (daily) state.daily_plan = { ...state.daily_plan, baseline: decision.baseline, last_planned_date: decision.sendingDate };
+          if (daily && deliveryReduction) state.handled_delivery_incident_ids = [...new Set([...(state.handled_delivery_incident_ids || []),
+            ...confirmedRefusals(state, now).map(i => i.id)])];
+          if (daily) state.daily_plan = { ...state.daily_plan, baseline: decision.baseline, last_planned_date: decision.sendingDate,
+            policy: decision.policy, recovery_target: decision.recoveryTarget };
           // Only a first admission to stage 2 can attach a previously unused box.
           if (!daily && decision.stage === 2 && !ownCampaigns.length && !state.ever_attached) {
             for (const id of controlledIds) {

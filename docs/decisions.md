@@ -393,3 +393,16 @@ A (`4139326`) et B (`4139384`) sont activées après vérification des textes, �
 Le plan conserve 11 / 4 / 4 / 4 au départ, la réserve de trois jours et les plafonds de 200 vérifications par jour. Prévision sous conditions : environ 45 envois quotidiens au total vendredi 23 octobre, environ 200 sur la semaine du 19 au 23, puis plage 41–45 par boîte vers mi-décembre. La moyenne finale reste 43 par boîte. Le lancement est explicitement autorisé ; il ne modifie pas le parcours public de gratuité qui reste à aligner. [Prévision et preuves](gtm/smartlead-cloud-control.md#activation-et-prévision-du-14-octobre).
 
 Le remplissage initial a révélé des résultats SmartProspect différés et la durée limitée de la fonction hébergée. Les reprises du même jour lisent désormais les demandes existantes sans refaire la recherche. Une reprise productive arrêtée par la durée programme au plus quatre suites automatiques, avec verrou et budget journalier commun. Le résultat de chaque lot terminé est enregistré. La réserve réelle atteint 69 contacts prêts pour le démarrage : 35 dans A, 34 dans B.
+
+
+## 2026-10-14 — Montée accélérée et réduction de moitié sur incident
+
+**Qui :** Édouard propose d’accélérer, de réduire de moitié dès le lendemain sur des signaux de livraison négatifs, puis de remonter progressivement. Il demande la mise en place et la clôture avec `end`.
+
+Le rythme précédent est remplacé pour les quatre boîtes : +3 jusqu’à 20, puis +5 jusqu’à 40, puis 43, après deux jours d’envoi sains à chaque base. Les jours sans envoi et les journées en cours ne comptent pas. Les preuves de destinataires distincts restent nécessaires ; pas de rattrapage après une panne. À terme, variation entre 41 et 45, moyenne 43.
+
+Un incident confirmé divise le plafond réel par deux au prochain contrôle, une seule fois pour les mêmes destinataires ou le même refus temporaire. Deux nouveaux destinataires en échec suffisent à confirmer un incident ; au moins 50 destinataires avec 2 % de rebonds et un nouvel échec suffisent aussi. À 5 % sur au moins 50 destinataires, ou sur blocage, plainte connue ou connexion défaillante, la boîte est arrêtée. Après une réduction, trois jours d’envoi sains et la résolution de la cause sont nécessaires. La reprise avance ensuite de 2 après deux jours sains jusqu’à la base précédant l’incident, sans variation quotidienne pendant cette reprise.
+
+Une absence d’ouverture ne déclenche pas une baisse. L’absence de réponse après 100 destinataires impose une revue. Une réponse négative commerciale appelle une revue de la cible et du texte, pas une sanction de livraison automatique. Les refus temporaires et plaintes non exposés dans les statistiques natives doivent être consignés avec leurs preuves dans l’état privé. Le contrôle agit chaque nuit ; il ne surveille pas les incidents en temps réel.
+
+Prévision sous conditions : environ 56 envois au total vendredi 23 octobre, environ 250 pendant la semaine du 19 au 23. Base de 43 vers le 5 novembre pour la première boîte, vers le 13 novembre pour les autres. Premiers jours à 45 entre le 10 et le 19 novembre selon la boîte. Cela remplace la prévision de décembre. [Règles, reprise et preuves](gtm/smartlead-cloud-control.md).

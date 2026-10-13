@@ -45,15 +45,25 @@ export function metricsFor(id, events, now, changedAt) {
   const attempted = new Set(window.map(e => e.recipient)).size;
   const bounced = new Set(window.filter(e => e.bounced).map(e => e.recipient)).size;
   const hour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'America/New_York', hour: '2-digit', hourCycle: 'h23' }).format(new Date(now)));
-  const effectiveDays = new Set(own.filter(e => {
+  const used = own.filter(e => {
     const date = localDate(e.sentAt);
     return changedAt && Date.parse(e.sentAt) >= Date.parse(changedAt) && Date.parse(e.sentAt) <= Date.parse(now) &&
       (date < today || (date === today && hour >= 17)) && weekday(date);
-  }).map(e => localDate(e.sentAt))).size;
+  });
+  const usedDays = [...new Set(used.map(e => localDate(e.sentAt)))].sort();
+  const failedDays = new Set(used.filter(e => e.bounced || e.senderBounce).map(e => localDate(e.sentAt)));
+  let healthyDays = 0;
+  for (const date of usedDays) healthyDays = failedDays.has(date) ? 0 : healthyDays + 1;
+  const bounceGroups = new Map();
+  for (const e of window.filter(e => e.bounced)) {
+    if (!bounceGroups.has(e.recipient)) bounceGroups.set(e.recipient, []);
+    bounceGroups.get(e.recipient).push(e.id);
+  }
   return {
     attempted, bounced, rate: attempted ? bounced / attempted : null,
     cumulative: new Set(own.map(e => e.recipient)).size,
-    replied: own.some(e => e.replied), effectiveDays,
+    replied: own.some(e => e.replied), effectiveDays: usedDays.length, healthyDays,
+    bounceGroups: [...bounceGroups.values()],
     bounceIds: window.filter(e => e.bounced).map(e => e.id).sort(),
     senderBounce: window.some(e => e.senderBounce),
   };

@@ -91,6 +91,18 @@ test('message history attributes sender; repeat bounce events count one recipien
   assert.equal(real.complete, true);
   const m = metricsFor(1, real.events, new Date('2026-10-09T23:00:00Z'), '2026-10-07T23:00:00Z');
   assert.equal(m.bounced, 1); assert.equal(m.attempted, 1); assert.equal(m.effectiveDays, 2);
+  assert.equal(m.healthyDays, 0); assert.deepEqual(m.bounceGroups,[['a','b']]);
   staged[0].entries[0].sent[0].from = undefined;
   assert.equal(realEvents(staged, [{ id: 1, from_email: 'one@example.com' }]).complete, false);
+});
+test('healthy days count completed sending days and restart after a failure, without counting idle dates', () => {
+  const events = [
+    ['2026-10-07',false],['2026-10-08',true],['2026-10-09',false],['2026-10-12',false],['2026-10-13',false],
+  ].map(([date,bounced],i)=>({id:String(i),accountId:1,recipient:`buyer${i}@example.org`,sentAt:`${date}T15:00:00Z`,bounced}));
+  const beforeClose=metricsFor(1,events,new Date('2026-10-13T16:00:00Z'),'2026-10-06T23:00:00Z');
+  assert.equal(beforeClose.effectiveDays,4); assert.equal(beforeClose.healthyDays,2);
+  const afterClose=metricsFor(1,events,new Date('2026-10-13T23:00:00Z'),'2026-10-06T23:00:00Z');
+  assert.equal(afterClose.healthyDays,3);
+  const afterRise=metricsFor(1,events,new Date('2026-10-13T23:00:00Z'),'2026-10-12T23:00:00Z');
+  assert.equal(afterRise.healthyDays,1);
 });
