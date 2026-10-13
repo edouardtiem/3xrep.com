@@ -71,6 +71,50 @@ test('failed cap verification cannot attach a mailbox or record a successful ris
   assert.equal(x.writes.length, 1);
   assert.equal(x.rows[0].state.stage, 0);
 });
+test('daily variation downward is not a delivery penalty and a repeated run cannot change it twice', async () => {
+  const x = environment();
+  x.now = new Date('2026-10-13T23:00:00Z');
+  const start = '2026-09-21T19:02:42.915Z';
+  x.rows[0].state = { approved:true,stage:43,observed_cap:45,warmup_started_at:start,stage_changed_at:'2026-10-11T00:00:00Z',
+    daily_plan:{version:2,target:43,baseline:43},ever_attached:true };
+  let mailboxCap=45;
+  const campaignCaps=new Map([['4023139',1],['4023140',1]]);
+  const get=x.smartlead.get,post=x.smartlead.post;
+  const account={id:1,from_email:'one@3xrepgrow.com',is_smtp_success:true,is_imap_success:true,
+    warmup_details:{status:'ACTIVE',warmup_created_at:start}};
+  x.smartlead.get=async path=>{
+    if(path==='email-accounts/')return [{...account,message_per_day:mailboxCap}];
+    if(path==='email-accounts/1/')return {...account,message_per_day:mailboxCap};
+    if(path.endsWith('/warmup-stats'))return {sent_count:80,inbox_count:80,spam_count:0,stats_by_date:[{date:'2026-10-13'}]};
+    if(path.endsWith('/email-accounts'))return [{id:1}];
+    if(campaignCaps.has(path.split('/')[1])&&!path.endsWith('/'))return {...await get(path),max_new_leads_per_day:campaignCaps.get(path.split('/')[1])};
+    return get(path);
+  };
+  x.smartlead.post=async(path,body)=>{
+    await post(path,body);
+    if(path==='email-accounts/1')mailboxCap=body.max_email_per_day;
+    if(path.endsWith('/schedule')){
+      assert.equal('max_leads_per_day' in body,false);
+      campaignCaps.set(path.split('/')[1],body.max_new_leads_per_day);
+    }
+  };
+  const from=x.db.from;
+  x.db.from=table=>table==='outbound_mailbox_daily'?{upsert:async()=>({data:{},error:null})}:from(table);
+  x.sequences=[{id:'A',provider_campaign_id:'4023139',controlled:true},{id:'B',provider_campaign_id:'4023140',controlled:true}];
+  x.sync=async()=>({staged:[{entries:[{entry:{lead:{email:'buyer@example.org'}},
+    sent:[{stats_id:'a',from:account.from_email},{stats_id:'b',from:account.from_email}],
+    stats:[{stats_id:'a',sent_time:'2026-10-12T15:00:00Z',is_bounced:false},
+      {stats_id:'b',sent_time:'2026-10-13T15:00:00Z',is_bounced:false}]}]}]});
+  const result=await runOutboundControl(x);
+  assert.equal(result.decisions[0].reason,'daily_variation');
+  assert.ok(mailboxCap<45&&mailboxCap>=41);
+  assert.equal(x.rows[0].state.cooldown,false);
+  assert.equal(x.rows[0].state.stage_changed_at,'2026-10-11T00:00:00Z');
+  const mutations=x.writes.length;
+  const again=await runOutboundControl(x);
+  assert.equal(again.decisions[0].reason,'already_planned');
+  assert.equal(x.writes.length,mutations);
+});
 test('database lease excludes a concurrent worker; acquisition tables remain private', async () => {
   const db = new PGlite();
   try {

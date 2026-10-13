@@ -1,5 +1,11 @@
 # Landing — 3xrep.com
 
+## Décision du 13 octobre 2026 — gratuité à vie, une seule offre
+
+La promesse retenue est **« Free forever for the first 20 organizations. »** Elle concerne 3xrep pour toute l’organisation, sans mention de « base plan », sans sélection après usage ni seuil d’activité. Édouard décide quand les suivantes passent au payant et peut offrir davantage de places. Les droits gratuits déjà promis restent acquis. Contrat : [décision](decisions.md#2026-10-13--une-seule-offre-gratuite-à-vie-pour-les-premières-organisations) et [bêta](beta/founding-20.md).
+
+Cette décision remplace les anciennes conditions commerciales décrites ci-dessous. Le site et son formulaire conservent encore leurs textes et contrôles précédents ; leur adaptation n’est pas réalisée par cette mise à jour documentaire.
+
 ## Décision du 30 septembre 2026 — circuit partagé, en local
 
 Le titre d’accueil reste « Every deal needs a strategy. ». La démonstration précédente avec Julien, Maya et la mascotte est conservée en ouverture. Le circuit animé arrive juste après, dans la même affaire fictive Acme. Il montre les sources → assistant → 3xrep → prochain geste → formulation dans l’assistant. Sur grand écran assez haut, le texte de la section du circuit suit aussi le défilement, puis s’arrête à la fin de la section. Sur petit écran, il défile normalement. Le détail des preuves est dépliable sur l’accueil et reste visible dans la bibliothèque. Les six flèches restent visibles. La lecture est finie et rejouable ; la préférence de réduction des animations garde le circuit fixe.

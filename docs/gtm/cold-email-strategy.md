@@ -1,8 +1,8 @@
 # Acquisition outbound — stratégie actuelle
 
-> Statut : test lancé dans Smartlead. Au 25 septembre 2026, les deux campagnes sont actives et deux premiers courriels sont partis; un a rebondi avec une adresse inexistante. Plafond actuel : deux courriels par jour au total. Cette documentation seule n’autorise aucun changement d’envoi. La séquence Gojiberry est obsolète et ne doit pas être reprise.
+> Décision du 13 octobre 2026 : prochain test réservé aux commerciaux expérimentés de petites entreprises. Deux premiers courriels fixés : [œil extérieur sur une affaire presque perdue / mise à l’épreuve de 3xrep](cold-email-senior-beta-test.md). Trois relances par séquence sont documentées et enregistrées dans Smartlead : jours 0, 4, 9 et 16. A et B restent en brouillon avec les quatre boîtes. Les anciennes campagnes sont en pause ; aucun envoi du nouveau test n’est lancé. La séquence Gojiberry est obsolète.
 
-Mise à jour du 30 septembre : 40 contacts et huit envois synchronisés, un rebond. Les quatre boîtes ont un plafond réel de 2 chacune ; seule la première est actuellement rattachée aux campagnes. Édouard a autorisé une montée automatique par adresse : sept jours sans prospection, sept jours à 2 par jour ouvré, puis paliers de 5, 15 et 25 sous contrôle, avec marge de 20 %. Le [contrôle hébergé](smartlead-cloud-control.md) tourne sur Supabase à 1 h, heure de Paris, et remplace les deux tâches Codex locales. Le préchauffage continue. Une alerte non résolue reporte les hausses.
+État vérifié le 13 octobre : 40 contacts historiques, 22 envois et trois rebonds synchronisés. Les plafonds de départ sont 11 / 4 / 4 / 4. Le nouveau plan vise une moyenne de 43 par boîte et par jour ouvré, avec un maximum de 45, relances comprises. La montée exige de vrais jours d’envoi et les contrôles de livraison ; les limites du plan du 30 septembre sont remplacées pour ces quatre boîtes. Le [contrôle hébergé](smartlead-cloud-control.md) tourne sur Supabase à 1 h, heure de Paris, et remplace les deux tâches Codex locales. Le préchauffage continue. Une alerte non résolue reporte les hausses. Le [circuit de recherche et vérification](outbound-contact-sourcing.md) a ajouté quatre contacts valides après l’essai sur dix profils ; son renouvellement fait partie du même contrôle de 1 h.
 
 Cadre général : [acquisition-strategy.md](acquisition-strategy.md), décision du 30 septembre. Ce fichier reste la référence opérationnelle du cold email, moteur court terme et apprentissage. Sa boucle d’itération de campagnes existe indépendamment des futures boucles entre SEO, usage et referral, qui ne sont pas ouvertes.
 
@@ -14,11 +14,17 @@ Note du 1er octobre 2026 : [approche détaillée](ae-internal-champion-test.md).
 
 Tester le cold email américain avec Smartlead comme moteur d’envoi et d’orchestration. La campagne vend la stratégie par affaire de 3xrep : à partir du contexte réel d’un deal, construire comment obtenir la prochaine preuve et faire avancer la décision — qui impliquer, comment y accéder, quoi demander ou écrire et comment réagir.
 
-Fil narratif central : partir d’un blocage concret autour du décideur, puis montrer que 3xrep aide à choisir la prochaine étape tout au long du cycle de vente, sur une affaire ou plusieurs.
+**Offre décidée le 13 octobre :** une seule offre 3xrep, **« Free forever for the first 20 organizations. »** Aucun « base plan », aucune sélection après usage pour obtenir la gratuité promise. Édouard décide quand les suivantes deviennent payantes et peut offrir davantage de places. Les promesses à vie restent tenues. [Décision](../decisions.md#2026-10-13--une-seule-offre-gratuite-à-vie-pour-les-premières-organisations). Les nouvelles séquences A et B sont enregistrées dans Smartlead et suivies dans Supabase. Les textes du 25 septembre ci-dessous restent historiques. Le code d’admission et le parcours du site restent à adapter à cette promesse avant le lancement.
+
+Fil narratif du prochain test : A apporte un œil extérieur sur une affaire que le commercial hésite à abandonner ; B invite un commercial expérimenté à confronter la démarche de 3xrep à la sienne. Les [deux textes fixés](cold-email-senior-beta-test.md) remplacent l’invitation centrée sur l’accès au décideur du 25 septembre.
 
 Ne pas présenter 3xrep comme un séquenceur, une boîte blanche Smartlead, un simple coach IA ou un dashboard. Le produit prépare le jugement et les prochaines conversations; il n’envoie pas de message au prospect à la place de l’utilisateur.
 
 ## ICP et personas
+
+**Cible actuelle — 13 octobre :** commerciaux expérimentés de petites entreprises vendant à d’autres entreprises, responsables de leurs propres affaires. Les managers sont exclus de ce test d’acquisition. Aucun nouveau seuil chiffré de taille, d’expérience ou de secteur n’est fixé. Les deux variantes visent des profils comparables ; détails dans le [test bêta](cold-email-senior-beta-test.md).
+
+### Ciblage initial du 25 septembre — historique
 
 Cohorte initiale : entreprises américaines B2B SaaS, logiciel ou services technologiques, environ 20–300 employés (filtre de départ, pas vérité de marché), avec vente consultative et plusieurs parties prenantes. Il faut un CRM ou des notes commerciales et assez de contexte pour essayer le produit sur une vraie affaire. Priorité aux équipes qui utilisent déjà ChatGPT ou Claude au travail si c’est vérifiable.
 
@@ -39,13 +45,15 @@ Pour chaque prospect, garder l’URL source, la date, le fait exact et le lien a
 
 Une source dédiée fournit les contacts et vérifie les adresses. ChatGPT ou une routine de recherche qualifie le compte, comprend le signal et choisit l’angle. Smartlead envoie et gère les réponses.
 
-## Séquences de départ
+## Séquences du 25 septembre — historique
+
+Les premiers messages A et B du [test du 13 octobre](cold-email-senior-beta-test.md) gagnent pour le prochain recrutement. Les séquences ci-dessous sont conservées pour l’historique ; ni leurs six messages ni leur calendrier ne sont repris automatiquement. Les trois relances du nouveau test sont réunies avec leurs premiers messages dans ce document du test.
 
 Version revue le 25 septembre après lecture du produit et du moteur de stratégie, des recherches de Gong et de la documentation Smartlead. Le test a commencé : deux courriels ont été envoyés le 25 septembre, un a rebondi, aucun n’a encore obtenu de réponse humaine. Il est trop tôt pour juger la conversion.
 
 Le premier courriel présente une situation possible, sans prétendre que le destinataire l’a vécue. Il explique la démarche concrète, précise que l’accès au décideur est un exemple parmi d’autres et invite à contribuer par un essai réel. Le deuxième approfondit la démarche pour les commerciaux et la préparation du coaching pour les managers. Le troisième ouvre sur une proposition bloquée ou la revue de plusieurs affaires.
 
-Voix : « we », jamais « I »; aucun tiret cadratin dans les courriels. La phrase sur l’expérience est conservée et suivie d’une question claire. La Beta est gratuite. L’accès à vie au plan de base concerne jusqu’à 20 organisations sélectionnées après usage réel, pas automatiquement toutes les inscriptions.
+Voix : « we », jamais « I »; aucun tiret cadratin dans les courriels. La phrase sur l’expérience est conservée et suivie d’une question claire. La Beta est sans carte. La promesse est **« Free forever for the first 20 organizations. »** Elle concerne toute l’organisation et l’unique offre 3xrep. Ne pas réintroduire de sélection après usage, de nombre de sessions requis ou de restriction à un « base plan ».
 
 Décision : six courriels par campagne. Les trois suivants abordent une affaire sans réponse, la négociation d’une remise, puis une dernière invitation courte. Examiner les réponses humaines positives et les essais activés apportés par les dernières étapes avant de décider de les conserver dans les futures cohortes.
 
@@ -69,7 +77,7 @@ This is one example of how it helps plan next steps from prospecting to close.
 
 Given your experience with complex deals, we'd value your feedback as you try it on one live opportunity.
 
-The beta is free. We'll select up to 20 founding organizations after real use, with lifetime access to the base plan for their whole organization.
+3xrep is free forever for the first 20 organizations. No credit card required.
 
 Would you be interested in taking part?
 
@@ -169,7 +177,7 @@ This is one example of how it helps plan next steps from prospecting to close.
 
 Given your experience with complex deals, we'd value your feedback as you try it on one live opportunity.
 
-The beta is free. We'll select up to 20 founding organizations after real use, with lifetime access to the base plan for their whole organization.
+3xrep is free forever for the first 20 organizations. No credit card required.
 
 Would you be interested in taking part?
 
@@ -258,10 +266,10 @@ Edouard
 - Ne pas utiliser de slot IA ni de variations automatiques de mots. Ce choix simplifie le premier test; il ne prouve pas que la personnalisation IA est inefficace.
 - Avant import, mapper le prénom et le secteur, vérifier la grammaire de chaque aperçu et traiter les champs manquants. Conserver le poste dans les données de qualification.
 - Ne pas inventer de citation, d’usage d’outils, de résultat, de relation ou d’urgence. Un contact n’est pas automatiquement un champion; la démarche dépend du contexte et des preuves disponibles.
-- Garder une seule version par campagne au départ. Pour un futur test, répartir deux variantes à parts égales dans un même public et ne changer qu’un élément. Comparer les réponses humaines positives et les essais utilisés sur une vraie affaire. Ne pas sélectionner automatiquement une version sur les ouvertures ou les clics, ni traiter les deux publics comme un test de texte contrôlé.
-- Pas de pièce jointe, pixel ou lien dans les deux premiers courriels. Le lien d’inscription est réservé au troisième et aux demandes explicites d’information. Les UTM identifient le segment et l’angle, sans donnée personnelle.
+- Pour le test du 13 octobre, répartir A et B à parts égales sur la durée du test, dans un même public et sur chacune des quatre adresses. Les deux invitations diffèrent par leur approche, leur objet et leur demande : ne pas attribuer le résultat à un seul élément. Comparer les réponses humaines positives et les essais sur une vraie affaire, sans sélectionner automatiquement une version sur les ouvertures ou les clics.
+- Aucun lien ni pièce jointe dans les premiers messages A et B. Le suivi des ouvertures a été activé à la demande d’Édouard le 13 octobre ; il n’est pas le critère de choix. Les relances sont fixées aux jours 4, 9 et 16. La troisième étape contient le lien d’inscription propre à A ou B. Les UTM identifient le segment et l’angle, sans donnée personnelle.
 - Arrêter après toute réponse, désinscription ou rebond. Les réponses négatives ne sont pas réenrôlées.
-- Avant lancement, vérifier que la Beta est ouverte et qu’il reste des places Founding. L’attribution suit les règles de [Founding 20](../beta/founding-20.md).
+- Avant lancement, vérifier que l’offre gratuite est toujours ouverte et que le parcours d’inscription permet d’honorer la promesse. Édouard peut fermer cette offre pour les nouvelles organisations ou l’étendre. L’ancien plafond technique de 20 reste à adapter ; voir [contrat et état livré](../beta/founding-20.md).
 
 ## Smartlead — règles de campagne
 
@@ -289,7 +297,9 @@ Le modèle ne réécrit pas et ne lance pas une campagne seul. À chaque revue, 
 
 Distinguer prospects uniques et envois (les relances sont des envois supplémentaires). Rapporter par cohorte : délivrés, rebonds, désinscriptions, réponses humaines, positives, signups attribués, activation sur vrai deal, retours d’usage, organisations qualifiées Founding, puis paid après la bêta, et coût par signup/activation/organisation payante.
 
-**Objectif de la Beta fixé le 25 septembre :** pour 1 000 courriels envoyés au total, obtenir 5 à 15 organisations inscrites, avec au moins une personne inscrite dans chacune. Le dénominateur compte aussi les relances, pas seulement les adresses contactées. À ce seuil, examiner l’usage réel. Si l’usage est déjà bon avant, une organisation peut être retenue plus tôt. Accorder l’offre de base gratuite à vie aux organisations retenues, dans la limite des 20 places Founding; lancer ensuite l’offre payante pour les nouvelles organisations. C’est un but de recrutement et d’apprentissage, pas une prévision de résultat.
+**Objectif de recrutement fixé le 25 septembre :** pour 1 000 courriels envoyés au total, obtenir 5 à 15 organisations inscrites, avec au moins une personne inscrite dans chacune. Le dénominateur compte aussi les relances, pas seulement les adresses contactées. À ce seuil, examiner l’usage réel. C’est un but de recrutement et d’apprentissage, pas une prévision de résultat ni une condition de gratuité.
+
+**Décision du 13 octobre :** la gratuité à vie est promise aux premières organisations, sans sélection après usage et sans distinction d’offre de base. Édouard peut ouvrir le payant aux suivantes dès que quelques organisations sont très satisfaites, ou offrir davantage de places si l’usage reste insuffisant. Le nombre annoncé de 20 n’impose ni d’attendre 20 organisations avant cette décision, ni un plafond définitif. Les droits gratuits déjà promis restent acquis.
 
 Plages hypothétiques du scénario discuté, à viser après optimisation et non à présenter comme une prévision :
 

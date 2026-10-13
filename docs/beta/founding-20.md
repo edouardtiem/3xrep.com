@@ -1,6 +1,18 @@
 # Founding 20
 
-## Décision en vigueur — 23 septembre 2026
+## Décision en vigueur — 13 octobre 2026
+
+Une seule offre 3xrep, **gratuite à vie pour les 20 premières organisations**. Formulation publique autorisée : **« Free forever for the first 20 organizations. »** Aucun « plan de base », aucune sélection après usage ni seuil de sessions, de jours actifs ou de retours pour obtenir la gratuité promise. Le droit concerne toute l’organisation.
+
+Édouard décide quand les nouvelles organisations passent au payant. Il peut le faire après quelques organisations très satisfaites, sans attendre d’en avoir 20, ou offrir davantage de places si l’usage est encore insuffisant. Les 20 premières sont un repère annoncé, pas une limite définitive. Les promesses de gratuité à vie restent tenues, même en cas d’inactivité ; les bénéficiaires ne sont pas remplacées pour libérer leurs places. L’usage et les avis servent à apprendre.
+
+Décision complète : [decisions.md](../decisions.md#2026-10-13--une-seule-offre-gratuite-à-vie-pour-les-premières-organisations). Tarif standard inchangé : 129 dollars par mois et par organisation. Cette révision concerne la documentation, sans changement de code, de base, de site ou de campagne.
+
+### Écart avec le fonctionnement livré
+
+Le programme livré exige encore une qualification après usage et une attribution manuelle. La base limite encore le registre à 20 places et ferme les nouvelles inscriptions à ce seuil ou à la fermeture de la bêta. Ces règles techniques doivent être adaptées à la décision du 13 octobre ; elles ne définissent plus la promesse commerciale. Les procédures ci-dessous décrivent cet état livré, pas une nouvelle offre de base ni des conditions à annoncer aux participants.
+
+## État livré — décision du 23 septembre 2026
 
 Pendant le recrutement des 20 équipes, la Beta est le seul parcours de nouvelle inscription. La migration `20260923120000_beta_only_signup.sql` bloque en base toute nouvelle organisation d’essai si la Beta est fermée ou si les 20 places ont été attribuées. Le formulaire et sa route appliquent la même règle. Les essais standard et abonnements déjà existants gardent leurs droits. À la sortie de la Beta, une équipe non retenue choisit librement le tarif standard ; aucune carte n’est prise pendant la Beta. Les mentions contraires ci-dessous décrivent la version initiale du programme et ne définissent plus les nouvelles inscriptions.
 
@@ -25,7 +37,7 @@ Branche : `feat/founding-20`, depuis `origin/pre_main`. Aucun changement de prod
 
 Risques à traiter : anciens liens de paiement ouverts, paiement concurrent à l’attribution, appels répétés par un agent, confusion entre organisation et utilisateur, coupure immédiate à la fin de bêta, bases de prévisualisation reliées à la production.
 
-## Fonctionnement livré
+## Fonctionnement livré avant la décision du 13 octobre
 
 ### Accès et qualification
 

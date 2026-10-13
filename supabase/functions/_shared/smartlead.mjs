@@ -9,7 +9,11 @@ export function createSmartlead(key, fetcher = fetch) {
       ...(body ? { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {}),
     });
     // Provider bodies and URLs can contain credentials or message content.
-    if (!response.ok) throw new Error(`Smartlead HTTP ${response.status} (${path.replace(/\d+/g, ':id')})`);
+    if (!response.ok) {
+      const error = new Error(`Smartlead HTTP ${response.status} (${path.replace(/\d+/g, ':id')})`);
+      error.safeCode = `SMARTLEAD_HTTP_${response.status}`;
+      throw error;
+    }
     return response.json();
   }
   return {
