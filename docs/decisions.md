@@ -383,3 +383,13 @@ Les réglages exacts, la contrainte Supabase et les causes possibles d’une lim
 La réserve remplace les deux jours initialement prévus : **trois jours ouvrés de contacts valides déjà importés et pas encore contactés**, sur toute la capacité des boîtes. Après chaque lot vérifié et relu dans Smartlead, le programme continue la recherche si A ou B manque de stock. Toutes les reprises du passage partagent le plafond de 200 vérifications et le même verrou quotidien. Arrêt sur réserve remplie, budget atteint, crédits épuisés, recherche sans nouveau profil ou durée insuffisante ; le manque et sa cause restent visibles dans Supabase.
 
 Le nombre de nouveaux contacts permis dans chaque campagne tient compte des relances attendues depuis les envois réels. Le plafond total par boîte couvre toujours premiers messages et relances. Aucun envoi n’est garanti par la seule présence de stock. Campagnes en brouillon et parcours de gratuité à aligner avant lancement. Détails : [Recherche et vérification des contacts](gtm/outbound-contact-sourcing.md).
+
+## 2026-10-14 — Activation A/B et suivi complet Smartlead
+
+**Qui :** Édouard demande de rendre les deux séquences actives maintenant, de suivre les ouvertures et toutes les mesures disponibles, puis de poursuivre la montée par boîte.
+
+A (`4139326`) et B (`4139384`) sont activées après vérification des textes, étapes, contacts vérifiés et boîtes. Les anciennes campagnes restent en pause. Le suivi Smartlead est activé pour ouvertures, clics et réponses, avec arrêt après réponse. Les clics sont ajoutés au suivi privé Supabase ; les autres mesures d’envoi, réponse, rebond, désinscription, inscription et usage attribué restent présentes.
+
+Le plan conserve 11 / 4 / 4 / 4 au départ, la réserve de trois jours et les plafonds de 200 vérifications par jour. Prévision sous conditions : environ 45 envois quotidiens au total vendredi 23 octobre, environ 200 sur la semaine du 19 au 23, puis plage 41–45 par boîte vers mi-décembre. La moyenne finale reste 43 par boîte. Le lancement est explicitement autorisé ; il ne modifie pas le parcours public de gratuité qui reste à aligner. [Prévision et preuves](gtm/smartlead-cloud-control.md#activation-et-prévision-du-14-octobre).
+
+Le remplissage initial a révélé des résultats SmartProspect différés et la durée limitée de la fonction hébergée. Les reprises du même jour lisent désormais les demandes existantes sans refaire la recherche. Une reprise productive arrêtée par la durée programme au plus quatre suites automatiques, avec verrou et budget journalier commun. Le résultat de chaque lot terminé est enregistré. La réserve réelle atteint 69 contacts prêts pour le démarrage : 35 dans A, 34 dans B.

@@ -10,7 +10,7 @@ const directory=await mkdtemp(join(tmpdir(),'3xrep-stock-deploy-'));
 function cli(args){try{return execFileSync('supabase',args,{encoding:'utf8',stdio:['ignore','pipe','pipe']});}catch{throw Error(`Supabase ${args.slice(0,2).join(' ')} failed`);}}
 async function sql(query){const file=join(directory,'query.sql');await writeFile(file,query,{mode:0o600});return JSON.parse(cli(['db','query','--linked','--file',file,'--output','json'])).rows;}
 try{
- for(const [version,name] of [['20261014000000','outbound_verifier_daily_cap'],['20261014010000','outbound_three_day_stock']]){
+ for(const [version,name] of [['20261014000000','outbound_verifier_daily_cap'],['20261014010000','outbound_three_day_stock'],['20261014020000','outbound_click_tracking'],['20261014030000','outbound_reconciliation_queue']]){
   if((await sql(`select version from supabase_migrations.schema_migrations where version='${version}';`)).length)continue;
   const source=await readFile(`supabase/migrations/${version}_${name}.sql`,'utf8');
   await sql(`begin;${source}\ninsert into supabase_migrations.schema_migrations(version,name,statements) values('${version}','${name}',array['${source.replaceAll("'","''")}']);commit;`);
@@ -28,7 +28,7 @@ try{
   if(!response.ok)throw Error(`Hosted HTTP ${response.status}`);
   const result=await response.json();if(!result.attributionComplete||!result.sendingPlan)throw Error('Hosted control incomplete');
   if(!dryRun&&!['nothing_needed','success','already_running','already_attempted'].includes(result.sourcing?.status))throw Error('Hosted sourcing failed');
-  console.log(JSON.stringify({runId:result.runId,dryRun,sendingPlan:result.sendingPlan,sourcing:result.sourcing,mailboxes:result.decisions.map(d=>({id:d.mailboxId,cap:d.cap,reason:d.reason}))}));
+  console.log(JSON.stringify({runId:result.runId,dryRun,sendingPlan:result.sendingPlan,sourcing:result.sourcing?Object.fromEntries(['status','runId','imported','verified','requested','pending','queuedAfter','shortfall','stopReason','reconcileOnly','previouslyVerified','continuationQueued','continuationError'].filter(k=>result.sourcing[k]!==undefined).map(k=>[k,result.sourcing[k]])):null,mailboxes:result.decisions.map(d=>({id:d.mailboxId,cap:d.cap,reason:d.reason}))}));
  }
  console.log(JSON.stringify({config,cron:await sql("select jobname,active,schedule,position('Europe/Paris' in command)>0 as paris_guard from cron.job where jobname='3xrep-outbound-cloud-01h';")}));
 }finally{await rm(directory,{recursive:true,force:true});}

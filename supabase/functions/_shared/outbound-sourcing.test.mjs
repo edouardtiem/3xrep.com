@@ -122,3 +122,19 @@ test('scroll pages may omit the original filter id and keep the same cursor toke
  };
  const r=await runOutboundSourcing(daily(s));assert.equal(r.shortfall,0);assert.equal(r.verified,24);assert.equal(r.rounds,2);
 });
+
+test('same-day reconciliation completes asynchronous requests without repeating discovery and shares the verification budget',async()=>{
+ const s=system(Array(20).fill('valid'),{active:true});const original=s.smartprospect.post;let pending=true;
+ s.smartprospect.post=async(path,body)=>path==='get-contacts'&&pending?{list:[]}:original(path,body);
+ const args=daily(s);const first=await runOutboundSourcing(args);assert.equal(first.imported,0);assert.equal(first.verified,0);
+ const before=s.counts();pending=false;const r=await runOutboundSourcing(args);
+ assert.equal(r.reconcileOnly,true);assert.equal(r.shortfall,0);assert.equal(r.imported,12);
+ assert.equal(s.counts().fetched,before.fetched);assert.equal(s.counts().searches,before.searches);
+});
+test('reconciliation cannot spend another 200 checks after the daily verification budget is used',async()=>{
+ const s=system(['valid'],{active:true});const args=daily(s);
+ s.db.tables.outbound_sourcing_config[0].last_attempted_date='2026-10-14';
+ s.db.tables.outbound_sourcing_runs.push({id:'previous',mode:'daily',sending_date:'2026-10-14',result:{verified:200}});
+ const r=await runOutboundSourcing(args);assert.equal(r.verified,0);assert.equal(r.stopReason,'verification_cap');assert.equal(r.previouslyVerified,200);
+ assert.deepEqual(s.counts(),{fetched:0,checked:0,searches:0});
+});

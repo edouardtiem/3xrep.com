@@ -149,6 +149,7 @@ function eventRows(membershipId, sent, stats) {
       mailbox_id: mailboxByEmail.get(senderEmail(event.from)) || null,
       provider_stats_id: event.stats_id == null ? null : String(event.stats_id),
       opened_at: dateOrNull(stat?.open_time),
+      clicked_at: dateOrNull(stat?.click_time),
       replied_at: stat?.is_bounced || stat?.ignore_reply ? null : dateOrNull(stat?.reply_time),
       is_bounced: stat?.is_bounced === true,
     } : {}),

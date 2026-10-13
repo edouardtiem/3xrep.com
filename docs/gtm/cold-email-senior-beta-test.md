@@ -142,7 +142,7 @@ La cible de volume est une moyenne de 43 envois par jour ouvré et par boîte, a
 
 La préparation des campagnes ne lance aucun envoi : le pilote de contacts vérifiés est décrit ci-dessous et les prochains lots attendent des campagnes actives. Le parcours de gratuité à vie reste à aligner avant le lancement.
 
-## État Smartlead vérifié au 13 octobre
+## État Smartlead vérifié au 13 octobre — historique
 
 Les nouvelles campagnes **4139326 (A)** et **4139384 (B)** sont enregistrées en brouillon. Chacune contient les quatre courriels ci-dessus et les quatre adresses. Les anciennes campagnes **4023139** et **4023140**, dont la séquence managers, restent en pause ; leurs destinataires ne sont pas transférés.
 
@@ -151,3 +151,9 @@ Les plafonds sont 11 envois par jour pour `edouard@get3xrep.com`, 4 pour chacune
 Le registre des séquences, leur suivi et la répartition des futurs contacts sont en place dans Supabase. Le contrôle hébergé est déployé, testé et programmé à 1 h, heure de Paris. Son état correspond aux plafonds actuels. Les trois rebonds historiques ont été examinés : destinataires indisponibles, déjà bloqués dans Smartlead. Les incidents futurs restent soumis aux règles d’arrêt et de revue.
 
 Le [pilote de recherche et vérification](outbound-contact-sourcing.md) a importé quatre contacts valides, deux dans A et deux dans B, après vérification Kitt via Treg. Six autres profils du lot restent en base. Aucun envoi de ces séquences n’a été lancé. Le parcours de gratuité à vie reste à aligner avant le lancement.
+
+## Activation du 14 octobre
+
+Édouard autorise explicitement le lancement immédiat de A et B. Les deux statuts `ACTIVE` sont relus dans Smartlead. Les textes et délais sont vérifiés à l’identique ; les anciennes campagnes restent `PAUSED`. Le suivi des ouvertures, clics et réponses est activé (`track_settings=[]`), avec arrêt après réponse. Aucun ancien destinataire n’est transféré.
+
+Les plafonds de départ restent 11 / 4 / 4 / 4. La première fenêtre après activation est mercredi 14 octobre, de 9 h à 17 h à New York, soit 15 h à 23 h à Paris cette semaine. Le contrôle de 1 h remplit les campagnes et monte les volumes selon les jours réellement employés et les contrôles de livraison. Le lancement ne constitue pas une modification du parcours public de gratuité, qui reste à adapter. Estimations et limites : [contrôle hébergé](smartlead-cloud-control.md).

@@ -26,11 +26,13 @@ test('new assignments are balanced, idempotent, verified and exclusive per compa
       create table orgs(id uuid,acquisition_source text,acquisition_campaign text,is_internal boolean,activated_at timestamptz);
       create table beta_events(org_id uuid,kind text);`);
     await db.exec(await readFile(new URL('../../migrations/20261013200000_outbound_sequences_and_daily_plan.sql',import.meta.url),'utf8'));
+    await db.exec(await readFile(new URL('../../migrations/20261014020000_outbound_click_tracking.sql',import.meta.url),'utf8'));
     for (const [index,variant] of ['A','B'].entries()) await db.query(`insert into outbound_sequences(id,cohort,variant,version,provider_campaign_id,acquisition_campaign,content_hash,steps)
       values($1,'senior-beta-2026-10-13',$2,1,$3,$1,'hash','[]')`,[variant,variant,String(index)]);
     const ids=['11111111-1111-4111-8111-111111111111','22222222-2222-4222-8222-222222222222','33333333-3333-4333-8333-333333333333'];
     for (const [i,id] of ids.entries()) await db.query('insert into outbound_prospects values($1,$2,$3,$4)',[id,i===2?'unknown':'valid',`company-${i}.com`,true]);
     const assign=async id=>(await db.query('select assign_senior_beta_sequence($1) as id',[id])).rows[0].id;
+    assert.equal((await db.query('select observed_clicked_messages from outbound_sequence_results')).rows.every(r=>Number(r.observed_clicked_messages)===0),true);
     assert.equal(await assign(ids[0]),'A'); assert.equal(await assign(ids[0]),'A'); assert.equal(await assign(ids[1]),'B');
     await assert.rejects(assign(ids[2]),/CONTACT_NOT_QUALIFIED/);
     await db.query('update outbound_prospects set email_verification_status=$1,company_domain=$2 where id=$3',['valid','company-0.com',ids[2]]);

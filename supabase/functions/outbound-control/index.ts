@@ -48,6 +48,11 @@ Deno.serve(async (request: Request) => {
             smartprospect: createSmartprospect(Deno.env.get('SMARTLEAD_API_KEY')),
             verifier: createEmailVerifier(Deno.env.get('TREG_TOKEN'), undefined, {endpointId: config.verifier_endpoint, maxCostMicro: config.verifier_max_cost_micro}),
             controlResult: result, deadlineMs:startedAt+105000 });
+          if (sourcing && typeof sourcing === 'object' && 'runId' in sourcing) {
+            const continuation = await db.rpc('queue_outbound_reconciliation', {source_run_id:sourcing.runId});
+            sourcing = {...sourcing, continuationQueued:continuation.data === true,
+              ...(continuation.error ? {continuationError:'RECONCILIATION_QUEUE_UNAVAILABLE'} : {})};
+          }
         } catch {
           // Delivery control has already succeeded. Sourcing has its own private log.
           sourcing = { status: 'failed', code: 'SOURCING_FAILED_REVIEW_REQUIRED' };

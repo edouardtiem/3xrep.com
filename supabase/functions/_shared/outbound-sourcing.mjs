@@ -34,7 +34,9 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
   const stockPerCampaign=Object.fromEntries(sequences.map((s,index)=>[s.provider_campaign_id,Math.floor(stockTarget/sequences.length)+(index<stockTarget%sequences.length?1:0)]));
   const stockCounts=()=>Object.fromEntries(sequences.map(s=>[s.provider_campaign_id,queuedStock(new Map([[s.provider_campaign_id,leadLists.get(s.provider_campaign_id)]]))]));
   const stockMissing=()=>Object.entries(stockCounts()).reduce((n,[id,count])=>n+Math.max(0,stockPerCampaign[id]-count),0);
-  const allowance=sourcingAllowance({config,mode,testLimit,day,active,healthy,capacity,queued:stockTarget-stockMissing()});
+  let reconcileOnly=mode==='daily'&&(config.last_attempted_date===day||config.last_completed_date===day);
+  const allowancePolicy=reconcileOnly?{...config,last_attempted_date:null,last_completed_date:null}:config;
+  const allowance=sourcingAllowance({config:allowancePolicy,mode,testLimit,day,active,healthy,capacity,queued:stockTarget-stockMissing()});
   if(!allowance)return {status:'nothing_needed',queued,active};
   const runId=crypto.randomUUID();
   if(!await checked(db.rpc('claim_outbound_sourcing',{run_id:runId})))return {status:'already_running'};
@@ -46,19 +48,23 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
       // Re-read while holding the lease: a caller may have read the old date
       // before another worker completed. No second paid discovery that day.
       const current=await checked(db.from('outbound_sourcing_config').select('*').eq('id',1).single());
-      if(current.last_attempted_date&&day<=current.last_attempted_date){
+      if(current.last_attempted_date&&day<current.last_attempted_date){
         await checked(db.from('outbound_sourcing_runs').update({status:'success',finished_at:new Date().toISOString(),result:{status:'already_attempted'}}).eq('id',runId));
         return {runId,status:'already_attempted'};
       }
-      await checked(db.from('outbound_sourcing_config').update({last_attempted_date:day}).eq('id',1));
+      reconcileOnly=current.last_attempted_date===day||current.last_completed_date===day;
+      if(!reconcileOnly)await checked(db.from('outbound_sourcing_config').update({last_attempted_date:day}).eq('id',1));
     }
+    const prior=mode==='daily'?await checked(db.from('outbound_sourcing_runs').select('id,result').eq('mode','daily').eq('sending_date',day)):[];
+    const previouslyVerified=prior.filter(r=>r.id!==runId).reduce((n,r)=>n+Number(r.result?.verified||0),0);
+    result.reconcileOnly=reconcileOnly;result.previouslyVerified=previouslyVerified;
     await (verifier.confirmAllowedPrice||verifier.confirmFree)();
     const processedIds=new Set();let scrollId=null,searchFilterId=null,searchExhausted=false,creditsExhausted=false,emptyPages=0;const seenPages=new Set();
     // All replacement lots share one lease, one sending date and one budget.
     // Async revelations without a verdict never count as stock.
     while(mode==='test'||stockMissing()>0) {
       if(Date.now()>deadlineMs-30000){result.stopReason='time_budget';break;}
-      const remainingChecks=config.max_daily_contacts-result.verified;
+      const remainingChecks=Math.max(0,config.max_daily_contacts-previouslyVerified-result.verified);
       if(remainingChecks<=0){result.stopReason='verification_cap';break;}
       const missingStock=mode==='test'?allowance:stockMissing();
       const batchLimit=Math.min(20,remainingChecks,missingStock);
@@ -70,8 +76,8 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
       // Resume requested revelations without issuing a second charged fetch.
       let work=known.filter(c=>c.qualified&&c.import_state==='pending'&&c.discovery_state!=='no_email'&&
         ['new','requested','pending'].includes(c.discovery_state)||c.qualified&&c.import_state==='pending'&&c.email&&
-        ['unverified','error','valid'].includes(c.email_verification_status)).filter(c=>(!candidateIds||candidateIds.includes(c.id))&&!processedIds.has(c.id)).slice(0,batchLimit);
-      if(work.length<batchLimit&&!candidateIds&&result.requested<config.max_daily_contacts){
+        ['unverified','error','valid'].includes(c.email_verification_status)).filter(c=>(!candidateIds||candidateIds.includes(c.id))&&!processedIds.has(c.id)&&(!reconcileOnly||c.discovery_state!=='new')).slice(0,batchLimit);
+      if(work.length<batchLimit&&!candidateIds&&!reconcileOnly&&result.requested<config.max_daily_contacts){
         const preview=await smartprospect.post('search-contacts',{...SEARCH_FILTERS,limit:batchLimit-work.length,...(scrollId?{scroll_id:scrollId}:{})});
         // Subsequent scroll pages omit filter_id; use the search that owns
         // the cursor, not an invented id or a new charged revelation.
@@ -98,9 +104,9 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
       if(!work.length){
         if(result.requested>=config.max_daily_contacts){result.stopReason='discovery_cap';break;}
         if(mode==='daily'&&!searchExhausted&&++emptyPages<10)continue;
-        result.stopReason=searchExhausted?'search_exhausted':'no_new_qualified_profiles';break;
+        result.stopReason=reconcileOnly?'pending_results':searchExhausted?'search_exhausted':'no_new_qualified_profiles';break;
       }
-      const fresh=work.filter(c=>c.discovery_state==='new');
+      const fresh=work.filter(c=>c.discovery_state==='new'&&!reconcileOnly);
       const analytics=fresh.length?await smartprospect.get('search-analytics'):null;
       const credits=Number(analytics?.availableCredits?.available||0);
       // No purchase and no paid fallback after Smartlead credits are exhausted.
@@ -125,7 +131,7 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
           else {c.discovery_state='pending';await update(c.id,{discovery_state:'pending'});}
         }
       }
-      const ready=work.filter(c=>c.email&&c.discovery_state==='complete').slice(0,config.max_daily_contacts-result.verified);
+      const ready=work.filter(c=>c.email&&c.discovery_state==='complete').slice(0,Math.max(0,config.max_daily_contacts-previouslyVerified-result.verified));
       result.rounds++;
       await mapConcurrent(ready,4,async c=>{
         if(Date.now()>deadlineMs-20000){result.stopReason='time_budget';return;}
@@ -185,6 +191,9 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
         }
       }
       result.pending=(result.pending||0)+work.filter(c=>['requested','pending'].includes(c.discovery_state)).length;
+      // Persist each completed lot so later reconciliation shares its spend
+      // budget even if the hosted request stops before final bookkeeping.
+      await checked(db.from('outbound_sourcing_runs').update({result}).eq('id',runId));
       if(mode==='test'||result.stopReason==='time_budget')break;
       if(creditsExhausted){result.stopReason='credits_exhausted';break;}
       if(searchExhausted){result.stopReason='search_exhausted';break;}

@@ -68,3 +68,10 @@ test('new sends or missing sender evidence force full provider history instead o
     assert.equal(realEvents(result.staged,[mailbox]).complete,true);
   }
 });
+
+test('late clicks are refreshed per message without changing sender attribution or treating them as replies',async()=>{
+ const saved=[];let histories=0;
+ await syncOutbound({...args,db:database(saved,[knownSend]),smartleadGet:provider([{...firstStat,click_time:'2026-10-14T16:00:00Z'}],()=>histories++)});
+ const e=saved.find(x=>x.table==='outbound_send_events').value[0];
+ assert.equal(e.clicked_at,'2026-10-14T16:00:00.000Z');assert.equal(e.replied_at,null);assert.equal(e.mailbox_id,7);assert.equal(histories,0);
+});
