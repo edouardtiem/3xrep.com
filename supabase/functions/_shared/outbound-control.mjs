@@ -83,7 +83,7 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
         decision = { ...decision, action: 'hold', reason: 'manual_stop_other_campaign_required' };
       }
       const summary = { mailboxId: account.id, ...decision, metrics: { attempted: metrics.attempted, bounced: metrics.bounced,
-        cumulative: metrics.cumulative, effectiveDays: metrics.effectiveDays, healthyDays: metrics.healthyDays } };
+        cumulative: metrics.cumulative, effectiveDays: metrics.effectiveDays, healthyDays: metrics.healthyDays, signals: decision.signals } };
       decisions.push(summary);
       if (!dryRun && daily) await checked(db.from('outbound_mailbox_daily').upsert({ mailbox_id: account.id,
         sending_date: sendingDate(now), run_id: runId, observed_cap: Number(account.message_per_day), planned_cap: decision.cap,

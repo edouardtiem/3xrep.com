@@ -1,4 +1,4 @@
-import { localDate, warmupHealthy } from './ramp-up.mjs';
+import { localDate, warmupHealthy, commercialSignals } from './ramp-up.mjs';
 
 export function sendingDate(now) {
   return localDate(new Date(new Date(now).getTime() + 12 * 3600000));
@@ -25,7 +25,7 @@ export function decideDailyRamp({ account, state, stats, metrics, now, complete 
   const plan = state.daily_plan;
   const day = sendingDate(now);
   const result = (action, reason, cap = current, baseline = plan?.baseline, recoveryTarget = plan?.recovery_target ?? null) =>
-    ({ action, reason, cap, stage: baseline, baseline, sendingDate: day, policy: DAILY_RAMP_POLICY, recoveryTarget });
+    ({ action, reason, cap, stage: baseline, baseline, sendingDate: day, policy: DAILY_RAMP_POLICY, recoveryTarget, signals: commercialSignals(metrics) });
   if (!state.approved) return result('hold', 'admission_required');
   if (state.stopped) return result('hold', 'manual_restart_required');
   if (metrics.senderBounce || state.known_complaint || account.is_smtp_success === false || account.is_imap_success === false || account.warmup_details?.blocked_reason) {
@@ -60,7 +60,7 @@ export function decideDailyRamp({ account, state, stats, metrics, now, complete 
   if ([0, 6].includes(new Date(`${day}T12:00:00Z`).getUTCDay())) return result('hold', 'weekend');
   if (!campaignActive) return result('hold', 'no_active_campaign');
   if (plan.last_planned_date && day <= plan.last_planned_date) return result('hold', 'already_planned');
-  if (state.targeting_review_required || (metrics.cumulative >= 100 && !metrics.replied)) return result('hold', 'targeting_review_required');
+  if (state.targeting_review_required) return result('hold', 'targeting_review_required');
   if (!metrics.effectiveDays) return result('hold', 'waiting_for_real_sending');
   const healthyDays = metrics.healthyDays;
   if (!Number.isInteger(healthyDays) || healthyDays < 0) return result('hold', 'healthy_day_evidence_missing');

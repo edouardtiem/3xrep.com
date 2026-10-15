@@ -79,8 +79,12 @@ export function warmupHealthy(account, stats, now) {
   return age >= 0 && age <= 2 && Number.isFinite(sent) && sent >= 20 && Number.isFinite(inbox) && inbox >= 0 && inbox <= sent && Number.isFinite(spam) && spam >= 0 && inbox / sent >= 0.95;
 }
 
+export function commercialSignals(metrics) {
+  return metrics.cumulative >= 100 && !metrics.replied ? ['no_reply_after_100_contacts'] : [];
+}
+
 export function decideRamp({ account, state, stats, metrics, now, complete = true, domainBlocked = false }) {
-  const result = (action, reason, cap = account.message_per_day, stage = state.stage) => ({ action, reason, cap, stage });
+  const result = (action, reason, cap = account.message_per_day, stage = state.stage) => ({ action, reason, cap, stage, signals: commercialSignals(metrics) });
   if (!state.approved) return result('hold', 'admission_required');
   if (state.stopped) return result('hold', 'manual_restart_required');
   const severe = metrics.senderBounce || state.known_complaint || account.is_smtp_success === false || account.is_imap_success === false || !!account.warmup_details?.blocked_reason;
@@ -95,7 +99,7 @@ export function decideRamp({ account, state, stats, metrics, now, complete = tru
   const unresolved = [...metrics.bounceIds, ...(state.pending_bounce_ids || [])].some(id => !(state.resolved_bounce_ids || []).includes(id));
   if (unresolved || (metrics.attempted >= 50 && metrics.rate >= 0.01)) return result('hold', 'bounce_review_required');
   if (domainBlocked) return result('hold', 'domain_incident');
-  if (metrics.cumulative >= 100 && !metrics.replied) return result('hold', 'targeting_review_required');
+  if (state.targeting_review_required) return result('hold', 'targeting_review_required');
   if (!warmupHealthy(account, stats, now)) return result('hold', 'warmup_not_ready');
 
   // At 01:00 Paris, it is still the previous day in New York. Prepare the

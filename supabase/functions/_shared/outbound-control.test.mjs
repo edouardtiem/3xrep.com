@@ -177,3 +177,24 @@ test('database lease excludes a concurrent worker; acquisition tables remain pri
     assert.equal((await db.query("select has_function_privilege('authenticated','claim_outbound_control(uuid)','execute') as allowed")).rows[0].allowed, false);
   } finally { await db.close(); }
 });
+
+test('no-reply signal is returned and saved with daily metrics without blocking growth', async () => {
+  const x = dailyEnvironment({baseline:11,cap:11});
+  x.sync = async () => {
+    const history = sendingHistory(Array.from({length:100}, (_, i) => [i < 50 ? '2026-10-12' : '2026-10-13', false]));
+    for (const e of history.staged[0].entries) e.stats[0].reply_time = null;
+    return history;
+  };
+  let savedDaily;
+  const from = x.db.from;
+  x.db.from = table => table === 'outbound_mailbox_daily' ? {upsert:async row => {
+    savedDaily = row; return {data:{},error:null};
+  }} : from(table);
+  const result = await runOutboundControl(x);
+  const decision = result.decisions[0];
+  assert.equal(decision.reason, 'progressive_daily_base');
+  assert.equal(decision.baseline, 14);
+  assert.deepEqual(decision.signals, ['no_reply_after_100_contacts']);
+  assert.deepEqual(savedDaily.metrics.signals, decision.signals);
+  assert.equal(x.rows[0].state.daily_plan.baseline, 14);
+});

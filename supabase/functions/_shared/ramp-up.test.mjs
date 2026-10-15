@@ -39,7 +39,7 @@ test('new box starts at 2 on October 7, without borrowing another box age', () =
   x.account.message_per_day = 2;
   x.state = { approved: true, stage: 0, observed_cap: 2 };
   x.stats.stats_by_date = [{ date: '2026-10-06' }];
-  assert.deepEqual(decideRamp(x), { action: 'increase', reason: 'next_stage', cap: 2, stage: 2 });
+  assert.deepEqual(decideRamp(x), { action: 'increase', reason: 'next_stage', cap: 2, stage: 2, signals: [] });
 });
 test('little evidence, missing data and external cap changes block increases', () => {
   const x = fixture();
@@ -105,4 +105,13 @@ test('healthy days count completed sending days and restart after a failure, wit
   assert.equal(afterClose.healthyDays,3);
   const afterRise=metricsFor(1,events,new Date('2026-10-13T23:00:00Z'),'2026-10-12T23:00:00Z');
   assert.equal(afterRise.healthyDays,1);
+});
+
+test('legacy ramp reports absent replies without freezing healthy growth', () => {
+  const x = fixture(); x.metrics.cumulative = 100; x.metrics.replied = false;
+  const d = decideRamp(x);
+  assert.notEqual(d.reason, 'targeting_review_required');
+  assert.deepEqual(d.signals, ['no_reply_after_100_contacts']);
+  x.state.targeting_review_required = true;
+  assert.equal(decideRamp(x).reason, 'targeting_review_required');
 });

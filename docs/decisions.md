@@ -406,3 +406,10 @@ Un incident confirmé divise le plafond réel par deux au prochain contrôle, un
 Une absence d’ouverture ne déclenche pas une baisse. L’absence de réponse après 100 destinataires impose une revue. Une réponse négative commerciale appelle une revue de la cible et du texte, pas une sanction de livraison automatique. Les refus temporaires et plaintes non exposés dans les statistiques natives doivent être consignés avec leurs preuves dans l’état privé. Le contrôle agit chaque nuit ; il ne surveille pas les incidents en temps réel.
 
 Prévision sous conditions : environ 56 envois au total vendredi 23 octobre, environ 250 pendant la semaine du 19 au 23. Base de 43 vers le 5 novembre pour la première boîte, vers le 13 novembre pour les autres. Premiers jours à 45 entre le 10 et le 19 novembre selon la boîte. Cela remplace la prévision de décembre. [Règles, reprise et preuves](gtm/smartlead-cloud-control.md).
+
+
+## 2026-10-15 — Absence de réponse : signal sans blocage de volume
+
+Édouard autorise le remplacement du blocage automatique après 100 contacts distincts sans réponse détectée par boîte. Le contrôle conserve un signal privé `no_reply_after_100_contacts`, sans freiner la montée pour ce seul motif. Cela remplace cette partie de la décision du 14 octobre. Les protections sur rebonds, refus, connexions, préchauffage, plaintes et attribution restent actives. Une suspension commerciale décidée manuellement reste possible avec `targeting_review_required`.
+
+Premier bilan commercial à 500 personnes distinctes sur les deux campagnes réunies, en laissant agir les relances. Une poursuite jusqu’à 1 000 dépendra des premiers signes d’intérêt. Aucun changement de cible ou de message, aucun arrêt automatique à 500. Les réponses automatiques ne constituent pas une preuve d’intérêt ; le signal technique repose toujours sur les réponses détectées par le fournisseur.

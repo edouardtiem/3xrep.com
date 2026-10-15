@@ -45,13 +45,16 @@ test('missing attribution, unresolved bounces and external edits block daily ris
   x.account.message_per_day = 45;
   assert.equal(decideDailyRamp(x).reason, 'external_cap_change');
 });
-test('real recipient evidence gates higher bases and lack of replies triggers review', () => {
+test('real recipient evidence gates higher bases; lack of replies only signals review', () => {
   const x = fixture(25); x.metrics.cumulative = 49;
   assert.equal(decideDailyRamp(x).reason, 'insufficient_real_sending_for_25');
   const y = fixture(35); y.metrics.cumulative = 99;
   assert.equal(decideDailyRamp(y).reason, 'insufficient_real_sending_for_35');
   y.metrics.cumulative = 150; y.metrics.replied = false;
-  assert.equal(decideDailyRamp(y).reason, 'targeting_review_required');
+  const d = decideDailyRamp(y);
+  assert.equal(d.reason, 'progressive_daily_base');
+  assert.equal(d.baseline, 40);
+  assert.deepEqual(d.signals, ['no_reply_after_100_contacts']);
 });
 test('delivery incidents reduce once and severe failures stop', () => {
   const x = fixture(25); Object.assign(x.metrics, { rate: .03, bounced: 3, bounceIds: ['b'], bounceGroups: [['b']] });
@@ -132,4 +135,19 @@ test('a later bounce event for an already penalized recipient is reviewed withou
   Object.assign(x.metrics,{rate:.03,bounceIds:['a','b','new-a'],bounceGroups:[['a','new-a'],['b']]});
   x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
   assert.equal(decideDailyRamp(x).action,'hold'); assert.equal(decideDailyRamp(x).cap,12);
+});
+
+test('reply signal starts at one hundred contacts and never overrides delivery or manual holds', () => {
+  const x = fixture(); x.metrics.replied = false; x.metrics.cumulative = 99;
+  assert.deepEqual(decideDailyRamp(x).signals, []);
+  x.metrics.cumulative = 100;
+  assert.deepEqual(decideDailyRamp(x).signals, ['no_reply_after_100_contacts']);
+  assert.equal(decideDailyRamp(x).baseline, 14);
+  x.metrics.replied = true;
+  assert.deepEqual(decideDailyRamp(x).signals, []);
+  x.metrics.replied = false; x.state.targeting_review_required = true;
+  assert.equal(decideDailyRamp(x).reason, 'targeting_review_required');
+  x.metrics.senderBounce = true;
+  assert.equal(decideDailyRamp(x).action, 'stop');
+  assert.deepEqual(decideDailyRamp(x).signals, ['no_reply_after_100_contacts']);
 });
