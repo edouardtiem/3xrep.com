@@ -413,3 +413,12 @@ Prévision sous conditions : environ 56 envois au total vendredi 23 octobre, env
 Édouard autorise le remplacement du blocage automatique après 100 contacts distincts sans réponse détectée par boîte. Le contrôle conserve un signal privé `no_reply_after_100_contacts`, sans freiner la montée pour ce seul motif. Cela remplace cette partie de la décision du 14 octobre. Les protections sur rebonds, refus, connexions, préchauffage, plaintes et attribution restent actives. Une suspension commerciale décidée manuellement reste possible avec `targeting_review_required`.
 
 Premier bilan commercial à 500 personnes distinctes sur les deux campagnes réunies, en laissant agir les relances. Une poursuite jusqu’à 1 000 dépendra des premiers signes d’intérêt. Aucun changement de cible ou de message, aucun arrêt automatique à 500. Les réponses automatiques ne constituent pas une preuve d’intérêt ; le signal technique repose toujours sur les réponses détectées par le fournisseur.
+
+
+## 2026-10-17 — Montée par cinq et variation finale entre 44 et 48
+
+Édouard autorise l’accélération proposée : +5 courriels par boîte après deux journées d’envoi saines, et demande une variation finale entre 44 et 48. La base cible devient 46. Cette décision remplace le rythme et la cible du 14 octobre, sans modifier la cible commerciale ni les messages du test.
+
+Les bases acquises, les dates de changement de palier, l’historique et les éventuels états de reprise sont conservés. Les protections de livraison, les preuves de destinataires distincts, la réduction de moitié sur incident et la reprise plus lente par pas de 2 restent actives. L’absence de réponse reste un signal sans blocage automatique. Le programme de 1 h, les jours ouvrés, la réserve de trois jours et le plafond de 200 vérifications sont conservés.
+
+La cible est désormais 184 envois quotidiens en moyenne pour les quatre boîtes. Prévision conditionnelle pour la semaine du 19 octobre : 35 / 58 / 51 / 79 / 72, premiers messages et relances compris. Aucun envoi n’est garanti par le seul plafond.

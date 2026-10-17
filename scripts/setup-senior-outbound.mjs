@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { createClient } from '@supabase/supabase-js';
 import { createSmartlead } from '../supabase/functions/_shared/smartlead.mjs';
 import { syncOutbound } from '../supabase/functions/_shared/outbound-sync.mjs';
+import { DAILY_RAMP_TARGET } from '../supabase/functions/_shared/daily-ramp.mjs';
 import { loadSequencePlans } from './outbound-sequences.mjs';
 
 const ref = 'lulnuqhgyqfkhjnuvpsd';
@@ -96,10 +97,10 @@ try {
     if (!account||!row) throw new Error('Approved mailbox missing');
     if (!row.state.daily_plan) {
       const current=Number(account.message_per_day);
-      if (!Number.isInteger(current)||current<1||current>43) throw new Error('Invalid starting cap');
+      if (!Number.isInteger(current)||current<1||current>DAILY_RAMP_TARGET) throw new Error('Invalid starting cap');
       await checked(db.from('outbound_mailboxes').update({state:{...row.state,stage:current,observed_cap:current,
         stage_changed_at:new Date().toISOString(),ever_attached:true,
-        daily_plan:{version:2,target:43,baseline:current,started_at:new Date().toISOString()}},updated_at:new Date().toISOString()}).eq('id',id));
+        daily_plan:{version:2,target:DAILY_RAMP_TARGET,baseline:current,started_at:new Date().toISOString()}},updated_at:new Date().toISOString()}).eq('id',id));
     }
   }
   // Review only delivery notifications, save codes and suppression evidence, never bodies.

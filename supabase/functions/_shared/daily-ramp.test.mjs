@@ -6,28 +6,28 @@ function fixture(baseline = 11) {
   return { account: { id: 7, message_per_day: baseline, is_smtp_success: true, is_imap_success: true,
     warmup_details: { status: 'ACTIVE', warmup_created_at: '2026-09-21T19:02:42.915Z' } },
     state: { approved: true, observed_cap: baseline, warmup_started_at: '2026-09-21T19:02:42.915Z',
-      daily_plan: { version: 2, target: 43, baseline } },
+      daily_plan: { version: 2, target: 46, baseline } },
     stats: { sent_count: 80, inbox_count: 80, spam_count: 0, stats_by_date: [{ date: '2026-10-13' }] },
     metrics: { attempted: 80, cumulative: 160, bounced: 0, rate: 0, bounceIds: [], bounceGroups: [], effectiveDays: 3, healthyDays: 3, replied: true },
     now: new Date('2026-10-13T23:00:00Z'), complete: true, campaignActive: true };
 }
 test('daily bases advance a bounded step; outages and idle dates never cause catch-up', () => {
-  const x = fixture(); assert.equal(decideDailyRamp(x).baseline, 14);
+  const x = fixture(); assert.equal(decideDailyRamp(x).baseline, 16);
   x.now = new Date('2026-11-03T00:00:00Z'); x.stats.stats_by_date = [{ date: '2026-11-02' }];
-  assert.equal(decideDailyRamp(x).baseline, 14);
+  assert.equal(decideDailyRamp(x).baseline, 16);
   x.metrics.effectiveDays = 0;
   assert.equal(decideDailyRamp(x).reason, 'waiting_for_real_sending');
   assert.equal(decideDailyRamp({ ...fixture(), campaignActive: false }).reason, 'no_active_campaign');
 });
-test('variations at the target stay between 41 and 45 with a weekly average of 43', () => {
+test('variations at the target stay between 44 and 48 with a weekly average of 46', () => {
   const caps = [];
   for (const date of ['12','13','14','15','16']) {
-    const x = fixture(43); x.now = new Date(`2026-10-${date}T10:00:00Z`);
+    const x = fixture(46); x.now = new Date(`2026-10-${date}T10:00:00Z`);
     x.stats.stats_by_date = [{ date: `2026-10-${date}` }];
     caps.push(decideDailyRamp(x).cap);
   }
-  assert.deepEqual([...caps].sort((a,b) => a-b), [41,42,43,44,45]);
-  assert.equal(caps.reduce((a,b) => a+b) / 5, 43);
+  assert.deepEqual([...caps].sort((a,b) => a-b), [44,45,46,47,48]);
+  assert.equal(caps.reduce((a,b) => a+b) / 5, 46);
 });
 test('planning is idempotent within a sending day and handles the Paris winter clock', () => {
   const x = fixture(); x.state.daily_plan.last_planned_date = '2026-10-14';
@@ -41,7 +41,7 @@ test('missing attribution, unresolved bounces and external edits block daily ris
   assert.equal(decideDailyRamp({ ...fixture(), complete: false }).reason, 'sender_attribution_incomplete');
   const x = fixture(); x.state.pending_bounce_ids = ['old'];
   assert.equal(decideDailyRamp(x).reason, 'bounce_review_required');
-  x.state.resolved_bounce_ids = ['old']; assert.equal(decideDailyRamp(x).baseline, 14);
+  x.state.resolved_bounce_ids = ['old']; assert.equal(decideDailyRamp(x).baseline, 16);
   x.account.message_per_day = 45;
   assert.equal(decideDailyRamp(x).reason, 'external_cap_change');
 });
@@ -65,8 +65,8 @@ test('delivery incidents reduce once and severe failures stop', () => {
   const z = fixture(); z.stats = {}; assert.equal(decideDailyRamp(z).reason, 'warmup_not_ready');
 });
 
-test('two healthy used days advance by three to twenty, then five to forty, then forty-three', () => {
-  for (const [before, after] of [[4,7],[18,20],[20,25],[25,30],[38,40],[40,43]]) {
+test('two healthy used days advance by five, bounded by forty-six', () => {
+  for (const [before, after] of [[4,9],[14,19],[18,23],[20,25],[25,30],[38,43],[40,45],[43,46],[45,46],[46,46]]) {
     const x = fixture(before); x.metrics.healthyDays = 2;
     assert.equal(decideDailyRamp(x).baseline, after);
     x.metrics.healthyDays = 1;
@@ -83,15 +83,15 @@ test('a confirmed cluster uses distinct failed recipients, even before fifty rec
   x.metrics.bounceGroups = [['a'],['b']];
   assert.equal(decideDailyRamp(x).cap, 5);
   x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
-  assert.equal(decideDailyRamp(x).baseline, 14);
+  assert.equal(decideDailyRamp(x).baseline, 16);
 });
 
 test('halving is allowed after same-day planning; old incidents cannot halve again', () => {
-  const x = fixture(43); x.account.message_per_day = 45; x.state.observed_cap = 45;
+  const x = fixture(46); x.account.message_per_day = 48; x.state.observed_cap = 48;
   x.state.daily_plan.last_planned_date = '2026-10-14';
   Object.assign(x.metrics,{rate:.03,bounceIds:['a','b'],bounceGroups:[['a'],['b']]});
-  assert.equal(decideDailyRamp(x).cap, 22);
-  assert.equal(decideDailyRamp(x).baseline, 21);
+  assert.equal(decideDailyRamp(x).cap, 24);
+  assert.equal(decideDailyRamp(x).baseline, 23);
   x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
   assert.equal(decideDailyRamp(x).reason, 'already_planned');
 });
@@ -142,7 +142,7 @@ test('reply signal starts at one hundred contacts and never overrides delivery o
   assert.deepEqual(decideDailyRamp(x).signals, []);
   x.metrics.cumulative = 100;
   assert.deepEqual(decideDailyRamp(x).signals, ['no_reply_after_100_contacts']);
-  assert.equal(decideDailyRamp(x).baseline, 14);
+  assert.equal(decideDailyRamp(x).baseline, 16);
   x.metrics.replied = true;
   assert.deepEqual(decideDailyRamp(x).signals, []);
   x.metrics.replied = false; x.state.targeting_review_required = true;
@@ -150,4 +150,37 @@ test('reply signal starts at one hundred contacts and never overrides delivery o
   x.metrics.senderBounce = true;
   assert.equal(decideDailyRamp(x).action, 'stop');
   assert.deepEqual(decideDailyRamp(x).signals, ['no_reply_after_100_contacts']);
+});
+
+test('new five-message steps preserve recipient gates and the two-day observation', () => {
+  const x = fixture(14); x.metrics.healthyDays = 1;
+  assert.equal(decideDailyRamp(x).baseline,14);
+  x.metrics.healthyDays = 2; x.metrics.cumulative = 19;
+  assert.equal(decideDailyRamp(x).reason,'insufficient_real_sending_for_15');
+  x.metrics.cumulative = 20;
+  assert.equal(decideDailyRamp(x).baseline,19);
+  x.state.daily_plan.target = 43;
+  assert.equal(decideDailyRamp(x).reason,'invalid_daily_plan');
+});
+
+test('target migration preserves caps, bases, healthy-day history and recovery state', async () => {
+  const {PGlite} = await import('@electric-sql/pglite');
+  const {readFile} = await import('node:fs/promises');
+  const db = new PGlite();
+  try {
+    await db.exec('create table outbound_mailboxes(id bigint primary key,approved boolean,state jsonb,updated_at timestamptz);');
+    const original={daily_plan:{version:2,target:43,baseline:14,last_planned_date:'2026-10-16',recovery_target:25},observed_cap:12,
+      stage_changed_at:'2026-10-15T23:00:00Z',cooldown:true,pending_bounce_ids:['old'],resolved_bounce_ids:['old']};
+    for(const id of [23568551,24049951,24049938,24049619])await db.query('insert into outbound_mailboxes values($1,true,$2,now())',[id,original]);
+    await db.query('insert into outbound_mailboxes values(99,false,$1,now())',[original]);
+    await db.exec(await readFile(new URL('../../migrations/20261017140000_outbound_daily_target_46.sql',import.meta.url),'utf8'));
+    const rows=(await db.query('select * from outbound_mailboxes order by id')).rows;
+    assert.deepEqual(rows.find(r=>r.id===99).state,original);
+    for(const row of rows.filter(r=>r.id!==99)){
+      assert.equal(row.state.daily_plan.target,46);
+      assert.equal(row.state.daily_plan.policy,'accelerated-2026-10-17');
+      const expected=structuredClone(original);expected.daily_plan.target=46;expected.daily_plan.policy='accelerated-2026-10-17';
+      assert.deepEqual(row.state,expected);
+    }
+  } finally {await db.close();}
 });

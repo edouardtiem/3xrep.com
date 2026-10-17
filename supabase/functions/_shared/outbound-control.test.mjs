@@ -71,12 +71,12 @@ test('failed cap verification cannot attach a mailbox or record a successful ris
   assert.equal(x.writes.length, 1);
   assert.equal(x.rows[0].state.stage, 0);
 });
-function dailyEnvironment({ baseline = 43, cap = 45, failReadback = false } = {}) {
+function dailyEnvironment({ baseline = 46, cap = 48, failReadback = false } = {}) {
   const x = environment();
   x.now = new Date('2026-10-13T23:00:00Z');
   const start = '2026-09-21T19:02:42.915Z';
   x.rows[0].state = { approved:true,stage:baseline,observed_cap:cap,warmup_started_at:start,stage_changed_at:'2026-10-11T00:00:00Z',
-    daily_plan:{version:2,target:43,baseline},ever_attached:true };
+    daily_plan:{version:2,target:46,baseline},ever_attached:true };
   let mailboxCap=cap;
   const campaignCaps=new Map([['4023139',1],['4023140',1]]);
   const get=x.smartlead.get,post=x.smartlead.post;
@@ -111,7 +111,7 @@ test('daily variation downward is not a delivery penalty and a repeated run cann
   const x = dailyEnvironment();
   const result=await runOutboundControl(x);
   assert.equal(result.decisions[0].reason,'daily_variation');
-  assert.ok(x.rows[0].state.observed_cap<45&&x.rows[0].state.observed_cap>=41);
+  assert.ok(x.rows[0].state.observed_cap<48&&x.rows[0].state.observed_cap>=44);
   assert.equal(x.rows[0].state.cooldown,false);
   assert.equal(x.rows[0].state.stage_changed_at,'2026-10-11T00:00:00Z');
   const mutations=x.writes.length;
@@ -193,8 +193,8 @@ test('no-reply signal is returned and saved with daily metrics without blocking 
   const result = await runOutboundControl(x);
   const decision = result.decisions[0];
   assert.equal(decision.reason, 'progressive_daily_base');
-  assert.equal(decision.baseline, 14);
+  assert.equal(decision.baseline, 16);
   assert.deepEqual(decision.signals, ['no_reply_after_100_contacts']);
   assert.deepEqual(savedDaily.metrics.signals, decision.signals);
-  assert.equal(x.rows[0].state.daily_plan.baseline, 14);
+  assert.equal(x.rows[0].state.daily_plan.baseline, 16);
 });

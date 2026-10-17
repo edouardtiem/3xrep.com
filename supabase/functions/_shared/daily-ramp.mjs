@@ -4,7 +4,9 @@ export function sendingDate(now) {
   return localDate(new Date(new Date(now).getTime() + 12 * 3600000));
 }
 
-export const DAILY_RAMP_POLICY = 'accelerated-2026-10-14';
+export const DAILY_RAMP_POLICY = 'accelerated-2026-10-17';
+export const DAILY_RAMP_TARGET = 46;
+export const DAILY_RAMP_MAX = 48;
 
 // Operational evidence can complement native bounce statistics. A confirmed
 // temporary refusal needs an id and timestamp; resolving it is a separate act.
@@ -32,8 +34,8 @@ export function decideDailyRamp({ account, state, stats, metrics, now, complete 
     return result('stop', 'delivery_blocked');
   }
   if (metrics.attempted >= 50 && metrics.rate >= .05) return result('stop', 'delivery_blocked');
-  if (!plan || !Number.isInteger(plan.baseline) || plan.baseline < 1 || plan.baseline > 43 || plan.target !== 43 ||
-    (plan.recovery_target != null && (!Number.isInteger(plan.recovery_target) || plan.recovery_target < 1 || plan.recovery_target > 43))) return result('hold', 'invalid_daily_plan');
+  if (!plan || !Number.isInteger(plan.baseline) || plan.baseline < 1 || plan.baseline > DAILY_RAMP_TARGET || plan.target !== DAILY_RAMP_TARGET ||
+    (plan.recovery_target != null && (!Number.isInteger(plan.recovery_target) || plan.recovery_target < 1 || plan.recovery_target > DAILY_RAMP_TARGET))) return result('hold', 'invalid_daily_plan');
   if (current !== Number(state.observed_cap)) return result('hold', 'external_cap_change');
   const handled = new Set(state.handled_bounce_ids || []);
   const freshRecipients = (metrics.bounceGroups || []).filter(ids => ids.length > 0 && ids.every(id => !handled.has(id))).length;
@@ -69,7 +71,7 @@ export function decideDailyRamp({ account, state, stats, metrics, now, complete 
   const recovering = Number.isInteger(plan.recovery_target) && plan.recovery_target > baseline;
   if (healthyDays >= 2) {
     const proposed = recovering ? Math.min(plan.recovery_target, baseline + 2) :
-      baseline < 20 ? Math.min(20, baseline + 3) : baseline < 40 ? Math.min(40, baseline + 5) : Math.min(43, baseline + 3);
+      Math.min(DAILY_RAMP_TARGET, baseline + 5);
     if (proposed > baseline && proposed > 15 && metrics.cumulative < 20) return result('hold', 'insufficient_real_sending_for_15');
     if (proposed > baseline && proposed > 25 && metrics.cumulative < 50) return result('hold', 'insufficient_real_sending_for_25');
     if (proposed > baseline && proposed > 35 && metrics.cumulative < 100) return result('hold', 'insufficient_real_sending_for_35');
@@ -81,7 +83,7 @@ export function decideDailyRamp({ account, state, stats, metrics, now, complete 
   const businessIndex = Math.floor(fromMonday / 7) * 5 + ((fromMonday % 7 + 7) % 7);
   const variation = [-2, 0, 2, -1, 1][((businessIndex + Number(account.id)) % 5 + 5) % 5];
   const stillRecovering = recovering && baseline < plan.recovery_target;
-  const cap = Math.max(1, Math.min(45, baseline + (recovering ? 0 : variation)));
+  const cap = Math.max(1, Math.min(DAILY_RAMP_MAX, baseline + (recovering ? 0 : variation)));
   return result(cap > current ? 'increase' : cap < current ? 'reduce' : 'plan',
     baseline > plan.baseline ? (recovering ? 'gradual_recovery' : 'progressive_daily_base') : (recovering ? 'recovery_hold' : 'daily_variation'),
     cap, baseline, stillRecovering ? plan.recovery_target : null);
