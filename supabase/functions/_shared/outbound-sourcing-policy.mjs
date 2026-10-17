@@ -18,11 +18,11 @@ export function emailOf(p) {
   const value=(p.email||p.email_address||'').trim().toLowerCase();
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)&&!value.includes('*')?value:null;
 }
-export function sourcingAllowance({config,mode,testLimit=10,day,active=false,healthy=false,capacity=0,queued=0}) {
+export function sourcingAllowance({config,mode,testLimit=10,day,active=false,healthy=false,capacity=0,queued=0,allowWeekend=false}) {
   if(mode==='test')return Math.min(10,Math.max(0,Number(testLimit)||0));
   if(!config.enabled||!config.validated_run_id)return 0;
   if(config.last_completed_date&&day<=config.last_completed_date||config.last_attempted_date&&day<=config.last_attempted_date)return 0;
-  if(!active||!healthy||[0,6].includes(new Date(`${day}T12:00:00Z`).getUTCDay()))return 0;
+  if(!active||!healthy||(!allowWeekend&&[0,6].includes(new Date(`${day}T12:00:00Z`).getUTCDay())))return 0;
   // Keep enough verified, not-yet-contacted people for the full mailbox
   // capacity. Four sequence steps do not divide first-send capacity by four:
   // follow-ups are absent at startup and uneven on later days.

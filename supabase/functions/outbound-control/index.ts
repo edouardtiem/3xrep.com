@@ -36,7 +36,7 @@ Deno.serve(async (request: Request) => {
     const { data: sequences, error } = await db.from('outbound_sequences').select('id,provider_campaign_id,controlled,steps').not('provider_campaign_id', 'is', null);
     if (error) throw new Error('Sequence registry unavailable');
     const result = await runOutboundControl({ db, smartlead: createSmartlead(Deno.env.get('SMARTLEAD_API_KEY')),
-      dryRun: input.dryRun === true, sequences: sequences || [] });
+      dryRun: input.dryRun === true || input.replenishNow === true, sequences: sequences || [] });
     let sourcing: unknown = { status: 'disabled' };
     if (input.dryRun !== true && result.attributionComplete === true) {
       const { data: config, error: configError } = await db.from('outbound_sourcing_config').select('enabled,validated_run_id,verifier_endpoint,verifier_max_cost_micro').eq('id', 1).single();
@@ -47,8 +47,8 @@ Deno.serve(async (request: Request) => {
             smartlead: createSmartlead(Deno.env.get('SMARTLEAD_API_KEY')),
             smartprospect: createSmartprospect(Deno.env.get('SMARTLEAD_API_KEY')),
             verifier: createEmailVerifier(Deno.env.get('TREG_TOKEN'), undefined, {endpointId: config.verifier_endpoint, maxCostMicro: config.verifier_max_cost_micro}),
-            controlResult: result, deadlineMs:startedAt+105000 });
-          if (sourcing && typeof sourcing === 'object' && 'runId' in sourcing) {
+            controlResult: result, allowWeekend:input.replenishNow === true, resumeDiscovery:true, deadlineMs:startedAt+105000 });
+          if (input.replenishNow !== true && sourcing && typeof sourcing === 'object' && 'runId' in sourcing) {
             const continuation = await db.rpc('queue_outbound_reconciliation', {source_run_id:sourcing.runId});
             sourcing = {...sourcing, continuationQueued:continuation.data === true,
               ...(continuation.error ? {continuationError:'RECONCILIATION_QUEUE_UNAVAILABLE'} : {})};

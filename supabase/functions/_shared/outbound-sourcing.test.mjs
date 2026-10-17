@@ -138,3 +138,52 @@ test('reconciliation cannot spend another 200 checks after the daily verificatio
  const r=await runOutboundSourcing(args);assert.equal(r.verified,0);assert.equal(r.stopReason,'verification_cap');assert.equal(r.previouslyVerified,200);
  assert.deepEqual(s.counts(),{fetched:0,checked:0,searches:0});
 });
+
+test('delayed provider imports are confirmed by bounded readbacks instead of aborting the whole batch',async()=>{
+ const s=system(Array(12).fill('valid'),{active:true});const get=s.smartlead.get;let reads=0;
+ s.smartlead.get=async(path,...args)=>{const result=await get(path,...args);if(path.endsWith('/leads')&&result.data.length&&++reads<=2)return{data:[],total_leads:0};return result;};
+ const r=await runOutboundSourcing({...daily(s),wait:async()=>{}});
+ assert.equal(r.status,'success');assert.equal(r.imported,12);assert.equal(r.shortfall,0);
+});
+test('an unconfirmed provider import remains pending and does not prevent the other campaign from filling',async()=>{
+ const s=system(Array(12).fill('valid'),{active:true});const get=s.smartlead.get;
+ s.smartlead.get=async(path,...args)=>path==='campaigns/1/leads'?{data:[],total_leads:0}:get(path,...args);
+ const r=await runOutboundSourcing({...daily(s),wait:async()=>{}});
+ assert.equal(r.status,'success');assert.equal(r.pendingImports,6);assert.equal(r.imported,6);
+ assert.equal(s.db.tables.outbound_sourcing_candidates.filter(c=>c.import_state==='pending').length,6);
+ assert.equal(s.db.tables.outbound_sourcing_runs[0].status,'success');
+});
+test('already imported and contacted people are reconciled without a new verification or import',async()=>{
+ const s=system(Array(12).fill('valid'),{active:true});const args=daily(s);
+ await runOutboundSourcing(args);
+ const candidate=s.db.tables.outbound_sourcing_candidates[0];candidate.import_state='pending';candidate.verification_checked_at='2026-10-01T00:00:00Z';
+ for(const list of Object.values(s.campaigns))for(const entry of list)if(entry.lead.email===candidate.email)entry.status='INPROGRESS';
+ const before=s.counts();const r=await runOutboundSourcing(args);
+ assert.equal(candidate.import_state,'imported');assert.ok(r.alreadyImported>=1);assert.deepEqual(s.counts(),before);
+});
+test('manual weekend replenishment keeps the calendar date and budget; automatic weekend runs stay idle',async()=>{
+ const s=system(Array(12).fill('valid'),{active:true});const args={...daily(s),now:new Date('2026-10-17T08:00:00Z')};
+ assert.equal((await runOutboundSourcing(args)).status,'nothing_needed');
+ const r=await runOutboundSourcing({...args,allowWeekend:true});
+ assert.equal(r.imported,12);assert.equal(r.verified,12);assert.deepEqual(r.stockDates,['2026-10-19','2026-10-20','2026-10-21']);
+ assert.equal(s.db.tables.outbound_sourcing_runs[0].sending_date,'2026-10-17');
+});
+
+test('explicit stock recovery resumes discovery with one shared daily request budget',async()=>{
+ const s=system(Array(40).fill('valid'),{active:true});const args=daily(s,8);
+ Object.assign(s.db.tables.outbound_sourcing_config[0],{last_attempted_date:'2026-10-14'});
+ s.db.tables.outbound_sourcing_runs.push({id:'earlier',mode:'daily',sending_date:'2026-10-14',result:{verified:0,requested:195,discoveryCursor:{scrollId:'0',filterId:7}}});
+ const r=await runOutboundSourcing({...args,resumeDiscovery:true});
+ assert.equal(r.previouslyRequested,195);assert.equal(r.requested,5);assert.equal(s.counts().fetched,5);
+ assert.equal(r.stopReason,'discovery_cap');assert.equal(r.verified,5);
+ const before=s.counts();const again=await runOutboundSourcing({...args,resumeDiscovery:true});
+ assert.equal(again.requested,0);assert.equal(again.stopReason,'discovery_cap');assert.deepEqual(s.counts(),before);
+});
+
+test('an explicit import refusal records a safe failure without counting the contacts as stock',async()=>{
+ const s=system(['valid'],{active:true});s.smartlead.post=async()=>({success:false});
+ await assert.rejects(()=>runOutboundSourcing(daily(s)),{safeCode:'SMARTLEAD_IMPORT_DECLINED'});
+ const run=s.db.tables.outbound_sourcing_runs[0];
+ assert.equal(run.status,'failed');assert.equal(run.error_code,'SMARTLEAD_IMPORT_DECLINED');
+ assert.equal(run.result.failureStage,'provider_import');assert.equal(run.result.imported,0);
+});
