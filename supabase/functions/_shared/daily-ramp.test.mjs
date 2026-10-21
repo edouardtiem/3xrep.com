@@ -37,14 +37,14 @@ test('planning is idempotent within a sending day and handles the Paris winter c
   x.stats.stats_by_date = [{ date: '2026-10-16' }];
   assert.equal(decideDailyRamp(x).reason, 'weekend');
 });
-test('missing attribution, unresolved bounces and external edits block daily rises', () => {
-  assert.equal(decideDailyRamp({ ...fixture(), complete: false }).reason, 'sender_attribution_incomplete');
-  const x = fixture(); x.state.pending_bounce_ids = ['old'];
-  assert.equal(decideDailyRamp(x).reason, 'bounce_review_required');
-  x.state.resolved_bounce_ids = ['old']; assert.equal(decideDailyRamp(x).baseline, 16);
-  x.account.message_per_day = 45;
-  assert.equal(decideDailyRamp(x).reason, 'external_cap_change');
+test('missing attribution and external edits hold; an unresolved alert selects seven', () => {
+ assert.equal(decideDailyRamp({...fixture(),complete:false}).reason,'sender_attribution_incomplete');
+ const x=fixture();x.state.pending_bounce_ids=['old'];
+ assert.equal(decideDailyRamp(x).cap,7);
+ x.state.resolved_bounce_ids=['old'];assert.equal(decideDailyRamp(x).baseline,16);
+ x.account.message_per_day=45;assert.equal(decideDailyRamp(x).reason,'external_cap_change');
 });
+
 test('real recipient evidence gates higher bases; lack of replies only signals review', () => {
   const x = fixture(25); x.metrics.cumulative = 49;
   assert.equal(decideDailyRamp(x).reason, 'insufficient_real_sending_for_25');
@@ -56,13 +56,14 @@ test('real recipient evidence gates higher bases; lack of replies only signals r
   assert.equal(d.baseline, 40);
   assert.deepEqual(d.signals, ['no_reply_after_100_contacts']);
 });
-test('delivery incidents reduce once and severe failures stop', () => {
-  const x = fixture(25); Object.assign(x.metrics, { rate: .03, bounced: 3, bounceIds: ['b'], bounceGroups: [['b']] });
-  const d = decideDailyRamp(x); assert.equal(d.cap, 12); assert.equal(d.baseline, 12); assert.equal(d.recoveryTarget, 25);
-  x.state.handled_bounce_ids = ['b'];
-  assert.equal(decideDailyRamp(x).reason, 'bounce_review_required');
-  x.metrics.senderBounce = true; assert.equal(decideDailyRamp(x).action, 'stop');
-  const z = fixture(); z.stats = {}; assert.equal(decideDailyRamp(z).reason, 'warmup_not_ready');
+test('delivery alerts select seven even at a high bounce rate; unusable connections still stop', () => {
+ const x=fixture(25);Object.assign(x.metrics,{rate:.10,bounced:3,bounceIds:['b'],bounceGroups:[['b']]});
+ const d=decideDailyRamp(x);assert.equal(d.cap,7);assert.equal(d.baseline,7);assert.equal(d.recoveryTarget,25);
+ x.state.handled_bounce_ids=['b'];assert.notEqual(decideDailyRamp(x).reason,'delivery_alert');
+ x.account.is_smtp_success=false;assert.equal(decideDailyRamp(x).action,'stop');
+ const y=fixture();y.metrics.senderBounce=true;y.metrics.senderBounceIds=['sender'];
+ assert.equal(decideDailyRamp(y).cap,7);
+ const z=fixture();z.stats={};assert.equal(decideDailyRamp(z).reason,'warmup_not_ready');
 });
 
 test('two healthy used days advance by five, bounded by forty-six', () => {
@@ -76,65 +77,51 @@ test('two healthy used days advance by five, bounded by forty-six', () => {
   assert.equal(decideDailyRamp(x).baseline, 11);
 });
 
-test('a confirmed cluster uses distinct failed recipients, even before fifty recipients', () => {
-  const x = fixture(11);
-  Object.assign(x.metrics, {attempted:23,rate:2/23,bounceIds:['a','b'],bounceGroups:[['a','b']]});
-  assert.equal(decideDailyRamp(x).reason, 'bounce_review_required');
-  x.metrics.bounceGroups = [['a'],['b']];
-  assert.equal(decideDailyRamp(x).cap, 5);
-  x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
-  assert.equal(decideDailyRamp(x).baseline, 16);
+test('one fresh recipient alert selects seven; acknowledged recipient events do not repeat it', () => {
+ const x=fixture(11);Object.assign(x.metrics,{attempted:23,rate:2/23,bounceIds:['a','b'],bounceGroups:[['a','b']]});
+ assert.equal(decideDailyRamp(x).cap,7);
+ x.metrics.bounceGroups=[['a'],['b']];assert.equal(decideDailyRamp(x).cap,7);
+ x.state.handled_bounce_ids=['a','b'];assert.equal(decideDailyRamp(x).baseline,16);
 });
 
-test('halving is allowed after same-day planning; old incidents cannot halve again', () => {
-  const x = fixture(46); x.account.message_per_day = 48; x.state.observed_cap = 48;
-  x.state.daily_plan.last_planned_date = '2026-10-14';
-  Object.assign(x.metrics,{rate:.03,bounceIds:['a','b'],bounceGroups:[['a'],['b']]});
-  assert.equal(decideDailyRamp(x).cap, 24);
-  assert.equal(decideDailyRamp(x).baseline, 23);
-  x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
-  assert.equal(decideDailyRamp(x).reason, 'already_planned');
+test('a fresh alert applies after same-day planning; the same alert cannot apply twice', () => {
+ const x=fixture(46);x.account.message_per_day=48;x.state.observed_cap=48;
+ x.state.daily_plan.last_planned_date='2026-10-14';
+ Object.assign(x.metrics,{rate:.03,bounceIds:['a','b'],bounceGroups:[['a'],['b']]});
+ const d=decideDailyRamp(x);assert.equal(d.cap,7);assert.equal(d.baseline,7);assert.equal(d.recoveryTarget,46);
+ x.state.handled_bounce_ids=['a','b'];assert.equal(decideDailyRamp(x).reason,'already_planned');
 });
 
-test('recovery waits for three healthy actual days and resolved failures, then rises by two', () => {
-  const x = fixture(12); x.state.cooldown = true; x.state.daily_plan.recovery_target = 25;
-  Object.assign(x.metrics,{rate:.03,bounceIds:['b'],bounceGroups:[['b']],healthyDays:2});
-  x.state.handled_bounce_ids = ['b'];
-  assert.equal(decideDailyRamp(x).reason,'bounce_review_required');
-  x.state.resolved_bounce_ids = ['b'];
-  assert.equal(decideDailyRamp(x).reason,'recovery_observation');
-  x.metrics.healthyDays = 3;
-  const d = decideDailyRamp(x);
-  assert.equal(d.reason,'gradual_recovery'); assert.equal(d.cap,14); assert.equal(d.recoveryTarget,25);
-  x.state.cooldown = false; x.state.daily_plan.baseline = 14; x.state.observed_cap = 14; x.account.message_per_day = 14;
-  x.metrics.healthyDays = 1; assert.equal(decideDailyRamp(x).cap,14);
-  x.metrics.healthyDays = 2; assert.equal(decideDailyRamp(x).cap,16);
-  x.state.daily_plan.baseline = 24; x.state.observed_cap = 24; x.account.message_per_day = 24;
-  assert.equal(decideDailyRamp(x).cap,25); assert.equal(decideDailyRamp(x).recoveryTarget,null);
+test('recovery waits for three clean sending days, then advances by two without erasing incidents', () => {
+ const x=fixture(7);x.state.cooldown=true;x.state.daily_plan.recovery_target=25;
+ Object.assign(x.metrics,{rate:.03,bounceIds:['b'],bounceGroups:[['b']],healthyDays:2});x.state.handled_bounce_ids=['b'];
+ assert.equal(decideDailyRamp(x).reason,'recovery_observation');
+ x.metrics.healthyDays=3;const d=decideDailyRamp(x);
+ assert.equal(d.reason,'gradual_recovery');assert.equal(d.cap,9);assert.equal(d.recoveryTarget,25);
+ x.state.cooldown=false;x.state.daily_plan.baseline=9;x.state.observed_cap=9;x.account.message_per_day=9;
+ x.metrics.healthyDays=1;assert.equal(decideDailyRamp(x).cap,9);
+ x.metrics.healthyDays=2;assert.equal(decideDailyRamp(x).cap,11);
+ x.state.daily_plan.baseline=24;x.state.observed_cap=24;x.account.message_per_day=24;
+ assert.equal(decideDailyRamp(x).cap,25);assert.equal(decideDailyRamp(x).recoveryTarget,null);
 });
 
-test('confirmed temporary refusal halves once and holds until explicit resolution', () => {
-  const x = fixture(25);
-  x.state.delivery_incidents = [{id:'refusal-1',kind:'temporary_refusal',confirmed:true,at:'2026-10-13T16:00:00Z'}];
-  assert.equal(decideDailyRamp(x).reason,'temporary_refusal'); assert.equal(decideDailyRamp(x).cap,12);
-  x.state.handled_delivery_incident_ids = ['refusal-1'];
-  assert.equal(decideDailyRamp(x).reason,'temporary_refusal_review_required');
-  x.state.delivery_incidents[0].resolved_at = '2026-10-13T21:00:00Z';
-  assert.equal(decideDailyRamp(x).baseline,30);
-  x.state.delivery_incidents[0].confirmed = false;
-  assert.equal(decideDailyRamp(x).baseline,30);
+test('a confirmed refusal selects seven once and clean days permit recovery without manual resolution', () => {
+ const x=fixture(25);x.state.delivery_incidents=[{id:'refusal-1',kind:'temporary_refusal',confirmed:true,at:'2026-10-13T16:00:00Z'}];
+ assert.equal(decideDailyRamp(x).reason,'delivery_alert');assert.equal(decideDailyRamp(x).cap,7);
+ x.state.handled_delivery_incident_ids=['refusal-1'];assert.equal(decideDailyRamp(x).baseline,30);
+ x.state.delivery_incidents.push({id:'refusal-2',kind:'temporary_refusal',confirmed:true,at:'2026-10-13T17:00:00Z'});
+ assert.equal(decideDailyRamp(x).cap,7);
 });
+
 test('commercial review holds growth without penalizing delivery; recovery state must be bounded', () => {
   const x = fixture(); x.state.targeting_review_required = true;
   assert.equal(decideDailyRamp(x).action,'hold'); assert.equal(decideDailyRamp(x).cap,11);
   x.state.targeting_review_required = false; x.state.daily_plan.recovery_target = 99;
   assert.equal(decideDailyRamp(x).reason,'invalid_daily_plan');
 });
-test('a later bounce event for an already penalized recipient is reviewed without another halving', () => {
-  const x = fixture(12);
-  Object.assign(x.metrics,{rate:.03,bounceIds:['a','b','new-a'],bounceGroups:[['a','new-a'],['b']]});
-  x.state.handled_bounce_ids = ['a','b']; x.state.resolved_bounce_ids = ['a','b'];
-  assert.equal(decideDailyRamp(x).action,'hold'); assert.equal(decideDailyRamp(x).cap,12);
+test('a duplicate event for an acknowledged failed recipient does not restart the observation', () => {
+ const x=fixture(12);Object.assign(x.metrics,{rate:.03,bounceIds:['a','b','new-a'],bounceGroups:[['a','new-a'],['b']]});
+ x.state.handled_bounce_ids=['a','b'];assert.notEqual(decideDailyRamp(x).reason,'delivery_alert');
 });
 
 test('reply signal starts at one hundred contacts and never overrides delivery or manual holds', () => {
@@ -147,7 +134,7 @@ test('reply signal starts at one hundred contacts and never overrides delivery o
   assert.deepEqual(decideDailyRamp(x).signals, []);
   x.metrics.replied = false; x.state.targeting_review_required = true;
   assert.equal(decideDailyRamp(x).reason, 'targeting_review_required');
-  x.metrics.senderBounce = true;
+  x.account.is_smtp_success = false;
   assert.equal(decideDailyRamp(x).action, 'stop');
   assert.deepEqual(decideDailyRamp(x).signals, ['no_reply_after_100_contacts']);
 });
@@ -183,4 +170,11 @@ test('target migration preserves caps, bases, healthy-day history and recovery s
       assert.deepEqual(row.state,expected);
     }
   } finally {await db.close();}
+});
+
+test('an alert never increases a smaller cap and an authorized stopped mailbox restarts at seven',()=>{
+ const x=fixture(4);x.metrics.bounceIds=['a'];x.metrics.bounceGroups=[['a']];assert.equal(decideDailyRamp(x).cap,4);
+ const y=fixture(14);y.state.stopped=true;assert.equal(decideDailyRamp(y).reason,'manual_restart_required');
+ y.state.auto_delivery_recovery=true;const d=decideDailyRamp(y);assert.equal(d.cap,7);assert.equal(d.restart,true);assert.equal(d.recoveryTarget,14);
+ y.account.is_imap_success=false;assert.equal(decideDailyRamp(y).action,'stop');
 });

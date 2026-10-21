@@ -422,3 +422,12 @@ Premier bilan commercial à 500 personnes distinctes sur les deux campagnes réu
 Les bases acquises, les dates de changement de palier, l’historique et les éventuels états de reprise sont conservés. Les protections de livraison, les preuves de destinataires distincts, la réduction de moitié sur incident et la reprise plus lente par pas de 2 restent actives. L’absence de réponse reste un signal sans blocage automatique. Le programme de 1 h, les jours ouvrés, la réserve de trois jours et le plafond de 200 vérifications sont conservés.
 
 La cible est désormais 184 envois quotidiens en moyenne pour les quatre boîtes. Prévision conditionnelle pour la semaine du 19 octobre : 35 / 58 / 51 / 79 / 72, premiers messages et relances compris. Aucun envoi n’est garanti par le seul plafond.
+
+
+## 2026-10-21 — Alertes de livraison : reprise automatique à 7
+
+Édouard demande une règle générale : à l’alerte, reprendre à 7 courriels par boîte puis remonter après quelques journées saines. Les alertes de livraison, y compris un refus isolé marqué `sender_bounce`, ne provoquent plus un arrêt général. Le plafond devient 7, ou reste inférieur s’il l’était déjà. Après trois journées réelles d’envoi sans nouvelle alerte, la reprise monte de 2 après deux jours sains jusqu’à la base précédente. La montée normale +5 et la cible 44–48 sont conservées. Un incident déjà pris en charge ne recommence pas l’observation chaque nuit.
+
+Les connexions coupées, les blocages effectifs du fournisseur et les plaintes connues restent des états empêchant l’envoi. Une reprise autorisée peut se faire automatiquement à 7 après leur rétablissement ; un arrêt manuel inconnu ne peut pas être levé ainsi. Le destinataire rejeté reste exclu. Le cas Mimecast du 19 octobre autorise la réassociation de `edouard@get3xrep.com` à A et B, sans réactiver les anciennes campagnes en pause.
+
+Le calcul des relances est corrigé : les relances d’une boîte arrêtée ne prennent aucune capacité aux autres, et celles d’une boîte à 7 ne réservent au plus que ses 7 places. La réserve de contacts suit les boîtes effectivement actives et continue pendant l’observation à 7.

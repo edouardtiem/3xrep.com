@@ -66,6 +66,7 @@ export function metricsFor(id, events, now, changedAt) {
     bounceGroups: [...bounceGroups.values()],
     bounceIds: window.filter(e => e.bounced).map(e => e.id).sort(),
     senderBounce: window.some(e => e.senderBounce),
+    senderBounceIds: window.filter(e => e.senderBounce).map(e => e.id),
   };
 }
 

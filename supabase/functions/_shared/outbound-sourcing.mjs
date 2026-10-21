@@ -27,9 +27,10 @@ export async function runOutboundSourcing({db,smartprospect,smartlead,verifier,n
   const active=[...campaigns.values()].every(c=>c.status==='ACTIVE');
   const decisions=controlResult?.decisions||[];
   const unhealthy=['delivery_blocked','bounce_review_required','bounce_rate','domain_incident','warmup_not_ready',
-    'sender_attribution_incomplete','external_cap_change','manual_restart_required','manual_stop_other_campaign_required','targeting_review_required','recovery_observation','invalid_daily_plan','warmup_only','warmup_start_changed','bounce_incident_already_handled'];
-  const healthy=controlResult?.attributionComplete===true&&decisions.length===4&&decisions.every(d=>d.cap>0&&!unhealthy.includes(d.reason)&&d.action!=='stop');
-  const capacity=decisions.reduce((n,d)=>n+Number(d.cap||0),0);
+    'sender_attribution_incomplete','external_cap_change','manual_restart_required','manual_stop_other_campaign_required','targeting_review_required','invalid_daily_plan','warmup_only','warmup_start_changed','bounce_incident_already_handled'];
+  const sendingDecisions=decisions.filter(d=>d.sendingEligible!==false);
+  const healthy=controlResult?.attributionComplete===true&&decisions.length===4&&sendingDecisions.length>0&&sendingDecisions.every(d=>d.cap>0&&!unhealthy.includes(d.reason)&&d.action!=='stop');
+  const capacity=controlResult?.sendingPlan?.capacity??sendingDecisions.reduce((n,d)=>n+Number(d.cap||0),0);
   const stockTarget=Math.ceil(capacity*config.buffer_days);
   const stockPerCampaign=Object.fromEntries(sequences.map((s,index)=>[s.provider_campaign_id,Math.floor(stockTarget/sequences.length)+(index<stockTarget%sequences.length?1:0)]));
   const stockCounts=()=>Object.fromEntries(sequences.map(s=>[s.provider_campaign_id,queuedStock(new Map([[s.provider_campaign_id,leadLists.get(s.provider_campaign_id)]]))]));

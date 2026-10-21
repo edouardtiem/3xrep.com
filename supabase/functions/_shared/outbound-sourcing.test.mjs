@@ -187,3 +187,10 @@ test('an explicit import refusal records a safe failure without counting the con
  assert.equal(run.status,'failed');assert.equal(run.error_code,'SMARTLEAD_IMPORT_DECLINED');
  assert.equal(run.result.failureStage,'provider_import');assert.equal(run.result.imported,0);
 });
+
+test('a stopped mailbox does not block stock replenishment for the healthy active mailboxes',async()=>{
+ const s=system(Array(20).fill('valid'),{active:true});const args=daily(s);
+ args.controlResult.decisions[0]={mailboxId:1,cap:14,action:'hold',reason:'manual_restart_required',sendingEligible:false};
+ args.controlResult.sendingPlan={capacity:3};
+ const r=await runOutboundSourcing(args);assert.equal(r.stockTarget,9);assert.equal(r.shortfall,0);
+});

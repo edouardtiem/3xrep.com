@@ -19,3 +19,15 @@ test('missing step evidence is visible and keeps a conservative allowance',()=>{
  const r=firstSendBudget({...args,staged:[{campaignId:'A',entries:[entry('INPROGRESS',null)]},{campaignId:'B',entries:[]}]});
  assert.equal(r.uncertain,1);assert.equal(r.newLeads,5);
 });
+
+test('nineteen follow-ups on a stopped mailbox reserve no active capacity',()=>{
+ const stopped={id:1,from_email:'stopped@example.org',capacity:0,campaignIds:[]};
+ const active={id:2,from_email:'active@example.org',capacity:33,campaignIds:['A','B']};
+ const due=Array.from({length:19},()=>{const e=entry('INPROGRESS','2026-10-12T15:00:00Z');e.sent=[{from:stopped.from_email,time:'2026-10-12T15:00:00Z',email_seq_number:1}];return e;});
+ const staged=[{campaignId:'A',entries:due},{campaignId:'B',entries:[]}];
+ const r=firstSendBudget({...args,capacity:33,mailboxes:[stopped,active],staged});
+ assert.equal(r.newLeads,33);assert.equal(r.unavailableFollowups,19);assert.equal(r.reservedFollowups,0);
+ stopped.capacity=7;stopped.campaignIds=['A','B'];
+ const resumed=firstSendBudget({...args,capacity:40,mailboxes:[stopped,active],staged});
+ assert.equal(resumed.dueFollowups,19);assert.equal(resumed.reservedFollowups,7);assert.equal(resumed.newLeads,33);assert.equal(resumed.deferredFollowups,12);
+});

@@ -126,29 +126,29 @@ function sendingHistory(dates) {
     stats: [{ stats_id: `event-${i}`, sent_time: `${date}T15:00:00Z`, is_bounced: bounced, reply_time: bounced ? null : `${date}T16:00:00Z` }],
   })) }] };
 }
-test('verified halving persists recovery; repeated runs do not halve again and three healthy days resume slowly', async () => {
+test('verified alert recovery persists; repeated runs do not restart observation and three healthy days resume slowly', async () => {
   const x = dailyEnvironment({baseline:25,cap:25});
   const history = [['2026-10-12',true],['2026-10-13',true]];
   x.sync = async () => sendingHistory(history);
   const reduced = await runOutboundControl(x);
-  assert.equal(reduced.decisions[0].cap,12);
+  assert.equal(reduced.decisions[0].cap,7);
   assert.equal(x.rows[0].state.daily_plan.recovery_target,25);
   assert.equal(x.rows[0].state.cooldown,true);
   assert.equal(x.rows[0].state.stage_changed_at,x.now.toISOString());
   assert.deepEqual(x.rows[0].state.handled_bounce_ids,['event-0','event-1']);
   const writes=x.writes.length;
-  assert.equal((await runOutboundControl(x)).decisions[0].reason,'bounce_review_required');
+  assert.equal((await runOutboundControl(x)).decisions[0].reason,'already_planned');
   assert.equal(x.writes.length,writes);
   x.rows[0].state.resolved_bounce_ids=['event-0','event-1'];
   history.push(['2026-10-14',false],['2026-10-15',false]);
   x.now=new Date('2026-10-15T23:00:00Z');
   assert.equal((await runOutboundControl(x)).decisions[0].reason,'recovery_observation');
-  assert.equal(x.rows[0].state.observed_cap,12);
+  assert.equal(x.rows[0].state.observed_cap,7);
   history.push(['2026-10-16',false]);
   x.now=new Date('2026-10-18T23:00:00Z');
   const recovered=await runOutboundControl(x);
   assert.equal(recovered.decisions[0].reason,'gradual_recovery');
-  assert.equal(x.rows[0].state.observed_cap,14);
+  assert.equal(x.rows[0].state.observed_cap,9);
   assert.equal(x.rows[0].state.cooldown,false);
   assert.equal(x.rows[0].state.daily_plan.recovery_target,25);
 });
@@ -197,4 +197,55 @@ test('no-reply signal is returned and saved with daily metrics without blocking 
   assert.deepEqual(decision.signals, ['no_reply_after_100_contacts']);
   assert.deepEqual(savedDaily.metrics.signals, decision.signals);
   assert.equal(x.rows[0].state.daily_plan.baseline, 16);
+});
+
+function stoppedEnvironment({failAttachment=false}={}){
+ const x=dailyEnvironment({baseline:14,cap:14});
+ Object.assign(x.rows[0].state,{stopped:true,auto_delivery_recovery:true,previous_campaign_ids:['old-paused-campaign']});
+ const attached=new Set();const get=x.smartlead.get,post=x.smartlead.post;
+ x.smartlead.get=async(path,...args)=>path.endsWith('/email-accounts')?[...(attached.has(path.split('/')[1])?[{id:1}]:[])]:get(path,...args);
+ x.smartlead.post=async(path,body)=>{
+  await post(path,body);
+  if(path.endsWith('/email-accounts')){
+   const id=path.split('/')[1];
+   if(!(failAttachment&&id==='4023140'))attached.add(id);
+  }
+ };
+ return {...x,attached,allowAttachment:()=>{failAttachment=false;}};
+}
+test('authorized delivery recovery sets seven and reattaches only controlled active campaigns',async()=>{
+ const x=stoppedEnvironment();const result=await runOutboundControl(x);
+ assert.equal(result.decisions[0].restart,true);assert.equal(result.decisions[0].cap,7);
+ assert.equal(x.rows[0].state.stopped,false);assert.equal(x.rows[0].state.cooldown,true);
+ assert.equal(x.rows[0].state.daily_plan.recovery_target,14);
+ assert.deepEqual([...x.attached].sort(),['4023139','4023140']);
+ assert.equal(x.writes.some(w=>w.path.includes('old-paused-campaign')),false);
+ const changed=x.rows[0].state.stage_changed_at;const count=x.writes.length;
+ await runOutboundControl(x);assert.equal(x.writes.length,count);assert.equal(x.rows[0].state.stage_changed_at,changed);
+});
+test('a failed attachment keeps the verified cap and stopped state, allowing a safe retry',async()=>{
+ const x=stoppedEnvironment({failAttachment:true});
+ await assert.rejects(runOutboundControl(x),/Recovery membership verification failed/);
+ assert.equal(x.rows[0].state.observed_cap,7);assert.equal(x.rows[0].state.stopped,true);
+ x.allowAttachment();await runOutboundControl(x);
+ assert.equal(x.rows[0].state.stopped,false);assert.equal(x.rows[0].state.daily_plan.recovery_target,14);
+});
+test('a fresh alert at seven restarts observation once, without repeated daily penalties',async()=>{
+ const x=dailyEnvironment({baseline:7,cap:7});
+ Object.assign(x.rows[0].state,{cooldown:true,daily_plan:{version:2,target:46,baseline:7,recovery_target:25}});
+ x.sync=async()=>sendingHistory([['2026-10-13',true]]);
+ await runOutboundControl(x);const changed=x.rows[0].state.stage_changed_at;
+ assert.equal(x.rows[0].state.observed_cap,7);assert.equal(x.rows[0].state.daily_plan.recovery_target,25);
+ const writes=x.writes.length;await runOutboundControl(x);
+ assert.equal(x.writes.length,writes);assert.equal(x.rows[0].state.stage_changed_at,changed);
+});
+
+test('applying alerts now preserves healthy mailbox caps and does not consume tomorrow planning',async()=>{
+ const x=dailyEnvironment({baseline:11,cap:11});const before=structuredClone(x.rows[0].state);
+ const r=await runOutboundControl({...x,alertsOnly:true});
+ assert.equal(r.decisions[0].reason,'delivery_check_only');
+ assert.equal(r.decisions[0].sendingDate,'2026-10-13');
+ assert.equal(x.rows[0].state.observed_cap,before.observed_cap);
+ assert.deepEqual(x.rows[0].state.daily_plan,before.daily_plan);
+ assert.equal(x.rows[0].state.stage_changed_at,before.stage_changed_at);
 });

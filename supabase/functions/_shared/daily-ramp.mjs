@@ -4,7 +4,7 @@ export function sendingDate(now) {
   return localDate(new Date(new Date(now).getTime() + 12 * 3600000));
 }
 
-export const DAILY_RAMP_POLICY = 'accelerated-2026-10-17';
+export const DAILY_RAMP_POLICY = 'alert-recovery-2026-10-21';
 export const DAILY_RAMP_TARGET = 46;
 export const DAILY_RAMP_MAX = 48;
 
@@ -15,46 +15,49 @@ export function confirmedRefusals(state, now) {
     typeof i.id === 'string' && i.id.length > 0 && Number.isFinite(Date.parse(i.at)) && Date.parse(i.at) <= Number(new Date(now)));
 }
 
-function resolved(incident, now) {
-  return Number.isFinite(Date.parse(incident.resolved_at)) && Date.parse(incident.resolved_at) >= Date.parse(incident.at) &&
-    Date.parse(incident.resolved_at) <= Number(new Date(now));
+export function deliveryAlertEvidence(state, metrics, now) {
+  const known = new Set([...(state.handled_bounce_ids || []), ...(state.resolved_bounce_ids || [])]);
+  const groups = metrics.bounceGroups || [];
+  const grouped = new Set(groups.flat());
+  const knownRecipientIds = new Set(groups.filter(ids => ids.some(id => known.has(id))).flat());
+  const bounceIds = [...new Set([
+    ...groups.filter(ids => ids.length && !ids.some(id => known.has(id))).flat(),
+    ...(state.pending_bounce_ids || []).filter(id => !grouped.has(id) && !known.has(id)),
+    ...(metrics.senderBounceIds || []).filter(id => !known.has(id) && !knownRecipientIds.has(id)),
+  ])];
+  const refusalIds = confirmedRefusals(state, now)
+    .filter(i => !(state.handled_delivery_incident_ids || []).includes(i.id)).map(i => i.id);
+  const unattributedSender = metrics.senderBounce && !metrics.senderBounceIds?.length && !state.handled_unattributed_sender_alert;
+  return { bounceIds, refusalIds, fresh: bounceIds.length > 0 || refusalIds.length > 0 || unattributedSender, unattributedSender };
 }
 
 // Variation is a small, reproducible capacity adjustment, never evidence of
 // deliverability. Successful real sending days, not elapsed days, raise the base.
-export function decideDailyRamp({ account, state, stats, metrics, now, complete = true, domainBlocked = false, campaignActive = false }) {
+export function decideDailyRamp({ account, state, stats, metrics, now, complete = true, domainBlocked = false, campaignActive = false, alertsOnly = false }) {
   const current = Number(account.message_per_day);
   const plan = state.daily_plan;
-  const day = sendingDate(now);
+  const day = alertsOnly ? localDate(now) : sendingDate(now);
   const result = (action, reason, cap = current, baseline = plan?.baseline, recoveryTarget = plan?.recovery_target ?? null) =>
     ({ action, reason, cap, stage: baseline, baseline, sendingDate: day, policy: DAILY_RAMP_POLICY, recoveryTarget, signals: commercialSignals(metrics) });
   if (!state.approved) return result('hold', 'admission_required');
-  if (state.stopped) return result('hold', 'manual_restart_required');
-  if (metrics.senderBounce || state.known_complaint || account.is_smtp_success === false || account.is_imap_success === false || account.warmup_details?.blocked_reason) {
+  if (state.known_complaint || account.is_smtp_success === false || account.is_imap_success === false || account.warmup_details?.blocked_reason) {
     return result('stop', 'delivery_blocked');
   }
-  if (metrics.attempted >= 50 && metrics.rate >= .05) return result('stop', 'delivery_blocked');
   if (!plan || !Number.isInteger(plan.baseline) || plan.baseline < 1 || plan.baseline > DAILY_RAMP_TARGET || plan.target !== DAILY_RAMP_TARGET ||
     (plan.recovery_target != null && (!Number.isInteger(plan.recovery_target) || plan.recovery_target < 1 || plan.recovery_target > DAILY_RAMP_TARGET))) return result('hold', 'invalid_daily_plan');
   if (current !== Number(state.observed_cap)) return result('hold', 'external_cap_change');
-  const handled = new Set(state.handled_bounce_ids || []);
-  const freshRecipients = (metrics.bounceGroups || []).filter(ids => ids.length > 0 && ids.every(id => !handled.has(id))).length;
-  const fresh = freshRecipients > 0;
-  const refusals = confirmedRefusals(state, now);
-  const freshRefusal = refusals.some(i => !((state.handled_delivery_incident_ids || []).includes(i.id)) &&
-    Number(new Date(now)) - Date.parse(i.at) <= 7 * 86400000);
-  if ((fresh && metrics.attempted >= 50 && metrics.rate >= .02) || freshRecipients >= 2 || freshRefusal) {
-    const cap = Math.max(1, Math.floor(current / 2));
-    return result('reduce', freshRefusal ? 'temporary_refusal' : 'bounce_rate', cap,
-      Math.min(cap, Math.max(1, Math.floor(plan.baseline / 2))), Math.max(plan.baseline, plan.recovery_target || 0));
-  }
+  if (state.stopped && !state.auto_delivery_recovery) return result('hold', 'manual_restart_required');
   if (!complete) return result('hold', 'sender_attribution_incomplete');
-  const unresolved = [...metrics.bounceIds, ...(state.pending_bounce_ids || [])].some(id => !(state.resolved_bounce_ids || []).includes(id));
-  // Already handled and resolved failures stay in the audit, but cannot punish
-  // the mailbox twice or prevent recovery while the seven-day window expires.
-  const activeGroups = (metrics.bounceGroups || []).filter(ids => ids.some(id => !handled.has(id) || !(state.resolved_bounce_ids || []).includes(id)));
-  if (unresolved || (metrics.attempted >= 50 && activeGroups.length / metrics.attempted >= .01)) return result('hold', 'bounce_review_required');
-  if (refusals.some(i => !resolved(i, now))) return result('hold', 'temporary_refusal_review_required');
+  if (state.stopped && state.auto_delivery_recovery && !warmupHealthy(account, stats, now)) return result('hold', 'warmup_not_ready');
+  if (state.stopped && domainBlocked) return result('hold', 'domain_incident');
+  const alerts = deliveryAlertEvidence(state, metrics, now);
+  if (alerts.fresh || state.stopped && state.auto_delivery_recovery) {
+    // Never increase an already smaller cap because an alert was received.
+    const cap = Math.max(1, Math.min(7, current));
+    return { ...result('reduce', 'delivery_alert', cap, cap, Math.max(plan.baseline, plan.recovery_target || 0, cap)),
+      ...(state.stopped ? { restart: true } : {}) };
+  }
+  if (alertsOnly) return result('hold', 'delivery_check_only');
   if (domainBlocked) return result('hold', 'domain_incident');
   if (!warmupHealthy(account, stats, now)) return result('hold', 'warmup_not_ready');
   if (state.warmup_started_at !== account.warmup_details?.warmup_created_at) return result('hold', 'warmup_start_changed');

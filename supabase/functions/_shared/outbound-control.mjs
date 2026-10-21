@@ -1,6 +1,6 @@
-import { CAMPAIGNS, DOMAINS, realEvents, metricsFor, decideRamp } from './ramp-up.mjs';
+import { CAMPAIGNS, DOMAINS, realEvents, metricsFor, decideRamp, localDate } from './ramp-up.mjs';
 import { syncOutbound } from './outbound-sync.mjs';
-import { decideDailyRamp, sendingDate, confirmedRefusals } from './daily-ramp.mjs';
+import { decideDailyRamp, sendingDate, deliveryAlertEvidence } from './daily-ramp.mjs';
 import { firstSendBudget } from './outbound-stock.mjs';
 
 async function checked(query) {
@@ -9,9 +9,10 @@ async function checked(query) {
   return data;
 }
 
-export async function runOutboundControl({ db, smartlead, now = new Date(), dryRun = false, sync = syncOutbound, sequences = [] }) {
+export async function runOutboundControl({ db, smartlead, now = new Date(), dryRun = false, alertsOnly = false, sync = syncOutbound, sequences = [] }) {
   const campaignIds = [...new Set([...CAMPAIGNS, ...sequences.map(s => String(s.provider_campaign_id))])];
   const controlledIds = sequences.length ? sequences.filter(s => s.controlled).map(s => String(s.provider_campaign_id)) : CAMPAIGNS;
+  const planningDate = alertsOnly ? localDate(now) : sendingDate(now);
   const runId = crypto.randomUUID();
   const locked = await checked(db.rpc('claim_outbound_control', { run_id: runId }));
   if (!locked) return { status: 'already_running' };
@@ -62,7 +63,7 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
     }
     const blockedDomains = new Set(accounts.filter(a => states.get(Number(a.id))?.approved &&
       (a.is_smtp_success === false || a.is_imap_success === false || a.warmup_details?.blocked_reason ||
-        states.get(Number(a.id))?.known_complaint || real.events.some(e => e.accountId === a.id && e.senderBounce)))
+        states.get(Number(a.id))?.known_complaint))
       .map(a => a.from_email.split('@')[1]));
     const decisions = [];
     for (const account of accounts) {
@@ -71,22 +72,24 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
       const ownCampaigns = campaignIds.filter(id => memberships.get(id).has(Number(account.id)));
       const stats = await smartlead.get(`email-accounts/${account.id}/warmup-stats`);
       const metrics = metricsFor(account.id, real.events, now, state.stage_changed_at);
+      if (!metrics.senderBounce) state.handled_unattributed_sender_alert = false;
       state.pending_bounce_ids = [...new Set([...(state.pending_bounce_ids || []),
         ...real.events.filter(e => e.accountId === account.id && e.bounced).map(e => e.id)])];
       if (!dryRun) await checked(db.from('outbound_mailboxes').update({ state, updated_at: now.toISOString() }).eq('id', account.id));
       const daily = state.daily_plan?.version === 2;
-      let decision = (daily ? decideDailyRamp : decideRamp)({ account, state, stats, metrics, now,
+      let decision = (daily ? decideDailyRamp : decideRamp)({ account, state, stats, metrics, now, alertsOnly,
         complete: real.complete && !unknownActiveCampaign.has(Number(account.id)),
         domainBlocked: blockedDomains.has(account.from_email.split('@')[1]),
         campaignActive: ownCampaigns.some(id => controlledIds.includes(id) && campaigns.get(id).status === 'ACTIVE') });
       if (decision.action === 'stop' && unknownActiveCampaign.has(Number(account.id))) {
         decision = { ...decision, action: 'hold', reason: 'manual_stop_other_campaign_required' };
       }
-      const summary = { mailboxId: account.id, ...decision, metrics: { attempted: metrics.attempted, bounced: metrics.bounced,
+      const summary = { mailboxId: account.id, ...decision, sendingEligible: decision.action !== 'stop' && (!state.stopped || decision.restart === true) &&
+        (decision.restart === true || ownCampaigns.some(id => controlledIds.includes(id) && campaigns.get(id).status === 'ACTIVE')), metrics: { attempted: metrics.attempted, bounced: metrics.bounced,
         cumulative: metrics.cumulative, effectiveDays: metrics.effectiveDays, healthyDays: metrics.healthyDays, signals: decision.signals } };
       decisions.push(summary);
       if (!dryRun && daily) await checked(db.from('outbound_mailbox_daily').upsert({ mailbox_id: account.id,
-        sending_date: sendingDate(now), run_id: runId, observed_cap: Number(account.message_per_day), planned_cap: decision.cap,
+        sending_date: decision.sendingDate, run_id: runId, observed_cap: Number(account.message_per_day), planned_cap: decision.cap,
         baseline: decision.baseline, decision: decision.reason, metrics: summary.metrics,
         warmup: { sent: Number(stats.sent_count), inbox: Number(stats.inbox_count), spam: Number(stats.spam_count),
           latest: stats.stats_by_date?.map(s => s.date).sort().at(-1) || null } }, { onConflict: 'mailbox_id,sending_date' }));
@@ -103,22 +106,38 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
             memberships.get(id).delete(Number(account.id));
           }
           state.stopped = true;
-          state.previous_campaign_ids = ownCampaigns;
+          if (ownCampaigns.length) state.previous_campaign_ids = ownCampaigns;
+          if (daily) state.auto_delivery_recovery = true;
         } else {
           await smartlead.post(`email-accounts/${account.id}`, { max_email_per_day: decision.cap });
           const after = await smartlead.get(`email-accounts/${account.id}/`);
           if (Number(after.message_per_day) !== decision.cap) throw new Error('Cap verification failed');
           account.message_per_day = decision.cap;
           state.observed_cap = decision.cap;
-          const deliveryReduction = decision.action === 'reduce' && ['bounce_rate', 'temporary_refusal'].includes(decision.reason);
+          const deliveryReduction = decision.action === 'reduce' && ['bounce_rate', 'temporary_refusal', 'delivery_alert'].includes(decision.reason);
           if (state.stage !== decision.stage || (daily ? deliveryReduction : decision.action === 'reduce')) state.stage_changed_at = now.toISOString();
           state.stage = decision.stage;
           state.cooldown = daily ? deliveryReduction : decision.action === 'reduce';
-          if (deliveryReduction) state.handled_bounce_ids = [...new Set([...(state.handled_bounce_ids || []), ...metrics.bounceIds])];
+          if (deliveryReduction) state.handled_bounce_ids = [...new Set([...(state.handled_bounce_ids || []), ...metrics.bounceIds, ...deliveryAlertEvidence(state, metrics, now).bounceIds])];
           if (daily && deliveryReduction) state.handled_delivery_incident_ids = [...new Set([...(state.handled_delivery_incident_ids || []),
-            ...confirmedRefusals(state, now).map(i => i.id)])];
+            ...deliveryAlertEvidence(state, metrics, now).refusalIds])];
+          if (daily && deliveryReduction && metrics.senderBounce && !metrics.senderBounceIds?.length) state.handled_unattributed_sender_alert = true;
           if (daily) state.daily_plan = { ...state.daily_plan, baseline: decision.baseline, last_planned_date: decision.sendingDate,
             policy: decision.policy, recovery_target: decision.recoveryTarget };
+          if (daily && decision.restart) {
+            // Save verified cap before reattaching: a partial provider failure
+            // must not leave the next retry seeing an unexplained cap change.
+            await checked(db.from('outbound_mailboxes').update({ state, updated_at: now.toISOString() }).eq('id', account.id));
+            for (const id of controlledIds.filter(id => campaigns.get(id).status === 'ACTIVE')) {
+              if (memberships.get(id).has(Number(account.id))) continue;
+              await smartlead.post(`campaigns/${id}/email-accounts`, { email_account_ids: [account.id] });
+              const after = await smartlead.get(`campaigns/${id}/email-accounts`);
+              if (!after.some(a => Number(a.id) === Number(account.id))) throw new Error('Recovery membership verification failed');
+              memberships.get(id).add(Number(account.id));
+            }
+            if (!controlledIds.some(id => campaigns.get(id).status === 'ACTIVE' && memberships.get(id).has(Number(account.id)))) throw new Error('No active recovery campaign');
+            state.stopped = false;
+          }
           // Only a first admission to stage 2 can attach a previously unused box.
           if (!daily && decision.stage === 2 && !ownCampaigns.length && !state.ever_attached) {
             for (const id of controlledIds) {
@@ -142,16 +161,19 @@ export async function runOutboundControl({ db, smartlead, now = new Date(), dryR
     // accepts max_new_leads_per_day, not the historical max_leads_per_day.
     // Actual total sends remain bounded by each mailbox across all campaigns.
     const allowedIds = new Set(saved.filter(s => s.approved).map(s => Number(s.id)));
-    const activeIds = new Set([...memberships.values()].flatMap(s => [...s]));
-    const budget = accounts.filter(a => allowedIds.has(Number(a.id)) && activeIds.has(Number(a.id)) && !states.get(Number(a.id))?.stopped &&
-      states.get(Number(a.id))?.stage > 0)
-      .reduce((n, a) => n + Math.min(Number(a.message_per_day), Number(states.get(Number(a.id)).observed_cap)), 0);
-    const sendingPlan=firstSendBudget({capacity:budget,day:sendingDate(now),staged,sequences,campaignIds:controlledIds});
+    const budgetMailboxes = accounts.map(a => {
+      const campaignIds = controlledIds.filter(id => campaigns.get(id).status === 'ACTIVE' && memberships.get(id).has(Number(a.id)));
+      const eligible = allowedIds.has(Number(a.id)) && campaignIds.length && !states.get(Number(a.id))?.stopped && states.get(Number(a.id))?.stage > 0;
+      return { id: a.id, from_email: a.from_email, campaignIds,
+        capacity: eligible ? Math.min(Number(a.message_per_day), Number(states.get(Number(a.id)).observed_cap)) : 0 };
+    });
+    const budget = budgetMailboxes.reduce((n, a) => n + a.capacity, 0);
+    const sendingPlan=firstSendBudget({capacity:budget,day:planningDate,staged,sequences,campaignIds:controlledIds,mailboxes:budgetMailboxes});
     if (!dryRun && real.complete && budget > 0) for (let index = 0; index < controlledIds.length; index++) {
       const id = controlledIds[index], c = campaigns.get(id), ids = memberships.get(id);
       const schedule = c.scheduler_cron_value;
       const newLeadBudget = Math.max(controlledIds.length, sendingPlan.newLeads);
-      const rotation = Math.floor(Date.parse(`${sendingDate(now)}T12:00:00Z`) / 86400000) % controlledIds.length;
+      const rotation = Math.floor(Date.parse(`${planningDate}T12:00:00Z`) / 86400000) % controlledIds.length;
       const cap = Math.floor(newLeadBudget / controlledIds.length) +
         ((index + rotation) % controlledIds.length < newLeadBudget % controlledIds.length ? 1 : 0);
       if ([...ids].some(a => !allowedIds.has(a) || unknownActiveCampaign.has(a)) || c.status !== 'ACTIVE' ||
