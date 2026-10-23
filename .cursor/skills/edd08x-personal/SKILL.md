@@ -138,13 +138,22 @@ Un chiffre n’est qu’un **arrêt d’urgence** (couper une rafale qui part tr
 
 Skip = succès.
 
+## Familles de recherche (vagues)
+
+Les familles trouvent des candidats. Elles ne justifient jamais une réponse.
+
+Signaux auteur, skips durs, triage REPLY / SKIP / CHECK : [SEARCH-FAMILIES.md](SEARCH-FAMILIES.md).
+
+Ce fichier gagne encore. Un chiffre de vague est un plafond, pas un plancher.
+
 ## Avant chaque vague (routines)
 
 1. `Read` ce fichier.
 2. Lire `/workspace/x-negative-feedback/log.jsonl` s’il existe.
-3. Puis, si besoin : `x-replies-that-hit` (forme), `elon-musk-voice` (densité des posts), `founder-x-growth` (idées de rythme, sans chiffre à viser).
-4. Conflit → ce fichier gagne.
-5. Ne pas charger `brand-3xrep-x` sur `@Edd08x`.
+3. Si on cherche des fils : [SEARCH-FAMILIES.md](SEARCH-FAMILIES.md). Candidats seulement.
+4. Puis, si besoin : `x-replies-that-hit` (forme), `elon-musk-voice` (densité des posts), `founder-x-growth` (idées de rythme, sans chiffre à viser).
+5. Conflit → ce fichier gagne.
+6. Ne pas charger `brand-3xrep-x` sur `@Edd08x`.
 
 Gates de publication (compte utilisable, org, go) : [README](../README.md). Sans les trois : draft seulement. Ces skills ne postent pas toutes seules.
 
