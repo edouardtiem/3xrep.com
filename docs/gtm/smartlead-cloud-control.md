@@ -125,3 +125,7 @@ Il transfère uniquement les secrets nécessaires, déploie la fonction, exige u
 Tests : `npm test` inclut les règles de volume, l'attribution, les changements d'heure, les échantillons insuffisants, les contrôles de relecture, le verrou et les droits des tables. `npm run lint` et `npm run build` vérifient le reste du projet. Les fonctions Deno sont séparées du périmètre TypeScript Next.js ; leur exécution réelle est vérifiée sur Supabase.
 
 Pour suspendre le programme sans toucher aux campagnes : `select cron.unschedule('3xrep-outbound-cloud-01h');`. Cela arrête les futurs changements automatiques ; les plafonds déjà appliqués restent en place. Les deux tâches Codex locales ne sont désactivées qu'après la réussite du déploiement et du premier contrôle hébergé.
+
+### Reprise après une erreur temporaire — 26 octobre
+
+Le contrôle de 1 h a échoué le 26 octobre sur une réponse 502 de Smartlead. Les lectures Smartlead retentent désormais jusqu'à trois fois les erreurs temporaires et les erreurs de connexion. Les écritures ne sont pas répétées automatiquement. Trois contrôles de secours sont programmés à 1 h 15, 1 h 30 et 1 h 45, heure de Paris. Ils ne démarrent qu'après un échec du jour, en l'absence d'un contrôle réel réussi ou encore en cours. Le verrou du contrôle et les règles de planification restent en place.

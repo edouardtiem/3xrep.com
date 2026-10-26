@@ -73,3 +73,7 @@ La confirmation relit désormais la campagne jusqu’à trois fois supplémentai
 À la demande d’Édouard, `node --env-file=.env.local scripts/replenish-outbound-now.mjs` peut effectuer une reprise immédiate, y compris le week-end. L’appel reste protégé par le secret du programme. Il contrôle les boîtes en simulation, remplit les campagnes actives et vérifie que leurs plafonds restent identiques. Il n’active aucune campagne et ne modifie aucun horaire. Le programme automatique conserve son horaire de 1 h et ses jours ouvrés.
 
 Les reprises hébergées peuvent poursuivre la recherche en utilisant le curseur enregistré, après la récupération des demandes existantes. Toutes les reprises du même jour partagent les plafonds de 200 demandes d’adresse et de 200 vérifications ; les demandes sont enregistrées avant l’appel fournisseur. Aucun achat de crédits ni élargissement de cible.
+
+### Reprise du contrôle — 26 octobre
+
+Une réponse temporaire 502 de Smartlead a interrompu le contrôle avant le remplissage. Les lectures sont retentées et des passages de secours sont programmés lorsque le contrôle de 1 h échoue. Une reprise immédiate du stock reste possible sans modifier les plafonds des boîtes et utilise les mêmes limites de recherche et de vérification.
