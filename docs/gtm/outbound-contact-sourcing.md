@@ -77,3 +77,7 @@ Les reprises hébergées peuvent poursuivre la recherche en utilisant le curseur
 ### Reprise du contrôle — 26 octobre
 
 Une réponse temporaire 502 de Smartlead a interrompu le contrôle avant le remplissage. Les lectures sont retentées et des passages de secours sont programmés lorsque le contrôle de 1 h échoue. Une reprise immédiate du stock reste possible sans modifier les plafonds des boîtes et utilise les mêmes limites de recherche et de vérification.
+
+### Blocage par la date de préparation — 29 octobre
+
+Le 27, 28 et 29 octobre, la date de préparation fournie par Smartlead a empêché la hausse et la recherche automatique, malgré des campagnes actives. Le contrôle utilise maintenant la dernière date non future à New York ; la réserve peut à nouveau être remplie si les autres conditions de sécurité sont satisfaites.

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { decideRamp, realEvents, metricsFor, localDate } from './ramp-up.mjs';
+import { decideRamp, realEvents, metricsFor, localDate, warmupHealthy } from './ramp-up.mjs';
 
 function fixture(overrides = {}) {
   return {
@@ -12,6 +12,15 @@ function fixture(overrides = {}) {
     now: new Date('2026-10-11T23:00:00Z'), ...overrides,
   };
 }
+test('warmup uses the latest non-future New York date at the Paris night run', () => {
+  const x = fixture({ now: new Date('2026-10-29T00:00:03Z') });
+  x.stats.stats_by_date = [{date:'2026-10-28'}, {date:'2026-10-29'}];
+  assert.equal(warmupHealthy(x.account,x.stats,x.now),true);
+  x.stats.stats_by_date = [{date:'2026-10-29'}];
+  assert.equal(warmupHealthy(x.account,x.stats,x.now),false);
+  x.stats.stats_by_date = [{date:'2026-10-24'}, {date:'2026-10-29'}];
+  assert.equal(warmupHealthy(x.account,x.stats,x.now),false);
+});
 test('Paris 01:00 prepares the next US sending day, including DST', () => {
   assert.equal(localDate('2026-10-11T23:00:00Z', 'Europe/Paris'), '2026-10-12');
   assert.equal(decideRamp(fixture()).cap, 15);

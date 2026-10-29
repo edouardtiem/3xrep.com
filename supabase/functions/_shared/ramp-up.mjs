@@ -73,9 +73,12 @@ export function metricsFor(id, events, now, changedAt) {
 export function warmupHealthy(account, stats, now) {
   const w = account.warmup_details;
   if (account.is_smtp_success !== true || account.is_imap_success !== true || w?.status !== 'ACTIVE' || w.blocked_reason) return false;
-  const dates = stats?.stats_by_date?.map(s => s.date).filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort();
+  const today = localDate(now);
+  // Provider calendar dates can advance before New York does. Use the latest
+  // available date that has actually begun locally, never future evidence.
+  const dates = stats?.stats_by_date?.map(s => s.date).filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d) && d <= today).sort();
   if (!dates?.length) return false;
-  const age = daysBetween(dates.at(-1), localDate(now));
+  const age = daysBetween(dates.at(-1), today);
   const sent = Number(stats.sent_count), inbox = Number(stats.inbox_count), spam = Number(stats.spam_count);
   return age >= 0 && age <= 2 && Number.isFinite(sent) && sent >= 20 && Number.isFinite(inbox) && inbox >= 0 && inbox <= sent && Number.isFinite(spam) && spam >= 0 && inbox / sent >= 0.95;
 }

@@ -129,3 +129,7 @@ Pour suspendre le programme sans toucher aux campagnes : `select cron.unschedule
 ### Reprise après une erreur temporaire — 26 octobre
 
 Le contrôle de 1 h a échoué le 26 octobre sur une réponse 502 de Smartlead. Les lectures Smartlead retentent désormais jusqu'à trois fois les erreurs temporaires et les erreurs de connexion. Les écritures ne sont pas répétées automatiquement. Trois contrôles de secours sont programmés à 1 h 15, 1 h 30 et 1 h 45, heure de Paris. Ils ne démarrent qu'après un échec du jour, en l'absence d'un contrôle réel réussi ou encore en cours. Le verrou du contrôle et les règles de planification restent en place.
+
+### Date des statistiques de préparation — 29 octobre
+
+Smartlead peut déjà fournir une ligne datée du jour suivant alors qu'il est encore la veille à New York, à l'heure du contrôle de Paris. Le contrôle prenait cette ligne pour la plus récente et refusait la préparation de toutes les boîtes. Il prend désormais la dernière date qui a commencé à New York. Une date absente ou trop ancienne reste insuffisante et les autres protections de livraison restent inchangées.
